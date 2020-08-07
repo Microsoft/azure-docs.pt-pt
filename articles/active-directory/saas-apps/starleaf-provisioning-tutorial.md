@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064296"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920692"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutorial: Configurar StarLeaf para fornecimento automático de utilizadores
 
@@ -36,7 +36,7 @@ O objetivo deste tutorial é demonstrar os passos a serem realizados no StarLeaf
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
-* [Um inquilino starLeaf.](https://www.starleaf.com/solutions/)
+* [Um inquilino starLeaf.](https://starleaf.com/)
 * Uma conta de utilizador no StarLeaf com permissões de Administração.
 
 ## <a name="assign-users-to-starleaf"></a>Atribuir utilizadores ao StarLeaf
@@ -155,6 +155,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gerir o provisionamento da conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

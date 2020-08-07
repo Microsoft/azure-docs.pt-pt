@@ -3,12 +3,12 @@ title: Opções de autenticação do registo
 description: Opções de autenticação para um registo privado de contentores Azure, incluindo a inscrição com uma identidade do Diretório Ativo Azure, utilizando os princípios de serviço e utilizando credenciais de administração opcionais.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760588"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926325"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com registo de contentores Azure
 
@@ -44,7 +44,7 @@ Quando inicia sessão, `az acr login` o CLI utiliza o token criado quando execut
 
 Para acesso ao registo, o tousque utilizado `az acr login` é válido por **3 horas,** por isso recomendamos que faça sempre login no registo antes de executar um `docker` comando. Se o seu símbolo expirar, pode refresca-lo usando o `az acr login` comando novamente para reautenticar. 
 
-A utilização `az acr login` com identidades Azure proporciona [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md). Para alguns cenários, poderá querer iniciar sessão num registo com a sua própria identidade individual em Azure AD, ou configurar outros utilizadores do Azure com [funções e permissões específicas do RBAC.](container-registry-roles.md) Para cenários de cross-service ou para lidar com as necessidades de um grupo de trabalho ou de um fluxo de trabalho de desenvolvimento onde não queira gerir o acesso individual, também pode iniciar sessão com uma [identidade gerida para recursos Azure.](container-registry-authentication-managed-identity.md)
+A utilização `az acr login` com identidades Azure fornece [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Para alguns cenários, poderá querer iniciar sessão num registo com a sua própria identidade individual em Azure AD, ou configurar outros utilizadores do Azure com [funções e permissões específicas do Azure.](container-registry-roles.md) Para cenários de cross-service ou para lidar com as necessidades de um grupo de trabalho ou de um fluxo de trabalho de desenvolvimento onde não queira gerir o acesso individual, também pode iniciar sessão com uma [identidade gerida para recursos Azure.](container-registry-authentication-managed-identity.md)
 
 ### <a name="az-acr-login-with---expose-token"></a>login az acr com --expor-token
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Service principal (Principal de serviço)
 
-Se atribuir um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao seu registo, a sua aplicação ou serviço pode utilizá-lo para autenticação sem cabeça. Os principais do serviço permitem [o acesso baseado em funções](../role-based-access-control/role-assignments-portal.md) a um registo, e pode atribuir vários princípios de serviço a um registo. Vários princípios de serviço permitem definir diferentes acessos para diferentes aplicações.
+Se atribuir um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao seu registo, a sua aplicação ou serviço pode utilizá-lo para autenticação sem cabeça. Os principais de serviço permitem o [controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) a um registo, e pode atribuir vários princípios de serviço a um registo. Vários princípios de serviço permitem definir diferentes acessos para diferentes aplicações.
 
 As funções disponíveis para um registo de contentores incluem:
 

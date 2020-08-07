@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 644184f5bb51d049d890655ada5be5ebd4c11bf7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 03d40dcaeaefe01fecbc201cf28dc20c8634af9d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909916"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926676"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Upgrade para Azure Cognitive Search .NET SDK versão 11
 
@@ -48,7 +48,7 @@ Se for caso disso, a tabela seguinte mapeia as bibliotecas do cliente entre as d
 | Cliente utilizado para indexadores, fontes de dados, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient **(novo)**](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> A versão 11 renomea a versão 10 `SearchIndexClient` para , e depois reutiliza o nome para um cliente que trabalha com `SearchClient` objetos de mapa index, analisador e sinónimo. Ao atualizar as referências do cliente, siga a sequência de passos em [Passos para atualizar](#UpgradeSteps) para evitar confusões durante a busca e substituição.
+> `SearchIndexClient`existe em ambas as versões, mas suporta coisas diferentes. Na versão 10, `SearchIndexClient` crie índices e outros objetos. Na versão 11, `SearchIndexClient` funciona com os índices existentes. Para evitar confusões ao atualizar o código, esteja atento à ordem em que as referências do cliente são atualizadas. Seguir a sequência de [etapas para atualizar](#UpgradeSteps) deve ajudar a atenuar quaisquer problemas de substituição de cordas.
 
 <a name="naming-differences"></a>
 
@@ -125,7 +125,7 @@ A versão 11 suporta totalmente os seguintes objetos e operações:
 
 As seguintes funcionalidades da versão 10 ainda não estão disponíveis na versão 11. Se utilizar estas funcionalidades, adiste a migração até que sejam suportadas.
 
-+ [tipos geoespaciais](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ tipos geoespaciais
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (embora possa utilizar [esta solução alternativa).](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)
 + [Arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
 

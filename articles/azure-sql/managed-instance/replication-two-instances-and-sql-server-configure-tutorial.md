@@ -10,15 +10,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532531"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920148"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+A replicação transacional permite replicar dados de uma base de dados para outra hospedada no SQL Server ou [no Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). SQL Managed Instance pode ser um editor, distribuidor ou assinante na topologia de replicação. Consulte [as configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para as configurações disponíveis. 
+
+A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
 Neste tutorial, ficará a saber como:
 
@@ -30,11 +34,11 @@ Neste tutorial, ficará a saber como:
 
 ![Replicação entre um editor de instância gerido, distribuidor de instância gerido e subscritor do SQL Server](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Este tutorial destina-se a um público experiente e assume que o utilizador está familiarizado com a implementação e ligação a instâncias geridas e VMs do SQL Server dentro do Azure. Como tal, certos passos neste tutorial são ensombrados.
+Este tutorial destina-se a um público experiente e assume que o utilizador está familiarizado com a implementação e ligação a instâncias geridas e VMs do SQL Server dentro do Azure. 
 
-Para saber mais, consulte a visão geral da [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) e os artigos [de replicação transacional SQL.](replication-transactional-overview.md)
 
-Para configurar a replicação entre um editor de instância gerido e um assinante de instância gerida, consulte [a replicação transacional Configure entre duas instâncias geridas](replication-between-two-instances-configure-tutorial.md).
+> [!NOTE]
+> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) em Azure SQL Managed Instance. Não está relacionado com [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), uma funcionalidade de Instância Gerida Azure SQL que permite criar réplicas legíveis completas de instâncias individuais. Existem considerações adicionais ao configurar a [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -409,7 +413,7 @@ Consulte o artigo [O que é Azure SQL Managed Instance?](sql-managed-instance-pa
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
+- [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Capacidades de instância gerida sql

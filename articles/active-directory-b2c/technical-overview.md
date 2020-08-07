@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281927"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921678"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de características do Azure Ative Directory B2C
 
@@ -262,7 +262,4 @@ Saiba mais sobre análises de utilização em [Track user behavior in Azure Ativ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem uma visão mais profunda sobre as características e aspetos técnicos do Azure Ative Directory B2C, inicie com o serviço criando um inquilino B2C:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Criar um inquilino Azure Ative Directory B2C >](tutorial-create-tenant.md)
+Agora que tem uma visão mais profunda sobre as características e aspetos técnicos do Azure Ative Directory B2C, começa com o nosso [tutorial para criar um inquilino Azure Ative Directory B2C.](tutorial-create-tenant.md)

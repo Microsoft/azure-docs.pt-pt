@@ -1,6 +1,6 @@
 ---
 title: Transferir dados com o Azure Data Box Gateway | Microsoft Docs
-description: Saiba como adicionar e ligar a partilhas no dispositivo Data Box Gateway.
+description: Saiba como adicionar e conectar-se a ações no seu Gateway Azure Data Box, então o seu dispositivo Data Box Gateway pode transferir dados para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561712"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923480"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com portal de caixas de dados Azure
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Dados de transferência com gateway da caixa de dados Azure
 
 
 ## <a name="introduction"></a>Introdução
 
-Este artigo descreve como adicionar e ligar a partilhas no seu Portal da Caixa de Dados. Depois de adicionar as ações, o dispositivo Data Box Gateway pode transferir dados para o Azure.
+Este artigo descreve como adicionar e conectar-se a ações no seu Data Box Gateway. Depois de ter adicionado as ações, o dispositivo Data Box Gateway pode transferir dados para o Azure.
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
@@ -35,9 +35,9 @@ Neste tutorial, ficará a saber como:
 
 Antes de adicionar partilhas ao Data Box Gateway, certifique-se de que:
 
-- Você disponibilizou um dispositivo virtual e ligou-o conforme detalhado na [Provision a Data Box Gateway em Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou Provision a Data Box Gateway em [VMware](data-box-gateway-deploy-provision-vmware.md).
+- Ateou um dispositivo virtual e ligou-lhe conforme detalhado na [Provision a Data Box Gateway em Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou Provision a Data Box Gateway em [VMware](data-box-gateway-deploy-provision-vmware.md).
 
-- Ativou o dispositivo virtual descrito no [Connect e ativou o portal da caixa](data-box-gateway-deploy-connect-setup-activate.md)de dados Azure .
+- Ativou o dispositivo virtual descrito no [Connect e ativou o seu Gateway de Caixa de Dados Azure](data-box-gateway-deploy-connect-setup-activate.md).
 
 - O dispositivo está pronto para criar partilhas e transferir dados.
 
@@ -45,37 +45,37 @@ Antes de adicionar partilhas ao Data Box Gateway, certifique-se de que:
 
 Para criar uma parte faça o seguinte procedimento:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Data Box Gateway e, em seguida, vá para **a visão geral**. O seu dispositivo deve estar online. Selecione **+ Adicione a partilha** na barra de comando do dispositivo.
+1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Data Box Gateway e, em seguida, vá ao **Overview**. O seu dispositivo deve estar online. **Selecione + Adicione a partilha** na barra de comando do dispositivo.
    
    ![Adicionar uma partilha](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. Em **Add Share,** faça o seguinte procedimento:
+4. In **Add Share**, faça o seguinte procedimento:
 
-    1. Indique um nome exclusivo para a partilha. Os nomes das ações só podem ter letras minúsculas, números e hífenes. O nome da partilha deve ter entre 3 e 63 caracteres de comprimento e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
+    1. Indique um nome exclusivo para a partilha. Os nomes das ações só podem ter letras minúsculas, números e hífens. O nome da partilha deve ter entre 3 e 63 caracteres de comprimento e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
     
     2. Selecione um **Tipo** para a partilha. O tipo pode ser SMB ou NFS, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
-    3. Forneça uma conta de armazenamento onde a parte resida. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de partilha recém-criado. Se o recipiente já existir, o recipiente é utilizado.
+    3. Forneça uma conta de armazenamento onde a parte residirá. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de ação recém-criado. Se o recipiente já existir, esse recipiente é utilizado.
        > [!IMPORTANT]
-       > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para mais informações, consulte definir e gerir as políticas de [imutabilidade para armazenamento de blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Escolha o **Serviço de armazenamento** do blob de blocos, blob de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de blocos no Azure, por conseguinte, selecionamos Blob de Blocos. Se escolher o Blob de Páginas, certifique-se de que os dados têm um alinhamento de 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
    
     5. Este passo depende de estar a criar uma partilha SMB ou NFS.
      
-    - **Partilha SMB** - Sob **todos os privilégios do utilizador local,** selecione **Criar novo** ou **utilizar existentes**. Se criar um novo utilizador local, introduza um **nome** de utilizador e **uma palavra-passe,** e, em seguida, **confirme a palavra-passe**. Esta ação atribui as permissões ao utilizador local. Atualmente, a modificação das permissões de nível de partilha não é suportada.
+    - **Ações SMB** - Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou Utilizar **existente**. Se criar um novo utilizador local, introduza um nome de **utilizador** e **senha**e confirme a **palavra-passe**. Esta ação atribui as permissões ao utilizador local. Atualmente, não é suportada a modificação das permissões de nível de ação.
     
         ![Adicionar uma partilha SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Se selecionar **Permitir apenas ler a** caixa de verificação de operações para estes dados de partilha, pode especificar utilizadores apenas de leitura.
+        Se selecionar Basta ler a caixa de **verificação das operações** para estes dados de partilha, pode especificar utilizadores apenas de leitura.
         
-    - **NFS share** - Introduza os endereços IP dos clientes permitidos que podem aceder à partilha.
+    - **NFS share** - Insira os endereços IP dos clientes autorizados que podem aceder à parte.
 
         ![Adicionar uma partilha NFS](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Selecione **Criar** para criar a parte.
+9. Selecione **Criar** para criar a partilha.
     
-    Foi notificado de que a criação de ações está em andamento. Após a criação da parte com as definições especificadas, as atualizações de azulejos **de Partilha** para refletir a nova ação.
+    Foi-lhe notificada de que a criação de ações está em andamento. Após a criação da partilha com as definições especificadas, **as ações** tile atualizações para refletir a nova ação.
     
     ![Azulejo de ações atualizadas](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
@@ -85,7 +85,7 @@ Agora pode ligar-se a uma ou mais das ações que criou no último passo. Depend
 
 ### <a name="connect-to-an-smb-share"></a>Ligar a uma partilha SMB
 
-No seu cliente do Windows Server ligado ao portal da caixa de dados, ligue-se a uma parte SMB ao introduzir os comandos:
+No seu cliente Windows Server ligado ao gateway da caixa de dados, ligue-se a uma partilha SMB inserindo os comandos:
 
 
 1. Numa janela de comando, escreva:
@@ -107,7 +107,7 @@ No seu cliente do Windows Server ligado ao portal da caixa de dados, ligue-se a 
 
 
 2. No seu teclado, selecione Windows + R. 
-3. Na janela **Correr,** `\\<device IP address>` especifique o **e,** em seguida, selecione OK . O Explorador de Ficheiros abre. Agora deve poder ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para visualizar o conteúdo.
+3. Na janela **Executar,** especifique o `\\<device IP address>` e, em seguida, selecione **OK**. O Explorador de Ficheiros abre. Deverá agora ser capaz de ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -134,10 +134,10 @@ No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguint
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> As seguintes ressalvas aplicam-se a esta libertação:
+> As seguintes ressalvas são aplicáveis a esta versão:
 > - Depois de um ficheiro ser criado nas ações, a renomeação do ficheiro não é suportada.
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
-> - Se `rsync` utilizar para copiar `rsync -a` dados, então a opção não é suportada.
+> - Se `rsync` utilizar para copiar dados, a `rsync -a` opção não é suportada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

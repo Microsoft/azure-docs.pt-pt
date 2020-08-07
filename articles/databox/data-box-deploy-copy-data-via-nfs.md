@@ -1,6 +1,6 @@
 ---
 title: Tutorial para copiar dados para Azure Data Box via NFS Microsoft Docs
-description: Saiba como copiar dados para a sua Caixa de Dados Azure via NFS
+description: Neste tutorial, aprenda a ligar e copiar dados do seu computador anfitrião para a Azure Data Box utilizando NFS com a UI web local.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 590a0a1ce474d48e95163081dcdcacb52233badf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926081"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para Azure Data Box via NFS
 
@@ -48,7 +48,7 @@ Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro 
 
 A tabela a seguir mostra o caminho UNC para as partilhas no Data Box e o URL do caminho do Armazenamento do Microsoft Azure onde os dados são carregados. O URL do caminho de Armazenamento do Microsoft Azure final pode derivar do caminho da partilha UNC.
  
-| Tipo de armazenamento Azure| Ações da Caixa de Dados                                       |
+| Tipo de armazenamento Azure| Partilhas de Data Box                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -139,17 +139,17 @@ Se estiver a utilizar a opção rsync para uma cópia de múltiplos threads, sig
 > [!IMPORTANT]
 > Os seguintes tipos de ficheiros Linux não são suportados: ligações simbólicas, ficheiros de caracteres, ficheiros de blocos, tomadas e tubos. Estes tipos de ficheiros resultarão em falhas durante o passo **de preparação para o envio.**
 
-Durante o processo de cópia, se houver algum erro, verá uma notificação.
+Durante o processo de cópia, em caso de erros, verá uma notificação.
 
-![Descarregue e veja erros no Connect e copy](media/data-box-deploy-copy-data/view-errors-1.png)
+![Transferir e ver erros em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-1.png)
 
-Selecione **Lista de emissão de descarregamento**.
+Selecione **Transferir lista de problemas**.
 
-![Descarregue e veja erros no Connect e copy](media/data-box-deploy-copy-data/view-errors-2.png)
+![Transferir e ver erros em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione o URL de resolução para ver a resolução recomendada.
 
-![Descarregue e veja erros no Connect e copy](media/data-box-deploy-copy-data/view-errors-3.png)
+![Transferir e ver erros em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja a secção Para obter mais informações, veja a secção [Ver registos de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja a secção [Resolver problemas do Data Box](data-box-troubleshoot.md).
 

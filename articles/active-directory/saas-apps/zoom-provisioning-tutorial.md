@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a2e4bbff1274a2473ac961b8355ca4193dcc69f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016270"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924908"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure Zoom para o fornecimento automático de utilizadores
 
@@ -121,12 +121,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|
    |---|---|
-   |userName|Cadeia|
+   |userName|String|
    |ativo|Booleano|
-   |nome.dado Nome|Cadeia|
-   |nome.famíliaName|Cadeia|
-   |e-mails[tipo eq "work"]|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
+   |e-mails[tipo eq "work"]|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -148,7 +148,7 @@ Esta operação inicia o ciclo inicial de sincronização de todos os utilizador
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)  
 
 ## <a name="connector-limitations"></a>Limitações do conector

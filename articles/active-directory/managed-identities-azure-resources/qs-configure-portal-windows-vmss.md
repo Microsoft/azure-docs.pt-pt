@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609117"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924500"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando o portal Azure
 
@@ -32,7 +32,7 @@ Neste artigo, utilizando o PowerShell, aprende-se a executar as seguintes identi
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md)
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar as operações de gestão neste artigo, a sua conta necessita das seguintes atribuições de controlo de acesso baseados em funções Azure:
+- Para realizar as operações de gestão neste artigo, a sua conta necessita das seguintes atribuições de funções Azure:
 
     > [!NOTE]
     > Não são necessárias atribuições adicionais de diretório ad AD.
@@ -105,5 +105,3 @@ Atualmente, o portal Azure não suporta a atribuição de uma identidade gerida 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Utilizando o portal Azure, dê a um conjunto de máquina virtual Azure acesso de identidade [gerido a outro recurso Azure](howto-assign-access-portal.md).
-
-

@@ -1,28 +1,28 @@
 ---
-title: O que é Reconhecimento de Tinta? - API reconhecedor de tinta
+title: O que é O Reconhecedor de Tinta? - API do Reconhecimento de Tintas
 titleSuffix: Azure Cognitive Services
-description: Integre o Reconhecedor de Tinta nas suas aplicações, websites, ferramentas e outras soluções para permitir a identificação e uso de dados de traçado de tinta como entrada.
+description: Integre o Reconhecimento de Tinta nas suas aplicações, websites, ferramentas e outras soluções para permitir que os dados de traçado de tinta sejam identificados e utilizados como entrada.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448155"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927458"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API do Reconhecedor de Tinta Digital?
 
 
-O Serviço Cognitivo do Reconhecimento de Tinta fornece uma API REST baseada na nuvem para analisar e reconhecer o conteúdo de tinta digital. Ao contrário dos serviços que utilizam o Reconhecimento Ótico de Caracteres (OCR), a API requer dados de traçado de tinta digital como entrada. Os traços de tinta digital são conjuntos de pontos 2D (coordenadas X,Y) que representam o movimento de ferramentas de entrada, como canetas digitais ou dedos. Em seguida, reconhece as formas e conteúdo manuscrito da entrada e devolve uma resposta JSON contendo todas as entidades reconhecidas.
+O Serviço Cognitivo Do Reconhecimento de Tintas fornece uma API DE REST baseada na nuvem para analisar e reconhecer o conteúdo de tinta digital. Ao contrário dos serviços que utilizam o Reconhecimento de Caracteres Óticos (OCR), a API requer dados digitais de traçado de tinta como entrada. Os traços de tinta digital são conjuntos de pontos 2D (coordenadas X,Y) que representam o movimento de ferramentas de entrada como canetas digitais ou dedos. Em seguida, reconhece as formas e o conteúdo manuscrito da entrada e devolve uma resposta JSON contendo todas as entidades reconhecidas.
 
-![Um fluxograma descrevendo o envio de uma entrada de tacada de tinta para a API](media/ink-recognizer-pen-graph.svg)
+![Um fluxograma descrevendo o envio de uma entrada de traçado de tinta para a API](media/ink-recognizer-pen-graph.svg)
 
 ## <a name="features"></a>Funcionalidades
 
@@ -30,31 +30,31 @@ Com a API do Reconhecimento de Tinta, pode facilmente reconhecer conteúdo manus
 
 |Funcionalidade  |Descrição  |
 |---------|---------|
-| Reconhecimento de caligrafia | Reconheça o conteúdo manuscrito em 63 [línguas e locais](language-support.md)fundamentais. | 
-| Reconhecimento de layout | Obtenha informações estruturais sobre o conteúdo de tinta digital. Dividir o conteúdo em regiões de escrita, parágrafos, linhas, palavras, listas de balas. As suas aplicações podem então utilizar as informações de layout para construir funcionalidades adicionais como formatação automática de listas e alinhamento de forma. |
-| Reconhecimento de formas | Reconheça as [formas geométricas](concepts/send-ink-data.md#shapes-recognized-by-the-ink-recognizer-api) mais usadas ao tomar notas. |
-| Formas combinadas e reconhecimento de texto | Reconheça quais os traços de tinta que pertencem a formas ou conteúdo manuscrito, e classifica-os separadamente.|
+| Reconhecimento de caligrafia | Reconhecer conteúdo manuscrito em 63 [idiomas e locais principais.](language-support.md) | 
+| Reconhecimento de layout | Obtenha informações estruturais sobre o conteúdo da tinta digital. Parta o conteúdo em regiões escritas, parágrafos, linhas, palavras, listas de balas. As suas aplicações podem então utilizar as informações de layout para construir funcionalidades adicionais, como formatação automática de listas e alinhamento de formas. |
+| Reconhecimento de forma | Reconheça as formas [geométricas](concepts/send-ink-data.md#shapes-recognized-by-the-ink-recognizer-api) mais usadas ao tomar notas. |
+| Formas combinadas e reconhecimento de texto | Reconheça quais traços de tinta pertencem a formas ou conteúdo manuscrito, e classifique-os separadamente.|
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-O API reconhecedor de tinta é um serviço web RESTful, facilitando a chamada de qualquer linguagem de programação que possa fazer pedidos HTTP e analisar a JSON.
+A API do Reconhecimento de Tinta é um serviço web RESTful, facilitando a chamada a partir de qualquer linguagem de programação que possa fazer pedidos HTTP e analisar o JSON.
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 Depois de se inscrever:
 
-1. Leve os dados do traçado de tinta e [forme-os](concepts/send-ink-data.md#sending-ink-data) em JSON válido.
-1. Envie um pedido para a API do Reconhecedor de Tinta com os seus dados.
+1. Pegue os seus dados de traçado de tinta e [formate-os](concepts/send-ink-data.md#sending-ink-data) em JSON válido. A API aceita até 1500 traçados de tinta por pedido. 
+1. Envie um pedido à API do Reconhecimento de Tinta com os seus dados.
 1. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Tente um início rápido nas seguintes línguas para começar a fazer chamadas para a API do Reconhecimento de Tinta.
-* [C #](quickstarts/csharp.md)
+Experimente um arranque rápido nas seguintes línguas para começar a fazer chamadas para a API do Reconhecimento de Tinta.
+* [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
 * [JavaScript](quickstarts/javascript.md)
 
-Para ver como funciona a API de Reconhecimento de Tinta numa aplicação de tinta digital, veja as seguintes aplicações de amostra no GitHub:
+Para ver como funciona a API de Reconhecimento de Tinta numa aplicação digital de tinta, veja as seguintes aplicações de amostra no GitHub:
 * [C# e Plataforma Universal do Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# e Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Aplicação de browser Javascript](https://go.microsoft.com/fwlink/?linkid=2089908)       

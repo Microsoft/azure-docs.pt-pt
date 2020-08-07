@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148264"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927373"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -54,7 +54,7 @@ Quando cria um dashboard, é privado por predefinição, o que significa que é 
 
 ![Partilhar um novo dashboard no portal do Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  Verifique a subscrição selecionada e, em seguida, clique em **Publicar**.  O acesso às informações apresentadas no dashboard é controlado com o [Controlo de Acesso Baseado no Recurso do Azure](../../role-based-access-control/role-assignments-portal.md).   
+É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  Verifique a subscrição selecionada e, em seguida, clique em **Publicar**.  O acesso às informações apresentadas no painel de instrumentos é controlado com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizar uma consulta de registo
 [Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de registo e seus resultados. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. Neste tutorial, você usará o Log Analytics para criar uma visão de desempenho em forma gráfica, guardá-la para uma consulta futura, e fixá-lo no dashboard compartilhado criado anteriormente.
@@ -86,7 +86,7 @@ Agora que temos uma consulta afixada ao dashboard, irá reparar que tem um títu
 
 ![Configuração concluída do dashboard de exemplo](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a criar um dashboard no portal Azure e a adicionar-lhe uma consulta de registo.  Avance para o próximo tutorial para saber as diferentes respostas que pode implementar com base nos resultados da consulta de registo.  
 
 > [!div class="nextstepaction"]

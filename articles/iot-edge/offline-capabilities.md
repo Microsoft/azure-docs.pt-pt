@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725249"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926659"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline alargadas para dispositivos, módulos e dispositivos ioT Edge
 
@@ -20,7 +20,7 @@ O Azure IoT Edge suporta operações offline alargadas nos seus dispositivos IoT
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando um dispositivo IoT Edge entra em modo offline, o hub IoT Edge assume três funções. Em primeiro lugar, armazena todas as mensagens que vão a montante e guarda-as até que o dispositivo volte a ligar. Em segundo lugar, atua em nome do IoT Hub para autenticar módulos e dispositivos infantis para que possam continuar a operar. Em terceiro lugar, permite a comunicação entre dispositivos infantis que normalmente passariam pelo IoT Hub.
+Quando um dispositivo IoT Edge entra em modo offline, o hub IoT Edge assume três funções. Em primeiro lugar, armazena todas as mensagens que vão a montante e guarda-as até que o dispositivo volte a ligar. Em segundo lugar, atua em nome do Hub IoT para autenticar módulos e dispositivos subordinados para que estes possam continuar a operar. Em terceiro lugar, permite a comunicação entre dispositivos subordinados que normalmente passariam pelo Hub IoT.
 
 O exemplo a seguir mostra como um cenário IoT Edge funciona em modo offline:
 
@@ -95,7 +95,7 @@ Pode modificar a [consulta](../iot-hub/iot-hub-devguide-query-language.md) para 
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Utilizar o Serviço IoT Hub SDK
 
-Finalmente, você pode gerir relações parentais de crianças programáticamente usando C#, Java ou Node.js IoT Hub Service SDK. Aqui está um [exemplo de atribuição de um dispositivo infantil](https://aka.ms/set-child-iot-device-c-sharp) utilizando o C# SDK.
+Finalmente, você pode gerir relações parentais de crianças programáticamente usando C#, Java ou Node.js IoT Hub Service SDK. Aqui está um [exemplo de atribuição de um dispositivo infantil](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) utilizando o C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Configurar o dispositivo dos pais como porta de entrada
 
@@ -138,7 +138,7 @@ Esta definição é uma propriedade desejada do hub IoT Edge, que é armazenado 
 
 As mensagens e as informações do estado do módulo são armazenadas no sistema de ficheiros de contentores locais do hub IoT Edge por padrão. Para uma maior fiabilidade, especialmente ao operar offline, também pode dedicar armazenamento no dispositivo IoT Edge do anfitrião. Para obter mais informações, consulte [Dar acesso aos módulos ao armazenamento local de um dispositivo](how-to-access-host-storage-from-module.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como configurar uma porta de entrada transparente para as ligações entre pais e filhos:
 

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901985"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921695"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -69,7 +69,7 @@ A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens 
 |Microsoft|Windows Server|2012 e mais tarde|
 |Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e mais tarde|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 e mais tarde|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3 e mais tarde|
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.

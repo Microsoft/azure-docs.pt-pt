@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503536"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927169"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso à recuperação do local com controlo de acesso baseado em funções (RBAC)
 
@@ -72,7 +72,7 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 Considere utilizar as [funções incorporadas](../role-based-access-control/built-in-roles.md) 'Virtual Machine Contributor' e 'Classic Virtual Machine Contributor' para o Gestor de Recursos e modelos de implantação Clássicos, respectivamente.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)

@@ -1,19 +1,19 @@
 ---
 title: Problemas de resolução de problemas Problemas de ligação ponto-a-local
 titleSuffix: Azure VPN Gateway
-description: Saiba como resolver problemas de ligação ponto a local.
+description: Saiba como resolver problemas comuns de ligação ponto-a-local que possa experimentar no Azure, incluindo vários erros de cliente VPN.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: b997942fd8d8a90b4bd395c2afa7d99b64a97ad8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037754"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920658"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação ponto-a-local azure
 
@@ -71,7 +71,7 @@ Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
 
 1. Instale a atualização.
 
-   | Versão do SO | Data | Número/Ligação |
+   | Versão do SO | Date | Número/Ligação |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, Versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, Versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

@@ -12,29 +12,37 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422917"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920118"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-A replicação transacional permite replicar dados de uma base de dados para outra hospedada no SQL Server ou [no Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (visualização pública). SQL Managed Instance pode ser um editor, distribuidor ou assinante na topologia de replicação. Consulte [as configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para as configurações disponíveis.
+A replicação transacional permite replicar dados de uma base de dados para outra hospedada no SQL Server ou [no Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). SQL Managed Instance pode ser um editor, distribuidor ou assinante na topologia de replicação. Consulte [as configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para as configurações disponíveis. 
 
-> [!NOTE]
-> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) em Azure SQL Managed Instance. Não está relacionado com [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), uma funcionalidade de Instância Gerida Azure SQL que permite criar réplicas legíveis completas de instâncias individuais. Existem considerações adicionais ao configurar a [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-Este tutorial ensina-o a configurar um caso gerido como editor e distribuidor, e depois uma segunda instância gerida como assinante.  
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+>
+> - Configure um caso gerido como editor e distribuidor de replicação.
+> - Configure um caso gerido como distribuidor de replicação.
 
 ![Replicar entre dois casos geridos](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - Este artigo destina-se a orientar um utilizador avançado na configuração da replicação com a SQL Managed Instance de ponta a ponta, começando pela criação do grupo de recursos. Se já geriu casos implementados, avance para o [Passo 4](#4---create-a-publisher-database) para criar a sua base de dados de editores, ou [o Passo 6](#6---configure-distribution) se já tiver uma base de dados de editores e assinantes, e esteja pronto para começar a configurar a replicação.  
-  > - Este artigo configura o seu editor e distribuidor na mesma instância gerida. Para colocar o distribuidor numa instância gerida separada, consulte a replicação transacional de configuração tutorial [entre Azure SQL Managed Instance e SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Este tutorial destina-se a um público experiente e assume que o utilizador está familiarizado com a implementação e ligação a instâncias geridas e VMs do SQL Server dentro do Azure. 
+
+
+> [!NOTE]
+> - Este artigo descreve o uso de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) em Azure SQL Managed Instance. Não está relacionado com [grupos de failover](../database/auto-failover-group-overview.md), uma funcionalidade de Instância Gerida Azure SQL que permite criar réplicas legíveis completas de instâncias individuais. Existem considerações adicionais ao configurar a [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## <a name="requirements"></a>Requirements
 
@@ -285,7 +293,7 @@ Execute o seguinte corte T-SQL para inserir linhas adicionais na editora e, em s
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para deixar cair a publicação, executar o seguinte comando T-SQL:
 
@@ -316,6 +324,6 @@ GO
 
 Pode limpar os seus recursos Azure [eliminando os recursos da SQL Managed Instance do grupo de recursos](../../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, eliminando o grupo de recursos `SQLMI-Repl` . 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode aprender mais informações sobre [a replicação transacional com a Azure SQL Managed Instance](replication-transactional-overview.md) ou aprender a configurar a replicação entre um [editor/distribuidor sql Managed Instance e um SQL no assinante Azure VM.](replication-two-instances-and-sql-server-configure-tutorial.md) 

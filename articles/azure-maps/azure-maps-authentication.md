@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285837"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922256"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -80,7 +80,7 @@ Para obter informações sobre a visualização do ID do seu cliente, consulte [
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorização com controlo de acesso baseado em funções
 
-O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview) Azure, incluindo: utilizadores individuais de AD Azure, grupos, aplicações, recursos Azure e identidades geridas azure. Os principais tipos recebem um conjunto de permissões, também conhecidas como definição de função. Uma definição de papel fornece permissões para as ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um âmbito. Ao aplicar um principal, definição de função e âmbito, então uma atribuição de papel é criada. 
+O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/overview) incluindo: utilizadores individuais de AD Azure, grupos, aplicações, recursos Azure e identidades geridas Azure. Os principais tipos recebem um conjunto de permissões, também conhecidas como definição de função. Uma definição de papel fornece permissões para as ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um âmbito. Ao aplicar um principal, definição de função e âmbito, então uma atribuição de papel é criada. 
 
 As próximas secções discutem conceitos e componentes da integração do Azure Maps com o controlo de acesso baseado em funções Azure. Como parte do processo de criação da sua conta Azure Maps, um diretório AD Azure está associado à subscrição Azure que a conta Azure Maps reside. 
 
@@ -114,7 +114,7 @@ A definição de função personalizada pode então ser usada numa atribuição 
 
 Aqui estão alguns cenários de exemplo onde as funções personalizadas podem melhorar a segurança da aplicação.
 
-| Cenário                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
+| Scenario                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | Uma página web de inscrição pública ou interativa com azulejos de mapa base e nenhuma outra APIs de REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | Uma aplicação que requer apenas geocoding inverso e nenhuma outra APIs de REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |

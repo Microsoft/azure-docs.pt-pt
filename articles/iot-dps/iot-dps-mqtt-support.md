@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680680"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924211"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunique com o seu DPS utilizando o protocolo MQTT
 
@@ -80,9 +80,9 @@ O aparelho deve fazer uma sondagem periódica do serviço para receber o resulta
 ## <a name="connecting-over-websocket"></a>Ligação sobre Websocket
 Ao ligar o Websocket, especifique o subprotocol como `mqtt` . Siga [o RFC 6455](https://tools.ietf.org/html/rfc6455).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https://mqtt.org/documentation).
+Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https://mqtt.org/).
 
 Para explorar ainda mais as capacidades do DPS, consulte:
 

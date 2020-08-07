@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489457"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925639"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -102,7 +102,7 @@ Para configurar o modo de acesso num modelo Azure Resource Manager, deslogeu a b
 
 ## <a name="manage-access-using-workspace-permissions"></a>Gerir o acesso usando permissões de espaço de trabalho
 
-Cada espaço de trabalho pode ter várias contas associadas a ele, e cada conta pode ter acesso a vários espaços de trabalho. O acesso é gerido utilizando [o acesso baseado em funções Azure](../../role-based-access-control/role-assignments-portal.md).
+Cada espaço de trabalho pode ter várias contas associadas a ele, e cada conta pode ter acesso a vários espaços de trabalho. O acesso é gerido utilizando o [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 As atividades seguintes também necessitam de permissões do Azure:
 

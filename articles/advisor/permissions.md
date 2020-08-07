@@ -3,16 +3,16 @@ title: Permissões em Azure Advisor
 description: Permissões de aconselhamento e como podem bloquear a sua capacidade de configurar subscrições ou adiar ou rejeitar recomendações.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057591"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927390"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões em Azure Advisor
 
-O Azure Advisor fornece recomendações baseadas na utilização e configuração dos seus recursos e subscrições Azure. O Advisor utiliza as [funções incorporadas fornecidas](../role-based-access-control/built-in-roles.md) pelo [Controle de Acesso Baseado em Papéis](../role-based-access-control/overview.md) (RBAC) para gerir o seu acesso a recomendações e funcionalidades do Advisor. 
+O Azure Advisor fornece recomendações baseadas na utilização e configuração dos seus recursos e subscrições Azure. O Advisor utiliza as [funções incorporadas fornecidas](../role-based-access-control/built-in-roles.md) pelo [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) para gerir o seu acesso a recomendações e funcionalidades do Advisor. 
 
 ## <a name="roles-and-their-access"></a>Funções e o seu acesso
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 32838ba93f4f7b844cde7a1397e123d918d9d177
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844172"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923837"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -230,6 +230,8 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Nome de utilizador | Insira um nome de utilizador |
     | Palavra-passe | Introduza uma senha |
     | Confirmar palavra-passe | Senha de reentrada |
+    | **Regras da porta de entrada** |  |
+    | Portas de entrada públicas | Selecione **Nenhum** |
 
 3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
   
@@ -616,7 +618,7 @@ Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue o Balancer e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
 

@@ -1,6 +1,6 @@
 ---
 title: Use o portal Azure para resolver problemas Azure Stack Edge Microsoft Docs
-description: Descreve como resolver problemas com problemas de Azure Stack Edge.
+description: Saiba como resolver problemas no seu Azure Stack Edge. Pode executar diagnósticos, recolher informações para suporte e usar registos para resolver problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 03/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 00aae3386b3f648eafdef31dccb640d8120f7ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b80b47a1be67a9771d138c43178d50156a6f1a95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564001"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926438"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-issues"></a>Resolução de problemas dos seus problemas com a Azure Stack Edge
 
@@ -84,6 +84,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

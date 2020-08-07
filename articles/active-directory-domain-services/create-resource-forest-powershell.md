@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505773"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922001"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Crie uma floresta de recursos de serviços de diretório ativo Azure e uma confiança florestal de saída para um domínio no local usando a Azure PowerShell
 
@@ -102,7 +102,7 @@ Para criar uma floresta de recursos de domínio gerido, você usa o `New-AzureAa
 
 1. Reveja os seguintes parâmetros necessários para o `New-AzureAaddsForest` script. Certifique-se de que também possui os módulos **Azure PowerShell** e **Azure AD.** Certifique-se de que planeou os requisitos de rede virtual para fornecer conectividade de aplicação e no local.
 
-    | Name                         | Parâmetro do script          | Descrição |
+    | Nome                         | Parâmetro do script          | Descrição |
     |:-----------------------------|---------------------------|:------------|
     | Subscrição                 | *-azureSubscriptionId*    | ID de assinatura usado para faturação Azure AD DS. Pode obter a lista de subscrições utilizando o [cmdlet Get-AzureRMSubscription.][Get-AzureRMSubscription] |
     | Grupo de Recursos               | *-aaddsResourceGroupName* | Nome do grupo de recursos para o domínio gerido e recursos associados. |
@@ -112,7 +112,7 @@ Para criar uma floresta de recursos de domínio gerido, você usa o `New-AzureAa
 
     O `New-AzureAaddsForest` script pode criar a rede virtual Azure e a sub-rede Azure AD DS se estes recursos ainda não existirem. O script pode criar opcionalmente as sub-redes de carga de trabalho, quando especificado:
 
-    | Name                              | Parâmetro do script                  | Descrição |
+    | Nome                              | Parâmetro do script                  | Descrição |
     |:----------------------------------|:----------------------------------|:------------|
     | Nome da rede virtual              | *-aaddsVnetName*                  | Nome da rede virtual para o domínio gerido.|
     | Espaço de endereços                     | *-aaddsVnetCIDRAddressSpace*      | Gama de endereços da rede virtual na notação CIDR (se criar a rede virtual).|
@@ -148,8 +148,8 @@ Antes de começar, certifique-se de compreender as [considerações e recomenda�
 
 1. Crie a conectividade híbrida da sua rede no local para a Azure utilizando uma ligação Azure VPN ou Azure ExpressRoute. A configuração da rede híbrida está fora do âmbito desta documentação, e pode já existir no seu ambiente. Para mais detalhes sobre cenários específicos, consulte os seguintes artigos:
 
-    * [VPN local-a-local do Azure.](/vpn-gateway/vpn-gateway-about-vpngateways)
-    * [Visão geral do Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [VPN local-a-local do Azure.](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+    * [Visão geral do Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Se criar a ligação diretamente à rede virtual do seu domínio gerido, utilize uma sub-rede de gateway separada. Não crie o portal na sub-rede do domínio gerido.
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 Agora forneça ao guião as seguintes informações:
 
-| Name                               | Parâmetro do script     | Descrição |
+| Nome                               | Parâmetro do script     | Descrição |
 |:-----------------------------------|:---------------------|:------------|
 | Nome de domínio Azure AD DS            | *-ManagedDomainFqdn* | FQDN do domínio gerido, como *aaddscontoso.com* |
 | Nome de domínio AD DS nas instalações      | *-TrustFqdn*         | O FQDN da floresta de confiança, como *onprem.contoso.com* |

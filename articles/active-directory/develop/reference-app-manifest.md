@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb536b27fe283170626ca6ffa2d21749d511f244
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026752"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923514"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -46,7 +46,7 @@ Esta secção descreve os atributos encontrados no manifesto de aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | Cadeia |
+| ID | String |
 
 O identificador único para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação protocolar. É usado para fazer referência ao objeto em consultas de diretório.
 
@@ -130,7 +130,7 @@ Definido como verdadeiro se o pedido for partilhado com outros inquilinos; caso 
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | Cadeia |
+| appId | String |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -169,7 +169,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| displayName | Cadeia |
+| displayName | String |
 
 O nome do visor da aplicação.
 
@@ -180,7 +180,7 @@ O nome do visor da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| errorUrl | Cadeia |
+| errorUrl | String |
 
 Sem apoio.
 
@@ -188,7 +188,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|groupMembershipClaims | Cadeia |
+|groupMembershipClaims | String |
 
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -206,7 +206,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| página inicial |Cadeia |
+| página inicial |String |
 
 O URL para a página inicial da aplicação.
 
@@ -217,7 +217,7 @@ O URL para a página inicial da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|objectId | Cadeia |
+|objectId | String |
 
 O identificador único para a aplicação no diretório.
 
@@ -233,7 +233,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionalClaims | Cadeia |
+| opcionalClaims | String |
 
 As reclamações opcionais devolvidas no token pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -265,7 +265,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | Cadeia |
+| informationalUrls | String |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD registadas.](howto-add-terms-of-service-privacy-statement.md)
 
@@ -322,7 +322,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoUrl | Cadeia |
+| logoUrl | String |
 
 Leia apenas o valor que aponta para o URL do CDN para o logotipo que foi carregado no portal.
 
@@ -336,7 +336,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | Cadeia |
+| logoutUrl | String |
 
 O URL para sair da aplicação.
 
@@ -350,7 +350,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| name | Cadeia |
+| name | String |
 
 O nome do visor da aplicação.
 
@@ -431,7 +431,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlSettings | Cadeia |
+| parentalControlSettings | String |
 
 - `countriesBlockedForMinors`especifica os países/regiões em que a aplicação está bloqueada para menores.
 - `legalAgeGroupRule`especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
@@ -502,7 +502,7 @@ Esta propriedade está disponível apenas na experiência de **registos da App (
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomain | Cadeia |
+| publisherDomain | String |
 
 O domínio do editor verificado para a aplicação. Só para ler.
 
@@ -532,6 +532,7 @@ Esta propriedade multi-valor detém a lista de valores de redirect_uri registado
 
 - `Web`
 - `InstalledClient`
+- `Spa`
 
 Para saber mais, consulte [as restrições e limitações de respostaUrl](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 
@@ -577,7 +578,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | Cadeia |
+| samlMetadataUrl | String |
 
 O URL para os metadados SAML para a aplicação.
 
@@ -591,7 +592,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInUrl | Cadeia |
+| signInUrl | String |
 
 Especifica o URL para a página inicial da aplicação.
 
@@ -605,7 +606,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInAudience | Cadeia |
+| signInAudience | String |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg`- Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 125b70b389809c576d17d1c8de35290c1c402c4a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852893"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927243"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de ligação privada utilizando o portal Azure
 
@@ -33,7 +33,7 @@ Primeiro, criar uma rede virtual. Em seguida, crie um equilibrador de carga inte
 
 Nesta secção, vai criar uma rede virtual. Também cria a sub-rede para hospedar o equilibrador de carga que acede ao seu serviço De Ligação Privada.
 
-Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas informações abaixo:
+Nesta secção, deverá substituir os seguintes parâmetros nas etapas com as informações abaixo:
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
@@ -133,7 +133,7 @@ Para criar uma regra do balançador de carga:
 
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada
 
-Nesta secção, cria-se um serviço de Ligação Privada por trás de um balanceador de carga padrão.
+Nesta secção, irá criar um serviço de Ligação Privada por trás de um balanceador de carga padrão.
 
 1. Na parte superior esquerda da página no portal Azure, **selecione Criar um**Centro de Ligação Privada de Rede de Recursos  >  **Networking**  >  **(Pré-visualização)**. Também pode utilizar a caixa de pesquisa do portal para procurar o Private Link.
 
@@ -171,9 +171,9 @@ Nesta secção, cria-se um serviço de Ligação Privada por trás de um balance
 
 1. Reveja as suas informações e **selecione Criar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar de usar o serviço Private Link, elimine o grupo de recursos para limpar os recursos utilizados neste arranque rápido.
+Quando terminar de utilizar o serviço Private Link, elimine o grupo de recursos para limpar os recursos utilizados neste arranque rápido.
 
 1. Introduza o **myResourceGroupLB** na caixa de pesquisa no topo do portal e selecione **o myResourceGroupLB** a partir dos resultados da pesquisa.
 1. Selecione **Eliminar grupo de recursos**.

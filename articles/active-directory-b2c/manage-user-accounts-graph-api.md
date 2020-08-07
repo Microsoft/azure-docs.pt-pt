@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528604"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921406"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft
 
@@ -123,7 +123,7 @@ A Microsoft Graph API suporta a criação e atualização de um utilizador com a
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-## <a name="code-sample"></a>Exemplo de código
+## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Amostra de código: Como gerir programáticamente as contas dos utilizadores
 
 Esta amostra de código é uma aplicação de consola .NET Core que utiliza o [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) para interagir com a Microsoft Graph API. O seu código demonstra como chamar a API para gerir programaticamente os utilizadores num inquilino AZure AD B2C.
 Você pode [baixar o arquivo de amostras](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), navegar no [repositório](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) no GitHub, ou clonar o repositório:

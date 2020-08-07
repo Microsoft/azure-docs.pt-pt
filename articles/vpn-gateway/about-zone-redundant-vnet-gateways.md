@@ -1,6 +1,6 @@
 ---
 title: Sobre as portas de rede virtuais redundantes em zonas de disponibilidade do Azure
-description: Saiba mais sobre gateways VPN Gateway e ExpressRoute em Zonas de Disponibilidade.
+description: Saiba mais sobre os gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure, adicionando resiliência, escalabilidade e maior disponibilidade para gateways VNet.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a0a3d59477511ebf019e2c2019786788a92ad70
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864303"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922698"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre as portas de rede virtuais redundantes em zonas de disponibilidade do Azure
 
@@ -38,7 +38,7 @@ Para implantar gateways numa zona específica, pode utilizar gateways zonais. Qu
 
 ![gráfico de gateways zonal](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
-## <a name="gateway-skus"></a><a name="gwskus"></a>SKUs de gateway
+## <a name="gateway-skus"></a><a name="gwskus"></a>SKUs de Gateway
 
 Os portões de entrada de zonas redundantes e zonais estão disponíveis como novos SKUs de gateway. Adicionámos novas redes virtuais de gateway SKUs nas regiões Azure AZ. Estes SKUs são semelhantes aos SKUs existentes correspondentes para ExpressRoute e VPN Gateway, exceto que são específicos para portas de portais zona-redundantes e zonais. Pode identificar estes SKUs pelo "AZ" no nome SKU.
 
@@ -85,6 +85,6 @@ A migração dos seus gateways de rede virtuais existentes para portas de portai
 
 A coexistência de gateways VPN e Express Route na mesma rede virtual é suportada. No entanto, deverá reservar um intervalo de endereço IP /27 para a sub-rede gateway.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um gateway de rede virtual com redundância entre zonas](create-zone-redundant-vnet-gateway.md)

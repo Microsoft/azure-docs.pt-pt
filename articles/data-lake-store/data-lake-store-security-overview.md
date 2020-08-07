@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529981"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926285"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança em Azure Data Lake Storage Gen1
 
@@ -39,7 +39,7 @@ Cada subscrição do Azure pode ser associada a um caso de Diretório Ativo Azur
 
 Depois de o Azure Ative Directory autenticar um utilizador para que o utilizador possa aceder à Data Lake Storage Gen1, a autorização controla as permissões de acesso para data lake storage gen1. Data Lake Storage Gen1 separa a autorização para atividades relacionadas com contas e dados da seguinte forma:
 
-* [Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecido pela Azure para gestão de contas
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para gestão de conta
 * POSIX ACL para aceder a dados na loja
 
 ### <a name="rbac-for-account-management"></a>RBAC para gestão de contas
@@ -52,8 +52,8 @@ Note que, embora as funções sejam atribuídas para a gestão de conta, algumas
 
 | Funções | Direitos de gestão | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Nenhuma |Regido pela ACL |O utilizador não pode utilizar o portal Azure ou os cmdlets Azure PowerShell para navegar no Data Lake Storage Gen1. O utilizador só pode utilizar ferramentas de linha de comando. |
-| Proprietário |Todos |Todos |O papel de Proprietário é um super-ador. Esta função pode gerir tudo e tem acesso total aos dados. |
+| Nenhuma função atribuída |Nenhum |Regido pela ACL |O utilizador não pode utilizar o portal Azure ou os cmdlets Azure PowerShell para navegar no Data Lake Storage Gen1. O utilizador só pode utilizar ferramentas de linha de comando. |
+| Proprietário |Tudo |Tudo |O papel de Proprietário é um super-ador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de leitura |Regido pela ACL |A função Reader pode ver tudo no que diz respeito à gestão de conta, como qual o utilizador que é atribuído a que papel. O papel de Leitor não pode fazer alterações. |
 | Contribuinte |Todos, exceto adicionar e remover funções |Regido pela ACL |O papel de Contribuinte pode gerir alguns aspetos de uma conta, como implementações e criação e gestão de alertas. A função Contribuinte não pode adicionar ou remover funções. |
 | Administrador de Acesso dos Utilizadores |Adicionar e remover funções |Regido pela ACL |A função de Administrador de Acesso ao Utilizador pode gerir o acesso do utilizador às contas. |
@@ -117,7 +117,7 @@ Os clientes da empresa exigem uma plataforma de nuvem de análise de dados que s
 
 Se quiser ver novas funcionalidades na Data Lake Storage Gen1, envie-nos o seu feedback no [fórum UserVoice do Data Lake Storage Gen1.](https://feedback.azure.com/forums/327234-data-lake)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Começar com data lake storage gen1](data-lake-store-get-started-portal.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461770"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925350"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -123,7 +123,7 @@ Um ambiente gerido pode ser implementado através do [Password Hash Sync (PHS)](
 Estes cenários não requerem que configures um servidor da federação para autenticação.
 
 > [!NOTE]
-> [A autenticação em nuvem utilizando o lançamento encenado](/hybrid/how-to-connect-staged-rollout) só é suportada a partir da atualização do Windows 10 1903
+> [A autenticação em nuvem utilizando o lançamento encenado](/azure/active-directory/hybrid/how-to-connect-staged-rollout) só é suportada a partir da atualização do Windows 10 1903
 
 ### <a name="federated-environment"></a>Ambiente federado
 

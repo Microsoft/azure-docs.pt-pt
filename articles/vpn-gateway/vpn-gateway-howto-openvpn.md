@@ -1,18 +1,18 @@
 ---
 title: 'Como configurar o OpenVPN no Gateway Azure VPN: PowerShell'
-description: Passos para configurar a OpenVPN para o Gateway Azure VPN
+description: Saiba como configurar o Protocolo OpenVPN no Gateway Azure VPN para um ambiente local de trabalho. Se necessário, pode criar uma VPN ponto a local.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: de8d03467b5e44df1b9069c6db31d496785ff32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c1c97bb0e4909bafe2d5ee9012190264b326e6c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983853"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926153"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configure OpenVPN para Azure ponto-a-local VPN Gateway
 
@@ -36,7 +36,7 @@ $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar clientes para a OpenVPN, consulte os [clientes Configure OpenVPN.](vpn-gateway-howto-openvpn-clients.md)
 

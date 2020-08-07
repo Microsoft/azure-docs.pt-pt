@@ -2,15 +2,15 @@
 title: Visão geral das especificações do modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921883"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -18,7 +18,7 @@ Uma especificação de modelo é um novo tipo de recurso para armazenar um model
 
 **Microsoft.Resources/templateSpecs** é o novo tipo de recurso para especificações de modelo. Consiste num modelo principal e em qualquer número de modelos ligados. O Azure armazena de forma segura as especificações do modelo em grupos de recursos. Versão de suporte de especificações [de modelo.](#versioning)
 
-Para implementar a especificação do modelo, utiliza ferramentas Azure padrão como PowerShell, Azure CLI, portal Azure, REST e outros SDKs e clientes suportados. Usa os mesmos comandos e passa nos mesmos parâmetros para o modelo.
+Para implementar a especificação do modelo, utiliza ferramentas Azure padrão como PowerShell, Azure CLI, portal Azure, REST e outros SDKs e clientes suportados. Usa os mesmos comandos que o modelo.
 
 > [!NOTE]
 > As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo, tem de [se inscrever na lista de espera.](https://aka.ms/templateSpecOnboarding)
@@ -37,21 +37,32 @@ O exemplo a seguir mostra um modelo simples para criar uma conta de armazenament
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
-      "location": "[resourceGroup().location]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Premium_LRS",
-        "tier": "Premium"
-      }
-    }
-  ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+            ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('store', uniquestring(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "[parameters('storageAccountType')]"
+            }
+        }
+    ]
 }
 ```
 
@@ -105,6 +116,42 @@ $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG
+```
+
+## <a name="parameters"></a>Parâmetros
+
+Passar parâmetros para a especificação do modelo é exatamente como passar parâmetros para um modelo ARM. Adicione os valores dos parâmetros, quer em linha, quer num ficheiro de parâmetros.
+
+Para passar uma linha de parâmetro, use:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -StorageAccountType Standard_GRS
+```
+
+Para criar um ficheiro de parâmetro local, utilize:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "StorageAccountType": {
+      "value": "Standard_GRS"
+    }
+  }
+}
+```
+
+E, passe o arquivo de parâmetros com:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -TemplateParameterFile ./mainTemplate.parameters.json
 ```
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Crie uma especificação de modelo com modelos ligados

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/06/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e974fb51ac36083e6ed8934afaa7a3e36ab8c08e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533068"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923871"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Alterar o nível de serviço de um volume de forma dinâmica
 
@@ -33,8 +33,7 @@ A capacidade de movimentação do volume já deve existir. A piscina de capacida
 
 * Depois de o volume ser transferido para outra piscina de capacidade, deixará de ter acesso aos registos de atividade de volume anteriores e às métricas de volume. O volume começará com novos registos de atividade e métricas sob a nova capacidade.
 
-* Se mover um volume para um pool de capacidade de um nível de serviço mais elevado (por exemplo, passar de *Standard* para *Premium* ou *Ultra* serviço), deve esperar pelo menos sete dias antes de poder mover o volume para um pool de capacidade de um nível de serviço mais baixo novamente (por exemplo, passar de *Ultra* para *Premium* ou *Standard).*  
-Este período de espera não se aplica se mover o volume para um pool de capacidade que tenha o mesmo nível de serviço ou um nível de serviço mais baixo.
+* Se mover um volume para um pool de capacidade de um nível de serviço mais elevado (por exemplo, passar de *Standard* para *Premium* ou *Ultra),* deve esperar pelo menos sete dias antes de poder mover esse volume *novamente* para um pool de capacidade de um nível de serviço mais baixo (por exemplo, passar de *Ultra* para *Premium* ou *Standard).*  
 
 ## <a name="register-the-feature"></a>Registar a funcionalidade
 

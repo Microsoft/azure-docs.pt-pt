@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224711"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921933"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
@@ -66,7 +66,7 @@ Consolidar os recursos de acesso e eliminar os pontos finais não geridos també
 ### <a name="providing-security-for-azure-remote-management"></a>Fornecer segurança para gestão remota do Azure
 O Azure oferece mecanismos de segurança para ajudar os administradores que gerem Virtual Machines e Cloud Services do Azure. Estes mecanismos incluem:
 
-* Autenticação e [controlo de acesso baseado em funções](../../role-based-access-control/role-assignments-portal.md).
+* Autenticação e [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Monitorização, registo e auditoria.
 * Certificados e comunicações encriptadas.
 * Um portal de gestão Web.

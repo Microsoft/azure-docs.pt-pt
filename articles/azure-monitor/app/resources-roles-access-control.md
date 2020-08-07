@@ -3,16 +3,16 @@ title: Recursos, funções e controlo de acessos no Azure Application Insights M
 description: Proprietários, colaboradores e leitores das ideias da sua organização.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325700"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926506"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acessos em Insights de Aplicações
 
-Pode controlar quem leu e atualizou o acesso aos seus dados no Azure [Application Insights,][start]utilizando [o controlo de acesso baseado em role no Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Pode controlar quem leu e atualizou o acesso aos seus dados no Azure [Application Insights,][start]utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Atribua acesso aos utilizadores no **grupo de recursos ou subscrição** a que pertence o seu recurso de aplicação - não no próprio recurso. Atribua a **função de contribuinte de componente de Application Insights.** Isto garante um controlo uniforme do acesso a testes e alertas web, juntamente com o recurso da sua aplicação. [Saiba mais](#access).
@@ -101,7 +101,7 @@ Se o utilizador que deseja não estiver no diretório, pode convidar qualquer pe
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Controlo de acesso baseado em funções em Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Consulta PowerShell para determinar a adesão ao papel
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

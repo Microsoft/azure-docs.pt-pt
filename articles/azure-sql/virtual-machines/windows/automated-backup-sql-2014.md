@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2089fcd6e774fd735aa4709b072caafe092b46a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e563e53ad0d5ec90fb9b728c8ffe2d239cf0763
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669448"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920607"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -274,9 +274,9 @@ Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorpo
 1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida tanto através da firewall VM local como do grupo de segurança da rede para o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Cópia de segurança automatizada configura cópia de segurança gerida em VMs Azure. Por isso, é importante [rever a documentação para cópia de segurança gerida no SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
+Cópia de segurança automatizada configura cópia de segurança gerida em VMs Azure. Por isso, é importante [rever a documentação para cópia de segurança gerida no SQL Server 2014](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure).
 
 Pode encontrar cópias de segurança adicionais e restaurar a orientação para o SQL Server em VMs Azure no seguinte artigo: [Cópia de segurança e restauro para o SQL Server em máquinas virtuais Azure](backup-restore.md).
 

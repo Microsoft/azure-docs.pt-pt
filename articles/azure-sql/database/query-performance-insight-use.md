@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042888"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926404"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ O Insight de Desempenho da Consulta requer que [a Loja de Consultas](https://msd
 
 ## <a name="permissions"></a>Permissões
 
-Precisa das seguintes permissões [de controlo de acesso baseadas em funções](../../role-based-access-control/overview.md) para utilizar o Insight de Desempenho da Consulta:
+Você precisa das seguintes permissões [de controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) para usar o Insight de Desempenho de Consulta:
 
 * **As**permissões de leitor , **Proprietário**, **Contribuinte**, **DB DB**ou **SQL Server Contributor** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
 * **O Proprietário**, **Contribuinte**, **SqL DB Contributor,** ou **permissões de contribuinte do sql server** são necessárias para visualizar texto de consulta.
@@ -276,6 +276,6 @@ A aplicação destas definições irá eventualmente fazer com que a Loja de Con
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere usar [o Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) para monitorização avançada do desempenho de uma grande frota de bases de dados individuais e agalhadas, piscinas elásticas, instâncias geridas e bases de dados de casos.

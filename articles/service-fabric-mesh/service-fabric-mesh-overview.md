@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257795"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927033"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é o Service Fabric Mesh?
 
@@ -42,7 +42,7 @@ Com o Service Fabric Mesh pode:
 
 - Implementar e gerir aplicações sem ter de aprovisionar e gerir explicitamente a infraestrutura.  O Service Fabric Mesh aprovisiona, atualiza, corrige e mantém a infraestrutura subjacente por si.
 - Configurar a integração contínua através das ferramentas integradas para empacotar e implementar facilmente as aplicações.
-- Aproveite todas as funcionalidades dos recursos do Azure Resource Manager. Exemplos destas funcionalidades incluem pista de auditoria e [controlo de acesso baseado em funções).](../role-based-access-control/overview.md) Todos os recursos que implementa para o serviço de malha de tecido de serviço em Azure são recursos Azure Resource Manager. Estes recursos incluem aplicações, serviços, segredos, e assim por diante.
+- Aproveite todas as funcionalidades dos recursos do Azure Resource Manager. Exemplos destas funcionalidades incluem pista de auditoria e [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)). Todos os recursos que implementa para o serviço de malha de tecido de serviço em Azure são recursos Azure Resource Manager. Estes recursos incluem aplicações, serviços, segredos, e assim por diante.
 - Implementar e gerir os recursos com o [portal do Azure](https://portal.azure.com), modelos do Resource Manager ou bibliotecas da CLI do Azure/PowerShell.
 - Configurar a monitorização operacional e alertas através do [Application Insights](/azure/application-insights/) (ou da ferramenta à sua escolha) para capturar rastreios operacionais e de diagnóstico a partir da plataforma.
 - Aceder às informações de diagnóstico das aplicações emitidas a partir do modelo de aplicação com o [Application Insights](/azure/application-insights/) ou a ferramenta à sua escolha.

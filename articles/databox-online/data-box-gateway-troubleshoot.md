@@ -1,6 +1,6 @@
 ---
 title: Utilizar o portal do Azure para resolver problemas do Azure Data Box Gateway | Microsoft Docs
-description: Descreve como resolver problemas do Azure Data Box Gateway.
+description: Saiba como resolver problemas no seu Gateway Azure Data Box. Pode executar diagnósticos, recolher informações para suporte e usar registos para resolver problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564012"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927186"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway
 
@@ -107,6 +107,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     |    16002           |    RefreshWorkNeededException                              |    Não foi possível atualizar este ficheiro porque não está totalmente carregado.                                                                                                                                                                          | 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc665aec3aa8c08449815dbb255f87404e370f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87906102"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926727"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -98,4 +98,3 @@ Também pode utilizar [conectores API](api-connectors-overview.md) para integrar
 - [Orientação sobre o licenciamento para a colaboração B2B do Azure Active Directory](licensing-guidance.md)
 - [Adicionar utilizadores convidados de colaboração B2B no portal](add-users-administrator.md)
 - [Compreender o processo de resgate de convites](redemption-experience.md)
-- E, como sempre, contacte a equipa do produto para dar feedback e sugestões e debater questões através do nosso [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

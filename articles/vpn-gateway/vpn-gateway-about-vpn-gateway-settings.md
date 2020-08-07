@@ -1,18 +1,18 @@
 ---
 title: 'Gateway Azure VPN: configurações de configuração'
-description: Saiba mais sobre as definições do Gateway VPN para gateways de rede virtual Azure.
+description: Saiba mais sobre a configuração de uma ligação de gateway VPN em Azure, que se baseia em múltiplos recursos, cada um dos quais contém configurações configuráveis.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708149"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926931"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway VPN
 
@@ -49,7 +49,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -VpnType RouteBased
 ```
 
-## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de Gateway
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
@@ -114,7 +114,7 @@ Quando criar o gateway de rede virtual para uma configuração de gateway VPN, d
 
 O tipo VPN que seleciona deve satisfazer todos os requisitos de ligação para a solução que pretende criar. Por exemplo, se pretender criar uma ligação de gateway S2S VPN e uma ligação de gateway P2S VPN para a mesma rede virtual, utilizaria o tipo VPN *RouteBased* porque o P2S requer um tipo VPN RouteBased. Também terá de verificar se o seu dispositivo VPN suportava uma ligação VPN RouteBased. 
 
-Uma vez criado um gateway de rede virtual, não é possível alterar o tipo VPN. Tem de apagar o portal de rede virtual e criar um novo. Há dois tipos de VPN:
+Uma vez criado um gateway de rede virtual, não é possível alterar o tipo VPN. Tem de apagar o portal de rede virtual e criar um novo. Existem dois tipos de VPN:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
@@ -175,6 +175,6 @@ Para obter recursos técnicos adicionais e requisitos específicos de sintaxe ao
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
 | Não suportado | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as configurações de ligação disponíveis, consulte [Sobre o Gateway VPN](vpn-gateway-about-vpngateways.md).

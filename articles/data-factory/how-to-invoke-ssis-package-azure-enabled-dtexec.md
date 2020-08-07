@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414329"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927084"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de Serviços de Integração de ServidorES SQL com o utilitário dtexec habilitado para a Azure
 
@@ -87,7 +87,7 @@ Invocar o AzureDTExec oferece opções semelhantes como invocar o dtexec. Para m
 - **/F[ile]**: Carrega um pacote que é armazenado no sistema de ficheiros, partilha de ficheiros ou ficheiros Azure. Como valor para esta opção, pode especificar o caminho do UNC para o seu ficheiro de pacote no sistema de ficheiros, partilha de ficheiros ou Ficheiros Azure com a sua extensão .dtsx. Se o caminho da UNC especificado contiver algum espaço, coloque aspas em todo o caminho.
 - **/Conf[igFile]**: Especifica um ficheiro de configuração para extrair valores de. Utilizando esta opção, pode definir uma configuração de tempo de execução para o seu pacote que difere da especificada no momento do design. Pode armazenar diferentes definições num ficheiro de configuração XML e carregá-las antes da execução do pacote. Para obter mais informações, consulte [as configurações do pacote SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Para especificar o valor desta opção, utilize o caminho UNC para o seu ficheiro de configuração no sistema de ficheiros, partilha de ficheiros ou Ficheiros Azure com a sua extensão dtsConfig. Se o caminho da UNC especificado contiver algum espaço, coloque aspas em todo o caminho.
 - **/Conn[ection]**: Especifica as cadeias de ligação para os gestores de ligação existentes na sua embalagem. Utilizando esta opção, pode definir cadeias de ligação de tempo de execução para os gestores de ligação existentes no seu pacote que diferem dos especificados no momento do design. Especificar o valor desta opção da seguinte forma: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` .
-- **/set**: Substitui a configuração de um parâmetro, variável, propriedade, contentor, fornecedor de registo, enumerador de foreach ou ligação na sua embalagem. Esta opção pode ser especificada várias vezes. Especificar o valor desta opção da seguinte forma: `property_path;value` . Por exemplo, `\package.variables[counter].Value;1` sobrepõe-se ao valor da `counter` variável como 1. Pode utilizar o assistente **de Configuração de Pacotes** para encontrar, copiar e colar o valor de `property_path` itens no seu pacote cujo valor pretende sobrepor-se. Para obter mais informações, consulte [o assistente de configuração do pacote](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/set**: Substitui a configuração de um parâmetro, variável, propriedade, contentor, fornecedor de registo, enumerador de foreach ou ligação na sua embalagem. Esta opção pode ser especificada várias vezes. Especificar o valor desta opção da seguinte forma: `property_path;value` . Por exemplo, `\package.variables[counter].Value;1` sobrepõe-se ao valor da `counter` variável como 1. Pode utilizar o assistente **de Configuração de Pacotes** para encontrar, copiar e colar o valor de `property_path` itens no seu pacote cujo valor pretende sobrepor-se. Para obter mais informações, consulte [o assistente de configuração do pacote](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De[cript]**: Define a palavra-passe de desencriptação para o seu pacote configurado com o nível de proteção **Encriptação Encriptação Configuração DoPtusitiveWithPassword.** / **EncryptSensitiveWithPassword**
 
 > [!NOTE]

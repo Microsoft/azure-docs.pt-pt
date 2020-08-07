@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Requisitos criptográficos'
-description: Este artigo discute requisitos criptográficos e gateways Azure VPN
+description: Aprenda a configurar gateways Azure VPN para satisfazer os requisitos criptográficos para túneis VPN S2S e ligações VNet-to-VNet dentro do Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b591baa3fd942eb46cc7351a15c8849c44fe0d12
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75902830"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926966"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e gateways Azure VPN
 
@@ -57,7 +57,7 @@ Pode criar uma política IPsec/IKE e aplicar-se a uma ligação nova ou existent
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [a política de configuração IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para instruções passo a passo sobre a configuração da política personalizada IPsec/IKE numa ligação.
 

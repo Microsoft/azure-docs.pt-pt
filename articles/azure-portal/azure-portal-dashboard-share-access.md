@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131706"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923888"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
 
-Depois de configurar um dashboard, pode publicá-lo e partilhá-lo com outros utilizadores da sua organização. Permite que outros vejam o seu dashboard utilizando o Controlo [de Acesso Baseado em Funções](../role-based-access-control/role-assignments-portal.md) Azure (RBAC). Atribua um utilizador ou grupo de utilizadores a uma função. Esta função define se esses utilizadores podem ver ou modificar o dashboard publicado.
+Depois de configurar um dashboard, pode publicá-lo e partilhá-lo com outros utilizadores da sua organização. Permite que outros vejam o seu dashboard utilizando o [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Atribua um utilizador ou grupo de utilizadores a uma função. Esta função define se esses utilizadores podem ver ou modificar o dashboard publicado.
 
 Todos os dashboards publicados são implementados como recursos Azure. Existem como itens manejáveis dentro da sua subscrição e estão contidos num grupo de recursos. Do ponto de vista do controlo de acessos, os dashboards não são diferentes de outros recursos, como uma máquina virtual ou uma conta de armazenamento.
 
