@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: Aplicações cliente públicas de conta única e de várias contas
               href: single-multi-account.md
+            - name: Lidar com erros e exceções
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: Registo
               href: msal-logging.md?tabs=android
         - name: iOS e macOS
