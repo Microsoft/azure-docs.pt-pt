@@ -1,24 +1,24 @@
 ---
-title: Como criar imagens VM do Windows com Packer
-description: Saiba como usar o Packer para criar imagens de máquinas virtuais do Windows em Azure
+title: PowerShell - Como criar imagens VM com Packer
+description: Saiba como usar o Packer e o PowerShell para criar imagens de máquinas virtuais em Azure
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/22/2019
+ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 1597d249899756ac0d43d2dcd90019179b81bb3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 176aa925e4662731342ec3269e61ce9c7f71cf30
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284664"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003841"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais do Windows em Azure
+# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Como usar o Packer para criar imagens de máquinas virtuais em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para ambientes de aplicação e SISTEMA mais comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
 
-Este artigo foi testado pela última vez em 2/21/2019 utilizando a versão 1.3.0 do [módulo Az PowerShell](/powershell/azure/install-az-ps) e a versão [Packer](https://www.packer.io/docs/install) 1.3.4.
+Este artigo foi testado pela última vez em 8/5/2020 usando [a](https://www.packer.io/docs/install) versão Packer 1.6.1.
 
 > [!NOTE]
 > O Azure tem agora um serviço, Azure Image Builder (pré-visualização), para definir e criar as suas próprias imagens personalizadas. O Azure Image Builder é construído em Packer, para que possa até usar os scripts existentes do proserdor de conchas Packer com ele. Para começar com o Azure Image Builder, consulte [Criar um Windows VM com Azure Image Builder](image-builder.md).
@@ -26,10 +26,10 @@ Este artigo foi testado pela última vez em 2/21/2019 utilizando a versão 1.3.0
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos Azure
 Durante o processo de construção, a Packer cria recursos temporários do Azure à medida que constrói a origem VM. Para capturar essa fonte VM para ser usada como imagem, deve definir um grupo de recursos. A saída do processo de construção packer é armazenada neste grupo de recursos.
 
-Criar um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
+Criar um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myPackerGroup* na localização *este:*
 
 ```azurepowershell
-$rgName = "myResourceGroup"
+$rgName = "myPackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -37,13 +37,12 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Criar credenciais do Azure
 Packer autentica com Azure usando um principal de serviço. Um diretor de serviço Azure é uma identidade de segurança que pode usar com apps, serviços e ferramentas de automação como o Packer. Você controla e define as permissões sobre as operações que o diretor de serviço pode executar em Azure.
 
-Crie um principal de serviço com [a New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) e atribua permissões para o principal de serviço para criar e gerir recursos com [new-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). O valor para `-DisplayName` as necessidades deve ser único; substitua-o pelo seu próprio valor, se necessário.  
+Crie um chefe de serviço com [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). O valor para `-DisplayName` as necessidades deve ser único; substitua-o pelo seu próprio valor, se necessário.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
+$sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
 $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
 Em seguida, des output a palavra-passe e o ID da aplicação.
@@ -112,7 +111,6 @@ Crie um ficheiro nomeado *windows.js* e cole o seguinte conteúdo. Insira os seu
     "inline": [
       "Add-WindowsFeature Web-Server",
       "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
-      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
       "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"

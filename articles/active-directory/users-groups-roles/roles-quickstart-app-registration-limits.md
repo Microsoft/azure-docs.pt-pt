@@ -8,29 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed15f8096cae3113af3f9c65ccca8873ef6c0e2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: fdaf80f7b493c0979f1d353b7d740a41035a87bc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905691"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003308"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Conceder permissão para criar registos ilimitados de aplicações
 
-Neste arranque rápido, irá criar uma função personalizada com permissão para criar um número ilimitado de registos de aplicações e, em seguida, atribuir essa função a um utilizador. O utilizador designado pode então utilizar o portal AD AD Azure, O Azure AD PowerShell ou a Microsoft Graph API para criar registos de aplicações. Ao contrário da função de Desenvolvedor de Aplicações incorporada, esta função personalizada garante a capacidade de criar um número ilimitado de registos de aplicações. A função de Desenvolvedor de Aplicações concede a capacidade, mas o número total de objetos criados está limitado a 250 para evitar atingir [a quota de objetos em todo o diretório](directory-service-limits-restrictions.md).
+Neste guia de arranque rápido, irá criar uma função personalizada com permissão para criar um número ilimitado de registos de aplicações e, em seguida, atribuir essa função a um utilizador. O utilizador designado pode então utilizar o portal AD AD Azure, O Azure AD PowerShell ou a Microsoft Graph API para criar registos de aplicações. Ao contrário da função de Desenvolvedor de Aplicações incorporada, esta função personalizada garante a capacidade de criar um número ilimitado de registos de aplicações. A função de Desenvolvedor de Aplicações concede a capacidade, mas o número total de objetos criados está limitado a 250 para evitar atingir [a quota de objetos em todo o diretório](directory-service-limits-restrictions.md). O papel menos privilegiado necessário para criar e atribuir funções personalizadas a Azure É o administrador privilegiado.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisite"></a>Pré-requisito
-
-O papel menos privilegiado necessário para criar e atribuir funções personalizadas a Azure É o administrador privilegiado.
-
-## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Crie um novo papel personalizado usando o portal AD AZure
+## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Crie um papel personalizado usando o portal AD Azure
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com)   com o administrador de função privilegiada ou permissões de administrador global na organização Azure AD.
 1. Selecione **Azure Ative Directory**, selecione **Funções e administradores**, e, em seguida, selecione **Nova função personalizada**.
@@ -47,7 +43,7 @@ O papel menos privilegiado necessário para criar e atribuir funções personali
 
 1. No **separador 'Rever +' criar,** rever as permissões e selecionar **Criar.**
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um utilizador utilizando o portal AD AZure
+### <a name="assign-the-role-in-the-azure-ad-portal"></a>Atribuir o papel no portal AD Azure
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com)   com o administrador privilegiado ou permissões de administrador global na sua organização Azure AD.
 1. Selecione **O Diretório Ativo Azure** e, em seguida, selecione **Funções e administradores**.
@@ -66,9 +62,9 @@ Existem duas permissões disponíveis para a concessão da capacidade de criar r
 - microsoft.diretório/aplicações/createAsOwner: Atribuir esta permissão resulta em que o criador seja adicionado como o primeiro proprietário do registo de aplicações criado, e o registo de aplicações criado contará com a quota de objetos criado pelo criador.
 - microsoft.diretório/aplicaçãoPolicies/create: Atribuir esta permissão resulta em que o criador não seja adicionado como o primeiro proprietário do registo de aplicações criado, e o registo de aplicações criado não contará com a quota de objetos criado pelo criador. Use esta permissão cuidadosamente, porque não há nada que impeça o cessionário de criar registos de aplicações até que a quota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, esta permissão tem precedência.
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Atribua o papel personalizado usando Azure AD PowerShell
+## <a name="create-a-custom-role-in-azure-ad-powershell"></a>Crie um papel personalizado no Azure AD PowerShell
 
-#### <a name="prepare-powershell"></a>Preparar PowerShell
+### <a name="prepare-powershell"></a>Preparar PowerShell
 
 Em primeiro lugar, instale o módulo Azure AD PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de pré-visualização Azure AD PowerShell, utilizando o seguinte comando:
 
@@ -85,7 +81,7 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
 ```
 
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Crie um papel personalizado usando Azure AD PowerShell
+### <a name="create-the-custom-role-in-azure-ad-powershell"></a>Crie o papel personalizado no Azure AD PowerShell
 
 Crie um novo papel utilizando o seguinte script PowerShell:
 
@@ -108,7 +104,7 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customRole = New-AzureAdMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role"></a>Atribuir o papel personalizado
+### <a name="assign-the-role-in-azure-ad-powershell"></a>Atribuir o papel no Azure AD PowerShell
 
 Atribua a função utilizando o seguinte script PowerShell:
 
@@ -124,7 +120,7 @@ $resourceScope = '/'
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="create-a-custom-role-using-microsoft-graph-api"></a>Crie um papel personalizado usando a Microsoft Graph API
+## <a name="create-a-custom-role-in-the-microsoft-graph-api"></a>Crie um papel personalizado na Microsoft Graph API
 
 HTTP solicitação para criar o papel personalizado.
 
@@ -160,7 +156,7 @@ Corpo
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Atribua a função personalizada usando a Microsoft Graph API
+### <a name="assign-the-role-in-the-microsoft-graph-api"></a>Atribuir o papel na Microsoft Graph API
 
 A atribuição de funções combina um ID principal de segurança (que pode ser um utilizador ou principal de serviço), uma definição de função (função) ID, e um âmbito de recurso AD Azure.
 
@@ -185,5 +181,5 @@ Corpo
 ## <a name="next-steps"></a>Passos seguintes
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
-- Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](../fundamentals/users-default-permissions.md).
+- Para obter mais informações sobre as atribuições de funções de Azure AD, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+- Para obter mais informações sobre permissões de utilizador predefinidos, consulte [a comparação das permissões de utilizador por defeito e do utilizador do membro.](../fundamentals/users-default-permissions.md)

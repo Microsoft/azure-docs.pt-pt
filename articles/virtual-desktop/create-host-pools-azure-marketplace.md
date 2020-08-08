@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop host pool Azure portal - Azure
 description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291438"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002666"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -61,7 +59,7 @@ Para começar a criar a sua nova piscina de anfitriões:
 6. Insira um nome único para a sua piscina de anfitriões.
 
 7. No campo Localização, selecione a região onde pretende criar a piscina anfitriã a partir do menu suspenso.
-   
+
    A geografia Azure associada às regiões selecionadas é onde os metadados desta piscina anfitriã e seus objetos relacionados serão armazenados. Certifique-se de que escolhe as regiões dentro da geografia em que pretende que os metadados de serviço sejam armazenados.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da página do grupo de segurança que mostra uma lista de portas disponíveis num menu suspenso.](media/available-ports.png)
-    
+
     Se escolher **Advanced,** selecione um grupo de segurança de rede existente que já configura.
 
 10. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Também pode adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam.
@@ -153,7 +151,7 @@ Com isso, estamos prontos para iniciar a próxima fase de configuração do seu 
 
 ## <a name="workspace-information"></a>Informações da área de trabalho
 
-O processo de configuração do pool anfitrião cria um grupo de aplicação de ambiente de trabalho por predefinição. Para que o pool do anfitrião funcione como pretendido, terá de publicar este grupo de aplicações para utilizadores ou grupos de utilizadores, e tem de registar o grupo de aplicações num espaço de trabalho. 
+O processo de configuração do pool anfitrião cria um grupo de aplicação de ambiente de trabalho por predefinição. Para que o pool do anfitrião funcione como pretendido, terá de publicar este grupo de aplicações para utilizadores ou grupos de utilizadores, e tem de registar o grupo de aplicações num espaço de trabalho.
 
 Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
@@ -167,10 +165,10 @@ Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
     Aqui pode adicionar tags para que possa agrupar os objetos com metadados para facilitar as coisas para os seus administradores.
 
-4. Quando terminar, selecione **Review + create**. 
+4. Quando terminar, selecione **Review + create**.
 
      >[!NOTE]
-     >O processo de avaliação + criar não verifica se a sua palavra-passe cumpre os padrões de segurança ou se a sua arquitetura está correta, por isso terá de verificar se existe algum problema com qualquer uma dessas coisas por si mesmo. 
+     >O processo de avaliação + criar não verifica se a sua palavra-passe cumpre os padrões de segurança ou se a sua arquitetura está correta, por isso terá de verificar se existe algum problema com qualquer uma dessas coisas por si mesmo.
 
 5. Reveja as informações sobre a sua implementação para se certificar de que tudo parece estar certo. Quando concluir, selecione **Criar**. Isto inicia o processo de implantação, que cria os seguintes objetos:
 

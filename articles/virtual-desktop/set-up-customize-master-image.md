@@ -1,19 +1,17 @@
 ---
 title: Prepare e personalize uma imagem master VHD - Azure
 description: Como preparar, personalizar e carregar uma imagem principal do Windows Virtual Desktop para o Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832530"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009516"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -206,7 +204,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

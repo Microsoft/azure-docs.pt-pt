@@ -1,6 +1,6 @@
 ---
 title: Dados de pontos de agrupamento num mapa Microsoft Azure Maps
-description: Neste artigo, você vai aprender como cluster point dados e torná-lo em um mapa usando o Microsoft Azure Maps Web SDK.
+description: Saiba como agrupar dados de pontos nos mapas. Veja como usar o Azure Maps Web SDK para cluster de dados, reagir a eventos de rato de cluster e exibir agregados de cluster.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 05e21e63b104a21757c63b9ad8d2954ed778d4b8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 207106d8daab4d5d2a6d8d681aad5a20923a5a48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285752"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009057"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
 
@@ -95,9 +95,9 @@ Quando os eventos do rato ocorrem numa camada que contém pontos de dados agrupa
 | Nome da propriedade             | Tipo    | Descrição   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
-| `cluster_id`              | cadeia  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
+| `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
 | `point_count`             | número  | O número de pontos que o cluster contém.  |
-| `point_count_abbreviated` | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
+| `point_count_abbreviated` | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
 
 Este exemplo toma uma camada de bolha que torna os pontos de cluster e adiciona um evento de clique. Quando o evento de clique dispara, o código calcula e amplia o mapa para o nível de zoom seguinte, no qual o cluster se parte. Esta funcionalidade é implementada usando o `getClusterExpansionZoom` método da classe e a propriedade do ponto de `DataSource` `cluster_id` dados agrupado clicado.
 

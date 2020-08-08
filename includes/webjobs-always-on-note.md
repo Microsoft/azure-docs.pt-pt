@@ -5,15 +5,15 @@ services: app-service
 author: ggailey777
 ms.service: app-service
 ms.topic: include
-ms.date: 02/19/2019
+ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 82e5221daefaecb687ad9feb79305e546d4ec17e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c255be53a1809bf5dd3fc6b184852767dfec9c66
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68424154"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009797"
 ---
 > [!NOTE]
-> Uma aplicação web pode sair após 20 minutos de inatividade. Apenas os pedidos para a aplicação web real redefinir o temporizador. Visualizar a configuração da aplicação no portal Azure ou fazer pedidos para o site de ferramentas avançadas `https://<app_name>.scm.azurewebsites.net` () não reinicie o temporizador. Se a sua aplicação funcionar continuamente ou programada (Timer Trigger) WebJobs, ative **Always On** para garantir que os WebJobs funcionam de forma fiável. Esta funcionalidade está disponível apenas nos [níveis](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)básico, standard e premium.
+> Uma aplicação web pode sair após 20 minutos de inatividade. e apenas os pedidos para a aplicação web real podem redefinir o temporizador. Ver a configuração da aplicação no portal Azure ou fazer pedidos para o site de ferramentas avançadas `https://<app_name>.scm.azurewebsites.net` () não reinicia o temporizador. Se definir a sua aplicação web para executar WebJobs contínuos ou programados (timer-trigger), ative o **Always on** Setting na página de **Configuração** Azure da sua aplicação web para garantir que os WebJobs são executados de forma fiável. Esta funcionalidade está disponível apenas nos [níveis](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)básico, standard e premium.

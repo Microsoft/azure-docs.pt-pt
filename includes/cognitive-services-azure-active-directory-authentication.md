@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062689"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011022"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -17,7 +17,7 @@ ms.locfileid: "86062689"
 > 1. Atualmente, **apenas** a API de Visão De Computador, API facial, API de Análise de Texto, Leitor Imersivo, Reconhecedor de Formulários, Detetor de Anomalias e todos os serviços de Bing, exceto a autenticação de suporte de pesquisa personalizada Bing usando O Diretório Ativo Azure (AAD).
 > 2. A autenticação AAD deve ser sempre utilizada juntamente com o nome subdomínio personalizado do seu recurso Azure. [Os pontos finais regionais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) não suportam a autenticação AAD.
 
-Nas secções anteriores, mostrámos-lhe como autenticar contra os Serviços Cognitivos Azure utilizando uma chave de subscrição de um único serviço ou multi-serviço. Embora estas teclas ofereçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam aquém de cenários mais complexos que requerem controlos de acesso baseados em funções. Vamos dar uma olhada no que é necessário para autenticar usando o Azure Ative Directory (AAD).
+Nas secções anteriores, mostrámos-lhe como autenticar contra os Serviços Cognitivos Azure utilizando uma chave de subscrição de um único serviço ou multi-serviço. Embora estas teclas ofereçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam aquém de cenários mais complexos que requerem controlo de acesso baseado em funções Azure (Azure RBAC). Vamos dar uma olhada no que é necessário para autenticar usando o Azure Ative Directory (AAD).
 
 Nas secções seguintes, você usará o ambiente Azure Cloud Shell ou o CLI Azure para criar um subdomínio, atribuir papéis e obter um símbolo ao portador para chamar os Serviços Cognitivos Azure. Se ficar preso, são fornecidas ligações em cada secção com todas as opções disponíveis para cada comando em Azure Cloud Shell/Azure CLI.
 
@@ -45,7 +45,7 @@ O primeiro passo é criar um subdomínio personalizado. Se pretender utilizar um
 Agora que tem um subdomínio personalizado associado ao seu recurso, terá de atribuir um papel a um diretor de serviço.
 
 > [!NOTE]
-> Tenha em mente que as atribuições de funções da AAD podem demorar até cinco minutos a propagar-se.
+> Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se.
 
 1. Primeiro, vamos registar uma [aplicação AAD.](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0)
 
@@ -128,7 +128,7 @@ Antes de utilizar identidades geridas para recursos Azure para autorizar o acess
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
 - [CLI do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-- [Modelo de gestor de recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+- [Modelo Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
 - [Bibliotecas de clientes Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
 Para obter mais informações sobre identidades geridas, consulte [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).

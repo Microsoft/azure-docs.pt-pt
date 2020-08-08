@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507466"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011035"
 ---
 Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. O modo Debug é ativado passando o `--debug` interruptor com CLI e o `-Debug` interruptor com PowerShell. Assim que localizar o erro, siga este documento para resolver os erros.
 
@@ -88,7 +88,7 @@ Verifique se o **OSType** da versão de imagem que está a tentar criar o VM ou 
 
 ## <a name="unable-to-share-resources"></a>Unable to share resources (Não é possível partilhar recursos)
 
-A partilha de recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem através de subscrições é ativada utilizando [o Controlo de Acesso Baseado em Papéis](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+A partilha de recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem através de subscrições é ativada através do [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta.
 

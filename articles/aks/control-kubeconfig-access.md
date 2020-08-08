@@ -4,16 +4,16 @@ description: Saiba como controlar o acesso ao ficheiro de configuração Kuberne
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501632"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009295"
 ---
-# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize controlos de acesso baseados em funções Azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)
+# <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize o controlo de acesso baseado em funções Azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)
 
-Pode interagir com os clusters Kubernetes utilizando a `kubectl` ferramenta. O Azure CLI fornece uma maneira fácil de obter as credenciais de acesso e informações de configuração para ligar aos seus clusters AKS usando `kubectl` . Para limitar quem pode obter a configuração de Kubernetes *(kubeconfig)* e limitar as permissões que então têm, pode utilizar controlos de acesso baseados em funções (RBAC) baseados em funções Azure.
+Pode interagir com os clusters Kubernetes utilizando a `kubectl` ferramenta. O Azure CLI fornece uma maneira fácil de obter as credenciais de acesso e informações de configuração para ligar aos seus clusters AKS usando `kubectl` . Para limitar quem pode obter a configuração de Kubernetes *(kubeconfig*) e limitar as permissões que então têm, pode utilizar o controlo de acesso baseado em funções Azure (Azure RBAC).
 
 Este artigo mostra-lhe como atribuir funções DE RBAC que limitam quem pode obter a informação de configuração para um cluster AKS.
 
@@ -27,7 +27,7 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.65 ou p
 
 Quando interage com um cluster AKS utilizando a `kubectl` ferramenta, é utilizado um ficheiro de configuração que define informações de ligação do cluster. Este ficheiro de configuração é normalmente armazenado em *~/.kube/config*. Vários clusters podem ser definidos neste ficheiro *kubeconfig.* Alterna entre clusters utilizando o comando [de contexto de utilização de config kubectl.][kubectl-config-use-context]
 
-O comando [az aks get-credentials permite-lhe][az-aks-get-credentials] obter as credenciais de acesso para um cluster AKS e fundi-los no ficheiro *kubeconfig.* Você pode usar os controlos de acesso baseados em funções (RBAC) para controlar o acesso a estas credenciais. Estes papéis de Azure permitem definir quem pode recuperar o ficheiro *kubeconfig,* e que permissões têm dentro do cluster.
+O comando [az aks get-credentials permite-lhe][az-aks-get-credentials] obter as credenciais de acesso para um cluster AKS e fundi-los no ficheiro *kubeconfig.* Você pode usar o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso a estas credenciais. Estes papéis de Azure permitem definir quem pode recuperar o ficheiro *kubeconfig,* e que permissões têm dentro do cluster.
 
 Os dois papéis embutidos são:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485673"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007884"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de segurança Azure para o Lockbox do Cliente para o Microsoft Azure
 
@@ -222,13 +222,13 @@ A bordo dos registos de atividade gerados pelo Customer Lockbox para a Azure Sen
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: Manter um inventário das contas de utilizador que tenham acesso administrativo aos seus pedidos de Bloqueio de Clientes. Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Azure Ative Directory.
+**Orientação**: Manter um inventário das contas de utilizador que tenham acesso administrativo aos seus pedidos de Bloqueio de Clientes. Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Azure Ative Directory.
 
 Na organização do cliente, o utilizador que tem o papel de Proprietário para a subscrição do Azure recebe um e-mail da Microsoft, para os notificar sobre quaisquer pedidos de acesso pendentes. Para pedidos de bloqueio de clientes, esta pessoa é o aprovador designado.
 
 * [Compreender papéis personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Como configurar o RBAC para livros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Como configurar o Azure RBAC para livros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Compreender permissões de pedido de acesso no Lockbox do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -527,7 +527,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Azure 
 
 * [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Compreenda os controlos de acesso baseados em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Compreenda o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -919,7 +919,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d085ba494ea6bb6e9e80490d85e50f100fc0908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03b1d43eeaffe4449d85d384e669ba0950442ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485652"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003380"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de segurança Azure para Stream Analytics
 
@@ -248,7 +248,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação**: Stream Analytics não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida com o Azure Ative Directory e assegurada por controlos de acesso baseados em funções (RBAC) para gerir o serviço. Dependendo dos serviços de fluxo de injeção e serviços de saída, é necessário rodar credenciais configuradas nos trabalhos.
+**Orientação**: Stream Analytics não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida com o Azure Ative Directory e assegurada pelo controlo de acesso baseado em funções (RBAC) para gerir o serviço. Dependendo dos serviços de fluxo de injeção e serviços de saída, é necessário rodar credenciais configuradas nos trabalhos.
 
 * [Rode as credenciais de login para entradas e saídas de um trabalho stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -442,11 +442,11 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções (RBAC) para controlar a forma como os utilizadores interagem com o serviço.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar a forma como os utilizadores interagem com o serviço.
 
-* [Como configurar o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -932,7 +932,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-* [Use etiquetas para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -996,7 +996,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

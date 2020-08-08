@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17847546ace558d367aed6d935db0fed6d817f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742203"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009567"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada
+# <a name="delegate-access-to-privileged-identity-management"></a>Delegado de acesso à Gestão de Identidade Privilegiada
 
-O administrador global que permite a Gestão de Identidade Privilegiada (PIM) para uma organização obtém automaticamente atribuições de funções e acesso à Gestão de Identidade Privilegiada. Ninguém mais na sua organização Azure Ative Directory (Azure AD) obtém acesso por padrão por defeito, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso apenas de leitura à Gestão de Identidade Privilegiada. Para conceder acesso à Gestão de Identidade Privilegiada, o primeiro utilizador pode atribuir outros à **função de Administrador de Função Privilegiada.**
+Para delegar o acesso à Gestão de Identidade Privilegiada (PIM), um Administrador Global pode atribuir outros utilizadores à função de Administrador de Função Privilegiada. Por padrão, os administradores de segurança e os leitores de Segurança têm acesso apenas de leitura à Gestão de Identidade Privilegiada. Para conceder acesso à Gestão de Identidade Privilegiada, o primeiro utilizador pode atribuir outros à **função de Administrador de Função Privilegiada.** O papel de Administrador de Função Privilegiada é necessário apenas para gerir funções Azure AD. As permissões privilegiadas de administrador de funções não são necessárias para gerir as definições para os recursos Azure.
 
 > [!NOTE]
-> Gerir a Gestão de Identidade Privilegiada requer autenticação multi-factor Azure. Uma vez que as contas da Microsoft não podem registar-se para autenticação multi-factor Azure, um utilizador que se inscreva numa conta da Microsoft não pode aceder à Gestão de Identidade Privilegiada.
+> Gerir a Gestão de Identidade Privilegiada requer autenticação multi-factor Azure. Como as contas da Microsoft não podem registar-se para autenticação multi-factor Azure, um utilizador que se inscreva numa conta da Microsoft não pode aceder à Gestão de Identidade Privilegiada.
 
 Certifique-se de que há sempre pelo menos dois utilizadores numa função de Administrador de Função Privilegiada, caso um utilizador esteja bloqueado ou a sua conta seja eliminada.
 
-## <a name="grant-access-to-manage-pim"></a>Conceder acesso à gestão da PIM
+## <a name="delegate-access-to-manage-pim"></a>Delegado de acesso para gerir PIM
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -46,9 +46,9 @@ Certifique-se de que há sempre pelo menos dois utilizadores numa função de Ad
 
     ![Administrador privilegiado - Membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. **Selecione Adicionar membro** para abrir o painel de membros geridos Add.
+1. **Selecione Adicionar membro** para abrir o painel de **membros geridos Add.**
 
-1. **Selecione Selecione os membros** para abrir o painel de membros Select.
+1. **Selecione Selecione os membros** para abrir o painel **de membros Select.**
 
     ![Administrador privilegiado de funções - Selecione membros](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 
@@ -86,6 +86,6 @@ Antes de remover alguém da função de Administrador de Função Privilegiada, 
 
 1. Quando lhe for solicitado que confirme que pretende retirar o membro da função, selecione **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Começar a utilizar o Privileged Identity Management](pim-getting-started.md)

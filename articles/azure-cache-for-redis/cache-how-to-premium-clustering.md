@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856325"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004764"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o agrupamento Redis para um Premium Azure Cache para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar o agrupamento numa cache Azure premium para o exemplo de Redis.
-
-Para obter informações sobre outras funcionalidades de cache premium, consulte [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>O que é Redis Cluster?
 Azure Cache para Redis oferece cluster Redis como [implementado em Redis](https://redis.io/topics/cluster-tutorial). Com o Redis Cluster, obtém os seguintes benefícios: 
@@ -26,7 +24,7 @@ Azure Cache para Redis oferece cluster Redis como [implementado em Redis](https:
 * Mais produção: A produção aumenta linearmente à medida que aumenta o número de fragmentos. 
 * Mais tamanho da memória: Aumenta linearmente à medida que aumenta o número de fragmentos.  
 
-O agrupamento não aumenta o número de ligações disponíveis para uma cache agrupada. Para obter mais informações sobre tamanho, produção e largura de banda com caches premium, veja [o que Azure Cache para a oferta e tamanho redis devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+O agrupamento não aumenta o número de ligações disponíveis para uma cache agrupada. Para obter mais informações sobre tamanho, produção e largura de banda com caches premium, consulte [Escolher o nível certo](cache-overview.md#choosing-the-right-tier)
 
 Em Azure, o cluster Redis é oferecido como um modelo primário/réplica onde cada fragmento tem um par primário/réplica com replicação onde a replicação é gerida por Azure Cache para o serviço Redis. 
 
@@ -91,7 +89,7 @@ A lista que se segue contém respostas para perguntas comumente feitas sobre Azu
   Para obter mais informações, consulte [a Especificação do Cluster Redis - Subconjunto implementado.](https://redis.io/topics/cluster-spec#implemented-subset)
 * Se estiver a utilizar [o StackExchange.Redis,](https://www.nuget.org/packages/StackExchange.Redis/)tem de utilizar 1.0.481 ou mais tarde. Ligue-se à cache utilizando os [mesmos pontos finais, portas e chaves](cache-configure.md#properties) que utiliza ao ligar a uma cache que não tem o agrupamento ativado. A única diferença é que todas as leituras e escritos devem ser feitos na base de dados 0.
   
-  * Outros clientes podem ter requisitos diferentes. [Vê todos os clientes redis suportam agrupamento?](#do-all-redis-clients-support-clustering)
+  Outros clientes podem ter requisitos diferentes. [Vê todos os clientes redis suportam agrupamento?](#do-all-redis-clients-support-clustering)
 * Se a sua aplicação utilizar várias operações de chave num único comando, todas as chaves devem estar localizadas no mesmo fragmento. Para localizar as chaves no mesmo fragmento, vê [como as chaves são distribuídas num aglomerado?](#how-are-keys-distributed-in-a-cluster)
 * Se estiver a utilizar o fornecedor Redis ASP.NET Session State, deve utilizar 2.0.1 ou superior. Ver [Posso usar o agrupamento com os fornecedores redis ASP.NET Session State e Output Caching?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -155,10 +153,10 @@ O agrupamento só está disponível para caches premium.
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Estou a receber exceções ao usar StackExchange.Redis e agrupamento, o que devo fazer?
 Se estiver a utilizar o StackExchange.Redis e receber `MOVE` exceções ao utilizar o clustering, certifique-se de que está a utilizar [o StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou mais tarde. Para obter instruções sobre a configuração das suas aplicações .NET para utilizar o StackExchange.Redis, consulte [configurar os clientes cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## <a name="next-steps"></a>Próximos passos
-Aprenda a usar mais funcionalidades de cache premium.
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre o Azure Cache para funcionalidades redis.
 
-* [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
+* [Cache Azure para os níveis de serviço Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

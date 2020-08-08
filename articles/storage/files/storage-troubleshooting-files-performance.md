@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: ceadc2d37b9d13502b5ae20605ff083edfd5c51f
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987006"
+ms.locfileid: "88009278"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
@@ -182,22 +182,27 @@ Maior do que o esperado, a latência acede aos Ficheiros Azure para cargas de tr
 6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione o tipo **de resposta**.
 7. Clique nos valores de **dimensionamento** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
-> [!NOTE]
-> Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
+  > [!NOTE]
+  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
 
 8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
 9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 
-> [!NOTE]
-> Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+  > [!NOTE]
+  > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
 10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
-> [!TIP]
-> Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
+  > [!TIP]
+  > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
 11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="see-also"></a>Veja também
+* [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure](storage-files-faq.md)

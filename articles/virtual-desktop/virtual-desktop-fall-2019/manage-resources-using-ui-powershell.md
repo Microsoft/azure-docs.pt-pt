@@ -1,19 +1,17 @@
 ---
 title: Implemente uma ferramenta de gestão para o Windows Virtual Desktop (clássico) utilizando o principal do serviço - Azure
 description: Como implementar a ferramenta de gestão para o Windows Virtual Desktop (clássico) utilizando o PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284970"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005776"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão virtual do Windows Desktop (clássica) com o PowerShell
 

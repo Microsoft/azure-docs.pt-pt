@@ -1,19 +1,17 @@
 ---
 title: Ficheiros de contentores de perfis FSLogix do Windows Virtual Desktop - Azure
 description: Este artigo descreve os contentores de perfil FSLogix dentro dos ficheiros Windows Virtual Desktop e Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611981"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002394"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -49,15 +47,15 @@ A tabela a seguir mostra benefícios e limitações de tecnologias anteriores de
 
 | Tecnologia | Configurações modernas | Definições win32 | Definições de SO | Dados de utilizador | Suportado no servidor SKU | Armazenamento back-end em Azure | Armazenamento em back-end no local | Suporte de versão | Sinal subsequente a tempo |Notas|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | No | Yes | Ganhar 7+ | Yes | |
-| **Perfil do utilizador roaming (RUP), modo de manutenção** | No | Sim | Sim | Sim | Sim| No | Yes | Ganhar 7+ | No | |
-| **Roaming do Estado da Empresa (ESR)** | Yes | No | Yes | No | Ver notas | Yes | No | Ganhar 10 | No | Funções no servidor SKU, mas sem interface de utilizador de suporte |
-| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | No | Yes | No | Yes | Ganhar 7+ | No |  |
-| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Yes | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | No | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
+| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Ganhar 7+ | Sim | |
+| **Perfil do utilizador roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Ganhar 7+ | Não | |
+| **Roaming do Estado da Empresa (ESR)** | Sim | Não | Sim | Não | Ver notas | Sim | Não | Ganhar 10 | Não | Funções no servidor SKU, mas sem interface de utilizador de suporte |
+| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Ganhar 7+ | Não |  |
+| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Sim | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | Não | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
 
 #### <a name="performance"></a>Desempenho
 
-A UPD requer [espaços de armazenamento direto (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para atender aos requisitos de desempenho. UPD utiliza o protocolo Bloco de Mensagens do Servidor (SMB). Copia o perfil para o VM no qual o utilizador está a ser registado. UPD com S2D é a solução que recomendamos para o Windows Virtual Desktop.  
+A UPD requer [espaços de armazenamento direto (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para atender aos requisitos de desempenho. UPD utiliza o protocolo Bloco de Mensagens do Servidor (SMB). Copia o perfil para o VM no qual o utilizador está a ser registado. UPD com S2D é a solução que recomendamos para o Windows Virtual Desktop.
 
 #### <a name="cost"></a>Custo
 

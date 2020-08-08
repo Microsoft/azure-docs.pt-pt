@@ -1,19 +1,17 @@
 ---
 title: Acesso delegado no Windows Virtual Desktop - Azure
 description: Como delegar capacidades administrativas numa implementação virtual do Windows Desktop, incluindo exemplos.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4e63ec864da9a6e7ce5448b322e0452503e2493c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f2aa2c74704cf89c082d2837b39e82902efa0a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853437"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010060"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 
@@ -40,18 +38,18 @@ O acesso delegado ao Windows Virtual Desktop suporta os seguintes valores para c
 
 Antes de iniciar, certifique-se de seguir as instruções no [Conjunto do módulo PowerShell](powershell-module.md) para configurar o módulo PowerShell virtual do Windows Desktop se ainda não o fez.
 
-O Windows Virtual Desktop utiliza o controlo de acesso baseado em funções Azure (Azure RBAC) enquanto publica grupos de aplicações para utilizadores ou grupos de utilizadores. A função de Utilizador de Virtualização desktop é atribuída ao utilizador ou grupo de utilizadores e o âmbito é o grupo de aplicações. Esta função dá ao utilizador um acesso especial aos dados no grupo de aplicações.  
+O Windows Virtual Desktop utiliza o controlo de acesso baseado em funções Azure (Azure RBAC) enquanto publica grupos de aplicações para utilizadores ou grupos de utilizadores. A função de Utilizador de Virtualização desktop é atribuída ao utilizador ou grupo de utilizadores e o âmbito é o grupo de aplicações. Esta função dá ao utilizador um acesso especial aos dados no grupo de aplicações.
 
 Executar o seguinte cmdlet para adicionar utilizadores do Azure Ative Directory a um grupo de aplicações:
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Executar o seguinte cmdlet para adicionar o grupo de utilizadores do Azure Ative Directory a um grupo de aplicações:
 
 ```powershell
-New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

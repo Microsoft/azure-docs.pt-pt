@@ -2,13 +2,14 @@
 title: Utilizar pontos finais privados com contas do Azure Batch
 description: Aprenda a ligar-se em privado a uma conta Azure Batch utilizando pontos finais privados.
 ms.topic: how-to
-ms.date: 06/12/2020
-ms.openlocfilehash: 04f52c8c58668b2978b38c65a94533a38c593888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.custom: references_regions
+ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754484"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004240"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utilizar pontos finais privados com contas do Azure Batch
 
@@ -16,16 +17,11 @@ Por padrão, [as contas do Azure Batch](accounts.md) têm um ponto final públic
 
 Utilizando [o Azure Private Link,](../private-link/private-link-overview.md)pode ligar-se a uma conta Azure Batch através de um [ponto final privado.](../private-link/private-endpoint-overview.md) O ponto final privado é um conjunto de endereços IP privados numa sub-rede dentro da sua rede virtual. Em seguida, pode limitar o acesso a uma conta Azure Batch em endereços IP privados.
 
-O Private Link permite que os utilizadores acedam a uma conta Azure Batch a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+O Private Link permite que os utilizadores acedam a uma conta Azure Batch a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Pode ligar-se a uma conta Azure Batch configurada com o Private Link utilizando o [método de aprovação automática ou manual.](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)
 
-Pode ligar-se a uma conta Azure Batch configurada com o Private Link utilizando o [método de aprovação automática ou manual.](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)
+O apoio à conectividade privada em Azure Batch está atualmente disponível nas seguintes regiões de Azure: West Central US, West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona, East Asia, France, e UK South.
 
 Este artigo descreve os passos para criar uma conta privada do Batch e acedê-la através de um ponto final privado.
-
-> [!IMPORTANT]
-> O apoio à conectividade privada em Azure Batch está atualmente em pré-visualização pública para as regiões do West Central US, West US 2, East US, South Central US, US Gov Virginia e EUA Gov Arizona.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -106,7 +102,7 @@ Ao criar a sua conta privada Batch, tenha em mente o seguinte:
 - Uma vez criada uma conta Batch com acesso à rede pública, não é possível alterá-la apenas para acesso privado.
 - Os registos DNS na zona privada do DNS não são removidos automaticamente quando elimina um ponto final privado ou quando remove uma região da conta Batch. Deve remover manualmente os registos DNS antes de adicionar um novo ponto final privado ligado a esta zona privada de DNS. Se não limpar os registos do DNS, podem ocorrer problemas inesperados de planos de dados, tais como interrupções de dados em regiões adicionadas após a remoção do ponto final privado ou remoção da região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar piscinas de Lote em redes virtuais.](batch-virtual-network.md)
 - Saiba como [criar piscinas de lote com endereços IP públicos especificados.](create-pool-public-ip.md)

@@ -1,19 +1,17 @@
 ---
 title: Atualizações do serviço de piscina do anfitrião virtual do Windows Desktop - Azure
 description: Como criar um pool de anfitriões de validação para monitorizar as atualizações do serviço antes de lançar atualizações para a produção.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 177763e7939de082faa0c83d2ab661292f0758b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292654"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008717"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar uma piscina de anfitriões para validar atualizações de serviço
 
@@ -62,7 +60,7 @@ Os resultados do cmdlet devem ser semelhantes a esta saída:
     HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -77,7 +75,7 @@ Se houver alguma atualização de serviço, certifique-se de que tem pelo menos 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que criou um pool de anfitriões de validação, pode aprender a usar o Azure Service Health para monitorizar a sua implementação virtual do Windows Desktop. 
+Agora que criou um pool de anfitriões de validação, pode aprender a usar o Azure Service Health para monitorizar a sua implementação virtual do Windows Desktop.
 
 > [!div class="nextstepaction"]
 > [Configurar alertas de serviço](./set-up-service-alerts.md)

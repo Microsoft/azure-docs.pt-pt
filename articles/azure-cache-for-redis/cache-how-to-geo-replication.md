@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184978"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003694"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a geo-replicação para Azure Cache para Redis
 
@@ -24,7 +24,7 @@ A geo-replicação fornece um mecanismo para ligar dois Cache Azure de nível Pr
 
 Para configurar a geo-replicação entre duas caches, devem ser cumpridos os seguintes pré-requisitos:
 
-- Ambos os caches são caches [de nível Premium.](cache-premium-tier-intro.md)
+- Ambos os caches são caches [de nível Premium.](cache-overview.md#service-tiers)
 - Ambos os caches estão na mesma subscrição do Azure.
 - A cache ligada secundária é do mesmo tamanho de cache ou de um tamanho de cache maior do que a cache ligada primária.
 - Ambos os caches são criados e em estado de execução.
@@ -186,5 +186,6 @@ A falha automática nas regiões de Azure não é suportada por caches geo-repli
 Para iniciar uma falha iniciada pelo cliente, primeiro desvincula as caches. Em seguida, mude o seu cliente Redis para utilizar o ponto final de ligação da cache secundária (anteriormente ligada). Quando os dois caches são desvinculados, a cache secundária torna-se novamente uma cache de leitura-escrita regular e aceita pedidos diretamente dos clientes Redis.
 
 ## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre o Azure Cache para funcionalidades redis.
 
-Saiba mais sobre o [Azure Cache para o nível Redis Premium.](cache-premium-tier-intro.md)
+* [Cache Azure para os níveis de serviço redis](cache-overview.md#service-tiers)

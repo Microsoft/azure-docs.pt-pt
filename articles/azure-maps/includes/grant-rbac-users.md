@@ -9,16 +9,16 @@ ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8dfc3714362b082168c32ba73e234e9b5fb43525
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 816e4e439bb98ced8bbc5b5d8a7d38ef65aee33f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545242"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010966"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Conceder acesso baseado em funções para utilizadores ao Azure Maps
 
-Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo um grupo AD Azure ou princípios de segurança a uma ou mais definições de funções de controlo de acesso Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*.
+Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo um grupo AD Azure ou princípios de segurança a uma ou mais definições de papel do Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*.
 
 * Para gerir de forma eficiente uma grande quantidade de acesso dos utilizadores ao Azure Maps, consulte [os Grupos AD Azure.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * Para que os utilizadores possam autenticar a aplicação, os utilizadores devem ser criados em Azure AD. Ver [Adicionar ou Eliminar utilizadores usando Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
@@ -27,7 +27,7 @@ Leia mais sobre [a Azure AD](https://docs.microsoft.com/azure/active-directory/f
 
 1. Aceda à sua **Conta Azure Maps.** Selecione a atribuição de função **do controlo de acesso (IAM).**  >  **Role assignment**
 
-    ![Grant RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
+    ![Conceder acesso usando Azure RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. No separador **Role assignments,** em **Role**, selecione uma definição de função incorporada no Azure Maps, como O Leitor **de Dados Azure Maps** ou **Azure Maps Data Contributor**. No **acesso de Atribuição a**, selecione **Azure AD utilizador, grupo ou principal de serviço**. Selecione o principal pelo nome. Em seguida, selecione **Guardar**.
 

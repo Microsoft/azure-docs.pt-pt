@@ -1,19 +1,17 @@
 ---
 title: Visão geral de resolução de problemas do Windows Virtual Desktop - Azure
 description: Uma visão geral para problemas de resolução de problemas enquanto configura um ambiente de ambiente de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292548"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009363"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de resolução de problemas, feedback e suporte para Windows Virtual Desktop
 

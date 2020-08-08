@@ -1,19 +1,17 @@
 ---
 title: Conexão de serviço de resolução de problemas Windows Virtual Desktop (clássico) - Azure
 description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a034cb8371972c2c7908cdba4dd491c17d8cc9f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292512"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008547"
 ---
 # <a name="windows-virtual-desktop-classic-service-connections"></a>Windows Virtual Desktop (clássico) conexões de serviço
 

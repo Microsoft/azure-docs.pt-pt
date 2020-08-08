@@ -3,16 +3,16 @@ title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321773"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002791"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
-Para simplificar a gestão de recursos, pode utilizar um modelo de Gestor de Recursos Azure (modelo ARM) para implementar recursos ao nível da sua subscrição Azure. Por exemplo, pode implementar [políticas](../../governance/policy/overview.md) e [controlos de acesso baseados em funções](../../role-based-access-control/overview.md) à sua subscrição, que as aplica em toda a sua subscrição. Também pode criar grupos de recursos dentro da subscrição e implementar recursos para grupos de recursos na subscrição.
+Para simplificar a gestão de recursos, pode utilizar um modelo de Gestor de Recursos Azure (modelo ARM) para implementar recursos ao nível da sua subscrição Azure. Por exemplo, pode implementar [políticas](../../governance/policy/overview.md) e [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) na sua subscrição, que as aplica através da sua subscrição. Também pode criar grupos de recursos dentro da subscrição e implementar recursos para grupos de recursos na subscrição.
 
 > [!NOTE]
 > Pode implementar 800 grupos de recursos diferentes numa implementação de nível de subscrição.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Controlo de acesso
 
-Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos de Gestor de Recursos RBAC e Azure](../../role-based-access-control/role-assignments-template.md).
+Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 
 O exemplo a seguir cria um grupo de recursos, aplica-lhe um bloqueio e atribui-lhe uma função a um principal.
 

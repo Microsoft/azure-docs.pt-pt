@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 2efe05ebb26030720a1af90c4a4de8d48ea37106
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b2144907c8c11e482a32121e7d7a22533a68a25e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201473"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003811"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Quickstart: Use Azure Cache para Redis com uma aplicação quadro .NET
 
@@ -66,7 +66,7 @@ Install-Package StackExchange.Redis
 Depois de concluída a instalação, o cliente de cache *StackExchange.Redis* está disponível para utilizar com o seu projeto.
 
 
-## <a name="connect-to-the-cache"></a>Ligar-se à cache
+## <a name="connect-to-the-cache"></a>Ligar à cache
 
 No Visual Studio, abra o seu ficheiro *App.config* e atualize-o para incluir um atributo `appSettings` `file` que referencia o ficheiro *CacheSecrets.config*.
 
@@ -167,7 +167,7 @@ static void Main(string[] args)
 }
 ```
 
-A azure Cache para Redis tem um número configurável de bases de dados (padrão de 16) que podem ser usadas para separar logicamente os dados dentro de uma Cache Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+A azure Cache para Redis tem um número configurável de bases de dados (padrão de 16) que podem ser usadas para separar logicamente os dados dentro de uma Cache Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-development-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser armazenados com os métodos `StringSet` e `StringGet`.
 
@@ -237,7 +237,7 @@ Prima **Ctrl+F5** para compilar e executar a aplicação de consola para testar 
 ![Aplicação de consola concluída](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 

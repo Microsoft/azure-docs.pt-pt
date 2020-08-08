@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857005"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004328"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis
 Import/Export é uma operação de gestão de dados Azure Cache para Redis, que permite importar dados para a Azure Cache para Redis ou exportar dados da Azure Cache para Redis importando e exportando uma cache Azure para Redis Database (RDB) de uma cache premium para uma bolha numa Conta de Armazenamento Azure.
@@ -24,7 +24,7 @@ A Importação/Exportação permite-lhe migrar entre diferentes Cache Azure para
 Este artigo fornece um guia para importar e exportar dados com a Azure Cache para redis e fornece as respostas às perguntas comumente colocadas.
 
 > [!IMPORTANT]
-> A importação/exportação só está disponível para caches [de nível premium.](cache-premium-tier-intro.md)
+> A importação/exportação só está disponível para caches [de nível Premium.](cache-overview.md#service-tiers)
 >
 >
 
@@ -151,7 +151,7 @@ Para resolver este problema, inicie a operação de importação ou exportação
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Tive um erro ao exportar os meus dados para o Azure Blob Storage. O que aconteceu?
 A exportação funciona apenas com ficheiros RDB armazenados como bolhas de página. Outros tipos de bolhas não são suportados atualmente, incluindo contas de armazenamento Blob com camadas quentes e frescas. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
-Aprenda a usar mais funcionalidades de cache premium.
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre o Azure Cache para funcionalidades redis.
 
-* [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
+* [Cache Azure para os níveis de serviço redis](cache-overview.md#service-tiers)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8afe6ad23f0e23e2b9ab772f5526c63d307fa88b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202892"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003245"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Como fazer: Escrever expressões para mapeamentos de atributos em Azure AD
 
@@ -34,6 +34,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
   2. Constantes de cordas, que devem ser fechadas em ações duplas. Por exemplo: "Estados Unidos"
   3. Outras Funções. Por exemplo: FunctionOne( `<<argument1>>` FunctionTwo( `<<argument2>>` ))
 * Para as constantes de corda, se necessitar de uma inclinação traseira (\ ) ou marca de citação (" ) na corda, deve ser escapado com o símbolo de backslash (\ ). Por exemplo: "Nome da empresa: \\ \\ "Contoso".
+* A sintaxe é sensível ao caso, que deve ser considerada enquanto os datilografa como cordas numa função vs cópia colando-as diretamente a partir daqui. 
 
 ## <a name="list-of-functions"></a>Lista de Funções
 
@@ -137,7 +138,7 @@ ConvertToUTF8Hex ("Olá mundo!")
 Devoluções 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Contagem
+### <a name="count"></a>de palavras
 **Função:**<br> Contagem (atributo)
 
 **Description:**<br> A função Contagem devolve o número de elementos num atributo multi-valor
@@ -174,7 +175,7 @@ Devoluções "cn=Joe,dc=contoso,dc=com"
 
 | Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
-| **valor** |Obrigatório | Data | Data AD a converter para o tipo DateTime |
+| **valor** |Obrigatório | Date | Data AD a converter para o tipo DateTime |
 
 **Exemplo:**<br>
 DataFromNum ([lastLogonTimestamp])                                                                                                   
@@ -532,7 +533,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |**Valor de origem** para atualizar. |
 | **padrãoValue** |Opcional |String |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
-| **chave** |Obrigatório |String |**Chave** para comparar o valor **da fonte** com. |
+| **key** |Obrigatório |String |**Chave** para comparar o valor **da fonte** com. |
 | **valor** |Obrigatório |String |Valor de substituição da **fonte** correspondente à chave. |
 
 ---

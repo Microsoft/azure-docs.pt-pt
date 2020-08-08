@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 07/31/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ec3896b85f825b22dc9b57d4220e1cdcdf3e390
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500883"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003621"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -33,7 +33,9 @@ O Farol Azure permite uma maior flexibilidade na gestão de recursos para vário
 
 Pode executar tarefas de gestão em recursos delegados, quer diretamente no portal, quer utilizando APIs e ferramentas de gestão (como Azure CLI e Azure PowerShell). Todas as APIs existentes podem ser utilizadas quando trabalham com recursos delegados, desde que a funcionalidade seja suportada para a gestão de inquilinos cruzados e o utilizador tenha as permissões adequadas.
 
-Os comandos Azure CLI, tais como [a lista de conta az,](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridosbyTenants** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
+O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` atributos e `ManagedByTenantIds` atributos para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence a um inquilino de cliente gerido ou ao seu inquilino gerente.
+
+Da mesma forma, os comandos Azure CLI, como [a lista de conta az,](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os `homeTenantId` atributos e `managedByTenants` atributos.
 
 > [!TIP]
 > Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .

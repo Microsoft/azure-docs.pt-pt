@@ -1,26 +1,26 @@
 ---
 title: Definir funções Azure para acesso administrativo Azure
 titleSuffix: Azure Cognitive Search
-description: Controlo administrativo baseado em funções (RBAC) no portal Azure para controlar e delegar tarefas administrativas para a gestão da Pesquisa Cognitiva Azure.
+description: Controlo de acesso baseado em funções (RBAC) no portal Azure para controlar e delegar tarefas administrativas para a gestão da Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d1b2576eb42cbe25919eb77fc30e2720ed812ca4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c01806194156fb43524e2db5f4c9bf636186de95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534435"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009210"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções Azure para acesso administrativo à Pesquisa Cognitiva Azure
 
 O Azure fornece um [modelo global de autorização baseado em papéis](../role-based-access-control/role-assignments-portal.md) para todos os serviços geridos através do portal ou apis do Gestor de Recursos. As funções de Proprietário, Colaborador e Leitor determinam o nível de administração de *serviços* para utilizadores, grupos e princípios de segurança ativos atribuídos a cada função. 
 
 > [!Note]
-> Não existem controlos de acesso baseados em funções para assegurar partes de um índice ou de um subconjunto de documentos. Para o acesso à identidade sobre os resultados da pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [Secure with Ative Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Não existe um controlo de acesso baseado em funções (RBAC) para assegurar partes de um índice ou de um subconjunto de documentos. Para o acesso à identidade sobre os resultados da pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [Secure with Ative Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## <a name="management-tasks-by-role"></a>Tarefas de gestão por função
 
@@ -50,7 +50,7 @@ A tabela seguinte resume as operações permitidas na Pesquisa Cognitiva Azure e
 | Gerir as teclas de administração | Chave de administração, Rbac Proprietário ou Colaborador no recurso |
 | Gerir chaves de consulta |  Chave de administração, Rbac Proprietário ou Colaborador no recurso  |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização na Pesquisa Cognitiva Azure](search-performance-optimization.md)
