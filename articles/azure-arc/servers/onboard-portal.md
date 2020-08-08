@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/23/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bc9bc034abce789046803bbcad5b750984c905cb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: f88fc4a1fd5c44b515ab44b604ebf9a885165ddc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008004"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -50,7 +50,9 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 1. Na página **de script 'Gerar',** na lista de down-down **do sistema Operativo,** selecione o sistema operativo em que o script estará em execução.
 
 1. Se a máquina estiver a comunicar através de um servidor proxy para se ligar à internet, selecione **Seguinte: Proxy Server**.
+
 1. No **separador servidor Proxy,** especifique o endereço IP do servidor proxy ou o nome e número de porta que a máquina utilizará para comunicar com o servidor proxy. Introduza o valor no `http://<proxyURL>:<proxyport>` formato.
+
 1. Selecione **Review + gerar**.
 
 1. No **separador 'Rever +' gerar,** rever as informações de resumo e, em seguida, selecione **Download**. Se ainda precisar de fazer alterações, selecione **Anterior**.
@@ -65,7 +67,7 @@ Pode instalar manualmente o agente 'Máquina Conectada' executando o pacote do I
 >* Para instalar ou desinstalar o agente, tem de ter permissões *de Administrador.*
 >* Primeiro, tem de descarregar e copiar o pacote Installer para uma pasta no servidor alvo ou a partir de uma pasta de rede partilhada. Se executar o pacote Installer sem quaisquer opções, inicia um assistente de configuração que pode seguir para instalar o agente interativamente.
 
-Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, é necessário executar um comando que é descrito mais tarde no artigo. Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` .
+Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, é necessário executar um comando descrito nos degraus abaixo. Este comando define a variável ambiente do sistema de servidor proxy `https_proxy` .
 
 Se não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, reveja [as opções padrão da linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [as opções de linha de comando Msiexec](/windows/win32/msi/command-line-options).
 
@@ -75,13 +77,32 @@ Por exemplo, executar o programa de instalação com o `/?` parâmetro para reve
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Para instalar o agente em silêncio e criar um ficheiro de registo de configuração na `C:\Support\Logs` pasta que existe, executar o seguinte comando.
+1. Para instalar o agente em silêncio e criar um ficheiro de registo de configuração na `C:\Support\Logs` pasta que existe, executar o seguinte comando.
 
-```dos
-msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
-```
+    ```dos
+    msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+    ```
 
-Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+
+2. Se a máquina precisar de comunicar através de um servidor proxy, para definir a variável de ambiente do servidor proxy, executar o seguinte comando:
+
+    ```powershell
+    [Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
+    $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+    # For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+    Restart-Service -Name himds
+    ```
+
+    >[!NOTE]
+    >O agente não suporta a autenticação de configuração por procuração nesta pré-visualização.
+    >
+
+3. Após instalar o agente, terá de configurá-lo para comunicar com o serviço Azure Arc ao executar o seguinte comando:
+
+    ```dos
+    "%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"
+    ```
 
 ### <a name="install-with-the-scripted-method"></a>Instalar com o método scripted
 
@@ -97,34 +118,13 @@ Se o agente não iniciar após a configuração terminar, verifique se os regist
 
 Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
-### <a name="configure-the-agent-proxy-setting"></a>Configure a definição de procuração de agente
-
-Para definir a variável ambiente do servidor proxy, executar o seguinte comando:
-
-```powershell
-# If a proxy server is needed, execute these commands with the proxy URL and port.
-[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
-Restart-Service -Name himds
-```
-
->[!NOTE]
->O agente não suporta a autenticação de configuração por procuração nesta pré-visualização.
->
-
-### <a name="configure-agent-communication"></a>Comunicação de agente de configuração
-
-Depois de instalar o agente, é necessário configurar o agente para comunicar com o serviço Azure Arc executando o seguinte comando:
-
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instale e valide o agente no Linux
 
 O agente da Máquina Conectada para o Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft. O [pacote `Install_linux_azcmagent.sh` de script](https://aka.ms/azcmagent) shell executa as seguintes ações:
 
 - Configura a máquina hospedeira para descarregar o pacote de agente a partir de packages.microsoft.com.
 - Instala o pacote Fornecedor de Recursos Híbridos.
+- Regista a máquina com Arco Azure
 
 Opcionalmente, pode configurar o agente com as suas informações de procuração, incluindo o `--proxy "{proxy-url}:{proxy-port}"` parâmetro.
 
@@ -150,18 +150,9 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 ```
 
-### <a name="configure-the-agent-communication"></a>Configure a comunicação do agente
-
-Depois de instalar o agente, configuure-o para comunicar com o serviço Azure Arc executando o seguinte comando:
-
-`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
->[!NOTE]
->Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
-
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a ligação com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor está ligado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

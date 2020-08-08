@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop ambiente anfitrião criação de piscina - Azure
 description: Como resolver problemas e resolver problemas de inquilinos e piscinas durante a configuração de um ambiente de desktop virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292558"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006167"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -37,13 +35,13 @@ Para utilizar a imagem multi-sessão empresarial do Windows 10, vá ao Azure Mar
 > [!div class="mx-imgBorder"]
 > ![Uma imagem mostrando o portal Azure exibindo a mensagem "Criar uma conta gratuita"](media/create-new-account.png)
 
-**Causa**: Não existem subscrições ativas na conta com a qual assinou com o Azure, ou a conta não tem permissões para visualizar as subscrições. 
+**Causa**: Não existem subscrições ativas na conta com a qual assinou com o Azure, ou a conta não tem permissões para visualizar as subscrições.
 
 **Correção**: Faça o sessão onde irá implantar as máquinas virtuais (VMs) do anfitrião da sessão com uma conta que tenha pelo menos acesso ao nível do contribuinte.
 
 ### <a name="error-exceeding-quota-limit"></a>Erro: "Exceder o limite de quota"
 
-Se a sua operação ultrapassar o limite de quota, pode fazer uma das seguintes coisas: 
+Se a sua operação ultrapassar o limite de quota, pode fazer uma das seguintes coisas:
 
 - Crie uma nova piscina hospedeira com os mesmos parâmetros, mas menos VMs e núcleos VM.
 
@@ -119,9 +117,9 @@ Para corrigir isto, faça as seguintes coisas:
 Exemplo de erro bruto:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Exemplo de erro bruto:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Exemplo de erro bruto:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

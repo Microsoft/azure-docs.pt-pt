@@ -5,12 +5,12 @@ description: Conheça as melhores práticas do operador de cluster para isolamen
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077771"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003114"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Melhores práticas para isolamento de clusters no Serviço Azure Kubernetes (AKS)
 
@@ -42,7 +42,7 @@ Com isolamento lógico, um único cluster AKS pode ser usado para várias cargas
 
 A separação lógica dos aglomerados geralmente proporciona uma densidade de vagem mais alta do que os aglomerados fisicamente isolados. Há menos capacidade de computação em excesso que fica inativo no cluster. Quando combinado com o autoescalador de cluster Kubernetes, pode escalar o número de nós para cima ou para baixo para satisfazer as exigências. Esta abordagem de boas práticas para a autoscalagem permite-lhe executar apenas o número de nós necessários e minimiza os custos.
 
-Os ambientes kubernetes, em AKS ou em qualquer outro lugar, não são completamente seguros para uso hostil de vários inquilinos. Num ambiente multi-inquilino, vários inquilinos estão trabalhando numa infraestrutura comum e partilhada. Como resultado, se não é de confiança a todos os inquilinos, você precisa fazer um planeamento adicional para evitar que um inquilino impacte a segurança e o serviço de outro. Funcionalidades de segurança adicionais, como a Política de *Segurança do Pod* e controlos de acesso baseados em papéis mais finos (RBAC) para nós dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados.
+Os ambientes kubernetes, em AKS ou em qualquer outro lugar, não são completamente seguros para uso hostil de vários inquilinos. Num ambiente multi-inquilino, vários inquilinos estão trabalhando numa infraestrutura comum e partilhada. Como resultado, se não é de confiança a todos os inquilinos, você precisa fazer um planeamento adicional para evitar que um inquilino impacte a segurança e o serviço de outro. Funcionalidades de segurança adicionais, como a Política de *Segurança do Pod* e o controlo de acesso baseado em papéis mais finos (RBAC) para os nós dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados.
 
 ## <a name="physically-isolate-clusters"></a>Aglomerados fisicamente isolados
 
@@ -54,7 +54,7 @@ Uma abordagem comum ao isolamento do cluster é usar aglomerados AKS fisicamente
 
 Os aglomerados fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipa ou carga de trabalho tem o seu próprio cluster AKS, o cluster é muitas vezes sobre-a provisionado com recursos computativos. Muitas vezes, um pequeno número de cápsulas são programadas nesses nós. A capacidade não utilizada nos nós não pode ser utilizada para aplicações ou serviços em desenvolvimento por outras equipas. Estes recursos excedentários contribuem para os custos adicionais em agrupamentos fisicamente separados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se no isolamento do aglomerado. Para obter mais informações sobre as operações de cluster em AKS, consulte as seguintes boas práticas:
 

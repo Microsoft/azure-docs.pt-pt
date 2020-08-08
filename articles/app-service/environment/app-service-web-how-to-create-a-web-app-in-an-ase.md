@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220699"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007068"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num App Service Environment v1
 
@@ -40,7 +40,7 @@ Este tutorial pressupõe que criou um Ambiente de Serviço de Aplicações. Se a
     Se tiver várias subscrições, saiba que para criar uma aplicação no seu Ambiente de Serviço de Aplicações, precisa de utilizar a mesma subscrição que utilizou ao criar o ambiente. 
 3. Selecione ou crie um grupo de recursos.
    
-    *Os grupos de recursos* permitem-lhe gerir os recursos Azure relacionados como uma unidade e são úteis ao estabelecer regras *de controlo de acesso baseado em funções* (RBAC) para as suas apps. Para obter mais informações, veja [Descrição geral do Azure Resource Manager][ResourceGroups]. 
+    *Os grupos de recursos* permitem-lhe gerir os recursos Azure relacionados como uma unidade e são úteis ao estabelecer regras *de controlo de acesso baseado em funções Azure (Azure RBAC)* para as suas apps. Para obter mais informações, veja [Descrição geral do Azure Resource Manager][ResourceGroups]. 
 4. Selecione ou crie um plano do Serviço de Aplicações.
    
     *Os planos do Serviço de Aplicações* são geridos conjuntos de aplicações web.  Normalmente, quando seleciona preços, o preço cobrado é aplicado ao plano de Serviço de Aplicações e não às aplicações individuais. Numa ASE paga-se pelas instâncias de computação atribuídas ao ASE em vez do que enumerou com o seu ASP.  Para aumentar o número de casos de uma aplicação web, você escala os casos do seu plano de Serviço de Aplicações e afeta todas as aplicações web nesse plano.  Algumas funcionalidades, como slots de site ou integração VNET também têm restrições de quantidade dentro do plano.  Para mais informações, consulte [a visão geral dos planos do Azure App Service](../overview-hosting-plans.md)

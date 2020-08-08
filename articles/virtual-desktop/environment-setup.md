@@ -1,19 +1,17 @@
 ---
 title: Windows Ambiente de Trabalho Virtual - Azure
 description: Conheça os elementos básicos de um ambiente de desktop virtual do Windows, como piscinas de anfitriões e grupos de aplicações.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002620"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
 
@@ -49,7 +47,7 @@ Para publicar recursos aos utilizadores, deve atribuí-los a grupos de aplicaç�
 
 ## <a name="workspaces"></a>Áreas de trabalho
 
-Um espaço de trabalho é um agrupamento lógico de grupos de aplicações no Windows Virtual Desktop. Cada grupo de aplicações virtual do Windows Desktop deve estar associado a um espaço de trabalho para os utilizadores verem as aplicações remotas e os ambientes de trabalho que lhes são publicados.  
+Um espaço de trabalho é um agrupamento lógico de grupos de aplicações no Windows Virtual Desktop. Cada grupo de aplicações virtual do Windows Desktop deve estar associado a um espaço de trabalho para os utilizadores verem as aplicações remotas e os ambientes de trabalho que lhes são publicados.
 
 ## <a name="end-users"></a>Utilizadores finais
 

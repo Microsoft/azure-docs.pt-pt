@@ -1,19 +1,17 @@
 ---
 title: Implementar máquina virtual Windows 7 Windows Virtual Desktop - Azure
 description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285159"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007578"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
@@ -24,7 +22,7 @@ O processo de implantação de uma máquina virtual (VM) do Windows 7 no Windows
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, siga as instruções em [Criar uma piscina de anfitriões com PowerShell](create-host-pools-powershell.md) para criar uma piscina de anfitriões. Se estiver a utilizar o portal, siga as instruções nos passos 1 a 9 de [Criar uma piscina de anfitriões utilizando o portal Azure](create-host-pools-azure-marketplace.md). Depois disso, selecione **Review + Create** para criar uma piscina de anfitriões vazia. 
+Antes de começar, siga as instruções em [Criar uma piscina de anfitriões com PowerShell](create-host-pools-powershell.md) para criar uma piscina de anfitriões. Se estiver a utilizar o portal, siga as instruções nos passos 1 a 9 de [Criar uma piscina de anfitriões utilizando o portal Azure](create-host-pools-azure-marketplace.md). Depois disso, selecione **Review + Create** para criar uma piscina de anfitriões vazia.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configurar uma máquina virtual do Windows 7
 
@@ -49,9 +47,9 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
      ```
 
 12. Siga as instruções [aqui](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) para obter um sinal de inscrição.
-      
+
       - Se preferir usar o portal Azure, também pode ir à página geral da piscina de anfitrião a que pretende adicionar o VM e criar um símbolo lá.
-  
+
 13. [Descarregue o Windows Virtual Desktop Agent para o Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Descarregue o Gestor de Agente virtual do Windows para o Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Abra o instalador virtual do Windows Desktop Agent e siga as instruções. Quando solicitado, dê a chave de registo que criou no passo 12.

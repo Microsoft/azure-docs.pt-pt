@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 0376a57e3f2c1158e9da97fb291a28c99ce2463c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903969"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003577"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -38,6 +38,8 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
         - ModelosOperação
         - Consulta
         - AllMetrics
+        
+        Para mais detalhes sobre estas opções, consulte a secção [*de detalhes*](#category-details) da categoria abaixo.
      * **Detalhes do destino**: Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
         - Enviar para o Log Analytics
         - Arquivar numa conta de armazenamento
@@ -50,6 +52,47 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo configurado de volta na página **de definições de Diagnóstico,** para o seu exemplo. 
+
+## <a name="category-details"></a>Detalhes da categoria
+
+Aqui estão mais detalhes sobre as categorias de registo que podem ser selecionadas em **detalhes de categoria** ao configurar configurações de diagnóstico.
+
+| Categoria do registo | Descrição |
+| --- | --- |
+| ADTModelsOperação | Registar todas as chamadas da API relativas a Modelos |
+| ADTQueryOperação | Registar todas as chamadas da API relativas a consultas |
+| ADTEventRoutesOperação | Regisque todas as chamadas da API relativas às Rotas de Eventos, bem como a saída de eventos da Azure Digital Twins para um serviço de ponto final como Event Grid, Event Hubs e Service Bus |
+| ADTDigitalTwinsOperação | Registar todas as chamadas da API relativas às Gémeas Digitais Azure |
+
+Cada categoria de registo consiste em operações de escrita, leitura, exclusão e ação.  Estes mapas para rest API chamadas da seguinte forma:
+
+| Tipo de evento | Operações REST API |
+| --- | --- |
+| Escrita | PUT E PATCH |
+| Ler | GET |
+| Eliminar | DELETE |
+| Ação | POST |
+
+Aqui está uma lista completa das operações e [correspondentes chamadas API de Azure Digital Twins](https://docs.microsoft.com/rest/api/azure-digitaltwins/) REST que são registadas em cada categoria. 
+
+>[!NOTE]
+> Cada categoria de registo contém várias chamadas de API de operações/REST. Na tabela abaixo, cada categoria de registo mapeia todas as chamadas de API de operações/REST por baixo até à lista da próxima categoria de registo. 
+
+| Categoria do registo | Operação | REST Chamadas API e outros eventos |
+| --- | --- | --- |
+| ADTModelsOperação | Microsoft.DigitalTwins/models/write | Atualização de modelos digitais twin api |
+|  | Microsoft.DigitalTwins/modelos/ler | Modelos twin digital obter por Id e APIs listar |
+|  | Microsoft.DigitalTwins/models/delete | Modelos Gémeos Digitais Delete API |
+|  | Microsoft.DigitalTwins/modelos/ação | Modelos Twin Digitais Adicionam API |
+| ADTQueryOperação | Microsoft.DigitalTwins/consulta/ação | Consulta Gémeas API |
+| ADTEventRoutesOperação | Microsoft.DigitalTwins/eventroutes/write | Rotas do Evento Adicionar API |
+|  | Microsoft.DigitalTwins/eventroutes/read | Rotas de eventos obter por Id e APIs listar |
+|  | Microsoft.DigitalTwins/eventroutes/delete | Rotas do evento Eliminar API |
+|  | Microsoft.DigitalTwins/eventroutes/action | Egress de um evento para um serviço de Ponto Final (não uma chamada da API) |
+| ADTDigitalTwinsOperação | Microsoft.DigitalTwins/digitaltwins/write | Gémeos Digitais Adicionar, Adicionar Relacionamento, Atualização, Componente de Atualização |
+|  | Microsoft.DigitalTwins/digitaltwins/read | Gémeos Digitais Obter Por Id, Obter Componente, Obter Relacionamento por ID, Lista de Relacionamentos De Entrada, Relacionamentos de Lista |
+|  | Microsoft.DigitalTwins/digitaltwins/delete | Gémeos Digitais Delete, Excluir Relacionamento |
+|  | Microsoft.DigitalTwins/digitaltwins/action | Gémeos Digitais Enviam Telemetria Componente, Enviar Telemetria |
 
 ## <a name="next-steps"></a>Passos seguintes
 

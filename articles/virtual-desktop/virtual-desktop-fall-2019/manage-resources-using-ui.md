@@ -1,19 +1,17 @@
 ---
 title: Implementar ferramenta de gestão com um modelo de Gestor de Recursos Azure - Azure
 description: Como instalar uma ferramenta de interface de utilizador com um modelo de Gestor de Recursos Azure para gerir os recursos do Windows Virtual Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284953"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005708"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
@@ -112,6 +110,6 @@ Siga estas instruções para lançar a ferramenta:
 
 Se encontrar problemas com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos [modelos do Gestor de Recursos Azure para serviços de ambiente de trabalho remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para os reportar no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a implantar e conectar-se à ferramenta de gestão, pode aprender a usar o Serviço Azure para monitorizar problemas de serviço e avisos de saúde. Para saber mais, consulte o nosso [serviço de alertas de serviço tutorial.](set-up-service-alerts-2019.md)

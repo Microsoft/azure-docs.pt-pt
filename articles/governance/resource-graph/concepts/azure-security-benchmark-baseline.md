@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171810"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009006"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Linha de segurança Azure Resource Graph para referência de segurança Azure
 
@@ -26,7 +26,7 @@ Esta linha de base de segurança aplica orientações do Benchmark de [Seguranç
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Reveja e reconciliar regularmente o acesso dos utilizadores
 
-**Orientação**: O Azure Resource Graph fornece acesso a tipos de recursos e propriedades com base em controlos de acesso baseados em funções (RBAC). Auditar e rever o acesso concedido aos princípios de segurança (utilizadores, grupos e contas de serviço) regularmente para garantir que as consultas retornam os resultados dos recursos adequados.
+**Orientação**: O Azure Resource Graph fornece acesso a tipos e propriedades de recursos baseados no controlo de acesso baseado em funções Azure (Azure RBAC). Auditar e rever o acesso concedido aos princípios de segurança (utilizadores, grupos e contas de serviço) regularmente para garantir que as consultas retornam os resultados dos recursos adequados.
 
 * [Permissões no Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 

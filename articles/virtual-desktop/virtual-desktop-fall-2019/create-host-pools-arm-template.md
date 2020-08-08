@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (clássico) anfitrião piscina Azure Resource Manager - Azure
 description: Como criar uma piscina de anfitriões no Windows Virtual Desktop (clássico) com um modelo de Gestor de Recursos Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 88027db54f9b7d4a7ef2ef32d4ea0434d8a26a10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9999ae92840d79bb19464216c0f28504011b3f3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270265"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008326"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Crie uma piscina de anfitriões no Windows Virtual Desktop (clássico) com um modelo de Gestor de Recursos Azure
 

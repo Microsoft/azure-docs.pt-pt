@@ -3,16 +3,16 @@ title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321807"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002910"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
-À medida que a sua organização amadurece, pode implementar um modelo de Gestor de Recursos Azure (modelo ARM) para criar recursos ao nível do grupo de gestão. Por exemplo, poderá ser necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em funções](../../role-based-access-control/overview.md) para um grupo de gestão. Com modelos de nível de grupo de gestão, pode aplicar declarativamente políticas e atribuir funções ao nível do grupo de gestão.
+À medida que a sua organização amadurece, pode implementar um modelo de Gestor de Recursos Azure (modelo ARM) para criar recursos ao nível do grupo de gestão. Por exemplo, pode ser necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) para um grupo de gestão. Com modelos de nível de grupo de gestão, pode aplicar declarativamente políticas e atribuir funções ao nível do grupo de gestão.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
@@ -357,6 +357,6 @@ A partir de uma implementação de nível de grupo de gestão, você pode direci
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos de Gestor de Recursos RBAC e Azure](../../role-based-access-control/role-assignments-template.md).
+* Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) e [ao nível do inquilino.](deploy-to-tenant.md)

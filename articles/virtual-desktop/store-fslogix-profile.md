@@ -1,23 +1,21 @@
 ---
 title: Recipiente de perfil FSLogix de armazenamento Windows Virtual Desktop - Azure
 description: Opções para armazenar o seu perfil Virtual Desktop FSLogix no Azure Storage.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808521"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009414"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
 
-O Azure oferece múltiplas soluções de armazenamento que pode utilizar para armazenar o seu contentor de perfil FSLogix. Este artigo compara as soluções de armazenamento que o Azure oferece para os recipientes de perfil de utilizador do Windows Virtual Desktop FSLogix. Recomendamos o armazenamento de recipientes de perfil FSLogix em Ficheiros Azure para a maioria dos nossos clientes. 
+O Azure oferece múltiplas soluções de armazenamento que pode utilizar para armazenar o seu contentor de perfil FSLogix. Este artigo compara as soluções de armazenamento que o Azure oferece para os recipientes de perfil de utilizador do Windows Virtual Desktop FSLogix. Recomendamos o armazenamento de recipientes de perfil FSLogix em Ficheiros Azure para a maioria dos nossos clientes.
 
 O Windows Virtual Desktop oferece recipientes de perfil FSLogix como a solução recomendada para o perfil do utilizador. O FSLogix foi concebido para percorrer perfis em ambientes informáticos remotos, como o Windows Virtual Desktop. No início de sposição, este recipiente é ligado dinamicamente ao ambiente de computação utilizando um Disco Rígido Virtual (VHD) suportado de forma nativa e um Disco Rígido Virtual Hiper-V (VHDX). O perfil do utilizador está imediatamente disponível e aparece no sistema exatamente como um perfil de utilizador nativo.
 
@@ -41,13 +39,13 @@ As tabelas que se seguem comparam as soluções de armazenamento que o Azure Sto
 |Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Direto de Espaços de Armazenamento|
 |--------|-----------|------------------|---------------------|
 |Access|Nuvem, no local e híbrido (sincronização de ficheiros Azure)|Nuvem, no local (via ExpressRoute)|Nuvem, no local|
-|Backup|Integração de instantâneo de backup Azure|Fotos de ficheiros Azure NetApp|Integração de instantâneo de backup Azure|
+|Cópia de segurança|Integração de instantâneo de backup Azure|Fotos de ficheiros Azure NetApp|Integração de instantâneo de backup Azure|
 |Segurança e conformidade|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integração do Azure Active Directory|[Diretório Ativo Nativo e Serviços de Domínio do Diretório Ativo Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Serviços de domínio do diretório ativo Azure e diretório ativo nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Diretório Ativo Nativo ou Suporte de Serviços de Domínio de Diretório Ativo Azure apenas|
 
 Assim que tiver escolhido o seu método de armazenamento, consulte [os preços do Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre os nossos planos de preços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os recipientes de perfil FSLogix, discos de perfil do utilizador e outras tecnologias de perfil de utilizador, consulte a tabela em [recipientes de perfil FSLogix e ficheiros Azure](fslogix-containers-azure-files.md).
 

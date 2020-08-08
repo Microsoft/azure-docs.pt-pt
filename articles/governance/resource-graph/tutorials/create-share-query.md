@@ -3,16 +3,16 @@ title: 'Tutorial: Gerir consultas no portal Azure'
 description: Neste tutorial, cria-se uma Consulta de Gráfico de Recurso e partilha a nova consulta com outros no portal Azure.
 ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970591"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005183"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e partilhar uma consulta de Gráfico de Recursos Azure no portal Azure
 
-O Azure Resource Graph Explorer permite-lhe guardar as suas consultas de Gráfico de Recursos diretamente no portal Azure. Existem dois tipos de consultas: _Privado_ e _Partilhado._ Uma consulta privada é guardada nas definições do seu portal Azure. Enquanto uma consulta partilhada é um recurso Azure Resource Manager que pode ser gerido com controlos de acesso baseados em funções (RBAC) e protegido com bloqueios de recursos. Ambos os tipos de consultas são encriptados em repouso.
+O Azure Resource Graph Explorer permite-lhe guardar as suas consultas de Gráfico de Recursos diretamente no portal Azure. Existem dois tipos de consultas: _Privado_ e _Partilhado._ Uma consulta privada é guardada nas definições do seu portal Azure. Enquanto uma consulta partilhada é um recurso Azure Resource Manager que pode ser gerido com o controlo de acesso baseado em funções Azure (Azure RBAC) e protegido com bloqueios de recursos. Ambos os tipos de consultas são encriptados em repouso.
 
 Ao guardar consultas no portal Azure, poupa o tempo que poderia gastar à procura das suas consultas favoritas ou comumente usadas. Quando partilhas consultas, ajudas a tua equipa a perceber objetivos de consistência e eficiência através da repetição.
 
@@ -60,7 +60,7 @@ As consultas privadas são acessíveis e visíveis apenas à conta que as cria. 
 
 ## <a name="create-a-shared-query"></a>Criar uma consulta partilhada
 
-Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de Gestor de Recursos. Este facto significa que a consulta é guardada para um grupo de recursos, pode ser gerida e controlada com o RBAC, e pode até ser protegida com bloqueios de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
+Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de Gestor de Recursos. Este facto significa que a consulta é guardada para um grupo de recursos, pode ser gerida e controlada com o Azure RBAC, e pode até ser protegida com bloqueios de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
 Para criar uma nova consulta partilhada, siga estes passos:
 
 1. A partir do menu do portal, selecione **Todos os serviços**ou utilize a caixa de pesquisa Azure no topo de todas as páginas para procurar e selecionar **o Explorador de Gráficos de Recursos**.

@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 09b6bf6db5927c49950fc5b2a6d1753d53364380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 09b7fe1cc4f871d1f94844a8551479fabc0e22ff
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836654"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008853"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -179,7 +179,7 @@ Imagens da galeria Azure - Microsoft publicada | Suportado | Suportado se o VM f
 Imagens da Galeria Azure - Terceiro publicado | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 Imagens personalizadas - Terceiros publicados | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 VMs migraram usando a Recuperação do Local | Suportado | Se um VMware VM ou uma máquina física foi migrado para Azure usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço de mobilidade em funcionamento na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
-Políticas do RBAC | Não suportado | As políticas de controlo de acesso (RBAC) baseadas em funções (RBAC) não são replicadas para o VM de failover na região-alvo.
+Políticas do RBAC | Não suportado | As políticas de controlo de acesso baseados em funções (RBAC) em VM não são replicadas para o VM de failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas para o VM de failover na região-alvo. Tem de ser instalado manualmente após a falha.
 Grupos de colocação de proximidade | Suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade podem ser protegidas através da Recuperação do Local.
 

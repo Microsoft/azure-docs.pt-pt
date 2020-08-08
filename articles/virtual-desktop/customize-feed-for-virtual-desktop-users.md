@@ -1,19 +1,17 @@
 ---
 title: Personalize o feed para utilizadores do Windows Virtual Desktop - Azure
 description: Como personalizar o feed para utilizadores do Windows Virtual Desktop com cmdlets PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f11b4f58a41a3d8ed964169216fda00e7477f7d3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288779"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009125"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalize o feed para utilizadores do Windows Virtual Desktop
 

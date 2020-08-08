@@ -1,18 +1,16 @@
 ---
 title: Configure GPU para Windows Virtual Desktop - Azure
 description: Como permitir a renderização acelerada pela GPU e codificação no Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291499"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007781"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
 
@@ -58,7 +56,7 @@ Por predefinição, as aplicações e os desktops em execução em configuraçõ
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Codificação de quadros acelerados pela GPU
 
 O Ambiente de Trabalho Remoto codifica todos os gráficos renderizados por apps e ambientes de trabalho (seja renderizado com GPU ou com CPU) para transmissão a clientes de Ambiente de Trabalho Remoto. Quando uma parte do ecrã é frequentemente atualizada, esta parte do ecrã é codificada com um código de vídeo (H.264/AVC). Por predefinição, o Remote Desktop não aproveita as GPUs disponíveis para esta codificação. Configure a política de grupo para o anfitrião da sessão para permitir a codificação de quadros acelerados pela GPU. Continuando os passos acima:
- 
+
 >[!NOTE]
 >A codificação de quadros acelerados pela GPU não está disponível em VMs da série NVv4.
 

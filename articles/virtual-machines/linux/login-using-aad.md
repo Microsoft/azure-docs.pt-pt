@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534741"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002328"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -35,7 +35,7 @@ Existem muitos benefícios de usar a autenticação AZure AD para iniciar sessã
   - Para garantir o início de sessão nas máquinas virtuais Azure, pode configurar a autenticação de vários fatores.
   - A capacidade de iniciar sessão em VMs Linux com Azure Ative Directory também funciona para clientes que usam [serviços da Federação.](../../active-directory/hybrid/how-to-connect-fed-whatis.md)
 
-- **Colaboração sem emenda:** Com o Controlo de Acesso Baseado em Função (RBAC), pode especificar quem pode iniciar sedus num determinado VM como utilizador regular ou com privilégios de administrador. Quando os utilizadores se juntam ou deixam a sua equipa, pode atualizar a política do RBAC para que o VM conceda acesso conforme apropriado. Esta experiência é muito mais simples do que ter de esfregar VMs para remover chaves públicas desnecessárias do SSH. Quando os colaboradores deixam a sua organização e a sua conta de utilizador é desativada ou removida da Azure AD, já não têm acesso aos seus recursos.
+- **Colaboração sem emenda:** Com o controlo de acesso baseado em funções Azure (Azure RBAC), pode especificar quem pode iniciar sação num determinado VM como utilizador regular ou com privilégios de administrador. Quando os utilizadores se juntam ou deixam a sua equipa, pode atualizar a política do Azure RBAC para que o VM conceda acesso conforme apropriado. Esta experiência é muito mais simples do que ter de esfregar VMs para remover chaves públicas desnecessárias do SSH. Quando os colaboradores deixam a sua organização e a sua conta de utilizador é desativada ou removida da Azure AD, já não têm acesso aos seus recursos.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Regiões de Azure apoiadas e distribuição de Linux
 
@@ -121,7 +121,7 @@ A política de controlo de acesso baseado em funções (Azure RBAC) determina qu
 > [!NOTE]
 > Para permitir que um utilizador faça login no VM em vez de SSH, tem de atribuir o *Login do Administrador de Máquina Virtual* ou a função de Login do Utilizador de Máquina *Virtual.* Um utilizador Azure com as funções *Proprietário* ou *Contribuinte* atribuídos a um VM não tem automaticamente privilégios de iniciar sessão no VM sobre SSH.
 
-O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função *de Login do Administrador de Máquina Virtual* ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o *âmbito* é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou a nível de subscrição, e aplicam-se permissões de herança normal do RBAC. Para obter mais informações, consulte [controlos de acesso baseados em funções](../../role-based-access-control/overview.md)
+O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função *de Login do Administrador de Máquina Virtual* ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o *âmbito* é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para mais informações, consulte [a Azure RBAC](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > Se o seu domínio AAD e o nome de utilizador do logon não coincidirem, tem de especificar o ID do objeto da sua conta de utilizador com o *id de objecto-destinatário*, e não apenas o nome de utilizador para *--designado*. Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores de anúncios az](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte utilizando o [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [portal Azure](../../role-based-access-control/role-assignments-portal.md)ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte utilizando o [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [portal Azure](../../role-based-access-control/role-assignments-portal.md)ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure na nuvem.](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -185,7 +185,7 @@ Alguns erros comuns quando tenta sSH com credenciais AD Azure não incluem nenhu
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Acesso negado: Função Azure não atribuída
 
-Se vir o seguinte erro na sua solicitação SSH, verifique se configura as políticas de RBAC para o VM que concede ao utilizador o *Login do Administrador de Máquina Virtual* ou a função de Login do Utilizador de Máquina *Virtual:*
+Se vir o seguinte erro na sua solicitação SSH, verifique se configura as políticas Azure RBAC para o VM que concede ao utilizador o *Login do Administrador de Máquina Virtual* ou a função de Login do Utilizador de Máquina *Virtual:*
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

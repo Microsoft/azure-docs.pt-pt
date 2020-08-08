@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832361"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009720"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -24,8 +24,8 @@ Esta versão deste artigo passa por estes passos manualmente, um a um, utilizand
 * Para passar por estes passos manualmente utilizando o portal Azure, consulte a versão porta deste artigo: [*Como fazer: Configurar uma instância e autenticação (portal)*](how-to-set-up-instance-portal.md).
 * Para passar por uma configuração automatizada utilizando uma amostra de script de implementação, consulte a versão escrita deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (scripted)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Configurar a sessão Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -63,7 +63,7 @@ Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, voc
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Utilize o seguinte comando para atribuir a função (deve ser gerido por um Proprietário da assinatura Azure):
+Utilize o seguinte comando para atribuir a função (deve ser gerido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"

@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530183"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004169"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push a utilizadores específicos usando hubs de notificação do Azure
 
@@ -50,7 +50,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 1. Abra a aplicação de visualização de página única criada nas [notificações push para aplicações iOS usando o tutorial de Azure Notification Hubs.](ios-sdk-get-started.md)
 
    > [!NOTE]
-   > Esta secção assume que o seu projeto está configurado com um nome de organização vazio. Caso contrário, tem de preparar o nome da organização para todos os nomes de turma.
+   > Esta secção assume que o seu projeto está configurado com um nome de organização vazio. Caso contrário, prepare o nome da organização para todos os nomes de classe.
 
 2. No `Main.storyboard` ficheiro, adicione os componentes mostrados na imagem da biblioteca do objeto.
 
@@ -66,7 +66,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 
      Alguns componentes foram adicionados no [Enviar notificações push para aplicações iOS usando o tutorial Azure Notification Hubs.](ios-sdk-get-started.md)
 
-3. **Ctrl** arrasta-se dos componentes à vista `ViewController.h` e adiciona estas novas saídas.
+3. **Ctrl** arrasta-se dos componentes à vista `ViewController.h` e adiciona estas novas saídas:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h` , adicione o seguinte após as suas `#define` declarações de importação. Substitua o `<Enter Your Backend Endpoint>` espaço reservado com o URL de destino que usou para implementar o seu backend de aplicações na secção anterior. Por exemplo, `http://your_backend.azurewebsites.net`.
+4. In `ViewController.h` , adicione o seguinte após as suas `#define` declarações de importação. Substitua o `<Your backend endpoint>` espaço reservado com o URL de destino que usou para implementar o seu backend de aplicações na secção anterior. Por `http://your_backend.azurewebsites.net` exemplo:
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. No seu projeto, crie uma nova classe Cocoa Touch nomeada `RegisterClient` para interagir com o back-end ASP.NET que criou. Crie a classe herdada de `NSObject` . Em seguida, adicione o seguinte código no `RegisterClient.h` .
+5. No seu projeto, crie uma nova classe Cocoa Touch nomeada `RegisterClient` para interagir com o back-end ASP.NET que criou. Crie a classe herdada de `NSObject` . Em seguida, adicione o seguinte código `RegisterClient.h` no:
 
     ```objc
     @interface RegisterClient : NSObject
@@ -492,9 +492,9 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 
     ![Notificação marcada por teste do iOS][4]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial: 
+Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
 >[Enviar notificações push baseadas na localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
 description: Como resolver problemas com o PowerShell quando configurar um ambiente de ambiente de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288721"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002269"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -33,10 +31,10 @@ Esta secção lista os comandos PowerShell que são normalmente utilizados duran
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erro: Designação de Novas AzRole: As informações fornecidas não mapeiam para um ID de objeto AD
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Causa:** O utilizador especificado pelo parâmetro *-SignInName* não pode ser encontrado no Diretório Ativo Azure ligado ao ambiente de ambiente de trabalho virtual do Windows. 
+**Causa:** O utilizador especificado pelo parâmetro *-SignInName* não pode ser encontrado no Diretório Ativo Azure ligado ao ambiente de ambiente de trabalho virtual do Windows.
 
 **Correção:** Certifique-se das seguintes coisas.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Erro: New-AzRoleAssignment: "O cliente com id de objeto não tem autorização para realizar ação sobre âmbito (código: AutorizaçãoFailed)"
 
-**Causa 1:** A conta que está a ser utilizada não tem permissões do Proprietário na subscrição. 
+**Causa 1:** A conta que está a ser utilizada não tem permissões do Proprietário na subscrição.
 
 **Correção 1:** Um utilizador com permissões do Proprietário precisa de executar a atribuição de funções. Em alternativa, o utilizador precisa de ser atribuído à função de Administrador de Acesso ao Utilizador para atribuir um utilizador a um grupo de aplicações.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Erro: New-AzWvdHostPool -- a localização não está disponível para o tipo de recurso
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Causa: O Windows Virtual Desktop suporta selecionar a localização de piscinas de anfitriões, grupos de aplicações e espaços de trabalho para armazenar metadados de serviço em determinados locais. As suas opções estão restritas ao local onde esta funcionalidade está disponível. Este erro significa que a funcionalidade não está disponível no local que escolheu.

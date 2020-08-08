@@ -1,19 +1,17 @@
 ---
 title: Gerir grupos de aplicações para o portal de desktop virtual do Windows - Azure
 description: Como gerir os grupos de aplicações virtual do Windows Desktop com o portal Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283406"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010094"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerir grupos de aplicações com o portal Azure
 
@@ -49,16 +47,16 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
     > ![Uma imagem do separador Basics no portal Azure.](media/basics-tab.png)
 
 6. Se pretender adicionar grupos de aplicação à sua piscina de anfitrião, selecione **as piscinas host** no menu do lado esquerdo do ecrã.
-   
+
     Em seguida, selecione o nome da piscina de anfitrião a que pretende adicionar grupos de aplicação.
-   
+
     Depois disso, selecione grupos de **aplicação** do menu no lado esquerdo do ecrã e, em seguida, selecione **+Adicionar**.
 
     Por fim, selecione o grupo de subscrição e o grupo de recursos em que pretende criar o grupo de aplicações. Pode selecionar o nome de um grupo de recursos existente a partir do menu suspenso ou selecionar **Criar novo** para fazer um novo.
 
       >[!NOTE]
       >Quando adiciona grupos de aplicação à sua piscina de anfitriões, a piscina anfitriã que está relacionada com o grupo de aplicações já está selecionada porque navegou a partir dele.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![Uma imagem do separador Basics com a piscina hospedeira pré-selecionado.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
 
 12.  Selecione o separador **Aplicações** e, em seguida, selecione **+Adicionar aplicações**.
 
-13.  Para adicionar uma aplicação no menu inicial: 
+13.  Para adicionar uma aplicação no menu inicial:
 
       - Aceda à **fonte de aplicação** e selecione **o menu Iniciar** a partir do menu suspenso. Em seguida, vá à **Aplicação** e escolha a aplicação no menu suspenso.
 
@@ -111,7 +109,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
 16.  Se pretender registar o grupo de aplicações num espaço de trabalho, vá ao **grupo de aplicações Register** e selecione **Sim**. Se preferir registar o grupo de aplicações mais tarde, selecione **Nº**.
 
 17.  Se selecionar **Sim,** pode selecionar um espaço de trabalho existente para registar o seu grupo de aplicações.
-       
+
        >[!NOTE]
        >Só é possível registar o grupo de aplicações nos espaços de trabalho criados no mesmo local que a piscina anfitriã. E também. se já registou outro grupo de aplicações do mesmo grupo de anfitriões que o seu novo grupo de aplicações para um espaço de trabalho, será selecionado e não poderá editá-lo. Todos os grupos de aplicações de uma piscina de anfitriões devem estar registados no mesmo espaço de trabalho.
 

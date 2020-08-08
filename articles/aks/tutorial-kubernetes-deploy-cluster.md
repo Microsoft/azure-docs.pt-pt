@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 80393042191abc2a8eb74182cf18581d252222a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 72c2a664b3994d53fdd3602b432df1cabdaeb3ef
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056466"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002964"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -31,7 +31,7 @@ Este tutorial requer que esteja a executar a versão 2.0.53 ou mais tarde do Azu
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
-Os clusters do AKS podem utilizar os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um utilizador tiver várias funções, e as permissões podem ser miradas para um único espaço de nome ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
+Os clusters AKS podem usar o controlo de acesso baseado em funções de Kubernetes (RBAC). Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um utilizador tiver várias funções, e as permissões podem ser miradas para um único espaço de nome ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
 
 Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *leste.* O exemplo a seguir não especifica uma região, pelo que o cluster AKS também é criado na região *leste.* Consulte [quotas, restrições de tamanho de máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions] para obter mais informações sobre os limites de recursos e disponibilidade da região para a AKS.
 

@@ -1,14 +1,14 @@
 ---
 title: Pré-visualização - Saiba a política do Azure para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373764"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003496"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
 
@@ -130,10 +130,16 @@ Uma vez concluídos os passos pré-requisitos acima, instale o Add-on de Políti
 
   1. Na página principal, selecione o botão **de alimentação ativa.**
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Ativar a Política Azure para o add-on AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Ativar a Política Azure para o add-on AKS":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Se o botão **de complemento Ativar** estiver acinzentado, a subscrição ainda não foi adicionada à pré-visualização. Se o botão **de desativação desativar** estiver ativado e for apresentado um aviso de migração para a mensagem V2, o Gatekeepver v2 ainda está instalado e deve ser removido.
+     > Se o botão **de complemento Ativar** estiver acinzentado, a subscrição ainda não foi adicionada à pré-visualização. Se o botão **de desativação de desativar** estiver ativado e for visualizada uma mensagem v2 de aviso de migração, o add-on V1 é instalado e deve ser removido antes de atribuir definições de política v2. O addon v1 _preced_ será automaticamente substituído pelo add-on v2 a partir de 24 de agosto de 2020. Devem então ser atribuídas novas versões v2 das definições políticas. Para atualizar agora, siga estes passos:
+     > 
+     > 1. Validar o seu cluster AKS tem o add-on v1 instalado visitando a página **políticas (pré-visualização)** no seu cluster AKS e tem o "O cluster atual usa add-on Azure Policy v1..." Mensagem.
+     > 1. [Retire o addon](#remove-the-add-on-from-aks).
+     > 1. Selecione o botão **de adicionar Ativar** para instalar a versão V2 do add-on.
+     > 1. [Atribua versões v2 das suas definições de política incorporadas v1](#assign-a-built-in-policy-definition)
 
 - CLI do Azure
 

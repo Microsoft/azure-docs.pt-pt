@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (clássico) inquilino anfitrião criação de piscina - Azure
 description: Como resolver problemas e resolver problemas de inquilino e piscina de anfitrião durante a configuração de um ambiente de inquilino virtual do Windows Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269602"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009261"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
 
@@ -43,9 +41,9 @@ Exemplo de erro bruto:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Para visualizar o erro no registo de atividade:
 1. Saia da atual oferta de implantação do Azure Marketplace.
 2. Na barra de pesquisa superior, procure e selecione **Registo de Atividades.**
 3. Encontre uma atividade chamada **Implantação Validada** que tenha um estado de **Falha** e selecione a atividade.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot de atividade individual **Validate Deployment** com um estado **Falhado**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Selecione JSON e, em seguida, desloque-se até à parte inferior do ecrã até ver o campo "statusMessage".
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot de atividade falhada, com uma caixa vermelha em torno do status Propriedade Message do texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Exemplo de erro bruto:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

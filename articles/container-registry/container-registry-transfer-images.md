@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259449"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009159"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -47,7 +47,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
   TARGET_SA="<target-storage-account>"
   ```
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 Cria-se os três recursos seguintes para transferência de imagem entre registos. Todos são criados usando operações PUT. Estes recursos operam na sua *fonte* e *registos-alvo* e contas de armazenamento. 
 
@@ -234,6 +234,8 @@ Introduza os seguintes valores de parâmetro no `azuredeploy.parameters.json` fi
 |nome alvo     |  Nome que escolher para os artefactos blob exportados para a sua conta de armazenamento de origem, como *myblob*
 |artefactos | Matriz de artefactos de origem para transferir, como tags ou reerntes manifesto<br/>Exemplo: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+Se recolocar um recurso PipelineRun com propriedades idênticas, também deve utilizar a propriedade [forceUpdateTag.](#redeploy-pipelinerun-resource)
+
 Executar [o grupo de implementação az criar][az-deployment-group-create] para criar o recurso PipelineRun. O exemplo a seguir dá nome à *exportação de implantaçãoPipelineRun*.
 
 ```azurecli
@@ -291,6 +293,8 @@ Introduza os seguintes valores de parâmetro no `azuredeploy.parameters.json` fi
 |pipelineResourceId     |  Identificação de recursos do gasoduto de importação.<br/>Exemplo: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |nome de fonteName     |  Nome da bolha existente para artefactos exportados na sua conta de armazenamento, como *myblob*
 
+Se recolocar um recurso PipelineRun com propriedades idênticas, também deve utilizar a propriedade [forceUpdateTag.](#redeploy-pipelinerun-resource)
+
 Executar [o grupo de implementação az criar][az-deployment-group-create] para executar o recurso.
 
 ```azurecli
@@ -304,6 +308,23 @@ Quando a implantação estiver concluída com sucesso, verifique a importação 
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>Recurso PipelineRun de reexploração
+
+Se recolocar um recurso PipelineRun com *propriedades idênticas,* deve aproveitar a propriedade **forceUpdateTag.** Esta propriedade indica que o recurso PipelineRun deve ser recriado mesmo que a configuração não tenha mudado. Certifique-se de que o ForceUpdateTag é diferente cada vez que recolocar o recurso PipelineRun. O exemplo abaixo recria um PipelineRun para exportação. A data atual é usada para definir forceUpdateTag, garantindo assim que esta propriedade é sempre única.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>Eliminar recursos de gasoduto

@@ -1,19 +1,17 @@
 ---
 title: Implementar a ferramenta de diagnóstico para Windows Virtual Desktop (clássico) - Azure
 description: Como implementar a ferramenta UX de diagnóstico para o Windows Virtual Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285106"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009193"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico virtual do Windows Desktop (clássico)
 

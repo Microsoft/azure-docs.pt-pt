@@ -1,19 +1,17 @@
 ---
 title: Personalize propriedades RDP com PowerShell - Azure
 description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 630f2a7fe2e95992cb7724a7906a0949ffcea784
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271115"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009108"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 

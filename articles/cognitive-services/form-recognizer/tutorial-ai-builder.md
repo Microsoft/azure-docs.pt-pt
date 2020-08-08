@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ea1504f5cb3ae405ccd22774204f898484e6876
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987125"
+ms.locfileid: "88003366"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um conjunto de, pelo menos, cinco formas do mesmo tipo a utilizar para os dados de treino/teste. Consulte [Construir um conjunto de dados de treino](./build-training-data-set.md) para obter dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2128080)da amostra .
-* Uma licença power apps ou power automate - consulte o [Guia de Licenciamento](https://go.microsoft.com/fwlink/?linkid=2085130). A licença deve incluir [o serviço de dados comuns.](https://powerplatform.microsoft.com/en-us/common-data-service/)
+* Uma licença power apps ou power automate - consulte o [Guia de Licenciamento](https://go.microsoft.com/fwlink/?linkid=2085130). A licença deve incluir [o Serviço Comum de Dados.](https://powerplatform.microsoft.com/en-us/common-data-service/)
 * Um [addon ou teste](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409)do AI Builder .
 
 

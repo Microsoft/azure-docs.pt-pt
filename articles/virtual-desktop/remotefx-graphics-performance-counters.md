@@ -1,19 +1,17 @@
 ---
 title: Diagnosticar problemas de desempenho gráficos Remote Desktop - Azure
 description: Este artigo descreve como utilizar contadores de gráficos RemoteFX em sessões de protocolo de ambiente de trabalho remoto para diagnosticar problemas de desempenho com gráficos no Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79127550"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007171"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho gráficos em Ambiente de Trabalho Remoto
 
@@ -100,7 +98,7 @@ Se os recursos dos clientes estiverem a causar o estrangulamento, experimente um
 > [!NOTE]
 > Atualmente, não suportamos o contador Source Frames/Second. Por enquanto, o contador Source Frames/Second mostrará sempre 0.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para criar uma máquina virtual Azure otimizada da GPU, consulte [a aceleração da unidade de processamento de gráficos Configure (GPU) para o ambiente virtual do Ambiente de Trabalho virtual do Windows](configure-vm-gpu.md).
 - Para uma visão geral das faixas de resolução de problemas e de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).

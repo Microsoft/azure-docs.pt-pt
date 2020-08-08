@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836943"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009674"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -24,27 +24,13 @@ Esta versão deste artigo passa por estes passos manualmente, um a um, utilizand
 * Para passar por estes passos manualmente utilizando o CLI, consulte a versão CLI deste artigo: [*Como-a-fazer: Configurar um caso e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para passar por uma configuração automatizada utilizando uma amostra de script de implementação, consulte a versão escrita deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (scripted)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Em seguida, faça login no [portal Azure](https://ms.portal.azure.com/) com as suas credenciais.
-
-## <a name="prerequisites-permission-requirements"></a>Pré-requisitos: Requisitos de permissão
-
-Para poder completar todos os passos deste artigo, tem de ser classificado como Proprietário na sua assinatura Azure. 
-
-Pode verificar o seu nível de permissão na página de [subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure (pode utilizar este link ou procurar *subscrições* com a barra de pesquisa do portal). Procure o nome da subscrição que está a usar e veja o seu papel na coluna *My role.* Se você é proprietário, este valor é *Proprietário:*
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Vista da página subscrições no portal Azure, mostrando o utilizador como proprietário" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Se descobrir que o valor é *Contribuinte* ou algo diferente do *Proprietário,* pode proceder de uma das seguintes formas:
-* Contacte o proprietário da subscrição e solicite ao Proprietário que complete os passos deste artigo em seu nome
-* Contacte o Proprietário da sua subscrição ou alguém com função de Administração de Acesso ao Utilizador na subscrição e solicite que o eleve ao Proprietário na subscrição para que tenha as permissões para prosseguir. Se isso é apropriado depende da sua organização e do seu papel dentro dela.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Criar a instância Azure Digital Twins
 
-Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utilizando o portal Azure.
+Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utilizando o portal [Azure](https://ms.portal.azure.com/). Navegue até ao portal e faça login com as suas credenciais.
 
-Depois de iniciar sessão no [portal Azure,](https://ms.portal.azure.com/)comece por selecionar _Criar um recurso_ no menu inicial dos serviços Azure.
+Uma vez no portal, comece por selecionar _Criar um recurso_ no menu de página inicial dos serviços Azure.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
 
@@ -87,7 +73,7 @@ Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azu
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função a partir da página 'Controlo de acesso (IAM)'":::
 
-Na seguinte página *de atribuição de funções Add,* preencha os valores (deve ser preenchido por um proprietário da subscrição Azure):
+Na página seguinte *de atribuição de funções Adicionar,* preencha os valores (deve ser preenchido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure):
 * **Função**: Selecione *Azure Digital Twins Owner (Preview)* do menu suspenso
 * **Atribuir acesso a**: Selecione *Azure AD utilizador, grupo ou principal de serviço* a partir do menu suspenso
 * **Selecione:** Procure o nome ou endereço de e-mail do utilizador para atribuir. Quando selecionar o resultado, o utilizador aparecerá numa secção *de membros selecionados.*

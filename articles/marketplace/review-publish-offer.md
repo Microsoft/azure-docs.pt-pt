@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119740"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009533"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Rever e publicar uma oferta ao mercado comercial
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Reveja e publique uma oferta ao mercado comercial
 
 Este artigo mostra-lhe como usar o Partner Center para submeter a sua oferta para pré-visualizar, pré-visualizar a sua oferta e, em seguida, publicá-la no mercado comercial da Microsoft. Também cobrimos como verificar o seu estado de publicação à medida que avança através das escadas de publicação. Já deve ter criado uma oferta que quer publicar.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>Vá à sua oferta no mercado comercial
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Vá à sua oferta no mercado comercial
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.

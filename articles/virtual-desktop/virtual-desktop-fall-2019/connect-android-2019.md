@@ -1,19 +1,17 @@
 ---
 title: Conecte-se ao Windows Virtual Desktop (clássico) do Android - Azure
 description: Como ligar-se ao Windows Virtual Desktop (clássico) utilizando o cliente Android.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c83d243a24fb0cacdf032dfa77e9bb17fdf5e824
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0fadcc592f5dd52bf1b72dc9d5658866ffba7f4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008479"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop (clássico) com o cliente Android
 
@@ -48,6 +46,6 @@ Após a subscrição, o Centro de Ligação deve exibir os recursos remotos.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente Android, confira [Consulte o cliente Android.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/)

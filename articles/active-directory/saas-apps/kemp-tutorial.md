@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0afdecfcab9cc1ab3903429b197fe859d40a7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd436462d157a7e416f0f6a468edd33520ccec7d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424852"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009943"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integração SSO do Azure Ative Directory com integração de AD Kemp LoadMaster Azure
 
@@ -44,7 +44,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Integração AD kemp LoadMaster Azure suporta **IDP** iniciado SSO
-* Uma vez configurada a integração de AD Kemp LoadMaster Azure, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurada a integração de AD Kemp LoadMaster Azure, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Adicionar integração azure AD kemp LoadMaster da galeria
 
@@ -117,7 +117,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -317,7 +317,7 @@ Você deve ver a sua página de login insediada em vez de acesso não autenticad
 
     ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-11.png)
 
-    a. Selecione Confie neste utilizador para delegação apenas para serviços especificados.
+    a. Selecione Confiar neste utilizador para delegação apenas para serviços especificados.
 
     b. Selecione Utilizar qualquer protocolo de autenticação.
 

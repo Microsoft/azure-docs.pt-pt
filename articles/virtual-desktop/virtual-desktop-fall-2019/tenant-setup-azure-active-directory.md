@@ -1,19 +1,17 @@
 ---
 title: Criar um inquilino no Windows Virtual Desktop (clássico) - Azure
 description: Descreve como configurar inquilinos virtuais do Windows Desktop (clássico) no Azure Ative Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286364"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005623"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop (clássico)
 
@@ -82,12 +80,12 @@ Para atribuir a função de candidatura do TenantCreator:
    > ![Screenshot de pesquisa de aplicações da Enterprise no portal Azure](../media/azure-portal-enterprise-applications.png)
 
 2. Dentro **das aplicações da Enterprise,** procure por **Windows Virtual Desktop**. Verá as duas aplicações que forneceu o consentimento na secção anterior. Destas duas aplicações, selecione **Windows Virtual Desktop**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Uma imagem dos resultados da pesquisa ao procurar "Windows Virtual Desktop" em "Aplicações da Empresa". A aplicação chamada "Windows Virtual Desktop" está em destaque.](../media/tenant-enterprise-app.png)
 
 3. Selecione **Utilizadores e grupos**. Pode ver que o administrador que concedeu o consentimento ao pedido já está listado com a função **de Acesso Predefinido** atribuída. Isto não é suficiente para criar um inquilino virtual do Windows Desktop. Continue seguindo estas instruções para adicionar o papel **de TenantCreator** a um utilizador.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Uma imagem dos utilizadores e grupos designados para gerir a aplicação da empresa "Windows Virtual Desktop". A imagem mostra apenas uma atribuição, que é para "Acesso Padrão".](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Para encontrar o seu ID do inquilino do Azure Ative (ou **ID do Diretório):**
 
 Para encontrar o seu ID de subscrição Azure:
 1. Na mesma sessão [do portal Azure,](https://portal.azure.com) procure e selecione **Subscrições.**
-   
+
    > [!div class="mx-imgBorder"]
    > ![Uma imagem dos resultados da pesquisa de "Azure Ative Directory" no portal Azure. Destaca-se o resultado da pesquisa em "Serviços".](../media/tenant-search-subscription.png)
 
 2. Selecione a subscrição Azure que pretende utilizar para receber notificações de serviço de desktop virtual do Windows.
 3. Procure **o ID da subscrição**e, em seguida, sobre o valor até aparecer um ícone de área de transferência. Selecione o ícone da área de transferência e cole-o num local útil para que possa usá-lo mais tarde como o valor **AzureSubscriptionId.**
-   
+
    > [!div class="mx-imgBorder"]
    > ![Uma imagem das propriedades de subscrição do Azure. O rato está a pairar sobre o ícone da área de transferência para "Subscription ID" para copiar e colar.](../media/tenant-subscription-id.png)
 

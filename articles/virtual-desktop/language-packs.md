@@ -1,19 +1,17 @@
 ---
 title: Instale pacotes de idiomas no Windows 10 VMs no Windows Virtual Desktop - Azure
 description: Como instalar pacotes de idiomas para VMs multi-sessão do Windows 10 no Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 542163511a1b4fc0acde9b44d73be6ffc042d5d3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361307"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008768"
 ---
 # <a name="install-language-packs"></a>Instalar pacotes de idiomas
 
@@ -41,7 +39,7 @@ Para instalar pacotes de idiomas:
 
 5. Depois disso, selecione **Linguagem**e, em seguida, selecione **Adicione um idioma**. Escolha o idioma que pretende instalar na lista e, em seguida, selecione **Seguinte**.
 6. Quando a janela **de instalação de recursos** de instalação se abrir, selecione a caixa de verificação rotulada Para instalar o pacote de **idiomas e definir como o meu idioma de exibição do Windows**.
-7. Selecione **Instalar**.
+7. Selecione **Install** (Instalar).
 8. Para adicionar vários idiomas ao mesmo tempo, **selecione Adicione um idioma,** em seguida, repita o processo para adicionar um idioma nos passos 5 e 6. Repita este processo para cada idioma que pretende instalar. No entanto, só pode definir um idioma como o seu idioma de exibição de cada vez.
 
     Vamos passar por uma demonstração visual rápida. As imagens que se seguem mostram como instalar os pacotes de língua francesa e holandesa, em seguida, definir o francês como a língua de exibição.

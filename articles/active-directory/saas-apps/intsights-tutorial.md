@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ef70535ecd84a97bde9650eb8a3ea3b9406bd2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 291a9016c01e7d618cbfdd556a482ec77f173ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101734"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intsights"></a>Tutorial: Azure Ative Directory integração única (SSO) com IntSights
 
@@ -99,12 +99,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação IntSights espera que alguns mais atributos sejam repercutidos na resposta SAML, que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | -----| ---------------- |
     | nomePróprio | user.givenname |
     | apelido | utilizador.sobrenome |
     | intsightsAccountId | < intsightsAccountD > |
     | intsightsRole | < intsightsRole > |
+
+    > [!NOTE]
+    > **intsightsAccountId** e **intsightsRole** são as alegações opcionais que não são adicionadas por padrão e devem ser adicionadas manualmente apenas quando o fornecimento do utilizador **Just In Time** estiver ativado.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -124,7 +127,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

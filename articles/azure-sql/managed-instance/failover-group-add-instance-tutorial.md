@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024198"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002983"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Adicione instâncias geridas de Azure SQL Managed Instance a um grupo de failove
   > [!NOTE]
   > - Ao passar por este tutorial, certifique-se de que está a configurar os seus recursos com os [pré-requisitos para a criação de grupos de failover para a SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Criar um caso gerido pode demorar um tempo significativo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [as operações de gestão de instância gerida sql](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Casos geridos que participam num grupo de failover requerem ou [a Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways VPN conectados. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
+  > - Casos geridos que participam num grupo de failover requerem ou [a Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways VPN conectados. O VNet Peering global não é suportado. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

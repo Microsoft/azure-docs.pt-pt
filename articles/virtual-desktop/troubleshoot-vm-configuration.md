@@ -1,19 +1,17 @@
 ---
 title: Resolução de problemas Windows Virtual Desktop host - Azure
 description: Como resolver problemas quando está a configurar a sessão virtual do Windows Desktop acolhe máquinas virtuais.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286381"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005219"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -138,8 +136,8 @@ Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de 
 
 **Correção:** Siga estas instruções para corrigir o erro de registo do agente.
 
-1. Se já houver um token de registo, remova-o com Remove-AzWvdRegistrationInfo. 
-2. Executar o **cmdlet New-AzWvdRegistrationInfo** para gerar um novo token. 
+1. Se já houver um token de registo, remova-o com Remove-AzWvdRegistrationInfo.
+2. Executar o **cmdlet New-AzWvdRegistrationInfo** para gerar um novo token.
 3. Confirme se o parâmetro *-ExpriationTime* está definido para 3 dias.
 
 ### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: O agente virtual do Windows não está a reportar um batimento cardíaco ao executar o Get-AzWvdSessionHost
@@ -305,7 +303,7 @@ Se iniciar sessão multi-sção no Windows 10 Enterprise utilizando uma conta ad
 
 Se o prazo expirar, aparecerá uma mensagem de erro que diz: "A sessão remota foi desligada porque não existem licenças de acesso ao cliente de ambiente de trabalho remoto disponíveis para este computador."
 
-Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que está a definir o modo de licenciamento remote desktop através da política de grupo. Siga os passos nas próximas secções para verificar a definição da política de grupo, identifique a versão de várias sessões do Windows 10 Enterprise e instale a atualização correspondente.  
+Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que está a definir o modo de licenciamento remote desktop através da política de grupo. Siga os passos nas próximas secções para verificar a definição da política de grupo, identifique a versão de várias sessões do Windows 10 Enterprise e instale a atualização correspondente.
 
 >[!NOTE]
 >O Windows Virtual Desktop só requer uma licença de acesso ao cliente RDS (CAL) quando o seu pool de anfitriões contiver anfitriões de sessão do Windows Server. Para aprender a configurar um RDS CAL, consulte [Licenciar a sua implementação RDS com licenças de acesso](/windows-server/remote/remote-desktop-services/rds-client-access-license/)ao cliente.

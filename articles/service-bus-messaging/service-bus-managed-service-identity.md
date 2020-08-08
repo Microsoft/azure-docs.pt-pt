@@ -3,12 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2e1c6127f3705adbf05cbfd8a92740651efe9048
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a3458d7d160317e383da6217252e3dd7ed52e90f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835668"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008904"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -34,7 +34,7 @@ O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seg
 Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível de subscrição, ao grupo de recursos ou ao espaço de nomes do Service Bus. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma identidade gerida para os recursos da Azure.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure funções incorporadas para Azure Service Bus
-Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos relacionados através do portal Azure e da API de gestão de recursos Azure já está protegida utilizando o modelo *de controlo de acesso baseado em funções* (RBAC). A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um espaço de nomes de Autocarros de Serviço:
+Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos relacionados através do portal Azure e da gestão de recursos AZure API já está protegida usando o modelo Azure RBAC. A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um espaço de nomes de Autocarros de Serviço:
 
 - [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Permite o acesso de dados ao espaço de nomes do Service Bus e das suas entidades (filas, tópicos, subscrições e filtros)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use esta função para dar acesso ao espaço de nomes do Service Bus e das suas entidades.
@@ -68,11 +68,11 @@ Antes de utilizar identidades geridas para a Azure Resources para autorizar os r
 - [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo de gestor de recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Modelo Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD
-Para autorizar um pedido ao serviço Service Bus a partir de uma identidade gerida na sua aplicação, configurar primeiro as definições de controlo de acesso baseado em funções (RBAC) para essa identidade gerida. A Azure Service Bus define funções Azure que englobam permissões para envio e leitura da Service Bus. Quando o papel de Azure é atribuído a uma identidade gerida, a identidade gerida é concedida acesso a entidades de Service Bus no âmbito adequado.
+Para autorizar um pedido ao serviço service bus a partir de uma identidade gerida na sua aplicação, configurar primeiro as definições de controlo de acesso baseado em funções (Azure RBAC) para essa identidade gerida. A Azure Service Bus define funções Azure que englobam permissões para envio e leitura da Service Bus. Quando o papel de Azure é atribuído a uma identidade gerida, a identidade gerida é concedida acesso a entidades de Service Bus no âmbito adequado.
 
 Para obter mais informações sobre a atribuição de funções Azure, consulte [Authenticate e autorize com a Azure Ative Directory para acesso aos recursos do Service Bus.](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 

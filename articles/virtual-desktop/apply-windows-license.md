@@ -1,18 +1,16 @@
 ---
 title: Aplicar licença do Windows para session host máquinas virtuais - Azure
 description: Descreve como aplicar a licença do Windows para VMs de ambiente de trabalho virtuais do Windows.
-services: virtual-desktop
 author: ChristianMontoya
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 53e70fbb1321f33849073bbd6b2176f5d88a1f8b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f3749be36f5f035e49fcb862f92180e4902101f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089002"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010145"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows para session host máquinas virtuais
 

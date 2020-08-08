@@ -1,19 +1,17 @@
 ---
 title: Lista de URL seguro do Windows Virtual Desktop - Azure
 description: Uma lista de URLs que deve desbloquear para garantir que a sua implementação virtual do Windows funciona como pretendido.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075609"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009482"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -69,12 +67,12 @@ Quaisquer clientes de Ambiente de Trabalho remoto que utilize devem ter acesso a
 
 |Endereço|Porta TCP de saída|Objetivo|Clientes(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|
-|go.microsoft.com|443|Microsoft FWLinks|Todos|
-|aka.ms|443|Encurtador de URL da Microsoft|Todos|
-|docs.microsoft.com|443|Documentação|Todos|
-|privacy.microsoft.com|443|Declaração de privacidade|Todos|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Tudo|
+|*.servicebus.windows.net|443|Dados de resolução de problemas|Tudo|
+|go.microsoft.com|443|Microsoft FWLinks|Tudo|
+|aka.ms|443|Encurtador de URL da Microsoft|Tudo|
+|docs.microsoft.com|443|Documentation|Tudo|
+|privacy.microsoft.com|443|Declaração de privacidade|Tudo|
 |query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|
 
 >[!IMPORTANT]

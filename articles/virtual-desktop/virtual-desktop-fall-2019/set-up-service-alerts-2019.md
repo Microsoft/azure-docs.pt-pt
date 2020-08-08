@@ -1,19 +1,17 @@
 ---
 title: Configurar alertas de serviço para Windows Virtual Desktop (clássico) - Azure
 description: Como configurar o Azure Service Health para receber notificações de serviço para o Windows Virtual Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283389"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005507"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Tutorial: Configurar alertas de serviço para o Windows Virtual Desktop (clássico)
 
@@ -22,7 +20,7 @@ ms.locfileid: "87283389"
 
 Pode utilizar o Azure Service Health para monitorizar problemas de serviço e avisos de saúde para o Windows Virtual Desktop. A Azure Service Health pode notificá-lo com diferentes tipos de alertas (por exemplo, e-mail ou SMS), ajudá-lo a entender o efeito de um problema, e mantê-lo atualizado à medida que o problema resolve. O Serviço Azure Health também pode ajudá-lo a mitigar o tempo de inatividade, e preparar-se para a manutenção planeada e alterações que possam afetar a disponibilidade dos seus recursos.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 > * Criar e configurar alertas de serviço.

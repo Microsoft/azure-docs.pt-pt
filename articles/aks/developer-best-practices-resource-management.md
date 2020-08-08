@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281570"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005317"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Melhores práticas para os desenvolvedores de aplicações gerir recursos no Serviço Azure Kubernetes (AKS)
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre medições e atribuições de recursos, cons
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desenvolver e depurar aplicações contra um cluster AKS
 
-**Orientação de boas práticas** - As equipas de desenvolvimento devem implantar-se e depurar contra um cluster AKS utilizando espaços Dev. Este modelo de desenvolvimento garante que os controlos de acesso, rede ou necessidades de armazenamento baseados em funções são implementados antes de a aplicação ser implementada para a produção.
+**Orientação de boas práticas** - As equipas de desenvolvimento devem implantar-se e depurar contra um cluster AKS utilizando espaços Dev. Este modelo de desenvolvimento garante que o controlo de acesso baseado em funções (RBAC), rede ou necessidades de armazenamento são implementados antes da aplicação ser implementada para a produção.
 
 Com a Azure Dev Spaces, desenvolve-se, depura e testa aplicações diretamente contra um cluster AKS. Os desenvolvedores dentro de uma equipa trabalham em conjunto para construir e testar ao longo do ciclo de vida da aplicação. Pode continuar a utilizar ferramentas existentes, como o Visual Studio ou o Visual Studio Code. É instalada uma extensão para espaços Dev que dá uma opção de executar e depurar a aplicação num cluster AKS.
 

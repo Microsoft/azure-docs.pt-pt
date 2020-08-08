@@ -1,6 +1,6 @@
 ---
 title: Criar uma fonte de dados para um mapa Microsoft Azure Maps
-description: Neste artigo, você vai aprender a criar uma fonte de dados e adicioná-lo a um mapa usando o Microsoft Azure Maps Web SDK.
+description: 'Descubra como criar uma fonte de dados para um mapa. Conheça as fontes de dados que o Azure Maps Web SDK utiliza: Fontes geoJSON e azulejos vetoriais.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fea2c4fab51db59c9159853e9b0bdaec0bcdbb56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551681"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009091"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
@@ -208,7 +208,7 @@ var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

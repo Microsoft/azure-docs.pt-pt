@@ -1,21 +1,19 @@
 ---
 title: Excluir a piscina de anfitriões virtual do Windows Desktop - Azure
 description: Como eliminar uma piscina de anfitriões no Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced0d7513524758975919fad90f19581d15d95f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfc9858bea468389d8ce90677f048e5d1fd3bb82
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099550"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007595"
 ---
-# <a name="delete-a-host-pool"></a>Excluir uma piscina de anfitriões
+# <a name="delete-a-host-pool"></a>Eliminar um conjunto de anfitriões
 
 Todas as piscinas de anfitriões criadas no Windows Virtual Desktop estão anexadas a anfitriões de sessão e grupos de aplicações. Para eliminar uma piscina de anfitriões, é necessário eliminar os seus grupos de aplicações e anfitriões de sessão associados. Eliminar um grupo de aplicações é bastante simples, mas eliminar um anfitrião de sessão é mais complicado. Quando eliminar um anfitrião de sessão, tem de se certificar de que não tem sessões ativas de utilizador. Todas as sessões de utilizador no anfitrião da sessão devem ser iniciadas para evitar que os utilizadores percam dados.
 

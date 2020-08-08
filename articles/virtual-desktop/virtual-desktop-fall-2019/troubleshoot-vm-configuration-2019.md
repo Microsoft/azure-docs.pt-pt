@@ -1,19 +1,17 @@
 ---
 title: Resolução de problemas Windows Virtual Desktop (clássico) anfitrião da sessão - Azure
 description: Como resolver problemas quando está a configurar o Windows Virtual Desktop (clássico) hospeda máquinas virtuais.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291260"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008632"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows Virtual Desktop (clássico) sessão anfitrião configuração de máquina virtual
 
@@ -311,7 +309,7 @@ Se iniciar sessão multi-sção no Windows 10 Enterprise utilizando uma conta ad
 
 Se o prazo expirar, aparecerá uma mensagem de erro que diz: "A sessão remota foi desligada porque não existem licenças de acesso ao cliente de ambiente de trabalho remoto disponíveis para este computador."
 
-Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que está a definir o modo de licenciamento remote desktop através da política de grupo. Siga os passos nas próximas secções para verificar a definição da política de grupo, identifique a versão de várias sessões do Windows 10 Enterprise e instale a atualização correspondente.  
+Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que está a definir o modo de licenciamento remote desktop através da política de grupo. Siga os passos nas próximas secções para verificar a definição da política de grupo, identifique a versão de várias sessões do Windows 10 Enterprise e instale a atualização correspondente.
 
 >[!NOTE]
 >O Windows Virtual Desktop só requer uma licença de acesso ao cliente RDS (CAL) quando o seu pool de anfitriões contiver anfitriões de sessão do Windows Server. Para aprender a configurar um RDS CAL, consulte [Licenciar a sua implementação RDS com licenças de acesso](/windows-server/remote/remote-desktop-services/rds-client-access-license/)ao cliente.

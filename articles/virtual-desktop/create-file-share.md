@@ -1,19 +1,17 @@
 ---
 title: Criar uma partilha de ficheiros Azure Files com um controlador de domínio - Azure
 description: Crie um recipiente de perfil FSLogix numa partilha de ficheiros Azure num conjunto de anfitriões virtual do Windows com o seu domínio Ative Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842914"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009227"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 

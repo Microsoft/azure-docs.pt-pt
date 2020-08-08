@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80245281"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004808"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para uma Cache Premium Azure para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência numa cache Azure premium para o exemplo de Redis.
-
-Para obter informações sobre outras funcionalidades de cache premium, consulte [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>O que é a persistência dos dados?
 [A persistência do Redis](https://redis.io/topics/persistence) permite-lhe persistir nos dados armazenados no Redis. Também pode tirar fotografias e fazer o back up dos dados, que pode carregar em caso de falha de hardware. Esta é uma enorme vantagem sobre o nível Básico ou Padrão, onde todos os dados são armazenados na memória e pode haver potencial perda de dados em caso de falha em que os nós cache estão baixos. 
@@ -179,9 +177,9 @@ Após uma reescrita, existem dois conjuntos de ficheiros AOF no armazenamento. A
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprenda a usar mais funcionalidades de cache premium.
+Saiba mais sobre o Azure Cache para funcionalidades redis.
 
-* [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
+* [Cache Azure para os níveis de serviço Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

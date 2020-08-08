@@ -1,19 +1,17 @@
 ---
 title: Partilha de contentores de perfil FSLogix do Windows Virtual Desktop - Azure
 description: Como configurar um recipiente de perfil FSLogix para um conjunto de anfitriões virtual do Windows Desktop utilizando uma partilha de ficheiros virtual baseada em máquinas.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211838"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002575"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
 
@@ -66,7 +64,7 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 6. Crie uma chave chamada **Perfis.**
 7. Criar os seguintes valores para a tecla Perfis:
 
-| Name                | Tipo               | Dados/Valor                        |
+| Nome                | Tipo               | Dados/Valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Ativado             | DWORD              | 1                                 |
 | VHDLocations        | Valor multi-cordas | "Caminho da rede para partilha de ficheiros"     |

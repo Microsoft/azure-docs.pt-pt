@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086341"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006796"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace Comercial
 
@@ -43,7 +43,7 @@ Para adicionar um novo plano dentro de uma oferta já publicada:
 
 1. Com a página geral da **Oferta** para a sua oferta existente aberta, vá à página **de visão geral** do Plano e, em seguida, selecione Criar novo **plano**.
 1. Crie um novo plano de acordo com as [diretrizes](./create-new-saas-offer.md#plan-overview) utilizando o modelo de preços dos **planos existentes.**
-1. **Selecione Guardar o projeto** depois de alterar o nome do plano. 
+1. **Selecione Guardar o projeto** depois de alterar o nome do plano.
 1. **Selecione Publicar** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](#review-and-publish-an-updated-offer)** abre e fornece um estado de conclusão para as suas atualizações.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano dentro de uma oferta existente
@@ -55,6 +55,24 @@ Para fazer alterações a um plano dentro de uma oferta já publicada:
 1. **Selecione Guardar o rascunho** depois de escoar quaisquer alterações ao nome do plano, descrição ou disponibilidade do público.
 1. Selecione **'Rever' e publique** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](#review-and-publish-an-updated-offer)** abre e fornece um estado de conclusão para as suas atualizações.
 1. Submeta o plano atualizado de publicação selecionando **a Publish**. Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta atualizada para que possa rever e assinar.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Ofereça um plano de máquina virtual a um novo preço
+
+Depois de publicado um plano de máquina virtual, o seu preço não pode ser alterado. Para oferecer o mesmo plano a um preço diferente, você deve esconder o plano e criar um novo com o preço atualizado. Primeiro, esconda o plano com o preço que quer mudar:
+
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos**.
+1. Selecione a caixa de verificação **do plano Oculta.** Guarde o rascunho antes de continuar.
+
+Agora que escondeu o plano com o preço antigo, crie uma cópia desse plano com o preço atualizado:
+
+1. No Partner Center, volte à **visão geral do Plano.**
+2. **Selecione Criar novo plano.** Introduza um **ID do plano** e um **nome de Plano**e, em seguida, selecione **Criar**.
+1. Para reutilizar a configuração técnica do plano que ocultou, selecione a caixa **de verificação de configuração técnica de Reutilização.** Leia [a visão geral do plano](azure-vm-create-offer.md#plan-overview) para saber mais.
+    > [!IMPORTANT]
+    > Se selecionar **Este plano reutiliza a configuração técnica de outro plano,** não poderá deixar de vender o plano dos pais mais tarde. Não use esta opção se quiser parar de vender o plano dos pais.
+3. Complete todas as secções necessárias para o novo plano, incluindo o novo preço.
+1. Selecione **Guardar rascunho**.
+1. Depois de ter concluído todas as secções necessárias para o novo plano, selecione **'Rever' e publicar**. Isto submeterá a sua oferta para revisão e publicação. Leia [a Revisão e publique uma oferta no mercado comercial](../review-publish-offer.md) para mais detalhes.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Compare as alterações às ofertas de mercado
 
