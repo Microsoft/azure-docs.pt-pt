@@ -1,19 +1,17 @@
 ---
 title: Recipientes de perfil FSLogix NetApp Windows Virtual Desktop - Azure
 description: Como criar um contentor de perfil FSLogix utilizando ficheiros Azure NetApp no Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362990"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002810"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
 
@@ -168,7 +166,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
 5. Selecione a caixa de verificação ao lado **de que concordo com os termos e condições da licença**.
 
-6. Selecione **Instalar**.
+6. Selecione **Install** (Instalar).
 
 7. Navegue para **C: \\ Ficheiros de programa \\ FSLogix \\ Apps** para confirmar o agente instalado.
 
@@ -234,7 +232,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
    > [!div class="mx-imgBorder"]
    > ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode utilizar os recipientes de perfil FSLogix para configurar uma partilha de perfil de utilizador. Para aprender a criar partilhas de perfil de utilizador com os seus novos recipientes, consulte [Criar um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828630"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008100"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -27,9 +27,9 @@ Este guia passo a passo descreve como planear a implementação de Gestão de Id
 
 > [!TIP]
 > Ao longo deste artigo, verá itens marcados como:
-> 
+>
 > :heavy_check_mark: Microsoft **recomenda**
-> 
+>
 > Estas são recomendações gerais, e só deve implementar se se aplicar às suas necessidades específicas da empresa.
 
 ## <a name="learn-about-privileged-identity-management"></a>Saiba mais sobre Gestão de Identidade Privilegiada
@@ -142,9 +142,9 @@ Siga estes passos para impor o princípio do menor privilégio para os seus pap�
 
 1. Compreender a granularidade das funções lendo e compreendendo as [funções de administrador da AD Azure disponível.](../users-groups-roles/directory-assign-admin-roles.md#available-roles) Você e a sua equipa também devem referenciar [funções de administrador por tarefa de identidade no AD AZure,](../users-groups-roles/roles-delegate-by-task.md)o que explica o papel menos privilegiado para tarefas específicas.
 
-1. Lista quem tem papéis privilegiados na sua organização. Pode utilizar o [assistente privilegiado de Gestão de Identidade](pim-security-wizard.md#run-the-wizard) para chegar a uma página como a seguinte.
+1. Lista quem tem papéis privilegiados na sua organização. Pode utilizar a Descoberta de Gestão de Identidade Privilegiada [e insights (pré-visualização)](pim-security-wizard.md) para chegar a uma página como a seguinte.
 
-    ![Descubra o painel de papéis privilegiados mostrando quem tem papéis privilegiados](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Página de descobertas e insights (pré-visualização) para reduzir a exposição através de funções privilegiadas](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Para todos os Administradores Globais da sua organização, descubra por que precisam do papel. Com base na leitura da documentação anterior, se o trabalho da pessoa puder ser desempenhado por uma ou mais funções de administrador granular, deve removê-las da função de Administrador Global e fazer atribuições em conformidade dentro do Azure Ative Directory (Como referência: a Microsoft tem atualmente apenas cerca de 10 administradores com a função de Administrador Global. Saiba mais sobre [como a Microsoft utiliza a Gestão de Identidade Privilegiada).](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)
 

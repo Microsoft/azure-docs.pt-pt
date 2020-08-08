@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483929"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008530"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Exportar dados de IoT para destinos em Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Exportar dados de IoT para destinos em Azure utilizando exportação de dados (legado)
 
-*Este tópico aplica-se aos administradores.*
+> [!Note]
+> Há uma nova forma de exportar dados na IoT Central. Pode utilizar a nova exportação de dados para filtrar e enriquecer os seus dados exportados e exportá-lo para novos destinos como os pontos finais webhook. Pode conhecer aqui os novos dados [que](./howto-use-data-export.md)exportam. Para conhecer as diferenças entre as novas exportações de dados e a exportação de dados antigos, consulte a [tabela de comparação](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus**ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
 
@@ -747,7 +748,7 @@ Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
 

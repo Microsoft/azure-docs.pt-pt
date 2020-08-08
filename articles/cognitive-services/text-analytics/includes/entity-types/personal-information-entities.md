@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/30/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108511"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011027"
 ---
 > [!NOTE]
 > Para detetar `PHI` (informações de saúde protegidas), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
@@ -22,32 +22,30 @@ ms.locfileid: "86108511"
  
 As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/v3.1-preview.1/entities/recognition/pii` ponto final.
 
-| Categoria   | Subcategory | Descrição                          | Versão do modelo inicial | Notas |
+| Categoria   | Subcategoria | Descrição                          | Versão do modelo inicial | Notas |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Pessoa     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também devolvido `domain=phi` com. |
 | PersonType | N/D         | Tipos de emprego ou funções detidas por uma pessoa. | `2020-02-01` | |
 | PhoneNumber | N/D | Números de telefone (apenas números de telefone dos EUA e da UE). | `2019-10-01` | Também devolvido com`domain=phi` |
 |Organização  | N/D | Empresas, grupos políticos, bandas musicais, clubes desportivos, organismos governamentais e organizações públicas.  | `2019-10-01` | As nacionalidades e religiões não estão incluídas neste tipo de entidade.  |
-|Organização | Médico | Empresas médicas e grupos. | `2020-04-01` | Também devolvido `domain=phi` com. |
-|Organização | Bolsa de valores | Grupos de bolsa. | `2020-04-01` | Também devolvido `domain=phi` com. |
-| Organização | Desportos | Organizações relacionadas com o desporto. | `2020-04-01` | Também devolvido `domain=phi` com. |
+|Organização | Médico | Empresas médicas e grupos. | `2020-04-01` |  |
+|Organização | Bolsa de valores | Grupos de bolsa. | `2020-04-01` |  |
+| Organização | Desportos | Organizações relacionadas com o desporto. | `2020-04-01` |  |
 | Endereço | N/D | Endereços de correio completos.  | `2020-04-01` | Também devolvido `domain=phi` com. |
 | Coordenadas DE GPS da UE | N/D | Coordenadas GPS para locais na União Europeia.  | `2019-10-01` |  |
 | E-mail | N/D | Endereços de e-mail. | `2019-10-01` | Também devolvido `domain=phi` com.   |
 | URL | N/D | URLs para sites. | `2019-10-01` | Também devolvido `domain=phi` com. |
-| IP | N/D | Endereços IP de rede. | `2019-10-01` | |
+| IP | N/D | Endereços IP de rede. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | DateTime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
-| DateTime | Data | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
+| DateTime | Date | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Idades. | `2019-10-01` | | |
-| Classificação Internacional das Doenças (ICD-9-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, 9ª Revisão.   | `2020-04-01` | |
-| Classificação Internacional das Doenças (ICD-10-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, Décima Revisão.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informação azul
 
 Esta categoria de entidade inclui informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. Disponível a partir da versão `2019-10-01` modelo. Não voltou com o `domain=phi` parâmetro.
 
-| Subcategory                           | Descrição                                                                 |
+| Subcategoria                           | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave Azure DocumentDB Auth             | Chave de autorização para um servidor Azure DocumentDB.                           |
 | Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma Infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |

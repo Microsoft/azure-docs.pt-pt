@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008324"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007918"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -55,7 +55,7 @@ Existem várias coisas relacionadas com o uso da memória dentro do seu servidor
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Provedor do Estado da sessão de Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provedor do Estado da sessão de ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>Quando é seguro voltar a tentar?
@@ -73,13 +73,13 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  * O VM do cliente utilizado para testes deve estar **na mesma região que a** sua cache Redis.
  * **Recomendamos a utilização de Série VM Dv2** para o seu cliente, uma vez que têm melhor hardware e darão os melhores resultados.
  * Certifique-se de que o VM do cliente que utiliza tem pelo*menos tanto cálculo e largura de banda* como a cache que está a ser testada. 
- * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx)  Script de exemplo powershell:
+ * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx)  Exemplo de script do PowerShell:
      >PowerShell -ExecutionPolicy Sem restrições Enable-NetAdapterRSS -Name (Get-NetAdapter). Nome 
      
  * **Considere utilizar instâncias De nível Premium Redis**.  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
  
      > [!NOTE]
-     > Os nossos resultados de desempenho observados são [publicados aqui](cache-faq.md#azure-cache-for-redis-performance) para a sua referência.   Além disso, esteja ciente de que o SSL/TLS adiciona algumas despesas gerais, para que possa obter latências e/ou produção diferentes se estiver a usar encriptação de transporte.
+     > Os nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para a sua referência.   Além disso, esteja ciente de que o SSL/TLS adiciona algumas despesas gerais, para que possa obter latências e/ou produção diferentes se estiver a usar encriptação de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Exemplos de Referência Redis
 **Configuração pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.

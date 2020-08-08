@@ -1,6 +1,6 @@
 ---
 title: Mostrar informações sobre funcionalidades no Azure Maps Android SDK Microsoft Azure Maps
-description: Neste artigo, você vai aprender a exibir informações de funcionalidades num mapa usando o Microsoft Azure Maps Android SDK.
+description: Saiba como exibir informações quando os utilizadores interagem com as funcionalidades do mapa. Utilize o Azure Maps Android SDK para exibir mensagens torradas e outros tipos de mensagens.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 26f41a7fd88a3c2018592e89ae95e3b962c1a9e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c5f9f1a7c0d014d101ad45a80e1e53c42f69a3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75911696"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009040"
 ---
 # <a name="display-feature-information"></a>Apresentar informações da funcionalidade
 
@@ -74,7 +74,7 @@ Além de brindar mensagens, existem muitas outras formas de apresentar as propri
 - Adicione um [fragmento](https://developer.android.com/guide/components/fragments) à atividade atual.
 - Navegue para outra atividade ou vista.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para adicionar mais dados ao seu mapa:
 

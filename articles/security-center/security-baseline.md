@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9bd0f1cbe1f4797a0187952b94ca48077bb3134c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854416"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004483"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Linha de segurança Azure para o Centro de Segurança
 
@@ -190,7 +190,7 @@ Em alternativa, pode ativar e a bordo dados relacionados e produzidos pelo Azure
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: O controlo de acesso baseado em funções (RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure. O Azure Security Center tem funções incorporadas para 'Security Reader' ou 'Security Admin' que permite aos utilizadores ler ou atualizar políticas de segurança e rejeitar alertas e recomendações.
+**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure. O Azure Security Center tem funções incorporadas para 'Security Reader' ou 'Security Admin' que permite aos utilizadores ler ou atualizar políticas de segurança e rejeitar alertas e recomendações.
 
 - [Permissions in Azure Security Center](security-center-permissions.md) (Permissões no Centro de Segurança do Azure)
 
@@ -344,7 +344,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure via Azure Ative Directory RBAC.
+**Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure via Azure RBAC.
 
 Por predefinição, os dados do Azure Security Center são armazenados no serviço de backend do Centro de Segurança. Se a sua organização tiver requisitos adicionais para armazenar estes dados nos seus próprios recursos, pode configurar um espaço de trabalho log Analytics para armazenar dados, alertas e recomendações do Centro de Segurança. Ao utilizar o seu próprio espaço de trabalho, pode adicionar uma maior separação configurando diferentes espaços de trabalho de acordo com o ambiente em que os dados se originaram.
 
@@ -376,15 +376,15 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-controls-to-control-access-to-resources"></a>4.6: Utilizar controlos de acesso baseados em funções para controlar o acesso aos recursos 
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos 
 
-**Orientação**: Utilize controlos de acesso baseados em funções Azure para gerir o acesso a dados e recursos relacionados com o Azure Security Center. O Azure Security Center tem funções incorporadas para 'Security Reader' ou 'Security Admin' que permite aos utilizadores ler ou atualizar políticas de segurança e rejeitar alertas e recomendações. O espaço de trabalho Log Analytics que armazena os dados recolhidos pelo Security Center também tem funções incorporadas que pode atribuir como 'Log Analytics Reader', 'Log Analytics Contributor', entre outros. Atribua o papel menos permissivo necessário para que os utilizadores completem as suas tarefas necessárias. Por exemplo, atribua o papel de Leitor a utilizadores que apenas precisam de visualizar informações sobre a saúde de segurança de um recurso, mas não tomem medidas, tais como a aplicação de recomendações ou políticas de edição.
+**Orientação**: Use o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso a dados e recursos relacionados com o Azure Security Center. O Azure Security Center tem funções incorporadas para 'Security Reader' ou 'Security Admin' que permite aos utilizadores ler ou atualizar políticas de segurança e rejeitar alertas e recomendações. O espaço de trabalho Log Analytics que armazena os dados recolhidos pelo Security Center também tem funções incorporadas que pode atribuir como 'Log Analytics Reader', 'Log Analytics Contributor', entre outros. Atribua o papel menos permissivo necessário para que os utilizadores completem as suas tarefas necessárias. Por exemplo, atribua o papel de Leitor a utilizadores que apenas precisam de visualizar informações sobre a saúde de segurança de um recurso, mas não tomem medidas, tais como a aplicação de recomendações ou políticas de edição.
 
 - [Permissões para espaço de trabalho Azure Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader)
 
 - [Permissions in Azure Security Center](security-center-permissions.md) (Permissões no Centro de Segurança do Azure)
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

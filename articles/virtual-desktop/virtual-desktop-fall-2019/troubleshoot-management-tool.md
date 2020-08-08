@@ -1,19 +1,17 @@
 ---
 title: Ferramenta de gestão virtual do Windows Desktop (clássico) - Azure
 description: Como resolver problemas com a ferramenta de gestão virtual do Windows Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6f03284103b4a2aa6900bf1ba5c50a4688c50b0e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283372"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005487"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Resolução de problemas da ferramenta de gestão virtual do Windows Desktop (clássico)
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: bf9ddc78caa1e19d35ad7e96af76dc0303a8a67c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184774"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004737"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para uma cache premium Azure para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Um VNet é uma rede privada na nuvem. Quando uma cache Azure para a instância Redis é configurada com um VNet, não é publicamente endereçada e só pode ser acedida a partir de máquinas e aplicações virtuais dentro do VNet. Este artigo descreve como configurar o suporte de rede virtual para um Azure Cache premium para a instância Redis.
@@ -20,8 +20,6 @@ O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexi
 > A azure Cache para Redis suporta vNets clássicos e gestores de recursos.
 > 
 > 
-
-Para obter informações sobre outras funcionalidades de cache premium, consulte [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md).
 
 ## <a name="why-vnet"></a>Por que vNet?
 A implementação [da Rede Virtual Azure (VNet)](https://azure.microsoft.com/services/virtual-network/) proporciona uma maior segurança e isolamento para o seu Cache Azure para Redis, bem como sub-redes, políticas de controlo de acesso e outras funcionalidades para restringir ainda mais o acesso.
@@ -131,11 +129,11 @@ Existem oito requisitos de gama portuária de entrada. Os pedidos de entrada nes
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, Azure load balance | (Sub-rede Redis) | (Sub-rede Redis), Rede Virtual, Balançador de Carga Azure <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis), Equilibrador de Carga Azure |
 | 13000-13999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load balance | (Sub-rede Redis) |Rede Virtual, Equilibrador de Carga Azure |
 | 15000-15999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load Balanceing e Geo-Replication | (Sub-rede Redis) |Rede Virtual, Balançador de Carga Azure(Sub-rede de pares geo-réplica) |
-| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
 <sup>1</sup> Pode utilizar a Etiqueta de Serviço 'AzureLoadBalancer' (ou 'AZURE_LOADBALANCER' para clássico) para a autoria das regras NSG.
@@ -237,9 +235,9 @@ Informações de fundo sobre rotas definidas pelo utilizador estão disponíveis
 Para obter mais informações sobre o ExpressRoute, consulte [a visão técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprenda a usar mais funcionalidades de cache premium.
+Saiba mais sobre o Azure Cache para funcionalidades redis.
 
-* [Introdução à Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)
+* [Cache Azure para os níveis de serviço Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

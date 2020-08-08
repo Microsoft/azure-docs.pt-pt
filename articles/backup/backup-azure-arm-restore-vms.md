@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809189"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006337"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -45,7 +45,7 @@ Alguns detalhes sobre contas de armazenamento:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Para restaurar um VM (criar um novo VM), certifique-se de que tem as [permissões corretas](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de controlo de acesso baseado em funções (RBAC) para a operação Restore VM.
+Para restaurar um VM (criar um novo VM), certifique-se de que tem as [permissões corretas](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de controlo de acesso baseado em funções (Azure RBAC) para a operação Restore VM.
 
 Se não tiver permissões, pode [restaurar um disco](#restore-disks), e depois de o disco ser restaurado, pode utilizar o [modelo](#use-templates-to-customize-a-restored-vm) que foi gerado como parte da operação de restauro para criar um novo VM.
 
@@ -173,7 +173,7 @@ A região secundária restaurará a experiência do utilizador será semelhante 
 >
 >- Após o restauro ser desencadeado e na fase de transferência de dados, a função de restauro não pode ser cancelada.
 >- A função Cross Region Restores CMK (chaves geridas pelo cliente) ativadas Azure VMs, que não são apoiadas num cofre de Serviços de Recuperação ativado pela CMK, uma vez que os VMs não habilitados pela CMK na região secundária.
->- As funções do RBAC (controlos de acesso baseados em funções) necessárias para restaurar na região secundária são as mesmas da região primária.
+>- Os papéis do Azure necessários para restaurar na região secundária são os mesmos que na região primária.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorização da região secundária restabelece postos de trabalho
 

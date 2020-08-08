@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop security best practices - Azure
 description: As melhores práticas para manter o ambiente de ambiente de trabalho virtual do Windows seguro.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736677"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002284"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -103,7 +101,7 @@ Os anfitriões de sessão são máquinas virtuais que funcionam dentro de uma su
 
 ### <a name="enable-endpoint-protection"></a>Permitir a proteção do ponto final
 
-Para proteger a sua implementação de software malicioso conhecido, recomendamos que se permita a proteção do ponto final em todos os anfitriões da sessão. Pode utilizar o Antivírus do Windows Defender ou um programa de terceiros. Para saber mais, consulte [o guia de implementação do Antivírus do Windows Defender num ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Para proteger a sua implementação de software malicioso conhecido, recomendamos que se permita a proteção do ponto final em todos os anfitriões da sessão. Pode utilizar o Antivírus do Windows Defender ou um programa de terceiros. Para saber mais, consulte [o guia de implementação do Antivírus do Windows Defender num ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 Para soluções de perfil como fSLogix ou outras soluções que suportem ficheiros VHD, recomendamos a exclusão de extensões de ficheiros VHD.
 
@@ -153,6 +151,6 @@ Ao restringir as capacidades do sistema operativo, pode reforçar a segurança d
 
 - Evite que o software indesejado esteja a funcionar em anfitriões de sessão. Pode ativar o App Locker para obter segurança adicional nos anfitriões da sessão, garantindo que apenas as aplicações que permite podem ser executadas no anfitrião.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a ativar a autenticação de vários fatores, consulte [Configurar a autenticação de vários fatores.](set-up-mfa.md)

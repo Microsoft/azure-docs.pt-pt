@@ -1,19 +1,17 @@
 ---
 title: Criar o contentor de perfil FSLogix Azure Files Ative Directory Domain Services - Azure
 description: Este artigo descreve como criar um recipiente de perfil FSLogix com ficheiros Azure e Serviços de Domínio do Diretório Ativo Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362446"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007714"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
 
@@ -142,7 +140,7 @@ Para configurar um recipiente de perfil FSLogix:
 
 3. Assim que o instalador for lançado, **selecione concordo com os termos e condições da licença.** Se aplicável, forneça uma nova chave.
 
-4. Selecione **Instalar**.
+4. Selecione **Install** (Instalar).
 
 5. Open **Drive C**, em seguida, vá a Program **Files**  >  **FSLogix**  >  **Apps** para se certificar de que o agente FSLogix foi corretamente instalado.
 
@@ -236,7 +234,7 @@ Para verificar o seu perfil:
 
     Se tudo estiver bem montado, deve ver um **Diretório** com um nome formatado assim: `<user SID>-<username>` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura formas alternativas de criar recipientes de perfil FSLogix, confira os seguintes artigos:
 

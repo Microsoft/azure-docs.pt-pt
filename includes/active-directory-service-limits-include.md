@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 author: curtand
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 840357f51bbeeb877aba48fd8d04baad204cec1e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ba0791108878dada5088428ce40d1af672d1892a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374799"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010917"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Aqui estão as restrições de utilização e outros limites de serviço do serv
 | Painel de Acesso |Não há limite para o número de aplicações que podem ser vistas no Painel de Acesso por utilizador, independentemente das licenças atribuídas.  |
 | Relatórios | Pode ser visto um máximo de 1000 linhas ou transferido em qualquer relatório. Quaisquer dados adicionais são truncados. |
 | Unidades administrativas | Um recurso AD Azure pode ser membro de não mais de 30 unidades administrativas. |
-| Funções e permissões de administrador | <ul><li>Um grupo não pode ser adicionado como [proprietário](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Um grupo não pode ser designado para um [papel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>A capacidade dos utilizadores de lerem as informações de diretório de outros utilizadores não pode ser restringida fora do interruptor da organização Azure AD para desativar o acesso de todos os utilizadores não administrativos a todas as informações do diretório (não recomendada). Mais informações sobre permissões por defeito [aqui.](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)</li><li>Pode levar até 15 minutos ou assinar/assinar antes de advogações de funções de administrador e revogações.</li></ul> |
+| Funções e permissões de administrador | <ul><li>Um grupo não pode ser adicionado como [proprietário](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>A capacidade dos utilizadores de lerem as informações de diretório de outros utilizadores não pode ser restringida fora do interruptor da organização Azure AD para desativar o acesso de todos os utilizadores não administrativos a todas as informações do diretório (não recomendada). Mais informações sobre permissões por defeito [aqui.](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)</li><li>Pode levar até 15 minutos ou assinar/assinar antes de advogações de funções de administrador e revogações.</li></ul> |

@@ -1,19 +1,17 @@
 ---
 title: Windows 7 máquinas virtuais Windows Virtual Desktop (clássico) - Azure
 description: Como resolver problemas para máquinas virtuais (VMs) do Windows 7 num ambiente virtual do Windows Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d71b4472b16372927db56b20eca4fcbde0cc625
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286347"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005419"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Resolução de problemas Máquinas virtuais Do Windows 7 no Windows Virtual Desktop (clássico)
 
@@ -47,7 +45,7 @@ Para corrigir este erro, adicione o utilizador ao grupo utilizador de ambiente d
 2. Selecione a máquina virtual em que viu a mensagem de erro acesa.
 3. **Selecione Executar um comando**.
 4. Executar o seguinte comando `<username>` com substituído pelo nome do utilizador que pretende adicionar:
-   
+
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add
    ```

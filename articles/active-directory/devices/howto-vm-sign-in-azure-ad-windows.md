@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529114"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005017"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -39,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -174,7 +174,7 @@ Após alguns momentos, o diretor de segurança é atribuído o papel no âmbito 
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Usando a experiência Azure Cloud Shell
 
-O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o âmbito é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou a nível de subscrição, e aplicam-se permissões de herança normal do RBAC. Para obter mais informações, consulte [os Controlos de Acesso Baseados em Fun.](../../virtual-machines/linux/login-using-aad.md)
+O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o âmbito é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para obter mais informações, consulte [iniciar sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > Se o seu domínio AAD e o nome de utilizador do início de síltipo não coincidirem, tem de especificar o ID do objeto da sua conta de utilizador com o nome de `--assignee-object-id` utilizador para `--assignee` . Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores de anúncios az](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte os seguintes artigos:
+Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte os seguintes artigos:
 
-- [Gerir o acesso aos recursos Azure utilizando o RBAC e o Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Manage access to Azure resources using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
-- [Gerir o acesso aos recursos Azure utilizando o RBAC e o Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Adicione ou remova atribuições de funções Azure usando Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Adicione ou remova atribuições de funções Azure usando o portal Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Adicione ou remova as atribuições de funções Azure utilizando a Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Usando acesso condicional
 

@@ -1,19 +1,17 @@
 ---
 title: Acesso delegado no Windows Virtual Desktop (clássico) - Azure
 description: Como delegar capacidades administrativas numa implementação virtual do Windows Desktop (clássica), incluindo exemplos.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0152dc5102fd3f77418448234cab1234d25b97c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292530"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008156"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Acesso delegado no Windows Virtual Desktop (clássico)
 

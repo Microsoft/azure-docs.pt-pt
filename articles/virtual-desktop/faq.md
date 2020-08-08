@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop FAQ - Azure
 description: Perguntas frequentes e boas práticas para o Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504420"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007493"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -25,7 +23,7 @@ Se pretender criar piscinas de anfitriões e outros objetos, deve ser-lhe atribu
 
 Deve ser-lhe atribuída a função de Administrador de Acesso ao Utilizador num grupo de aplicações para publicar grupos de aplicações a utilizadores ou grupos de utilizadores.
 
-Para restringir um administrador apenas para gerir as sessões de utilizador, como o envio de mensagens para os utilizadores, a assinatura de utilizadores, e assim por diante, pode criar funções personalizadas. Por exemplo: 
+Para restringir um administrador apenas para gerir as sessões de utilizador, como o envio de mensagens para os utilizadores, a assinatura de utilizadores, e assim por diante, pode criar funções personalizadas. Por exemplo:
 
 ```powershell
 "actions": [
@@ -116,7 +114,7 @@ Uma vez que você cria uma piscina de anfitrião, você não pode mudar o seu ti
 
 As limitações ou quotas em FSLogix dependem do tecido de armazenamento utilizado para armazenar ficheiros VHD(X) de perfil do utilizador.
 
-A tabela seguinte dá um exemplo de como qualquer recurso que um perfil FSLogix necessita para suportar cada utilizador. Os requisitos podem variar muito dependendo do utilizador, aplicações e atividade em cada perfil. 
+A tabela seguinte dá um exemplo de como qualquer recurso que um perfil FSLogix necessita para suportar cada utilizador. Os requisitos podem variar muito dependendo do utilizador, aplicações e atividade em cada perfil.
 
 | Recurso | Requisito |
 |---|---|

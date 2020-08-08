@@ -1,6 +1,6 @@
 ---
 title: Controlo remoto de acessos - Azure / Microsoft Docs
-description: Este artigo fornece informações sobre como pode configurar controlos de acesso baseados em funções (RBAC) no acelerador de solução de monitorização remota
+description: Este artigo fornece informações sobre como pode configurar o controlo de acesso baseado em funções (RBAC) no acelerador de solução de monitorização remota
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920719"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008989"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controlos de acesso baseados em funções no acelerador de solução de monitorização remota
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configure o controlo de acesso baseado em funções no acelerador de solução de monitorização remota
 
-Este artigo fornece informações sobre como configurar controlos de acesso baseados em funções no acelerador de solução de monitorização remota. Os controlos de acesso baseados em funções permitem restringir o acesso de utilizadores individuais a funcionalidades específicas na solução.
+Este artigo fornece informações sobre como configurar o controlo de acesso baseado em funções no acelerador de solução de monitorização remota. O controlo de acesso baseado em funções permite restringir o acesso de utilizadores individuais a funcionalidades específicas na solução.
 
 ## <a name="default-settings"></a>Predefinições
 
@@ -26,7 +26,7 @@ Quando implementa pela primeira vez a solução de Monitorização Remota, exist
 
 Qualquer utilizador na função **Administração** tem acesso total à solução, incluindo as seguintes permissões abaixo. Um utilizador na função **Read Only** só terá acesso para visualizar a solução.
 
-| Permissão            | Administrador | Só de Leitura |
+| Permissão            | Admin | Só de Leitura |
 |----------------       |-------|-----------|
 | Ver Solução         | Sim   | Sim       |
 | Atualizar alarmes         | Sim   | Não        |
@@ -92,7 +92,7 @@ Os seguintes passos descrevem como adicionar uma função a uma aplicação no A
 
 1. Encontre o **registo da App** para a sua solução no portal Azure. O nome da aplicação é o nome da sua solução de Monitorização Remota. Na imagem seguinte, os nomes de visualização da solução e aplicação são **contoso-rm4**.
 
-    ![Registo de aplicações](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
+    ![Registo da aplicação](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selecione a sua aplicação e, em seguida, clique em **Manifesto**. Pode ver as duas funções de [aplicação existentes definidas](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) para a aplicação:
 
@@ -242,9 +242,9 @@ public async Task DeleteAsync(string id)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu como os controlos de acesso baseados em funções são implementados no acelerador de solução de monitorização remota.
+Neste artigo, aprendeu como o controlo de acesso baseado em funções é implementado no acelerador de solução de monitorização remota.
 
 Consulte [os controlos de acesso configurar para o explorador time series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre a gestão do acesso ao explorador de Insights de Séries Temporais no acelerador de solução de monitorização remota.
 

@@ -8,18 +8,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809617"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003894"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC
 
 Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), pode automatizar a instalação e configuração do software para um computador Windows. Este artigo descreve como utilizar o DSC para instalar o Arco Azure para servidores Agentes de Máquinas Conectadas em máquinas híbridas do Windows.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 - Versão 4.0 ou superior do Windows PowerShell
 
@@ -49,7 +49,7 @@ Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell
 
 Os recursos deste módulo são projetados para gerir a configuração do Agente de Máquinas Conectada Azure. Também está incluído um script PowerShell, `AzureConnectedMachineAgent.ps1` encontrado na `AzureConnectedMachineDsc\examples` pasta. Utiliza recursos comunitários para automatizar o download e instalação e estabelecer uma ligação com o Arco Azure. Este script executa passos semelhantes descritos nas [máquinas híbridas Connect a Azure a partir do artigo do portal Azure.](onboard-portal.md)
 
-Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, precisa de executar um comando que está descrito [aqui](onboard-portal.md#configure-the-agent-proxy-setting). Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` . Em vez de executar o comando manualmente, pode executar este passo com o DSC utilizando o módulo [ComputeManagementDsc.](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0)
+Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, precisa de executar um comando que está descrito [aqui](manage-agent.md#update-or-remove-proxy-settings). Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` . Em vez de executar o comando manualmente, pode executar este passo com o DSC utilizando o módulo [ComputeManagementDsc.](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0)
 
 >[!NOTE]
 >Para permitir a execução do DSC, o Windows precisa de ser configurado para receber comandos remotos PowerShell mesmo quando estiver a executar uma configuração local. Para configurar facilmente o seu ambiente corretamente, basta correr `Set-WsManQuickConfig -Force` num terminal PowerShell elevado.

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531376"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006643"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
 
 O seguinte guia é para processos de fundo, temporizadores e empregos que são hospedados num ambiente confiável e seguro. Exemplos incluem Azure Web Jobs, Azure Function Apps, Windows Services e qualquer outro serviço de fundo confiável.
 
 > [!Tip]
-> A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) e do controlo de acesso baseado em funções (RBAC) para aplicações de produção. Para uma visão geral dos conceitos, consulte [a Autenticação Azure Maps.](./azure-maps-authentication.md)
+> A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) e do controlo de acesso baseado em funções Azure (Azure RBAC) para aplicações de produção. Para uma visão geral dos conceitos, consulte [a Autenticação Azure Maps.](./azure-maps-authentication.md)
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -46,7 +46,7 @@ Os seguintes passos descrevem este processo:
 > [!Tip]
 > Se a aplicação estiver hospedada em ambiente Azure, deverá implementar uma Identidade Gerida para reduzir o custo e a complexidade de gerir um segredo para autenticar para a Azure Key Vault. Consulte o seguinte tutorial do Azure Key Vault [para ligar através de identidade gerida](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
-A aplicação Daemon é responsável por recuperar a chave partilhada de um armazenamento seguro. A implementação com o Azure Key Vault requer autenticação através da Azure AD para aceder ao segredo. Em vez disso, encorajamos a autenticação direta do Azure AD RBAC ao Azure Maps em resultado da complexidade adicional e dos requisitos operacionais da utilização da autenticação de chaves partilhadas.
+A aplicação Daemon é responsável por recuperar a chave partilhada de um armazenamento seguro. A implementação com o Azure Key Vault requer autenticação através da Azure AD para aceder ao segredo. Em vez disso, encorajamos a autenticação direta do AZure AD ao Azure Maps como resultado da complexidade adicional e requisitos operacionais da utilização da autenticação de chaves partilhadas.
 
 > [!IMPORTANT]
 > Para simplificar a regeneração das chaves, recomendamos que as aplicações utilizem uma chave de cada vez. As aplicações podem então regenerar a chave não utilizada e implantar a nova chave regenerada para uma loja secreta segura, como o Azure Key Vault.
@@ -107,9 +107,9 @@ Quando funciona num ambiente não-Azure As identidades geridas não estão dispo
         > [!div class="mx-imgBorder"]
         > ![Adicione um segredo de cliente](./media/how-to-manage-authentication/add-key.png)
 
-### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Concessão de acesso baseado em funções para a aplicação da Daemon ao Azure Maps
+### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Conceder acesso baseado em funções para a aplicação da Daemon ao Azure Maps
 
-Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções de controlo de acesso Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -117,7 +117,7 @@ Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identida
 1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções**.
 
     > [!div class="mx-imgBorder"]
-    > ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Conceder acesso usando Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. No **separador role assignments,** **Adicione** uma tarefa de função. 
     

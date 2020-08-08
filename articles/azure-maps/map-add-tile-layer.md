@@ -1,6 +1,6 @@
 ---
 title: Adicione uma camada de azulejo a um mapa Microsoft Azure Maps
-description: Neste artigo, você aprenderá a sobrepor uma camada de azulejos em um mapa usando o Microsoft Azure Maps Web SDK. As camadas de azulejos permitem-lhe renderizar imagens num mapa.
+description: Saiba como sobrepor imagens nos mapas. Veja um exemplo que usa o Azure Maps Web SDK para adicionar uma camada de azulejos contendo uma sobreposição de radar meteorológico a um mapa.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: bb277a3413a21011b537b47bdc8fc1979c8e81c5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c96916c029c9c49ad7d4c493fed8859354508ebe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279564"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010179"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 

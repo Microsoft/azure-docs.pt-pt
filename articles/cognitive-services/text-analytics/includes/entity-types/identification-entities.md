@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: f07b71bf8996612798b87d32a21a15ec72db0b32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140947"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011031"
 ---
 Esta categoria de entidade inclui informação financeira e formas oficiais de identificação. Disponível a partir da versão `2019-10-01` modelo. Os subtipos estão listados abaixo. 
 
@@ -39,28 +39,39 @@ As entidades abaixo estão agrupadas e listadas por país:
 Argentina
 * Número de Identidade Nacional argentina (DNI)
 
+Áustria
+* Bilhete de Identidade da Áustria
+* Número de identificação fiscal da Áustria
+* Número do Imposto sobre o Valor Acrescentado (IVA) da Áustria
+
 Austrália
-* Número do passaporte da Austrália
-* Número de ficheiros fiscais da Austrália
+* Número da conta bancária da Austrália
+* Número de negócios australiano
+* Número da empresa australiana
 * Número da carta de condução da Austrália
 * Número da conta médica da Austrália
-* Número da conta bancária da Austrália
+* Número do passaporte da Austrália
+* Número de ficheiros fiscais da Austrália
 
 Bélgica
-* Número nacional da Bélgica
+* Número Nacional da Bélgica
+* Número do Imposto sobre o Valor Acrescentado da Bélgica
 
 Brasil 
 * Número da Entidade Jurídica do Brasil (CNPJ)
 * Número do CPF do Brasil
 * Cartão Nacional de Identidade do Brasil (RG)
 
+Bulgária
+* Número civil uniforme da Bulgária
+
 Canadá
-* Número do Seguro Social do Canadá
-* Número da carta de condução do Canadá
 * Número da conta bancária do Canadá
+* Número da carta de condução do Canadá
+* Número do Serviço de Saúde do Canadá
 * Número do passaporte do Canadá
 * Número de identificação pessoal da saúde do Canadá (PHIN)
-* Número do Serviço de Saúde do Canadá
+* Número do Seguro Social do Canadá
 
 Chile
 * Número do bilhete de identidade 
@@ -70,7 +81,12 @@ China
 
 Croácia
 * Número do bilhete de identidade da Croácia
+* Número de cartão de identidade nacional da Croácia
 * Número de Identificação Pessoal da Croácia (OIB)
+
+Chipre
+* Número do bilhete de identidade de Chipre
+* Número de identificação fiscal de Chipre
 
 República Checa
 * Número de identidade pessoal checa
@@ -78,34 +94,49 @@ República Checa
 Dinamarca
 * Número de identificação pessoal da Dinamarca
 
+Estónia
+* Código de Identificação Pessoal da Estónia
+
 União Europeia (UE)
+* Número do cartão de débito da UE
+* Número da carta de condução da UE
 * Número de identificação nacional da UE
 * Número de passaporte da UE
-* Número da carta de condução da UE
 * Número de Segurança Social da UE (SSN) ou ID equivalente
 * Número de identificação fiscal da UE (TIN)
-* Número do cartão de débito da UE
 
 Finlândia
+* Número do Seguro De Saúde Europeu da Finlândia
 * ID Nacional da Finlândia
 * Número do passaporte da Finlândia
 
 França
-* Cartão de identidade nacional da França (CNI)
-* Número de Segurança Social da França (INSEE)
-* Número do passaporte da França
 * Número da carta de condução da França
+* Número do Seguro de Saúde francês
+* Cartão de identidade nacional da França (CNI)
+* Número do passaporte da França
+* Número de Segurança Social da França (INSEE)
+* Número de identificação fiscal da França (numéro SPI.)
+* Número de imposto sobre o valor acrescentado da França
 
 Alemanha
+* Número da carta de condução alemã
 * Número do bilhete de identidade da Alemanha
 * Número do passaporte alemão
-* Número da carta de condução alemã
+* Número de identificação fiscal da Alemanha
+* Número do Imposto sobre o Valor Acrescentado da Alemanha
 
 Grécia 
 * Número do cartão de identidade nacional da Grécia
+* Número de identificação fiscal da Grécia
 
 RAE de Hong Kong
 * Número do Bilhete de Identidade de Hong Kong (HKID)
+
+Hungria
+* Número de identificação nacional da Hungria
+* Número de identificação fiscal da Hungria
+* Número do Imposto sobre o Valor Acrescentado da Hungria
 
 Índia
 * Número de Conta Permanente da Índia (PAN)
@@ -123,23 +154,47 @@ Israel
 
 Itália
 * ID da carta de condução de Itália
+* Código Fiscal de Itália
+* Itália Número de Imposto sobre o Valor Acrescentado
 
 Japão
+* Número de conta bancária do Japão
+* Número da carta de condução do Japão
+* Japonês Meu Número Pessoal
+* Japonês My Number Corporate
 * Número de registo de residentes no Japão
 * Número do cartão de residência japonês
-* Número da carta de condução do Japão
-* Número do Seguro Social (SIN)
+* Número da Segurança Social do Japão (SIN)
 * Número do passaporte do Japão
-* Número de conta bancária do Japão
+
+Letónia
+* Código Pessoal da Letónia
+
+Lituânia
+* Código Pessoal da Lituânia
+
+Luxemburgo
+* Número de Identificação Nacional do Luxemburgo (Pessoas Singulares)
+* Número de Identificação Nacional do Luxemburgo (pessoas não singulares)
 
 Malásia
-* Número do Bilhete de Identidade da Malásia
+* Número do bilhete de identidade da Malásia
+
+Malta
+* Número do bilhete de identidade de Malta
+* Número de identificação fiscal de Malta
 
 Países Baixos
 * Número do Serviço de Cidadãos Holandeses (BSN)
+* Número de identificação fiscal dos Países Baixos
+* Número do Imposto sobre o Valor Acrescentado dos Países Baixos
 
 Nova Zelândia
+* Número da conta bancária da Nova Zelândia
+* Número da carta de condução da Nova Zelândia
+* Número de receitas do interior da Nova Zelândia
 * Número do Ministério da Saúde da Nova Zelândia
+* Número do Bem-Estar Social da Nova Zelândia
 
 Noruega
 * Número de identidade da Noruega
@@ -150,16 +205,33 @@ Filipinas
 Polónia
 * Cartão de Identidade da Polónia
 * ID Nacional da Polónia (PESEL)
-* Passaporte da Polónia
+* Número do passaporte da Polónia
+* Número regon da Polónia
+* Número de identificação fiscal da Polónia
 
 Portugal 
 * Número do Cartão de Cidadão de Portugal
+* Número de Identificação Fiscal de Portugal
+
+Roménia
+* Código Numérico Pessoal da Roménia (CNP)
+
+Rússia
+* Número do passaporte russo (doméstico)
+* Número do passaporte russo (internacional)
 
 Arábia Saudita
 * ID Nacional da Arábia Saudita
 
 Singapura
-* Número do Cartão De Identidade de Registo Nacional de Singapura (NRIC)
+* Número do Cartão de Identidade de Registo Nacional de Singapura (NRIC)
+
+Eslováquia 
+* Número pessoal da Eslováquia
+
+Eslovénia
+* Número de identificação fiscal da Eslovénia
+* Número único de cidadão-mestre da Eslovénia
 
 África do Sul
 * Número de identificação da África do Sul
@@ -168,11 +240,17 @@ Coreia do Sul
 * Número de registo residente na Coreia do Sul
 
 Espanha 
+* Espanha DNI
 * Número da Segurança Social de Espanha (SSN)
+* Número de identificação fiscal de Espanha
 
 Suécia
 * ID Nacional da Suécia
 * Número do passaporte da Suécia
+* Número de identificação fiscal da Suécia
+
+Suíça
+* Número de Segurança Social Suíça AHV
 
 Taiwan 
 * ID Nacional de Taiwan
@@ -182,18 +260,25 @@ Taiwan
 Tailândia
 * Código de Identificação da População Tailandesa
 
+Turquia
+* Número de identificação nacional turca
+
+Ucrânia
+* Número do passaporte da Ucrânia (Doméstico)
+* Número do passaporte da Ucrânia (Internacional)
+
 Reino Unido
-* ID do passaporte
 * Reino Unido Número da carta de condução
-* Reino Unido Número do Seguro Nacional (NINO)
-* Reino Unido Número do Serviço Nacional de Saúde
 * Reino Unido Número do Caderno Eleitoral
-* Reino Unido. Número do passaporte
+* Reino Unido Número do Serviço Nacional de Saúde (SNS)
+* Reino Unido Número do Seguro Nacional (NINO)
+* Reino Unido Número do passaporte
+* Reino Unido Número único de referência do contribuinte
 
 Estados Unidos da América
 * Número de Segurança Social dos EUA (SSN)
 * Número da carta de condução dos EUA
-* Reino Unido. Número do passaporte
+* Número do passaporte dos EUA
 * Número de identificação individual dos contribuintes dos EUA (ITIN)
-* Número da Drug Enforcement Agency (DEA)
+* Número da Agência de Combate à Droga dos EUA (DEA)
 * Número da conta bancária dos EUA

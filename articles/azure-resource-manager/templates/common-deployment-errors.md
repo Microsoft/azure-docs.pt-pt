@@ -3,21 +3,19 @@ title: Resolver erros de implementação comuns
 description: Descreve como resolver erros comuns quando implementa recursos para o Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446602"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008173"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
 Este artigo descreve alguns erros comuns de implementação do Azure, e fornece informações para resolver os erros. Se não encontrar o código de erro para o erro de implementação, veja [Localizar código de erro](#find-error-code).
 
 Se procura informações sobre um código de erro e essa informação não é fornecida neste artigo, avise-nos. Na parte inferior desta página, pode deixar feedback. O feedback é rastreado com problemas do GitHub.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Códigos de erro
 
@@ -76,6 +74,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ArmazenamentoAccountAlreadyTaken | Indique um nome único para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | ArmazenamentoAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar usar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Múltiplos NICs](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriçãoNotFound | Uma subscrição especificada para implementação não pode ser acedida. Pode ser que o ID de subscrição esteja errado, o utilizador que implementa o modelo não tem permissões adequadas para implementar na subscrição, ou o ID de subscrição está no formato errado. Ao utilizar implementações aninhadas para [implantar através de âmbitos,](cross-scope-deployment.md)forneça o GUID para a subscrição. | |
 | SubscriçãoNotRegista | Ao implementar recursos de rede, o fornecedor de recursos Microsoft.Network é automaticamente registado na subscrição. Às vezes, o registo automático não completa a tempo. Para evitar este erro intermitente, registe o fornecedor de recursos Microsoft.Network antes da sua implantação. | [Resolver o registo](error-register-resource-provider.md) |
 | ModeloResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação de âmbito transversal](cross-scope-deployment.md) |

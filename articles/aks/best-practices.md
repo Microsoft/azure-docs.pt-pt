@@ -4,12 +4,12 @@ description: Recolha do operador de cluster e das melhores práticas do promotor
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77596322"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008785"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de boas práticas para construir e gerir aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -21,7 +21,7 @@ Estas boas práticas e artigos conceptuais foram escritos em conjunto com o grup
 
 Como operador de cluster, trabalhe em conjunto com os proprietários de aplicações e desenvolvedores para compreender as suas necessidades. Em seguida, pode utilizar as seguintes boas práticas para configurar os seus clusters AKS conforme necessário.
 
-**Multi-inquilinos**
+**Arquitetura multi-inquilino**
 
 * [Melhores práticas de isolamento de cluster](operator-best-practices-cluster-isolation.md)
     * Inclui componentes do núcleo de vários arrendamentos e isolamento lógico com espaços de nome.
@@ -30,7 +30,7 @@ Como operador de cluster, trabalhe em conjunto com os proprietários de aplicaç
 * [Melhores práticas de funcionalidades avançadas do Scheduler](operator-best-practices-advanced-scheduler.md)
     * Inclui a utilização de manchas e tolerâncias, seletores de nó e afinidade, e afinidade inter-pod e anti-afinidade.
 * [Melhores práticas de autorização e autenticação](operator-best-practices-identity.md)
-    * Inclui integração com o Azure Ative Directory, utilizando controlos de acesso baseados em funções (RBAC) e identidades de pod.
+    * Inclui integração com o Azure Ative Directory, utilizando o controlo de acesso baseado em funções (RBAC) e identidades de vagem.
 
 **Segurança**
 
@@ -73,6 +73,6 @@ Para ajudar a compreender algumas das funcionalidades e componentes destas melho
 * [Opções de armazenamento](concepts-storage.md)
 * [Opções de escala](concepts-scale.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de começar com a AKS, siga um dos quickstarts para implantar um cluster Azure Kubernetes Service (AKS) utilizando o portal [Azure CLI](kubernetes-walkthrough.md) ou [Azure](kubernetes-walkthrough-portal.md).

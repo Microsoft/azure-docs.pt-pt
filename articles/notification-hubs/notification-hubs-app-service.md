@@ -3,46 +3,43 @@ title: Integração de Hubs de Notificações com Aplicações Móveis do Servi�
 description: Saiba como funciona o Azure Notification Hubs com aplicações móveis do Azure App Service.
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-documentationcenter: ''
-ms.assetid: 83132dff-a01d-4b31-a426-b57496852b81
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 08/06/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 647c5f40c7b02b8d9b488ce0812f27c0c0dde1a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e7042be7e407e8e0827e142ba6878dfff812e1f6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022145"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004058"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integração com as Aplicações Móveis do Serviço de Aplicações
 
-Para facilitar uma experiência totalmente integrada e unificadora em todos os serviços do Azure, as [Aplicações Móveis do Serviço de Aplicações](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) têm suporte incorporado para notificações push com os Hubs de Notificação. As [Aplicações Móveis do Serviço de Aplicações](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) oferecem uma plataforma de desenvolvimento de aplicações móveis altamente dimensionável e globalmente disponível para Programadores Empresariais e Integradores de Sistemas, que fornece um conjunto completo de capacidades para programadores móveis.
+Para facilitar uma experiência perfeita e unificadora em todos os serviços da Azure, [as Aplicações Móveis do Serviço de Aplicações](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) têm suporte incorporado para notificações usando hubs de notificação Azure. [O App Service Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) oferece uma plataforma de desenvolvimento de aplicações móveis altamente escalável e globalmente disponível para desenvolvedores de empresas e integradores de sistemas que traz um rico conjunto de capacidades para os desenvolvedores móveis.
 
-Os programadores de Mobile Apps podem utilizar Notification Hubs com o fluxo de trabalho seguinte:
+Os desenvolvedores de Aplicações Móveis podem usar Os Centros de Notificação com o seguinte fluxo de trabalho:
 
-1. Obter o identificador PNS do dispositivo
-2. Registar o dispositivo nos Hubs de Notificação através da conveniente API de registo do SDK de Cliente das Aplicações Móveis
+1. Manípulo PNS do dispositivo de recuperação.
+2. Registar o dispositivo com Os Centros de Notificação utilizando APIs de registo de aplicações móveis do cliente SDK.
 
     > [!NOTE]
     > Tenha em atenção que, por motivos de segurança, as Mobile Apps eliminam todas as etiquetas ao registarem-se. Trabalhar com Notification Hubs diretamente no seu back-end para associar etiquetas a dispositivos.
 
-3. Enviar notificações a partir do seu back-end de aplicação com Notification Hubs
+3. Envie notificações do seu backend da sua aplicação com os Centros de Notificação.
 
-Aqui estão algumas das conveniências que esta integração proporciona a programadores:
+Algumas vantagens que esta integração proporciona são:
 
-- **SDKs de Cliente de Aplicações Móveis**: estes SDKs multiplataforma proporcionam APIs simples para registar e falar automaticamente com o hub de notificação ligado à aplicação móvel. Os programadores não precisam de analisar a fundo as credenciais dos Notification Hubs e trabalham com um serviço adicional.
-  - *Enviar para o utilizador*: os SDKs etiquetam automaticamente o dispositivo especificado com o ID de Utilizador autenticado das Aplicações Móveis para permitir o cenário de envio para o utilizador.
-  - *Enviar para o dispositivo*: os SDKs utilizam automaticamente o ID de Instalação das Aplicações Móveis como o GUID para se registarem nos Hubs de Notificação, poupando aos programadores o trabalho de manterem GUIDs para vários serviços.
-- **Modelo de instalação**: as Aplicações Móveis funcionam com o modelo push mais recente dos Hubs de Notificação para representar todas as propriedades de push associadas a um dispositivo numa instalação JSON que se alinha com os Serviço de Notificações Push e é fácil de utilizar.
+- **Aplicações Móveis Client SDKs**: Estes SDKs multiplataformas fornecem APIs para registo e comunicam com o centro de notificação que está ligado à aplicação móvel. Não precisa de credenciais de Centros de Notificação, nem de trabalhar com um serviço adicional.
+  - *Empurre para o utilizador*: Os SDKs marcam automaticamente o dispositivo especificado com um ID autenticado por Aplicações Móveis para ativar o cenário de "empurrar para o utilizador".
+  - *Empurre para*o dispositivo : Os SDKs utilizam automaticamente o ID de instalação de aplicações móveis como um GUID para se registarem com os Centros de Notificação, pelo que não há necessidade de manter vários GUIDs de serviço.
+- **Modelo de instalação**: As Aplicações Móveis funcionam com o mais recente modelo push hubs de notificações para representar todas as propriedades push associadas a um dispositivo numa instalação JSON que se alinha com os Serviços de Notificação push e é fácil de usar.
 - **Flexibilidade**: os programadores podem sempre optar por trabalhar diretamente com os Hubs de Notificação, mesmo com a integração instalada.
-- **Experiência integrada no [portal do Azure](https://portal.azure.com)**: o push como capacidade está representado visualmente nas Aplicações Móveis e os programadores podem trabalhar facilmente com o hub de notificação associado através daquelas.
+- **Experiência integrada no [portal Azure](https://portal.azure.com)**: Push como uma capacidade está representada visualmente em Aplicações Móveis, e os desenvolvedores podem facilmente trabalhar com o centro de notificação associado através de Aplicações Móveis.

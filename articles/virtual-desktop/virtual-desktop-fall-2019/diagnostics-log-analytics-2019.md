@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (clássico) diagnósticos de análise - Azure
 description: Como utilizar a análise de registo com a funcionalidade de diagnóstico virtual do Windows Desktop (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285072"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002363"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico no Windows Virtual Desktop (clássico)
 

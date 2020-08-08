@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 74308ae79b899a55db4682474e3dcd9dab26db98
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856940"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004869"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a cache Azure para Redis com Azure PowerShell
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 
 | Parâmetro | Descrição | Predefinição |
 | --- | --- | --- |
-| Name |Nome da cache | |
+| Nome |Nome da cache | |
 | Localização |Localização da cache | |
 | ResourceGroupName |Nome do grupo de recursos para criar a cache | |
 | Tamanho |Do tamanho da cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
@@ -169,7 +169,7 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 | set-max-intset-entradas |Configura a [otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
 | zset-max-ziplist-entradas |Configura a [otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
 | zset-max-ziplist-valor |Configura a [otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
-| bases de dados |Configura o número de bases de dados. Esta propriedade só pode ser configurada na criação de cache. |Standard e Premium |
+| Bases de dados |Configura o número de bases de dados. Esta propriedade só pode ser configurada na criação de cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Para criar um Cache Azure para Redis
 A nova cache Azure para instâncias Redis são criadas usando o [cmdlet New-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache)
@@ -655,7 +655,7 @@ No exemplo seguinte, a cache nomeada `myCache` é removida.
 Pode importar dados para uma cache Azure para o caso Redis usando o `Import-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> A importação/exportação só está disponível para caches [de nível premium.](cache-premium-tier-intro.md) Para obter mais informações sobre importação/exportação, consulte [os dados relativos à importação e exportação em Azure Cache para Redis](cache-how-to-import-export-data.md).
+> A importação/exportação só está disponível para caches [de nível Premium.](cache-overview.md#service-tiers) Para obter mais informações sobre importação/exportação, consulte [os dados relativos à importação e exportação em Azure Cache para Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -719,7 +719,7 @@ O comando seguinte importa dados da bolha especificada pelo SAS uri para Azure C
 Pode exportar dados de uma cache Azure para a instância Redis utilizando o `Export-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> A importação/exportação só está disponível para caches [de nível premium.](cache-premium-tier-intro.md) Para obter mais informações sobre importação/exportação, consulte [os dados relativos à importação e exportação em Azure Cache para Redis](cache-how-to-import-export-data.md).
+> A importação/exportação só está disponível para caches [de nível Premium.](cache-overview.md#service-tiers) Para obter mais informações sobre importação/exportação, consulte [os dados relativos à importação e exportação em Azure Cache para Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -784,7 +784,7 @@ O comando seguinte exporta dados de uma cache Azure para a instância Redis para
 Pode reiniciar o seu Cache Azure para a instância Redis utilizando o `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> O reboot só está disponível para caches [de nível premium.](cache-premium-tier-intro.md) Para obter mais informações sobre o reinício do seu cache, consulte [a administração Cache - reinicie](cache-administration.md#reboot).
+> O reboot só está disponível para caches [de nível Premium.](cache-overview.md#service-tiers) Para obter mais informações sobre o reinício do seu cache, consulte [a administração Cache - reinicie](cache-administration.md#reboot).
 > 
 > 
 
@@ -845,7 +845,7 @@ O comando a seguir reinicia os dois nós da cache especificada.
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a utilização do Windows PowerShell com o Azure, consulte os seguintes recursos:
 
 * [Cache Azure para documentação de cmdlet Redis sobre MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
