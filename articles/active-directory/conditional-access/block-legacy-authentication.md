@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275484"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032202"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -49,7 +49,7 @@ A Azure AD suporta vários dos protocolos de autenticação e autorização mais
 - Aplicativos mais antigos do Microsoft Office
 - Aplicativos que usam protocolos de correio como POP, IMAP e SMTP
 
-A autenticação de um único fator (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe são más porque são fáceis de adivinhar e nós (humanos) somos maus na escolha de boas senhas. As palavras-passe também são vulneráveis a uma variedade de ataques como phishing e spray de senha. Uma das coisas mais fáceis que pode fazer para proteger contra ameaças de senha é implementar MFA. Com o MFA, mesmo que um intruso obtenha na posse da senha de um utilizador, a palavra-passe por si só não é suficiente para autenticar e aceder com sucesso aos dados.
+A autenticação de um único fator (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe são más porque são fáceis de adivinhar e nós (humanos) somos maus na escolha de boas senhas. As palavras-passe também são vulneráveis a uma variedade de ataques como phishing e spray de senha. Uma das coisas mais fáceis que pode fazer para proteger contra ameaças de senha é implementar a autenticação de vários fatores (MFA). Com o MFA, mesmo que um intruso obtenha na posse da senha de um utilizador, a palavra-passe por si só não é suficiente para autenticar e aceder com sucesso aos dados.
 
 Como evitar que as aplicações que utilizam a autenticação antiga acedam aos recursos do seu inquilino? A recomendação é apenas bloqueá-los com uma política de acesso condicional. Se necessário, permite que certos utilizadores e localizações específicas da rede utilizem aplicações baseadas na autenticação antiga.
 
@@ -91,46 +91,24 @@ A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por 
 
 Estes registos indicam quais os utilizadores que ainda estão dependentes da autenticação antiga e quais as aplicações que estão a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não aparecem nestes registos e que se confirmam não estarem a utilizar a autenticação antiga, implemente uma política de Acesso Condicional apenas para estes utilizadores.
 
-### <a name="block-legacy-authentication"></a>Bloquear a autenticação legada 
+## <a name="block-legacy-authentication"></a>Bloquear a autenticação legada 
 
-Numa política de Acesso Condicional, pode definir uma condição que está ligada às aplicações do cliente que são usadas para aceder aos seus recursos. A condição de aplicações de clientes permite reduzir o âmbito de aplicações a apps que utilizam a autenticação antiga, selecionando **clientes Exchange ActiveSync** e **Outros clientes** em **aplicações móveis e clientes de desktop.**
+Existem duas formas de usar políticas de acesso condicional para bloquear a autenticação do legado.
 
-![Outros clientes](./media/block-legacy-authentication/01.png)
-
-Para bloquear o acesso a estas aplicações, é necessário selecionar **o acesso ao Bloco.**
-
-![Bloquear o acesso](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Selecione utilizadores e aplicativos na nuvem
-
-Se quiser bloquear a autenticação de legados para a sua organização, provavelmente pensa que pode fazê-lo selecionando:
-
-- Todos os utilizadores
-- Todas as aplicações em nuvem
-- Bloquear o acesso
-
-![Atribuições](./media/block-legacy-authentication/03.png)
-
-O Azure tem uma funcionalidade de segurança que o impede de criar uma política como esta porque esta configuração viola as [melhores práticas](best-practices.md) para as políticas de Acesso Condicional.
+- [Bloqueando diretamente a autenticação do legado](#directly-blocking-legacy-authentication)
+- [Bloqueando indiretamente a autenticação do legado](#indirectly-blocking-legacy-authentication)
  
-![Configuração de política não suportada](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Bloqueando diretamente a autenticação do legado
 
-A funcionalidade de segurança é necessária porque *bloquear todos os utilizadores e todas as aplicações* na nuvem tem o potencial de impedir que toda a sua organização se inscreva no seu inquilino. Deve excluir pelo menos um utilizador para satisfazer o requisito mínimo de boas práticas. Também pode excluir um papel de diretório.
+A forma mais fácil de bloquear a autenticação de legados em toda a sua organização é configurar uma política de Acesso Condicional que se aplica especificamente aos clientes de autenticação antiga e bloqueia o acesso. Ao atribuir utilizadores e aplicações à apólice, certifique-se de excluir os utilizadores e contas de serviço que ainda precisam de iniciar sessão com a autenticação do legado. Configure a condição de aplicações de cliente selecionando **clientes Exchange ActiveSync** e **Outros clientes.** Para bloquear o acesso a estas aplicações de clientes, configurar os controlos de acesso ao acesso ao Bloco.
 
-![Configuração de política não suportada](./media/block-legacy-authentication/05.png)
+![Aplicações de clientes condicionam configurado para bloquear legado auth](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-Pode satisfazer esta função de segurança excluindo um utilizador da sua política. Idealmente, deve definir algumas [contas administrativas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md) e excluí-las da sua política.
+### <a name="indirectly-blocking-legacy-authentication"></a>Bloqueando indiretamente a autenticação do legado
 
-A utilização [do modo apenas de relatórios](concept-conditional-access-report-only.md) ao permitir que a sua política bloqueie a autenticação de legados proporciona à sua organização a oportunidade de monitorizar qual seria o impacto da política.
+Mesmo que a sua organização não esteja pronta para bloquear a autenticação de legados em toda a organização, deve garantir que os sign-ins que usam a autenticação antiga não estão a contornar as políticas que requerem controlos de concessão, tais como a necessidade de autenticação multi-factor ou dispositivos de ad Azure adúlde/híbrido. Durante a autenticação, os clientes de autenticação legado não suportam o envio de MFA, conformidade do dispositivo ou aderir a informações do Estado para a Azure AD. Por isso, aplique políticas com controlos de concessão a todas as aplicações do cliente para que as inscrições baseadas na autenticação legado que não satisfaçam os controlos da concessão sejam bloqueadas. Com a disponibilidade geral das aplicações do cliente em agosto de 2020, as políticas de Acesso Condicional recentemente criadas aplicam-se a todas as aplicações do cliente por padrão.
 
-## <a name="policy-deployment"></a>Implementação da Política
-
-Antes de colocar a sua política em produção, cuide de:
- 
-- **Contas de serviço** - Identifique as contas dos utilizadores que são usadas como contas de serviço ou por dispositivos, como telefones de sala de conferências. Certifique-se de que estas contas têm senhas fortes e adicione-as a um grupo excluído.
-- **Relatórios de inscrição** - Reveja o relatório de inscrição e procure **outro tráfego de clientes.** Identifique o uso de topo e investigue por que está em uso. Normalmente, o tráfego é gerado por clientes mais antigos do Office que não utilizam a autenticação moderna, ou algumas aplicações de correio de terceiros. Faça um plano para afastar o uso destas apps, ou se o impacto for baixo, notifique os seus utilizadores de que já não podem utilizar estas apps.
- 
-Para mais informações, veja [como deve implementar uma nova política?](best-practices.md#how-should-you-deploy-a-new-policy)
+![Configuração padrão de condição de aplicativos de cliente](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
@@ -141,14 +119,6 @@ Configurar uma política para **outros clientes** bloqueia toda a organização 
 Pode levar até 24 horas para a apólice entrar em vigor.
 
 Pode selecionar todos os controlos de subvenção disponíveis para a condição de **Outros clientes;** no entanto, a experiência do utilizador final é sempre a mesma - acesso bloqueado.
-
-Se bloquear a autenticação de legados utilizando a condição **de Outros clientes,** também pode definir a plataforma do dispositivo e a condição de localização. Por exemplo, se pretender bloquear a autenticação de legados para dispositivos móveis, desacione a condição das plataformas do **dispositivo** selecionando:
-
-- Android
-- iOS
-- Windows Phone
-
-![Configuração de política não suportada](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

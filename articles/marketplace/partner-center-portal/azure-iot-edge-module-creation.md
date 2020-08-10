@@ -3,16 +3,16 @@ title: Crie uma oferta de módulo Azure IoT Edge com Partner Center no Azure Mar
 description: Aprenda a criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/07/2020
+ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876636"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032837"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -194,6 +194,8 @@ Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
@@ -207,6 +209,8 @@ Forneça ficheiros PNG do logótipo da sua oferta em cada um dos seguintes quatr
 - **Largo (255 x 115)**
 
 Todos os quatro logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Screenshots (opcional)
 
@@ -445,7 +449,7 @@ Por exemplo, se o módulo ContosoModule ouve as entradas nos contosoInput e os d
 - #2 nome: FromContosoModuleToCloud
 - Valor #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propriedades desejadas por módulos predefinidos**twin . Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são utilizadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas utilizando até cinco pares de nome/valor e cada valor predefinido deve ser inferior a 512 caracteres. Pode definir até cinco propriedades desejadas por gémeos de nome/valor. Os valores das propriedades duplas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro exigido para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão. Para saber mais sobre as propriedades duplas desejadas, consulte [Definir ou atualizar as propriedades desejadas).](../../iot-edge/module-composition.md#define-or-update-desired-properties)
+**Propriedades desejadas por módulos predefinidos**twin . Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são utilizadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas usando até cinco pares de nome/valor e cada valor predefinido deve ser inferior a 512 caracteres. Pode definir até cinco propriedades desejadas por gémeos de nome/valor. Os valores das propriedades duplas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro exigido para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão. Para saber mais sobre as propriedades duplas desejadas, consulte [Definir ou atualizar as propriedades desejadas).](../../iot-edge/module-composition.md#define-or-update-desired-properties)
 
 Por exemplo, se um módulo suporta uma taxa de atualização dinâmicamente configurável usando propriedades duplas desejadas, faz sentido definir a seguinte propriedade padrão dupla desejada:
 

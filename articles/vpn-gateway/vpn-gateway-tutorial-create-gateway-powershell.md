@@ -1,18 +1,18 @@
 ---
 title: Tutorial - Criar e gerir um portal usando gateway Azure VPN
-description: Utilize este tutorial para implantar uma porta de entrada Azure VPN para fornecer conectividade entre as instalações do cliente e a Azure. Ver, redimensionar e redefinir uma porta de entrada VPN.
+description: Siga este tutorial para aprender a criar, implementar e gerir um Gateway Azure VPN utilizando o PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: f423ed5ea9017d510639bbe7046a12d320cd5c7d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 38b13ddc08b08ce080f1cc9e9b30caeea3b4efdf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920573"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031529"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o PowerShell
 

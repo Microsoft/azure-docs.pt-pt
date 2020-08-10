@@ -1,6 +1,6 @@
 ---
-title: Construção de soluções de retalho com a Azure IoT Central [ Microsoft Docs
-description: Saiba utilizar modelos de aplicação Azure IoT Central para construir logística conectada, centro de distribuição digital, análise na loja, monitorização de condições, check-out, gestão inteligente de inventários e soluções de retalho.
+title: Construir soluções de retalho com a Azure IoT Central Microsoft Docs
+description: Saiba como utilizar modelos de aplicação Azure IoT Central para construir logística conectada, centro de distribuição digital, análise na loja, monitorização de condições, check-out, gestão de inventário inteligente e soluções de retalho.
 author: avneet723
 ms.author: avneets
 ms.date: 01/10/2020
@@ -8,167 +8,180 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 9427b007bc047e2f01db2dad02e06bf0ab0f5dea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000617"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032299"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
 
+A Azure IoT Central é uma plataforma de aplicações IoT que reduz os encargos e custos associados ao desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a Azure IoT Central dá-lhe a oportunidade de concentrar o seu tempo, dinheiro e energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura IoT complexa e em constante evolução.
 
+Este artigo descreve vários modelos de aplicação IoT Central específicos de retalho. Como construtor de soluções, pode utilizar estes modelos para construir soluções IoT que otimizem as cadeias de fornecimento, melhorem as experiências na loja para os clientes e rastreiem o inventário de forma mais eficiente.
 
-A Azure IoT Central é uma plataforma de aplicações IoT que reduz o fardo e o custo associados ao desenvolvimento, gestão e manutenção de soluções ioT de nível empresarial. Optar por construir com a Azure IoT Central dá-lhe a oportunidade de concentrar o seu tempo, dinheiro e energia na transformação do seu negócio com dados ioT, em vez de apenas manter e atualizar uma infraestrutura ioT complexa e em constante evolução.
-
-Este artigo descreve vários modelos de aplicação IoT Central específicos para o retalho. Como construtor de soluções, pode utilizar estes modelos para construir soluções IoT que otimizam as cadeias de abastecimento, melhoram as experiências na loja para os clientes e rastreiem o inventário de forma mais eficiente.
-
-> [!div class="mx-imgBorder"]
-> ![Visão geral do retalho Azure IoT](./media/overview-iot-central-retail/retail-app-templates.png)
+:::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Visão geral do retalho Azure IoT":::
 
 As seguintes secções descrevem as capacidades destes modelos de aplicação:
 
 ## <a name="connected-logistics"></a>Logística associada
 
-Os gastos globais de logística deverão atingir os 10,6 biliões de dólares em 2020. O transporte de mercadorias representa a maior parte destes gastos e os fornecedores de transporte estão sob intensa pressão e constrangimentos concorrenciais.
+Os gastos globais em logística deverão atingir os 10,6 biliões de dólares em 2020. O transporte de mercadorias é responsável pela maior parte desta despesa e os prestadores de transporte marítimo estão sob intensa pressão e constrangimentos concorrenciais.
 
-Pode utilizar sensores IoT para recolher e monitorizar condições ambientais como temperatura, humidade, inclinação, choque, luz e a localização de um carregamento. Pode combinar telemetria recolhida a partir de sensores ioT e dispositivos com outras fontes de dados, como informações meteorológicas e de tráfego em sistemas de inteligência empresarial baseados na nuvem.
+Pode utilizar sensores IoT para recolher e monitorizar condições ambientais tais como temperatura, humidade, inclinação, choque, luz e a localização de um carregamento. Você pode combinar telemetria recolhida a partir de sensores e dispositivos IoT com outras fontes de dados, tais como informações meteorológicas e de tráfego em sistemas de inteligência empresarial baseados na nuvem.
 
 Os benefícios de uma solução logística conectada incluem:
 
-* Monitorização de envio com rastreio e rastreio em tempo real. 
+* Monitorização de envios com rastreio e rastreio em tempo real. 
 * Integridade do envio com monitorização da condição ambiente em tempo real.
-* Segurança de roubo, perda ou danos de envios.
-* Geo-esgrima, otimização de rotas, gestão da frota e análise de veículos.
-* Previsão de partida previsível e chegada de envios.
+* Segurança por roubo, perda ou danos de envios.
+* Geo-esgrima, otimização de rotas, gestão de frotas e análise de veículos.
+* Previsão para partida previsível e chegada de envios.
 
-As seguintes imagens mostram o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
+As imagens seguintes mostram o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-> [!div class="mx-imgBorder"]
-> ![Painel logístico conectado](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Painel de Logística Conectado":::
 
-> [!div class="mx-imgBorder"]
-> ![Painel logístico conectado](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Painel de Logística Conectado":::
 
 Para saber mais, consulte o Deploy e caminhe através de um tutorial [de modelo de aplicação logística conectado.](./tutorial-iot-central-connected-logistics.md)
 
 ## <a name="digital-distribution-center"></a>Centro de distribuição digital
 
-À medida que os fabricantes e os retalhistas estabelecem presenças mundiais, as suas cadeias de abastecimento ramificam-se e tornam-se mais complexas. Os consumidores esperam agora que estejam disponíveis grandes seleções de produtos e que esses bens cheguem dentro de um ou dois dias após a compra. Os centros de distribuição devem adaptar-se a estas tendências, ao mesmo tempo que ultrapassam as ineficiências existentes. 
+À medida que os fabricantes e os retalhistas estabelecem presenças mundiais, as suas cadeias de abastecimento ramificam-se e tornam-se mais complexas. Os consumidores esperam agora que estejam disponíveis grandes seleções de produtos e que esses bens cheguem no prazo de um ou dois dias após a compra. Os centros de distribuição devem adaptar-se a estas tendências, superando as ineficiências existentes.
 
-Hoje, uma dependência do trabalho manual significa que escolher e embalar representa 55-65% dos custos do centro de distribuição. A recolha e embalagem manual também são tipicamente mais lentas do que os sistemas automatizados, e as necessidades de pessoal flutuantes rapidamente dificultam ainda mais o atingem os volumes de envio. Esta flutuação sazonal resulta num elevado volume de negócios do pessoal e aumenta a probabilidade de erros dispendiosos.
+Hoje, a dependência do trabalho manual significa que a recolha e embalagem representam 55-65% dos custos do centro de distribuição. A recolha manual e a embalagem também são tipicamente mais lentas do que os sistemas automatizados, e as necessidades de pessoal flutuantes rapidamente dificultam ainda mais o cumprimento dos volumes de envio. Esta flutuação sazonal resulta num elevado volume de negócios do pessoal e aumenta a probabilidade de erros dispendiosos.
 
-Soluções baseadas em câmaras ativadas por IoT podem proporcionar benefícios transformacionais permitindo um ciclo de feedback digital. Dados de todo o centro de distribuição conduzem a insights atuais que, por sua vez, resultam em melhores dados.
+As soluções baseadas em câmaras ativadas por IoT podem proporcionar benefícios transformacionais, permitindo um ciclo de feedback digital. Dados de todo o centro de distribuição conduzem a insights acccáveis que, por sua vez, resultam em melhores dados.
 
 Os benefícios de um centro de distribuição digital incluem:
 
-* As câmaras monitorizam os bens à medida que chegam e movem-se através do sistema transportador.
+* As câmaras monitorizam os bens à medida que chegam e se movem através do sistema transportador.
 * Identificação automática de bens defeituosos.
 * Rastreio de ordem eficiente.
-* Custos reduzidos, melhor produtividade e utilização otimizada.
+* Redução de custos, melhoria da produtividade e utilização otimizada.
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-> [!div class="mx-imgBorder"]
-> ![Painel do Centro de Distribuição Digital](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Painel de instrumentos do Centro de Distribuição Digital":::
 
-Para saber mais, consulte o [Deploy e caminhe através](./tutorial-iot-central-digital-distribution-center.md) de um tutorial de modelo de aplicação do centro de distribuição digital.
+Para saber mais, consulte o Implementar e caminhe através de um tutorial [de modelo de aplicação de centro de distribuição digital.](./tutorial-iot-central-digital-distribution-center.md)
 
 ## <a name="in-store-analytics---condition-monitoring"></a>Análise na loja - monitorização de condições
 
 Para muitos retalhistas, as condições ambientais dentro das suas lojas são um diferenciador chave dos seus concorrentes. Os retalhistas querem manter condições agradáveis dentro das suas lojas em benefício dos seus clientes.  
 
-Como construtor de soluções, pode utilizar o modelo de aplicação de monitorização da condição de análise IoT Central para construir uma solução de ponta a ponta. O modelo de aplicação permite ligar-se digitalmente e monitorizar um ambiente de loja de retalho utilizando diferentes tipos de dispositivos de sensores. Estes dispositivos sensores geram telemetria que você pode converter em insights de negócio ajudando o retalhista a reduzir os custos operacionais e criar uma grande experiência para os seus clientes.
+Como construtor de soluções, pode utilizar o modelo de aplicação de monitorização da condição de análise na loja IoT Central para construir uma solução de ponta a ponta. O modelo de aplicação permite ligar-se digitalmente e monitorizar um ambiente de loja de retalho utilizando diferentes tipos de dispositivos sensores. Estes dispositivos sensores geram telemetria que pode converter em insights de negócio ajudando o retalhista a reduzir os custos operacionais e criar uma grande experiência para os seus clientes.
 
 Utilize o modelo de aplicação para:
 
-* Ligue uma variedade de sensores IoT a uma instância de aplicação IoT Central.
-* Monitorize e gerencie a saúde da rede de sensores, bem como quaisquer dispositivos de gateway no ambiente.
-* Crie regras personalizadas em torno das condições ambientais dentro de uma loja para desencadear alertas para os gestores de lojas.
-* Transforme as condições ambientais dentro da sua loja em insights que a equipa de lojas de retalho pode usar para melhorar a experiência do cliente.
-* Exportar os conhecimentos agregados sobre os pedidos de negócio existentes ou novos para fornecer informações úteis e atempadas ao pessoal retalhista.
+* Ligue diferentes tipos de sensores IoT a uma instância de aplicação IoT Central.
+* Monitorize e gere a saúde da rede de sensores e de quaisquer dispositivos de gateway no ambiente.
+* Crie regras personalizadas em torno das condições ambientais dentro de uma loja para desencadear alertas para os gerentes da loja.
+* Transforme as condições ambientais dentro da sua loja em insights que a equipa da loja de retalho pode usar para melhorar a experiência do cliente.
+* Exporte os conhecimentos agregados sobre aplicações comerciais existentes ou novas para fornecer informações úteis e oportunas ao pessoal retalhista.
 
-O modelo de aplicação vem com um conjunto de modelos de dispositivoe utiliza um conjunto de dispositivos simulados para povoar o painel de instrumentos. 
+O modelo de aplicação vem com um conjunto de modelos de dispositivo e usa um conjunto de dispositivos simulados para povoar o painel de instrumentos. 
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-> [!div class="mx-imgBorder"]
-> ![Monitorização da condição de análise na loja](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitorização da condição de analítica na loja":::
 
-Para saber mais, consulte a aplicação de análise Create na loja no tutorial [Central Azure IoT.](./tutorial-in-store-analytics-create-app.md)
+Para saber mais, consulte a aplicação de análise Create [in-store no tutorial Azure IoT Central.](./tutorial-in-store-analytics-create-app.md)
 
 ## <a name="in-store-analytics---checkout"></a>Análise na loja - check-out
 
-Para alguns retalhistas, a experiência de check-out dentro das suas lojas é um diferenciador chave dos seus concorrentes. Os retalhistas querem oferecer uma experiência de check-out suave dentro das suas lojas para incentivar os clientes a regressar.  
+Para alguns retalhistas, a experiência de check-out dentro das suas lojas é um diferenciador chave dos seus concorrentes. Os retalhistas querem oferecer uma experiência de check-out suave dentro das suas lojas para incentivar os clientes a regressarem.  
 
-Como construtor de soluções, pode utilizar o modelo de aplicação de check-out ioT Central na loja para construir uma solução que fornece insights de toda a zona de checkout de uma loja para o pessoal de retalho. Por exemplo, os sensores podem fornecer informações sobre comprimentos de fila e tempos médios de espera para cada pista de check-out.
+Como construtor de soluções, pode utilizar o modelo de aplicação de check-out de check-out da IoT Central para construir uma solução que fornece insights de toda a zona de check-out de uma loja para o pessoal de retalho. Por exemplo, os sensores podem fornecer informações sobre os comprimentos das filas e os tempos médios de espera para cada faixa de check-out.
 
 Utilize o modelo de aplicação para:
 
-* Ligue uma variedade de sensores IoT a uma instância de aplicação IoT Central.
-* Monitorize e gerencie a saúde da rede de sensores, bem como quaisquer dispositivos de gateway no ambiente.
+* Ligue diferentes tipos de sensores IoT a uma instância de aplicação IoT Central.
+* Monitorize e gere a saúde da rede de sensores e de quaisquer dispositivos de gateway no ambiente.
 * Crie regras personalizadas em torno da condição de check-out dentro de uma loja para desencadear alertas para o pessoal de retalho.
-* Transforme as condições de check-out dentro da loja em insights que a equipa de lojas de retalho pode usar para melhorar a experiência do cliente.
-* Exportar os conhecimentos agregados sobre os pedidos de negócio existentes ou novos para fornecer informações úteis e atempadas ao pessoal retalhista.
+* Transforme as condições de check-out dentro da loja em insights que a equipa da loja de retalho pode usar para melhorar a experiência do cliente.
+* Exporte os conhecimentos agregados sobre aplicações comerciais existentes ou novas para fornecer informações úteis e oportunas ao pessoal retalhista.
 
-O modelo de aplicação vem com um conjunto de modelos de dispositivos e usa um conjunto de dispositivos simulados para povoar o painel com dados de ocupação de faixas. 
+O modelo de aplicação vem com um conjunto de modelos de dispositivos e usa um conjunto de dispositivos simulados para povoar o painel com dados de ocupação da faixa de rodagem. 
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-> [!div class="mx-imgBorder"]
-> ![Check-out de Análise Na Loja](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Check-out de Análise na Loja":::
 
-Para saber mais, consulte a aplicação de análise Create na loja no tutorial [Central Azure IoT.](./tutorial-in-store-analytics-create-app.md)
+Para saber mais, consulte a aplicação de análise Create [in-store no tutorial Azure IoT Central.](./tutorial-in-store-analytics-create-app.md)
 
 ## <a name="smart-inventory-management"></a>Gestão de inventário inteligente
 
-O inventário é o stock de bens que um retalhista detém. A gestão do inventário é fundamental para garantir que o produto certo está no lugar certo na hora certa. Um retalhista deve equilibrar os custos de armazenamento de demasiado inventário face aos custos de não dispor de objetos suficientes em existências para satisfazer a procura.
+O inventário é o stock de bens que um retalhista detém. A gestão do inventário é fundamental para garantir que o produto certo está no lugar certo na hora certa. Um retalhista deve equilibrar os custos de armazenar demasiado inventário em vez dos custos de não ter itens suficientes em stock para satisfazer a procura.
 
-Os dados ioT gerados a partir de etiquetas, balizas e câmaras de identificação de radiofrequência (RFID) proporcionam oportunidades para melhorar os processos de gestão de inventário. Pode combinar telemetria recolhida a partir de sensores ioT e dispositivos com outras fontes de dados, como informações meteorológicas e de tráfego em sistemas de inteligência empresarial baseados na nuvem.
+Os dados ioT gerados a partir de tags, balizas e câmaras de identificação de radiofrequências (RFID) oferecem oportunidades para melhorar os processos de gestão de inventário. Você pode combinar telemetria recolhida a partir de sensores e dispositivos IoT com outras fontes de dados, tais como informações meteorológicas e de tráfego em sistemas de inteligência empresarial baseados na nuvem.
 
 Os benefícios da gestão inteligente do inventário incluem:
 
-* Reduzir o risco de os itens estarem esgotados e garantir o nível de atendimento ao cliente desejado. 
+* Reduzir o risco de os itens estarem esgotados e garantir o nível de atendimento ao cliente pretendido. 
 * Análise aprofundada e insights sobre a precisão do inventário em tempo quase real.
-* Ferramentas para ajudar a decidir sobre a quantidade certa de inventário para realizar para satisfazer as ordens do cliente.
+* Ferramentas para ajudar a decidir sobre a quantidade certa de inventário para atender as ordens do cliente.
 
-Este modelo de aplicação centra-se na conectividade do dispositivo, e na configuração e gestão de dispositivos de leitor de baixa energia RFID e Bluetooth (BLE).
+Este modelo de aplicação centra-se na conectividade do dispositivo e na configuração e gestão de dispositivos de leitores rfid e bluetooth de baixa energia (BLE).
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-> [!div class="mx-imgBorder"]
-> ![Painel de Gestão de Inventário Inteligente](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Painel de gestão de inventário inteligente":::
 
-Para saber mais, consulte o [Deploy e caminhe através](./tutorial-iot-central-smart-inventory-management.md) de um tutorial de modelo de aplicação de gestão de inventário inteligente.
+Para saber mais, consulte o Deploy e caminhe através de um tutorial [de modelo de aplicação de gestão de inventário inteligente.](./tutorial-iot-central-smart-inventory-management.md)
 
 ## <a name="micro-fulfillment-center"></a>Centro do micro-cumprimento
 
-No panorama do retalho cada vez mais competitivo, os retalhistas enfrentam constantemente pressões para colmatar o fosso entre a procura e o cumprimento. Uma nova tendência que tem surgido para fazer face à crescente procura dos consumidores é alojar o inventário perto dos clientes finais e das lojas que visitam.
+No panorama retalhista cada vez mais competitivo, os retalhistas enfrentam constantemente pressão para colmatar o fosso entre a procura e o cumprimento. Uma nova tendência que tem surgido para fazer face à crescente procura dos consumidores é alojar o inventário perto dos clientes finais e das lojas que visitam.
 
-O modelo de aplicação do centro de micro-realização IoT Central permite aos construtores de soluções monitorizar e gerir todos os aspetos dos seus centros de realização totalmente automatizados. O modelo inclui um conjunto de sensores de monitorização de condição simulada e portadores robóticos para acelerar o processo de desenvolvimento da solução. Estes dispositivos de sensores captam sinais significativos que podem ser convertidos em insights de negócio, permitindo aos retalhistas reduzir os seus custos operacionais e criar experiências para os seus clientes.
+O modelo de aplicação do centro de micro-cumprimento central IoT permite aos construtores de soluções monitorizar e gerir todos os aspetos dos seus centros de realização totalmente automatizados. O modelo inclui um conjunto de sensores de monitorização de condições simulados e portadores robóticos para acelerar o processo de desenvolvimento da solução. Estes dispositivos sensores captam sinais significativos que podem ser convertidos em insights de negócio, permitindo aos retalhistas reduzir os seus custos operacionais e criar experiências para os seus clientes.
 
-O modelo de aplicação permite:: 
+O modelo de aplicação permite-lhe: 
 
-- Ligue perfeitamente diferentes tipos de sensores IoT, como robôs ou sensores de monitorização de condições a uma instância de aplicação IoT Central.
-- Monitorize e gerencie a saúde da rede de sensores, e quaisquer dispositivos de gateway no ambiente.
-- Crie regras personalizadas em torno das condições ambientais dentro de um centro de realização para desencadear alertas apropriados.
+- Ligue perfeitamente diferentes tipos de sensores IoT, tais como robôs ou sensores de monitorização de condições a uma instância de aplicação IoT Central.
+- Monitorize e gere a saúde da rede de sensores, e quaisquer dispositivos de gateway no ambiente.
+- Crie regras personalizadas em torno das condições ambientais dentro de um centro de cumprimento para desencadear alertas apropriados.
 - Transforme as condições ambientais dentro do seu centro de realização em insights que podem ser alavancados pela equipa de armazém de retalho.
-- Exportar os conhecimentos agregados sobre os pedidos de negócio existentes ou novos em benefício dos membros do pessoal retalhista.
+- Exportar os conhecimentos agregados para os pedidos de negócio existentes ou novos em benefício dos membros do pessoal de retalho.
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-> [!div class="mx-imgBorder"]
-> ![Centro de Micro-realização](./media/overview-iot-central-retail/MFC-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centro de Micro-Realização":::
 
-Para saber mais, consulte o Deploy e caminhe pelo tutorial [de modelo de aplicação do centro de micro-realização.](./tutorial-micro-fulfillment-center.md)
+Para saber mais, consulte o Implementar e caminhe pelo tutorial [do modelo de aplicação do centro de micro-realização.](./tutorial-micro-fulfillment-center.md)
+
+## <a name="video-analytics---object-and-motion-detection"></a>Análise de vídeo - deteção de objetos e movimentos
+
+O modelo *de análise de vídeo IoT Central - modelo de aplicação de deteção de objetos e movimentos* permite-lhe experimentar rapidamente como implementar, gerir e monitorizar uma solução que utiliza câmaras de borda inteligentes para detetar objetos e movimento.
+
+A aplicação de análise de vídeo utiliza um módulo [de análise de vídeo ao vivo (LVA)](#live-video-analytics) em execução em IoT Edge. O módulo LVA fornece uma plataforma para construir aplicações de vídeo inteligentes que se estendem pela borda e pela nuvem. Pode utilizar a plataforma para melhorar as soluções IoT, como a aplicação de análise de vídeo, com deteção de objetos e movimentos.
+
+O modelo de aplicação inclui quatro dashboards de aplicação:
+
+* **A configuração** fornece informações sobre o design da aplicação e permite adicionar e eliminar câmaras.
+* **Gerir** permite-lhe gerir as suas câmaras. Por exemplo, pode configurar as câmaras, ver informações sobre o estado e iniciar a execução das câmaras.
+* **As Câmaras Reais** permitem-lhe visualizar informações das suas câmaras reais, tais como contagens de deteção e eventos de câmara.
+* **O Monitor** permite-lhe ver informações detalhadas de todas as suas câmaras.
+
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo - deteção de objetos e movimentos":::
+
+Para saber mais sobre a arquitetura da solução, consulte a arquitetura da [aplicação video analytics.](architecture-video-analytics.md)
+
+Para aprender a implementar a solução, consulte a aplicação de análise de vídeo create no tutorial [Azure IoT Central.](tutorial-video-analytics-create-app.md)
+
+### <a name="live-video-analytics"></a>Análise de vídeo ao vivo
+
+A análise de vídeo ao vivo fornece uma plataforma para você construir aplicações de vídeo inteligentes que atravessam a borda e a nuvem. A plataforma oferece a capacidade de capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser de vídeo ou vídeo, para os serviços Azure. Os serviços Azure podem estar a funcionar na nuvem ou na borda. Pode utilizar a plataforma para melhorar as soluções IoT com análise de vídeo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para começar a construir uma solução de retalho:
 
-* Inicie-se com a aplicação de análise Create a store no tutorial [Central Azure IoT](./tutorial-in-store-analytics-create-app.md) que o acompanha como construir uma solução com um dos modelos de aplicação de análise na loja.
-* [Desdobre e caminhe através de um modelo de aplicação logística conectado](./tutorial-iot-central-connected-logistics.md).
-* [Desdobre e caminhe através de um modelo](./tutorial-iot-central-digital-distribution-center.md)de aplicação do centro de distribuição digital .
-* [Desdobre e caminhe através de um modelo de aplicação](./tutorial-iot-central-smart-inventory-management.md)de gestão de inventário inteligente .
-* [Desloque e caminhe pelo modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center.md).
-* Saiba mais sobre a IoT Central na visão geral da [IoT Central.](../preview/overview-iot-central.md)
+* Começa com a [aplicação de análise da Create in-store no tutorial Azure IoT Central](./tutorial-in-store-analytics-create-app.md) que te acompanha como construir uma solução com um dos modelos de aplicação de análise na loja.
+* [Implemente e caminhe através de um modelo de aplicação logística conectada.](./tutorial-iot-central-connected-logistics.md)
+* [Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital.](./tutorial-iot-central-digital-distribution-center.md)
+* [Implemente e caminhe através de um modelo inteligente de aplicação de gestão de inventário](./tutorial-iot-central-smart-inventory-management.md).
+* [Implemente e caminhe através do modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center.md).
+* Saiba mais sobre o IoT Central na visão geral do [IoT Central](../preview/overview-iot-central.md).

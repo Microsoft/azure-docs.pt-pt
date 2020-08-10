@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a Nuvem Atlassian [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Atlassian Cloud.
+title: 'Tutorial: Integração do Azure Ative Directory com a Nuvem Atlassian Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Atlassian Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,221 +12,242 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/27/2020
+ms.date: 08/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46c48d6f7d751e6d767921fad21e6213c6b1203b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dcb3522898a40dc79e8465af813633015568f1c8
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384029"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033873"
 ---
-# <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integrar nuvem atlassiana com diretório ativo Azure
+# <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
 
-Neste tutorial, você vai aprender a integrar a Nuvem Atlassian com o Diretório Ativo Azure (Azure AD). Quando integrar a Nuvem Atlassian com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar a Nuvem Atlassiana com O Diretório Ativo Azure (Azure AD). Quando integrar a Nuvem Atlassiana com AZure AD, pode:
 
 * Controlo em Azure AD que tem acesso à Nuvem Atlassiana.
-* Permita que os seus utilizadores sejam automaticamente inscritos na Atlassian Cloud com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Permita que os seus utilizadores sejam automaticamente inscritos na Atlassian Cloud com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode ter um mês de experiência gratuita [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* O único sinal de subscrição (SSO) da Atlassian Cloud (SSO) permitiu a subscrição.
-* Para permitir a inscrição individual da Linguagem de Marcação de Afirmação de Segurança (SAML) para produtos Atlassian Cloud, é necessário configurar o Acesso Atlassian. Saiba mais sobre [o Acesso Atlassian.]( https://www.atlassian.com/enterprise/cloud/identity-manager)
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode ter um mês de teste gratuito [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Atlassian Cloud única subscrição ativa (SSO) ativada.
+* Para ativar o teste de marcação de afirmação de segurança (SAML) para produtos Atlassian Cloud, você precisa configurar o Atlassian Access. Saiba mais sobre [o Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. 
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. 
 
-* Atlassian Cloud suporta **SP e IDP** iniciado SSO
+* Atlassian Cloud apoia **SP e IDP** iniciado SSO
 * Atlassian Cloud suporta [fornecimento automático de utilizadores e desprovisionamento](atlassian-cloud-provisioning-tutorial.md)
-* Assim que configurar a Cloud Atlassian, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
+* Uma vez configurado Atlassian Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Adicionando nuvem atlassiana da galeria
 
-Para configurar a integração da Atlassian Cloud em Azure AD, você precisa adicionar Atlassian Cloud da galeria à sua lista de aplicações geridas saaS.
+Para configurar a integração da Atlassian Cloud em Azure AD, precisa adicionar a Atlassian Cloud da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **da galeria,** digite **Cloud Atlassian** na caixa de pesquisa.
-1. **Selecione Atlassian Cloud** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **da galeria,** **digite Nuvem Atlassiana** na caixa de pesquisa.
+1. Selecione **Atlassian Cloud** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-Configure e teste Azure AD SSO com Atlassian Cloud utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Atlassian Cloud.
+Configure e teste Azure AD SSO com Atlassian Cloud usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na Atlassian Cloud.
 
-Para configurar e testar o Azure AD SSO com a Cloud Atlassian, complete os seguintes blocos de construção:
+Para configurar e testar O Azure AD SSO com nuvem atlassiana, complete os seguintes blocos de construção:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure o Atlassian Cloud SSO](#configure-atlassian-cloud-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    * **[Crie o utilizador de teste Atlassian Cloud](#create-atlassian-cloud-test-user)** - para ter uma contrapartida de B.Simon na Nuvem Atlassian a que está ligada à representação do utilizador da AD Azure.
+1. **[Configure Azure AD com Atlassian Cloud SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem SAML SSO baseado em Azure com nuvem atlassiana.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Create Atlassian Cloud test user](#create-atlassian-cloud-test-user)** - para ter uma contraparte de B.Simon em Atlassian Cloud que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **atlassian Cloud,** encontre a secção **Gerir** e selecione **single sign-on**.
-1. Na página **Select a Single sign-on,** selecione **SAML**.
-1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. Antes de começar a ir para a sua instância de produto Atlassian e copiar/guardar o URL de instância
+   > [!NOTE]
+   > url deve caber `https://<instancename>.atlassian.net` padrão
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![image](./media/atlassian-cloud-tutorial/get-atlassian-instance-name.png)
 
-1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
+1. Abra o [Portal atlassiano](https://admin.atlassian.com/) de administração e clique no nome da sua organização
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://auth.atlassian.com/saml/<unique ID>`
+   ![image](./media/atlassian-cloud-tutorial/click-on-organization-in-atlassian-access.png)
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`
+1. Tem de verificar o seu domínio antes de configurar uma única sação. Para obter mais informações, consulte o documento [de verificação de domínio atlassiano.](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)
+1. A partir do Ecrã do Portal do Administrador Atlassiano selecione **Segurança** da gaveta esquerda
 
-    c. Clique em **definir URLs adicionais**.
+   ![image](./media/atlassian-cloud-tutorial/click-on-security-in-atlassian-access.png)
 
-    d. Na caixa de texto **do Estado relé,** digite um URL utilizando o seguinte padrão:`https://<instancename>.atlassian.net`
+1. A partir do Ecrã de Segurança do Portal do Administrador Atlassian selecione **um único sinal SAML** na gaveta esquerda
 
-    > [!NOTE]
-    > Os valores anteriores não são reais. Atualize estes valores com o identificador real e responda URL. Você receberá estes valores reais do ecrã de **configuração Atlassian Cloud SAML** que é explicado mais tarde no passo 7 do **Configure Atlassian Cloud SSO** no tutorial.
+   ![image](./media/atlassian-cloud-tutorial/click-on-saml-sso-in-atlassian-access-security.png)
 
-1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
+1. Clique em **Adicionar Configuração SAML** e mantenha a página aberta
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<instancename>.atlassian.net`
+   ![image](./media/atlassian-cloud-tutorial/saml-configuration-in-atlassian-access-security-saml-sso.png)
 
-    > [!NOTE]
-    > O valor do Signon on URL não é real. Colhe o valor da instância que usa para assinar no portal de administração Atlassian Cloud.
+   ![image](./media/atlassian-cloud-tutorial/add-saml-configuration.png)
 
-    ![Configurar o início de sessão único](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-10.png)
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Atlassian Cloud,** encontre a secção **Gerir** e selecione **Configurar um único sinal**de inscrição .
 
-1. A aplicação Atlassian Cloud espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos saml. A imagem a seguir mostra a lista de atributos predefinidos, onde o identificador de **nomes** é mapeado com **nome de utilizador.userprincipal .** A aplicação Atlassian Cloud espera que o **identificador** de nomes seja mapeado com **user.mail**, por isso precisa editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
+   ![image](./media/atlassian-cloud-tutorial/set-up-sso.png)
 
-    ![image](common/edit-attribute.png)
+1. Na página **de método de inscrição única,** selecione **SAML**.
 
-1. Na configuração de um único sinal com página **SAML,** na secção certificado de **assinatura SAML,** encontre **certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+   ![image](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+1. Na **configuração de um único sign-on com página SAML,** desloque-se para baixo para **configurar nuvem atlassiana**
+   
+   a. Clique em **URLs de configuração**
 
-1. Na secção Configurar a **Cloud Atlassian,** copie os URL(s) apropriados de acordo com o seu requisito.
+   ![image](./media/atlassian-cloud-tutorial/configuration-urls.png)
+   
+   b. Copiar **valor do identificador Azure AD** do portal Azure, colá-lo na caixa de texto **ID da Entidade fornecedora de identidade** em Atlassian
+   
+   c. Copiar **valor URL** de login a partir do portal Azure, cole-o na caixa de texto **SSO URL do Fornecedor de Identidade** em Atlassian
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+   ![image](./media/atlassian-cloud-tutorial/configuration-urls-azure.png)
 
-    a. URL de Inicio de Sessão
+   ![image](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-    b. Identificador Azure AD
+1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
-    c. Logout URL
+   ![image](./media/atlassian-cloud-tutorial/certificate.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+   ![image](./media/atlassian-cloud-tutorial/certificate-1.png)
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+1. **Adicionar/Guardar** a configuração SAML em Atlassian
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Se desejar configurar a aplicação no modo iniciado pelo **IDP,** edite a secção de **Configuração SAML Básica** do **set up Single Sign-On com** a página SAML em Azure e abra a página de assinatura única DO **SAML no** Portal atlassiano de administração
+
+   a. Copiar valor **de ID da Entidade SP** da Atlassian, cole-o na caixa de **Identificador (Entity ID)** em Azure e desafine-o como padrão
+   
+   b. Copiar **SP Afirmação Valor URL do Serviço de Consumo** da Atlassian, cole-o na caixa URL de resposta **(URL de serviço de apoio ao consumidor de afirmação)** em Azure e desafine-o como padrão
+   
+   c. Copie o seu valor **URL de instância,** que copiou no passo 1 e cole-o na caixa **de Retransmissão state** em Azure
+
+   ![image](./media/atlassian-cloud-tutorial/copy-urls.png)
+
+   ![image](./media/atlassian-cloud-tutorial/edit-button.png)
+
+   ![image](./media/atlassian-cloud-tutorial/urls.png)
+   
+1. Se desejar configurar a aplicação **no** modo iniciado sp, edite a secção **de Configuração SAML Básica** da **Configuração Única configuração com** página SAML em Azure. Copie o url de **exemplo** (do passo 1) e cole-o na caixa **de URL sign on** em Azure
+
+   ![image](./media/atlassian-cloud-tutorial/edit-button.png)
+
+   ![image](./media/atlassian-cloud-tutorial/sign-on-URL.png)
+   
+1. A sua aplicação Atlassian Cloud espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. Pode editar o mapeamento do atributo clicando no ícone **Editar.** 
+
+   ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
+   
+   1. Atribuir mapeamento para um inquilino AD Azure com uma licença office 365
+      
+      a. Clique na **reivindicação do identificador de utilizador único (ID nome)**
+
+      ![image](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
+      
+      b. A Atlassian Cloud espera que o identificador de **nomes** (**Identificador único**do utilizador) seja mapeado para o e-mail do utilizador **(user.email).** Editar o **atributo Fonte** e alterá-lo para **user.mail**. Guarde as alterações à reclamação.
+
+      ![image](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
+      
+      c. Os mapeamentos de atributos finais devem ser os seguintes.
+
+      ![image](common/default-attributes.png)
+      
+   1. Atribuir mapeamento para um inquilino AD Azure sem licença office 365 
+
+      a. Clique na **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** reclamação.
+
+      ![image](./media/atlassian-cloud-tutorial/email-address.png)
+         
+      b. Embora o Azure não preencha o atributo **user.mail** para os utilizadores criados em Azure AD inquilinos sem licenças office 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte** e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
+
+      ![image](./media/atlassian-cloud-tutorial/set-email.png)
+         
+      c. Os mapeamentos de atributos finais devem ser os seguintes.
+
+      ![image](common/default-attributes.png)
+     
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
+
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
+
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concedendo acesso à Nuvem Atlassian.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Nuvem Atlassiana.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Atlassian Cloud**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![O link do utilizador adicionar](./media/atlassian-cloud-tutorial/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-atlassian-cloud-sso"></a>Configure Atlassian Cloud SSO
+### <a name="create-atlassian-cloud-test-user"></a>Criar utilizador de teste de nuvem atlassiana
 
-1. Para automatizar a configuração dentro da Cloud Atlassian, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
+Para permitir que os utilizadores de Azure AD inscrevam-se na Atlassian Cloud, fornecendo as contas do utilizador manualmente na Nuvem Atlassiana, fazendo o seguinte:
 
-    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+1. No painel de **administração,** selecione **Utilizadores**.
 
-1. Depois de adicionar extensão ao navegador, clique em **Configurar atlassian Cloud** irá direcioná-lo para a aplicação Atlassian Cloud. A partir daí, forneça as credenciais de administração para assinar na Nuvem Atlassiana. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-7.
+    ![A ligação atlassiana dos utilizadores da nuvem](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
 
-    ![Configuração de configuração de configuração](common/setup-sso.png)
+1. Para criar um utilizador na Nuvem Atlassiana, selecione **Convidar o utilizador**.
 
-1. Se quiser configurar a Atlassian Cloud manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa Atlassian Cloud como administrador e execute os seguintes passos:
+    ![Criar um utilizador atlassiano cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
 
-1. Tem de verificar o seu domínio antes de configurar uma única inscrição. Para mais informações, consulte o documento de verificação de [domínio atlassiano.](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)
+1. Na caixa **de endereços de e-mail,** insira o endereço de e-mail do utilizador e, em seguida, atribua o acesso à aplicação.
 
-1. No painel esquerdo, selecione **Segurança** > **SAML single sign-on**. Se ainda não o fez, subscreva o Gestor de Identidade atlassiano.
+    ![Criar um utilizador atlassiano cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
 
-    ![Configurar o início de sessão único](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-11.png)
-
-1. Na janela de **configuração Add SAML,** faça o seguinte:
-
-    ![Configurar o início de sessão único](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-12.png)
-
-    a. Na caixa id da **Entidade fornecedora** de Identidade, cola o **Identificador Azure AD** que copiou do portal Azure.
-
-    b. Na caixa **DE URL do fornecedor de identidade SSO,** colhe o URL de **Login** que copiou do portal Azure.
-
-    c. Abra o certificado descarregado do portal Azure num ficheiro .txt, copie o valor (sem as linhas de *Certificado* de Início e *Certificado Final),* e, em seguida, cole-o na caixa de **certificados Public X509.**
-
-    d. Clique na **configuração de guardar**.
-
-1. Para garantir que configura os URLs corretos, atualize as definições de AD Azure fazendo o seguinte:
-
-    ![Configurar o início de sessão único](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-13.png)
-
-    a. Na janela SAML, copie o ID de **identidade SP** e, em seguida, no portal Azure, sob a **Configuração SAML De**Nuvem Atlassian, cole-o na caixa **de identificador.**
-
-    b. Na janela SAML, copie o URL do Serviço de **Consumo de Afirmação SP** e, em seguida, no portal Azure, sob a **configuração SAML de**Nuvem Atlassian, cole-o na caixa **DEURL resposta.** O URL de inscrição é o URL do inquilino da sua Nuvem Atlassian.
-
-    > [!NOTE]
-    > Se for um cliente existente, depois de atualizar os valores url url do Serviço de Consumo **de Identidade SP** e **SP Afirmação** no portal Azure, selecione **Sim, configuração de atualização**. Se for um novo cliente, pode saltar este passo.
-
-### <a name="create-atlassian-cloud-test-user"></a>Criar utilizador de teste Atlassian Cloud
-
-Para permitir que os utilizadores de Anúncios Azure insinuem na Atlassian Cloud, disponibilize as contas do utilizador manualmente na Cloud Atlassian, fazendo o seguinte:
-
-1. No painel **da Administração,** selecione **Utilizadores**.
-
-    ![A ligação atlassian Cloud Users](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
-
-1. Para criar um utilizador na Cloud Atlassian, selecione **Convidar o utilizador.**
-
-    ![Criar um utilizador atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
-
-1. Na caixa de **endereços de e-mail,** introduza o endereço de e-mail do utilizador e, em seguida, atribua o acesso à aplicação.
-
-    ![Criar um utilizador atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
-
-1. Para enviar um convite por e-mail ao utilizador, selecione **Convidar os utilizadores.** Um convite por e-mail é enviado ao utilizador e, após a aceitação do convite, o utilizador está ativo no sistema.
+1. Para enviar um convite por e-mail ao utilizador, selecione **Convidar utilizadores**. Um convite por e-mail é enviado ao utilizador e, depois de aceitar o convite, o utilizador está ativo no sistema.
 
 > [!NOTE]
-> Também pode criar utilizadores em massa selecionando o botão Criar a **Granel** na secção **Utilizadores.**
+> Também pode criar utilizadores a granel selecionando o botão Criar a **Granel** na secção **Utilizadores.**
 
 ### <a name="test-sso"></a>Teste SSO
 
-Ao selecionar o azulejo Atlassian Cloud no Painel de Acesso, deve ser automaticamente inscrito na Nuvem Atlassian para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando selecionar o azulejo da Nuvem Atlassiana no Painel de Acesso, deverá ser automaticamente inscrito na Nuvem Atlassiana para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente a Nuvem Atlassian com AD Azure](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Experimente a nuvem atlassiana com Azure AD](https://aad.portal.azure.com/)
 
 - [Como proteger a Nuvem Atlassiana com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

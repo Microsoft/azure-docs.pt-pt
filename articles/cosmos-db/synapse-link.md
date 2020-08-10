@@ -1,18 +1,18 @@
 ---
 title: Azure Synapse Link para Azure Cosmos DB, benefícios, e quando usá-lo
 description: Saiba mais sobre a Azure Synapse Link para Azure Cosmos DB. O Synapse Link permite-lhe executar perto de análises em tempo real (HTAP) usando a Azure Synapse Analytics sobre dados operacionais em Azure Cosmos DB.
-author: srchi
-ms.author: srchi
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025782"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034183"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -132,7 +132,7 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 O modelo de faturação da Azure Synapse Link inclui os custos incorridos com a utilização da loja analítica Azure Cosmos DB e do tempo de execução da Synapse. Para saber mais, consulte os preços da [loja analítica Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) e os [artigos de preços Azure Synapse Analytics.](https://azure.microsoft.com/pricing/details/synapse-analytics/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

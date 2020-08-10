@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798227"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032599"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -102,7 +102,7 @@ Esta página permite definir o produto primário que o seu serviço de consultor
     - Modernização da App
     - Arquivo
     - IA + Machine Learning
-    - Backup
+    - Cópia de segurança
     - Macrodados
     - Plataforma de Dados
     - Gestão de Datacenter
@@ -202,19 +202,22 @@ Adicione até três (mas pelo menos um) documentos PDF comprovativos para a sua 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center irá usá-lo para criar um logotipo de tamanho **Pequeno** (48 x 48 pixels). Pode substituir opcionalmente isto por uma imagem diferente.
+Forneça ficheiros PNG do logótipo da sua oferta em cada um dos seguintes tamanhos de pixel:
 
-Ambos os tamanhos do logotipo são necessários para serem utilizados em diferentes locais da listagem:
+- **Pequeno (48 x 48)**
+- **Grande (216 x 216)**
 
-- **Pequeno** (48 x 48)
-- **Grande** (entre 216 x 216 e 350 x 350)
+Todos os logótipos são necessários e são utilizados em diferentes locais da listagem do mercado.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+-   O logótipo Small (48 x 48 pixels) aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa. 
+-   O grande logótipo (entre 216 x 216 x 350 x 350 pixels) aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
 
 #### <a name="screenshots-optional"></a>Screenshots (opcional)
 

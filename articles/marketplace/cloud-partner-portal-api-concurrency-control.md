@@ -1,5 +1,5 @@
 ---
-title: Controlo de Concurrency - Azure Marketplace
+title: Controlo de concurrency - Azure Marketplace
 description: Estratégias de controlo da concurrency para o Portal do Parceiro cloud publicando APIs.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 2ec2e701a1d9cb449939416e65cf645f8bc01887
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e468898daffe8fc42250575d3efa42f99279c410
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287908"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031653"
 ---
-# <a name="concurrency-control"></a>Controlo da Concurrency
+# <a name="concurrency-control"></a>Controlo de simultaneidade
 
 > [!NOTE]
 > As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.

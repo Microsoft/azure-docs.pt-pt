@@ -1,18 +1,18 @@
 ---
 title: 'Gateway Azure VPN: Sobre o encaminhamento P2S'
-description: Saiba mais sobre o comportamento de encaminhamento VPN Azure Point-to-Site, que depende do cliente OS, do protocolo utilizado para a ligação e de como as redes virtuais se conectam.
+description: Saiba mais sobre o encaminhamento VPN Azure Point-to-Site para diferentes sistemas operativos, protocolos de acesso remoto e configurações de rede virtual.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 8ee75f80ea2e1ee379561b743c2b4add4ef1d7b9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926914"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032378"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 

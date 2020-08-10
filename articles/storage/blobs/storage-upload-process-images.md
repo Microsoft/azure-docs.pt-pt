@@ -1,6 +1,6 @@
 ---
 title: Carregar dados de imagem na cloud com o Armazenamento do Azure | Microsoft Docs
-description: Use o armazenamento Azure Blob com uma aplicação web para armazenar dados de aplicações
+description: Utilize o armazenamento do Azure Blob com aplicações web para armazenar dados de aplicações numa conta de armazenamento. Este tutorial cria uma aplicação web que armazena e exibe imagens do armazenamento do Azure.
 author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15d18372b9123602e6d6f05b9259e50a74f7eb39
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433274"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034146"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com armazenamento Azure
 
@@ -425,7 +425,7 @@ Na segunda parte da série, automatizas a criação de imagens de miniaturas par
 
 Pode ativar a Rede de Entrega de Conteúdos (CDN) para cache de conteúdo a partir da sua conta de armazenamento Azure. Para obter mais informações, consulte [Integrar uma conta de armazenamento Azure com a Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na primeira parte da série, aprendeu a configurar uma aplicação web para interagir com o armazenamento.
 

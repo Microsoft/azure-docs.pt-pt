@@ -1,18 +1,18 @@
 ---
 title: Montar uma partilha de ficheiros do Azure através de SMB com macOS | Microsoft Docs
-description: Saiba como montar uma partilha de ficheiros do Azure através de SMB com macOS.
+description: Saiba como montar uma partilha de ficheiros Azure sobre sMB com o macOS usando Finder ou Terminal. Ficheiros do Azure é o sistema de ficheiros na cloud fácil de utilizar da Microsoft.
 author: RenaShahMSFT
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cddf8a7d3dbc7abcc25fb76aba8a0af1790fe4d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509834"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034452"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montar uma partilha de ficheiros do Azure através de SMB com macOS
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas com o protocolo padrão da indústria, SMB 3, pelo macOS El Capitan 10.11+. Este artigo mostra duas formas diferentes de montar uma partilha de ficheiros do Azure em macOS com a IU do Finder e o Terminal.
@@ -56,7 +56,7 @@ ms.locfileid: "85509834"
 
     ![Instantâneo da partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
 
 * [Artigo de Suporte da Apple - Como efetuar a ligação à Partilha de ficheiros no Mac](https://support.apple.com/HT204445)

@@ -1,5 +1,5 @@
 ---
-title: Parceiro comercial do Marketplace e atribuição de uso do cliente
+title: Parceiro de mercado comercial e atribuição de uso do cliente
 description: Obtenha uma visão geral do rastreio do uso do cliente para soluções Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,14 +8,14 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065805"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031344"
 ---
-# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro comercial do Marketplace e atribuição de uso do cliente
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
 A atribuição de utilização do cliente é um método para associar os recursos da Azure em execução em subscrições de clientes, implantados para executar a sua solução, consigo como parceiro. A formação destas associações em sistemas internos da Microsoft traz uma maior visibilidade à pegada Azure que executa o seu software. Quando adota esta capacidade de rastreio, alinha-se com as equipas de vendas da Microsoft e ganha crédito para os programas parceiros da Microsoft.
 
@@ -61,7 +61,7 @@ Os GUIDs devem estar registados no Partner Center para permitir a atribuição d
 Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar o GUID no Partner Center, as futuras implementações são rastreadas.
 
 > [!NOTE]
-> Se estiver a publicar a sua oferta [de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para o Mercado Azure através do Partner Center, qualquer novo GUID utilizado dentro do seu modelo será automaticamente registado no perfil do Centro de Parceiros quando o modelo estiver carregado.  
+> Se estiver a publicar a sua oferta [de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para o Azure Marketplace através do Partner Center, qualquer novo GUID utilizado dentro do seu modelo será automaticamente registado no perfil do Centro de Parceiros quando o modelo estiver carregado.  
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
 
@@ -88,7 +88,7 @@ Muitas soluções parceiras são implementadas usando modelos de Gestor de Recur
 > Para obter mais informações sobre a criação e publicação de modelos de solução, consulte
 > * [Crie e implemente o seu primeiro modelo de Gestor de Recursos.](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 >* [Oferta de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md).
->* Vídeo: [Modelos de solução de construção e aplicações geridas para o Mercado Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+>* Vídeo: [Modelos de solução de construção e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 Para adicionar um identificador globalmente único (GUID), faça uma única modificação no ficheiro do modelo principal:
@@ -269,13 +269,13 @@ Se necessitar de assistência para o Marketplace Onboarding e/ou atribuição de
 1. Escolha a **categoria** para o seu problema:
 
    - Para questões de associação de utilização, selecione **Outros**.
-   - Para problemas de acesso com o Mercado Azure, selecione **Access Problem**.
+   - Para problemas de acesso com o Azure Marketplace, selecione **Access Problem**.
 
      ![Escolha a categoria de emissão](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Selecione **Pedido de Início**.
 
-1. Na página seguinte, insira os valores necessários. Selecione **Continuar**.
+1. Na página seguinte, insira os valores necessários. **Selecione Continuar**.
 
 1. Na página seguinte, insira os valores necessários.
 

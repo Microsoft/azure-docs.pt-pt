@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283015"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032089"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -36,8 +36,8 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para b
    1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud**, selecione **Todas as aplicações cloud**.
    1. Selecione **Concluído**.
-1. Em **Condições As**  >  **aplicações do Cliente (pré-visualização)**, em Select as **aplicações do cliente esta política aplicar-se-á a:**
-   1. Verifique apenas as caixas **Aplicações móveis e clientes de desktop**  >  **Outros clientes.**
+1. Em **Condições**  >  **As aplicações do Cliente**, definir **Configurar** para **Sim**.
+   1. Verifique apenas as caixas **Exchange ActiveSync clientes** e **outros clientes.**
    1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Acesso ao Bloco**.
    1. Selecione **Selecionar**.

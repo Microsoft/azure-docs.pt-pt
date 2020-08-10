@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script do Azure PowerShell - Transferir modelo de configuração do dispositivo | Microsoft Docs
-description: Este script PowerShell descarrega o modelo de dispositivo VPN para uma ligação em Azure. Saiba mais sobre todos os cmdlets do guião.
+description: Saiba como usar um script PowerShell para descarregar o modelo de configuração do dispositivo VPN para uma ligação.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: yushwang
-ms.openlocfilehash: 77e5291010767368600ef3032306867556181373
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 283ddb12e497c242f1843840fe1f1ff208712626
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926234"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031715"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Transferir o modelo do dispositivo VPN com o PowerShell
 

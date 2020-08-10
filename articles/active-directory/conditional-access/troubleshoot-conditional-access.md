@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610527"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032973"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Resolver problemas de início de sessão com Acesso Condicional
 
@@ -55,11 +55,16 @@ Para saber qual a política ou políticas de acesso condicional aplicadas e por 
    1. As informações no **separador de resolução de problemas e suporte** podem fornecer uma razão clara para que uma sessão falhou, tal como um dispositivo que não cumpriu os requisitos de conformidade.
    1. Para investigar mais aprofundadamente, aprofundar a configuração das políticas clicando no **Nome de Política**. Clicar no **Nome de Política** mostrará a interface de utilizador de configuração de política para a política selecionada para revisão e edição.
    1. Os **dados do** **utilizador** e do dispositivo que foram utilizados para a avaliação da política de acesso condicional também estão disponíveis nos separadores **de Informação Básica,** **Localização,** **Informação do Dispositivo,** Detalhes de **Autenticação**e **Detalhes Adicionais** do evento de inscrição.
-   1. A seleção da elipse do lado direito da política traz detalhes políticos. Isto dá aos administradores informações adicionais sobre a razão pela qual uma política foi aplicada com sucesso ou não.
+
+### <a name="policy-details"></a>Detalhes da política
+
+A seleção da elipse do lado direito da política num evento de inscrição traz detalhes políticos. Isto dá aos administradores informações adicionais sobre a razão pela qual uma política foi aplicada com sucesso ou não.
 
    ![Assine no separador de acesso condicional do evento](./media/troubleshoot-conditional-access/image5.png)
 
    ![Detalhes da política (pré-visualização)](./media/troubleshoot-conditional-access/policy-details.png)
+
+O lado esquerdo fornece detalhes recolhidos no início de saúde e o lado direito fornece detalhes sobre se esses detalhes satisfazem os requisitos das políticas de Acesso Condicional aplicadas. As políticas de acesso condicional só se aplicam quando todas as condições estão preenchidas ou não configuradas.
 
 Se a informação no evento não for suficiente para entender os resultados de inscrição ou ajustar a política para obter os resultados desejados, então um incidente de apoio pode ser aberto. Navegue no separador de **resolução e suporte** de problemas do evento e selecione Criar um novo pedido de **suporte**.
 

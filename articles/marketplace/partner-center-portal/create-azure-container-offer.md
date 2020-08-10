@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799179"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032786"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentores Azure no Azure Marketplace
 
@@ -190,20 +190,23 @@ Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
-
-Todos os três tamanhos do logotipo são necessários para ser utilizados em diferentes locais da listagem:
+ Forneça ficheiros PNG do logótipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
 
 - **Pequeno** (48 x 48)
-- **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Médio** (90 X 90)
+- **Grande** (216 x 216)
+- **Largo** (255 X 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Todos os quatro logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Screenshots (opcional)
 

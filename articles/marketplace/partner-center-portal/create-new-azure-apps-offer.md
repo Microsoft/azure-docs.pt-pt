@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904519"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031506"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -72,7 +72,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador de Armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Explorador do Storage do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -242,6 +242,8 @@ Forneça o nome, e-mail e número de telefone para um **contacto de suporte,** *
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
@@ -255,6 +257,8 @@ Forneça ficheiros PNG do logótipo da sua oferta nos seguintes três tamanhos d
 - **Largo** (255 x 115)
 
 Todos os três logótipos são necessários e são usados em diferentes lugares na listagem.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

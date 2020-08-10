@@ -1,18 +1,18 @@
 ---
 title: Repor uma porta de entrada Azure VPN para restabelecer o túnel IPsec
-description: Este artigo acompanha-o através da reposição do seu Gateway Azure VPN para restabelecer os túneis IPsec. O artigo aplica-se aos gateways VPN tanto nos modelos clássicos como nos modelos de implementação do Gestor de Recursos.
+description: Reinicie o seu Gateway Azure VPN para restabelecer os túneis IPsec para gateways VPN tanto nos modelos clássicos como nos modelos de implementação do Gestor de Recursos.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982905"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033058"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 

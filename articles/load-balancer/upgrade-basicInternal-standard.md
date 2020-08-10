@@ -5,14 +5,14 @@ services: load-balancer
 author: irenehua
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 02/23/2020
+ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 801f57c8d5b67e31bd6b3ac25d845dc2e13e365c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a0c186bb1a0d9f974d485e7d2d1d7326bd849c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809319"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033160"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem Conexão de saída necessária
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -48,7 +48,7 @@ Um script Azure PowerShell está disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o roteiro de migração da [PowerShell Gallery.](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0)
+Descarregue o roteiro de migração da [PowerShell Gallery.](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências do ambiente PowerShell local:
@@ -106,6 +106,6 @@ Sim, migra o tráfego. Se quiser migrar o tráfego pessoalmente, utilize [este s
   
 Pode enviar um e-mail slbupgradesupport@microsoft.com para, abrir um caso de suporte com o Suporte Azure, ou fazer ambos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-overview.md)

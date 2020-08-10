@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Criar registo no portal
-description: Aprenda rapidamente a criar um registo privado de Docker no Registo de Contentores Azure com o portal Azure.
+description: Aprenda rapidamente a criar um registo privado de contentores Azure utilizando o portal Azure.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 08/04/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82f9a6b02832b718d5b4e7b662c590f1992af595
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752800"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031829"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo privado de contentores utilizando o portal Azure
+# <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo de contentores Azure utilizando o portal Azure
 
 Um registo de contentores Azure é um registo privado do Docker em Azure, onde pode armazenar e gerir imagens privadas de contentores Docker e artefactos relacionados. Neste guia de introdução, irá criar um registo de contentor com o portal do Azure. Em seguida, use os comandos do Docker para empurrar uma imagem do contentor para o registo, e finalmente puxe e execute a imagem do seu registo.
 
@@ -23,7 +23,7 @@ Também tem de ter o Docker instalado localmente. O Docker disponibiliza pacotes
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 **Selecione Criar um**registo  >  **de contentores de**  >  **Container Registry**recursos.
 
@@ -41,14 +41,20 @@ Quando a mensagem **de implementação tiver sido bem sucedida,** selecione o re
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Visão geral do registo de contentores no portal":::
 
-Tome nota do valor do **servidor login**. Usa este valor nos seguintes passos quando empurra e puxa imagens com o Docker.
+Tome nota do nome do registo e do valor do **servidor Login**. Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de empurrar e puxar imagens do contentor, deve iniciar sessão na instância de registo. [Inscreva-se no CLI Azure][get-started-with-azure-cli] na sua máquina local e, em seguida, faça o comando [de login az acr.][az-acr-login] (Especificar apenas o nome do registo ao iniciar sessão com o Azure CLI. Não inclua o sufixo 'azurecr.io')
+Antes de empurrar e puxar imagens do contentor, deve iniciar sessão na instância de registo. [Inscreva-se no CLI Azure][get-started-with-azure-cli] na sua máquina local e, em seguida, faça o comando [de login az acr.][az-acr-login] (Especificar apenas o nome do registo ao iniciar sessão com o Azure CLI. Não inclua o sufixo de domínio 'azurecr.io'.
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Exemplo:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 O comando devolve `Login Succeeded` depois de estar concluído. 

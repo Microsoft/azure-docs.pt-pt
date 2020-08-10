@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Requisitos criptográficos'
-description: Aprenda a configurar gateways Azure VPN para satisfazer os requisitos criptográficos para túneis VPN S2S e ligações VNet-to-VNet dentro do Azure.
+description: Saiba como configurar as portas Azure VPN para satisfazer os requisitos criptográficos tanto para túneis S2S VPN como para ligações VNet-VNet.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: b591baa3fd942eb46cc7351a15c8849c44fe0d12
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926966"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032429"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e gateways Azure VPN
 

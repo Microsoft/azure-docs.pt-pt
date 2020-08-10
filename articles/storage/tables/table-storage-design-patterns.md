@@ -1,6 +1,6 @@
 ---
 title: Padrões de design de mesa de armazenamento Azure / Microsoft Docs
-description: Utilize padrões para soluções de serviço de mesa Azure.
+description: Reveja padrões de design apropriados para uso com soluções de serviço de mesa em Azure. Aborde questões e trocas que são discutidas noutros artigos.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081235"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034202"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -82,7 +82,7 @@ Armazenar várias cópias de cada entidade utilizando diferentes valores **RowKe
 ### <a name="context-and-problem"></a>Contexto e problema
 O serviço tabela indexa automaticamente as entidades utilizando os valores **PartitionKey** e **RowKey.** Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a estrutura de tabela apresentada abaixo, uma aplicação do cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os valores **PartitionKey** e **RowKey).** Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.  
 
-![ID de Empregado](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
+![ID de colaborador](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o serviço de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da ordem **RowKey.**  
 
@@ -729,7 +729,7 @@ O serviço Table é uma loja de mesa *sem esquemas,* o que significa que uma ún
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -821,7 +821,7 @@ Cada entidade ainda deve ter **valores PartitionKey,** **RowKey**e **Timestamp,*
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -838,7 +838,7 @@ Cada entidade ainda deve ter **valores PartitionKey,** **RowKey**e **Timestamp,*
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>
@@ -860,7 +860,7 @@ Cada entidade ainda deve ter **valores PartitionKey,** **RowKey**e **Timestamp,*
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>
@@ -901,7 +901,7 @@ Cada entidade ainda deve ter **valores PartitionKey,** **RowKey**e **Timestamp,*
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1124,7 +1124,7 @@ Neste exemplo assíncronos, pode ver as seguintes alterações a partir da vers�
 
 A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método será executada em um fio separado.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Modelar relações](table-storage-design-modeling.md)
 - [Design das consultas](table-storage-design-for-query.md)

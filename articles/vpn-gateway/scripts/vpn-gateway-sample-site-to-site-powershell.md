@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script do Azure PowerShell – Configurar uma Rede de VPNs | Microsoft Docs
-description: Este script PowerShell cria um Gateway VPN baseado em rotas e adiciona a configuração site-to-site. Saiba mais sobre todos os cmdlets do guião.
+description: Utilize o PowerShell para criar um gateway VPN baseado em rotas e configure o seu dispositivo VPN para adicionar conectividade local-a-local.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: e3629fd605b74edc0a274fa887f56295dcb0ab77
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fab1f4862cd1f2907d9bdc9f989fe24f1730002c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926982"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032446"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Criar um Gateway de VPN e adicionar uma ligação Site a Site com o PowerShell
 

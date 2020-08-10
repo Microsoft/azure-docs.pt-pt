@@ -1,18 +1,18 @@
 ---
 title: Compreender o Azure File Sync Cloud Tiering Microsoft Docs
-description: Saiba mais sobre a funcionalidade Cloud Tiering do Azure File Sync
+description: Leia sobre o tiering de nuvem, uma funcionalidade opcional de Sincronização de Ficheiros Azure. Os ficheiros acedidos frequentemente são cached localmente no servidor; outros são hierarquizados para Ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460087"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033126"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.

@@ -1,6 +1,6 @@
 ---
 title: Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
-description: Saiba como implantar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure, adicionando resiliência, escalabilidade e maior disponibilidade para gateways VNet.
+description: Saiba como implementar gateways VPN e gateways ExpressRoute redundantes em Zonas de Disponibilidade Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ccb6050ae4d56d2f8e57b4a590d01fb6acd9bd8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1404f5201ff5f543e34c6a4c8e5713cab3a4c51b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925161"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033483"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253142"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032888"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolução de problemas utilizando a ferramenta What If em Acesso Condicional
 
@@ -62,7 +62,7 @@ Esta secção fornece-lhe informações sobre as definições de simulação exe
 
 Só é possível selecionar um utilizador. Este é o único campo necessário.
 
-### <a name="cloud-apps"></a>Aplicativos em nuvem
+### <a name="cloud-apps"></a>Aplicações na cloud
 
 O padrão desta definição é **Todas as aplicações em nuvem**. A definição predefinida realiza uma avaliação de todas as políticas disponíveis no seu ambiente. Pode reduzir o âmbito de aplicações que afetam aplicações específicas na nuvem.
 
@@ -76,13 +76,13 @@ Esta definição imita a condição das plataformas do [dispositivo](concept-con
 
 ### <a name="client-apps"></a>Aplicações do cliente
 
-Esta definição imita a condição de aplicações do [cliente.](concept-conditional-access-conditions.md#client-apps-preview)
+Esta definição imita a condição de aplicações do [cliente.](concept-conditional-access-conditions.md#client-apps)
 Por padrão, esta definição causa uma avaliação de todas as políticas com aplicações **do Navegador** ou Mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)**. Pode reduzir esta definição selecionando:
 
 - **Navegador** para avaliar todas as políticas tendo pelo menos **o Browser** selecionado. 
 - **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas com pelo menos **aplicações móveis e clientes de desktop selecionados.** 
 
-### <a name="sign-in-risk"></a>Risco de inscrição
+### <a name="sign-in-risk"></a>Risco de início de sessão
 
 Esta definição imita a [condição de risco de inscrição](concept-conditional-access-conditions.md#sign-in-risk).   
 
@@ -102,7 +102,7 @@ Na lista de políticas aplicáveis ao utilizador selecionado, também pode encon
 
 Na lista de políticas que não se aplicam ao seu utilizador, pode e também encontrar as razões pelas quais estas políticas não se aplicam. Para cada política enumerada, a razão representa a primeira condição que não foi satisfeita. Uma possível razão para uma política que não é aplicada é uma política de deficientes, porque não são mais avaliadas.   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Mais informações sobre a aplicação da política de acesso condicional podem ser encontradas usando o modo de relatório de políticas apenas usando [insights de acesso condicional e relatórios](howto-conditional-access-insights-reporting.md).
 - Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte as políticas comuns de [Acesso Condicional.](concept-conditional-access-policy-common.md) 

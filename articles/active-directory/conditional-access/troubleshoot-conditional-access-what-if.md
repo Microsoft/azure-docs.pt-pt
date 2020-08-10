@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83737644"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032929"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Resolução de problemas Acesso Condicional usando a ferramenta E Se
 
@@ -41,7 +41,7 @@ As seguintes informações adicionais são facultativas, mas ajudarão a reduzir
 * Plataforma de dispositivo
 * Aplicativos de cliente (pré-visualização)
 * Estado do dispositivo (pré-visualização) 
-* Risco de inscrição
+* Risco de início de sessão
 
 Estas informações podem ser recolhidas a partir do utilizador, do seu dispositivo ou do registo de login AZure AD.
 
@@ -67,13 +67,13 @@ Muitas organizações criam políticas baseadas em localizações de rede, permi
 
 Para validar que uma configuração foi feita adequadamente, um administrador poderia usar a ferramenta What If para imitar o acesso, a partir de um local que deve ser permitido e a partir de um local que deve ser negado.
 
-![E se a ferramenta mostrar resultados com acesso ao Bloco](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[![E se a ferramenta mostrar resultados com acesso ao Bloco](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 Neste caso, o utilizador estaria impedido de aceder a qualquer aplicação em nuvem na sua viagem à Coreia do Norte, uma vez que Contoso bloqueou o acesso a partir desse local.
 
 Este teste poderia ser expandido para incorporar outros pontos de dados para reduzir o âmbito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o Acesso Condicional?](overview.md)
 * [O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)

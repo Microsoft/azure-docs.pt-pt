@@ -1,6 +1,6 @@
 ---
 title: Amostra de script Azure PowerShell - Eliminar contentores por prefixo Microsoft Docs
-description: Elimine contentores de blobs do Armazenamento do Azure com base num prefixo do nome do contentor.
+description: Leia um exemplo que mostre como eliminar o armazenamento do Azure Blob com base num prefixo no nome do recipiente, utilizando a Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 18827beeb606694e2c9089f27570216d413aabd9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006097"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033562"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo do nome do contentor
 

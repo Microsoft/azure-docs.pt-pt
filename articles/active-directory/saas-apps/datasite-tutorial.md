@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 08/05/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da42ef51646f7775234ed870e59c442d54933c1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: df9b417b6387a44004b6c363f4e8b12a6f692a94
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170547"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032310"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>Tutorial: Azure Ative Directory integração única (SSO) com datasite
 
@@ -87,17 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente datasite](mailto:applicationsupport@datasite.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
-
-1. A aplicação Datasite espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
-
-    ![image](common/default-attributes.png)
-
-1. Além de acima, a aplicação Datasite espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
-    
-    | Nome | Atributo de origem |
-    | -------------| --------- |
-    | organizationId | < organizaçãoId > |
+    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente datasite](mailto:service@datasite.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -117,7 +107,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -139,11 +129,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-datasite-sso"></a>Configure o SSO do Ponto de Dados
 
-Para configurar um único sinal no lado do **Datasite,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de suporte do [Datasite.](mailto:applicationsupport@datasite.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado do **Datasite,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de suporte do [Datasite.](mailto:service@datasite.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-datasite-test-user"></a>Criar utilizador de teste de datasite
 
-Nesta secção, cria-se um utilizador chamado B.Simon no Datasite. Trabalhe com a [equipa de suporte do Datasite](mailto:applicationsupport@datasite.com) para adicionar os utilizadores na plataforma Datasite. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon no Datasite. Trabalhe com a [equipa de suporte do Datasite](mailto:service@datasite.com) para adicionar os utilizadores na plataforma Datasite. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
