@@ -3,16 +3,16 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537804"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563488"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -20,7 +20,7 @@ O artigo descreve como os contratos e as emendas do Azure EA podem afetar o ace
 
 ## <a name="enrollment-provisioning-status"></a>Estado do aprovisionamento da inscrição
 
-A data de início de um novo Pré-pagamento do Azure é definida pela data em que o centro de operações regional o processou. Dado que as encomendas do Pré-pagamento do Azure através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda do Pré-pagamento do Azure tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda em https://www.explore.ms mostra o início do Pré-pagamento do Azure. A data de início da cobertura aplica-se quando o Pré-pagamento do Azure aparece no Azure EA Portal.
+A data de início de um novo Pré-pagamento do Azure é definida pela data em que o centro de operações regional o processou. Dado que as encomendas do Pré-pagamento do Azure através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda do Pré-pagamento do Azure tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda mostra o início do Pré-pagamento do Azure. A data de início da cobertura aplica-se quando o Pré-pagamento do Azure aparece no Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Suporte de clientes empresariais
 
@@ -43,7 +43,7 @@ Uma inscrição tem um dos seguintes valores de estado. Cada estado determina co
 
 **Expirado** – a inscrição EA expira quando atinge a data de fim do contrato Enterprise. O cliente EA é excluído do período alargado e todos os serviços são desativados.
 
-Desde 1 de agosto de 2019 que não são aceites novos formulários de exclusão para clientes comerciais do Azure. Em vez disso, todas as inscrições entram no período alargado indefinidamente. Se quiser deixar de utilizar os serviços do Azure, feche a subscrição no [portal do Azure](https://portal.azure.com). Em alternativa, o seu parceiro pode submeter um pedido de cessação em https://www.explore.ms. Não existem alterações para os clientes com tipos de contratos governamentais.
+Desde 1 de agosto de 2019 que não são aceites novos formulários de exclusão para clientes comerciais do Azure. Em vez disso, todas as inscrições entram no período alargado indefinidamente. Se quiser deixar de utilizar os serviços do Azure, feche a subscrição no [portal do Azure](https://portal.azure.com). Em alternativa, o seu parceiro pode submeter um pedido de cessação. Não existem alterações para os clientes com tipos de contratos governamentais.
 
 **Transferido** – o estado Transferido aplica-se a inscrições cujas contas e serviços foram transferidos para uma nova inscrição. As inscrições não serão transferidas automaticamente se for gerado um novo número de inscrição durante a renovação. O número de inscrição anterior tem de ser incluído no pedido de renovação do cliente para que exista uma transferência automática.
 

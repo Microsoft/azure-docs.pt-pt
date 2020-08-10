@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077163"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501530"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -93,8 +93,8 @@ Apesar de os âmbitos de governação estarem ligados a um diretório único, os
 
 Os âmbitos de faturação do EA suportam as seguintes funções:
 
-- **Administrador Enterprise** – pode gerir definições e acesso de contas de faturação, pode ver todos os custos e pode gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, o âmbito de faturação do EA é o mesmo que a [função RBAC do Azure do Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Utilizador só de leitura do Enterprise** – pode ver as definições da conta de faturação, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Na função, o âmbito de faturação do EA é o mesmo que a [função RBAC do Azure do Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrador Enterprise** – pode gerir definições e acesso de contas de faturação, pode ver todos os custos e pode gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, o âmbito de faturação do EA é o mesmo que a [função do Azure Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Utilizador só de leitura do Enterprise** – pode ver as definições da conta de faturação, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Na função, o âmbito de faturação do EA é o mesmo que a [função do Azure Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento** – pode gerir as definições de departamento, como o centro de custos, e pode aceder, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações.  A definição da conta de faturação **Custos de vista do AD** tem de ser ativada para os administradores de departamento e os utilizadores só de leitura verem os custos. Se a definição **Custos de vista do AD** for desativada, os utilizadores de departamento não podem ver os custos em nenhum dos níveis, mesmo que sejam um proprietário de uma conta ou subscrição.
 - **Utilizador só de leitura de departamento** – pode ver as definições de departamento, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Se a definição **Custos de vista do AD** for desativada, os utilizadores de departamento não podem ver os custos em nenhum dos níveis, mesmo que sejam um proprietário de uma conta ou subscrição.
 - **Proprietário da conta** – pode gerir as definições de contas de inscrição (como o centro de custos), ver todos os custos e gerir a configuração de custos (como os orçamentos e as exportações) da conta de inscrição. A definição da conta de faturação **Custos de vista do PC** tem de ser ativada para os proprietários de conta e os utilizadores de RBAC verem os custos.
@@ -141,10 +141,10 @@ Os âmbitos de faturação do Contrato do Cliente não se aplicam aos parceiros.
 
 Os âmbitos de faturação do Contrato do Cliente suportam as seguintes funções:
 
-- **Proprietário** – pode gerir as definições de faturação e acesso, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função RBAC do Azure do Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Contribuidor** – pode gerir as definições de faturação, exceto o acesso, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função RBAC do Azure do Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Leitor** – pode ver as definições da faturação, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função RBAC do Azure do Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Gestor de faturas** – pode ver e pagar faturas e pode ver os dados de custos e a configuração. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função RBAC do Azure do Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Proprietário** – pode gerir as definições de faturação e acesso, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função do Azure Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Contribuidor** – pode gerir as definições de faturação, exceto o acesso, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função do Azure Contribuidor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Leitor** – pode ver as definições da faturação, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função do Azure Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Gestor de faturas** – pode ver e pagar faturas e pode ver os dados de custos e a configuração. Por exemplo, orçamentos e exportações. Na função, este âmbito de faturação do Contrato de Cliente é o mesmo que a [função do Azure Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Criador de subscrições do Azure** – pode criar subscrições do Azure, ver custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações. Na função, este âmbito da faturação do Contrato do Cliente é o mesmo que a função de proprietário da conta de inscrição do EA.
 
 As subscrições do Azure são aninhadas nas secções de faturação, da mesma forma que são aninhadas nas contas de inscrição do EA. Os utilizadores de faturação têm acesso aos dados dos custos das subscrições e dos grupos de recursos que estão nos seus âmbitos. Contudo, não têm acesso para ver ou gerir recursos no portal do Azure. Os utilizadores de faturação podem ver os custos ao navegar para **Cost Management + Faturação** na lista de serviços do portal do Azure. Em seguida, basta filtrar os custos para as subscrições e os grupos de recursos específicos sobre os quais pretendem gerar relatórios.

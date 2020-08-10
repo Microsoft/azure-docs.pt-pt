@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: Ligar remotamente
           href: rdp.md
-        - name: Limitações conhecidas
-          href: windows-node-limitations.md
+        - name: FAQ dos contentores do Windows Server
+          href: windows-faq.md
         - name: Utilizar o dashboard do Kubernetes
           href: kubernetes-dashboard.md
         - name: Criar Dockerfiles para contentores do Windows Server

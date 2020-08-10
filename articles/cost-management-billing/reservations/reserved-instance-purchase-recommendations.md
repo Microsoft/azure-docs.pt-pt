@@ -1,20 +1,20 @@
 ---
-title: Como são criadas as recomendações de reservas do Azure
-description: Saiba como são criadas as recomendações de reserva do Azure para máquinas virtuais.
+title: Recomendações de reservas do Azure
+description: Saiba mais sobre as recomendações de reservas do Azure.
 author: banders
 ms.author: banders
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 90967e740b87c2f93bd46bfb78684af96f36193a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.date: 08/04/2020
+ms.openlocfilehash: 661e3bfa149718eb2893c5722ab3931a8a9f9afe
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508484"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797939"
 ---
-# <a name="how-reservation-recommendations-are-created"></a>Como são criadas as recomendações de reservas
+# <a name="reservation-recommendations"></a>Recomendações da reserva
 
 As recomendações de compra de instâncias reservadas (RI) do Azure são fornecidas através da [API de Recomendação de Reservas](/rest/api/consumption/reservationrecommendations) de Consumo do Azure, do [Assistente do Azure](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) e da experiência de compra de reservas no portal do Azure.
 
@@ -25,12 +25,36 @@ Os passos seguintes definem como são calculadas as recomendações:
 3. Os custos são simulados para diferentes quantidades, e é recomendada a quantidade que maximiza a poupança.
 4. Se os recursos forem encerrados regularmente, a simulação não encontrará poupanças e não é fornecida nenhuma recomendação de compra.
 
+## <a name="recommendations-in-the-azure-portal"></a>Recomendações no portal do Azure
+
+As recomendações de compras de reservas também são apresentadas no portal do Azure na experiência de compra. As recomendações são apresentadas com a **Quantidade Recomendada**. Quando são compradas, a quantidade que o Azure recomenda dará a poupança máxima possível. Embora possa comprar a quantidade que pretenda, caso compre uma quantidade que não a recomendada, as poupanças não serão as ideais.
+
+Vejamos alguns exemplos do porquê.
+
+Na imagem de exemplo seguinte relativa à recomendação selecionada, o Azure recomenda comprar uma quantidade de 6.
+
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Exemplo que mostra uma recomendação de compra de reserva" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
+
+Se selecionar a ligação **Ver detalhes**, são mostradas mais informações sobre a recomendação. A imagem seguinte mostra os detalhes da recomendação. A quantidade recomendada é calculada para a utilização máxima possível, com base no seu histórico de utilização. Se a utilização for inconsistente, a recomendação poderá não ser para 100% de utilização. No exemplo, repare que a utilização flutuou ao longo do tempo. É apresentada a reserva, as poupanças possíveis e a percentagem de utilização.
+
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Exemplo que mostra os detalhes de uma recomendação de compra de reserva" :::
+
+Quando aumenta ou diminui a quantidade da reserva para lá da recomendação, o gráfico e os valores estimados alteram-se. Ao aumentar a quantidade da reserva, as poupanças baixam porque acabará com uma utilização da reserva reduzida. Por outras palavras, pagará por reservas que não serão totalmente utilizadas.
+
+Se diminuir a quantidade da reserva, as poupanças também serão reduzidas. Embora tenha aumentado a utilização, haverá provavelmente períodos em que as reservas não cobrirão completamente a utilização. A utilização que exceda a quantidade da reserva será utilizada por recursos pay as you go mais caros. A imagem do exemplo seguinte ilustra esta lógica. Reduzimos a quantidade da reserva para 4 manualmente. A utilização da reserva é aumentada, mas as poupanças gerais reduzidas, porque estão presentes custos pay as you go.
+
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Exemplo que mostra os detalhes de uma recomendação de compra de reserva alterada" :::
+
+Para maximizar as poupanças com as reservas, tente comprar as reservas o mais perto possível da recomendação.
+
 ## <a name="recommendations-in-azure-advisor"></a>Recomendações do Assistente do Azure
 
-Estão disponíveis recomendações de compra de reservas para máquinas virtuais no Assistente do Azure. Tenha em consideração os seguintes pontos:
+As recomendações de compra de reservas estão disponíveis no Assistente do Azure. Tenha em consideração os seguintes pontos:
 
 - O Assistente tem apenas recomendações de âmbito de subscrição única.
-- Estão disponíveis recomendações calculadas num período do histórico de 30 dias no Assistente.
+- As recomendações são calculadas ao considerar a tendência de utilização dos últimos 30 dias.
+- As quantidades recomendadas e as poupanças são para reservas de 3 anos, sempre que disponíveis. Se não for vendida uma reserva de 3 anos para o serviço, a recomendação é calculada com base no preço da reserva de 1 ano.
+- As recomendações têm em conta descontos especiais que possa ter nas suas tarifas de utilização a pedido.
 - Se comprar uma reserva de âmbito partilhado, as recomendações de compra de reservas do Assistente podem demorar até 30 dias a desaparecer.
 
 ## <a name="other-expected-api-behavior"></a>Outro comportamento esperado da API

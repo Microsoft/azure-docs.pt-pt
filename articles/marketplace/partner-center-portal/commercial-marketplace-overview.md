@@ -1,22 +1,22 @@
 ---
-title: Descrição Geral do portal do Marketplace Comercial no Centro de Parceiros
-description: Saiba mais sobre o portal mercado comercial no Partner Center e como listar e vender ofertas no Azure Marketplace, AppSource e através do programa Cloud Solution Provider (CSP).
+title: Visão geral do portal do mercado comercial no Partner Center
+description: Saiba mais sobre o portal de marketplace comercial da Microsoft no Partner Center e como listar e vender ofertas no Azure Marketplace, AppSource e através do programa Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047594"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030866"
 ---
-# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do Portal do Mercado Comercial no Centro de Parceiros
+# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do portal do mercado comercial no Partner Center
 
-Bem-vindo ao Portal do Mercado Comercial no Centro de Parceiros. O [portal do mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) ajuda-o a rentabilizar os seus produtos e serviços, chegar aos clientes e fazer crescer o seu negócio.
+Bem-vindo ao portal do mercado comercial no Partner Center. O [portal do mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) ajuda-o a rentabilizar os seus produtos e serviços, chegar aos clientes e fazer crescer o seu negócio.
 
 Estes artigos cobrem os fundamentos da criação e utilização da sua conta Partner Center. Isto inclui a criação de novas ofertas que podem ser listadas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [appSource,](https://appsource.microsoft.com/)gerindo as suas ofertas existentes que foram migradas do Portal do Parceiro cloud, e fornecendo recursos para ajudar com as questões e recolher o seu feedback.
 

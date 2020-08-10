@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Pesquisa de mapas interativos com mapas Azure'
-description: Saiba como criar uma aplicação web de demonstração para pesquisa de mapas interativos utilizando o Microsoft Azure Maps web SDK.
+description: Saiba como criar mapas interativos e pesjáveis. Veja como criar uma conta Azure Maps, obter uma chave primária e usar o Web SDK para configurar aplicações de mapas.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb6c5ee48e22e0c913e7fc6150d3986af805a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004625"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031052"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo com mapas Azure
 

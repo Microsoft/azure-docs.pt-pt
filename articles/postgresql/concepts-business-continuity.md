@@ -1,17 +1,17 @@
 ---
 title: Continuidade do negócio - Base de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve a continuidade do negócio (ponto no tempo de restauração, interrupção do centro de dados, geo-restauro) ao utilizar a Base de Dados Azure para PostgreSQL.
+description: Este artigo descreve a continuidade do negócio (ponto no tempo de restauração, interrupção do centro de dados, geo-restauro, réplicas) ao utilizar a Base de Dados Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245311"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031205"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
@@ -28,14 +28,16 @@ A tabela a seguir compara o ERT e o RPO pelas funcionalidades disponíveis:
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Geo-restauro a partir de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
-> [!IMPORTANT]
-> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Utilize [o bloqueio de recursos Azure](../azure-resource-manager/management/lock-resources.md) para evitar a eliminação acidental do seu servidor.
+Também pode considerar a utilização de [réplicas de leitura.](concepts-read-replicas.md)
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de utilizador ou aplicação
 
 Pode utilizar as cópias de segurança do serviço para recuperar um servidor de vários eventos disruptivos. Um utilizador pode acidentalmente apagar alguns dados, deixar cair inadvertidamente uma tabela importante ou até mesmo deixar cair uma base de dados inteira. Uma aplicação pode acidentalmente substituir bons dados com dados maus devido a um defeito de aplicação, e assim por diante.
 
 Pode executar um **restauro pontual** para criar uma cópia do seu servidor num bom momento conhecido. Este ponto no tempo deve estar dentro do período de retenção de backup que configura para o seu servidor. Depois de os dados terem sido restaurados para o novo servidor, pode substituir o servidor original pelo servidor recentemente restaurado ou copiar os dados necessários do servidor restaurado para o servidor original.
+
+> [!IMPORTANT]
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Utilize [o bloqueio de recursos Azure](../azure-resource-manager/management/lock-resources.md) para evitar a eliminação acidental do seu servidor.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Recuperar de uma paragem do centro de dados Azure
 

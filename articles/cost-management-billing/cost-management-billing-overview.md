@@ -1,35 +1,48 @@
 ---
-title: Descrição geral das funcionalidades Azure Cost Management e Faturação| Microsoft Docs
-description: Utilize as funcionalidades Azure Cost Management e Faturação para realizar tarefas administrativas de faturação e para gerir o acesso de faturação aos custos. Também pode utilizar a funcionalidade para monitorizar e controlar as despesas do Azure e para otimizar a utilização de recursos do Azure.
+title: Descrição Geral do Azure Cost Management + Faturação
+description: Utilize as funcionalidades do Azure Cost Management + Faturação para realizar tarefas administrativas de faturação e para gerir o acesso de faturação aos custos. Também as pode utilizar para monitorizar e controlar os gastos do Azure e para otimizar a utilização dos recursos do Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 07/29/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 76121dd8126922de2843e430a4e01cae1c7c0d53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879093"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413005"
 ---
-# <a name="what-is-azure-cost-management-and-billing"></a>O que é o Azure Cost Management e a Faturação?
+# <a name="what-is-azure-cost-management--billing"></a>O que é o Azure Cost Management + Faturação?
 
-Com os produtos e os serviços do Azure, paga apenas o que utiliza. Os recursos do Azure são-lhe cobrados à medida que os cria e os utiliza. Utilize as funcionalidades Azure Cost Management e Faturação para realizar tarefas administrativas de faturação e para gerir o acesso de faturação aos custos. Também pode utilizar as funcionalidades para monitorizar e controlar as despesas do Azure e otimizar a utilização dos recursos do Azure.
+Ao utilizar a cloud da Microsoft, pode melhorar significativamente o desempenho técnico das cargas de trabalho da sua empresa. Também pode reduzir os custos e a sobrecarga necessários para gerir os ativos da organização. No entanto, a oportunidade de negócio cria um risco, devido ao potencial desperdício e às ineficiências que são introduzidas nas suas implementações na cloud. O Azure Cost Management + Faturação é um conjunto de ferramentas disponibilizadas pela Microsoft que ajudam a analisar, gerir e otimizar os custos das suas cargas de trabalho. A utilização deste conjunto ajuda a garantir que a sua organização está a tirar partido das vantagens que a cloud proporciona.
+
+Pode encarar as cargas de trabalho do Azure como as luzes de casa. Quando sai de casa, deixa as luzes acesas? Poderia utilizar lâmpadas diferentes, mais eficientes, para reduzir a conta mensal da energia? Tem mais iluminação numa divisão do que o necessário? Pode utilizar o Azure Cost Management + Faturação para aplicar um raciocínio semelhante às cargas de trabalho que a sua organização utiliza.
+
+Com os produtos e os serviços do Azure, paga apenas o que utiliza. Os recursos do Azure são-lhe cobrados à medida que os cria e os utiliza. Devido à facilidade de implementação de recursos novos, os custos das cargas de trabalho podem aumentar significativamente sem uma análise e monitorização adequada. Pode utilizar as funcionalidades do Azure Cost Management + Faturação para:
+
+- Realizar tarefas administrativas de faturação, como pagar a fatura
+- Gerir o acesso de faturação aos custos
+- Transferir os dados de custos e utilização que foram utilizados para gerar a fatura mensal
+- Aplicar, proativamente, análises de dados aos custos
+- Definir limites de gastos
+- Identificar oportunidades para fazer alterações às cargas de trabalho que possam otimizar os gastos
+
+Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
 ## <a name="understand-azure-billing"></a>Compreender a Faturação do Azure
 
 As funcionalidades Faturação do Azure servem para analisar os custos faturados e gerir o acesso às informações de faturação. Em organizações maiores, normalmente, as equipas de aprovisionamento e finanças realizam tarefas de faturação.
 
-Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. Pode ter acesso a múltiplas contas de faturação. Por exemplo, talvez se tenha inscrito no Azure com o objetivo de desenvolver projetos pessoais. Assim, é possível que tenha uma subscrição do Azure individual com uma conta de faturação. Também poderá ter acesso através do Contrato Enterprise ou do Contrato de Cliente da Microsoft da sua organização. Para cada cenário, teria uma conta de faturação separada.
+Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. Pode ter acesso a múltiplas contas de faturação. Por exemplo, talvez se tenha inscrito no Azure com o objetivo de desenvolver projetos pessoais. Assim, é possível que tenha uma subscrição do Azure individual com uma conta de faturação. Também poderá ter acesso através do Contrato Enterprise ou do Contrato de Cliente da Microsoft da sua organização. Em cada cenário, teria uma conta de faturação separada.
 
 ### <a name="billing-accounts"></a>Contas de faturação
 
 O portal do Azure suporta atualmente os seguintes tipos de contas de faturação:
 
-- **Programa Microsoft Online Services**: uma conta de faturação individual para um Programa Microsoft Online Services é criada ao inscrever-se no Azure através do site do Azure. Por exemplo, quando se inscreve numa [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [conta com tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Programa Microsoft Online Services**: é criada uma conta de faturação individual para um Programa Microsoft Online Services quando se inscrever no Azure através do site do Azure. Por exemplo, quando se inscreve numa [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [conta com tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 - **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar o Azure.
 
@@ -42,9 +55,8 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 
 |Âmbito  |Definição  |
 |---------|---------|
-|Conta de faturação     | Representa um único proprietário (Administrador da conta) de uma ou mais subscrições do Azure. Um Administrador de Conta está autorizado a executar várias tarefas de faturação, como criar subscrições, ver faturas ou alterar a faturação para subscrições.  |
+|Conta de faturação     | Representa um único proprietário (Administrador da conta) de uma ou mais subscrições do Azure. Um Administrador de Conta está autorizado a executar várias tarefas de faturação, como criar subscrições, ver faturas ou alterar a faturação de subscrições.  |
 |Subscrição     |  Representa um agrupamento de recursos do Azure. Uma fatura é gerada no âmbito da subscrição. Tem os seus próprios métodos de pagamento que são utilizados para pagar as faturas.|
-
 
 #### <a name="enterprise-agreement"></a>Contrato Enterprise
 
@@ -54,7 +66,6 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 |Departamento     |  Agrupamento opcional de contas de inscrição.      |
 |Conta de inscrição     |  Representa um único proprietário da conta. As subscrições do Azure são criadas no âmbito da conta de inscrição.  |
 
-
 #### <a name="microsoft-customer-agreement"></a>Contrato de Cliente da Microsoft
 
 |Âmbito  |Tarefas  |
@@ -63,19 +74,17 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 |Perfil de faturação     |  Representa uma fatura e os respetivos métodos de pagamento. A fatura é gerada neste âmbito. O perfil de faturação pode ter várias secções de fatura.      |
 |Secção de fatura     |   Representa um grupo de custos numa fatura. As subscrições e outras compras estão associadas ao âmbito da secção de faturação.    |
 
-
 ## <a name="understand-azure-cost-management"></a>Compreender o Azure Cost Management
-A gestão de custos é o processo que diz respeito ao planeamento e ao controlo eficazes dos custos envolvidos na sua empresa. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. A funcionalidade Azure Cost Management + Faturação ajuda as organizações a planear com os custos em mente. Também ajuda a analisar eficazmente os custos e a tomar medidas para otimizar os gastos com a cloud. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
-
-Veja o vídeo [Azure Cost Management overview](https://www.youtube.com/watch?v=el4yN5cHsJ0) (Descrição geral do Azure Cost Management) para obter uma descrição geral rápida sobre como é que o Azure Cost Management pode ajudar a poupar no Azure. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Embora relacionada, a faturação é diferente da gestão de custos. A faturação é o processo de faturar clientes relativamente a bens ou serviços e gerir a relação comercial.
 
 O Cost Management apresenta padrões de utilização e custos da organização com uma análise avançada. Os relatórios no Cost Management mostram os custos com base na utilização que foram consumidos pelos serviços do Azure e pelas ofertas do Marketplace de terceiros. Os custos baseiam-se nos preços negociados e têm em conta a reserva e os descontos do Benefício Híbrido do Azure. Em conjunto, os relatórios apresentam os seus custos internos e externos relativamente à utilização e os custos do Azure Marketplace. Outros custos, como compras de reservas, suporte e impostos, ainda não são apresentados nos relatórios. Os relatórios ajudam-no a compreender os seus gastos e a utilização de recursos, e podem ajudar a detetar anomalias nos gastos. Também está disponível a análise preditiva. O Cost Management utiliza grupos de gestão, orçamentos e recomendações do Azure para mostrar claramente como as suas despesas estão organizadas e como poderá reduzir os custos.
 
 Pode utilizar o portal do Azure ou várias APIs para a automatização de exportações, para integrar dados de custos em sistemas e processos externos. Também estão disponíveis a exportação automatizada de dados de faturação e o agendamento de relatórios.
+
+Veja o vídeo [Azure Cost Management overview](https://www.youtube.com/watch?v=el4yN5cHsJ0) (Descrição geral do Azure Cost Management) para obter uma descrição geral rápida sobre como é que o Azure Cost Management pode ajudar a poupar no Azure. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 ### <a name="plan-and-control-expenses"></a>Planear e controlar despesas
 
@@ -99,17 +108,16 @@ Veja o vídeo [Azure Cost Management and Cloudyn](https://www.youtube.com/watch?
 
 ### <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 
-O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidades Azure Cost Management e Faturação. No entanto, desempenham um papel importante no processo de gestão de custos. Para saber mais sobre estas ferramentas, veja as ligações seguintes.
+O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidades Azure Cost Management + Faturação. No entanto, desempenham um papel importante no processo de gestão de custos. Para saber mais sobre estas ferramentas, veja as ligações seguintes.
 
 - [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/): utilize esta ferramenta para estimar os seus custos iniciais com a cloud.
 - [Azure Migrate](../migrate/migrate-overview.md): avalie a carga de trabalho do seu datacenter atual para obter informações sobre o que precisa numa solução de substituição do Azure.
 - [Assistente do Azure](../advisor/advisor-overview.md): identifique VMs não utilizadas e obtenha recomendações sobre compras de instâncias reservadas do Azure.
 - [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/): utilize as suas licenças do Windows Server ou SQL Server atuais no local para que as VMs no Azure as guardem.
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que está familiarizado com o Cost Management e a Faturação, o próximo passo é começar a utilizar o serviço.
+Agora que está familiarizado com o Cost Management + Faturação, o próximo passo é começar a utilizar o serviço.
 
 - Comece a utilizar o Azure Cost Management para [analisar os custos](./costs/quick-acm-cost-analysis.md).
 - Também pode saber mais sobre as [práticas recomendadas do Azure Cost Management](./costs/cost-mgt-best-practices.md).

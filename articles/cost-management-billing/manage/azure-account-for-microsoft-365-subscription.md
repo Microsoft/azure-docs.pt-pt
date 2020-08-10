@@ -1,6 +1,6 @@
 ---
 title: Inscrever-se no Microsoft 365 com a conta do Azure
-description: Saiba como criar uma subscrição do Microsoft 365 com uma conta do Azure
+description: Saiba como criar uma subscrição do Microsoft 365 com uma conta do Azure. Pode também associar contas do Azure e do Microsoft 365 entre si.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810385"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461889"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Inscrever-se numa subscrição do Microsoft 365 com a sua conta do Azure
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Inscrever-se numa subscrição do Microsoft 365 com a sua conta do Azure
 
 Se for subscritor do Azure, pode utilizar a sua conta do Azure para se inscrever numa subscrição do Microsoft 365. Se fizer parte de uma organização que tem uma subscrição do Azure, pode criar subscrições do Microsoft 365 para utilizadores no seu Azure Active Directory existente (AAD). Inscreva-se no Microsoft 365 com uma conta que tenha permissões de Administrador Global ou de Administrador de Faturação no seu inquilino do Azure Active Directory. Para obter mais informações, veja [Verificar as minhas permissões de conta no AAD](#RoleInAzureAD) e [Atribuir funções de administrador no Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

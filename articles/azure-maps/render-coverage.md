@@ -1,6 +1,6 @@
 ---
 title: Cobertura de renderização / Microsoft Azure Maps
-description: Neste artigo, conheça as regiões com o Microsoft Azure Maps para fazer cobertura juntamente com o seu nível de detalhes renderizados.
+description: Saiba se o Azure Maps torna várias regiões com dados detalhados ou simplificados. Veja o nível que usa para mapas de azulejos raster e vector-azulejos nessas regiões.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127915"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030933"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps render cobertura
 

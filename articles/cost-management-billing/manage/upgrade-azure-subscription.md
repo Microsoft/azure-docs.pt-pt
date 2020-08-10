@@ -1,6 +1,6 @@
 ---
 title: Atualizar a conta do Azure
-description: Descrição de como pode atualizar a conta do Azure.
+description: Saiba como atualizar a sua conta gratuita do Azure ou a sua conta do Azure for Students Starter. Veja informações adicionais sobre os planos de suporte do Azure.
 keywords: Atualização pay as you go
 author: bandersmsft
 ms.reviewer: sasrin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29454bc5edb02ff571e06be3e9f203792d473aed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 596fd166153f9d1a319d428b3fe44388acc48efa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199454"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460597"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Atualizar a conta gratuita do Azure ou a conta Microsoft Azure for Students Starter
 

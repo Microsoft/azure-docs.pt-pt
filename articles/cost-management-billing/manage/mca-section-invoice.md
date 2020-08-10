@@ -1,24 +1,24 @@
 ---
 title: Organizar a fatura de acordo com as suas necessidades – Azure
-description: Saiba como organizar os custos na fatura.
+description: Saiba como organizar os custos da sua fatura. Pode criar perfis de faturação e secções de fatura para personalizar a sua conta de faturação.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553263ebac3c64e27a7711b4407a7d4ba573998c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200749"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460036"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Personalizar a conta de faturação para organizar os custos
 
 A conta de faturação do Contrato de Cliente Microsoft oferece-lhe flexibilidade para organizar os custos de acordo com as suas necessidades, seja por departamento, projeto ou ambiente de desenvolvimento.
 
-Este artigo descreve como pode utilizar o portal do Azure para organizar os custos. Aplica-se a uma conta de faturação de um Contrato de Cliente Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo descreve como pode utilizar o portal do Azure para organizar os custos. Aplica-se a uma conta de faturação de um Contrato de Cliente Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Estruturar a conta com perfis de faturação e secções de fatura
 
@@ -70,7 +70,7 @@ Esta secção descreve cenários comuns de organização de custos e as estrutur
 
 Para criar uma secção de fatura, precisa de ser **proprietário do perfil de faturação** ou **contribuidor do perfil de faturação**. Para obter mais informações, veja [Gerir as secções de fatura do perfil de faturação](understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
@@ -98,7 +98,7 @@ Para criar um novo perfil de faturação, tem de ser **proprietário da conta de
 >
 > A criação de perfis de faturação adicionais pode afetar o custo global. Para obter mais informações, veja as [Questões a considerar ao adicionar novos perfis de faturação](#things-to-consider-when-adding-new-billing-profiles).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
@@ -131,7 +131,7 @@ Depois de ter personalizado a conta de faturação de acordo com as suas necessi
 
 ### <a name="link-a-new-subscription"></a>Associar a uma nova subscrição
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Escreva **Subscrições** na caixa de pesquisa.
 
@@ -161,7 +161,7 @@ Se tiver subscrições do Azure existentes ou outros produtos, como recursos do 
 >
 > As subscrições e outros produtos só podem ser movidos entre secções de fatura que pertençam ao mesmo perfil de faturação. Não é possível mover subscrições e produtos entre secções de fatura em perfis de faturação diferentes.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 

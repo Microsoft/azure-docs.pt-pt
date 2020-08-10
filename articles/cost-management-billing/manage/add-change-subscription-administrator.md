@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126130"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530015"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrições do Azure
 
@@ -33,7 +33,7 @@ Para obter mais informações, veja [Azure Resource Manager vs. implementação 
 
 ## <a name="assign-a-subscription-administrator"></a>Atribuir um administrador de subscrição
 
-Para que um utilizador seja administrador de uma subscrição do Azure, um administrador existente tem de atribuir a este a função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no âmbito da subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são iguais a qualquer outra atribuição de função.
+Para que um utilizador seja administrador de uma subscrição do Azure, um administrador existente tem de lhe atribuir a função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) (uma função do Azure) no âmbito da subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são iguais a qualquer outra atribuição de função.
 
 Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
 

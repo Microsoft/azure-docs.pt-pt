@@ -1,6 +1,6 @@
 ---
 title: Cobertura de encaminhamento / Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre regiões com cobertura de encaminhamento para o Microsoft Azure Maps.
+description: Saiba qual o nível de cobertura que o Azure Maps fornece em várias regiões para encaminhamento, encaminhamento com tráfego e encaminhamento de camiões.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d581380bed3cb0cbc50a0b763a1dc7fe7ee1d04e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129530"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030899"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de encaminhamento Azure Maps
 

@@ -1,17 +1,17 @@
 ---
 title: Criar serviços gratuitos com a conta gratuita do Azure
-description: Saiba como criar serviços incluídos na conta gratuita do Azure.
+description: Saiba como criar serviços incluídos na conta gratuita do Azure. Pode criar estes serviços em qualquer região em que estejam disponíveis.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 1d2c4ed141aeff97f5987b0b23ff1e6201e53c6a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 540988892a5f5f650a8594b74792e45d25ca9036
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200885"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460954"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Criar serviços incluídos na conta gratuita do Azure
 

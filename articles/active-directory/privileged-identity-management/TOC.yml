@@ -8,7 +8,7 @@
   items:
     - name: Requisitos de licença
       href: subscription-requirements.md
-    - name: Funções que não pode gerir
+    - name: Funções que não pode gerir com o PIM
       href: pim-roles.md
     - name: Proteger o acesso privilegiado
       href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -18,7 +18,7 @@
       href: pim-resource-roles-overview-dashboards.md
     - name: Notificações por e-mail
       href: pim-email-notifications.md
-    - name: Microsoft Graph APIs
+    - name: Microsoft Graph API e PIM
       href: pim-apis.md
 - name: Guias de procedimentos
   expanded: true
@@ -33,7 +33,7 @@
           href: pim-security-wizard.md
         - name: Descubra os recursos do Azure
           href: pim-resource-roles-discover-resources.md
-        - name: Conceder acesso a outras pessoas para gerir o PIM
+        - name: Delegar o acesso ao PIM
           href: pim-how-to-give-access-to-pim.md
         - name: Elevar acesso para gerir todas as subscrições
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json

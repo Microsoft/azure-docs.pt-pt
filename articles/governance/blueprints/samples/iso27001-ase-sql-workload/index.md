@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema de carga de trabalho ASE/SQL ISO 
 description: Descrição geral e arquitetura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536838"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926098"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
@@ -28,7 +28,7 @@ O exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Servi
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma infraestrutura de carga de trabalho segura, completamente monitorizada e preparada para empresas, com base nas normas ISO 27001. Este ambiente é composto por:
 
-- Função de [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) chamada DevOps, que dispõe de direitos para implementar e gerir recursos num [Ambiente do Serviço de Aplicações do Azure](../../../../app-service/environment/intro.md) implementado pelo exemplo de esquema
+- [Função do Azure](../../../../role-based-access-control/overview.md) chamada DevOps que dispõe de direitos para implementar e gerir recursos num [Ambiente do Serviço de Aplicações do Azure](../../../../app-service/environment/intro.md) implementado pelo exemplo de esquema
 - [Políticas do Azure](../../../policy/overview.md) para bloquear os serviços que podem ser implementados no ambiente e negar a criação de qualquer recurso de endereço IP público (PIP)
 - Uma rede virtual que contém uma única sub-rede e colocada em modo peering num ambiente de [serviços partilhados](../iso27001-shared/index.md) pré-existente e que força todo o tráfego a passar pela firewall dos [serviços partilhados](../iso27001-shared/index.md). A rede virtual aloja os seguintes recursos:
   - Um [Ambiente do Serviço de Aplicações do Azure](../../../../app-service/environment/intro.md) que pode ser utilizado para alojar uma ou mais aplicações Web, APIs Web ou funções

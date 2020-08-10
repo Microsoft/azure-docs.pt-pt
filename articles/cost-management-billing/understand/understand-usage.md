@@ -1,6 +1,6 @@
 ---
 title: Compreender a utilização e os custos detalhados | Microsoft Docs
-description: Saiba como ler e compreender a utilização e os custos detalhados
+description: Saiba como ler e compreender o ficheiro de utilização e custos detalhados. Veja uma lista dos termos e das descrições utilizados no ficheiro.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b53869c9ef90dd0edf3ab9a3120e65db8f16e8a
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065647"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460291"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no ficheiro de utilização e de custos do Azure
 

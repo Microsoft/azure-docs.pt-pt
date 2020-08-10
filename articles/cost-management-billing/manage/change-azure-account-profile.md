@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286602"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553483"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Alterar as informações de contacto da sua conta do Azure
 
@@ -24,7 +24,7 @@ Este artigo ajuda-o a atualizar as informações de contacto da sua conta no por
 
 *Endereço para faturação* - O endereço para faturação é o endereço e as informações de contacto da organização ou do indivíduo responsável pelas faturas geradas para uma conta de faturação. Para uma conta de faturação de um Programa do Serviço Online da Microsoft (MOSP), é apresentado um endereço para faturação em todas as faturas geradas para a conta. Para uma conta de faturação para um Contrato de Cliente Microsoft (MCA), é apresentado um endereço para faturação de cada perfil de faturação na fatura gerada para o perfil de faturação.
 
-*Endereço de e-mail de contacto para e-mails do serviço e de marketing* - Pode especificar um endereço de e-mail diferente do endereço de e-mail com o qual inicia sessão para receber notificações importantes relacionadas com faturação, serviço e recomendações sobre a sua conta do Azure.  
+*Endereço de e-mail de contacto para e-mails do serviço e de marketing* - pode especificar um endereço de e-mail diferente do endereço de e-mail com o qual inicia sessão para receber notificações importantes relacionadas com faturação, serviço e recomendações sobre a sua conta do Azure. Os e-mails de notificações do serviço, como problemas de segurança urgentes, alterações aos preços ou alterações interruptivas aos serviços utilizados na sua conta são sempre enviados para o endereço de início de sessão.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Atualizar o endereço de uma conta de faturação MOSP
 

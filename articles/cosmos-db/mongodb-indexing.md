@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843815"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030508"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
 
@@ -40,7 +40,7 @@ Uma consulta utiliza vários índices de campo único sempre que disponível. Po
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compostos (versão 3.6 do servidor MongoDB)
 
-A API da Azure Cosmos DB para o MongoDB suporta índices compostos para contas que utilizam o protocolo de fio da versão 3.6. Pode incluir até oito campos num índice composto. Ao contrário do MongoDB, você deve criar um índice composto apenas se a sua consulta precisar de classificar eficientemente em vários campos ao mesmo tempo. Para consultas com filtros múltiplos que não precisam de classificar, crie vários índices de campo único em vez de um único índice composto.
+A API da Azure Cosmos DB para o MongoDB suporta índices compostos para contas que utilizam o protocolo de fio da versão 3.6. Pode incluir até oito campos num índice composto. **Ao contrário do MongoDB, você deve criar um índice composto apenas se a sua consulta precisar de classificar eficientemente em vários campos ao mesmo tempo.** Para consultas com filtros múltiplos que não precisam de classificar, crie vários índices de campo único em vez de um único índice composto.
 
 O seguinte comando cria um índice composto nos campos `name` `age` e:
 
@@ -57,6 +57,9 @@ Também pode usar o índice composto anterior para classificar eficientemente nu
 No entanto, a sequência dos caminhos no índice composto deve corresponder exatamente à consulta. Aqui está um exemplo de uma consulta que exigiria um índice composto adicional:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> Não é possível criar índices compostos em propriedades aninhadas ou matrizes.
 
 ### <a name="multikey-indexes"></a>Índices multi-chave
 

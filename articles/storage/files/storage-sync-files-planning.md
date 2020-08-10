@@ -1,18 +1,18 @@
 ---
 title: Planejando uma implementação de Azure File Sync / Microsoft Docs
-description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
+description: Planeie uma implementação com o Azure File Sync, um serviço que lhe permite cache de várias ações de ficheiros Azure num Windows Server ou em nuvem VM.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036799"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030678"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -314,7 +314,7 @@ O Azure File Sync está disponível nas seguintes regiões:
 | Públicos | Europa | Europa Ocidental | `westeurope` |
 | Públicos | França | França Central | `francecentral` |
 | Públicos | França | França Sul* | `francesouth` |
-| Públicos | Índia | Índia Central | `centralindia` |
+| Públicos | Índia | Central India | `centralindia` |
 | Públicos | Índia | Sul da Índia | `southindia` |
 | Públicos | Japão | Leste do Japão | `japaneast` |
 | Públicos | Japão | Oeste do Japão | `japanwest` |
@@ -367,7 +367,7 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > [!Note]  
 > Os fornecedores antivírus podem verificar a compatibilidade entre o seu produto e o Azure File Sync, utilizando o [Azure File Sync Antivirus Compatibilidade Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Cópia de segurança 
 Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
 
 Se preferir utilizar uma solução de backup no local, as cópias de segurança devem ser realizadas num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.

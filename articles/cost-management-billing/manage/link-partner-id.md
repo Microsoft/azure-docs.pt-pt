@@ -7,28 +7,28 @@ ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281791"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529920"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
 Os parceiros da Microsoft fornecem serviços que ajudam os clientes a alcançar os objetivos de negócios e de missão ao utilizar os produtos da Microsoft. Ao agir em nome do cliente que gere, configura e dá suporte aos serviços do Azure, os utilizadores parceiros precisarão de aceder ao ambiente do cliente. Com a Ligação do Administrador de Parceiros (PAL), os parceiros podem associar o seu ID do Microsoft Partner Network às credenciais utilizadas para a entrega do serviço.
 
-A PAL permite à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso dos clientes do Azure. A Microsoft pode atribuir influência e receita consumida do Azure à sua organização com base nas permissões da conta (função RBAC) e no âmbito (subscrição, grupo de recursos, recurso).
+A PAL permite à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso dos clientes do Azure. A Microsoft pode atribuir influência e receita consumida do Azure à sua organização com base nas permissões da conta (função do Azure) e no âmbito (subscrição, grupo de recursos, recurso).
 
 ## <a name="get-access-from-your-customer"></a>Obter acesso a partir do cliente
 
 Antes de ligar o ID de parceiro, o cliente deve fornecer acesso aos recursos do Azure através de uma das seguintes opções:
 
-- **Utilizador convidado**: o cliente pode adicioná-lo como utilizador convidado e atribuir-lhe qualquer função do controlo de acesso baseado em funções (RBAC). Para obter mais informações, veja [Adicionar utilizadores convidados a partir de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utilizador convidado**: o cliente pode adicioná-lo como utilizador convidado e atribuir-lhe qualquer função do Azure. Para obter mais informações, veja [Adicionar utilizadores convidados a partir de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Conta de diretório**: o cliente pode criar uma conta de utilizador para si no seu próprio diretório e atribuir qualquer função RBAC.
+- **Conta de diretório**: o cliente pode criar uma conta de utilizador para si no seu próprio diretório e atribuir qualquer função do Azure.
 
-- **Principal de serviço**: o cliente pode adicionar uma aplicação ou script da sua organização ao diretório e atribuir qualquer função RBAC. A identidade da aplicação ou do script é conhecida como um principal de serviço.
+- **Principal de serviço**: o cliente pode adicionar uma aplicação ou script da sua organização ao diretório e atribuir qualquer função do Azure. A identidade da aplicação ou do script é conhecida como um principal de serviço.
 
 - **Azure Lighthouse**: O seu cliente pode delegar uma subscrição (ou um grupo de recursos) para que os seus utilizadores possam trabalhar na mesma a partir do seu inquilino. Para obter mais informações, veja [Gestão de recursos delegados do Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
@@ -168,9 +168,8 @@ O Partner Admin Link (PAL) permite à Microsoft identificar e reconhecer os parc
 
 **Que dados são recolhidos pelo PAL?**
 
-A associação do PAL a credenciais já existentes não fornece dados novos dos clientes à Microsoft. Disponibiliza simplesmente a telemetria à Microsoft na qual o parceiro está ativamente envolvido num ambiente do Azure de um cliente. A Microsoft pode atribuir influência e receita consumida do Azure do ambiente do cliente à organização do parceiro com base nas permissões da conta (função RBAC) e no âmbito (Grupo de Gestão, Subscrição, Grupo de Recursos, Recurso) que o cliente dá ao parceiro. 
+A associação do PAL a credenciais já existentes não fornece dados novos dos clientes à Microsoft. Disponibiliza simplesmente a telemetria à Microsoft na qual o parceiro está ativamente envolvido num ambiente do Azure de um cliente. A Microsoft pode atribuir influência e receita consumida do Azure do ambiente do cliente à organização do parceiro com base nas permissões da conta (função do Azure) e no âmbito (Grupo de Gestão, Subscrição, Grupo de Recursos, Recurso) que o cliente dá ao parceiro. 
 
 **Esta associação afeta a segurança dos ambientes do Azure dos clientes?**
 
-A associação do PAL só adiciona o ID da MPN dos parceiros à credencial já aprovisionada e não altera nenhuma outra permissão (função RBAC) nem envia dados adicionais do serviço do Azure ao parceiro ou à Microsoft. 
-
+A associação do PAL só adiciona o ID da MPN dos parceiros à credencial já aprovisionada e não altera nenhuma outra permissão (função do Azure) nem envia dados adicionais do serviço do Azure ao parceiro ou à Microsoft. 

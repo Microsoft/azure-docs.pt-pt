@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e691e3f32404af792c852636a257659b629eef4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5ea28a7a4669fd000800bf62b7b940abefcf7551
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824567"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030967"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -129,6 +129,15 @@ Para evitar que a implementação falhe ao tentar validar as definições da mé
               ]
         }
 ```
+
+## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo ARM de uma regra de alerta métrico através do portal Azure
+
+Exportar o modelo ARM de uma regra de alerta métrico ajuda-o a compreender a sintaxe e propriedades JSON, e pode ser usado para automatizar futuras implementações.
+1. Navegue na secção **Grupos de Recursos** no portal e selecione o grupo de recursos que contém a regra.
+2. Na secção 'Visão Geral', verifique a caixa de verificação **dos tipos escondidos do Show.**
+3. No filtro **Tipo,** selecione *microsoft.insights/metricalerts*.
+4. Selecione a regra de alerta relevante para ver os seus detalhes.
+5. Em **Definições**, selecione **Modelo de exportação**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de regras de alerta métrico muito pequena
 

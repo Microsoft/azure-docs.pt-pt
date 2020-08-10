@@ -3,17 +3,17 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372149"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563947"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -140,7 +140,7 @@ Quando a política está definida como **Não**, o Azure Cost Management não es
 
 Quando a política de custos está definida como **Sim**, os utilizadores da subscrição associados ao inquilino do cliente podem ver os custos de utilização nas tarifas pay as you go.
 
-Quando a política de visibilidade dos custos está ativada, todos os serviços com utilização de subscrições mostram os custos nas tarifas pay as you go. A utilização de reservas aparece com zero custos para custos reais e amortizados. As compras e os direitos não estão associados a uma subscrição específica. Assim, as compras não são apresentadas no âmbito da subscrição.
+Quando a política de visibilidade dos custos está ativada, todos os serviços com utilização de subscrições mostram os custos nas tarifas pay as you go. A utilização de reservas aparece com zero custos para custos reais e amortizados. As compras e os direitos não estão associados a uma subscrição específica. Assim, as compras não são apresentadas no âmbito da subscrição. O administrador global/agente administrador de um parceiro direto ou de um fornecedor indireto também pode utilizar a [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) para definir a política de visibilidade de custos de cada cliente em escala.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Ver os custos da subscrição no inquilino do cliente
 

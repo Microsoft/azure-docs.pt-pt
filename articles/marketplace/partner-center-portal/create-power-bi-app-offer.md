@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c464e26419648d396b39718f357bcef7e4fa5552
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800303"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030771"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de aplicativo Power BI
 
@@ -202,19 +202,20 @@ Fornecer pelo menos um e até três documentos de marketing relacionados em form
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center irá usá-lo para criar um logotipo de tamanho **Pequeno** (48 x 48 pixels). Pode substituir opcionalmente isto por uma imagem diferente.
-
-Ambos os tamanhos do logotipo são necessários para serem utilizados em diferentes locais da listagem:
-
+Forneça ficheiros PNG do logótipo da sua oferta em dois tamanhos de pixel:
 - **Pequeno** (48 x 48)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Ambos os logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

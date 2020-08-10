@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506490"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031132"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação funções Azure Funções
 
-Na versão 2.x do Azure Functions, as [ligações](./functions-triggers-bindings.md) estão disponíveis como pacotes separados do tempo de execução das funções. Enquanto as funções .NET acedem a ligações através de pacotes NuGet, os pacotes de extensão permitem a outras funções o acesso a todas as ligações através de uma configuração.
+A partir da versão 2.x do Azure Functions, estão disponíveis [encadernações](./functions-triggers-bindings.md) como pacotes separados do tempo de execução das funções. Enquanto as funções .NET acedem a ligações através de pacotes NuGet, os pacotes de extensão permitem a outras funções o acesso a todas as ligações através de uma configuração.
 
 Considere os seguintes itens relacionados com extensões vinculativas:
 
@@ -24,30 +24,38 @@ Considere os seguintes itens relacionados com extensões vinculativas:
 
 A tabela seguinte indica quando e como regista as encadernações.
 
-| Ambiente de programação |Registo<br/> em Funções 1.x  |Registo<br/> em Funções 2.x  |
+| Ambiente de desenvolvimento |Registo<br/> em Funções 1.x  |Registo<br/> em Funções 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portal do Azure|Automático|Automático|
+|Portal do Azure|Automático|Automático<sup>*</sup>|
 |Non-.NET línguas ou desenvolvimento local de Ferramentas Core Azure|Automático|[Use ferramentas principais de funções Azure e pacotes de extensão](#extension-bundles)|
 |Biblioteca de classe C# usando Visual Studio|[Use ferramentas NuGet](#vs)|[Use ferramentas NuGet](#vs)|
 |Biblioteca de classe C# usando Código de Estúdio Visual|N/D|[Use .NET Core CLI](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Pacotes de extensão para o desenvolvimento local
+<sup>*</sup>Portal usa pacotes de extensão.
 
-Os pacotes de extensão são uma tecnologia de implementação que permite adicionar um conjunto compatível de extensões de ligação de Funções à sua aplicação de função. Um conjunto de extensões predefinido é adicionado quando constrói a sua aplicação. Os pacotes de extensão definidos num pacote são compatíveis uns com os outros, o que ajuda a evitar conflitos entre pacotes. Você ativa pacotes de extensão no host.jsda aplicação em arquivo.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pacotes de extensão
 
-Pode utilizar pacotes de extensão com versões 2.x e versões posteriores do tempo de execução das Funções. Ao desenvolver localmente, certifique-se de que está a utilizar a versão mais recente das [Ferramentas Principais de Funções Azure.](functions-run-local.md#v2)
+Os pacotes de extensão são uma forma de adicionar um conjunto compatível de extensões de ligação de funções à sua aplicação de função. Ao utilizar pacotes, um conjunto de extensões predefinidos é adicionado quando constrói a sua aplicação. Os pacotes de extensão definidos num pacote são verificados como compatíveis uns com os outros, o que ajuda a evitar conflitos entre pacotes. Os pacotes de extensão permitem evitar ter de publicar o código de projeto .NET com um projeto de funções non-.NET. Você ativa pacotes de extensão no host.jsda aplicação em arquivo.  
 
-Utilize pacotes de extensões para o desenvolvimento local utilizando ferramentas principais de funções Azure, Código do Estúdio Visual e quando construir remotamente.
+Pode utilizar pacotes de extensão com versões 2.x e versões posteriores do tempo de execução das Funções. 
 
-Se não utilizar pacotes de extensão, tem de instalar o .NET Core 2.x SDK no computador local antes de instalar quaisquer extensões de ligação. Os pacotes de extensão removem este requisito para o desenvolvimento local. 
+Utilize pacotes de extensões para o desenvolvimento local utilizando ferramentas principais de funções Azure, Código do Estúdio Visual e quando construir remotamente. Ao desenvolver localmente, certifique-se de que está a utilizar a versão mais recente das [Ferramentas Principais de Funções Azure.](functions-run-local.md#v2) Os pacotes de extensão também são usados no desenvolvimento de funções no portal Azure. 
+
+Se não utilizar pacotes de extensão, tem de instalar o .NET Core 2.x SDK no computador local antes [de instalar explicitamente quaisquer extensões de ligação](#explicitly-install-extensions). Um ficheiro extensions.csproj, que define explicitamente as extensões necessárias, é adicionado ao seu projeto. Os pacotes de extensão removem estes requisitos para o desenvolvimento local. 
 
 Para utilizar pacotes de extensão, atualize o *host.jsno* ficheiro para incluir a seguinte entrada `extensionBundle` para:
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>Instalar explicitamente extensões
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Biblioteca de classe C \# com Estúdio Visual
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>Pacotes NuGet
+
+Para um projeto de funções baseadas em bibliotecas C#, você deve instalar pacotes de extensão projetados especificamente para projetos que não são de classe 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Biblioteca de classe C \# com Estúdio Visual
 
 No **Visual Studio,** pode instalar pacotes a partir da consola Package Manager utilizando o comando [Install-Package,](/nuget/tools/ps-ref-install-package) como mostra o seguinte exemplo:
 
@@ -75,6 +83,6 @@ O CLI do núcleo .NET só pode ser utilizado para o desenvolvimento de Funções
 
 Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, tal como `3.0.0-beta5` . As versões válidas estão listadas nas páginas de pacote individuais [NuGet.org](https://nuget.org). As principais versões que correspondem ao tempo de execução das funções 1.x ou 2.x estão especificadas no artigo de referência para a encadernação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Gatilho da função Azure e exemplo de ligação](./functions-bindings-example.md)

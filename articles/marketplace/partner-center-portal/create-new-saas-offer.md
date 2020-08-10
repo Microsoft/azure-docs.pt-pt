@@ -3,18 +3,18 @@ title: Criar uma oferta SaaS, Azure Marketplace e Microsoft AppSource
 description: Como criar uma oferta de Software como serviço (SaaS) para listagem ou venda no Microsoft AppSource, Azure Marketplace ou através do programa Cloud Solution Provider (CSP) utilizando o programa de marketplace comercial da Microsoft no Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800359"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031035"
 ---
-# <a name="create-a-saas-offer"></a>Criar uma oferta SaaS
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta SaaS no mercado comercial
 
 Para começar a criar software como um Serviço (SaaS) oferece no mercado comercial, certifique-se de que primeiro [cria uma conta Partner Center](./create-account.md) e abre o painel de [instrumentos do Mercado Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o **separador Overview** selecionado.
 
@@ -83,7 +83,7 @@ Com as soluções SaaS em execução na subscrição Azure da editora, as taxas 
 
 O SaaS oferece suporte mensal ou anual de faturação com base numa taxa fixa, por utilizador ou taxas de consumo utilizando o serviço de faturação medido. O mercado comercial da Microsoft opera num modelo de agência, pelo que os editores definem os preços, os clientes da Microsoft e a Microsoft paga receitas à editora enquanto retém uma taxa de agência.
 
-Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da agência (os preços cotados são, por exemplo, apenas para efeitos de 2018 e não se destinam a refletir os custos reais):
+Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da agência (quaisquer preços cotados são, por exemplo, apenas para efeitos e não se destinam a refletir os custos reais):
 
 |**O custo da sua licença**|**$100 por mês**|
 |:---|:---|
@@ -279,19 +279,21 @@ Este campo é obrigatório.
   - **Contacto de engenharia** (obrigatório) – Para questões técnicas.
   - **Contacto channel manager** (obrigatório) – Para revendedores questões relacionadas com o programa CSP.
 
-#### <a name="files-and-images"></a>Ficheiros e Imagens
+#### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatórios) – Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** (necessárias) – Existem vários locais onde as imagens do logotipo da sua oferta podem aparecer em todo o mercado. Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes. Adicionar um logotipo **Wide** é opcional.
+- **Imagens** – Carregar imagens de logotipo em formato PNG:
 
-    São necessários três tamanhos de logotipo para utilização em diferentes locais da listagem; uma é opcional:
+  - **Pequeno** (48 x 48 pixels, necessário)
+  - **Médio** (90 x 90 pixels, necessário)
+  - **Grande** (216 x 216 pixels, necessário)
+  - **Largo** (255 x 115 pixels) (opcional)
 
-    - **Pequeno** (48 x 48)
-    - **Médio** (90 x 90)
-    - **Grande** (entre 216 x 216 e 350 x 350)
-    - **Largo** (255 x 115), *opcional*
+   Estes três tamanhos de logotipo são usados em diferentes lugares nas montras:
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   O logótipo Small (48 x 48 pixels) aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa. 
+   -   O logótipo Medium (90 x 90 pixels) aparece quando cria um novo recurso no Microsoft Azure.
+   -   O grande logótipo (entre 216 x 216 x 350 x 350 pixels) aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
 
 - **Screenshots** (obrigatórios) – Adicione um máximo de cinco imagens que demonstrem a sua oferta, dimensionadas a 1280 x 720 pixels. Todas as imagens devem estar dentro . Formato PNG.
 - **Vídeos** (opcional) – Adicione links a vídeos que demonstrem a sua oferta. Pode utilizar links para vídeos do YouTube e/ou Vimeo, que são mostrados juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. Pode exibir um máximo de quatro vídeos por oferta.

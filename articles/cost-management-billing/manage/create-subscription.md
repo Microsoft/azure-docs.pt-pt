@@ -1,17 +1,17 @@
 ---
 title: Criar uma subscrição do Azure adicional
-description: Saiba como adicionar uma nova subscrição do Azure no portal do Azure.
+description: Saiba como adicionar uma nova subscrição do Azure no portal do Azure. Veja informações sobre os formulários de contas de faturação e recursos disponíveis adicionais.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d27120f6bd0978b69d664ab3ab2e86bfee4f1755
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200851"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460971"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
 
@@ -33,7 +33,7 @@ Precisará das seguintes permissões para criar subscrições:
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Escreva **Subscrições** na caixa de pesquisa.
 
    ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/create-subscription/billing-search-subscription-portal.png)

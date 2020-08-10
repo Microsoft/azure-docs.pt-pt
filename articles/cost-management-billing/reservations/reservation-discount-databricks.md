@@ -1,18 +1,18 @@
 ---
 title: Como é aplicado um desconto de pré-compra de Azure Databricks
-description: Saiba como um desconto de pré-compra de Azure Databricks se aplica à sua utilização.
+description: Saiba como um desconto de pré-compra de Azure Databricks se aplica à sua utilização. Pode utilizar estes Databricks em qualquer altura durante o termo da compra.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200321"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460325"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como é aplicado um desconto de pré-compra de Azure Databricks
 
@@ -51,7 +51,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre a pré-compra de Azure Databricks para poupar dinheiro, veja [Otimizar custos de Azure Databricks com uma pré-compra](prepay-databricks-reserved-capacity.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
+  - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
   - [Gerir Reservas no Azure](manage-reserved-vm-instance.md)
   - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](understand-reserved-instance-usage.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)

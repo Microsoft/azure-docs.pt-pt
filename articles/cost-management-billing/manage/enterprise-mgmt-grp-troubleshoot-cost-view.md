@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 6c4fe563057e8d7fedbd68280bc8059867d997ed
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d96a2ed9f0aab03a0073519e08cf03d43d7ac2b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120250"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503162"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver visualizações de custos empresariais
 
-Em inscrições corporativas, há várias definições que podem fazer com que os utilizadores dentro da inscrição não vejam os custos.  Estas definições são geridas pelo administrador de inscrição. Ou, se a inscrição não for comprada diretamente através da Microsoft, as definições serão geridas pelo parceiro.  Este artigo ajuda a compreender quais são as definições e como elas afetam a inscrição. Estas definições são independentes das funções RBAC (controlo de acesso baseado em funções) do Azure.
+Em inscrições corporativas, há várias definições que podem fazer com que os utilizadores dentro da inscrição não vejam os custos.  Estas definições são geridas pelo administrador de inscrição. Ou, se a inscrição não for comprada diretamente através da Microsoft, as definições serão geridas pelo parceiro.  Este artigo ajuda a compreender quais são as definições e como elas afetam a inscrição. Estas definições são independentes das funções do Azure.
 
 ## <a name="enable-access-to-costs"></a>Ativar o acesso aos custos
 

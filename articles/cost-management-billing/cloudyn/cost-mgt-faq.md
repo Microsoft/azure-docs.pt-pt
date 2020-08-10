@@ -1,6 +1,6 @@
 ---
 title: Perguntas mais frequentes sobre a Cloudyn no Azure
-description: Este artigo fornece respostas a algumas das perguntas comuns sobre a Cloudyn.
+description: Saiba como utilizar o portal da Cloudyn para resolver problemas comuns de configuração empresarial indireta e responder a outras perguntas frequentes.
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b9d19923302a40985906fa3c2e0e183045a95860
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411245"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460461"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas mais frequentes sobre a Cloudyn
 

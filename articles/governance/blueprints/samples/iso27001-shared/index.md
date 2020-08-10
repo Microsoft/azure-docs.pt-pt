@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 270
 description: Descrição geral e arquitetura do exemplo de esquema Serviços Partilhados ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072879"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927356"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 
@@ -25,7 +25,7 @@ O VDC é um conjunto comprovado de arquiteturas de referência, ferramentas de a
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma infraestrutura de serviços partilhados segura, completamente monitorizada e preparada para empresas, com base nas normas ISO 27001. Este ambiente é composto por:
 
-- Funções de [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) utilizadas para a separação de funções de uma perspetiva de plano de controlo. Antes da implementação de qualquer infraestrutura, são definidas três funções:
+- [Funções do Azure](../../../../role-based-access-control/overview.md) utilizadas para a separação de responsabilidades a partir de uma perspetiva de plano de controlo. Antes da implementação de qualquer infraestrutura, são definidas três funções:
   - A função NetOps tem os direitos para gerir o ambiente de rede, incluindo as definições da firewall, definições do NSG, encaminhamento e outras funcionalidades de rede
   - A função SecOps tem os direitos necessários para implementar e gerir o [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md), definir [Políticas do Azure](../../../policy/overview.md) e outros direitos relacionados com segurança
   - A função SysOps tem os direitos necessários para definir [Políticas do Azure](../../../policy/overview.md) na subscrição, gerir o [Log Analytics](../../../../azure-monitor/overview.md) em todo o ambiente, entre outros direitos operacionais
