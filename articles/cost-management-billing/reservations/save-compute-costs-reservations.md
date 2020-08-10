@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 3f124e94398e53e3ab8ff7eb4b054d252129128b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 437344d1a0e3cc1178c21efb4bfa26f192d23e5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986998"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760045"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -20,7 +20,7 @@ As Reservas do Azure ajudam-no a poupar ao subscrever planos de um ou três anos
 
 Pode pagar uma reserva em adiantado ou mensalmente. O custo total de reservas pagas em adiantado ou mensalmente é o mesmo e não pagará qualquer taxa adicional ao optar por pagamentos mensais. O pagamento mensal está disponível para as reservas do Azure, não para produtos de terceiros.
 
-Pode comprar uma reserva no portal do Azure em [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Pode comprar uma reserva no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Porquê comprar uma reserva?
 
