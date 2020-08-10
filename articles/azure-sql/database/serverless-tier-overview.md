@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206944"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037308"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ O quadro que se segue resume as distinções entre o nível de computação sem 
 | | **Computação sem servidor** | **Cálculo provisionado** |
 |:---|:---|:---|
 |**Padrão de utilização da base de dados**| Uso intermitente e imprevisível com menor utilização de computação média ao longo do tempo. | Padrões de utilização mais regulares com uma utilização média mais alta ao longo do tempo, ou várias bases de dados usando piscinas elásticas.|
-| **Esforço de gestão de desempenho** |Lower|Superior|
+| **Esforço de gestão de desempenho** |Mais baixo|Mais alto|
 |**Escalagem de cálculo**|Automático|Manual|
 |**Capacidade de resposta computacional**|Menor após períodos inativos|Imediato|
 |**Granularidade de faturação**|Por segundo|Por hora|
@@ -88,7 +88,7 @@ A memória para bases de dados sem servidor é recuperada com mais frequência d
 
 #### <a name="cache-reclamation"></a>Recuperação de cache
 
-Ao contrário das bases de dados de computação a provisionadas, a memória da cache SQL é recuperada a partir de uma base de dados sem servidor quando a CPU ou a utilização ativa da cache são baixas.  Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.
+Ao contrário das bases de dados de computação a provisionadas, a memória da cache SQL é recuperada a partir de uma base de dados sem servidor quando a CPU ou a utilização ativa da cache são baixas.
 
 - A utilização ativa da cache é considerada baixa quando o tamanho total das entradas de cache mais recentemente utilizadas fica abaixo de um limiar por um período de tempo.
 - Quando a recuperação da cache é desencadeada, o tamanho da cache alvo é reduzido gradualmente para uma fração do seu tamanho anterior e a recuperação só continua se o uso permanecer baixo.
@@ -96,6 +96,8 @@ Ao contrário das bases de dados de computação a provisionadas, a memória da 
 - O tamanho da cache nunca é reduzido abaixo do limite de memória min como definido por min vCores que podem ser configurados.
 
 Tanto nas bases de dados de computação sem servidor como nas bases de dados de computação a provisionadas, as entradas em cache podem ser despejadas se for utilizada toda a memória disponível.
+
+Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.  Além disso, pode haver um atraso adicional após a paragem da atividade do utilizador antes que a recuperação da memória ocorra devido a processos periódicos de fundo que respondem à atividade prévia do utilizador.  Por exemplo, eliminar operações geram registos fantasma que estão marcados para eliminação, mas não são fisicamente eliminados até que o processo de limpeza de fantasmas seja executado, o que pode envolver a leitura de páginas de dados em cache.
 
 #### <a name="cache-hydration"></a>Hidratação em cache
 

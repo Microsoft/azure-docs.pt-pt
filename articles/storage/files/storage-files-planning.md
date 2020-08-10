@@ -1,18 +1,18 @@
 ---
 title: Planejamento para uma implantação de Ficheiros Azure / Microsoft Docs
-description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
+description: Compreenda o planeamento de uma implantação de Ficheiros Azure. Pode montar diretamente uma partilha de ficheiros Azure ou partilhar ficheiros cache Azure no local com o Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370364"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037172"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -86,7 +86,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827848"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034469"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -51,11 +51,13 @@ LRS é uma boa escolha para os seguintes cenários:
 
 O armazenamento redundante de zona (ZRS) replica os seus dados de armazenamento Azure sincronizados em três zonas de disponibilidade de Azure na região primária. Cada zona de disponibilidade é um local físico separado com potência, arrefecimento e networking independentes. A ZRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999 (12 9's) durante um determinado ano.
 
-Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leitura como para escrever, mesmo que uma zona fique indisponível. Se uma zona ficar indisponível, o Azure realiza atualizações de rede, como a re-apontamento de DNS. Estas atualizações podem afetar a sua aplicação se aceder a dados antes de as atualizações terem sido concluídas. Ao conceber aplicações para ZRS, siga práticas para o manuseamento transitório de falhas, incluindo implementar políticas de retrip com recuo exponencial.
+Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leitura como para escrever, mesmo que uma zona fique indisponível. Se uma zona ficar indisponível, o Azure realiza atualizações de rede, como a repontagem de DNS. Estas atualizações podem afetar a sua aplicação se aceder a dados antes de as atualizações terem sido concluídas. Ao conceber aplicações para ZRS, siga práticas para o manuseamento transitório de falhas, incluindo implementar políticas de retrip com recuo exponencial.
 
 Um pedido de escrita para uma conta de armazenamento que está a usar o ZRS acontece sincronizadamente. A operação de escrita só regressa com sucesso depois de os dados forem escritos a todas as réplicas nas três zonas de disponibilidade.
 
-A Microsoft recomenda a utilização de ZRS na região primária para cenários que exijam consistência, durabilidade e alta disponibilidade. O ZRS proporciona um excelente desempenho, baixa latência e resiliência para os seus dados se ficar temporariamente indisponível. No entanto, o ZRS por si só pode não proteger os seus dados contra um desastre regional onde várias zonas são permanentemente afetadas. Para proteção contra desastres regionais, a Microsoft recomenda a utilização [de armazenamento redundante de geo-zona](#geo-zone-redundant-storage) (GZRS), que utiliza ZRS na região primária e também geo-replica os seus dados para uma região secundária.
+A Microsoft recomenda a utilização de ZRS na região primária para cenários que exijam consistência, durabilidade e alta disponibilidade. Recomendamos também a utilização de ZRS se pretender restringir uma aplicação para replicar dados apenas dentro de um país ou região devido aos requisitos de governação de dados.
+
+O ZRS proporciona um excelente desempenho, baixa latência e resiliência para os seus dados se ficar temporariamente indisponível. No entanto, o ZRS por si só pode não proteger os seus dados contra um desastre regional onde várias zonas são permanentemente afetadas. Para proteção contra desastres regionais, a Microsoft recomenda a utilização [de armazenamento redundante de geo-zona](#geo-zone-redundant-storage) (GZRS), que utiliza ZRS na região primária e também geo-replica os seus dados para uma região secundária.
 
 O quadro que se segue mostra quais os tipos de contas de armazenamento que suportam o ZRS em que regiões:
 
@@ -189,7 +191,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

@@ -1,17 +1,17 @@
 ---
 title: Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 description: Saiba como permitir a ligação sinapse para as contas do Azure Cosmos, crie um recipiente com loja analítica ativada, ligue a base de dados do Azure Cosmos à sinapse espaço de trabalho e faça consultas.
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262043"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037087"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -197,7 +197,7 @@ Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos D
 
 Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e Retail.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

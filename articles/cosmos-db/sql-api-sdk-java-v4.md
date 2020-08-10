@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 072beb4f6bd8f823b150a6e81f4308bdd6b29402
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d1845c06c1f0373ffd4be43c104889a7327c3ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852247"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035778"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 |---|---|
 |**Download SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**Documentação da API** | [Documentação de referência da API de Java](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
-|**Contribuir para a SDK** | [Azure SDK para Java Central Repo no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
+|**Contribuir para a SDK** | [Azure SDK para Java Central Repo no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Introdução** | [Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [GitHub repo com código de arranque rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Amostras de código básico** | [Azure Cosmos DB: Exemplos Java para a API SQL](sql-api-java-sdk-samples.md) <br> [GitHub repo com código de amostra](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**App de consola com Change Feed**| [Alterar feed - Amostra java SDK v4](create-sql-api-java-changefeed.md) <br> [GitHub repo com código de amostra](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 

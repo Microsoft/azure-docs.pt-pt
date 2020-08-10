@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou eliminar um prefixo de endereço IP público Azure
 titlesuffix: Azure Virtual Network
-description: Saiba mais sobre os prefixos de endereço IP públicos e onde encontrar informações adicionais se não estiver familiarizado com eles. Também aprenda a criar, alterar ou apagar um.
+description: Saiba mais sobre os prefixos de endereço IP públicos e como criá-los, alterá-los ou eliminá-los. Veja onde encontrar informações adicionais.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 85e649944b155fc9e51fe01c282fc7f34f8a00d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283168"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035081"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 

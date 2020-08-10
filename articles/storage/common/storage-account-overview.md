@@ -1,7 +1,7 @@
 ---
 title: Descrição geral da conta de armazenamento
 titleSuffix: Azure Storage
-description: Compreenda as opções para criar e utilizar uma conta de Armazenamento Azure.
+description: Leia uma visão geral das contas de armazenamento no Azure Storage. Rever nomeação de conta, níveis de desempenho, níveis de acesso, redundância, encriptação, pontos finais e muito mais.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043648"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034656"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -78,7 +78,7 @@ As contas FileStorage oferecem características únicas dedicadas ao desempenho,
 
 Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em mente:
 
-- Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
+- Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
 - O nome da sua conta do Storage tem de ser exclusivo no Azure. Duas contas de armazenamento não podem ter o mesmo nome.
 
 ## <a name="performance-tiers"></a>Escalões de desempenho
@@ -187,7 +187,7 @@ Para obter mais informações sobre a Azure Storage REST API, consulte [Azure St
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta de armazenamento](storage-account-create.md)
 - [Criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md)

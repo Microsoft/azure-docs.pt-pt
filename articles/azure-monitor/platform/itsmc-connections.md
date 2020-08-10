@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325360"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035030"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -159,7 +159,7 @@ Utilize o seguinte procedimento para configurar a configuração do ouvinte para
 
 3. Faça login com as suas credenciais Azure e selecione a sua subscrição onde foi criada a ligação Híbrida.
 
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
 A sua ligação híbrida está ligada com sucesso.
 
@@ -179,13 +179,14 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto ServiceN
 ### <a name="prerequisites"></a>Pré-requisitos
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
 - ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões suportadas pelo ServiceNow: Nova Iorque, Madrid, Londres, Kingston, Jacarta, Istambul, Helsínquia, Genebra.
+- Versões suportadas pelo ServiceNow: Orlando, Nova Iorque, Madrid, Londres, Kingston, Jacarta, Istambul, Helsínquia, Genebra.
 > [!NOTE]
 > A ITSMC suporta apenas a oferta oficial do SaaS do Service Now. As implementações privadas do Serviço Agora não são suportadas. 
 
 **Os Administradores ServiceNow devem fazer o seguinte no seu caso ServiceNow:**
 - Gerei o ID do cliente e o segredo do cliente para o produto ServiceNow. Para obter informações sobre como gerar iD do cliente e segredo, consulte as seguintes informações conforme necessário:
 
+    - [Configurar o OAuth para Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Nova Iorque](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

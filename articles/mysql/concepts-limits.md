@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: c562b8a82ef21e78eccad2c2ed6159251056f4fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392697"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036526"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na Base de Dados Azure para o MySQL
 As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, suporte ao privilégio, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [as limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao motor de base de dados MySQL.
@@ -43,7 +43,7 @@ Após a implementação inicial, um servidor Azure para o MySQL inclui tabelas d
 - Função DBA: Muitos parâmetros e configurações do servidor podem inadvertidamente degradar o desempenho do servidor ou anular as propriedades acid do DBMS. Como tal, para manter a integridade do serviço e sLA a nível de produto, este serviço não expõe o papel da DBA. A conta de utilizador predefinida, que é construída quando uma nova instância de base de dados é criada, permite que o utilizador execute a maioria das declarações de DDL e DML na instância da base de dados gerida. 
 - Super privilégio: Igualmente [o privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
 - DEFINER: Requer super privilégios para criar e é restrito. Se importar dados utilizando uma cópia de segurança, remova os `CREATE DEFINER` comandos manualmente ou utilizando o `--skip-definer` comando quando efetuar uma mesqldump.
-
+- Bases de dados do sistema: Na Base de Dados Azure para o MySQL, a base de dados do [sistema Mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) é apenas lida, uma vez que é utilizada para suportar várias funcionalidades do serviço PaaS. Por favor, note que não pode alterar nada na base de dados do `mysql` sistema.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à declaração de manipulação de dados
 
@@ -75,6 +75,6 @@ Após a implementação inicial, um servidor Azure para o MySQL inclui tabelas d
 ## <a name="current-known-issues"></a>Questões conhecidas atuais
 - A instância do servidor MySQL exibe a versão errada do servidor após a ligação ser estabelecida. Para obter a versão correta do motor de instância do servidor, utilize o `select version();` comando.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões de base de dados do MySQL suportadas](concepts-supported-versions.md)

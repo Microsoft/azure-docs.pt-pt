@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010315"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036560"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (pré-visualização)
 
@@ -33,7 +33,7 @@ Este artigo descreve como utilizar as novas funcionalidades de pré-visualizaç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ser administrador na sua aplicação IoT Central ou ter permissões de exportação de Dados.
+Para utilizar a exportação de dados (pré-visualização), tem de ter um pedido V3, e tem de ter permissões de exportação de Dados.
 
 ## <a name="set-up-export-destination"></a>Configurar destino de exportação
 
@@ -150,15 +150,22 @@ Crie um novo destino ou adicione um destino que já criou.
 
 ## <a name="export-contents-and-format"></a>Conteúdos de exportação e formato
 
-Para os destinos de Event Hubs e Service Bus, os dados são exportados em tempo quase real. Os dados estão no corpo da mensagem e estão em formato JSON codificados como UTF-8. Veja abaixo, por exemplo.
+### <a name="azure-blob-storage-destination"></a>Destino de armazenamento Azure Blob
 
-Para o armazenamento blob, os dados são exportados uma vez por minuto, com cada ficheiro contendo o lote de alterações desde o último ficheiro exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos predefinidos na sua conta de armazenamento são:
+Os dados são exportados uma vez por minuto, com cada ficheiro contendo o lote de alterações desde o último ficheiro exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos predefinidos na sua conta de armazenamento são:
 
 - Telemetria: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 - Alterações de propriedade: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{filename}_
 
 Para navegar nos ficheiros exportados no portal Azure, navegue para o ficheiro e selecione o **separador 'Edição' blob.**
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Azure Event Hubs e destinos de ônibus da Azure Service
+
+Os dados são exportados em tempo quase real. Os dados estão no corpo da mensagem e estão em formato JSON codificados como UTF-8. 
+
+Nas anotações ou propriedades do sistema, pode `iotcentral-device-id` encontrar, `iotcentral-application-id` e que tenham os `iotcentral-message-source` `iotcentral-message-type` mesmos valores que os campos correspondentes no corpo da mensagem.
+
+### <a name="webhook-destination"></a>Destino Webhook
 Para os destinos webhooks, os dados também são exportados em tempo quase real. Os dados estão no corpo da mensagem no mesmo formato que para Os Centros de Eventos e Autocarro de Serviço.
 
 
@@ -169,7 +176,7 @@ Cada mensagem exportada contém uma forma normalizada da mensagem completa que o
 - `messageSource`que é *telemetria* para exportação de dados de telemetria
 - `deviceId`do dispositivo que enviou a mensagem de telemetria
 - `schema`é o nome e versão do esquema de carga útil
-- `templateId`é o Id do modelo de dispositivo associado ao dispositivo
+- `templateId`é o ID do modelo do dispositivo associado ao dispositivo
 - `enrichments`são quaisquer enriquecimentos que foram criados na exportação
 - `messageProperties`são os dados adicionais que o dispositivo enviou ao lado da mensagem. Isto também é conhecido como *propriedades de aplicação,* [saiba mais com docs IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -217,7 +224,7 @@ Cada mensagem ou registo representa uma alteração para um dispositivo ou propr
 - `messageType`que é *cloudPropertyChange* ou *dispositivoPropertyDesiredChange,* *dispositivoPropertyReportedChange*
 - `deviceId`do dispositivo cujas propriedades mudaram
 - `schema`é o nome e versão do esquema de carga útil
-- `templateId`é o Id do modelo de dispositivo associado ao dispositivo
+- `templateId`é o ID do modelo do dispositivo associado ao dispositivo
 - `enrichments`são quaisquer enriquecimentos que foram criados na exportação
 
 Para o Event Hubs e Service Bus, a IoT Central exporta novos dados de mensagens para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real.
@@ -254,6 +261,7 @@ Trata-se de um quadro que destaca as diferenças entre a exportação de dados a
 | Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagens, valores de propriedade |
 | Enriquecimentos | Nenhum | Enriqueça com uma corda personalizada ou um valor de propriedade no dispositivo |
 | Destinos | Azure Event Hubs, filas e tópicos de autocarro da Azure Service, Azure Blob Storage | O mesmo que para exportação de dados antigos e webhooks| 
+| Aplicações suportadas | V2, V3 | Apenas V3 |
 | Limites notáveis | 5 exportações por app, 1 destino por exportação | 10 ligações exportações-destino por app | 
 
 ## <a name="next-steps"></a>Passos seguintes

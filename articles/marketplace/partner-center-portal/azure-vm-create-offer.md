@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798074"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037274"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -242,20 +242,23 @@ Forneça informações de contacto para que a Microsoft possa utilizar quando ho
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
-#### <a name="store-logos"></a>Logotipos da loja
+#### <a name="azure-marketplace-logos"></a>Logotipos do Azure Marketplace
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
+Forneça ficheiros PNG do logótipo da sua oferta com as seguintes quatro dimensões de imagem:
 
-Todos os três tamanhos do logotipo são necessários para ser utilizados em diferentes locais da listagem:
+- **Pequeno** (48 &times; 48 pixels)
+- **Médio** (90 &times; 90 pixels)
+- **Grande** (216 &times; 216 pixels)
+- **Largo** (255 &times; 115 pixels)
 
-- **Pequeno** (48 x 48)
-- **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
+Todos os quatro logótipos são necessários e são exibidos em várias listas do Azure Marketplace.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

@@ -1,6 +1,6 @@
 ---
 title: Início Rápido para gerir partilhas de ficheiros do Azure com a CLI do Azure
-description: Utilize este início rápido para saber como utilizar a CLI do Azure para gerir Ficheiros do Azure.
+description: Neste arranque rápido, aprenda a usar o Azure CLI para gerir ficheiros Azure. Crie um grupo de recursos e uma conta de armazenamento, em seguida, crie e use uma partilha de ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495780"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034588"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 

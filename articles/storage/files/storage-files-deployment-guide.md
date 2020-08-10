@@ -1,18 +1,18 @@
 ---
 title: Como implementar ficheiros Azure Microsoft Docs
-description: Saiba como implementar ficheiros Azure do início ao fim.
+description: Saiba como implementar ficheiros Azure do início ao fim. Transfira dados para ficheiros Azure. Monte automaticamente em computadores ou servidores necessários.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510807"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034503"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo SMB padrão da indústria. Este artigo irá mostrar-lhe como implementar praticamente ficheiros Azure dentro da sua organização.
@@ -147,7 +147,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Plano para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md)
 - [Resolução de problemas dos Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas dos Ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

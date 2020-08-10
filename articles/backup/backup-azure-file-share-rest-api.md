@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure com a REST API
 description: Saiba como usar a API REST para apoiar as ações de ficheiros Azure no Cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055022"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036747"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando Azure Backup via Rest API
 
@@ -106,9 +106,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obtenha lista de contas de armazenamento que podem ser protegidas com cofre dos Serviços de Recuperação
+### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obtenha lista de contas de armazenamento com ações de arquivo que podem ser apoiadas com cofre de Serviços de Recuperação
 
-Para confirmar que o "caching" está feito, enumera todas as contas de armazenamento protegidas na subscrição. Em seguida, localize a conta de armazenamento desejada na resposta. Isto é feito utilizando a operação [GET ProtectableContainers.](/rest/api/backup/protectablecontainers/list)
+Para confirmar que o "caching" está feito, liste todas as contas de armazenamento na subscrição com ações de ficheiros que podem ser apoiadas com o cofre dos Serviços de Recuperação. Em seguida, localize a conta de armazenamento desejada na resposta. Isto é feito utilizando a operação [GET ProtectableContainers.](/rest/api/backup/protectablecontainers/list)
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'

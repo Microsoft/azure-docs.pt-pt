@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: c1e1d26418410bea9ecdb9827bf347a2c585ab3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520175"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035115"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -24,14 +24,14 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 |:--- |:--- |:--- |:--- |
 | 1 | Destino principal | Tem um destino de chumbo configurado.| O Catálogo One Commercial Partner (OCP) tem a informação de CRM de destino principal que também está listada no separador de solução de parceiro. |
 | 2 | Título de oferta | Descreve brevemente a oferta de solução. Corresponde à promoção online da solução no site do parceiro. | Contém palavras de pesquisa de chaves. |
-| 3 | Logótipo | O logótipo é apresentado corretamente. | O logótipo é apresentado corretamente e inclui uma "imagem de herói", que é a imagem em grande formato no portal Azure. |
+| 3 | Logótipo | O logótipo é apresentado corretamente. | O logótipo é apresentado corretamente. |
 | 4 |  Descrição da oferta | <ul><li> Contém 2-3 parágrafos.</li><li>A oferta de soluções é facilmente entendida num ápice.</li><li>Está livre de erros ortográficos e gramaticais.</li><li>É abrangente e captura o público-alvo, tipo de utilizador, e por que é valioso (proposta de valor).</li><li>Está na forma narrativa do parágrafo com frases curtas que são fáceis de entender.</li></ul> | <ul><li> A indústria-alvo está delineada (se for caso disso).</li><li>Boa formatação de estilo, com cada título de parágrafo tendo uma única frase ou frase resumindo o conteúdo que segue e usando pontos de bala, quando apropriado, para enfatizar os principais benefícios. O objetivo é que o leitor compreenda a oferta num ápice num formato fácil de visualizar e não tenha de ler parágrafos longos.</li><li>Há espaçamento entre cada parágrafo. Parece uma brochura de carro. Ou seja, é abrangente e descreve a oferta simplesmente, sem jargão técnico. | 
 | 5 | Categorias e indústrias | <ul><li>Categorias e subcategorias devem corresponder às capacidades da oferta </li><li>Não selecione categorias/subcategorias que não se enquadrem nas suas capacidades de oferta. </li></ul> | <ul><li>Selecione até duas categorias, incluindo uma categoria primária e secundária (opcional).</li><li>Selecione até duas subcategorias para cada categoria primária e/ou secundária. Se não for selecionada nenhuma subcategoria, a sua oferta continuará a ser detetável na categoria selecionada.</li></ul> |
 | 6 | Imagens | <ul><li>Os requisitos de imagem estão listados no Partner Center.</li><li>O texto incluído na imagem é legível e a imagem é clara. | A oferta de solução é facilmente entendida num ápice. |
 | 7 | Vídeos | <ul><li>Não é necessário nenhum vídeo, mas, se fornecido, deve reproduzir-se sem erros.</li><li>Se for fornecida, não pode referir-se a empresas concorrentes *a menos* que demonstre uma solução de migração. |<ul><li>Idealmente, o comprimento é de 3 min. ou mais.</li><li>A oferta de solução é facilmente compreendida através do conteúdo de vídeo.</li><li>Fornece demonstração de capacidades de solução. |
 | 8 | Estado da lista (chamada à ação) | <ul><li>Deve ser rotulado como um dos seguintes tipos: <ul><li>*Contacte-me*</li><li>*Julgamento* / *Obter julgamento agora* / *Início do Julgamento* / *Unidade de teste*</li><li>*Comprar Agora* / *Get It Now*</li></ul></ul> | O cliente pode facilmente entender quais são os próximos passos: <ol><li>Tente o julgamento.</li><li>Compre agora.</li><li>Contacte via e-mail ou número de telefone para obter a Prova de Conceito (POC), Avaliação ou Briefing.</li></ol> | 
 | 9 | Preços de solução | Deve ter separador/detalhes de preços de solução, e os preços devem estar na moeda local da oferta de solução parceira. | Várias opções de faturação devem estar disponíveis com preços de nível para dar opções ao cliente. |
-| 10 | Saber mais | As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis e a exibir corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas a página inicial do parceiro. | 
+| 10 | Saiba mais | As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis e a exibir corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas a página inicial do parceiro. | 
 | 11 | Suporte e ajuda de solução | Ligação a pelo menos uma das seguintes: <ul><li>Números de telefone</li><li>Suporte de e-mail</li><li>Agentes de chat</li><li>Fóruns comunitários |<ul><li>Todos os métodos de apoio estão listados.</li><li>O suporte pago é oferecido gratuitamente durante o período *Trial* ou *Test Drive.* |
 | 12 | Legal | As políticas ou termos estão disponíveis através de um URL público. |  |
 |||
@@ -53,7 +53,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 4 | Detalhes da montra: Resumo da oferta | Aparece na página de pesquisa da sua aplicação e tem um máximo de 100 caracteres. | |
 | 5 | Detalhes da montra: Indústrias | Indústrias (máx. 2): Selecione as indústrias a que a sua aplicação está mais alinhada e aplicável. | |
 | 6 | Descrição da oferta | <ul><li>É permitido html simples, \<p> incluindo, , , , , , , , e \<em> \<ul> \<li> \<ol> tags de cabeçalho. Um máximo de 3000 caracteres.</li><li>Contém 2-3 parágrafos.</li><li>A oferta de soluções é facilmente entendida num ápice.</li><li>A descrição é abrangente e captura o público-alvo, tipo de utilizador, e por que é valioso (proposta de valor).</li><li>Está na forma narrativa do parágrafo, com frases curtas que são fáceis de entender. | <ul><li>A indústria-alvo está delineada (se relevante).</li><li>Boa formatação de estilo, com cada título de parágrafo tendo uma única frase ou frase resumindo o conteúdo que segue e usando pontos de bala, quando apropriado, para enfatizar os principais benefícios. O objetivo é que o leitor compreenda a oferta num ápice num formato fácil de visualizar e não tenha de ler parágrafos.</li><li>Há espaçamento entre cada parágrafo. Parece uma brochura de carro. Ou seja, é abrangente e descreve a oferta simplesmente, sem jargão técnico. | 
-| 7 | Artefactos de marketing | Os logótipos são apresentados corretamente. | <ul><li>Logotipos: São necessários pequenos (48x48 pixels) e grandes (216x216 pixels).</li><li>Screenshot (máx. 5): Requer um . Imagem de PNG com uma resolução de 1280x720 pixels. |
+| 7 | Artefactos de marketing | Os logótipos são apresentados corretamente. | <ul><li>Logotipos: Pequenos (48 x 48 pixels), Médios (90 x 90 pixels) e Grandes (entre 216 x 216 e 350 x 350 pixels).</li><li>Screenshot (máx. 5): Requer um . Imagem de PNG com uma resolução de 1280x720 pixels. |
 | 8 | Categorias e indústrias | <ul><li>As categorias combinam com as capacidades de oferta de soluções.</li><li>Selecione pelo menos um item na janela pop-up.</li><li>Não selecione categorias que a solução não se encaixe.</li><li>Indústria ideal, ou todas as indústrias selecionadas (se não as indústrias ideais). | Um máximo de 3 categorias selecionadas, se aplicável. |
 | 9 | Gestão de oportunidades potenciais | Selecione o sistema onde os seus cabos serão armazenados. Consulte [os condutores do cliente](./partner-center-portal/commercial-marketplace-get-customer-leads.md) para ligar o seu sistema CRM. |  |
 | 10 | Contactos: Suporte à solução e ajuda | <ul><li>Nome de contacto de engenharia: O nome do contacto de engenharia para a sua aplicação. Este contacto receberá comunicações técnicas da Microsoft.</li><li>Email de contato de engenharia: O endereço de e-mail do contacto de engenharia para a sua aplicação.</li><li>Engenharia contacta telefone: O número de telefone do contacto de engenharia. [As notações de números de telefone ISO](https://en.wikipedia.org/wiki/E.123) são suportadas.</li><li>Nome de contacto de suporte: O nome do contacto de suporte para a sua aplicação. Este contacto receberá comunicações relacionadas com o suporte da Microsoft.</li><li>Suporte e-mail de contacto: O endereço de e-mail do contacto de suporte para a sua aplicação.</li><li>Telefone de contacto de suporte: O número de telefone do contacto de suporte. [As notações de números de telefone ISO](https://en.wikipedia.org/wiki/E.123) são suportadas.</li><li>URL de suporte: O URL da sua página de suporte. | <ul><li>Todos os métodos de apoio estão listados.</li><li>Suporte pago oferecido gratuitamente durante o período *Trial* ou *Test Drive.* |
@@ -66,7 +66,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 |:--- |:--- |:--- |:--- |
 |1 |Definições da oferta | <ul><li>ID oferta: Max. 50 caracteres.</li><li>ID do editor: Selecione-o da lista de drop-down.</li><li>Nome: Max. 50 caracteres. | Espelha o estilo do título já disponível na descrição. Evite usar títulos longos. |
 | 2 | Planos | O parceiro seleciona novos planos.| O título espelha o estilo do título já disponível na descrição. Evite usar títulos longos.  |
-| 3 | Artefactos do mercado | Os logótipos são apresentados corretamente. |<ul><li>Logotipos: São necessários pequenos (48 x 48 pixels) e grandes (216x216 pixels).</li><li>Screenshot (máx. 5): Requer um . Imagem de PNG com uma resolução de 1280 x 720 pixels.|
+| 3 | Artefactos do mercado | Os logótipos são apresentados corretamente. |<ul><li>Logotipos: Pequenos (48 x 48 pixels), Médios (90 x 90 pixels) e Grandes (entre 216 x 216 e 350 x 350 pixels).</li><li>Screenshot (máx. 5): Requer um . Imagem de PNG com uma resolução de 1280 x 720 pixels.|
 | 4 | Gestão de oportunidades potenciais |<ul><li>Gestão de chumbo: Selecione o sistema onde os seus cabos serão armazenados.</li><li>Consulte [os condutores do cliente](./partner-center-portal/commercial-marketplace-get-customer-leads.md) para ligar o seu sistema CRM. | |
 |||
 
@@ -85,10 +85,10 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 9 | Competências | Deve ter competência em pelo menos uma das seguintes:<ul><li>Desenvolvimento de Aplicações</li><li>Integração de Aplicações</li><li>Gestão do Ciclo de Vida das Aplicações</li><li>Plataforma Cloud<li>Análise de Dados</li><li>Data Center</li><li>Plataforma de Dados</li><li>DevOps |
 | 10 | Produtos | Devem ser produtos Azure. | |
 | 11 | Pais/região | Certifique-se de que o país/região corresponde à moeda selecionada. | |
-| 12 | Saber mais  | <ul><li>As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis ao público e estão a ser exibidas corretamente.</li><li>Os links devem ter um "nome amigável" e não são apresentados como o nome do ficheiro de quaisquer downloads. | |
+| 12 | Saiba mais  | <ul><li>As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis ao público e estão a ser exibidas corretamente.</li><li>Os links devem ter um "nome amigável" e não são apresentados como o nome do ficheiro de quaisquer downloads. | |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os vários tipos de oferta no Azure Marketplace:
   * [Aplicações SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)

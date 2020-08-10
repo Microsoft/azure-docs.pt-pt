@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119451"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035183"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
+# <a name="lead-management-for-the-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
 Os clientes são o centro de qualquer bom negócio. Na transformação das aquisições de produtos de hoje, os marketers precisam de se concentrar em conectar-se diretamente com os clientes e construir uma relação. É por isso que gerar cabos de alta qualidade é uma ferramenta vital para o seu ciclo de vendas. Depois de enumerar a sua oferta no [Partner Center,](https://partner.microsoft.com/)existem ferramentas habilitadas para que possa receber programáticamente as informações de contacto do cliente imediatamente após um cliente manifestar interesse ou implementar o seu produto no mercado. 
 

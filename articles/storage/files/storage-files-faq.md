@@ -1,18 +1,18 @@
 ---
 title: Perguntas frequentes (FAQ) para Ficheiros Azure Microsoft Docs
-description: Encontre respostas para perguntas frequentes sobre Ficheiros Azure.
+description: Obtenha respostas para ficheiros Azure frequentemente feitas perguntas. Pode montar ações de ficheiros Azure simultaneamente nas implementações de Windows, Linux ou macOS em nuvem ou no local.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482875"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037138"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria. Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -293,7 +293,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Pode montar a partilha de ficheiros utilizando o protocolo SMB se a porta 445 (saída TCP) estiver aberta e o seu cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou o Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar o Azure File Sync para aceder à sua partilha de ficheiros Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso apoiar a minha parte do ficheiro Azure?**  
     Pode utilizar [instantâneos periódicos](storage-snapshots-files.md) para proteção contra supressões acidentais. Também pode utilizar a AzCopy, Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de uma partilha de ficheiros montada. O Azure Backup oferece cópia de segurança dos Ficheiros Azure. Saiba mais sobre [backup ações de ficheiros Azure by Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
@@ -428,4 +428,4 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 ## <a name="see-also"></a>Veja também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
+* [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

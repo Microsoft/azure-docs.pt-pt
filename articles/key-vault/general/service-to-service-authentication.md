@@ -5,21 +5,21 @@ keywords: credenciais locais de autenticação azure-cofre
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 06/30/2020
+ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875988"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034792"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído a nova biblioteca de identidade Azure **DefaultAzureCredentis** disponível para .NET, Java, TypeScript e Python e deve ser usada para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
+> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído a nova biblioteca de identidade Azure **DefaultAzureCredentis** disponível para .NET, Java, TypeScript e Python e deve ser usada para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 Para autenticar o Azure Key Vault, precisa de uma credencial Azure Ative Directory (Azure AD), seja um segredo partilhado ou um certificado.
 
@@ -235,7 +235,7 @@ Por predefinição, `AzureServiceTokenProvider` tenta os seguintes métodos de a
 
 Para controlar o processo, utilize uma cadeia de ligação passada ao `AzureServiceTokenProvider` construtor ou especificada na variável ambiente *AzureServicesAuthConnectionString.*  As seguintes opções são suportadas:
 
-| Opção de cadeia de ligação | Cenário | Comentários|
+| Opção de cadeia de ligação | Scenario | Comentários|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | `AzureServiceTokenProvider`usa AzureCli para obter ficha. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | `AzureServiceTokenProvider`usa o Visual Studio para obter o token. |

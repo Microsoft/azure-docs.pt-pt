@@ -1,6 +1,6 @@
 ---
 title: Relacionamentos de modelação no design de armazenamento de mesa Azure / Microsoft Docs
-description: Compreenda o processo de modelação ao conceber a sua solução de armazenamento de mesa.
+description: Compreenda o processo de modelação ao conceber a sua solução de armazenamento de mesa Azure. Leia sobre relacionamentos de um a muitos, um para um, e relações de herança.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457555"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036050"
 ---
 # <a name="modeling-relationships"></a>Modelar relações
 Este artigo discute o processo de modelação para ajudá-lo a desenhar as suas soluções de armazenamento de Mesa Azure.
@@ -44,7 +44,7 @@ A tabela seguinte resume os prós e os contras de cada uma das abordagens descri
 <tr>
 <th>Abordagem</th>
 <th>Vantagens</th>
-<th>Contras</th>
+<th>Desvantagens</th>
 </tr>
 <tr>
 <td>Tipos de entidades separadas, mesma divisória, mesma tabela</td>
@@ -120,7 +120,7 @@ Pode persistir casos das duas classes de betão no serviço table usando uma ún
 Para obter mais informações sobre o trabalho com vários tipos de entidades na mesma tabela no código do cliente, consulte a secção Trabalhar com tipos de entidades heterogéneas mais tarde neste guia. Isto fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Padrões de design da tabela](table-storage-design-patterns.md)
 - [Design das consultas](table-storage-design-for-query.md)

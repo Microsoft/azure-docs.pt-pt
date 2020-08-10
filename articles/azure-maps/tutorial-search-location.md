@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Pesquisa de localizações próximas num mapa Microsoft Azure Maps'
-description: Neste tutorial, você vai aprender a procurar pontos de interesse num mapa usando o Microsoft Azure Maps.
+description: Saiba como procurar pontos de interesse num mapa. Veja como usar o Azure Maps Web SDK para adicionar capacidades de pesquisa e caixas popup interativas a um mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281536"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035863"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Procure pontos de interesse nas proximidades usando Azure Maps
 
@@ -173,7 +173,7 @@ Esta secção mostra como usar a [API de Pesquisa de](https://docs.microsoft.com
 
 ### <a name="service-module"></a>Módulo Serviço
 
-1. No manipulador de eventos do `ready` mapa, construa o URL do serviço de pesquisa adicionando o seguinte código Javascript.
+1. No manipulador de eventos do `ready` mapa, construa o URL do serviço de pesquisa adicionando o seguinte código JavaScript.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key

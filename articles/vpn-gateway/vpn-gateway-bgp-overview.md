@@ -1,6 +1,6 @@
 ---
 title: 'BGP e Azure VPN Gateway: Visão geral'
-description: Saiba mais sobre o Azure VPN Gateway suporta o Protocolo border Gateway, o protocolo padrão de encaminhamento usado para trocar informações de encaminhamento e alcance.
+description: Saiba mais sobre o Border Gateway Protocol (BGP) em Azure VPN, o protocolo padrão da Internet para trocar informações de encaminhamento e alcance entre redes.
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: f514c2708c3a81ff56c6029d5e43df43ad503036
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 368532eb05ade95a979029871733e057cbdcd6d6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924704"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035557"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Sobre o BGP com a Azure VPN Gateway
 Este artigo fornece uma visão geral do suporte do BGP (Border Gateway Protocol) em Azure VPN Gateway.

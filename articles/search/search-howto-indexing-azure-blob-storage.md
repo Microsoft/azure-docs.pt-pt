@@ -1,7 +1,7 @@
 ---
 title: Pesquisa rumo ao conteúdo de armazenamento da Azure Blob
 titleSuffix: Azure Cognitive Search
-description: Saiba como indexar o Azure Blob Storage e extrair texto de documentos com a Azure Cognitive Search.
+description: Saiba como indexar documentos no Azure Blob Storage e extrair texto de documentos com Azure Cognitive Search.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 29e123666b35e4659e68a1a925047267f8519940
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496456"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036152"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
 

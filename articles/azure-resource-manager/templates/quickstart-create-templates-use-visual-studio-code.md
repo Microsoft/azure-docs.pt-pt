@@ -2,15 +2,15 @@
 title: Criar modelo - Código de Estúdio Visual
 description: Utilize o Visual Studio Code e a extensão Azure Resource Manager Tools para trabalhar em modelos do Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040512"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034991"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Quickstart: Criar modelos de gestor de recursos Azure com Código de Estúdio Visual
 
@@ -26,7 +26,7 @@ Crie e abra com o Visual Studio Code um novo ficheiro nomeado *azuredeploy.jsem*
 
 Selecione `arm!` para criar um modelo traçado para uma implementação de grupo de recursos Azure.
 
-![Imagem mostrando andaimes Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Imagem mostrando azure Resource Manager andaimes](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Este corte cria os blocos básicos de construção para um modelo ARM.
 
@@ -68,7 +68,7 @@ Para utilizar as capacidades de conclusão, `megaStorage` remova, coloque o curs
 
 Agora crie e use um parâmetro para especificar o nome da conta de armazenamento.
 
-Coloque o cursor no bloco de parâmetros, adicione uma volta de transporte, `par` escreva e, em seguida, selecione o `arm-param-value` corte. Esta ação adiciona um parâmetro genérico ao modelo.
+Coloque o cursor no bloco de parâmetros, adicione uma volta de transporte, `"` escreva e, em seguida, selecione o `new-parameter` corte. Esta ação adiciona um parâmetro genérico ao modelo.
 
 ![Imagem mostrando um parâmetro sendo adicionado ao modelo ARM](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Formato de dados GeoJSON para geofence Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre como preparar os dados de geofência que podem ser usados no Microsoft Azure Maps GET e POST Geofence API.
+description: Saiba mais sobre os dados de geofência do Azure Maps. Veja como utilizar as APIs GET Geofence e POST Geofence ao recuperar a posição das coordenadas em relação a uma geofence.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131310"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037410"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing Dados geojSON
 
@@ -30,7 +30,7 @@ Os dados relativos à geofência ou conjunto de geofências são representados p
 * É `expiredTime` a data de validade e a hora dos dados de geofencagem. Se o valor do `userTime` pedido for posterior a este valor, os dados de geofência correspondentes são considerados dados caducados e não são consultados. Sobre o qual a geometriaId destes dados de geofência será incluída na `expiredGeofenceGeometryId` matriz dentro da resposta de geofência.
 * `validityPeriod`Trata-se de uma lista de períodos de validade da geo-fence. Se o valor do `userTime` pedido ficar fora do período de validade, os dados de geofência correspondentes são considerados inválidos e não serão consultados. A geometriaId destes dados de geofência está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta de geofência. A tabela a seguir mostra as propriedades do elemento validadePeriod.
 
-| Nome | Tipo | Necessário  | Descrição |
+| Nome | Tipo | Obrigatório  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data de início do período de tempo de validade. |
 | endTime   | Datetime  | true |  A data de fim do período de tempo de validade. |

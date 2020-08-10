@@ -3,12 +3,12 @@ title: Matriz de proteção MABS (Azure Backup Server) V3 UR1
 description: Este artigo fornece uma matriz de suporte que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Server protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdbe874baf45d9858acbf891af3c0aae4bd0c2d2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032600"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036730"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção MABS (Azure Backup Server) V3 UR1
 
@@ -23,6 +23,9 @@ Utilize a seguinte matriz para MABS v3 UR1:
 * Instalação MABS – O computador/local onde pretende instalar o MABS.
 
 * Proteção e recuperação – Listar as informações detalhadas sobre as cargas de trabalho, tais como o contentor de armazenamento suportado ou a implantação suportada.
+
+>[!NOTE]
+>O suporte para o agente de proteção de 32 bits é precotado com MABS v3 UR1. Consulte a [depreciação do agente de proteção de 32 Bits](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
 
 ## <a name="protection-support-matrix"></a>Matriz de suporte da proteção
 

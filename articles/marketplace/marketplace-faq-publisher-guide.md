@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090149"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036577"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
 Este artigo responde a perguntas comumente sobre o mercado comercial.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>O que é o mercado comercial da Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o mercado comercial da Microsoft?
 
 O mercado comercial liga agências empresariais e governamentais com soluções construídas pelos nossos parceiros. Os nossos parceiros criam e gerem ofertas no Partner Center, e os clientes podem descobrir e comprar soluções através de experiências no produto, como o Microsoft AppSource, Azure Marketplace, revendedores no programa Cloud Solution Provider e as nossas equipas de vendas através do programa de co-venda.
 
@@ -60,7 +60,7 @@ As formas como os clientes podem usar a sua oferta de mercado comercial dependem
 
 - Para soluções que fornece automaticamente, sejam elas pagas, tragam a sua própria licença (BYOL), ou gratuitas, os clientes são instados a *obter agora*.
 - Ofertas que suportam uma unidade de teste (demonstração) solicitam ao cliente para *testar drive*. 
-- O software como um serviço (SaaS) oferece que fornece um teste fora do nosso mercado comercial, *digamos Free Trial*.
+- O software como um serviço (SaaS) oferece que fornece um teste fora do mercado comercial, *digamos Free Trial*.
 - As listas simples permitem ao cliente solicitar *contacte-me.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como crio ofertas para o mercado comercial?
@@ -77,7 +77,7 @@ Você também pode [se juntar ao nosso fórum comunitário ativo](https://www.mi
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Que análises estão disponíveis para a minha organização do mercado comercial?
 
-Fornecemos relatórios sobre as suas ofertas dentro do nosso mercado comercial. Para aceder a dados sobre clientes, encomendas, envolvimento de lojas, e muito mais, vá à [Analytics para o mercado comercial no Partner Center.](partner-center-portal/analytics.md)
+Fornecemos relatórios sobre as suas ofertas dentro do mercado comercial. Para aceder a dados sobre clientes, encomendas, envolvimento de lojas, e muito mais, vá à [Analytics para o mercado comercial no Partner Center.](partner-center-portal/analytics.md)
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Qual é a relação da Microsoft com os meus clientes?
 
@@ -124,7 +124,7 @@ Para concluir uma compra a um preço muito baixo, sugerimos a publicação de um
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>O que são pistas do mercado comercial e o que devo fazer com elas?
 
-À medida que os clientes utilizam as suas ofertas nas lojas Microsoft AppSource e Azure Marketplace, a informação é capturada. Depois de os clientes terem demonstrado interesse suficiente, é criada uma vantagem e uma oportunidade é enviada para o sistema à sua escolha. Os editores que são bem sucedidos com o nosso mercado comercial muitas vezes perseguem pistas, desenvolvem relações e transformam o interesse em negócios.
+À medida que os clientes utilizam as suas ofertas nas lojas Microsoft AppSource e Azure Marketplace, a informação é capturada. Depois de os clientes terem demonstrado interesse suficiente, é criada uma vantagem e uma oportunidade é enviada para o sistema à sua escolha. Os editores que são bem sucedidos com o mercado comercial muitas vezes perseguem pistas, desenvolvem relações e transformam o interesse em negócios.
 
 Para mais informações, consulte [os leads do Cliente da sua oferta de mercado.](partner-center-portal/commercial-marketplace-get-customer-leads.md)
 
@@ -285,7 +285,7 @@ Para obter mais informações, consulte [limiares de pagamento, métodos e prazo
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>Em que países/regiões os impostos são geridos em meu nome?
 
-Os clientes podem encontrar soluções do nosso mercado comercial em todo o mundo, e gerimos impostos em muitos locais. 
+Os clientes podem encontrar soluções do mercado comercial em todo o mundo, e gerimos impostos em muitos locais. 
 
 Para rever a lista completa de locais, vá a [detalhes fiscais para editores de mercado comercial.](partner-center-portal/tax-details-paid-transactions.md)
 

@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562451"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034962"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral da Cache local do Serviço de Aplicações Azure
 
@@ -36,7 +36,7 @@ A funcionalidade Cache Local do Serviço de Aplicações Azure proporciona uma v
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como a cache local muda o comportamento do Serviço de Aplicações
 * _D:\home_ aponta para a cache local, que é criada na instância VM quando a aplicação começa. _D:\local_ continua a apontar para o armazenamento temporário específico de VM.
-* A cache local contém uma cópia única das pastas _/site_ _e/siteextensions_ da loja de conteúdos partilhados, em _D:\home\site e_ _D:\home\siteextensions,_ respectivamente. Os ficheiros são copiados para a cache local quando a aplicação começa. O tamanho das duas pastas para cada aplicação está limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Note que à medida que o tamanho da cache aumenta, levará mais tempo para carregar a cache. Se os ficheiros copiados excederem o tamanho da cache local, o Serviço de Aplicações ignora silenciosamente a cache local e lê a partir da partilha remota de ficheiros.
+* A cache local contém uma cópia única das pastas _/site_ _e/siteextensions_ da loja de conteúdos partilhados, em _D:\home\site e_ _D:\home\siteextensions,_ respectivamente. Os ficheiros são copiados para a cache local quando a aplicação começa. O tamanho das duas pastas para cada aplicação está limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Note que à medida que o tamanho da cache aumenta, levará mais tempo para carregar a cache. Se aumentou o limite de cache local para 2 GB e os ficheiros copiados excedem o tamanho máximo de 2 GB, o Serviço de Aplicações ignora silenciosamente a cache local e lê a partir da partilha remota de ficheiros. Se não houver um limite definido ou o limite for definido para algo inferior a 2 GB e os ficheiros copiados excederem o limite, a implementação ou troca pode falhar com um erro.
 * A cache local é ler-escrever. No entanto, qualquer modificação é descartada quando a aplicação move máquinas virtuais ou é reiniciada. Não utilize a cache local para aplicações que armazenam dados críticos da missão na loja de conteúdos.
 * _D:\home\LogFiles_ e _D:\home\Os dados_ contêm ficheiros de registo e dados de aplicações. As duas subpas são armazenadas localmente no caso VM e são copiadas periodicamente para a loja de conteúdos partilhados. As aplicações podem persistir em registar ficheiros e dados escrevendo-os para estas pastas. No entanto, a cópia para a loja de conteúdos partilhados é o melhor esforço, pelo que é possível que os ficheiros de registo e dados sejam perdidos devido a uma súbita queda de uma instância VM.
 * [O streaming de registo](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Pode observar até um minuto de atraso nos registos transmitidos.
@@ -94,7 +94,7 @@ Recomendamos que utilize cache local em conjunto com a [função Ambientes de Pr
 * Quando estiver pronto, emita uma [operação de troca](../app-service/deploy-staging-slots.md#Swap) entre as ranhuras de Encenação e Produção.  
 * As configurações pegajosas incluem nome e adesivo a uma ranhura. Assim, quando a ranhura de encenação é trocada em Produção, herda as definições da aplicação Cache Local. A slot de produção recentemente trocada irá funcionar contra a cache local após alguns minutos e será aquecida como parte do aquecimento da ranhura após a troca. Assim, quando a troca de slots estiver completa, a sua ranhura de produção está a correr contra a cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como posso saber se a Cache Local se aplica à minha aplicação?
 Se a sua aplicação precisa de uma loja de conteúdo de alto desempenho e fiável, não utiliza a loja de conteúdos para escrever dados críticos em tempo de execução, e tem menos de 2 GB de tamanho total, então a resposta é "sim"! Para obter o tamanho total das pastas de extensões de sites e /site, pode utilizar a extensão do site "Azure Web Apps Disk Usage".

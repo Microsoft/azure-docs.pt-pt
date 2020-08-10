@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263250"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036356"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -26,17 +26,17 @@ Este artigo descreve as funções necessárias para criar e gerir os recursos da
 
 ## <a name="roles-and-requirements"></a>Funções e requisitos
 
-Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções *contribuidor* ou *proprietário* ou *administrador* da subscrição do Azure. Para ver as permissões que tem na subscrição, no portal do Azure, selecione o seu nome de utilizador no canto superior direito e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. 
+Para criar instâncias data factory, a conta de utilizador que utiliza para iniciar sessão no Azure deve ser membro da função *de contribuinte,* da função *de proprietário* ou *de* administrador da subscrição Azure. Para ver as permissões que tem na subscrição, no portal do Azure, selecione o seu nome de utilizador no canto superior direito e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. 
 
 Para criar e gerir recursos subordinados do Data Factory - incluindo conjuntos de dados, serviços ligados, pipelines, acionadores e runtimes de integração - os requisitos seguintes são aplicáveis:
-- Para criar e gerir recursos subordinados no portal do Azure, tem de pertencer à função **Contribuidor do Data Factory** ao nível do grupo de recursos ou superior.
+- Para criar e gerir recursos infantis no portal Azure, deve pertencer à função de Contribuinte de **Fábrica de Dados** ao nível do **Grupo de Recursos** ou superior.
 - Para criar e gerir recursos subordinados com o PowerShell ou o SDK, a função **contribuidor** ao nível do grupo de recursos ou superior é suficiente.
 
 Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Adicionar funções](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Configurar permissões
 
-Depois de criar uma Fábrica de Dados, poderá querer que outros utilizadores trabalhem com a fábrica de dados. Para dar este acesso a outros utilizadores, tem de adicioná-los à função de Contribuinte de Fábrica de **Dados** incorporada no grupo de recursos que contém a fábrica de dados.
+Depois de criar uma Fábrica de Dados, poderá querer que outros utilizadores trabalhem com a fábrica de dados. Para dar este acesso a outros utilizadores, tem de os adicionar à função de Contribuinte de Fábrica de **Dados** incorporada no **Grupo de Recursos** que contém a Fábrica de Dados.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Âmbito da função de contribuinte da fábrica de dados
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre esta função, consulte o [papel de Contribu
 
 ### <a name="resource-manager-template-deployment"></a>Implementação do modelo do gestor de recursos
 
-A função **de Contribuinte de Fábrica de Dados,** ao nível do grupo de recursos ou acima, permite que os utilizadores implementem modelos de Gestor de Recursos. Como resultado, os membros da função podem usar modelos de Gestor de Recursos para implementar ambas as fábricas de dados e seus recursos infantis, incluindo conjuntos de dados, serviços ligados, oleodutos, gatilhos e tempos de integração. No entanto, a adesão a esta função não permite que o utilizador crie outros recursos.
+A função **de Contribuinte de Fábrica de Dados,** ao nível do grupo de recursos ou acima, permite que os utilizadores implementem modelos de Gestor de Recursos. Como resultado, os membros da função podem usar modelos de Gestor de Recursos para implementar ambas as fábricas de dados e seus recursos infantis, incluindo conjuntos de dados, serviços ligados, oleodutos, gatilhos e tempos de integração. A adesão a este papel não permite que o utilizador crie outros recursos.
 
 As permissões em Azure Repos e GitHub são independentes das permissões da Data Factory. Como resultado, um utilizador com permissões de repouso que seja apenas um membro da função Reader pode editar recursos infantis data Factory e cometer alterações no repo, mas não pode publicar estas alterações.
 
@@ -90,7 +90,7 @@ Aqui estão alguns exemplos que demonstram o que pode conseguir com funções pe
 
   Atribua o papel **de contribuinte** incorporado no recurso de fábrica de dados para o utilizador. Esta função permite ao utilizador ver os recursos no portal Azure, mas o utilizador não consegue aceder aos botões **Publicar** e **Publicar Todos.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre papéis no Azure - [Entenda as definições de funções](../role-based-access-control/role-definitions.md)
 

@@ -3,16 +3,16 @@ title: Criar uma oferta de Serviço Gerido no mercado comercial da Microsoft
 description: Como criar uma nova oferta de Serviço Gerido para listagem no Azure Marketplace utilizando o portal Mercado Comercial no Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798193"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036611"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -130,20 +130,23 @@ Se tiver websites de suporte para **clientes Azure Global** e/ou **clientes do G
 
 Nesta secção, pode fornecer logotipos e imagens que serão utilizados ao mostrar a sua oferta ao cliente. Todas as imagens devem estar em formato .png.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
-#### <a name="store-logos"></a>Logotipos da loja
+#### <a name="marketplace-logos"></a>Logotipos do mercado
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
-
-Todos os três tamanhos do logotipo são necessários para ser utilizados em diferentes locais da listagem:
+Forneça o logótipo da sua oferta em quatro tamanhos de pixel:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
+- **Largo** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Estes logótipos são utilizados em diferentes locais do Mercado Azure:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

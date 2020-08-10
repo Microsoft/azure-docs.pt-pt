@@ -1,6 +1,6 @@
 ---
 title: Sobre Azure VPN Gateway
-description: Saiba mais sobre o significado de gateway de VPN e como o pode utilizar para ligar às redes virtuais do Azure. Incluindo soluções IPsec/IKE Site a Site entre vários locais e VNet a VNet, bem como VPN Ponto a Site.
+description: Saiba o que é um Gateway VPN e como usar um Gateway VPN para ligar às redes virtuais IPsec IKE Site-to-Site, VNet-to-Vnet e Point-to-Site VPN.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ec008fa97c75f5ae7c79e2b98efc9005df1014f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300052"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036883"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 
@@ -37,7 +37,7 @@ Uma ligação de gateway de VPN depende de vários recursos que estão configura
 
 É importante saber que existem configurações diferentes disponíveis para as ligações de gateway VPN. Deve determinar qual das configurações se adequa melhor às suas necessidades. Por exemplo, as ligações Ponto-a-Local, Site-a-Site e conexões ExpressRoute/Site-to-Site têm diferentes requisitos de instruções e configuração. Para obter informações sobre diagramas de topologia de design e conexão, consulte [Design](design.md).
 
-### <a name="settings"></a><a name="settings"></a>Definições
+### <a name="settings"></a><a name="settings"></a>Configurações
 
 As definições que escolheu para cada recurso são essenciais para a criação de uma ligação com êxito. Para obter informações sobre recursos individuais e sobre definições para o Gateway de VPN, consulte [definições sobre o Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md). O artigo contém informações para ajudar a compreender os tipos de gateway, os SKUs de gateway, os tipos de VPN, os tipos de ligação, as sub-redes de gateway, os gateways de rede local e várias outras definições de recursos que poderá querer considerar.
 
@@ -51,7 +51,7 @@ A tabela seguinte pode ajudá-lo a decidir a melhor opção de conectividade par
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de Gateway
 
 Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA.
 

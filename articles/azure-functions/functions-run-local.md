@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449129"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037036"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Por predefinição, as versões 2.x e posteriores das Ferramentas Core criam projetos de aplicações de função para o tempo de execução .NET como [projetos de classe C#(.csproj).](functions-dotnet-class-library.md) Estes projetos C#, que podem ser usados com Visual Studio ou Visual Studio Code, são compilados durante os testes e na publicação para a Azure. Se, em vez disso, pretender criar e trabalhar com os mesmos ficheiros de script C# (.csx) criados na versão 1.x e no portal, deve incluir o `--csx` parâmetro quando criar e implementar funções.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Extensões de registo
+
+Com exceção dos disparadores HTTP e timer, as ligações de funções na versão 2.x e superior são implementadas como pacotes de extensão. As ligações HTTP e os gatilhos do temporizador não requerem extensões. 
+
+Para reduzir as incompatibilidades entre os vários pacotes de extensão, as funções permitem-lhe fazer referência a um pacote de extensão no seu host.jsno ficheiro do projeto. Se optar por não utilizar pacotes de extensão, também precisa de instalar .NET Core 2.x SDK localmente e manter um extensions.csproj com o seu projeto de funções.  
+
+Na versão 2.x e além do tempo de funcionamento das Funções Azure, tem de registar explicitamente as extensões para os tipos de encadernação utilizados nas suas funções. Pode optar por instalar extensões de ligação individualmente, ou pode adicionar uma referência ao pacote de extensão à host.jsno ficheiro do projeto. Os pacotes de extensão eliminam a possibilidade de ter problemas de compatibilidade do pacote quando se utilizam vários tipos de ligação. É a abordagem recomendada para o registo de extensões vinculativas. Os pacotes de extensão também removem a exigência de instalação do .NET Core 2.x SDK. 
+
+### <a name="use-extension-bundles"></a>Use pacotes de extensão
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Para saber mais, consulte [as extensões de ligação do Registo Azure Functions](functions-bindings-register.md#extension-bundles). Deve adicionar pacotes de extensão ao host.jsantes de adicionar encadernações ao function.jsno ficheiro.
+
+### <a name="explicitly-install-extensions"></a>Instalar explicitamente extensões
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 

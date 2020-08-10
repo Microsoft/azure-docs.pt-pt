@@ -1,6 +1,6 @@
 ---
 title: 'Desempenho da sintonização: Storm, HDInsight & Azure Data Lake Storage Gen2 [ Microsoft Docs'
-description: Azure Data Lake Storage Gen2 Storm diretrizes de afinação de desempenho
+description: Compreenda as diretrizes para afinar o desempenho de uma topologia da Tempestade Azure num cluster Azure HDInsight e na Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465920"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037206"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonização: Storm, HDInsight & Azure Data Lake Storage Gen2
 
@@ -113,7 +113,7 @@ Para verificar se está a ser estrangulado, ative o registo de depurar do lado d
 1. Em **Ambari**  >  **Storm**  >  **Config**Advanced  >  **storm-worker-log4j**, change root ** &lt; level="info" &gt; ** to root ** &lt; level="debug". &gt; ** Reinicie todos os nós/serviço para que a configuração entre em vigor.
 2. Monitorize os registos de topologia da tempestade nos nós dos trabalhadores (em /var/log/storm/worker-artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /worker.log) para as exceções de estrangulamento da Gen2 de armazenamento de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
 Para um exemplo adicional a correr, veja [este no GitHub.](https://github.com/hdinsight/storm-performance-automation)

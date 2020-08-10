@@ -1,6 +1,6 @@
 ---
 title: Ofertas de conformidade de armazenamento Azure / Microsoft Docs
-description: Resumo das ofertas de conformidade no Azure Storage
+description: Leia um resumo das ofertas de conformidade sobre o Armazenamento Azure para requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados.
 services: storage
 author: fhryo-msft
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: c24db9fb1b411de31ba8d086b6baa418f656c920
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac37dc66c9861c974c2d5fea435a3ae6771e6c7d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514402"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035013"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento Azure
 
@@ -92,6 +92,6 @@ Pode encontrar abaixo as ofertas de conformidade no Azure Storage para garantir 
 * [TRUCS (China)](https://www.trustcenter.cn/compliance/default.html#TCS)
 * [UK-G-Cloud](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O Microsoft Azure & Azure Storage continua a liderar nas ofertas de conformidade, pode encontrar as mais recentes coberturas e detalhes no [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).

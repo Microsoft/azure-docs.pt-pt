@@ -1,17 +1,17 @@
 ---
 title: O que é Azure Cosmos DB Analytical Store (Preview)?
 description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em linha) e analítica (baseada em colunas). Benefícios da loja analítica, impacto no desempenho para cargas de trabalho em larga escala e sincronização automática de dados da loja transacional para a loja analítica
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116031"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037104"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -162,7 +162,7 @@ Alguns pontos a considerar:
 
 Para saber mais, consulte [como configurar a TTL analítica num recipiente](configure-synapse-link.md#create-analytical-ttl).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

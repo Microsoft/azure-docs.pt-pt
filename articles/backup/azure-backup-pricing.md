@@ -3,12 +3,12 @@ title: Preços do Azure Backup
 description: Saiba como estimar os seus custos para orçamentar os preços de reserva da Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391116"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035761"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup
 
@@ -38,7 +38,7 @@ Para estimar os custos de backup de VMs Azure ou servidores no local usando Azur
 - Número de servidores com este tamanho
 
 - Qual é a quantidade esperada de dados nestes servidores?<br>
-  Churn refere-se à quantidade de alteração de dados. Por exemplo, se tivesse um VM com 200 GB de dados a ser apoiado e se 10 GB do mesmo mudasse todos os dias, o churn diário é de 5%.
+  Churn refere-se à quantidade de alteração de dados. Por exemplo, se tivesse um VM com 200 GB de dados a ser apoiado e 10 GB do mesmo muda todos os dias, o churn diário é de 5%.
 
   - Maior agitação significará que você faz recuar mais dados
 
@@ -58,7 +58,7 @@ Para estimar os custos de backup de VMs Azure ou servidores no local usando Azur
 
   - Quanto tempo espera reter "Instantâneo restaurar instantâneos"? (1-5 dias)
 
-    - Esta opção permite restaurar desde há sete dias de forma rápida usando instantâneos armazenados em discos
+    - Esta opção permite restaurar desde há sete dias de forma rápida usando instantâneos armazenados em discos.
 
 - **Opcional** - Backup de disco seletivo
 
@@ -129,6 +129,7 @@ Para estimar os custos de backup dos servidores SAP HANA em execução em VMs Az
 - Tamanho total das bases de dados SAP HANA que está a tentar fazer. Esta deve ser a soma do tamanho total da cópia de segurança de cada uma das bases de dados, conforme reportado pela SAP HANA.
 - Número de servidores SAP HANA com o tamanho acima
 - Qual é o tamanho esperado de backups de registos?
+  
   - O % indica o tamanho médio do registo diário em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
 - Qual é a quantidade esperada de dados diários nestes servidores?
   - O % indica o tamanho médio diário do churn em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
@@ -144,10 +145,38 @@ Para estimar os custos de backup dos servidores SAP HANA em execução em VMs Az
   - Quanto tempo espera reter reforços "Mensais"? (em meses)
   - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
 - **Opcional** - Redundância de Armazenamento de Backup
+  
   - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa.
 - **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
+  
   - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+  
+## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Estimativa de custos para o backup das ações de ficheiros Azure
 
-## <a name="next-steps"></a>Próximos passos
+Para estimar os custos de backup das ações de ficheiros Azure utilizando a [solução de backup baseada em instantâneos](azure-file-share-backup-overview.md) oferecida pela Azure Backup, você precisará dos seguintes parâmetros:
 
-[O que é o serviço de backup Azure?](backup-overview.md)
+- Tamanho (**em GB**) das ações de ficheiro que pretende fazer recuar.
+
+- Se pretender fazer o back up de ações de ficheiros espalhadas por várias contas de armazenamento, especifique o número de contas de armazenamento que hospedam as ações de ficheiro com o tamanho acima.
+
+- A quantidade esperada de dados nas ações de ficheiro que pretende fazer back-up. <br>Churn refere-se à quantidade de alteração de dados e impacta diretamente o tamanho do armazenamento instantâneo. Por exemplo, se tiver uma partilha de ficheiros com 200 GB de dados a serem apoiados, e 10 GB dela mudar todos os dias, o churn diário é de 5%.
+  - Maior agitação significa que a quantidade de alteração de dados no conteúdo da partilha de ficheiros todos os dias é alta, pelo que o tamanho do instantâneo incremental (capturando apenas as alterações de dados) também seria mais.
+  - Selecione Baixo (1%), Moderado (3%), ou alto (5%) com base nas características e utilização da sua partilha de ficheiros.
+  - Se **souber** o preço exato da sua parte do ficheiro, pode selecionar a **opção Enter your own%** a partir da entrega. Especificar os valores (in %) para o dia, semanal, mensal e anual.
+
+- Tipo de conta de armazenamento (standard ou premium) e a definição de redundância de armazenamento da conta de armazenamento que hospeda a parte do ficheiro back-up. <br>Na atual solução de backup para ações de ficheiros Azure, as imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com cópia de segurança. Assim, o custo de armazenamento associado a instantâneos é faturado como parte da sua conta de ficheiros Azure, com base no preço instantâneo para o tipo de conta e definição de redundância da conta de armazenamento que hospeda a partilha de ficheiros e instantâneos de ficheiros com apoio.
+
+- Retenção para diferentes backups
+  - Quanto tempo espera reter reforços "Daily"? (em dias)
+  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
+  - Quanto tempo espera reter reforços "Mensais"? (em meses)
+  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
+
+  Consulte [a matriz de suporte de partilha do Ficheiro Azure](azure-file-share-support-matrix.md#retention-limits) para obter os valores máximos de retenção suportados em cada categoria.
+
+- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto.
+  - Os valores predefinidos definidos para o custo de armazenamento instantâneo por GB e o custo de instância protegido no estimador são para a região leste dos EUA. Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+
+## <a name="next-steps"></a>Passos seguintes
+
+[O que é o serviço Azure Backup?](backup-overview.md)

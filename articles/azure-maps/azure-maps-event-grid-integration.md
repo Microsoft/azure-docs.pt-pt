@@ -1,6 +1,6 @@
 ---
 title: Reagir aos eventos do Azure Maps utilizando a Grade de Eventos
-description: Neste artigo, você aprenderá a reagir aos eventos do Microsoft Azure Maps usando a Grade de Eventos.
+description: Descubra como reagir a eventos do Azure Maps envolvendo geo-posições. Veja como ouvir eventos de mapas e como usar a Grade de Eventos para redirecionar eventos para os manipuladores de eventos.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/16/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: eb64634f25564abc4044364950b4d462a22608aa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499516"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036815"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir aos eventos do Azure Maps utilizando a Grade de Eventos
 
@@ -77,7 +77,7 @@ As aplicações que lidam com eventos de geofência do Azure Maps devem seguir a
 * Utilize o `X-Correlation-id` campo no cabeçalho de resposta para perceber se as suas informações sobre objetos estão atualizadas. As mensagens podem chegar desordenadas ou após um atraso.
 * Quando um pedido GET ou POST na API de Geofence é chamado com o parâmetro de modo definido para `EnterAndExit` , então um evento de Entrada ou Saída é gerado para cada geometria na geofência para a qual o estado mudou a partir da chamada anterior da API de Geofence.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar geofencing para controlar operações em um estaleiro de construção, consulte:
 

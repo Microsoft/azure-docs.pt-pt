@@ -4,15 +4,15 @@ description: Saiba como utilizar tópicos e subscrições do Service Bus em Azur
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 08/09/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9d4a3a66d967bd003534c7931091979d1667526c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fc8b1be387446b26fca86b344a203c103068db52
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432808"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036033"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Como usar tópicos e subscrições de Service Bus com Node.js e o pacote azure-sb
 Neste tutorial, aprende a criar aplicações Node.js para enviar mensagens para um tópico de Service Bus e receber mensagens de uma assinatura service bus usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente a `azure-sb` embalagem.
@@ -254,7 +254,7 @@ var message = {
     }
 }
 
-for (i = 0;i < 5;i++) {
+for (var i = 0; i < 5; i++) {
     message.customProperties.messagenumber=i;
     message.body='This is Message #'+i;
     serviceBusService.sendTopicMessage(topic, message, function(error) {
@@ -330,7 +330,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu o básico dos tópicos do Service Bus, siga estes links para saber mais.
 
 * Consulte [filas, tópicos e subscrições.][Queues, topics, and subscriptions]
