@@ -1,6 +1,6 @@
 ---
 title: Procure uma localização utilizando os serviços de pesquisa do Azure Maps
-description: Neste artigo, você vai aprender a procurar um local usando as APIs de pesquisa de Mapas microsoft Azure para geocoding, geocoding reverso, pesquisa fuzzy e pesquisa inversa cross street.
+description: Saiba mais sobre o serviço de pesquisa Azure Maps. Veja como usar este conjunto de APIs para geocoding, geocoding invertido, pesquisas difusas e buscas inversas nas ruas.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 51ee2bb66adedc310f65b2d3b430023ae7767df6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126650"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037784"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Procure uma localização utilizando os serviços de pesquisa do Azure Maps
 

@@ -1,17 +1,17 @@
 ---
 title: Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 description: Obtenha respostas para perguntas frequentes sobre Synapse Link para Azure Cosmos DB em áreas como faturação, loja analítica, segurança, tempo para viver em loja analítica.
-author: srchi
-ms.author: srchi
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e65838074260a4d4a9c9668fa6ac4aa2a403929b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921187"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037563"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
@@ -130,7 +130,7 @@ Um recipiente de loja transacional será representado com o seguinte ícone:
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Como é que se passam as credenciais de Azure Cosmos dB do Synapse Studio?
 Atualmente, as credenciais DB da Azure Cosmos são passadas enquanto criam o serviço ligado pelo utilizador que tem acesso às bases de dados DB do Azure Cosmos. O acesso a essa loja está disponível para outros utilizadores que tenham acesso ao espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [benefícios do Synapse Link](synapse-link.md#synapse-link-benefits)
 

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674589"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037631"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -76,7 +76,7 @@ Ambos os métodos abrem o painel de configuração das definições do repositó
 
 O painel de configuração mostra as seguintes definições de repositório de código Azure Repos:
 
-| Definição | Descrição | Valor |
+| Definições | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo repositório** | O tipo de repositório de código Azure Repos.<br/> | Azure DevOps Git ou GitHub |
 | **Azure Active Directory** | Seu nome de inquilino da AZure AD. | `<your tenant name>` |
@@ -211,11 +211,11 @@ Um painel lateral abrir-se-á onde confirma que a sucursal de publicação e as 
 
 ### <a name="permissions"></a>Permissões
 
-Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar a fábrica. Recomenda-se as seguintes permissões:
+Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar a Data Factory. Recomenda-se as seguintes permissões:
 
-*   Todos os membros da equipa deviam ter lido permissões para a fábrica de dados.
-*   Apenas um conjunto selecionado de pessoas deve ser autorizado a publicar na fábrica. Para tal, devem ter o papel de contribuinte da **Data Factory** no grupo de recursos em que se encontra a fábrica. Para obter mais informações sobre permissões, consulte [Funções e permissões para Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Todos os membros da equipa deviam ter lido permissões para a Fábrica de Dados.
+*   Apenas um conjunto selecionado de pessoas deve ser autorizado a publicar na Fábrica de Dados. Para tal, devem ter o **papel de contribuinte** da Data Factory no Grupo de **Recursos** que contém a Fábrica de Dados. Para obter mais informações sobre permissões, consulte [Funções e permissões para Azure Data Factory](concepts-roles-permissions.md).
+
 Recomenda-se não permitir check-ins diretos no ramo da colaboração. Esta restrição pode ajudar a prevenir bugs, uma vez que cada check-in passará por um processo de revisão de pedidos de pull descrito na [Criação de ramos de funcionalidades.](source-control.md#creating-feature-branches)
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Usando senhas do Cofre de Chaves Azure
@@ -255,7 +255,7 @@ Depois de remover a associação com o repo atual, pode configurar as suas defin
 > [!IMPORTANT]
 > Remover a configuração do Git de uma fábrica de dados não apaga nada do repositório. A fábrica conterá todos os recursos publicados. Pode continuar a editar a fábrica diretamente contra o serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre monitorização e gestão de gasodutos, consulte [o Monitor e gere os gasodutos programáticamente.](monitor-programmatically.md)
 * Para implementar a integração e implantação contínuas, consulte [integração e entrega contínua (CI/CD) na Azure Data Factory](continuous-integration-deployment.md).

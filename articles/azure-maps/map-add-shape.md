@@ -1,6 +1,6 @@
 ---
 title: Adicione uma camada de polígono a um mapa Microsoft Azure Maps
-description: Neste artigo, você aprenderá a renderizar um polígono e multi polígono num mapa no Microsoft Azure Maps Web SDK.
+description: Aprenda a adicionar polígonos ou círculos aos mapas. Veja como usar o Azure Maps Web SDK para personalizar formas geométricas e torná-las fáceis de atualizar e manter.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b267109113ce4d2ec3e653fb079b760eb4a5a514
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58262be34a716a04e9779454a30e845d691f3a6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286870"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037716"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adicione uma camada de polígono ao mapa
 

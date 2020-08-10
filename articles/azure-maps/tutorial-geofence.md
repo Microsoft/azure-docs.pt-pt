@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar um geofence e rastrear dispositivos num Mapa do Microsoft Azure'
-description: Saiba como configurar um dispositivo de geofence e de rastreio em relação à geofence utilizando o Microsoft Azure Maps Spatial Service.
+description: Aprenda a criar uma geofence. Veja como rastrear dispositivos em relação à geofence utilizando o serviço Azure Maps Spatial.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517399"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037648"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
 
@@ -254,7 +254,7 @@ Siga os passos abaixo para criar uma subscrição de eventos para os eventos de 
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Detalhes da subscrição de Azure Maps Events":::
 
-4. Clique em **Create** (Criar).
+4. Clique em **Criar**.
 
 5. Repita os passos 1-4 para o ponto final de saída da aplicação lógica que criou na secção anterior. No passo 3, certifique-se de escolher `Geofence Exited` como tipo de evento.
 
@@ -469,7 +469,7 @@ Cada uma das seguintes secções faz http GET Pedidos de API de geofencing utili
 
 4. Na resposta geoJSON acima, o equipamento saiu da geofência do local principal. Como resultado, o `isEventPublished` parâmetro está definido e o Gestor de `true` Operações receberá uma notificação por e-mail indicando que o equipamento saiu de uma geofence.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Lidar com tipos de conteúdo em Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)

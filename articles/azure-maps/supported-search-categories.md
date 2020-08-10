@@ -1,6 +1,6 @@
 ---
 title: Categorias de Pesquisa / Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre categorias de pesquisa suportadas no Microsoft Azure Maps.
+description: Saiba quais categorias de pesquisa são suportadas no Azure Maps. Veja todos os códigos de categoria suportados e os tipos de pontos de interesse que cada um representa.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9e910c38000fc4dbc454b68b752925df9145837
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745990"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037682"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps apoiou categorias
 
@@ -118,7 +118,7 @@ Ao fazer uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/se
 | CAMPO \_ DE TÉNIS | campo de ténis |
 | TEATRO | anfiteatro, sala de concertos, jantar teatro, centro de música, ópera, cabaret, teatro, ópera |
 | \_POSTO DE INFORMAÇÃO \_ TURÍSTICA | posto de informação turística |
-| SEMÁFORO \_ | semáforo |
+| SEMÁFORO \_ | Sinal de tráfego |
 | \_CENTRO DE SERVIÇO DE TRÁFEGO \_ | departamento de controlo de tráfego, centro de serviços de tráfego |
 | SINAL DE TRÂNSITO \_ | sinal de tráfego |
 | SISTEMA \_ TRAIL | veículo de aventura, escalada, equitação, bTT, caminhadas, sistema de trilhos |

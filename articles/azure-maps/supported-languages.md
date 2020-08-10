@@ -1,6 +1,6 @@
 ---
 title: Apoio à localização / Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre idiomas suportados para os serviços no Microsoft Azure Maps.
+description: Veja quais regiões O Azure Maps suporta com serviços como mapas, pesquisa, encaminhamento, meteorologia e incidentes de trânsito. Saiba como configurar o parâmetro Ver.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127898"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037699"
 ---
 # <a name="localization-support-in-azure-maps"></a>Apoio à localização no Azure Maps
 
@@ -25,7 +25,7 @@ O Azure Maps suporta várias línguas e pontos de vista baseados em país/regiã
 O Azure Maps tem sido localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
   
 
-| ID         | Name                   |  Mapas | Pesquisar | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
+| ID         | Nome                   |  Maps | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -110,44 +110,44 @@ O Azure Maps tem sido localizado em línguas de variedades em todos os seus serv
 > Depois de 1 de agosto de 2019, o parâmetro **View** definirá o conteúdo do mapa devolvido para as novas regiões/países listados acima. Azure Maps **Ver** o parâmetro (também designado por "parâmetro da região do utilizador") é uma letra ISO-3166 Country Code que mostrará os mapas corretos para esse país/região especificando que conjunto de conteúdo geopoliticamente disputado é devolvido através dos serviços Azure Maps, incluindo fronteiras e etiquetas exibidas no mapa. 
 
 Certifique-se de que configura o parâmetro **'Ver',** conforme necessário para as APIs REST e os SDKs, que os seus serviços estão a utilizar.
->  
->
->  **APIs de repouso:**
->  
->  Certifique-se de que definiu o parâmetro 'Ver' conforme necessário. Ver parâmetros especifica que conjunto de conteúdo geopoliticamente disputado é devolvido através dos serviços Azure Maps. 
->
->  Serviços de DESCANSO Azure Maps Afetados:
->    
->    * Obter azulejo do mapa
->    * Obtenha imagem do mapa 
->    * Obter Pesquisa Fuzzy
->    * Obter pesquisa POI
->    * Obter Pesquisa POI Categoria
->    * Obtenha pesquisa nas proximidades
->    * Obter Endereço de Pesquisa
->    * Obter Endereço de Pesquisa Estruturado
->    * Obter Endereço de Pesquisa Ao Contrário
->    * Obter Endereço de pesquisa Reverse Cross Street
->    * Pesquisa de pós-geometria interna
->    * Pré-visualização do lote de endereço de pesquisa de post
->    * Pré-visualização do lote invertido do endereço de pesquisa de pós-pesquisa
->    * Pesquisa de post ao longo da rota
->    * Pré-visualização do lote fuzzy de pesquisa de pesquisa
->
->    
->  **SDKs:**
->
->  Certifique-se de que definiu o parâmetro **'Ver'** conforme necessário e que tem a versão mais recente do Web SDK e do Android SDK. SDKs afetados:
->
->    * Azure Maps Web SDK
->    * Azure Maps Android SDK
+  
+
+### <a name="rest-apis"></a>APIs de descanso
+  
+Certifique-se de que definiu o parâmetro 'Ver' conforme necessário. Ver parâmetros especifica que conjunto de conteúdo geopoliticamente disputado é devolvido através dos serviços Azure Maps. 
+
+Serviços de DESCANSO Azure Maps Afetados:
+    
+ * Obter azulejo do mapa
+ * Obtenha imagem do mapa 
+ * Obter Pesquisa Fuzzy
+ * Obter pesquisa POI
+ * Obter Pesquisa POI Categoria
+ * Obtenha pesquisa nas proximidades
+ * Obter Endereço de Pesquisa
+ * Obter Endereço de Pesquisa Estruturado
+ * Obter Endereço de Pesquisa Ao Contrário
+ * Obter Endereço de pesquisa Reverse Cross Street
+ * Pesquisa de pós-geometria interna
+ * Pré-visualização do lote de endereço de pesquisa de post
+ * Pré-visualização do lote invertido do endereço de pesquisa de pós-pesquisa
+ * Pesquisa de post ao longo da rota
+ * Pré-visualização do lote fuzzy de pesquisa de pesquisa
+
+ 
+### <a name="sdks"></a>SDKs
+
+Certifique-se de que definiu o parâmetro **'Ver'** conforme necessário e que tem a versão mais recente do Web SDK e do Android SDK. SDKs afetados:
+
+ * Azure Maps Web SDK
+ * Azure Maps Android SDK
 
 Por predefinição, o parâmetro 'Ver' é definido como **Unificado,** mesmo que não o tenha definido no pedido. Determine a localização dos seus utilizadores. Em seguida, desa um ponto de **vista** corretamente para o local. Em alternativa, pode definir 'View=Auto', que irá devolver os dados do mapa com base no endereço IP do pedido.  O parâmetro **Ver** no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo as leis sobre mapeamento do país/região onde mapas, imagens e outros dados e conteúdos de terceiros que está autorizado a aceder via Azure Maps são disponibilizados.
 
 
 A tabela a seguir fornece pontos de vista apoiados.
 
-| Vista         | Descrição                            |  Mapas | Pesquisar | JS Controlo de Mapas |
+| Vista         | Descrição                            |  Maps | Pesquisa | JS Controlo de Mapas |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (Visão Árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (Visão Argentina)           |   ✓   |    ✓   |     ✓          |

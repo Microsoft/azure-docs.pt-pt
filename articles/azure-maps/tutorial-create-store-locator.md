@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar uma aplicação de localizador de loja usando Azure Maps Microsoft Azure Maps'
-description: Neste tutorial, você vai aprender como criar uma aplicação web localizador de loja usando microsoft Azure Maps web SDK.
+description: Saiba como criar aplicações web localizadoras de loja. Utilize o Azure Maps Web SDK para criar uma página web, consultar o serviço de pesquisa e exibir resultados num mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289564"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037665"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -37,7 +37,7 @@ Salte para a frente para o [exemplo do localizador](https://azuremapscodesamples
 
 Para completar os passos neste tutorial, primeiro precisa de criar uma conta Azure Maps e obter a sua chave primária (chave de subscrição). Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma subscrição de conta Azure Maps com nível de preços S1 e siga os passos na chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
-## <a name="design"></a>Design
+## <a name="design"></a>Conceção
 
 Antes de entrar no código, é uma boa ideia começar com um desenho. O localizador da sua loja pode ser tão simples ou complexo como pretende. Neste tutorial, criamos um simples localizador de lojas. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se assim o desejar. Criamos um localizador de lojas para uma empresa fictícia chamada Contoso Coffee. A seguinte figura mostra uma estrutura de arame do layout geral do localizador da loja que construímos neste tutorial:
 

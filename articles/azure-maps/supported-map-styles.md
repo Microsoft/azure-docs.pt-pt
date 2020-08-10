@@ -1,6 +1,6 @@
 ---
 title: Estilos de mapa do Azure Maps incorporados suportados
-description: Neste artigo, você vai aprender sobre diferentes estilos de mapa incorporado suportados pelo Microsoft Azure Maps.
+description: Conheça os estilos de mapa incorporado que o Azure Maps suporta, como estrada, blank_accessible, satélite, satellite_road_labels, road_shaded_relief e noite.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/24/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9641fe647eebae020ee67ee19a9cc131a487a7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f6ce2966d7e91bd0fc6a23ad2605316da4e2342e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286886"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037733"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps suportado estilos de mapa incorporado
 

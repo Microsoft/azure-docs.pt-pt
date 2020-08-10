@@ -1,5 +1,5 @@
 ---
-title: APIs de cumprimento de SaaS no mercado comercial da Microsoft
+title: APIs de cumprimento saaS no mercado comercial da Microsoft
 description: Uma introdução às APIs de realização que lhe permitem integrar as suas ofertas SaaS no Microsoft AppSource e no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304144"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037529"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no mercado comercial da Microsoft
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>APIs de cumprimento saaS no mercado comercial da Microsoft
 
 As APIs de Realização saaS permitem que os editores, também conhecidos como fornecedores independentes de software (ISVs), publiquem e vendam as suas aplicações SaaS no Microsoft AppSource, Azure Marketplace e no portal Azure. Estas APIs permitem que as aplicações ISV participem em todos os canais via comércio: direto, orientado por parceiros (revendedor) e liderado por campo.  A integração com estas APIs é um requisito para a criação e publicação de uma oferta de SaaS transacionável no Partner Center.
 
@@ -31,7 +31,7 @@ Para o cancelamento da subscrição SaaS adquirida, a integração é opcional, 
 A integração correta com as APIs de Realização de SaaS é fundamental para garantir que
 
 * os clientes finais que compraram a oferta saaS da editora são faturados corretamente pela Microsoft.
-* os clientes finais estão a obter a experiência correta do utilizador de comprar, configurar, utilizar e gerir subscrições saaS compradas no Mercado.
+* os clientes finais estão a obter a experiência correta do utilizador de comprar, configurar, utilizar e gerir subscrições saaS compradas no mercado.
 
 Estas APIs permitem que as ofertas da editora participem em todos os canais via comércio:
 
