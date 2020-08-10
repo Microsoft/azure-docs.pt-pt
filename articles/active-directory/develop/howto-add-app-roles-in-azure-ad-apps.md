@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058628"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041464"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra o `appRoles` que pode atribuir `users` .
 ```
 
 > [!NOTE]
->Os `displayName` não podem conter espaços.
+>O `displayName` pode conter espaços.
 
 Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos. Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **Gerir** > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação**. O exemplo a seguir mostra uma função de aplicação direcionada para um `Application` .
 

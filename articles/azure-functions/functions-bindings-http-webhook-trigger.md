@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-python
-ms.openlocfilehash: 47d023216c9e10eb7c2576eb3eb2aacc14a34419
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 271787c47b29bc713cc923c7d27852a8e05703ef
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850224"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042552"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -824,7 +824,7 @@ Em funções não-C#, os pedidos enviados com o tipo de conteúdo `image/jpeg` r
 
 ## <a name="limits"></a>Limites
 
-O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [execução](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
+O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [execução](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 

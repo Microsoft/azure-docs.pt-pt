@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439735"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042807"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -433,13 +433,13 @@ No dispositivo, veja os registos do módulo cameraCapture para visualizar as men
 A partir do Código do Estúdio Visual, clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **Start Monitoring Built-in Event Endpoint**. 
 
 > [!NOTE]
-> Pode inicialmente ver alguns erros de ligação na saída do módulo cameraCapture. Isto deve-se ao atraso entre os módulos que estão a ser implantados e a iniciar.
+> Inicialmente, pode ver erros de ligação na saída do módulo cameraCapture. Isto deve-se ao atraso entre os módulos que estão a ser implantados e a iniciar.
 >
-> O módulo cameraCapture reato automaticamente a ligação até ser bem sucedido. Em seguida, deverá começar a ver as mensagens de classificação de imagem esperadas descritas abaixo.
+> O módulo cameraCapture reata automaticamente a ligação até ser bem sucedido. Após uma ligação bem sucedida, verá as mensagens de classificação de imagem esperadas descritas abaixo.
 
 Os resultados do módulo da Visão Personalizada, que são enviados como mensagens a partir do módulo cameraCapture, incluem a probabilidade de a imagem ser de uma cicuta ou de uma cerejeira. Uma vez que a imagem é de uma cicuta, a probabilidade deverá aparecer como 1,0.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 

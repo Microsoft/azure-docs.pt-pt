@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089945"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042505"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção de ameaças do Centro de Segurança Azure
 
@@ -21,9 +21,15 @@ Esta página explica como pode usar regras de supressão de alertas para suprimi
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de lançamento: **Pré-visualização**
-- Funções necessárias: **Administração de segurança** e **Proprietário** podem criar/eliminar regras. **O leitor de segurança** e **o Reader** podem ver as regras.
-- Nuvens: ✔ Nuvens comerciais ✔ Nacional/Soberano (Gov dos EUA, China Gov, Outros Gov)
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Pré-visualizar|
+|Preços:|Escalão gratuito<br>(A maioria dos alertas de segurança são apenas para o nível padrão)|
+|Funções e permissões necessárias:|**Administração de segurança** e **Proprietário** pode criar/eliminar regras.<br>**O leitor de segurança** e **o Reader** podem ver as regras.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>O que são regras de supressão?
@@ -32,9 +38,9 @@ Os componentes de proteção contra ameaças do Azure Security Center detetam am
 
 Quando um único alerta não é interessante ou relevante, pode descartá-lo manualmente. Em alternativa, utilize as regras de supressão para descartar automaticamente alertas semelhantes no futuro. Normalmente, usaria uma regra de supressão para:
 
-- suprimir alertas que identificou como falsos positivos
+- Suprimir alertas que identificou como falsos positivos
 
-- suprimir alertas que estão sendo desencadeados com demasiada frequência para ser útil
+- Alertas suprimidos que estão sendo desencadeados com demasiada frequência para serem úteis
 
 As suas regras de supressão definem os critérios para os quais os alertas devem ser automaticamente dispensados.
 

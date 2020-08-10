@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71961212"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042756"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual é a característica de auto-registo das zonas privadas Azure DNS
 
@@ -29,7 +29,8 @@ Pode ativar o registo automático selecionando a opção "Ativar o registo autom
 
 * O autoregistration funciona apenas para máquinas virtuais. Para todos os outros recursos, como os equilibradores de carga internos, etc., pode criar registos DNS manualmente na zona privada de DNS ligada à rede virtual.
 * Os registos DNS são criados automaticamente apenas para a máquina virtual primária NIC . Se as suas máquinas virtuais tiverem mais do que um NIC, pode criar manualmente os registos DNS para outras interfaces de rede.
-* o registo automático do IPv6 (registos AAAA) não é suportado.
+* Os registos DNS são criados automaticamente apenas se a máquina virtual primária NIC estiver a utilizar o DHCP. Se os endereços IP estáticos estiverem configurados (por exemplo, para utilizar [vários endereços IP em Azure),](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)a auto-registo não cria registos para essa máquina virtual.
+* O registo automático do IPv6 (registos AAAA) não é suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

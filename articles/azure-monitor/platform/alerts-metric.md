@@ -4,14 +4,14 @@ description: Saiba como usar o portal Azure ou OCli para criar, visualizar e ger
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/10/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321127"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042739"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -88,6 +88,7 @@ Pode ver e gerir as regras de alerta métricas utilizando a lâmina 'Gerir regra
 
 6. Clique **em Fazer** para guardar as suas edições.
 
+
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
 As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Para este artigo, usaremos a Cloud Shell.
@@ -133,6 +134,14 @@ As secções anteriores descreveram como criar, visualizar e gerir regras de ale
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>Com o PowerShell
+
+As regras de alerta métrico têm cmdlets powerShell dedicados disponíveis:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Cria uma nova regra de alerta métrico ou atualiza uma existente.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Obtém uma ou mais regras de alerta métricas.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Remove uma regra de alerta métrico.
 
 ## <a name="next-steps"></a>Passos seguintes
 

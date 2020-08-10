@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519342"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042671"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
 Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azure Security Center utilizando esta passagem.
@@ -26,12 +26,16 @@ Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azur
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Geralmente disponível**
-- Funções necessárias: **O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **O leitor** pode ver resultados.
-- Nuvens:
-    - nuvens comerciais ✔
-    - ✔ nuvem gov dos EUA
-    - ✘ China Gov / Outros Gov
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível|
+|Preços:|Escalão standard|
+|Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM no Centro de Segurança?
@@ -240,7 +244,7 @@ Pode desativar o FIM. A FIM utiliza a solução Azure Change Tracking para rastr
 
 4. Selecione **Remover** para desativar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a utilizar o Monitor de Integridade do Ficheiro (FIM) no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [Definição de políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

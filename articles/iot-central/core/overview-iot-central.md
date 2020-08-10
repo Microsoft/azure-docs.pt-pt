@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337182"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042722"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -34,10 +34,10 @@ Este artigo descreve, para a IoT Central:
 
 A documentação da IoT Central refere-se a quatro personalidades que interagem com uma aplicação IoT Central:
 
-- Um _construtor de soluções_ é responsável por definir os tipos de dispositivos que se ligam à aplicação e personalizar a aplicação para o operador.
-- Um _operador_ gere os dispositivos ligados à aplicação.
+- Um _construtor de soluções_ é responsável por [definir os tipos de dispositivos](howto-set-up-template.md) que se ligam à aplicação e personalizar a aplicação para o operador.
+- Um _operador_ [gere os dispositivos ligados](howto-manage-devices.md) à aplicação.
 - Um _administrador_ é responsável por tarefas administrativas como gerir [funções de utilizador e permissões](howto-administer.md) dentro da aplicação.
-- Um _desenvolvedor de dispositivos_ cria o código que funciona num dispositivo ou módulo IoT Edge ligado à sua aplicação.
+- Um _desenvolvedor de dispositivos_ [cria o código que funciona num dispositivo](concepts-telemetry-properties-commands.md) ou [módulo IoT Edge](concepts-iot-edge.md) ligado à sua aplicação.
 
 ## <a name="create-your-iot-central-application"></a>Crie a sua aplicação IoT Central
 
@@ -55,7 +55,7 @@ Como construtor de soluções, utiliza as ferramentas baseadas na web para criar
 - As propriedades dos dispositivos que são definidas por um dispositivo e são só de leitura na aplicação.
 - Propriedades que um operador define, que determinam o comportamento do dispositivo.
 
-Este modelo de dispositivo inclui:
+Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
 - Um _modelo de capacidade do dispositivo_ que descreve as capacidades que um dispositivo deve implementar, como a telemetria que envia e as propriedades que reporta.
 - Propriedades em nuvem que não são armazenadas no dispositivo.
@@ -83,13 +83,13 @@ Como construtor de soluções, também pode personalizar a UI de aplicação IoT
 
 ## <a name="manage-your-devices"></a>Faça a gestão dos seus dispositivos
 
-Como operador, utiliza a aplicação IoT Central para gerir os dispositivos na sua solução IoT Central. Os operadores fazem tarefas como:
+Como operador, utiliza a aplicação IoT Central para [gerir os dispositivos](howto-manage-devices.md) na sua solução IoT Central. Os operadores fazem tarefas como:
 
 - Monitorizar os dispositivos ligados à aplicação.
 - Resolver e remediar problemas dos dispositivos.
 - Aprovisionar novos dispositivos.
 
-Como construtor de soluções, pode definir regras e ações personalizadas que operam sobre o streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
+Como construtor de soluções, pode [definir regras e ações personalizadas](howto-configure-rules.md) que operam sobre o streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
 
 Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é preciso manter os seus dispositivos ligados e saudáveis. Um operador pode utilizar as seguintes capacidades IoT Central para gerir os seus dispositivos durante todo o ciclo de vida da aplicação:
 

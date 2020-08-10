@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439216"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041702"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -26,9 +26,9 @@ Para saber mais sobre as funcionalidades do Azure Firewall, consulte [as funcion
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qual é o modelo típico de implantação do Azure Firewall?
 
-Pode implementar o Azure Firewall em qualquer rede virtual, mas os clientes normalmente implantam-no numa rede virtual central e interparem outras redes virtuais para ele num modelo de hub e spoke. Em seguida, pode definir a rota padrão a partir das redes virtuais espreitadas para apontar para esta rede virtual de firewall central. O espremiamento global do VNet é suportado, mas não é recomendado devido a potenciais problemas de desempenho e latência em todas as regiões. Para melhor desempenho, desloque uma firewall por região.
+Pode implementar o Azure Firewall em qualquer rede virtual, mas os clientes normalmente implementam-no numa rede virtual central e fazem o peering de outras redes virtuais para o mesmo num modelo hub-and-spoke. Em seguida, pode definir a rota padrão a partir das redes virtuais espreitadas para apontar para esta rede virtual de firewall central. O espremiamento global do VNet é suportado, mas não é recomendado devido a potenciais problemas de desempenho e latência em todas as regiões. Para obter o melhor desempenho, implemente uma firewall por região.
 
-A vantagem deste modelo é a capacidade de exercer centralmente o controlo de VNETs de vários raios-falados em diferentes subscrições. Também existem economias de custos, uma vez que não precisa de implantar uma firewall em cada VNet separadamente. As economias de custos devem ser medidas em relação ao custo de observação associado com base nos padrões de tráfego do cliente.
+A vantagem deste modelo é a capacidade de exercer centralmente o controlo de várias VNETs spoke em diferentes subscrições. Também existem economias de custos, uma vez que não precisa de implantar uma firewall em cada VNet separadamente. As economias de custos devem ser avaliadas em relação ao custo de peering associado com base nos padrões de tráfego do cliente.
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Azure Firewall?
 
@@ -113,7 +113,7 @@ Sim, pode utilizar o Azure Firewall numa rede virtual do hub para encaminhar e f
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais?
 
-Yes. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
+Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>A Azure Firewall sai do SNAT entre redes privadas?
 
@@ -123,13 +123,13 @@ O Azure Firewall não sNAT quando o endereço IP de destino é uma gama IP priva
 
 Os túneis forçados são suportados quando se cria uma nova firewall. Não se pode configurar uma firewall existente para fazer túneis forçados. Para mais informações, consulte [o Azure Firewall forjando túneis.](forced-tunneling.md) 
 
-O Azure Firewall deve ter conectividade direta na Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
+O Azure Firewall tem de ter conectividade Internet direta. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
 
 Se a sua configuração necessitar de um túnel forçado para uma rede no local e puder determinar os prefixos IP alvo para os seus destinos na Internet, pode configurar estas gamas com a rede no local como o próximo lúpulo através de uma rota definida pelo utilizador na AzureFirewallSubnet. Ou, você pode usar BGP para definir estas rotas.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Yes. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Sim. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de Internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
@@ -137,11 +137,13 @@ Não. As regras da NAT adicionam implicitamente uma regra de rede correspondente
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
+Wildcards atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, ***.contoso.com** e ***contoso.com**.
+
 Se configurar ***.contoso.com,** permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice do domínio). Se quiser permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que *significa Provisioning: Falhado?*
 
-Sempre que uma alteração de configuração é aplicada, o Azure Firewall tenta atualizar todas as suas instâncias de backend subjacentes. Em casos raros, uma destas instâncias de backend pode não conseguir atualizar-se com a nova configuração e o processo de atualização para com um estado de provisionamento falhado. O seu Azure Firewall ainda está operacional, mas a configuração aplicada pode estar num estado inconsistente, onde alguns casos têm a configuração anterior onde outros têm o conjunto de regras atualizado. Se isto acontecer, tente atualizar a sua configuração mais uma vez até que a operação tenha sucesso e a sua Firewall esteja num estado de provisionamento *bem sucedido.*
+Sempre que uma alteração de configuração é aplicada, o Azure Firewall tenta atualizar todas as instâncias de back-end subjacentes. Em casos raros, uma destas instâncias de backend pode não conseguir atualizar-se com a nova configuração e o processo de atualização para com um estado de provisionamento falhado. O Azure Firewall continua operacional, mas a configuração aplicada poderá estar num estado inconsistente, em que algumas instâncias têm a configuração anterior e outras têm o conjunto de regras atualizado. Se isto acontecer, tente atualizar a sua configuração mais uma vez até que a operação tenha sucesso e a sua Firewall esteja num estado de provisionamento *bem sucedido.*
 
 ## <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como é que a Azure Firewall lida com a manutenção planeada e falhas não planeadas?
 O Azure Firewall consiste em vários nós de backend numa configuração ativa.  Para qualquer manutenção planeada, temos lógica de drenagem de ligação para atualizar graciosamente os nós.  Estão previstas atualizações durante o horário não comercial para cada uma das regiões do Azure para limitar ainda mais o risco de perturbação.  Para questões não planeadas, instantaneamos um novo nó para substituir o nó falhado.  A conectividade com o novo nó é tipicamente restabelecida dentro de 10 segundos a partir do momento da falha.
@@ -152,7 +154,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de caracteres para um nome de firewall?
 
-Yes. Há um limite de 50 caracteres para um nome de firewall.
+Sim. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -205,7 +207,7 @@ Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o rep
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Yes. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Sim. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um Grupo IP para outro grupo de recursos?
 

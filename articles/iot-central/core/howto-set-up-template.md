@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3e4b44c8f784524b4cd363a2f4531c5bf0a70e0d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337216"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041600"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT na aplicação do Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
-Um modelo do dispositivo é um esquema que define as características e comportamentos de um tipo de dispositivo que é ligado a uma aplicação do Azure IoT Central.
+Um modelo de dispositivo é uma planta que define as características e comportamentos de um tipo de dispositivo que se conecta a uma [aplicação Azure IoT Central](concepts-app-templates.md).
 
 Por exemplo, um construtor pode criar um modelo de dispositivo para uma ventoinha conectada que tenha as seguintes características:
 
@@ -31,17 +31,21 @@ Por exemplo, um construtor pode criar um modelo de dispositivo para uma ventoinh
 - Fornece um comando para reiniciar o dispositivo
 - Dá-lhe uma visão geral do dispositivo através de um dashboard
 
-A partir deste modelo de dispositivo, um operador pode criar e ligar dispositivos de ventilação reais. Todos estes ventiladores têm medições, propriedades e comandos que os operadores usam para monitorizá-los e geri-los. Os operadores utilizam os painéis e formulários do dispositivo para interagir com os dispositivos do ventilador.
+A partir deste modelo de dispositivo, um operador pode criar e ligar dispositivos de ventilação reais. Todos estes ventiladores têm medições, propriedades e comandos que os operadores usam para monitorizá-los e geri-los. Os operadores utilizam os painéis e [formulários do dispositivo](#add-dashboards) para interagir com os dispositivos do ventilador. Um desenvolvedor de dispositivos usa o modelo para entender como o dispositivo interage com a aplicação. Para saber mais, consulte [telemetria, propriedade e cargas de comando.](concepts-telemetry-properties-commands.md)
 
 > [!NOTE]
 > Apenas construtores e administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos na página **dispositivos** a partir dos modelos de dispositivos existentes.
 
 Numa aplicação IoT Central, um modelo de dispositivo utiliza um modelo de capacidade do dispositivo para descrever as capacidades de um dispositivo. Como construtor, tem várias opções para criar modelos de dispositivos:
 
-- Desenhe o modelo do dispositivo na IoT Central e, em seguida, implemente o seu modelo de capacidade de dispositivo no código do dispositivo.
+- Desenhe o modelo do dispositivo na IoT Central e, em seguida, [implemente o seu modelo de capacidade de dispositivo no código do dispositivo](concepts-telemetry-properties-commands.md).
 - Importe um modelo de capacidade do dispositivo do catálogo de [dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Em seguida, adicione quaisquer propriedades em nuvem, personalizações e dashboards que a sua aplicação IoT Central precisa.
 - Crie um modelo de capacidade do dispositivo utilizando o Código de Estúdio Visual. Implemente o código do dispositivo a partir do modelo. Importe manualmente o modelo de capacidade do dispositivo na sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
 - Crie um modelo de capacidade do dispositivo utilizando o Código de Estúdio Visual. Implemente o código do dispositivo a partir do modelo e ligue o seu verdadeiro dispositivo à sua aplicação IoT Central utilizando uma ligação de primeiro dispositivo. A IoT Central encontra e importa o modelo de capacidade do dispositivo do repositório público para si. Em seguida, pode adicionar quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita ao modelo do dispositivo.
+
+Também pode adicionar modelos de dispositivo a uma aplicação IoT Central utilizando a [API REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) ou o [CLI](howto-manage-iot-central-from-cli.md).
+
+Alguns [modelos de aplicação](concepts-app-templates.md) já incluem modelos de dispositivo que são úteis no cenário que o modelo de aplicação suporta. Por exemplo, consulte [a arquitetura de análise na loja.](../retail/store-analytics-architecture.md)
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Crie um modelo de dispositivo a partir do catálogo do dispositivo
 

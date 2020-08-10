@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281060"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042824"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
-**A Azure Digital Twins** é uma plataforma como uma oferta de serviços (PaaS) que permite a criação de modelos digitais abrangentes de ambientes inteiros. Estes ambientes poderiam ser edifícios, fábricas, fazendas, redes de energia, caminhos de ferro, estádios e muito mais - até cidades inteiras. Estes modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências inovadoras do cliente.
+**A Azure Digital Twins** é uma plataforma como uma oferta de serviço (PaaS) que permite a criação de gráficos de conhecimento baseados em modelos digitais de ambientes inteiros. Estes ambientes poderiam ser edifícios, fábricas, fazendas, redes de energia, caminhos de ferro, estádios e muito mais - até cidades inteiras. Estes modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências inovadoras do cliente.
 
 Aproveite a sua experiência de domínio em cima da Azure Digital Twins para construir soluções personalizadas e conectadas que:
 * Modele qualquer ambiente e traga gémeos digitais à vida de forma escalável e segura

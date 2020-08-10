@@ -2,13 +2,13 @@
 title: Mover recursos do Serviço de Aplicações Azure
 description: Utilize o Azure Resource Manager para transferir os recursos do Serviço de Aplicações para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655777"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042063"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Mover orientação para recursos do Serviço de Aplicações
 
@@ -23,7 +23,8 @@ Ao mover uma Web App através de subscrições, aplica-se a seguinte orientaçã
     - Planos do Serviço de Aplicações
     - Certificados TLS/SSL carregados ou importados
     - Ambientes do App Service
-- Todos os recursos do Serviço de Aplicações no grupo de recursos devem ser deslocados em conjunto. Note que os Ambientes de Serviço de Aplicações não podem ser transferidos para um novo Grupo de Recursos nem para uma nova Subscrição.
+- Todos os recursos do Serviço de Aplicações no grupo de recursos devem ser deslocados em conjunto.
+- Os Ambientes de Serviço de Aplicações não podem ser transferidos para um novo grupo de recursos ou subscrição. No entanto, pode mover um plano de serviço de aplicações web e aplicações para uma nova subscrição sem mover o Ambiente de Serviço de Aplicações. Após a mudança, a aplicação web já não está hospedada no Ambiente de Serviço de Aplicações.
 - Pode mover um certificado ligado a uma web sem eliminar as ligações TLS, desde que o certificado seja movido com todos os outros recursos do grupo de recursos.
 - Os recursos do Serviço de Aplicações só podem ser transferidos do grupo de recursos em que foram originalmente criados. Se um recurso do Serviço de Aplicações já não estiver no seu grupo de recursos original, desloque-o de volta para o seu grupo de recursos original. Em seguida, mova o recurso através de subscrições.
 
@@ -52,6 +53,6 @@ Para determinar quais os recursos do Serviço de Aplicações que podem ser movi
 - [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para que os comandos movimentem recursos, consulte [mover recursos para novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 611124a113a0cce3ab1fb8db5969a6ab6f5f6658
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419857"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041957"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
 
@@ -31,21 +31,14 @@ Esta página ensina-lhe como incluir o JIT no seu programa de segurança. Vai ap
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Disponibilidade geral**
-- Preços: **Nível padrão**. [Saiba mais sobre os preços](/azure/security-center/security-center-pricing).
-- Funções e permissões necessárias:
-    - **As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.
-    - Para criar papéis personalizados que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e usar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
-    - Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.
-- VMs suportados: 
-    - ✔ VMs implantados através do Azure Resource Manager.
-    - ✘ VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)
-    - ✘ VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
-- Nuvens: 
-    - nuvens comerciais ✔
-    - ✔ Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)
-
-
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Disponibilidade geral|
+|Preços:|Escalão standard|
+|VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/yes-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/yes-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Funções e permissões necessárias:|**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.<br>Para criar funções personalizadas que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e utilizar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)<br>Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
 
 
 ## <a name="enable-jit-vm-access"></a>Permitir o acesso ao JIT VM<a name="jit-configure"></a>
@@ -370,7 +363,7 @@ Você pode obter insights sobre as atividades de VM usando a pesquisa de registo
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar e utilizar o acesso vm just-in-time. Para saber por que o JIT deve ser usado, leia o artigo do conceito explicando as ameaças contra as quais defende:
 

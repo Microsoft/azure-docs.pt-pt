@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1875c9147f62619d8961096adb6a0f3986496b41
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459446"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041532"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful numa política personalizada do Azure Ative Directory B2C
 
@@ -117,7 +117,7 @@ O perfil técnico também devolve reclamações, que não são devolvidas pelo f
 | ServiceUrl | Sim | O URL do ponto final da API REST. |
 | AutenticaçãoType | Sim | O tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. Valores possíveis: `None` `Basic` , , ou `Bearer` `ClientCertificate` . O `None` valor indica que a API REST é anónima. O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Apenas os utilizadores verificados, incluindo o Azure AD B2C, podem aceder à sua API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso através da autenticação do certificado do cliente. Apenas os serviços que possuam os certificados adequados, por exemplo Azure AD B2C, podem aceder à sua API. O `Bearer` valor indica que a API REST restringe o acesso utilizando o token do cliente OAuth2 Bearer. |
 | AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido em ambiente de `none` produção ( da `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) está definido para `Production` , ou não especificado). Valores possíveis: verdadeiros ou falsos (padrão). |
-| SendClaimsIn | Não | Especifica como os pedidos de entrada são enviados ao provedor de reclamações RESTful. Valores possíveis: `Body` (padrão), `Form` `Header` ou `QueryString` . O `Body` valor é a reclamação de entrada que é enviada no organismo de pedido em formato JSON. O `Form` valor é a alegação de entrada que é enviada no organismo de pedido num formato de valor chave separado "&". O `Header` valor é a reclamação de entrada que é enviada no cabeçalho do pedido. O `QueryString` valor é a reclamação de entrada que é enviada na cadeia de consulta de pedido. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
+| SendClaimsIn | Não | Especifica como os pedidos de entrada são enviados ao provedor de reclamações RESTful. Valores possíveis: `Body` (padrão), `Form` `Header` ou `Url` `QueryString` . O `Body` valor é a reclamação de entrada que é enviada no organismo de pedido em formato JSON. O `Form` valor é a alegação de entrada que é enviada no organismo de pedido num formato de valor chave separado "&". O `Header` valor é a reclamação de entrada que é enviada no cabeçalho do pedido. O `Url` valor é a alegação de entrada que é enviada no URL, por exemplo, https://{claim1}.exemplo.com/{claim2}/{claim3}?{ claim4}={claim5}. O `QueryString` valor é a reclamação de entrada que é enviada na cadeia de consulta de pedido. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | SinistrosFormat | Não | Não atualmente usado, pode ser ignorado. |
 | ReclamaçãoUsedForRequestPayload| Não | Nome de uma alegação de cadeia que contém a carga útil a enviar para a API REST. |
 | DebugMode | Não | Executa o perfil técnico no modo depuragem. Valores possíveis: `true` , ou `false` (predefinição). No modo de depuragem, a API REST pode devolver mais informações. Consulte a secção [de mensagem de erro de retorno.](#returning-validation-error-message) |

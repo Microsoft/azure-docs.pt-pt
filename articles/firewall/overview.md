@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/18/2020
+ms.date: 08/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7a5b21551cd549f6a495f6cca7a8c5f96c72ddaa
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ad0024e570809c22975e98ad888c663dea95ce1b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081003"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041948"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -34,7 +34,7 @@ Para saber mais sobre as funcionalidades do Azure Firewall, consulte [as funcion
 
 O Azure Firewall tem os seguintes problemas conhecidos:
 
-|Problema  |Description  |Mitigação  |
+|Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem da rede para protocolos não-TCP/UDP não funcionam com o SNAT no seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
 |Suporte do PowerShell e CLI em falta para ICMP|A Azure PowerShell e CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível utilizar o ICMP como protocolo através do portal e da API REST. Estamos a trabalhar para adicionar ICMP na PowerShell e na CLI em breve.|
@@ -42,7 +42,6 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado|Mover uma firewall para um grupo de recursos diferente ou subscrição não é suportado.|O suporte desta funcionalidade está no nosso roteiro. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
 |Alertas de inteligência de ameaça podem ficar mascarados|As regras de rede com o destino 80/443 para filtrar máscaras de saída alertam para ameaças de inteligência quando configuradas apenas para o modo de alerta.|Crie filtragem de saída para 80/443 utilizando as regras de aplicação. Ou, mude o modo de inteligência de ameaça para **Alerta e Negação**.|
 |Azure Firewall usa DNS Azure apenas para resolução de nomes|A Azure Firewall resolve FQDNs usando apenas DNS Azure. Um servidor DNS personalizado não é suportado. Não há impacto na resolução do DNS noutras sub-redes.|Estamos a trabalhar para relaxar esta limitação.|
-|O DNAT do Azure Firewall não funciona para destinos IP privados|O suporte de ADN da Azure Firewall está limitado a saídas/entradas de Internet. O DNAT não funciona atualmente para destinos IP privados. Por exemplo, falou com a fala.|Esta é uma limitação atual.|
 |Não é possível remover a primeira configuração ip pública|Cada endereço IP público do Azure Firewall é atribuído a uma *configuração IP*.  A primeira configuração IP é atribuída durante a implementação da firewall, e normalmente também contém uma referência à sub-rede de firewall (a menos que configurada explicitamente de forma diferente através de uma implementação do modelo). Não é possível eliminar esta configuração IP porque desafetaria a firewall. Ainda pode alterar ou remover o endereço IP público associado a esta configuração IP se a firewall tiver pelo menos um outro endereço IP público disponível para usar.|Esta ação é propositada.|
 |As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar zonas de disponibilidade depois de uma firewall ter sido implantada.|Esta ação é propositada.|
 |SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público de firewall (entrada) são SNATed a um dos IPs privados de firewall. Este requisito hoje (também para NVAs ativos/ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere a utilização de cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta frontal Azure e corrente à firewall.

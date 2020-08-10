@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534639"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042280"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
@@ -34,9 +34,15 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Geralmente disponível**
-- Funções necessárias: **Administrador de Segurança** ou Proprietário de **Subscrição** 
-- Nuvens: ✔ Nuvens comerciais ✔ Governo dos EUA (parcial) ✘ Nacional/Soberano (China Gov, Outro Gov)
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível|
+|Preços:|Escalão gratuito|
+|Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário de Assinatura** |
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA (parcial)<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações de email para alertas<a name="email"></a>
@@ -53,7 +59,7 @@ Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores c
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre alertas de segurança, consulte o seguinte:
 
 * [Alertas de segurança - um guia de referência](alerts-reference.md) -- Conheça os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure

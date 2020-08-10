@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519702"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042330"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -31,12 +31,14 @@ Utilizando estas ferramentas pode:
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Geralmente disponível**
-- Funções e permissões necessárias:
-    - **Leitor** na assinatura que contém a configuração de exportação
-    - **Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**
-    - Também deve ter permissões de escrita para o recurso alvo
-- Nuvens: nuvens comerciais ✔ ✔ Gov dos EUA ✘ China Gov, Outros Gov
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível|
+|Preços:|Escalão gratuito|
+|Funções e permissões necessárias:|**Leitor** na assinatura que contém a configuração de exportação<br>**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Criação de uma exportação contínua
@@ -55,7 +57,7 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 
 1. A partir da área "Export target", escolha onde quer que os dados guardados. Os dados podem ser guardados num alvo numa subscrição diferente (por exemplo, numa instância Central do Centro de Eventos ou num espaço de trabalho central do Log Analytics).
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 
 
@@ -131,7 +133,7 @@ Para fazer o download de um relatório CSV para alertas ou recomendações, abra
 > [!NOTE]
 > Estes relatórios contêm alertas e recomendações para recursos das subscrições atualmente selecionadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 

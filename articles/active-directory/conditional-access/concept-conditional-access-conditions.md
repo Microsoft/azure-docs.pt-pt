@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032135"
+ms.locfileid: "88042484"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -68,7 +68,7 @@ Por padrão, todas as políticas de Acesso Condicional recentemente criadas ser�
 > O comportamento da condição de aplicações de clientes foi atualizado em agosto de 2020. Se tiver as políticas de Acesso Condicional existentes, elas permanecerão inalteradas. No entanto, se clicar numa política existente, o toggle de configuração foi removido e as aplicações do cliente a que a política se aplica são selecionadas.
 
 > [!IMPORTANT]
-> Os logins de clientes de autenticação legado não suportam MFA e não passam informações do estado do dispositivo para a Azure AD, pelo que serão bloqueados por controlos de concessão de acesso condicional, como exigir MFA ou dispositivos compatíveis. Se tiver contas que devem utilizar a autenticação de legados, ou exclui essas contas da apólice, ou configura a apólice para se aplicar apenas aos clientes de autenticação moderna.
+> Os logins de clientes de autenticação legado não suportam MFA e não passam informações do estado do dispositivo para a Azure AD, pelo que serão bloqueados por controlos de concessão de acesso condicional, como exigir MFA ou dispositivos compatíveis. Se tiver contas que devem utilizar a autenticação de legados, deve excluir essas contas da apólice ou configurar a apólice apenas para se aplicar aos clientes de autenticação moderna.
 
 O alternador **configurado** quando definido para **Sim** aplica-se a itens verificados, quando definidos para **Não** se aplica a todas as aplicações do cliente, incluindo clientes de autenticação moderna e legado. Este toggle não aparece nas políticas criadas antes de agosto de 2020.
 

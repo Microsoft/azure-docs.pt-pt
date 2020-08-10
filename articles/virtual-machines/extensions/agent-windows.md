@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 100e75520d1165d4772579ba9b179cd350d6df18
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 42470df5391a976e8023467758d2a3fd0890883e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542624"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041481"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.
@@ -69,9 +69,13 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>Pré-requisitos
+
 - O Agente VM do Windows precisa de pelo menos o Windows Server 2008 (64-bit) para ser executado, com o .Net Framework 4.0. Veja [Suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, veja [O que é o endereço IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+
+- Certifique-se de que o DHCP está ativado dentro do VM convidado. Isto é necessário para obter o endereço de anfitrião ou tecido da DHCP para o Agente VM IaaS e extensões para funcionar. Se precisar de um IP estático privado, deve configurá-lo através do portal Azure ou PowerShell, e certifique-se de que a opção DHCP dentro do VM está ativada. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre a configuração de um endereço IP estático com o PowerShell.
+
 
 ## <a name="detect-the-vm-agent"></a>Detetar o Agente da VM
 

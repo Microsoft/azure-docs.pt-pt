@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562417"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042110"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -31,6 +31,9 @@ Esta página responde frequentemente a perguntas sobre O Azure Ative Directory (
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Que licença é necessária para utilizar o Azure AD Application Proxy?
 
 Para utilizar o Azure AD Application Proxy, tem de ter uma licença Azure AD Premium P1 ou P2. Para obter mais informações sobre o licenciamento, consulte [o Azure Ative Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>O que acontece ao Azure AD Application Proxy no meu inquilino, se a minha licença expirar?
+Se a sua licença expirar, o Application Proxy será automaticamente desativado. As informações da sua candidatura serão guardadas por um período máximo de um ano.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Porque é que o botão "Enable Application Proxy está acinzentado?
 

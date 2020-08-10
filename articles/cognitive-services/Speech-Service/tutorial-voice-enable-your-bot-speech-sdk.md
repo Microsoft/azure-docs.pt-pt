@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 38a2dd42c010e5b213fd89aa046c7c5b1e1d0a7f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758950"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041789"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot utilizando o SDK de discurso
 
@@ -38,6 +38,7 @@ O chat bot ativado por voz que faz neste tutorial segue estes passos:
 1. O texto reconhecido é passado para o Echo Bot como uma Atividade-Quadro bot.
 1. O texto de resposta é transformado em áudio pelo serviço Text-to-Speech (TTS) e transmitido de volta para a aplicação do cliente para reprodução.
 
+<!-- svg src in User Story 1754106 -->
 ![diagrama-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "O fluxo do Canal da Fala")
 
 > [!NOTE]
@@ -458,7 +459,7 @@ Agora que fez a mudança necessária para o bot, o próximo passo é reeditá-lo
 4. Abra a aplicação Cliente Assistente de Voz do Windows, clique no botão de definições (ícone de engrenagem superior direita) e certifique-se de que ainda tem `de-de` no campo Idioma.
 5. Siga as instruções em [Executar o Cliente Assistente de Voz do Windows](#run-the-windows-voice-assistant-client) para voltar a ligar-se ao seu robô recém-implantado, falar no novo idioma e ouvi-lo responder nesse idioma com a nova voz.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar o eco-bot implantado neste tutorial, pode removê-lo e todos os seus recursos Azure associados simplesmente eliminando o grupo de recursos Azure **SpeechEchoBotTutorial-ResourceGroup**.
 
@@ -471,7 +472,7 @@ Se não continuar a utilizar o eco-bot implantado neste tutorial, pode removê-l
 > [!div class="nextstepaction"]
 > [Construa a sua própria app de clientes com o Speech SDK](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * Implantação numa [região de Azure perto de si](https://azure.microsoft.com/global-infrastructure/locations/) para ver a melhoria do tempo de resposta do bot
 * Implantação numa [região do Azure que suporta vozes neurais de alta qualidade](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)

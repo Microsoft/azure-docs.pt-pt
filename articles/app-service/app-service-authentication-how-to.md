@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424261"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042620"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -469,7 +469,68 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Pin a sua app a uma versão específica do tempo de execução da autenticação
+
+Quando ativa a autenticação /Autorização, o middleware da plataforma é injetado no seu pipeline de pedido HTTP, conforme descrito na [visão geral](overview-authentication-authorization.md#how-it-works)da funcionalidade . Este middleware da plataforma é periodicamente atualizado com novas funcionalidades e melhorias como parte das atualizações de plataforma de rotina. Por predefinição, a sua web ou aplicação de função será executada na versão mais recente desta plataforma de middleware. Estas atualizações automáticas são sempre compatíveis com o retro-costas. No entanto, no caso raro de esta atualização automática introduzir um problema de tempo de execução para a sua web ou aplicação de função, pode voltar temporariamente para a versão anterior do middleware. Este artigo explica como fixar temporariamente uma aplicação a uma versão específica do middleware de autenticação.
+
+### <a name="automatic-and-manual-version-updates"></a>Atualizações automáticas e manuais da versão 
+
+Pode fixar a sua aplicação numa versão específica do middleware da plataforma, definindo uma `runtimeVersion` definição para a aplicação. A sua aplicação é sempre executado na versão mais recente, a menos que opte por fixá-la explicitamente numa versão específica. Haverá algumas versões suportadas de cada vez. Se fixar numa versão inválida que já não seja suportada, a sua aplicação utilizará a versão mais recente. Para executar sempre a versão mais recente, definido `runtimeVersion` para ~1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Ver e atualizar a versão atual do tempo de execução
+
+Pode alterar a versão de tempo de execução utilizada pela sua aplicação. A nova versão runtime deverá entrar em vigor depois de reiniciar a aplicação. 
+
+#### <a name="view-the-current-runtime-version"></a>Ver a versão atual do tempo de execução
+
+Pode ver a versão atual do middleware de autenticação da plataforma, utilizando o CLI Azure ou através de um dos pontos finais HTTP da versão 0-in na sua aplicação.
+
+##### <a name="from-the-azure-cli"></a>Do Azure CLI
+
+Utilizando o Azure CLI, veja a versão atual do middleware com o comando [az webapp auth show.](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show)
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+Neste código, `<my_app_name>` substitua-o pelo nome da sua aplicação. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação.
+
+Verá o `runtimeVersion` campo na saída do CLI. Assemelhar-se-á à seguinte produção de exemplo, que foi truncada para maior clareza: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>A partir do ponto final da versão
+
+Também pode acertar no ponto final /.auth/versão numa aplicação também para ver a versão atual do middleware em que a aplicação está a funcionar. Assemelhar-se-á à seguinte saída de exemplo:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Atualizar a versão atual do tempo de execução
+
+Utilizando o Azure CLI, pode atualizar a `runtimeVersion` definição na aplicação com o comando [de atualização auth auth da webapp.](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update)
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+`<my_app_name>`Substitua-o pelo nome da sua aplicação. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação. Além disso, `<version>` substitua por uma versão válida do tempo de execução 1.x ou `~1` pela versão mais recente. Pode encontrar as notas de lançamento nas diferentes versões de tempo de execução [aqui] ( https://github.com/Azure/app-service-announcements) para ajudar a determinar a versão a fixar.
+
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](https://docs.microsoft.com/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](https://docs.microsoft.com/cli/azure/reference-index#az-login) para iniciar sessão.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md) 

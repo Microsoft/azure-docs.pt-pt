@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985887"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042637"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -36,8 +36,8 @@ Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações so
 Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
 
 Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos:
-* **Propriedade** - Propriedades são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientadas a objetos). Ao contrário da telemetria, que é um evento de dados ligado ao tempo, as propriedades têm armazenamento de suporte e podem ser lidas a qualquer momento.
-* **Telemetria** - Os campos de telemetria representam medições ou eventos, e são frequentemente utilizados para descrever leituras de sensores de dispositivos. A telemetria não é armazenada num gémeo digital; é mais como um fluxo de eventos de dados prontos para ser enviados para algum lugar. 
+* **Propriedade** - Propriedades são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientadas a objetos). As propriedades têm armazenamento de suporte e podem ser lidas a qualquer momento.
+* **Telemetria** - Os campos de telemetria representam medições ou eventos, e são frequentemente utilizados para descrever leituras de sensores de dispositivos. Ao contrário das propriedades, a telemetria não é armazenada num gémeo digital; é uma série de eventos de dados ligados ao tempo que precisam de ser tratados à medida que ocorrem. Para obter mais informações sobre as diferenças entre propriedade e telemetria, consulte a secção [*Propriedades vs. telemetria*](#properties-vs-telemetry) abaixo.
 * **Componente** - Os componentes permitem-lhe construir a interface do seu modelo como conjunto de outras interfaces, se quiser. Um exemplo de um componente é uma interface *frontCamera* (e outra interface de componente *backCamera)* que são usadas na definição de um modelo para um *telefone*. Primeiro deve definir uma interface para *a FrontCamera* como se fosse o seu próprio modelo, e depois pode remundo-a ao definir *o Telefone*.
 
     Use um componente para descrever algo que é parte integrante da sua solução, mas que não precisa de uma identidade separada, e não precisa de ser criado, eliminado ou reorganizado no gráfico gémeo de forma independente. Se quiser que as entidades tenham existências independentes no gráfico gémeo, represente-as como gémeas digitais separadas de diferentes modelos, ligadas por *relacionamentos* (ver próxima bala).
@@ -47,7 +47,25 @@ Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos
 * **Relacionamento** - Relacionamentos permitem-lhe representar como um gémeo digital pode estar envolvido com outros gémeos digitais. As relações podem representar diferentes significados semânticos, tais como *contém* ("chão contém espaço"), *frescos* ("hvac cools room"), *isBilledTo* ("compressor é faturado para o utilizador"), etc. As relações permitem a solução fornecer um gráfico de entidades interrelacionadas.
 
 > [!NOTE]
-> A especificação para DTDL também define Comandos , que são métodos que podem ser **executados**num gémeo digital (como um comando de reset, ou um comando para ligar ou desligar uma ventoinha). No entanto, *os comandos não são atualmente suportados em Azure Digital Twins.*
+> A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define Comandos , que são métodos que podem ser **executados**num gémeo digital (como um comando de reset, ou um comando para ligar ou desligar uma ventoinha). No entanto, *os comandos não são atualmente suportados em Azure Digital Twins.*
+
+### <a name="properties-vs-telemetry"></a>Propriedades vs. telemetria
+
+Aqui está uma orientação adicional sobre a distinção entre **a propriedade** DTDL e os campos **de telemetria** em Azure Digital Twins.
+
+A diferença entre propriedades e telemetria para os modelos Azure Digital Twins é a seguinte:
+* Espera-se que as **propriedades** tenham armazenamento de suporte. Isto significa que você pode ler uma propriedade a qualquer momento e recuperar o seu valor. Se a propriedade for escrita, também pode armazenar um valor na propriedade.  
+* **A telemetria** é mais como uma corrente de eventos; é um conjunto de mensagens de dados que têm uma vida útil curta. Se não se prepara para ouvir o evento e as ações a tomar quando isso acontecer, não há vestígios do evento mais tarde. Não pode voltar e lê-lo mais tarde. 
+  - Em termos C#, a telemetria é como um evento C#. 
+  - Em termos IoT, a telemetria é normalmente uma única medição enviada por um dispositivo.
+
+**A telemetria** é frequentemente usada com dispositivos IoT, porque muitos dispositivos não são capazes, ou interessados em armazenar os valores de medição que geram. Enviam-nos como uma corrente de eventos de "telemetria". Neste caso, não pode perguntar no dispositivo em momento algum sobre o valor mais recente do campo de telemetria. Em vez disso, terá de ouvir as mensagens do dispositivo e tomar medidas à medida que as mensagens chegam. 
+
+Como resultado, ao desenhar um modelo em Azure Digital Twins, provavelmente usará **propriedades** na maioria dos casos para modelar os seus gémeos. Isto permite-lhe ter o armazenamento de suporte e a capacidade de ler e consultar os campos de dados.
+
+A telemetria e as propriedades muitas vezes trabalham em conjunto para lidar com a entrada de dados dos dispositivos. Como todas as entradas para Azure Digital Twins são via [APIs,](how-to-use-apis-sdks.md)você normalmente usará a sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos, e definir uma propriedade em ADT em resposta. 
+
+Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal como acontece com outras telemetrias, este é um evento de curta duração que requer um ouvinte a manusear.
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Especificidades de implementação do Azure Digital Twins DTDL
 

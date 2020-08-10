@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 281871b1ce9ac3928caeefc2cfb0cee644ea8e56
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f1e17d4aeb4856eba9ab6d7f5489e088474d10e1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319087"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042586"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Como criar e localizar âncoras usando âncoras espaciais Azure em Unidade
 
@@ -240,7 +240,7 @@ Saiba mais sobre o método [GetAnchorPropertiesAsync.](https://docs.microsoft.co
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
-    if (anchor != nullptr)
+    if (anchor != null)
     {
         anchor.AppProperties[@"last-user-access"] = @"just now";
         await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);

@@ -6,12 +6,12 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aef9c6781c87ff4e84e46de711308319755e4630
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824499"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042076"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar subscrições da Azure Enterprise (pré-visualização)
 
@@ -180,7 +180,7 @@ Para [criar subscrições numa conta de inscrição,](programmatically-create-su
 
 Para acompanhar as subscrições criadas através desta API, utilize a API de Registo de Atividades do [Arrendatário.](/rest/api/monitor/tenantactivitylogs) Atualmente não é possível usar o portal PowerShell, CLI ou Azure para acompanhar a criação de subscrições.
 
-1. Como administrador do inquilino do Azure AD, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como administrador do inquilino do Azure AD, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`. Este acesso está disponível na função [Reader,](../../role-based-access-control/built-in-roles.md#reader) na [função de colaborador de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou numa [função personalizada.](../../role-based-access-control/custom-roles.md)
 1. Como utilizador de auditoria, ligue para a API de [Registo de Atividades](/rest/api/monitor/tenantactivitylogs) do Inquilino para ver as atividades de criação de assinaturas. Exemplo:
 
     ```

@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0928cb264dcff43cc0a3e45a8417dcd1e23a1ed3
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387545"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042603"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
@@ -42,7 +42,7 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 
 | Método de inscrição único | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
-| [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem apenas | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
+| [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e no local | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
 | [Baseada em palavra-passe](#password-based-sso) | nuvem e no local | Escolha a palavra-passe com base quando a aplicação autenticar com nome de utilizador e senha. O sign-on único baseado em palavra-passe permite o armazenamento de senha de aplicação segura e a repetição usando uma extensão do navegador web ou uma aplicação móvel. Este método utiliza o processo de inscrição existente fornecido pela aplicação, mas permite que um administrador gere as palavras-passe. |
 | [Ligado](#linked-sign-on) | nuvem e no local | Escolha o sinal de inscrição ligado quando a aplicação estiver configurada para um único s-ins insitado noutro serviço de fornecedor de identidade. Esta opção não adiciona um único sinal de inscrição à aplicação. No entanto, a aplicação pode já ter um único sign-on implementado usando outro serviço, como os Serviços da Federação de Diretórios Ativos.|
@@ -54,7 +54,7 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 
 Ao desenvolver novas aplicações, utilize protocolos modernos como OpenID Connect e OAuth para obter a melhor experiência de súp livre para a sua aplicação em várias plataformas de dispositivos. A OAuth permite que utilizadores ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos como [o Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para a sua aplicação e, além disso, a sua aplicação estará pronta para usar [o Microsoft Graph.](/graph/overview)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)

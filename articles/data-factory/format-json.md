@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2fc2ccdc7a0520bd156bde8c1da36e19a9e2af1e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537702"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042195"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando quiser **analisar os ficheiros JSON ou escrever os dados no formato JSON**. 
@@ -84,7 +85,7 @@ Configurações de **leitura JSON** suportadas em `formatSettings` :
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | O tipo de formatoStais devem ser definidos para **JsonReadSettings**. | Sim      |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
-| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia. Quando definido para verdadeiro (predefinido), a Data Factory escreve ficheiros desapertados `<path specified in dataset>/<folder named as source zip file>/` para; quando definidos para falsos, a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` .  | Não |
+| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
 
 ### <a name="json-as-sink"></a>JSON como pia
 
@@ -205,9 +206,9 @@ A tabela abaixo lista as propriedades suportadas por uma fonte json. Pode editar
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
-| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | Cadeia | rowUrlColumn |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
 | Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
 | Documento único | Fluxos de dados de mapeamento lêem um documento JSON de cada ficheiro | não | `true` ou `false` | únicoDocumento |
@@ -368,7 +369,7 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)

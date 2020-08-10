@@ -3,17 +3,17 @@ title: Envie notificações push para o iOS usando hubs de notificação Azure e
 description: Neste tutorial, você aprende a usar os Hubs de Notificação Azure e o serviço de Notificação Apple Push para enviar notificações push para dispositivos iOS.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/19/2020
+ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: fde142c76c71aa7155fd39d90f7a6c8120538141
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008666"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042450"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações iOS usando hubs de notificação do Azure
 
@@ -104,7 +104,7 @@ Para enviar notificações push para uma aplicação iOS, registe a sua aplicaç
 ## <a name="create-a-certificate-for-notification-hubs"></a>Criar um certificado para centros de notificação
 
 > [!NOTE]
-> Devido às versões do iOS 13, só é possível receber notificações silenciosas utilizando a autenticação baseada em token. Se estiver a utilizar a autenticação baseada em certificados para as suas credenciais APNS, deve mudar para a autenticação baseada em fichas.
+> Com o lançamento do iOS 13, só pode receber notificações silenciosas utilizando a autenticação baseada em token. Se estiver a utilizar a autenticação baseada em certificados para as suas credenciais APNS, deve mudar para a autenticação baseada em fichas.
 
 É necessário um certificado para permitir que o centro de notificação trabalhe com a **APNS**. Isto pode ser feito de uma de duas maneiras:
 

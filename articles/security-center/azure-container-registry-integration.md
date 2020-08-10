@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534673"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042321"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança
 
@@ -27,17 +27,16 @@ Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pac
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Disponibilidade geral**
-- Funções necessárias: **Leitor de segurança** e [função de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Registos e imagens suportados:
-    - ✔ registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.
-    - ✘ registos ACR hospedados no Windows.
-    - ✘ registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. O Security Center não pode atualmente ligar-se ou digitalizar registos com acesso limitado com uma firewall, um ponto final de serviço ou pontos finais privados, como o Azure Private Link.
-    - ✘ imagens super minimalistas, como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "descaídas" que contêm apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SISTEMA.
-- Nuvens: 
-    - nuvens comerciais ✔
-    - ✘ nuvem do governo dos EUA
-    - ✘ nuvem do Governo da China, outras nuvens do governo
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Disponibilidade geral|
+|Preços:|Escalão standard|
+|Registos e imagens suportados:|![Sim, ](./media/icons/yes-icon.png) registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.<br>![Sem ](./media/icons/yes-icon.png) registos ACR hospedados pelo Windows.<br>![Sem ](./media/icons/yes-icon.png) registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. O Security Center não pode atualmente ligar-se ou digitalizar registos com acesso limitado com uma firewall, um ponto final de serviço ou pontos finais privados, como o Azure Private Link.<br>![Nenhuma ](./media/icons/yes-icon.png) imagem super minimalista, como [imagens de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO.|
+|Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>Quando as imagens são digitalizadas?

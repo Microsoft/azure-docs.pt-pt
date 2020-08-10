@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836807"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041991"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -114,12 +114,13 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 
 ### <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Disponibilidade geral**
-- Funções **necessárias: O administrador de segurança** pode dispensar alertas. **O leitor de segurança** pode ver as descobertas.
-- Nuvens:<br>
-    nuvens comerciais ✔<br>
-    ✘ Gov dos EUA<br>
-    ✘ China Gov, Outro Gov
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível|
+|Preços:|Escalão standard|
+|Funções e permissões necessárias:|**O administrador de segurança** pode dispensar alertas.<br>**O leitor de segurança** pode ver as descobertas.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -150,14 +151,13 @@ Para obter mais informações, veja:
 
 ### <a name="availability"></a>Disponibilidade
 
-- Estado de libertação:
-    - [Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-    - [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (pré-visualização)
-- Nuvens:<br>
-    nuvens comerciais ✔<br>
-    ✔ Gov dos EUA<br>
-    ✘ China Gov, Outro Gov
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|[Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)<br>[Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (pré-visualização)|
+|Preços:|Escalão standard|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
 
 ### <a name="whats-protected"></a>O que está protegido?
 

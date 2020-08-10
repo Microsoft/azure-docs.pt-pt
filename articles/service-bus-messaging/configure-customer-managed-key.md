@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Service B
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4eef0965f585291c31a3698d1d37abf67c6295c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475990"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041568"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
@@ -21,7 +21,7 @@ Ativar a função BYOK é um processo de configuração de uma única vez no seu
 > [!NOTE]
 > Existem algumas ressalvas para a chave gerida pelo cliente para encriptação do lado do serviço. 
 >   * Esta funcionalidade é suportada pelo nível [Azure Service Bus Premium.](service-bus-premium-messaging.md) Não pode ser ativado para espaços de nome de ônibus de nível padrão.
->   * A encriptação só pode ser ativada para espaços novos ou vazios. Se o espaço de identificação contiver dados, então a operação de encriptação falhará.
+>   * A encriptação só pode ser ativada para espaços novos ou vazios. Se o espaço de nomes contiver quaisquer filas ou tópicos, então a operação de encriptação falhará.
 
 Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da chave. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Para mais informações sobre o Azure Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
@@ -319,7 +319,7 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
     ```
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

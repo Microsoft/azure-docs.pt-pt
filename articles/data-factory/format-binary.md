@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 9dc2cee785b28db7446eb8ed8b89e27f4516aba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84ab4ba247ef75eec2110edc31cf4e35a705adbf
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736905"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042858"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário na Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O formato binário é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
@@ -30,7 +31,7 @@ Pode utilizar o conjunto de dados binário na [atividade Copy](copy-activity-ove
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados binários.
 
-| Propriedade         | Descrição                                                  | Necessário |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **Binary**. | Sim      |
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
@@ -74,7 +75,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **BinarySource**. | Sim      |
 | formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de leitura binária** abaixo. | Não       |
@@ -82,11 +83,11 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 Definições **de leitura binária** suportadas em `formatSettings` :
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | O tipo de formatoSettings deve ser definido para **BinaryReadSettings**. | Sim      |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
-| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia. Quando definido para verdadeiro (predefinido), a Data Factory escreve ficheiros desapertados `<path specified in dataset>/<folder named as source zip file>/` para; quando definidos para falsos, a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` .  | Não |
+| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
 
 ```json
 "activities": [
@@ -120,7 +121,7 @@ Definições **de leitura binária** suportadas em `formatSettings` :
 
 As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **BinarySink**. | Sim      |
 | lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |

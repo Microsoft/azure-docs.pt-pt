@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529374"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041681"
 ---
 # <a name="workflow-automation"></a>Automatização do fluxo de trabalho
 
@@ -28,19 +28,14 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado de libertação: **Geralmente disponível**
-- Funções e permissões necessárias:
-    - **Leitor** na assinatura que contém a configuração de exportação
-    - **Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**
-    - Também deve ter permissões de escrita para o recurso alvo
-    - Além disso, para trabalhar com os fluxos de trabalho da Azure Logic Apps, tem de ter as seguintes funções/permissões de Aplicações Lógicas:
-        - As permissões [do Operador de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)
-        - As permissões [de Contribuidores de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas
-        - Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)
-- Nuvens: 
-    - nuvens comerciais ✔
-    - ✔ nuvem do governo dos EUA
-    - ✘ nuvem do governo da China, outras nuvens gov
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível|
+|Preços:|Escalão gratuito|
+|Funções e permissões necessárias:|**Leitor** na assinatura que contém a configuração de exportação<br>**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma App Lógica e defina quando deve ser executado automaticamente 
@@ -101,7 +96,7 @@ Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomen
 
 Para ver os esquemas de eventos brutos dos alertas de segurança ou eventos de recomendações passados para a instância da Aplicação Lógica, visite os [esquemas de tipos de dados de automatização](https://aka.ms/ASCAutomationSchemas)de fluxo de trabalho. Isto pode ser útil nos casos em que não esteja a utilizar os conectores logic app incorporados do Security Center acima mencionados, mas em vez disso está a usar o conector HTTP genérico da Logic App - pode utilizar o esquema JSON do evento para analisar manualmente o que entender.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execução no Centro de Segurança e executando-as manualmente. 
 
