@@ -4,18 +4,18 @@ description: Aprenda a configurar e alterar a política de indexação padrão p
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/11/2020
 ms.author: tisande
-ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760826"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077599"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
-Em Azure Cosmos DB, cada recipiente tem uma política de indexação que dita como os itens do contentor devem ser indexados. A política de indexação padrão para os recipientes recém-criados indexa cada propriedade de cada item, aplicando índices de gama para qualquer cadeia ou número, e índices espaciais para qualquer objeto GeoJSON do tipo Point. Isto permite-lhe obter um desempenho de consulta elevada sem ter que pensar em indexar e gestão de índices antecipadamente.
+Em Azure Cosmos DB, cada recipiente tem uma política de indexação que dita como os itens do contentor devem ser indexados. A política de indexação padrão para recipientes recém-criados indexa cada propriedade de cada item e aplica índices de gama para qualquer cadeia ou número. Isto permite-lhe obter um desempenho de consulta elevada sem ter que pensar em indexar e gestão de índices antecipadamente.
 
 Em algumas situações, poderá querer substituir este comportamento automático para se adequar melhor aos requisitos. Pode personalizar a política de indexação de um recipiente definindo o seu *modo de indexação,* e incluir ou excluir *caminhos de propriedade*.
 

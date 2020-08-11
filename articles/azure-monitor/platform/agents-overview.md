@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445293"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076902"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -29,22 +29,37 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
-|:---|:---|:---|:---|
-| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local | 
-| **Requisitos do agente**  | Nenhum | Nenhum | Requer agente log analytics |
-| **Dados recolhidos** | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| **Dados enviados para** | Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
+| | Agente do Monitor Azure (pré-visualização) | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+|:---|:---|:---|:---|:---|
+| **Ambientes apoiados** | Azure<br>Outra nuvem<br>Local | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local | 
+| **Requisitos do agente**  | Nenhuma | Nenhuma | Nenhuma | Requer agente log analytics |
+| **Dados recolhidos** | Registos de Eventos<br>Desempenho | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
+| **Dados enviados para** | Registos do Azure Monitor<br>Métricas do Monitor Azure<br>Storage do Azure<br>Hub de Eventos | Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Diagnóstico<br>extensão (LAD) | Telegrafa<br>agente | Log Analytics<br>agente | Dependência<br>agente |
-|:---|:---|:---|:---|:---|
-| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local |
-| **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente log analytics |
-| **Dados recolhidos** | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| **Dados enviados para** | Storage do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
+| | Agente do Monitor Azure (pré-visualização) | Diagnóstico<br>extensão (LAD) | Telegrafa<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+|:---|:---|:---|:---|:---|:---|
+| **Ambientes apoiados** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local |
+| **Requisitos do agente**  | Nenhuma | Nenhuma | Nenhuma | Nenhuma | Requer agente log analytics |
+| **Dados recolhidos** | Syslog<br>Desempenho | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
+| **Dados enviados para** | Registos do Azure Monitor<br>Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Storage do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
+
+## <a name="azure-monitor-agent-preview"></a>Agente do Monitor Azure (pré-visualização)
+O [agente Azure Monitor](azure-monitor-agent-overview.md) está atualmente em pré-visualização e substituirá o agente Log Analytics, a extensão de Diagnóstico e o agente Telegraf para máquinas virtuais Windows e Linux. Pode enviar dados tanto para os Registos do Monitor Azure como para as Métricas do Monitor Azure e utiliza as Regras de Recolha de [Dados (DCR)](data-collection-rule-overview.md) que fornecem um método mais escalável de configurar a recolha de dados e destinos para cada agente.
+
+Utilize o agente Azure Monitor se for necessário:
+
+- Colete registos e métricas de hóspedes de qualquer máquina virtual em Azure, em outras nuvens ou no local. (Azure apenas na pré-visualização.)
+- Envie dados para Azure Monitor Logs e Azure Monitor Metrics para análise com o Azure Monitor. 
+- Envie dados para o Azure Storage para arquivar.
+- Enviar dados para ferramentas de terceiros utilizando [hubs de eventos Azure](diagnostics-extension-stream-event-hubs.md).
+- Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-intro.md) ou [o Azure Sentinel](../../sentinel/overview.md). (Não disponível em pré-visualização.)
+
+As limitações do agente Azure Monitor incluem:
+
+- Atualmente em pré-visualização pública. Consulte [as limitações atuais](azure-monitor-agent-overview.md#current-limitations) para uma lista de limitações durante a pré-visualização pública.
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
 
@@ -118,6 +133,6 @@ A extensão Log Analytics para [Windows](../../virtual-machines/extensions/oms-w
 Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 
 - [Visão geral do agente Log Analytics](log-analytics-agent.md)
-- [Visão geral da extensão do Azure Diagnostics](diagnostics-extension-overview.md)
+- [Descrição geral da extensão do Diagnóstico do Azure](diagnostics-extension-overview.md)
 - [Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
 

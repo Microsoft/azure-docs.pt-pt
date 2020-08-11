@@ -3,12 +3,12 @@ title: Azure Service Bus - suspenda as entidades de mensagens
 description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagens Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038142"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078870"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar entidades de mensagens (desativar)
 
@@ -18,9 +18,11 @@ A suspensão de uma entidade é normalmente feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser realizada pelo utilizador ou pelo sistema. O sistema só suspende as entidades por razões administrativas graves, como bater o limite de gastos de subscrição. As entidades com deficiência do sistema não podem ser reativadas pelo utilizador, mas são restauradas quando a causa da suspensão foi abordada.
 
-No portal, a secção **Propriedades** para a respetiva entidade permite alterar o estado; a imagem que se segue mostra o toggle para uma fila:
+No portal, a secção **De Visão** Geral da respetiva entidade permite alterar o estado; o estado atual é apresentado sob **o Estado** como uma hiperligação.
 
-![Screenshot da funcionalidade Service Bus com a definição de Propriedades realçada e a opção estado de fila definida para Ative e delineada a vermelho.][1]
+A imagem que se segue mostra os estados disponíveis para os quais a entidade pode ser alterada selecionando a hiperligação: 
+
+![Screenshot da funcionalidade Service Bus dentro do Overview para alterar a opção estado da entidade.][1]
 
 O portal só permite filas completamente incapacitantes. Também pode desativar as operações de envio e receção separadamente utilizando as APIs de [Nome de](/dotnet/api/microsoft.servicebus.namespacemanager) Serviços de ônibus no SDK.NET Framework, ou com um modelo de Gestor de Recursos Azure através do Azure CLI ou da Azure PowerShell.
 
@@ -55,5 +57,5 @@ Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópico
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

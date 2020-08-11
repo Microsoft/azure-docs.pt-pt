@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces e como funciona o encaminhamento
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512474"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077670"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como o encaminhamento funciona com a Azure Dev Spaces
 
@@ -49,7 +49,7 @@ Todo o tráfego TCP que não seja HTTP passa pelo controlador Ingress e contento
 
 ## <a name="sharing-a-dev-space"></a>Partilhando um espaço dev
 
-Ao trabalhar com uma equipa, você pode [compartilhar um espaço dev em toda uma equipe](how-to/share-dev-spaces.md) e criar espaços dev derivados. Um espaço dev pode ser usado por qualquer pessoa com acesso ao grupo de recursos do espaço de dev.
+Ao trabalhar com uma equipa, você pode compartilhar um espaço dev em toda uma equipe e criar espaços dev derivados. Um espaço dev pode ser usado por qualquer pessoa com acesso ao grupo de recursos do espaço de dev.
 
 Você também pode criar um novo espaço dev que é derivado de outro espaço dev. Quando cria um espaço dev derivado, a etiqueta *azds.io/parent-space=PARENT-SPACE-NAME* é adicionada ao espaço de identificação derivado. Além disso, todas as aplicações do espaço dev dos pais são partilhadas com o espaço dev derivado. Se implementar uma versão atualizada de uma aplicação para o espaço dev derivado, ela só existirá no espaço dev derivado e o espaço dev dos pais permanecerá inalterado. Você pode ter um máximo de três níveis de espaços dev derivados ou espaços *de avós.*
 
@@ -62,7 +62,7 @@ Por exemplo:
 
 Ao utilizar *o azureuser,* todos os pedidos de *serviço A* serão encaminhados para a versão atualizada em *azureuser*. Um pedido de *serviçoB* tentará primeiro ser encaminhado para a versão *azureuser* do *serviçoB*. Uma vez que não existe, será encaminhado para a versão *padrão* do *serviçoB*. Se a versão *azureuser* do *serviçoA* for removida, todos os pedidos de *serviçoA* voltarão a utilizar a versão *padrão* do *serviçoA*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver alguns exemplos de como funciona o Azure Dev Spaces para fornecer iteração e desenvolvimento rápidos, veja [como funciona o Processo Local com Kubernetes,][how-it-works-local-process-kubernetes]Como funciona a [depuração remota do seu código com a Azure Dev Spaces][how-it-works-remote-debugging], e o [GitHub Actions & Serviço Azure Kubernetes.][pr-flow]
 

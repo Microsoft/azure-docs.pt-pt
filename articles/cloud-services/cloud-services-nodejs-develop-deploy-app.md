@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 33006463ed826d1efe32f8beee361eb211e9d709
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 489025d9cfdd6f1bdbc950e2bd1e7e4d835a4fff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386559"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079215"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -172,13 +172,13 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > [!NOTE]
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para mais informações, consulte o [Centro de Programadores de Node.js].
 
 <!-- URL List -->
 
 [Comparação de Web Sites, Cloud Services e Virtual Machines do Azure]: /azure/architecture/guide/technology-choices/compute-decision-tree
-[utilização de uma aplicação Web simples]: ../app-service/app-service-web-get-started-nodejs.md
+[utilização de uma aplicação Web simples]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: /powershell/azure/
 [Azure SDK para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Ligue o PowerShell]: /powershell/azure/

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: cebbab4045b3f8af061bfececff1af9ed70c50de
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ba0fd6cf7214beeaca9e93b1fe003a144c247cb5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065130"
+ms.locfileid: "88077004"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Use as filas de ônibus de serviço em Azure com Node.js e o pacote azure-sb
 Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e receber mensagens de uma fila de autocarros da Azure Service usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente o pacote azure-sb.
@@ -193,6 +193,6 @@ Para saber mais sobre as filas, consulte os seguintes recursos.
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to an Azure Website]: ../app-service/quickstart-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

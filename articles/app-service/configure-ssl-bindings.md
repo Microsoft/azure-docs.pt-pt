@@ -1,28 +1,28 @@
 ---
-title: Fixe um DNS personalizado com uma ligação TLS/SSL
-description: Secure HTTPS acesso ao seu domínio personalizado criando uma ligação TLS/SSL com um certificado. Melhore a segurança do seu website aplicando HTTPS ou TLS 1.2.
+title: Proteja um DNS personalizado com uma ligação TLS/SSL
+description: Acesso HTTPS seguro ao seu domínio personalizado criando uma ligação TLS/SSL com um certificado. Melhorar a segurança do seu website aplicando HTTPS ou TLS 1.2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597900"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078636"
 ---
-# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure
+# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service
 
-Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app de serviço de aplicação ou [aplicação de função](https://docs.microsoft.com/azure/azure-functions/) do [App Service,](https://docs.microsoft.com/azure/app-service/) criando um certificado vinculativo. Quando terminar, pode aceder à sua aplicação `https://` App Service no ponto final para `https://www.contoso.com`o seu nome DNS personalizado (por exemplo, ). 
+Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app ou [aplicação de função](https://docs.microsoft.com/azure/azure-functions/) [App Service,](https://docs.microsoft.com/azure/app-service/) criando uma ligação de certificado. Quando terminar, pode aceder à sua aplicação De Serviço de Aplicações no ponto final para o `https://` seu nome DNS personalizado (por exemplo, `https://www.contoso.com` ). 
 
-![Aplicação web com certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+![Aplicativo Web com certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-A segurança de um [domínio personalizado](app-service-web-tutorial-custom-domain.md) com um certificado envolve dois passos:
+Garantir um [domínio personalizado](app-service-web-tutorial-custom-domain.md) com um certificado envolve dois passos:
 
-- [Adicione um certificado privado ao Serviço de Aplicações](configure-ssl-certificate.md) que satisfaça todos os requisitos de [certificado privado.](configure-ssl-certificate.md#private-certificate-requirements)
--  Crie uma ligação TLS ao domínio personalizado correspondente. Este segundo passo é coberto por este artigo.
+- [Adicione um certificado privado ao Serviço de Aplicações](configure-ssl-certificate.md) que satisfaça todos os [requisitos de certificado privado.](configure-ssl-certificate.md#private-certificate-requirements)
+-  Crie uma ligação TLS ao domínio personalizado correspondente. Este segundo passo é abordado por este artigo.
 
 Neste tutorial, ficará a saber como:
 
@@ -35,14 +35,14 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia:
+Para acompanhar este guia:
 
 - [Criar uma aplicação do Serviço de Aplicações](/azure/app-service/)
-- [Mapeie um nome](app-service-web-tutorial-custom-domain.md) de domínio para a sua app ou [compre e configure-o em Azure](manage-custom-dns-buy-domain.md)
+- [Mapeie um nome de domínio para a sua app](app-service-web-tutorial-custom-domain.md) ou compre e [configuure-o em Azure](manage-custom-dns-buy-domain.md)
 - [Adicione um certificado privado à sua aplicação](configure-ssl-certificate.md)
 
 > [!NOTE]
-> A maneira mais fácil de adicionar um certificado privado é criar um Certificado Gerido por Serviço de [Aplicações gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização).
+> A forma mais fácil de adicionar um certificado privado é [criar um Certificado Gerido de Serviço de Aplicações gratuita](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -52,65 +52,65 @@ Para seguir este guia:
 
 Faça os seguintes passos:
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
+No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **Serviços de Aplicações**  >  **\<app-name>** .
 
 A partir da navegação à esquerda da sua aplicação, inicie o diálogo **de ligação TLS/SSL** por:
 
-- Selecionar **domínios personalizados** > **Adicione a ligação**
-- Selecionando as >  **definições TLS/SSL****Adicione a ligação TLS/SSL**
+- Seleção de **domínios personalizados**  >  **Adicionar encadernação**
+- Selecionando **definições TLS/SSL**  >  **Adicionar ligação TLS/SSL**
 
 ![Adicionar ligação ao domínio](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-No **Domínio Personalizado,** selecione o domínio personalizado para o que pretende adicionar uma ligação.
+Em **Domínio Personalizado,** selecione o domínio personalizado para o quais pretende adicionar uma ligação.
 
-Se a sua aplicação já tiver um certificado para o domínio personalizado selecionado, vá diretamente à [Create Binding.](#create-binding) Caso contrário, continua.
+Se a sua aplicação já tiver um certificado para o domínio personalizado selecionado, vá diretamente para [criar a ligação.](#create-binding) Caso contrário, continue.
 
 ### <a name="add-a-certificate-for-custom-domain"></a>Adicione um certificado para domínio personalizado
 
 Se a sua aplicação não tiver certificado para o domínio personalizado selecionado, então tem duas opções:
 
-- **Carregar Certificado PFX** - Siga o fluxo de trabalho no [Upload de um certificado privado](configure-ssl-certificate.md#upload-a-private-certificate)e, em seguida, selecione esta opção aqui.
-- Certificado de serviço de **aplicações de importação** - Siga o fluxo de trabalho na Importação de um certificado de Serviço de [Aplicações](configure-ssl-certificate.md#import-an-app-service-certificate)e, em seguida, selecione esta opção aqui.
+- **Upload PFX Certificate** - Siga o fluxo de trabalho no [Upload de um certificado privado](configure-ssl-certificate.md#upload-a-private-certificate)e, em seguida, selecione esta opção aqui.
+- **Certificado de Serviço de Aplicações de Importação** - Siga o fluxo de trabalho no [Certificado de Serviço de Aplicações de Importação](configure-ssl-certificate.md#import-an-app-service-certificate)e, em seguida, selecione esta opção aqui.
 
 > [!NOTE]
-> Também pode [criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização) ou importar um certificado de cofre de [chave,](configure-ssl-certificate.md#import-a-certificate-from-key-vault)mas deve fazê-lo separadamente e depois voltar ao diálogo **de ligação TLS/SSL.**
+> Também pode [Criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização) ou importar um certificado de Cofre de [Chaves,](configure-ssl-certificate.md#import-a-certificate-from-key-vault)mas deve fazê-lo separadamente e, em seguida, voltar ao diálogo **de ligação TLS/SSL.**
 
-### <a name="create-binding"></a>Criar encadernação
+### <a name="create-binding"></a>Criar ligação
 
-Utilize a tabela seguinte para o ajudar a configurar a ligação TLS no diálogo de **ligação TLS/SSL** e, em seguida, clique em **Adicionar Encadernação**.
+Utilize a tabela seguinte para o ajudar a configurar a ligação TLS no diálogo **de ligação TLS/SSL** e, em seguida, clique em **Adicionar Ligação**.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 | Domínio personalizado | O nome de domínio para adicionar a ligação TLS/SSL para. |
-| Impressão digital de certificado privado | O certificado para ligar. |
-| Tipo TLS/SSL | <ul><li>Podem ser adicionadas ligações **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Múltiplas ligações SNI SSL. Esta opção permite que vários certificados TLS/SSL garantam vários domínios no mesmo endereço IP. A maioria dos navegadores modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) suportam SNI (para mais informações, consulte [Indicação de Nome](https://wikipedia.org/wiki/Server_Name_Indication)do Servidor).</li><li>**IP SSL** - Só pode ser adicionada uma ligação IP SSL. Esta opção permite apenas um certificado TLS/SSL para garantir um endereço IP público dedicado. Depois de configurar a ligação, siga os passos nos [registos de Remap para IP SSL](#remap-records-for-ip-ssl).<br/>Ip SSL é suportado apenas em nível **Standard** ou superior. </li></ul> |
+| Impressão digital do certificado privado | O certificado para ligar. |
+| Tipo TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Podem ser adicionadas ligações SNI SSL múltiplas. Esta opção permite que vários certificados TLS/SSL garantam vários domínios no mesmo endereço IP. A maioria dos navegadores modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) suportam SNI (para mais informações, consulte [a indicação do nome do servidor).](https://wikipedia.org/wiki/Server_Name_Indication)</li><li>**IP SSL** - Apenas uma ligação IP SSL pode ser adicionada. Esta opção permite apenas um certificado TLS/SSL para garantir um endereço IP público dedicado. Depois de configurar a ligação, siga os passos nos [registos remap para IP SSL](#remap-records-for-ip-ssl).<br/>O IP SSL é suportado apenas no nível **Standard** ou acima. </li></ul> |
 
 Uma vez concluída a operação, o estado TLS/SSL do domínio personalizado é alterado para **Secure**.
 
-![TLS/SSL encadernação bem sucedida](./media/configure-ssl-bindings/secure-domain-finished.png)
+![Ligação TLS/SSL bem sucedida](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
-> Um estado **seguro** nos **domínios Personalizados** significa que está protegido com um certificado, mas o Serviço de Aplicações não verifica se o certificado é auto-assinado ou expirado, por exemplo, o que também pode fazer com que os navegadores mostrem um erro ou aviso.
+> Um estado **Secure** nos **domínios Personalizados** significa que está protegido com um certificado, mas o Serviço de Aplicações não verifica se o certificado é auto-assinado ou expirado, por exemplo, o que também pode fazer com que os navegadores mostrem um erro ou aviso.
 
 ## <a name="remap-records-for-ip-ssl"></a>Remap registos para IP SSL
 
-Se não utilizar o IP SSL na sua aplicação, salte para [o Teste HTTPS para o seu domínio personalizado](#test-https).
+Se não utilizar o IP SSL na sua aplicação, ignore o [Teste HTTPS para o seu domínio personalizado.](#test-https)
 
-Há duas alterações que precisa de fazer, potencialmente:
+Há duas mudanças que precisa de fazer, potencialmente:
 
-- Por padrão, a sua aplicação utiliza um endereço IP público partilhado. Quando liga um certificado com IP SSL, o App Service cria um novo endereço IP dedicado para a sua aplicação. Se mapeou um registo A para a sua aplicação, atualize o seu registo de domínio com este novo endereço IP dedicado.
+- Por predefinição, a sua aplicação utiliza um endereço IP público partilhado. Quando liga um certificado ao IP SSL, o Serviço de Aplicações cria um novo endereço IP dedicado para a sua aplicação. Se mapeou um registo A para a sua aplicação, atualize o seu registo de domínio com este novo endereço IP dedicado.
 
-    A página de **domínio Personalizado** da sua aplicação é atualizada com o novo endereço IP dedicado. [Copie este endereço IP](app-service-web-tutorial-custom-domain.md#info) e [remapeie o registo A ](app-service-web-tutorial-custom-domain.md#map-an-a-record) para este endereço IP novo.
+    A página de **domínio personalizado** da sua aplicação é atualizada com o novo endereço IP dedicado. [Copie este endereço IP](app-service-web-tutorial-custom-domain.md#info) e [remapeie o registo A ](app-service-web-tutorial-custom-domain.md#map-an-a-record) para este endereço IP novo.
 
-- Se tiver uma ligação SNI `<app-name>.azurewebsites.net`SSL, [remape qualquer mapeamento CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) para `sni.<app-name>.azurewebsites.net` apontar (adicione o `sni` prefixo).
+- Se tiver uma ligação SNI SSL `<app-name>.azurewebsites.net` para, [remape qualquer mapeamento CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) para apontar `sni.<app-name>.azurewebsites.net` em vez disso (adicione o `sni` prefixo).
 
 ## <a name="test-https"></a>Tester HTTPS
 
-Em vários navegadores, `https://<your.custom.domain>` navegue para verificar se serve a sua aplicação.
+Em vários navegadores, navegue para `https://<your.custom.domain>` verificar se serve a sua aplicação.
 
 ![Navegação do portal para a aplicação do Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-O seu código de aplicação pode inspecionar o protocolo através do cabeçalho "x-appservice-proto". O cabeçalho terá `http` um `https`valor de ou . 
+O seu código de aplicação pode inspecionar o protocolo através do cabeçalho "x-appservice-proto". O cabeçalho terá um valor de `http` ou `https` . 
 
 > [!NOTE]
 > Se a sua aplicação lhe der erros de validação de certificados, provavelmente está a usar um certificado auto-assinado.
@@ -119,7 +119,7 @@ O seu código de aplicação pode inspecionar o protocolo através do cabeçalho
 
 ## <a name="prevent-ip-changes"></a>Prevenir alterações ip
 
-O seu endereço IP de entrada pode alterar-se quando elimina uma ligação, mesmo que essa ligação seja IP SSL. Isto é especialmente importante quando renova um certificado que já está numa ligação IP SSL. Para evitar uma alteração de endereço IP da sua aplicação, siga estes passos por ordem:
+O seu endereço IP de entrada pode ser alterado quando eliminar uma ligação, mesmo que essa ligação seja IP SSL. Isto é especialmente importante quando se renova um certificado que já está numa ligação IP SSL. Para evitar uma alteração de endereço IP da sua aplicação, siga estes passos por ordem:
 
 1. Carregar o novo certificado.
 2. Vincular o novo certificado com o domínio personalizado que pretende sem eliminar os antigo. Esta ação substitui o enlace em vez de remover o antigo.
@@ -127,9 +127,9 @@ O seu endereço IP de entrada pode alterar-se quando elimina uma ligação, mesm
 
 ## <a name="enforce-https"></a>Impor HTTPS
 
-Por padrão, qualquer pessoa ainda pode aceder à sua aplicação usando HTTP. Pode redirecionar todos os pedidos HTTP para a porta HTTPS.
+Por predefinição, qualquer pessoa ainda pode aceder à sua aplicação utilizando HTTP. Pode redirecionar todos os pedidos HTTP para a porta HTTPS.
 
-Na página da sua aplicação, na navegação à esquerda, selecione **as definições SSL**. Em seguida, em **HTTPS Apenas**, selecione **Ativado**.
+Na sua página de aplicações, na navegação à esquerda, selecione **as definições SSL**. Em seguida, em **HTTPS Apenas**, selecione **Ativado**.
 
 ![Impor HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
@@ -143,17 +143,17 @@ Quando a operação for concluída, navegue para um dos URLs HTTP que apontam pa
 
 A aplicação permite o [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 por predefinição, o que é o nível do TLS recomendado pelas normas do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Para impor versões do TLS diferentes, siga estes passos:
 
-Na página da sua aplicação, na navegação à esquerda, selecione **as definições SSL**. Em seguida, na **versão do TLS**, selecione a versão mínima do TLS que pretende. Esta definição controla apenas as chamadas de entrada. 
+Na sua página de aplicações, na navegação à esquerda, selecione **as definições SSL**. Em seguida, na **versão do TLS**, selecione a versão mínima do TLS que pretende. Esta definição controla apenas as chamadas de entrada. 
 
 ![Impor TLS 1.1 ou 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 Quando a operação for concluída, a sua aplicação rejeita todas as ligações com versões do TLS inferiores.
 
-## <a name="handle-tls-termination"></a>Manuseie a rescisão de TLS
+## <a name="handle-tls-termination"></a>Manusear rescisão de TLS
 
-No Serviço de Aplicações, a rescisão de [TLS](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se `X-Forwarded-Proto` os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho.
+No Serviço de Aplicações, a [rescisão de TLS](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibristas de carga de rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação precisar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o `X-Forwarded-Proto` cabeçalho.
 
-Guias de configuração específicos do idioma, como o guia de [configuração Linux Node.js,](containers/configure-language-nodejs.md#detect-https-session) mostram-lhe como detetar uma sessão HTTPS no seu código de aplicação.
+Guias de configuração específicos do idioma, como o guia [de configuração Node.js Linux,](configure-language-nodejs.md#detect-https-session) mostram-lhe como detetar uma sessão HTTPS no seu código de aplicação.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -168,4 +168,4 @@ Guias de configuração específicos do idioma, como o guia de [configuração L
 ## <a name="more-resources"></a>Mais recursos
 
 * [Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure](configure-ssl-certificate-in-code.md)
-* [FAQ : Certificados de serviço de aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : Certificados de Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760801"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078942"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integre com o Azure AD Application Proxy em um servidor do Serviço de Inscrição de Dispositivos de Rede (NDES)
 
@@ -89,11 +89,11 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
 
 1. Deverá ver uma resposta **HTTP Error 403 – Proibida.**
 
-1. Alterar o URL NDES fornecido (via Microsoft Intune) para dispositivos, esta alteração pode estar no Microsoft Endpoint Configuration Center ou na Intune Cloud.
+1. Altere o URL NDES fornecido (via Microsoft Intune) para dispositivos. Esta alteração pode estar no Microsoft Endpoint Configuration Manager ou no Microsoft Endpoint Manager.
 
-   * Para o Centro de Configuração, vá ao Ponto de Registo do Certificado (CRP) e ajuste o URL. Este URL é o que os dispositivos chamam e apresentam o seu desafio.
-   * Para Intune Cloud Only, também conhecido como Intune Standalone, edite ou crie uma nova política SCEP e adicione o novo URL.
+   * Para o Gestor de Configuração, vá ao ponto de registo do certificado e ajuste o URL. Este URL é o que os dispositivos chamam e apresentam o seu desafio.
+   * Para Intune autónomo, edite ou crie uma nova política SCEP e adicione o novo URL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com o Azure AD Application Proxy integrado com o NDES, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).

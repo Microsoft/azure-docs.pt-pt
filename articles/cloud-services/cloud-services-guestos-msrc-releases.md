@@ -10,21 +10,21 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/10/2020
+ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067023"
+ms.locfileid: "88079163"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
 ## <a name="july-2020-guest-os"></a>Os convidados de julho de 2020
 >[!NOTE]
->O Sistema de Atendimento de julho está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações.
+>O Sistema de Atendimento de julho está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de julho. Esta lista está sujeita a alterações.
 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |

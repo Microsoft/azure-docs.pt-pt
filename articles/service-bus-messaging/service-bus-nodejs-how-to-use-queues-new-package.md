@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5037a7a68b86828b7a96fc99222c55f0bf896380
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c082eff4f70b0255b7701340ac6e8b377223c0b5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065697"
+ms.locfileid: "88076868"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como utilizar as filas de Service Bus com Node.js e o pacote azure/service-bus
 Neste tutorial, aprende-se a escrever um programa Nodejs para enviar mensagens e receber mensagens de uma fila de Autocarros de Serviço utilizando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote. Este pacote utiliza o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo utilizou [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). As amostras estão escritas em JavaScript.
@@ -22,7 +22,7 @@ Neste tutorial, aprende-se a escrever um programa Nodejs para enviar mensagens e
 - Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de Service Bus para criar uma fila. Note a cadeia de ligação para a sua instância de Service Bus e o nome da fila que criou. Usaremos estes valores nas amostras.
 
 > [!NOTE]
-> - Este tutorial funciona com amostras que pode copiar e executar usando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure](../app-service/app-service-web-get-started-nodejs.md), ouNode.js serviço de nuvem utilizando o Windows [PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Este tutorial funciona com amostras que pode copiar e executar usando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure](../app-service/quickstart-nodejs.md), ouNode.js serviço de nuvem utilizando o Windows [PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - O novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote ainda não apoia a criação de filas. Por favor, use o [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) pacote se quiser criá-los programáticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote

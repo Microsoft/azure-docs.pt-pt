@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: af75afb2840d2bc14e1fa46310f76f662efa2a54
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 17e01894ac3d26720b1e74be9d0fd7fc193c463f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384791"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077310"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação web Node.js com insights de aplicação Azure
 
@@ -60,7 +60,7 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
    npm install applicationinsights --save
    ```
 
-3. Edite o primeiro ficheiro *.js* da sua aplicação e adicione as duas linhas abaixo à parte mais alta do seu script. Se estiver a utilizar a [aplicaçãoNode.js quickstart,](../../app-service/app-service-web-get-started-nodejs.md)modificaria o ficheiro *index.js.* `<instrumentation_key>`Substitua-a pela tecla de instrumentação da sua aplicação. 
+3. Edite o primeiro ficheiro *.js* da sua aplicação e adicione as duas linhas abaixo à parte mais alta do seu script. Se estiver a utilizar a [aplicaçãoNode.js quickstart,](../../app-service/quickstart-nodejs.md)modificaria o ficheiro *index.js.* `<instrumentation_key>`Substitua-a pela tecla de instrumentação da sua aplicação. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -128,7 +128,7 @@ Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos
 1. A partir do menu à esquerda no portal Azure, selecione **grupos de Recursos** e, em seguida, selecione **myResourceGroup**.
 2. Na sua página de grupo de recursos, selecione **Delete**, insira o **myResourceGroup** na caixa de texto e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)

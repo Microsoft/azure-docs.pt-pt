@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009720"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078517"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -63,10 +63,10 @@ Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, voc
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Utilize o seguinte comando para atribuir a função (deve ser gerido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure):
+Utilize o seguinte comando para atribuir a função (deve ser gerido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure). O comando requer que passe o *nome principal* do utilizador na conta AZure AD para o utilizador que deve ser atribuído à função. Na maioria dos casos, isto corresponderá ao e-mail do utilizador na conta AZure AD.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 O resultado deste comando é informação sobre a atribuição de funções que foi criada.
@@ -74,13 +74,13 @@ O resultado deste comando é informação sobre a atribuição de funções que 
 > [!NOTE]
 > Se este comando retornar um erro dizendo que o CLI **não pode encontrar o utilizador ou o principal de serviço na base de dados de gráficos:**
 >
-> Utilize o *ID* do objeto do utilizador em vez do seu e-mail. Isto pode acontecer para utilizadores em [contas pessoais da Microsoft (MSAs)](https://account.microsoft.com/account). 
+> Em vez disso, atribua a função utilizando o *ID* do objeto do utilizador. Isto pode acontecer para utilizadores em [contas pessoais da Microsoft (MSAs)](https://account.microsoft.com/account). 
 >
 > Utilize a [página do portal Azure dos utilizadores do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de utilizador e abrir os seus dados. Copie o *ObjectID*do utilizador:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Vista da página do utilizador no portal Azure destacando o GUID no campo 'Objeto ID'" lightbox="media/includes/user-id.png":::
 >
-> Em seguida, repita o comando da lista de atribuições de funções utilizando o *ID* do objeto do utilizador no lugar do e-mail.
+> Em seguida, repita o comando da lista de atribuições de funções utilizando o *ID* do objeto do utilizador para o `assignee` parâmetro acima.
 
 ### <a name="verify-success"></a>Verificar o sucesso
 

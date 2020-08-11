@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar Azure Dev Spaces e Visual Studio para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 1ce2647e89915dd581b0b5ad9fc75a9f2fe840de
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 436ef1b83bd23c78aed6e793e237423110ca6bc6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499114"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077708"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Criar um espaço kubernetes dev: Visual Studio e .NET Core com Azure Dev Spaces
 
@@ -179,8 +179,10 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Conheça o desenvolvimento de vários serviços](multi-service-netcore-visualstudio.md)
+> [Como funciona o Azure Dev Spaces](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

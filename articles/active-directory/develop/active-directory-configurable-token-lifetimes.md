@@ -13,16 +13,17 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d6b6e300a3bd799e94405af143d84cf9fdd8d4c1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552854"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077140"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (Preview)
 
-Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
+Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. 
+> Note que atualmente não apoiamos a configuração das vidas simbólicas para os diretores do Serviço de Identidade Gerido.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a pré-visualização, implementamos [capacidades de gestão de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Azure AD Conditional Access. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. Depois de 30 de maio de 2020 nenhum novo inquilino poderá usar a política de Vida Token Configural para configurar sessão e refrescar tokens. A depreciação acontecerá dentro de alguns meses, o que significa que deixaremos de honrar a sessão existente e refrescaremos as polícias. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.

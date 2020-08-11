@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3fd9a013eb3318abc48745e163d9ee0118b52b1d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169990"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077480"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
 
-Neste artigo, aprende-se as melhores práticas e etapas de resolução de problemas para [aplicações de nó](app-service-web-get-started-nodejs.md) que estão a decorrer no Azure App Service (com [iisnode).](https://github.com/azure/iisnode)
+Neste artigo, aprende-se as melhores práticas e etapas de resolução de problemas para [aplicações windows Node.js](quickstart-nodejs.md?pivots=platform-windows) em execução no Azure App Service (com [iisnode).](https://github.com/azure/iisnode)
 
 > [!WARNING]
 > Tenha cuidado ao utilizar os passos de resolução de problemas no seu local de produção. A recomendação é resolver problemas com a sua aplicação numa configuração não-produção, por exemplo, a sua ranhura de paragem e quando o problema for corrigido, troque a sua ranhura de paragem com a sua ranhura de produção.
@@ -273,7 +273,7 @@ NODE.exe tem uma definição chamada `NODE_PENDING_PIPE_INSTANCES` . No Azure Ap
 
 Siga estes links para saber mais sobre node.js aplicações no Azure App Service.
 
-* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
+* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](quickstart-nodejs.md)
 * [Como depurar uma aplicação Web Node.js no App Service do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Web Apps do App Service do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

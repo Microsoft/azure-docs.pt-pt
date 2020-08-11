@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078313"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -310,7 +310,7 @@ Nesta secção, faz as seguintes tarefas para configurar o registo de Insights d
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Criar app de Serviço de Aplicações e Aplicações Insights
 
-1. Se ainda não tiver uma aplicação de Serviço de Aplicações que possa utilizar, [crie uma](app-service-web-get-started-dotnet-framework.md). Quando cria a sua aplicação, também pode criar um recurso de Insights de Aplicação conectado. Quando o fizeres, o `APPINSIGHTS_INSTRUMENTATIONKEY` está definido para ti na tua aplicação.
+1. Se ainda não tiver uma aplicação de Serviço de Aplicações que possa utilizar, [crie uma](quickstart-dotnet-framework.md). Quando cria a sua aplicação, também pode criar um recurso de Insights de Aplicação conectado. Quando o fizeres, o `APPINSIGHTS_INSTRUMENTATIONKEY` está definido para ti na tua aplicação.
 
 1. Se ainda não tiver um recurso Application Insights que possa utilizar, [crie um](../azure-monitor/app/create-new-resource.md ). Descoda **o tipo de aplicação** para **General**, e ignore as secções que seguem Copiar **a tecla de instrumentação**.
 
@@ -328,7 +328,7 @@ Nesta secção, faz as seguintes tarefas para configurar o registo de Insights d
 
    |Name  |cadeia de conexão  |Tipo de base de dados|
    |---------|---------|------|
-   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizar|
+   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
 
 1. Se a caixa **'Definições de Aplicação'** não tiver uma chave de instrumentação de Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a aplicação do Serviço de Aplicações.)
 
@@ -545,7 +545,7 @@ As ligações de saída simplificam o código que escreve dados. Este exemplo mo
  
 1. Verifique a função em Azure, enviando novamente um ficheiro para o recipiente blob e adicionando uma mensagem à fila que é o nome do ficheiro carregado. Vê a mensagem ser removida da fila e uma cópia do ficheiro criado no recipiente blob. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como criar, executar e implementar um projeto WebJobs SDK 3.x.
 

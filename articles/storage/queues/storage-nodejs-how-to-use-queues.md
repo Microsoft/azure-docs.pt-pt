@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 950d85f391504095ceaaa10996145ca832b6db19
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56099a7d350a29db5a57708bc87b7174cfdb3b29
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432726"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079284"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utilize o Serviço de Fila Azure para criar e eliminar filas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,7 +32,7 @@ Este guia mostra-lhe como executar cenários comuns usando o serviço Microsoft 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação de Node.js em branco. Para obter instruções que criem uma aplicação Node.js, consulte [Criar uma aplicação web Node.js no Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço de Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell ou [Código de Estúdio Visual](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Crie uma aplicação de Node.js em branco. Para obter instruções que criem uma aplicação Node.js, consulte [Criar uma aplicação web Node.js no Azure App Service](../../app-service/quickstart-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço de Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell ou [Código de Estúdio Visual](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configure a sua aplicação para aceder ao armazenamento
 Para utilizar o armazenamento Azure, você precisa do Azure Storage SDK para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços DE ARMAZENAMENTO REST.
@@ -341,7 +341,7 @@ Agora que aprendeu o básico do armazenamento de filas, siga estes links para ap
 
 [Azure Portal]: https://portal.azure.com
 
-[Criar uma aplicação Web Node.js no App Service do Azure](../../app-service/app-service-web-get-started-nodejs.md)
+[Criar uma aplicação Web Node.js no App Service do Azure](../../app-service/quickstart-nodejs.md)
 
 [Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 

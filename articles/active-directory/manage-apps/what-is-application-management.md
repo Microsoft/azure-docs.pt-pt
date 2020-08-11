@@ -1,5 +1,5 @@
 ---
-title: Gerir Aplicações com o Microsoft Azure Active Directory | Microsoft Docs
+title: O que é a gestão de aplicações no Azure Ative Directory
 description: Uma visão geral da utilização do Azure Ative Directory (AD) como um sistema de Gestão de Identidade e Acesso (IAM) para as suas aplicações em nuvem e no local.
 services: active-directory
 author: kenwith
@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: dafd3d7805924d92354c3de6ded50f17598f80f6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386015"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078075"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
@@ -91,7 +91,7 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 Para aplicações focadas em Recursos Humanos, ou outras aplicações com um grande conjunto de utilizadores, pode aproveitar o fornecimento de App para automatizar o processo de provisionamento e desprovisionamento de utilizadores, ver O que é o provisionamento de [aplicações?](../app-provisioning/user-provisioning.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
 - [Começar com a integração de aplicações](plan-an-application-integration.md)

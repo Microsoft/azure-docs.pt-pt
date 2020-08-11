@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042620"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078398"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -17,8 +17,7 @@ Este artigo mostra-lhe como personalizar a autenticação e autorização incorp
 
 Para começar rapidamente, consulte um dos seguintes tutoriais:
 
-* [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Serviço de Aplicações Azure para o Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure](tutorial-auth-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](configure-authentication-provider-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](configure-authentication-provider-facebook.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google](configure-authentication-provider-google.md)
@@ -533,5 +532,4 @@ Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overvi
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](tutorial-auth-aad.md)

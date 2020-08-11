@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/09/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fa1f6738628ed96e386186a579569170bfaac3ee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 8a86a1bd9a312f3b1c6d94914d426422687b25a6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066955"
+ms.locfileid: "88077021"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Como usar tópicos e subscrições de Service Bus com Node.js e o pacote azure-sb
 Neste tutorial, aprende a criar aplicações Node.js para enviar mensagens para um tópico de Service Bus e receber mensagens de uma assinatura service bus usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente a `azure-sb` embalagem.
@@ -40,7 +40,7 @@ Para obter mais informações sobre tópicos e subscrições, consulte a secçã
     > Irá criar um **tópico** e uma **subscrição** do tema utilizando **Node.js** neste arranque rápido. 
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação de Node.js em branco. Para obter instruções sobre a criação de uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Web Site Azure],Node.js Cloud [Service][Node.js Cloud Service] utilizando o Windows PowerShell ou Web Site com WebMatrix.
+Crie uma aplicação de Node.js em branco. Para obter instruções sobre a criação de uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js para um Web Site Azure], [Node.js Cloud Service][Node.js Cloud Service] utilizando o Windows PowerShell ou Web Site com WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
 Para utilizar o Service Bus, descarregue o pacote Node.js Azure. Este pacote inclui um conjunto de bibliotecas que comunicam com os serviços Service Bus REST.
@@ -343,5 +343,6 @@ Agora que aprendeu o básico dos tópicos do Service Bus, siga estes links para 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Criar e implementar uma aplicação Node.js para um Web Site Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+
