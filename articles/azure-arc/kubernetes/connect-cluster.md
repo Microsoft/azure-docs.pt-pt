@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050090"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080495"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
@@ -91,7 +91,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Utilize um grupo de recursos para armazenar metadados para o seu cluster.
 
@@ -172,6 +172,41 @@ Também pode ver este recurso no [portal Azure.](https://portal.azure.com/) Assi
 > [!NOTE]
 > Depois de embarcar no cluster, leva cerca de 5 a 10 minutos para que os metadados do cluster (versão cluster, versão do agente, número de nós) surjam na página geral do Arco Azure habilitado o recurso Kubernetes no portal Azure.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Conecte-se usando um servidor de procuração de saída
+
+Se o seu cluster estiver por trás de um servidor de procuração de saída, a Azure CLI e o Arc ativaram os agentes kubernetes que precisam de encaminhar os seus pedidos através do servidor de procuração de saída. A seguinte configuração ajuda a conseguir isso:
+
+1. Verifique a versão da `connectedk8s` extensão instalada na sua máquina executando este comando:
+
+    ```bash
+    az -v
+    ```
+
+    Precisa de `connectedk8s` uma versão de extensão >= 0.2.3 para configurar agentes com procuração de saída. Se tiver a versão < 0.2.3 na sua máquina, siga os [passos de atualização](#before-you-begin) para obter a versão mais recente da extensão na sua máquina.
+
+2. Definir as variáveis ambientais necessárias para o Azure CLI:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Executar o comando de ligação com parâmetros de procuração especificados:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. Especificar o CIDR excluído em --proxy-skip-range é importante para garantir que a comunicação no cluster não seja quebrada para os agentes.
+> 2. A especificação de procuração acima é atualmente aplicada apenas aos agentes Arc e não às cápsulas de fluxo utilizadas na fonteControlConfiguration. A equipa da Arc ativada pela Kubernetes está a trabalhar ativamente nesta funcionalidade e estará disponível em breve.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
+
 Azure Arc habilitado a Kubernetes implanta alguns operadores no `azure-arc` espaço de nomes. Pode ver estas implementações e cápsulas aqui:
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
 
 Azure Arc habilitado Kubernetes é composto por alguns agentes (operadores) que funcionam no seu cluster implantados no `azure-arc` espaço de nome.
 

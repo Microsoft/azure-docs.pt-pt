@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079914"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure a uma aplicação Web do Serviço de Aplicações do Azure
 
@@ -43,13 +43,13 @@ O que irá aprender:
 Para concluir este tutorial:
 
 - [Instalar o Git](https://git-scm.com/)
-- [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Criar a aplicação Web
 
-Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTML estático](../app-service/app-service-web-get-started-html.md), através do passo **Navegar para a aplicação**.
+Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTML estático](../app-service/quickstart-html.md), através do passo **Navegar para a aplicação**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -60,7 +60,7 @@ Se quiser otimizar o seu ponto final de CDN para a aceleração de site dinâmic
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Criar um perfil da CDN e ponto final
 
-No painel de navegação esquerdo, selecione **Serviço de Aplicações** e, em seguida, selecione a aplicação que criou no [início rápido HTML estático](../app-service/app-service-web-get-started-html.md).
+No painel de navegação esquerdo, selecione **Serviço de Aplicações** e, em seguida, selecione a aplicação que criou no [início rápido HTML estático](../app-service/quickstart-html.md).
 
 ![Selecione a aplicação de Serviço de Aplicações no portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 
@@ -75,8 +75,8 @@ Na página **Azure Content Delivery Network**(Rede de Entrega de Conteúdos do A
 | Definição | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
 | **Perfil da CDN** | myCDNProfile | Um perfil da CDN é uma coleção de pontos finais da CDN com o mesmo escalão de preços. |
-| **Nível de preços** | Standard da Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai*. |
-| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Acede aos seus recursos em cache no * &lt;nome&gt;final*de domínio .azureedge.net.
+| **Escalão de preço** | Standard Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai*. |
+| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Aceda aos seus recursos em cache no nome final do * &lt; ponto &gt; de*domínio .azureedge.net.
 
 Selecione **Criar** para criar um perfil de CDN.
 
@@ -160,7 +160,7 @@ Para acionar a CDN para atualizar a versão em cache, remova a CDN.
 
 Na navegação à esquerda do portal, selecione **Grupos de recursos** e, em seguida, selecione o grupo de recursos que criou a sua aplicação Web (myResourceGroup).
 
-![Selecionar grupo de recursos](media/cdn-add-to-web-app/portal-select-group.png)
+![Selecionar o grupo de recursos](media/cdn-add-to-web-app/portal-select-group.png)
 
 Na lista de recursos, selecione o ponto final de CDN.
 
@@ -198,7 +198,7 @@ A CDN do Azure oferece as seguintes opções de comportamento de colocação em 
 
 * Ignorar cadeias de consulta
 * Ignorar a colocação em cache de cadeias de consulta
-* Colocar em cache todos os URL exclusivos 
+* Colocar em cache todos os URLs exclusivos 
 
 A primeira opção é a predefinida, o que significa que existe apenas uma versão em cache de um ativo, independentemente da cadeia de consulta no URL. 
 

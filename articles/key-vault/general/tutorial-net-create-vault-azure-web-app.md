@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513337"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080237"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma App Web Azure com .NET
 
@@ -140,7 +140,7 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ### <a name="create-a-remote-web-app"></a>Criar uma aplicação web remota
 
-Crie uma [aplicação web Azure](../../app-service/containers/app-service-linux-intro.md) no `myAppServicePlan` plano de Serviço de Aplicações. 
+Crie uma [aplicação web Azure](../../app-service/overview.md#app-service-on-linux) no `myAppServicePlan` plano de Serviço de Aplicações. 
 
 > [!Important]
 > Semelhante ao Key Vault, uma App Web Azure deve ter um nome único. Substitua \<your-webapp-name\> pelo nome da sua aplicação web os seguintes exemplos.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520805"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080835"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode chamar a partir de Azure Logic Apps
 
@@ -30,12 +30,12 @@ Você pode hospedar as suas APIs no [Azure App Service](../app-service/overview.
 > [!TIP] 
 > Embora possa implementar as suas APIs como aplicações web, considere implementar as suas APIs como aplicações API, o que pode facilitar o seu trabalho ao construir, hospedar e consumir APIs na nuvem e nas instalações. Não tens de alterar nenhum código nas tuas APIs, apenas implementa o teu código numa aplicação da API. Por exemplo, aprenda a construir aplicações API criadas com estas línguas: 
 > 
-> * [ASP.NET.](../app-service/app-service-web-get-started-dotnet.md) 
-> * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
+> * [ASP.NET.](../app-service/quickstart-dotnetcore.md) 
+> * [Java](../app-service/quickstart-java.md)
+> * [Node.js](../app-service/quickstart-nodejs.md)
+> * [PHP](../app-service/quickstart-php.md)
+> * [Python](../app-service/quickstart-python.md)
+> * [Ruby](../app-service/quickstart-ruby.md)
 >
 > Para amostras de aplicativos API construídos para aplicações lógicas, visite o repositório ou [blog](https://aka.ms/logicappsblog) [Azure Logic Apps GitHub](https://github.com/logicappsio) .
 
@@ -173,8 +173,8 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 
 | O pedido `triggerState` inclui? | Resposta da API | 
 | -------------------------------- | -------------| 
-| Não | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
-| Sim | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
+| No | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
+| Yes | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
 ||| 
 
 | Número de ficheiros encontrados | Resposta da API | 
@@ -232,7 +232,7 @@ Para disponibilizar os seus APIs personalizados a todos os utilizadores em Aplic
 
 * Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Lidar com erros e exceções](../logic-apps/logic-apps-exception-handling.md)
 * [Apps lógicas de chamada, gatilho ou ninho com pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)

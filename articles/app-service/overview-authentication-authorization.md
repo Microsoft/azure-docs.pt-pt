@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562383"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080733"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -56,7 +56,7 @@ O módulo de autenticação e autorização funciona num recipiente separado, is
 
 ### <a name="userapplication-claims"></a>Reclamações de utilizador/aplicação
 
-Para todos os quadros linguísticos, o Serviço de Aplicações coloca as reclamações no token de entrada (seja de um utilizador final autenticado ou de uma aplicação de cliente) disponível para o seu código, injetando-as nos cabeçalhos de pedido. Para ASP.NET aplicações 4.6, o Serviço de Aplicações povoa [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as reclamações do utilizador autenticado, para que possa seguir o padrão de código .NET, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações PHP, o Serviço de Aplicações povoa a `_SERVER['REMOTE_USER']` variável. Para aplicações Java, as reclamações estão [acessíveis a partir do servlet Tomcat.](containers/configure-language-java.md#authenticate-users-easy-auth)
+Para todos os quadros linguísticos, o Serviço de Aplicações coloca as reclamações no token de entrada (seja de um utilizador final autenticado ou de uma aplicação de cliente) disponível para o seu código, injetando-as nos cabeçalhos de pedido. Para ASP.NET aplicações 4.6, o Serviço de Aplicações povoa [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as reclamações do utilizador autenticado, para que possa seguir o padrão de código .NET, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações PHP, o Serviço de Aplicações povoa a `_SERVER['REMOTE_USER']` variável. Para aplicações Java, as reclamações estão [acessíveis a partir do servlet Tomcat.](configure-language-java.md#authenticate-users-easy-auth)
 
 Para [funções Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` não é preenchido para código .NET, mas ainda pode encontrar as reclamações do utilizador nos cabeçalhos de pedido, ou obter o objeto do contexto de pedido ou mesmo através de um parâmetro de `ClaimsPrincipal` ligação. Consulte [o trabalho com as identidades dos clientes](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para obter mais informações.
 
@@ -149,7 +149,7 @@ Com esta opção, não precisa de escrever nenhum código de autenticação na s
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Azure App Service (Windows)](tutorial-auth-aad.md)  
 [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Serviço de Aplicações Azure para o Linux](containers/tutorial-auth-aad.md)  
 [Personalizar autenticação e autorização no Serviço](app-service-authentication-how-to.md) 
  de Aplicações [.NET Integração central do Azure AppService EasyAuth (3º partido)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 

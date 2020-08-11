@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 85990aee5143c9ccc0362a00597a748763977204
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533296"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080220"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -60,7 +60,7 @@ A funcionalidade **de política instantânea** está atualmente em pré-visualiz
 2. Verifique o estado do registo da funcionalidade: 
 
     > [!NOTE]
-    > O **Estado de Registo** pode estar no estado por `Registering` alguns minutos antes de mudar para `Registered` . Aguarde até que o estado seja **registado** antes de continuar.
+    > O **Estado de Registo** pode estar no estado até `Registering` 60 minutos antes de mudar para `Registered` . Aguarde até que o estado seja **registado** antes de continuar.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
@@ -160,7 +160,7 @@ Atualmente, pode restaurar uma imagem apenas para um novo volume.
 
     ![Restaurar para novo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Clique **em Review+criar**.  Clique em **Create** (Criar).   
+4. Clique **em Review+criar**.  Clique em **Criar**.   
     O novo volume utiliza o mesmo protocolo que o instantâneo utiliza.   
     O novo volume ao qual o instantâneo é restaurado aparece na lâmina Volumes.
 

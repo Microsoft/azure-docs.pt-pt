@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores,
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1855fd201d7963fdf2f1b3fa292643908bbb05a0
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007009"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079608"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Quickstart: Debug and iterate on Kubernetes: Visual Studio & .NET Core - Azure Dev Spaces
 
@@ -78,7 +78,7 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 1. Nomeie o seu projeto *webfrontend* e clique em *Criar*.
 1. Quando solicitado, escolha *a Aplicação Web (Model-View-Controller)* para o modelo.
 1. Selecione *.NET Core* e *ASP.NET Core 2.1* no topo.
-1. Clique em *Create* (Criar).
+1. Clique em *Criar*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Ligue o seu projeto ao seu espaço dev
 
@@ -150,8 +150,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](multi-service-netcore-visualstudio.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
+> [Como funciona o Azure Dev Spaces](how-dev-spaces-works.md)
 
 [ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

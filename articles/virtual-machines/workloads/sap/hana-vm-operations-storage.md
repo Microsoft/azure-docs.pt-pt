@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053444"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080529"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -133,7 +133,7 @@ Especialmente em sistemas DBMS mais pequenos, onde a sua carga de trabalho está
 > A certificação SAP HANA para máquinas virtuais Azure M-Series é exclusivamente com O Acelerador de Escrita Azure para o volume **/hana/log.** Como resultado, espera-se que as implementações do cenário de produção SAP HANA em máquinas virtuais Azure M-Series sejam configuradas com acelerador de escrita Azure para o volume **/hana/log.**  
 
 > [!NOTE]
-> Em cenários que envolvem armazenamento premium Azure, estamos a implementar capacidades de explosão na configuração. Como está a utilizar ferramentas de teste de armazenamento de qualquer forma ou forma, mantenha em mente a forma como o [disco premium Azure funciona.](../../linux/disk-bursting.md) Executando os testes de armazenamento entregues através da ferramenta SAP HWCCT ou HCMT, não esperamos que todos os testes passem os critérios, uma vez que alguns dos testes excederão os créditos de rebentamento que pode acumular. Especialmente quando todos os testes correm sequencialmente sem pausa.
+> Em cenários que envolvem armazenamento premium Azure, estamos a implementar capacidades de explosão na configuração. Como está a utilizar ferramentas de teste de armazenamento de qualquer forma ou forma, mantenha em mente a forma como o [disco premium Azure rebenta.](../../linux/disk-bursting.md) Executando os testes de armazenamento entregues através da ferramenta SAP HWCCT ou HCMT, não esperamos que todos os testes passem os critérios, uma vez que alguns dos testes excederão os créditos de rebentamento que pode acumular. Especialmente quando todos os testes correm sequencialmente sem pausa.
 
 
 > [!NOTE]

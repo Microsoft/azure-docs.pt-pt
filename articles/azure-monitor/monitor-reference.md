@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447321"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080869"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -61,7 +61,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Active Directory B2C | Não | Não | Não |  |
 |Active Directory Domain Services | Não | Sim | Não |  |
 |Registo de atividades | Não | Sim | Não | |
-|Advanced Threat Protection | Não | Não | Não |  |
+|Proteção Avançada Contra Ameaças | Não | Não | Não |  |
 |Assistente | Não | Não | Não |  |
 |AI Builder | Não | Não | Não |  |
 |Analysis Services | Sim | Sim | Não |  |
@@ -84,10 +84,10 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Cloud Shell | Não | Não | Não |  |
 |Serviços Cognitivos | Sim | Sim | Não |  |
 |Container Instances | Sim | Não | Não |  |
-|Registo de Contentor | Sim | Sim | Não |  |
+|Container Registry | Sim | Sim | Não |  |
 |Rede de Entrega de Conteúdos (CDN) | Não | Sim | Não |  |
 |BD do Cosmos | Sim | Sim | [Sim](insights/cosmosdb-insights-overview.md) |  |
-|Gestão de Custos | Não | Não | Não |  |
+|Cost Management | Não | Não | Não |  |
 |Data Box | Não | Não | Não |  |
 |Catálogo de Dados Gen2 | Não | Não | Não |  |
 |Data Explorer | Sim | Sim | Não |  |
@@ -99,7 +99,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Base de Dados para PostgreSQL | Sim | Sim | Não |  |
 |Database Migration Service | Não | Não | Não |  |
 |Databricks | Não | Sim | Não |  |
-|Proteção contra DDoS | Sim | Sim | Não |  |
+|Proteção contra DDOS | Sim | Sim | Não |  |
 |DevOps | Não | Não | Não |  |
 |DNS | Sim | Não | Não |  |
 |Nomes de domínio | Não | Não | Não |  |
@@ -118,13 +118,13 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Intune | Não | Sim | Não |  |
 |Centro de IoT | Não | Não | Não |  |
 |IoT Hub | Sim | Sim | Não |  |
-|Cofre de Chaves | Sim | Sim | [Sim](./insights/key-vault-insights-overview.md) |  |
+|Key Vault | Sim | Sim | [Sim](./insights/key-vault-insights-overview.md) |  |
 |Serviço do Kubernetes (AKS) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
-|Load balancer | Sim | Sim | Não |  |
-|Aplicações Lógicas | Sim | Sim | Não |  |
+|Balanceador de Carga | Sim | Sim | Não |  |
+|Logic Apps | Sim | Sim | Não |  |
 |Serviço Machine Learning | Não | Não | Não |  |
 |Aplicações Geridas  | Não | Não | Não |  |
-|Maps  | Não | Não | Não |  |
+|Mapas  | Não | Não | Não |  |
 |Serviços de Multimédia | Sim | Sim | Não |  |
 |Microsoft Flow | Não | Não | Não |  |
 |Ambiente de Trabalho Gerido da Microsoft | Não | Não | Não |  |
@@ -138,21 +138,21 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Open Datasets | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
 |Power BI Embedded | Sim | Sim | Não |  |
-|Ligação Privada | Não | Não | Não |  |
+|Private Link | Não | Não | Não |  |
 |Plataforma de Comunicação de Spool de Projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
 |Cache de Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
-|Gráfico de Recursos | Não | Não | Não |  |
+|Resource Graph | Não | Não | Não |  |
 |Resource Manager | Não | Não | Não |  |
 |Pesquisa de Varejo - por Bing | Não | Não | Não |  |
-|Pesquisa | Sim | Sim | Não |  |
+|Pesquisar | Sim | Sim | Não |  |
 |Service Bus | Sim | Sim | Não |  |
 |Service Fabric | Não | Sim | Não | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
 |Portal de Inscrição | Não | Não | Não |  |
-|Site Recovery | Não | Sim | Não |  |
+|Recuperação de sites | Não | Sim | Não |  |
 |Serviço cloud de primavera | Não | Não | Não |  |
 |SQL Data Warehouse | Sim | Sim | Não |  |
-|SQL Database | Sim | Sim | Não |  |
+|Base de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
 |Pilha | Não | Não | Não |  |
 |Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
@@ -164,7 +164,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Gestor de Tráfego | Sim | Sim | Não |  |
 |Impressão Universal | Não | Não | Não |  |
 |Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
-|Virtual Machines | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
+|Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
 |Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
 |Rede Virtual - Registos de Fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
@@ -220,7 +220,7 @@ O Azure Monitor pode recolher dados de recursos fora de Azure utilizando os mét
 | Recurso | Método |
 |:---|:---|
 | Aplicações | Monitorize aplicações web fora do Azure usando Insights de Aplicação. Ver [o que é Insights de Aplicação?](./app/app-insights-overview.md). . |
-| Máquinas virtuais | Utilize o agente Log Analytics para recolher dados do sistema operativo convidado de máquinas virtuais em outros ambientes de nuvem ou no local. Consulte [recolher dados de registo com o agente Log Analytics](platform/log-analytics-agent.md). |
+| Máquinas virtuais | Utilize agentes para recolher dados do sistema operativo convidado de máquinas virtuais em outros ambientes de nuvem ou no local. Consulte [a visão geral dos agentes do Monitor Azure](platform/agents-overview.md). |
 | CLIENTE API DE DESCANSO | ApIs separados estão disponíveis para escrever dados para Azure Monitor Logs e Métricas de qualquer cliente da API REST. Consulte [Enviar dados de registo para o Azure Monitor com a API de Retorca de Dados HTTP](platform/data-collector-api.md) para Registos e Enviar [métricas personalizadas para um recurso Azure monitor para a loja métrica do Azure Monitor utilizando uma API REST](platform/metrics-store-custom-rest-api.md) para Métricas. |
 
 

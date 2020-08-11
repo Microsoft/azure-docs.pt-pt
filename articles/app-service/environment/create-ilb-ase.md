@@ -1,37 +1,37 @@
 ---
 title: Criar um ILB ASE com ARM
-description: Aprenda a criar um ambiente de Serviço de Aplicações com um equilibrador de carga interna (ILB ASE) utilizando modelos de Gestor de Recursos Azure. Isole totalmente as suas aplicações da internet.
+description: Saiba como criar um ambiente de Serviço de Aplicações com um equilibrador de carga interno (ILB ASE) utilizando modelos de Gestor de Recursos Azure. Isole totalmente as suas aplicações da internet.
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b7fa447e8564fcbf77702f1d3d474cceb48705c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c176a1169bf8acb41eeb59f916ba30df677184a3
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81114640"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080597"
 ---
-# <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um ambiente de serviço de aplicação de balanceadores de carga interna 
+# <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
 
-O Azure App Service Environment é uma implantação do Azure App Service numa subnet numa rede virtual Azure (VNet). Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE): 
+O Azure App Service Environment é uma implementação do Azure App Service numa sub-rede numa rede virtual Azure (VNet). Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE): 
 
 - Com um VIP num endereço IP externo, muitas vezes chamado ASE Externo.
 - Com um VIP num endereço IP interno, muitas vezes chamado ASE de ILB porque o ponto final interno é um balanceador de carga interno (ILB). 
 
-Este artigo mostra como criar um ASE de ILB. Para uma visão geral sobre a ASE, consulte [Introdução aos Ambientes][Intro]de Serviço de Aplicações . Para saber como criar um ASE externo, veja [Criar um ASE Externo][MakeExternalASE].
+Este artigo mostra como criar um ASE de ILB. Para obter uma visão geral sobre o ASE, consulte [Introdução aos Ambientes de Serviço de Aplicações.][Intro] Para saber como criar um ASE externo, veja [Criar um ASE Externo][MakeExternalASE].
 
 ## <a name="overview"></a>Descrição geral 
 
-Pode implementar um ASE com um ponto final acessível pela Internet ou com um endereço IP na sua VNet. Para definir o endereço IP para um endereço VNet, o ASE tem de ser implementado com um ILB. Quando implementar a sua ASE com um ILB, deve fornecer o nome da sua ASE. O nome da sua ASE é usado no sufixo de domínio para as aplicações na sua ASE.  O sufixo de domínio para &lt;o seu&gt;ILB ASE é o nome ASE .appserviceenvironment.net. As aplicações que são feitas num ILB ASE não são colocadas no DNS público. 
+Pode implementar um ASE com um ponto final acessível pela Internet ou com um endereço IP na sua VNet. Para definir o endereço IP para um endereço VNet, o ASE tem de ser implementado com um ILB. Quando colocar o seu ASE com um ILB, deve fornecer o nome do seu ASE. O nome do seu ASE é utilizado no sufixo de domínio para as aplicações no seu ASE.  O sufixo de domínio para o seu ILB ASE é &lt; o nome ASE &gt; .appserviceenvironment.net. As aplicações que são feitas num ILB ASE não são colocadas no DNS público. 
 
-Versões anteriores do ILB ASE exigiam-lhe que fornecesse um sufixo de domínio e um certificado predefinido para ligações HTTPS. O sufixo de domínio já não é recolhido na criação da ILB ASE e um certificado predefinido também já não é recolhido. Quando cria agora um ILB ASE, o certificado predefinido é fornecido pela Microsoft e é confiável pelo navegador. Ainda é possível definir nomes de domínio personalizados em aplicações na sua ASE e definir certificados nesses nomes de domínio personalizados. 
+Versões anteriores do ILB ASE obrigavam-no a fornecer um sufixo de domínio e um certificado predefinido para ligações HTTPS. O sufixo de domínio já não é recolhido na criação do ILB ASE e um certificado por defeito também já não é recolhido. Quando cria agora um ILB ASE, o certificado predefinido é fornecido pela Microsoft e é fidedigno pelo navegador. Ainda é capaz de definir nomes de domínio personalizados em aplicações no seu ASE e definir certificados nesses nomes de domínio personalizados. 
 
-Com um ILB ASE, pode fazer coisas como:
+Com um ILB ASE, você pode fazer coisas como:
 
--   Hospedar aplicações intranet de forma segura na nuvem, a que acede através de um site-para-site ou ExpressRoute.
+-   Hospedar aplicações intranet de forma segura na nuvem, a que acede através de um site-site ou ExpressRoute.
 -   Proteja aplicativos com um dispositivo WAF
 -   Alojar aplicações na cloud que não estão listadas em servidores DNS públicos.
 -   Criar aplicações back-end isoladas da Internet, nas quais as suas aplicações front-end podem ser integradas em segurança.
@@ -48,7 +48,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal Azure, selecione Criar um ambiente de serviço de**aplicações****web** > de **recursos.** > 
+1. No portal Azure, selecione **Criar um ambiente de**serviço de  >  **Web**  >  **aplicações**web de recurso.
 
 2. Selecione a sua subscrição.
 
@@ -56,7 +56,7 @@ Para criar um ASE de ILB:
 
 4. Insira o nome do seu Ambiente de Serviço de Aplicações.
 
-5. Selecione o tipo de IP virtual interno.
+5. Selecione o tipo IP virtual de Internal.
 
     ![Criação do ASE](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
@@ -65,20 +65,20 @@ Para criar um ASE de ILB:
 
 6. Selecione Networking
 
-7. Selecione ou crie uma Rede Virtual. Se criar um novo VNet aqui, será definido com uma gama de endereços de 192.168.250.0/23. Para criar um VNet com uma gama de endereços diferente ou num grupo de recursos diferente do ASE, utilize o portal de criação da Rede Virtual Azure. 
+7. Selecione ou crie uma Rede Virtual. Se criar um novo VNet aqui, será definido com um intervalo de endereços de 192.168.250.0/23. Para criar um VNet com uma gama de endereços diferente ou num grupo de recursos diferente do ASE, utilize o portal de criação da Rede Virtual Azure. 
 
-8. Selecione ou crie uma sub-rede vazia. Se quiser selecionar uma sub-rede, deve estar vazia e não delegada. O tamanho da subrede não pode ser alterado após a criação da ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
+8. Selecione ou crie uma sub-rede vazia. Se quiser selecionar uma sub-rede, deve estar vazia e não delegada. O tamanho da sub-rede não pode ser alterado após a criação do ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
 
     ![Rede ASE][1]
 
-7. Selecione **Rever e Criar** e, em seguida, selecione **Criar**.
+7. Selecione **Rever e criar** e, em seguida, selecione **Criar**.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Criar uma aplicação num ASE de ILB ##
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal Azure, selecione Criar uma**Aplicação****Web** > de **recursos.** > 
+1. No portal Azure, selecione **Criar uma**Web App  >  **Web**  >  **de**recursos.
 
 1. Introduza o nome da aplicação.
 
@@ -86,49 +86,49 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 1. Selecione ou crie um grupo de recursos.
 
-1. Selecione o seu Sistema de Publicação, Stack de Tempo de Execução e Sistema Operativo.
+1. Selecione a sua Publish, Runtime Stack e Sistema Operativo.
 
-1. Selecione um local onde a localização é um ILB ASE existente.  Também pode criar uma nova ASE durante a criação de apps, selecionando um plano de Serviço de Aplicações Isolado. Se deseja criar uma nova ASE, selecione a região em que pretende que a ASE seja criada.
+1. Selecione um local onde a localização seja um ILB ASE existente.  Também pode criar um novo ASE durante a criação de aplicações selecionando um plano de Serviço de Aplicações Isolado. Se pretender criar um novo ASE, selecione a região em que pretende que o ASE seja criado.
 
 1. Selecione ou crie um plano do Serviço de Aplicações. 
 
-1. Selecione **Rever e Criar** e, em seguida, selecione **Criar** quando estiver pronto.
+1. Selecione **'Rever e criar' e,** em seguida, selecione **Criar** quando estiver pronto.
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>WebJobs, Funções e o ASE de ILB 
 
-Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o portal funcionar com os mesmos, tem de ter acesso de rede ao site SCM.  Isto significa que o browser tem de estar num anfitrião que esteja na rede virtual ou ligado à mesma. Se o seu ILB ASE tiver um nome de domínio que não termine em *appserviceenvironment.net,* terá de fazer com que o seu navegador confie no certificado HTTPS utilizado pelo seu site scm.
+Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o portal funcionar com os mesmos, tem de ter acesso de rede ao site SCM.  Isto significa que o browser tem de estar num anfitrião que esteja na rede virtual ou ligado à mesma. Se o seu ILB ASE tiver um nome de domínio que não termina em *appserviceenvironment.net,* terá de fazer com que o seu navegador confie no certificado HTTPS que está a ser utilizado pelo seu site scm.
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
 
-Quando utiliza um VIP Externo, o DNS é gerido pelo Azure. Qualquer aplicação criada no seu ASE é adicionada automaticamente ao DNS do Azure, que é um DNS público. Num ASE de ILB, tem de gerir o seu próprio DNS. O sufixo de domínio utilizado com um ILB ASE depende do nome da ASE. O sufixo de domínio é * &lt;o nome&gt;ASE .appserviceenvironment.net*. O endereço IP do seu ILB está no portal sob **endereços IP**. 
+Quando utiliza um VIP Externo, o DNS é gerido pelo Azure. Qualquer aplicação criada no seu ASE é adicionada automaticamente ao DNS do Azure, que é um DNS público. Num ASE de ILB, tem de gerir o seu próprio DNS. O sufixo de domínio utilizado com um ILB ASE depende do nome do ASE. O sufixo de domínio é * &lt; o nome ASE &gt; .appserviceenvironment.net*. O endereço IP do seu ILB está no portal nos **endereços IP**. 
 
 Para configurar o seu DNS:
 
-- criar uma zona para * &lt;o nome&gt;ASE .appserviceenvironment.net*
-- criar um registo A nessa zona que aponta * para o endereço IP ILB
-- criar um registo A nessa zona que aponta @ para o endereço IP ILB
-- criar uma zona em * &lt;nome&gt;ASE .appserviceenvironment.net* nomeado scm
+- criar uma zona para * &lt; o nome ASE &gt; .appserviceenvironment.net*
+- criar um registo A naquela zona que aponta * para o endereço IP ILB
+- criar um registo A naquela zona que aponta @ para o endereço IP ILB
+- criar uma zona em * &lt; nome ASE &gt; .appserviceenvironment.net* nomeado scm
 - criar um registo A na zona scm que aponta * para o endereço IP ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicar com um ASE de ILB
 
-Para cada aplicação criada, existem dois pontos finais. Num ILB ASE, * &lt;tem&gt;o&lt; nome da aplicação. Domínio&gt; ILB ASE* e * &lt;&gt;nome&lt; de aplicativo .scm. Domínio&gt;ILB ASE*. 
+Para cada aplicação criada, existem dois pontos finais. Num ILB ASE, tem * &lt; o nome da &gt; aplicação. &lt; ILB ASE &gt; Domain* e * &lt; nome de aplicação &gt; .scm. &lt; Domínio &gt; ILB ASE*. 
 
 O nome do site SCM leva-o para a consola Kudu, denominada **Portal avançado**, no portal do Azure. A consola Kudu permite-lhe ver as variáveis de ambiente, explorar o disco, utilizar uma consola e muito mais. Para obter mais informações, veja [Consola Kudu para o Serviço de Aplicações do Azure][Kudu]. 
 
 Os sistemas CI baseados na Internet, como o GitHub e o Azure DevOps, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Azure DevOps, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do git do Azure DevOps e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
-Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e na lâmina do portal da aplicação (**Overview** > **Essentials** e também **Properties**). Se tiver um ILB ASE com o * &lt;nome&gt;ASE*de domínio .appserviceenvironment.net , e uma aplicação chamada *mytest,* use *o meutest.&lt; Nome ASE&gt;.appserviceenvironment.net* para FTP e *mytest.scm.contoso.net* para implantação web.
+Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e na lâmina do portal da aplicação **(Overview**  >  **Essentials** e também **Properties).** Se tiver um ILB ASE com o sufixo de domínio * &lt; ASE &gt; .appserviceenvironment.net*, e uma aplicação chamada *mytest*, use *o meutest. &lt; Nome ASE &gt; .appserviceenvironment.net* para FTP e *mytest.scm.contoso.net* para implantação web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configure um ILB ASE com um dispositivo WAF ##
 
-Pode combinar um dispositivo de firewall de aplicação web (WAF) com o seu ILB ASE para expor apenas as aplicações que deseja para a internet e manter o resto apenas acessível a partir do VNet. Isto permite-lhe construir aplicações seguras de vários níveis, entre outras coisas.
+Pode combinar um dispositivo de firewall de aplicação web (WAF) com o seu ILB ASE para apenas expor as aplicações que deseja à internet e manter o resto apenas acessível a partir do VNet. Isto permite-lhe construir aplicações seguras de vários níveis, entre outras coisas.
 
-Para saber mais sobre como configurar o seu ILB ASE com um dispositivo WAF, consulte configurar uma firewall de [aplicação web com o seu ambiente de Serviço de Aplicações][ASEWAF]. Este artigo mostra como utilizar uma aplicação virtual Barracuda com o seu ASE. Outra opção é utilizar o Gateway de Aplicação do Azure. O Gateway de Aplicação utiliza as regras de base da OWASP para proteger todas as aplicações colocadas atrás. Para obter mais informações sobre o Gateway de Aplicação, veja [Introdução à firewall de aplicações Web do Azure][AppGW].
+Para saber mais sobre como configurar o seu ILB ASE com um dispositivo WAF, consulte [configurar uma firewall de aplicação web com o seu ambiente de Serviço de Aplicações.][ASEWAF] Este artigo mostra como utilizar uma aplicação virtual Barracuda com o seu ASE. Outra opção é utilizar o Gateway de Aplicação do Azure. O Gateway de Aplicação utiliza as regras de base da OWASP para proteger todas as aplicações colocadas atrás. Para obter mais informações sobre o Gateway de Aplicação, veja [Introdução à firewall de aplicações Web do Azure][AppGW].
 
-## <a name="ilb-ases-made-before-may-2019"></a>ILB ASEs feito antes de maio de 2019
+## <a name="ilb-ases-made-before-may-2019"></a>ASES do ILB feitas antes de maio de 2019
 
-AsEs ILB que foram feitas antes de maio de 2019 exigiram que você definisse o sufixo de domínio durante a criação da ASE. Também o obrigaram a fazer o upload de um certificado predefinido baseado nesse sufixo de domínio. Além disso, com um ILB ASE mais antigo não podes realizar um único sign-on na consola Kudu com aplicações nesse ILB ASE. Ao configurar DNS para um ILB ASE mais antigo, precisa de estabelecer o recorde de wildcard A numa zona que corresponda ao sufixo de domínio. 
+AsEs ILB que foram feitas antes de maio de 2019 obrigaram-no a definir o sufixo de domínio durante a criação da ASE. Também obrigaram a carregar um certificado predefinido que se baseava nesse sufixo de domínio. Além disso, com um ILB ASE mais antigo não é possível realizar um único sign-on na consola Kudu com aplicações nesse ILB ASE. Ao configurar o DNS para um ILB ASE mais antigo, é necessário estabelecer o wildcard A numa zona que corresponda ao sufixo de domínio. 
 
 ## <a name="get-started"></a>Introdução ##
 
@@ -160,4 +160,4 @@ AsEs ILB que foram feitas antes de maio de 2019 exigiram que você definisse o s
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
-[linuxapp]: ../containers/app-service-linux-intro.md
+[linuxapp]: ../overview.md#app-service-on-linux

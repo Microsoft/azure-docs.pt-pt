@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76939104"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079489"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
-Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web Azure e\.ter os seus utilizadores a aceder em www contoso.com ou contoso.com como um nome de domínio totalmente qualificado (FQDN).
+Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web Azure e fazer com que os seus utilizadores acedam a ela utilizando \. www contoso.com ou contoso.com como um nome de domínio totalmente qualificado (FQDN).
 
 > [!NOTE]
 > Contoso.com é utilizado como um exemplo neste tutorial. Substitua o seu nome de domínio por contoso.com.
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 > * Testar os nomes de anfitrião personalizados
 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,8 +47,8 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Deve ter um nome de domínio disponível para testar com o mesmo que pode hospedar no Azure DNS . Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
-* [Crie uma aplicação do Serviço de Aplicações](../app-service/app-service-web-get-started-html.md) ou utilize uma aplicação que tenha criado para outro tutorial.
+* Deve ter um nome de domínio disponível para testar com o que pode hospedar no Azure DNS . Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
+* [Crie uma aplicação do Serviço de Aplicações](../app-service/quickstart-html.md) ou utilize uma aplicação que tenha criado para outro tutorial.
 
 * Crie uma zona DNS no DNS do Azure e delegue a zona na sua entidade de registo ao DNS do Azure.
 
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Os Serviços Aplicacionais utilizam este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Pode eliminar este registo TXT após a validação e configuração do domínio personalizado no Serviço de Aplicações.
 
 > [!NOTE]
-> Se pretender verificar o nome de domínio, mas não encaminhar o tráfego de produção para a aplicação web, apenas precisa especificar o registo TXT para a etapa de verificação.  A verificação não requer um registo A ou CNAME para além do registo TXT.
+> Se quiser verificar o nome de domínio, mas não encaminhar o tráfego de produção para a aplicação web, apenas precisa de especificar o registo TXT para a etapa de verificação.  A verificação não requer um registo A ou CNAME para além do registo TXT.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,14 +173,14 @@ set-AzWebApp `
 Abra um browser e navegue até `http://www.<your domainname>` e `http://<you domain name>`.
 
 > [!NOTE]
-> Certifique-se de `http://` que inclui o prefixo, caso contrário o seu navegador poderá tentar prever um URL para si!
+> Certifique-se de que inclui o `http://` prefixo, caso contrário o seu navegador poderá tentar prever um URL para si!
 
 Deverá ver a mesma página para ambos os URLs. Por exemplo:
 
 ![Serviço de aplicações da Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos criados neste tutorial, pode eliminar o grupo de recursos **myresourcegroup**.
 

@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056929"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079591"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Submeter qualquer tipo de execução | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publicação de um ponto final do gasoduto | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implantação de um modelo registado num recurso AKS/ACI | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Pontuação contra um ponto final AKS implantado | não é necessário | não é necessário | Titular, colaborador ou papel personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando não estiver a utilizar auth AAD) OR `"/workspaces/read"` (quando estiver a utilizar auth simbólico) |
+| Pontuação contra um ponto final AKS implantado | não é necessário | não é necessário | Titular, colaborador ou papel personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando não estiver a utilizar auth Azure Ative Directory) OR `"/workspaces/read"` (quando estiver a utilizar auth token) |
 | Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Criar novo papel personalizado | Titular, colaborador ou papel personalizado permitindo`Microsoft.Authorization/roleDefinitions/write` | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ Também podem ser encontrados na lista de operações do fornecedor de [recursos
 Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado em funções Azure (Azure RBAC):
 
 - Quando se cria um recurso em Azure, digamos um espaço de trabalho, não é diretamente o proprietário do espaço de trabalho. O seu papel é herdado do mais alto papel de âmbito contra o que está autorizado nessa subscrição. Como exemplo, se for um Administrador de Rede e tiver as permissões para criar um espaço de trabalho de Machine Learning, será-lhe atribuída a função de Administrador de Rede contra esse espaço de trabalho, e não a função de Proprietário.
-- Quando existem duas atribuições de funções para o mesmo utilizador AAD com secções contraditórias de Ações/NotActions, as suas operações listadas em NotActions de uma função podem não produzir efeitos se também estiverem listadas como Ações noutra função. Para saber mais sobre como a Azure analisa atribuições de funções, leia [como o Azure RBAC determina se um utilizador tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- Para implementar os seus recursos de computação dentro de um VNet, precisa de ter explicitamente permissões para "Microsoft.Network/virtualNetworks/join/action" nesse recurso VNet.
-- Às vezes pode levar até 1 hora para as suas novas tarefas de função fazerem efeito sobre permissões em cache através da pilha.
+- Quando existem duas atribuições de funções ao mesmo utilizador do Azure Ative Directory com secções contraditórias de Ações/NotActions, as suas operações listadas em NotActions de uma função podem não produzir efeitos se também estiverem listadas como Ações noutra função. Para saber mais sobre como a Azure analisa atribuições de funções, leia [como o Azure RBAC determina se um utilizador tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Para implementar os seus recursos de computação dentro de um VNet, precisa de ter explicitamente permissões para as seguintes ações:
+    - "Microsoft.Network/virtualNetworks/join/action" no recurso VNet.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" no recurso sub-rede.
+    
+    Para obter mais informações sobre o RBAC com as [funções de networking incorporadas](/azure/role-based-access-control/built-in-roles#networking).
 
+- Às vezes pode levar até 1 hora para as suas novas tarefas de função fazerem efeito sobre permissões em cache através da pilha.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>P. Que permissões preciso para usar uma identidade gerida atribuída pelo utilizador com os meus clusters Amlcompute?
 

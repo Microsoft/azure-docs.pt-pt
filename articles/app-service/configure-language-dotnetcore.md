@@ -1,24 +1,27 @@
 ---
-title: Configurar apps do Windows ASP.NET Core
-description: Saiba como configurar uma aplicação Core ASP.NET nas instâncias nativas do Windows do Serviço de Aplicações. Este artigo mostra as tarefas de configuração mais comuns.
+title: Configurar aplicativos core ASP.NET
+description: Saiba como configurar uma aplicação Core ASP.NET nas instâncias nativas do Windows, ou num recipiente Linux pré-construído, no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5819fc5b2d6e64d1812dacd88a2a4f840f6e03c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908148"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080169"
 ---
-# <a name="configure-a-windows-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação Core windows ASP.NET para o Azure App Service
+# <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação core ASP.NET para o Azure App Service
 
 > [!NOTE]
 > Para ASP.NET em .NET Framework, consulte [configurar uma aplicação ASP.NET para o Azure App Service](configure-language-dotnet-framework.md)
 
-ASP.NET as aplicações Core devem ser implantadas no Azure App Service como binários compilados. A ferramenta de publicação visual Studio constrói a solução e, em seguida, implanta os binários compilados diretamente, enquanto o motor de implementação do Serviço de Aplicações implementa primeiro o repositório de código e, em seguida, compila os binários. Para obter informações sobre aplicações Linux, consulte [configurar uma aplicação Linux ASP.NET Core para o Azure App Service](containers/configure-language-dotnetcore.md).
+ASP.NET as aplicações Core devem ser implantadas no Azure App Service como binários compilados. A ferramenta de publicação visual Studio constrói a solução e, em seguida, implanta os binários compilados diretamente, enquanto o motor de implementação do Serviço de Aplicações implementa primeiro o repositório de código e, em seguida, compila os binários.
 
-Este guia fornece conceitos e instruções fundamentais para ASP.NET desenvolvedores do Core. Se nunca usou o Azure App Service, siga primeiro o [ASP.NET quickstart](app-service-web-get-started-dotnet.md) e [ASP.NET Core com o tutorial SQL Database.](app-service-web-tutorial-dotnetcore-sqldb.md)
+Este guia fornece conceitos e instruções fundamentais para ASP.NET desenvolvedores do Core. Se nunca usou o Azure App Service, siga primeiro o [ASP.NET Core quickstart](quickstart-dotnetcore.md) e [ASP.NET Core com o tutorial SQL Database.](tutorial-dotnetcore-sqldb-app.md)
+
+::: zone pivot="platform-windows"  
 
 ## <a name="show-supported-net-core-runtime-versions"></a>Mostrar versões de tempo de execução .NET Core suportadas
 
@@ -28,9 +31,69 @@ No Serviço de Aplicações, as instâncias do Windows já têm todas as versõe
 dotnet --info
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="show-net-core-version"></a>Mostrar a versão .NET Core
+
+Para mostrar a versão atual .NET Core, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Para mostrar todas as versões suportadas .NET Core, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep DOTNETCORE
+```
+
+::: zone-end
+
 ## <a name="set-net-core-version"></a>Definir versão .NET Core
 
+::: zone pivot="platform-windows"  
+
 Desaponte o quadro-alvo no ficheiro do projeto para o seu projeto core ASP.NET. Para obter mais informações, consulte [Selecione a versão .NET Core para utilizar](https://docs.microsoft.com/dotnet/core/versions/selection) na documentação .NET Core.
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Executar o seguinte comando na [Cloud Shell](https://shell.azure.com) para definir a versão .NET Core para 3.1:
+
+```azurecli-interactive
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|3.1"
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="customize-build-automation"></a>Personalize a automatização de construção
+
+Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
+
+1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH` .
+1. Corra `dotnet restore` para restaurar as dependências do NuGet.
+1. Correr `dotnet publish` para construir um binário para a produção.
+1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
+
+`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
+
+O exemplo a seguir especifica as duas variáveis a uma série de comandos, separados por vírgulas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Para variáveis ambientais adicionais para personalizar a automatização de construção, consulte [a configuração oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Para obter mais informações sobre como o App Service funciona e constrói ASP.NET aplicações Core em Linux, consulte [a documentação do Oryx: Como são detetadas e construídas aplicações .NET Core](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
+
+::: zone-end
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
@@ -115,7 +178,7 @@ No Serviço de Aplicações, a [rescisão de SSL](https://wikipedia.org/wiki/TLS
 
 - Configure o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os `X-Forwarded-For` e `X-Forwarded-Proto` cabeçalhos em `Startup.ConfigureServices` .
 - Adicione intervalos de endereços IP privados às redes conhecidas, para que o middleware possa confiar no equilibrador de carga do Serviço de Aplicações.
-- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) `Startup.Configure` antes de ligar para outros middlewares.
+- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) `Startup.Configure` antes de ligar para outros middleware.
 
 Juntando os três elementos, o seu código parece ser o seguinte exemplo:
 
@@ -146,7 +209,25 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Para obter mais informações, consulte [o Configure ASP.NET Core para trabalhar com servidores proxy e equilibradores de carga](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-## <a name="next-steps"></a>Próximos passos
+::: zone pivot="platform-linux"
+
+## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core app com base de dados SQL](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [Tutorial: ASP.NET Core app com base de dados SQL](tutorial-dotnetcore-sqldb-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+
+::: zone-end
+

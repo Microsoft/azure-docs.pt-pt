@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386848"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080699"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -131,6 +131,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 ### <a name="general-limitations"></a>Limitações gerais
 
 - Uma mesa não pode ter uma coluna de identidade que não seja a chave principal.
+- Uma tabela deve ter um índice agrupado para utilizar a sincronização de dados.
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binário, varbinário, imagem, xml.
 - Tenha cuidado quando utilizar os seguintes tipos de dados como chave primária, porque a precisão suportada é apenas para a segunda: hora, data, data 2, datatimeoff.
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), suporte quadrado esquerdo ([) ou suporte quadrado direito (]).
@@ -193,7 +194,7 @@ O SQL Data Sync está disponível em todas as regiões.
 
 ### <a name="is-a-sql-database-account-required"></a>É necessária uma conta SQL Database
 
-Yes. Deve ter uma conta SQL Database para hospedar a base de dados do hub.
+Sim. Deve ter uma conta SQL Database para hospedar a base de dados do hub.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Posso usar o Data Sync para sincronizar apenas entre bases de dados do SQL Server
 
@@ -201,18 +202,18 @@ Não diretamente. No entanto, pode sincronizar indiretamente entre bases de dado
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes subscrições
 
-Yes. Pode sincronizar entre bases de dados pertencentes a grupos de recursos pertencentes a diferentes subscrições.
+Sim. Pode sincronizar entre bases de dados pertencentes a grupos de recursos pertencentes a diferentes subscrições.
 
 - Se as subscrições pertencerem ao mesmo inquilino, e tiver permissão para todas as subscrições, pode configurar o grupo de sincronização no portal Azure.
 - Caso contrário, terá de utilizar o PowerShell para adicionar os membros sincronizados que pertencem a diferentes subscrições.
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes nuvens (como Azure Public Cloud e Azure China 21Vianet)
 
-Yes. Pode sincronizar entre bases de dados que pertencem a diferentes nuvens. Tem de utilizar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
+Sim. Pode sincronizar entre bases de dados que pertencem a diferentes nuvens. Tem de utilizar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Posso usar o Data Sync para sementerar dados da minha base de dados de produção para uma base de dados vazia, e depois sincronizá-los
 
-Yes. Crie o esquema manualmente na nova base de dados, scriptando-o a partir do original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-lo sincronizado.
+Sim. Crie o esquema manualmente na nova base de dados, scriptando-o a partir do original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-lo sincronizado.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Devo usar o SQL Data Sync para fazer o back up e restaurar as minhas bases de dados
 
@@ -227,7 +228,7 @@ Para obter uma técnica de backup recomendada, consulte [copiar uma base de dado
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>É colagem suportada no SQL Data Sync
 
-Yes. SQL Data Sync suporta a colagem nos seguintes cenários:
+Sim. SQL Data Sync suporta a colagem nos seguintes cenários:
 
 - Se as tabelas de esquemas de sincronização selecionadas já não estiverem no seu centro ou bases de dados dos membros, então quando implementa o grupo de sincronização, o serviço cria automaticamente as tabelas e colunas correspondentes com as definições de colisão selecionadas nas bases de dados de destino vazias.
 - Se as tabelas a serem sincronizadas já existirem tanto no seu hub como nas bases de dados dos membros, o SQL Data Sync requer que as colunas-chave primárias tenham a mesma colagem entre bases de dados do hub e dos membros para implementar com sucesso o grupo de sincronização. Não existem restrições de colagem em colunas que não as colunas-chave primárias.
@@ -240,7 +241,7 @@ A Federation Root Database pode ser utilizada no Serviço de Sincronização de 
 
 O Dynamics 365 traz a sua própria funcionalidade de base de dados permite aos administradores exportar entidades de dados da aplicação para a sua própria base de dados Microsoft Azure SQL. O Data Sync pode ser utilizado para sincronizar estes dados noutras bases de dados se os dados forem exportados através de **um impulso incremental** (o impulso total não é suportado) e permitir que os **gatilhos na base de dados-alvo** sejam definidos como **sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="update-the-schema-of-a-synced-database"></a>Atualizar o esquema de uma base de dados sincronizada
 

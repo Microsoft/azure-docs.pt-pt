@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832812"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080322"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -64,11 +64,11 @@ Pode migrar as suas aplicações existentes para o Serviço de Aplicações util
 
 > **Quando utilizar**: Utilize o Serviço de Aplicações quando estiver a migrar aplicações web existentes para o Azure, e quando necessitar de uma plataforma de hospedagem totalmente gerida para as suas aplicações web. Também pode utilizar o Serviço de Aplicações quando precisar de apoiar clientes móveis ou expor as APIs rest com a sua aplicação.
 >
-> **Começar**: O Serviço de Aplicações facilita a criação e implementação da sua primeira [aplicação web,](../../app-service/app-service-web-get-started-dotnet.md) [aplicação móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md)ou [app API.](../../app-service/app-service-web-tutorial-rest-api.md)
+> **Começar**: O Serviço de Aplicações facilita a criação e implementação da sua primeira [aplicação web,](../../app-service/quickstart-dotnetcore.md) [aplicação móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md)ou [app API.](../../app-service/app-service-web-tutorial-rest-api.md)
 >
 > **Experimente agora:** O Serviço de Aplicações permite-lhe aprovisionar uma app de curta duração para experimentar a plataforma sem ter de se inscrever para uma conta Azure. Experimente a plataforma e [crie a sua aplicação Azure App Service](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
+#### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Microsoft Azure
 
 Como fornecedor de Infraestruturas como Prestador de Serviços (IaaS), o Azure permite-lhe implementar ou migrar a sua aplicação para Windows ou Linux VMs. Juntamente com a Rede Virtual Azure, a Azure Virtual Machines suporta a implementação de Windows ou Linux VMs para Azure. Com os VMs, tem controlo total sobre a configuração da máquina. Ao utilizar VMs, é responsável por todas as instalações, configurações, manutenção e patches do sistema operativo.
 

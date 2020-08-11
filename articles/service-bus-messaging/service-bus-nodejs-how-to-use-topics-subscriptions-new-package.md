@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5afe5eded4937631d25ab94edc1908b7ac83d383
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067482"
+ms.locfileid: "88080631"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como usar tópicos e subscrições do Service Bus com Node.js e o pacote azure/service-bus
 Neste tutorial, aprende-se a escrever um programa Node.js para enviar mensagens para um tópico de Service Bus e receber mensagens de uma assinatura de Service Bus utilizando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote. Este pacote utiliza o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo utilizou [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). As amostras estão escritas em JavaScript.
@@ -22,7 +22,7 @@ Neste tutorial, aprende-se a escrever um programa Node.js para enviar mensagens 
 - Se não tiver um tópico e subscrição para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-topics-subscriptions-portal.md) artigo de Serviço Bus e subscrições para criá-los. Note a cadeia de ligação para a sua instância de Service Bus e os nomes do tópico e subscrição que criou. Usaremos estes valores nas amostras.
 
 > [!NOTE]
-> - Este tutorial funciona com amostras que pode copiar e executar usando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure](../app-service/app-service-web-get-started-nodejs.md), ouNode.js Cloud Service utilizando o Windows [PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Este tutorial funciona com amostras que pode copiar e executar usando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure](../app-service/quickstart-nodejs.md), ouNode.js Cloud Service utilizando o Windows [PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - O novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote ainda não suporta a criação de topcis e subscrições. Por favor, use o [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) pacote se quiser criá-los programáticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote

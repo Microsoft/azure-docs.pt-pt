@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671690"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080478"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>FAQs de implementação para Aplicações Web do Azure
 
@@ -40,7 +40,7 @@ Para resolver este erro, atualize para o [SDK mais recente](https://azure.micros
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Como posso implementar uma aplicação ASP.NET do Visual Studio para o App Service?
 <a id="deployasp"></a>
 
-O tutorial [Criar a sua primeira aplicação web ASP.NET em Azure em cinco minutos](app-service-web-get-started-dotnet.md) mostra-lhe como implementar uma aplicação web ASP.NET para uma aplicação web no App Service, utilizando o Visual Studio.
+O tutorial [Criar a sua primeira aplicação web ASP.NET em Azure em cinco minutos](quickstart-dotnetcore.md) mostra-lhe como implementar uma aplicação web ASP.NET para uma aplicação web no App Service, utilizando o Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
 

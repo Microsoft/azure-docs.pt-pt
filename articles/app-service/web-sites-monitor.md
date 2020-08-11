@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482688"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079676"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -64,11 +64,15 @@ Pode aumentar ou remover quotas da sua aplicação através da atualização do 
 > [!IMPORTANT]
 > **O tempo médio de resposta** será depreciado para evitar confusões com agregações métricas. Utilize o **Tempo de Resposta** como substituto.
 
+> [!NOTE]
+> As métricas para uma aplicação incluem os pedidos para o site SCM da aplicação (Kudu).  Isto inclui pedidos para visualizar o logstream do site usando Kudu.  Os pedidos de logstream podem abranger vários minutos, o que afetará as métricas do Tempo de Pedido.  Os utilizadores devem estar cientes desta relação ao utilizar estas métricas com lógica de autoescala.
+> 
+
 As métricas fornecem informações sobre a app ou o comportamento do plano de Serviço de Aplicações.
 
 Para uma aplicação, as métricas disponíveis são:
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | --- | --- |
 | **Tempo de resposta** | O tempo que a app demorou a servir pedidos, em segundos. |
 | **Tempo médio de resposta (precotado)** | O tempo médio de tempo necessário para a app servir pedidos, em segundos. |
@@ -112,7 +116,7 @@ Para um plano de Serviço de Aplicações, as métricas disponíveis são:
 > As métricas do plano de aplicação estão disponíveis apenas para planos nos níveis *Básico,* *Standard*e *Premium.*
 > 
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | --- | --- |
 | **Percentagem de CPU** | O CPU médio usado em todas as instâncias do plano. |
 | **Percentagem de Memória** | A memória média usada em todos os casos do plano. |

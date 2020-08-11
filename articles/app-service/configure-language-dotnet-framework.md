@@ -4,12 +4,12 @@ description: Saiba como configurar uma aplicação ASP.NET no Azure App Service.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908151"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080152"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configure uma aplicação ASP.NET para o Azure App Service
 
@@ -18,7 +18,7 @@ ms.locfileid: "84908151"
 
 ASP.NET aplicações devem ser implementadas para o Azure App Service como binários compilados. A ferramenta de publicação visual Studio constrói a solução e, em seguida, implanta os binários compilados diretamente, enquanto o motor de implementação do Serviço de Aplicações implementa primeiro o repositório de código e, em seguida, compila os binários.
 
-Este guia fornece conceitos e instruções fundamentais para ASP.NET desenvolvedores. Se nunca usou o Azure App Service, siga primeiro o [ASP.NET quickstart](app-service-web-get-started-dotnet-framework.md) e [ASP.NET com tutorial sql Database.](app-service-web-tutorial-dotnet-sqldatabase.md)
+Este guia fornece conceitos e instruções fundamentais para ASP.NET desenvolvedores. Se nunca usou o Azure App Service, siga primeiro o [ASP.NET quickstart](quickstart-dotnet-framework.md) e [ASP.NET com tutorial sql Database.](app-service-web-tutorial-dotnet-sqldatabase.md)
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Mostrar versões de tempo de execução .NET Framework suportadas
 
@@ -104,7 +104,7 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)

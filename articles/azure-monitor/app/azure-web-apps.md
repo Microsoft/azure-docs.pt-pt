@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876398"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079710"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -65,7 +65,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 | Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
 | Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
 | Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -401,7 +401,7 @@ Para obter as informações mais recentes sobre o agente/extensão application i
 
 Quando cria uma aplicação web com os `ASP.NET` tempos de `.NET Core` execução ou tempos de execução nos Serviços de Aplicações Azure, implementa uma única página de HTML estática como um website inicial. A página web estática também carrega uma peça web gerida .NET no IIS. Isto permite testar a monitorização do lado do servidor sem código, mas não suporta a monitorização automática do lado do cliente.
 
-Se desejar testar o servidor sem código e a monitorização do lado do cliente para ASP.NET ou ASP.NET Core numa aplicação web Azure App Services recomendamos seguir os guias oficiais para [criar uma aplicação web Core ASP.NET](../../app-service/app-service-web-get-started-dotnet.md) e criar uma [aplicação web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para permitir a monitorização.
+Se desejar testar o servidor sem código e a monitorização do lado do cliente para ASP.NET ou ASP.NET Core numa aplicação web Azure App Services recomendamos seguir os guias oficiais para [criar uma aplicação web Core ASP.NET](../../app-service/quickstart-dotnetcore.md) e criar uma [aplicação web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para permitir a monitorização.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress não são suportados
 

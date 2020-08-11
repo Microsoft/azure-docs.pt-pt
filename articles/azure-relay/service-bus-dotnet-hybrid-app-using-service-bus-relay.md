@@ -3,12 +3,12 @@ title: Azure Windows Communication Foundation (WCF) Relay híbrido no local/apli
 description: Saiba como expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314414"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079965"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
 
@@ -50,7 +50,7 @@ Os arquitetos de soluções estão a começar a utilizar a nuvem para um process
 
 Neste tutorial, cria-se um website ASP.NET que lhe permite ver uma lista de produtos na página de inventário do produto.
 
-![Scenario][0]
+![Cenário][0]
 
 O tutorial parte do princípio de que tem informações do produto num sistema no local existente e utiliza o Reencaminhamento do Azure para chegar a esse sistema. Um serviço web que funciona numa simples aplicação de consola simula esta situação. Contém um conjunto de produtos na memória. Pode executar esta aplicação de consola no seu próprio computador e implementar a função web no Azure. Ao fazê-lo, verá como o papel web que funciona no datacenter Azure chama para o seu computador. Esta chamada acontece mesmo que o seu computador esteja quase certamente por trás de pelo menos uma firewall e uma camada de tradução de endereços de rede (NAT).
 
@@ -244,7 +244,7 @@ Nesta secção, constrói uma aplicação de ASP.NET simples que exibe dados obt
     ![Especificar a autenticação][18]
 
 1. De volta **a Criar uma nova aplicação web ASP.NET,** selecione **Criar** para criar a aplicação MVC.
-1. Configure recursos Azure para uma nova aplicação web. Siga os passos na [Publicação da sua aplicação web.](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard) Então, volte a este tutorial e continue para o próximo passo.
+1. Configure recursos Azure para uma nova aplicação web. Siga os passos na [Publicação da sua aplicação web.](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard) Então, volte a este tutorial e continue para o próximo passo.
 1. No **Solution Explorer,** clique à direita **nos modelos** e, em seguida, selecione **Add**  >  **Class**.
 1. Nomeie a classe *Product.cs,* em seguida, **selecione Add**.
 
@@ -427,7 +427,7 @@ Feche ambas as candidaturas antes de avançar para a secção seguinte.
 
 O próximo passo é reeditar a aplicação Azure Web **ProductsPortal** front end:
 
-1. No **Solution Explorer,** clique com o botão direito no projeto **ProductsPortal** e selecione **Publicar.** Na página **publicar,** **selecione Publicar.**
+1. No **Solution Explorer,** clique com o botão direito no projeto **ProductsPortal** e selecione **Publicar.** Na página **Publish** (Publicar), selecione **Publish** (Publicar).
 
    > [!NOTE]
    > Poderá ver uma mensagem de erro na janela do browser quando o projeto Web **ProductsPortal** for executado automaticamente após a implementação. Tal é esperado e ocorre dado que a aplicação **ProductsServer** ainda não está em execução.
@@ -465,7 +465,7 @@ No navegador, atualize a página **ProdutosPortal.** Cada vez que atualiza a pá
 
 ![Saída atualizada][38]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avançar para o tutorial seguinte:
 

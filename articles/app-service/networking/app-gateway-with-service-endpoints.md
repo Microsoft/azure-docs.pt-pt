@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980065"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080937"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração de Gateway de Aplicação com pontos finais de serviço
 Existem três variações do Serviço de Aplicações que requerem uma configuração ligeiramente diferente da integração com o Azure Application Gateway. As variações incluem o Serviço regular de Aplicações - também conhecido como multi-inquilino, Internal Load Balancer (ILB) App Service Environment (ASE) e ASE Externo. Este artigo irá percorrer como configurá-lo com o App Service (multi-inquilino) e discutir considerações sobre iLB, e ASE Externo.
@@ -33,7 +33,7 @@ Existem duas partes para esta configuração além de criar o Serviço de Aplica
 
 ## <a name="using-azure-portal"></a>Com o Portal do Azure
 Com o portal Azure, segue quatro passos para a disposição e configuração da configuração. Se tiver recursos existentes, pode saltar os primeiros passos.
-1. Criar um Serviço de Aplicações utilizando um dos Quickstarts na documentação do Serviço de Aplicações, por [exemplo.Net Core Quickstart](../../app-service/app-service-web-get-started-dotnet.md)
+1. Criar um Serviço de Aplicações utilizando um dos Quickstarts na documentação do Serviço de Aplicações, por [exemplo.Net Core Quickstart](../quickstart-dotnetcore.md)
 2. Crie um Gateway de Aplicação utilizando o [portal Quickstart,](../../application-gateway/quick-create-portal.md)mas ignore a secção de alvos de backend Add.
 3. Configure o [Serviço de Aplicações como backend no Gateway de Aplicações,](../../application-gateway/configure-web-app-portal.md)mas ignore a secção de acesso Restrict.
 4. Finalmente criar a restrição de [acesso utilizando pontos finais de serviço](../../app-service/app-service-ip-restrictions.md#service-endpoints).
@@ -83,7 +83,7 @@ Se quiser definir restrições de acesso individuais para o site scm, pode adici
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o Ambiente do Serviço de Aplicações, consulte [a documentação do App Service Environment](https://docs.microsoft.com/azure/app-service/environment).
 
 Para garantir ainda mais a sua aplicação web, informações sobre firewall de aplicação web no Gateway de aplicações podem ser encontradas na [documentação Azure Web Application Firewall](../../web-application-firewall/ag/ag-overview.md).

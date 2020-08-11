@@ -4,12 +4,12 @@ description: Saiba como invocar processos de negócio a partir da sua aplicaçã
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083247"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080971"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Enviar e-mail e invocar outros processos de negócio do Serviço de Aplicações
 
@@ -32,23 +32,23 @@ Implemente uma aplicação com o enquadramento linguístico da sua escolha para 
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-[Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+[Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Tutorial: Construa uma aplicação Node.js e MongoDB em Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Tutorial: Construa uma aplicação Node.js e MongoDB em Azure](tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-[Tutorial: Construa uma app PHP e MySQL em Azure](app-service-web-tutorial-php-mysql.md)
+[Tutorial: Construa uma app PHP e MySQL em Azure](tutorial-php-mysql-app.md)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-[Tutorial: Executar uma aplicação web Python (Django) com PostgreSQL em Azure App Service](containers/tutorial-python-postgresql-app.md)
+[Tutorial: Executar uma aplicação web Python (Django) com PostgreSQL em Azure App Service](tutorial-python-postgresql-app.md)
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-[Construa uma app Ruby e Postgres no Azure App Service em Linux](containers/tutorial-ruby-postgres-app.md)
+[Construa uma app Ruby e Postgres no Azure App Service em Linux](tutorial-ruby-postgres-app.md)
 
 ---
 
@@ -191,7 +191,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/containers/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     
@@ -201,7 +201,7 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > Este código está escrito para a simplicidade da demonstração. Na prática, não instantiem um `HttpClient` objeto para cada pedido. Siga as orientações da [Use IHttpClientFactory para implementar pedidos HTTP resilientes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-Se estiver a testar este código na aplicação da amostra para [Tutorial: Construa uma aplicação core e SQL Database ASP.NET no Azure App Service,](app-service-web-tutorial-dotnetcore-sqldb.md)poderá usá-lo para enviar uma confirmação de e-mail na [ação Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), depois de o `Todo` item ser adicionado.
+Se estiver a testar este código na aplicação da amostra para [Tutorial: Construa uma aplicação core e SQL Database ASP.NET no Azure App Service,](tutorial-dotnetcore-sqldb-app.md)poderá usá-lo para enviar uma confirmação de e-mail na [ação Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), depois de o `Todo` item ser adicionado.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
@@ -228,7 +228,7 @@ var jsonData = {
 
 ```
 
-Se estiver a testar este código na aplicação da amostra para [Tutorial: Construa uma aplicação Node.js e MongoDB em Azure,](app-service-web-tutorial-nodejs-mongodb-app.md)poderá usá-lo para enviar uma confirmação por e-mail na [função de criação,](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)depois [de o artigo ser guardado com sucesso](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+Se estiver a testar este código na aplicação da amostra para [Tutorial: Construa uma aplicação Node.js e MongoDB em Azure,](tutorial-nodejs-mongodb-app.md)poderá usá-lo para enviar uma confirmação por e-mail na [função de criação,](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)depois [de o artigo ser guardado com sucesso](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
@@ -260,7 +260,7 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-Se estiver a testar este código na aplicação de amostras para [Tutorial: Construa uma aplicação PHP e MySQL em Azure,](app-service-web-tutorial-php-mysql.md)poderá usá-lo para enviar uma confirmação de e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
+Se estiver a testar este código na aplicação de amostras para [Tutorial: Construa uma aplicação PHP e MySQL em Azure,](tutorial-php-mysql-app.md)poderá usá-lo para enviar uma confirmação de e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
 
 ### <a name="python"></a>[Python](#tab/python)
 
@@ -291,7 +291,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-Se estiver a testar este código na aplicação de amostras para [Tutorial: Executar uma aplicação web Python (Django) com PostgreSQL no Azure App Service,](containers/tutorial-python-postgresql-app.md)poderá usá-lo para enviar uma confirmação de e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
+Se estiver a testar este código na aplicação de amostras para [Tutorial: Executar uma aplicação web Python (Django) com PostgreSQL no Azure App Service,](tutorial-python-postgresql-app.md)poderá usá-lo para enviar uma confirmação de e-mail na [função Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), pouco antes da declaração de devolução.
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
@@ -308,7 +308,7 @@ body = {
 connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-Se estiver a testar este código na aplicação de amostras para [construir uma aplicação Ruby e Postgres no Azure App Service no Linux,](containers/tutorial-ruby-postgres-app.md)poderá usá-lo para enviar uma confirmação de e-mail na ação [de criação,](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) quando [tiver @task.save sucesso.](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30)
+Se estiver a testar este código na aplicação de amostras para [construir uma aplicação Ruby e Postgres no Azure App Service no Linux,](tutorial-ruby-postgres-app.md)poderá usá-lo para enviar uma confirmação de e-mail na ação [de criação,](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) quando [tiver @task.save sucesso.](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30)
 
 ---
 

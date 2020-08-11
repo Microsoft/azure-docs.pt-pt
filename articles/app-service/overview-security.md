@@ -5,12 +5,12 @@ keywords: serviço de aplicações azure, aplicativo web, aplicativo móvel, app
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649049"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080305"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações Azure
 
@@ -56,7 +56,7 @@ A autenticação e autorização do Serviço de Aplicações suportam vários fo
 Ao autenticar contra um serviço back-end, o App Service fornece dois mecanismos diferentes dependendo da sua necessidade:
 
 - **Identidade de** serviço - Inscreva-se no recurso remoto utilizando a identidade da própria app. O Serviço de Aplicações permite-lhe criar facilmente uma [identidade gerida,](overview-managed-identity.md)que pode utilizar para autenticar com outros serviços, como [a Base de Dados Azure SQL](/azure/sql-database/) ou [o Cofre da Chave Azure.](/azure/key-vault/) Para obter um tutorial de ponta a ponta desta abordagem, consulte a [ligação Secure Azure SQL Database do Serviço de Aplicações utilizando uma identidade gerida.](app-service-web-tutorial-connect-msi.md)
-- **Em nome da OBO -** Faça o acesso delegado a recursos remotos em nome do utilizador. Com o Azure Ative Directory como fornecedor de autenticação, a sua aplicação de Serviço de Aplicações pode realizar o sign-in delegado a um serviço remoto, como [a Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) ou uma aplicação remota da API no Serviço de Aplicações. Para obter um tutorial de ponta a ponta desta abordagem, consulte [Authenticate e autorize os utilizadores de ponta a ponta no Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **Em nome da OBO -** Faça o acesso delegado a recursos remotos em nome do utilizador. Com o Azure Ative Directory como fornecedor de autenticação, a sua aplicação de Serviço de Aplicações pode realizar o sign-in delegado a um serviço remoto, como [a Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) ou uma aplicação remota da API no Serviço de Aplicações. Para obter um tutorial de ponta a ponta desta abordagem, consulte [Authenticate e autorize os utilizadores de ponta a ponta no Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividade com recursos remotos
 
@@ -94,7 +94,7 @@ Não guarde segredos de aplicações, tais como credenciais de base de dados, fi
 
 Em alternativa, pode integrar a sua aplicação de Serviço de Aplicações com [o Azure Key Vault](/azure/key-vault/) para gestão de segredos avançados. Ao [aceder ao Cofre-Chave com uma identidade gerida,](../key-vault/tutorial-web-application-keyvault.md)a sua aplicação App Service pode aceder de forma segura aos segredos de que necessita.
 
-## <a name="network-isolation"></a>Isolamento da rede
+## <a name="network-isolation"></a>Isolamento de rede
 
 Com exceção do nível de preços isolado, todos os níveis **executam** as suas aplicações na infraestrutura de rede partilhada no Serviço de Aplicações. Por exemplo, os endereços IP públicos e os equilibradores de carga frontal são partilhados com outros inquilinos. O nível **isolado** dá-lhe um completo isolamento de rede executando as suas aplicações dentro de um ambiente dedicado [do Serviço de Aplicações.](environment/intro.md) Um ambiente de Serviço de Aplicações funciona no seu próprio caso de [Rede Virtual Azure.](/azure/virtual-network/) Permite-lhe: 
 

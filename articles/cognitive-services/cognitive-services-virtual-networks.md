@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080903"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -40,10 +40,9 @@ As regras de rede são aplicadas em todos os protocolos de rede aos Serviços Co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões apoiadas e ofertas de serviços
 
-Os Serviços Cognitivos listados abaixo suportam redes virtuais em Nuvem Comercial e Nuvem Gov dos EUA. Se o serviço não está listado aqui, ainda não suporta redes virtuais.
+As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cognitivos estão disponíveis.](https://azure.microsoft.com/global-infrastructure/services/) Se o Serviço Cognitivo não estiver listado, não suporta atualmente redes virtuais.
 
 > [!div class="checklist"]
-
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -59,8 +58,8 @@ Os Serviços Cognitivos listados abaixo suportam redes virtuais em Nuvem Comerci
 ## <a name="service-tags"></a>Etiquetas de Serviço
 
 Os Serviços Cognitivos suportam tags de serviço para a configuração das regras de rede. Os serviços listados abaixo estão incluídos na etiqueta de serviço **CognitiveServicesManagement.**
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)

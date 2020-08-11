@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e69385d174cfb2ea3aa37867d65e0ac9eb5eaff0
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037665"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080801"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -950,7 +950,7 @@ Neste tutorial, aprende-se a criar um localizador de lojas básicas utilizando o
 > * Deixe o utilizador [filtrar as localizações ao longo de uma rota](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Adicione a capacidade de [definir filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Adicione suporte para especificar um valor inicial de pesquisa utilizando uma cadeia de consulta. Quando incluir esta opção no localizador da sua loja, os utilizadores podem marcar e partilhar pesquisas. Também fornece um método fácil para que você passe pesquisas para esta página a partir de outra página.  
-> * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
 > * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e os [dados espaciais de consulta para o vizinho mais próximo.](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)
 
 > [!div class="nextstepaction"]

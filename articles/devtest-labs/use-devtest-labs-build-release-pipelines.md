@@ -3,12 +3,12 @@ title: Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipel
 description: Aprenda a usar a Azure DevTest Labs em Azure Pipelines constroem e libertam oleodutos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483079"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080339"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipelines do Azure
 Este artigo fornece informações sobre como a DevTest Labs pode ser usada em gasodutos Azure. 
@@ -26,7 +26,7 @@ Uma vez concluída a construção com sucesso, o **gasoduto de desbloqueio** uti
 
 Uma das premissas necessárias é que toda a informação necessária para recriar o ecossistema testado está disponível dentro dos artefactos de construção, incluindo a configuração dos recursos Azure. À medida que os recursos da Azure incorrem num custo quando utilizados, as empresas querem controlar ou acompanhar a utilização destes recursos. Em algumas situações, os modelos do Azure Resource Manager que são usados para criar e configurar os recursos podem ser geridos por outro departamento como o TI. E estes modelos podem ser armazenados num repositório diferente. Conduz a uma situação interessante em que uma construção será criada e testada, e tanto o código como a configuração terão de ser armazenados dentro dos artefactos de construção para recriar corretamente o sistema em produção. 
 
-Utilizando os Laboratórios DevTest durante a fase de construção/teste, pode adicionar modelos do Azure Resource Manager e ficheiros de suporte às fontes de construção, de modo a que durante a fase de libertação a configuração exata utilizada para testar seja implantada na produção. A tarefa **Create Azure DevTest Labs Environment** com a configuração adequada salvará os modelos do Gestor de Recursos dentro dos artefactos de construção. Para este exemplo, você estará usando o código a partir do [Tutorial: Construa uma aplicação web .NET Core e SQL Database no Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md), para implementar e testar a aplicação web em Azure.
+Utilizando os Laboratórios DevTest durante a fase de construção/teste, pode adicionar modelos do Azure Resource Manager e ficheiros de suporte às fontes de construção, de modo a que durante a fase de libertação a configuração exata utilizada para testar seja implantada na produção. A tarefa **Create Azure DevTest Labs Environment** com a configuração adequada salvará os modelos do Gestor de Recursos dentro dos artefactos de construção. Para este exemplo, você estará usando o código a partir do [Tutorial: Construa uma aplicação web .NET Core e SQL Database no Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md), para implementar e testar a aplicação web em Azure.
 
 ![Fluxo global](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Há um par de itens que precisam ser criados previamente:
 O oleoduto de construção criará um ambiente DevTest Labs e implementará o código para testes.
 
 ## <a name="set-up-a-build-pipeline"></a>Criar um oleoduto de construção
-Em Azure Pipelines, crie um pipeline de construção utilizando o código a partir do [Tutorial: Construa uma aplicação web .NET Core e SQL Database no Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Utilize o modelo **core ASP.NET,** que preencherá a tarefa necessária para construir, testar e publicar o código.
+Em Azure Pipelines, crie um pipeline de construção utilizando o código a partir do [Tutorial: Construa uma aplicação web .NET Core e SQL Database no Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Utilize o modelo **core ASP.NET,** que preencherá a tarefa necessária para construir, testar e publicar o código.
 
 ![Selecione o modelo de ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -86,7 +86,7 @@ Para a segunda tarefa Implementar o **Serviço de Aplicações Azure**, especifi
 ## <a name="test-run"></a>Teste de Corrida
 Agora que ambos os oleodutos estão montados, faça fila manualmente para uma construção e veja-a funcionar. O próximo passo é definir o gatilho apropriado para a construção e ligar a construção ao gasoduto de libertação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Integre a Azure DevTest Labs no seu pipelineS Azure e gasoduto de entrega contínua](devtest-lab-integrate-ci-cd.md)

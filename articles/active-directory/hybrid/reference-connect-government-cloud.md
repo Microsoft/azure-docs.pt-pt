@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0120bf3f2bd347ae60677b89ec658f08140af49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356360"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080186"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
 
@@ -42,7 +42,7 @@ Antes de implementar o agente de autenticação Pass-through, verifique se exist
 |-----|-----|
 |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|O agente utiliza estes URLs para comunicar com o serviço de nuvem AZure AD. |
 |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| O agente usa estes URLs para verificar os certificados.|
-|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| O agente utiliza estes URLs durante o processo de registo.
+|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| O agente utiliza estes URLs durante o processo de registo.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Instale o agente para a nuvem do Governo Azure
 
@@ -100,7 +100,7 @@ Se tiver ultrapassado as  `AuthNegotiateDelegateAllowlist`   definições ou
 
 Se tiver ultrapassado as  `AuthNegotiateDelegateWhitelist`   definições ou `AuthServerWhitelist`   definições de política no seu ambiente, certifique-se de que lhe adiciona o URL AD `https://autologon.microsoft.us` Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticação pass-through](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
 - [Único sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)

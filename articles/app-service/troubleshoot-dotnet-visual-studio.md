@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857202"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079812"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolução de problemas de uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -29,7 +29,7 @@ Irá aprender:
 Se tiver o Visual Studio Ultimate, também pode utilizar [o IntelliTrace](/visualstudio/debugger/intellitrace) para depurar. A IntelliTrace não está abrangida por este tutorial.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Pré-requisitos
-Este tutorial funciona com o ambiente de desenvolvimento, projeto web e app app de Serviço de Aplicações que criou na [Create a ASP.NET app no Azure App Service](app-service-web-get-started-dotnet-framework.md). Para as secções WebJobs, você precisará da aplicação que cria em [Get Started com o Azure WebJobs SDK][GetStartedWJ].
+Este tutorial funciona com o ambiente de desenvolvimento, projeto web e app app de Serviço de Aplicações que criou na [Create a ASP.NET app no Azure App Service](quickstart-dotnet-framework.md). Para as secções WebJobs, você precisará da aplicação que cria em [Get Started com o Azure WebJobs SDK][GetStartedWJ].
 
 As amostras de código mostradas neste tutorial são para uma aplicação web C# MVC, mas os procedimentos de resolução de problemas são os mesmos para aplicações Visuais Basic e Web Forms.
 
@@ -51,7 +51,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gestão de apli
 
     Para obter mais informações sobre a ligação aos recursos da Azure a partir do Visual Studio, consulte [Manage Accounts, Subscrições e Funções Administrativas.](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)
 2. No **Server Explorer,** expanda **o Azure** e expanda o **Serviço de Aplicações**.
-3. Expandir o grupo de recursos que inclui a aplicação que criou na [Criar uma aplicação ASP.NET no Azure App Service](app-service-web-get-started-dotnet-framework.md), e depois clicar com o direito no nó da aplicação e clicar em **Definições de Visualização.**
+3. Expandir o grupo de recursos que inclui a aplicação que criou na [Criar uma aplicação ASP.NET no Azure App Service](quickstart-dotnet-framework.md), e depois clicar com o direito no nó da aplicação e clicar em **Definições de Visualização.**
 
     ![Ver Definições no Explorador de Servidor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Se a mensagem de erro detalhada não fornecer informações suficientes e não p
 
 A depuragem remota não funciona nas edições express do Visual Studio.
 
-Esta secção mostra como depurar remotamente usando o projeto que cria na [Create a ASP.NET app no Azure App Service](app-service-web-get-started-dotnet-framework.md).
+Esta secção mostra como depurar remotamente usando o projeto que cria na [Create a ASP.NET app no Azure App Service](quickstart-dotnet-framework.md).
 
-1. Abra o projeto web que criou na [Create a ASP.NET app no Azure App Service](app-service-web-get-started-dotnet-framework.md).
+1. Abra o projeto web que criou na [Create a ASP.NET app no Azure App Service](quickstart-dotnet-framework.md).
 
 1. *Controladores abertos\HomeController.cs*.
 
@@ -129,13 +129,13 @@ Esta secção mostra como depurar remotamente usando o projeto que cria na [Crea
 
 1. No **Solution Explorer,** clique com o botão direito no projeto e clique em **Publicar**.
 
-1. Na **Profile** lista de drop-down profile, selecione o mesmo perfil que utilizou na [Criar uma aplicação ASP.NET no Azure App Service](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em Definições.
+1. Na **Profile** lista de drop-down profile, selecione o mesmo perfil que utilizou na [Criar uma aplicação ASP.NET no Azure App Service](quickstart-dotnet-framework.md). Em seguida, clique em Definições.
 
 1. No diálogo **publicar,** clique no separador **Definições** e, em seguida, **altere a Configuração** para **Debug**e, em seguida, clique em **Guardar**.
 
     ![Publicar em modo de depurar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-1. Clique em **Publicar**. Após a implementação terminar e o seu navegador abre para o URL Azure da sua aplicação, feche o navegador.
+1. Clique em **Publish** (Publicar). Após a implementação terminar e o seu navegador abre para o URL Azure da sua aplicação, feche o navegador.
 
 1. No **Server Explorer,** clique com o botão direito na sua aplicação e, em seguida, clique **em Anexar Debugger**.
 
@@ -264,7 +264,7 @@ Os registos são escritos para ficheiros numa pasta *LogFiles* no sistema de fic
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Criar e visualizar registos de vestígios de aplicações
 Nesta secção, faz as seguintes tarefas:
 
-* Adicione declarações de rastreio ao projeto web que criou em [Get start with Azure and ASP.NET](app-service-web-get-started-dotnet-framework.md).
+* Adicione declarações de rastreio ao projeto web que criou em [Get start with Azure and ASP.NET](quickstart-dotnet-framework.md).
 * Veja os registos quando executar o projeto localmente.
 * Ver os registos tal como são gerados pela aplicação em execução em Azure.
 
@@ -686,5 +686,5 @@ Para obter mais informações sobre a análise de registos de servidores web, co
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisar registos de rastreio de pedidos falhados
 O website da Microsoft TechNet inclui uma secção [de rastreio de pedidos falhados,](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que pode ser útil para entender como usar estes registos. No entanto, esta documentação centra-se principalmente na configuração do rastreio de pedidos falhados no IIS, o que não é possível fazer no Azure App Service.
 
-[GetStarted]: app-service-web-get-started-dotnet.md
+[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

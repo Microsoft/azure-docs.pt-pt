@@ -3,12 +3,12 @@ title: Enviar ou receber eventos de Azure Event Hubs usando .NET (mais recente)
 description: Este artigo fornece uma passagem para criar uma aplicação .NET Core que envia/recebe eventos de/a partir de Azure Event Hubs usando o mais recente pacote Azure.Messaging.EventHubs.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e7f40b0312798667b63c6cf5d02772307dbc2b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 292e6e36337f565100c25d655882e60fa2a0bb6d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537144"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080060"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
@@ -114,7 +114,7 @@ Esta secção mostra como escrever uma aplicação de consola .NET Core que rece
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento Azure e um recipiente blob
 Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verificação. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
-1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
@@ -221,7 +221,7 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
     Estes eventos são os três eventos que enviou para o centro de eventos mais cedo, executando o programa remetente. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Vê as amostras do GitHub. 
 
 - [Amostras de Centros de Eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
