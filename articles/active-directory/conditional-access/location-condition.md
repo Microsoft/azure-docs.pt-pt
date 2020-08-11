@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518441"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055382"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
 
@@ -190,13 +190,13 @@ Quando criar ou atualizar localizações nomeadas, para atualizações a granel,
 
 Quando utiliza uma solução de procuração ou VPN hospedada na nuvem, o endereço IP AZure AD utiliza enquanto avalia uma política o endereço IP do representante. O cabeçalho X-Forwarded-For (XFF) que contém o endereço IP público do utilizador não é utilizado porque não existe validação de que provém de uma fonte fidedigna, pelo que apresentaria um método para falsificar um endereço IP.
 
-Quando um proxy de nuvem está no lugar, uma política que é usada para exigir um dispositivo de união de domínio pode ser usada, ou a reivindicação de corpnet interior de AD FS.
+Quando um proxy de nuvem está no lugar, uma política que é usada para exigir um dispositivo híbrido Azure AD pode ser usado, ou a reivindicação de corpnet interno de AD FS.
 
 ### <a name="api-support-and-powershell"></a>Suporte API e PowerShell
 
 Está disponível uma versão de pré-visualização da API do gráfico para localizações nomeadas, para obter mais informações consulte a [API delocalização](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Construir uma política de acesso condicional](concept-conditional-access-policies.md).
 - Procura uma política de exemplo usando a condição de localização? Ver o artigo, [Acesso Condicional: Bloquear acesso por local](howto-conditional-access-policy-location.md)

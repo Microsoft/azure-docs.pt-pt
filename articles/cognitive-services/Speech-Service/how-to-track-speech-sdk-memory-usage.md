@@ -1,7 +1,7 @@
 ---
-title: Como rastrear o uso da memória Speech SDK - Serviço de fala
+title: Como rastrear o uso da memória SDK do Discurso - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O SDK do Serviço de Fala apoia numerosas linguagens de programação para a conversão fala-a-texto e texto-a-fala, juntamente com a tradução da fala. Este artigo discute a ferramenta de gestão da memória incorporada no SDK.
+description: O Serviço de Discurso SDK suporta numerosas linguagens de programação para conversão de texto-a-texto e texto-a-voz, juntamente com a tradução da fala. Este artigo discute a gestão da memória incorporada no SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456434"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054640"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Como rastrear o uso da memória SDK do Discurso
 
-O Speech SDK baseia-se numa base de código nativa que é projetada em várias linguagens de programação através de uma série de camadas de interoperabilidade. Cada projeção específica da linguagem tem características idiomáticas corretas para gerir o ciclo de vida do objeto. Além disso, o SDK do Discurso inclui ferramentas de gestão de memória para rastrear o uso de recursos com o registo de objetos e os limites de objetos. 
+O SDK do Discurso baseia-se numa base de código nativa que é projetada em múltiplas linguagens de programação através de uma série de camadas de interoperabilidade. Cada projeção específica da linguagem tem características idiomaticamente corretas para gerir o ciclo de vida do objeto. Além disso, o SDK do discurso inclui ferramentas de gestão da memória para rastrear o uso de recursos com registo de objetos e limites de objetos. 
 
 ## <a name="how-to-read-object-logs"></a>Como ler registos de objetos
 
-Se o [registo do Speech SDK estiver ativado,](how-to-use-logging.md)as tags de rastreio são emitidas para permitir a observação de objetos históricos. Estas etiquetas incluem: 
+Se [a sessão de SDK de fala estiver ativada,](how-to-use-logging.md)são emitidas tags de rastreio para permitir a observação histórica dos objetos. Estas tags incluem: 
 
 * `TrackHandle` ou `StopTracking` 
 * O tipo de objeto
-* O número atual de objetos que são rastreados o tipo do objeto, e o número atual a ser rastreado.
+* O número atual de objetos que são rastreados o tipo do objeto, e o número atual sendo rastreado.
 
 Aqui está um registo de amostras: 
 
@@ -36,11 +36,11 @@ Aqui está um registo de amostras:
 (284): 8604ms SPX_DBG_TRACE_VERBOSE:  handle_table.h:90 TrackHandle type=Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult handle=0x0x7f688401e1a0, ptr=0x0x7f688401e1a0, total=19
 ```
 
-## <a name="set-a-warning-threshold"></a>Estabeleça um limiar de aviso
+## <a name="set-a-warning-threshold"></a>Definir um limiar de aviso
 
-Tem a opção de criar um limiar de alerta e, se esse limiar for ultrapassado (assumindo que o registo está ativado), é registada uma mensagem de aviso. A mensagem de aviso contém uma lixeira de todos os objetos existentes juntamente com a sua contagem. Estas informações podem ser usadas para entender melhor as questões. 
+Tem a opção de criar um limiar de aviso, e se esse limiar for ultrapassado (assumindo que a exploração madeireira está ativada), é registada uma mensagem de aviso. A mensagem de aviso contém um depósito de todos os objetos existentes juntamente com a sua contagem. Esta informação pode ser usada para entender melhor as questões. 
 
-Para ativar um limiar de advertência, `SpeechConfig` deve ser especificado num objeto. Este objeto é verificado quando um novo reconhecimento é criado. Nos seguintes exemplos, vamos supor que criou `SpeechConfig` `config`uma instância chamada:
+Para ativar um limiar de aviso, deve ser especificado num `SpeechConfig` objeto. Este objeto é verificado quando um novo reconhecimento é criado. Nos seguintes exemplos, vamos supor que criou um exemplo `SpeechConfig` `config` chamado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -83,11 +83,11 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")
 ::: zone-end
 
 > [!TIP]
-> O valor padrão para esta propriedade é de 10.000.
+> O valor padrão desta propriedade é de 10.000.
 
 ## <a name="set-an-error-threshold"></a>Definir um limiar de erro 
 
-Utilizando o SDK do Discurso, pode definir o número máximo de objetos permitidos num dado momento. Se esta definição estiver ativada, quando o número máximo for atingido, as tentativas de criar novos objetos reconhecedores falharão. Os objetos existentes continuarão a funcionar.
+Utilizando o SDK de discurso, pode definir o número máximo de objetos permitidos num dado momento. Se esta definição estiver ativada, quando o número máximo for atingido, as tentativas de criar novos objetos reconhecíveis falharão. Os objetos existentes continuarão a funcionar.
 
 Aqui está um erro de amostra:
 
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Para ativar um limiar de erro, `SpeechConfig` deve ser especificado num objeto. Este objeto é verificado quando um novo reconhecimento é criado. Nos seguintes exemplos, vamos supor que criou `SpeechConfig` `config`uma instância chamada:
+Para ativar um limiar de erro, este deve ser especificado num `SpeechConfig` objeto. Este objeto é verificado quando um novo reconhecimento é criado. Nos seguintes exemplos, vamos supor que criou um exemplo `SpeechConfig` `config` chamado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -145,9 +145,8 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 ::: zone-end
 
 > [!TIP]
-> O valor padrão para esta propriedade é o `size_t` valor máximo específico da plataforma para um tipo de dados. Um reconhecimento típico consumirá entre 7 e 10 objetos internos.
+> O valor padrão desta propriedade é o valor máximo específico da plataforma para um tipo de `size_t` dados. Um reconhecimento típico consumirá entre 7 e 10 objetos internos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha a subscrição do teste do serviço Speech](get-started.md)
-* [Aprenda a reconhecer a fala usando um microfone](quickstarts/speech-to-text-from-microphone.md)
+* [Saiba mais sobre o Discurso SDK](speech-sdk.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322315"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056436"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -29,18 +29,18 @@ Ao utilizar a Porta Frontal Azure, pode monitorizar os recursos das seguintes fo
 
 As métricas são uma característica de certos recursos Azure que permitem visualizar contadores de desempenho no portal. Estão disponíveis as métricas da Porta frontal:
 
-| Metric | Nome de exibição métrica | Unidade | Dimensões | Descrição |
+| Métrica | Nome de exibição métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
-| PedidoCount | Número de Pedidos | Contagem | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
+| PedidoCount | Número de Pedidos | de palavras | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
 | Solicitação | Tamanho do pedido | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a Porta da Frente. |
 | Tamanho das respostas | Tamanho da resposta | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como respostas da Porta da Frente aos clientes. |
 | TotalLatency | Latência total | Milissegundos | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O tempo calculado a partir do pedido de cliente recebido pela Porta da Frente até que o cliente reconheceu a última resposta byte da Porta frontal. |
-| BackendRequestCount | Contagem de pedidos de backend | Contagem | HttpStatus</br>Grupo HttpStatus</br>Back-end | O número de pedidos enviados da Porta da Frente para os backends. |
+| BackendRequestCount | Contagem de pedidos de backend | de palavras | HttpStatus</br>Grupo HttpStatus</br>Back-end | O número de pedidos enviados da Porta da Frente para os backends. |
 | BackendRequestatency | Pedido de backend Latência | Milissegundos | Back-end | O tempo calculado a partir do momento em que o pedido foi enviado pela Porta da Frente para o backend até que a Porta frontal recebeu a última resposta byte do backend. |
 | BackendHealthPercentage | Percentagem de Saúde backend | Percentagem | Back-end</br>BackendPool | A percentagem de sondas de saúde bem sucedidas da Porta da Frente para os backends. |
-| WebApplicationFirewallRequestCount | Contagem de pedidos de firewall de aplicação web | Contagem | PolicyName</br>Nome de Regras</br>Ação | O número de pedidos de cliente processados pela segurança da camada de aplicação da Porta frontal. |
+| WebApplicationFirewallRequestCount | Contagem de pedidos de firewall de aplicação web | de palavras | PolicyName</br>Nome de Regras</br>Ação | O número de pedidos de cliente processados pela segurança da camada de aplicação da Porta frontal. |
 
-## <a name="activity-logs"></a><a name="activity-log"></a>Registos de atividade
+## <a name="activity-logs"></a><a name="activity-log"></a>Troncos de atividade
 
 Os registos de atividade fornecem informações sobre as operações feitas na Porta da Frente. Também determinam o quê, quem e quando para quaisquer operações de escrita (colocar, postar ou apagar) tomadas na Porta da Frente.
 
@@ -91,7 +91,7 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | RegrasSEngineMatchNames | Os nomes das regras que o pedido correspondia. |
 | SecurityProtocol | A versão do protocolo TLS/SSL utilizada pelo pedido ou nula se não houver encriptação. |
 | SentToOriginShield | Campo booleano representando se houvesse uma falha de cache no primeiro ambiente e o pedido foi enviado para a cache regional. Ignore este campo se a regra de encaminhamento for um redirecionamento ou quando não tiver o caching ativado. |
-| TimeTaken | O tempo que a ação demorou, em milissegundos. |
+| TimeTaken | O tempo de primeiro byte de pedido para a Porta frontal para durar a byte de resposta para fora, em segundos. |
 | TrackingReference | A cadeia de referência única que identifica um pedido servido pela Porta da Frente, também enviada como cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos registos de acesso para um pedido específico. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 
@@ -105,7 +105,7 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | Regra de encaminhamento com caching ativado. Cache falha tanto na borda como na cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um perfil da porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

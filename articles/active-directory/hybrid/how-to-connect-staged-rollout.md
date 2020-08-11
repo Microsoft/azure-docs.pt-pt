@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460614"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053229"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -84,7 +84,7 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 - Quando adicionas um grupo de segurança para lançamento encenado, estás limitado a 200 utilizadores para evitar uma saída sem acordo com o UX. Depois de ter adicionado o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
-- Enquanto os utilizadores estão em Lançamento Faseado, a política de validade da palavra-passe está definida para 90 dias sem opção de personalizá-la. 
+- Enquanto os utilizadores estão em Lançamento Encenado, quando o EnforceCloudPasswordPolicyForPasswordSyncedUsers está ativado, a política de validade da palavra-passe está definida para 90 dias sem opção de personalizar. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado

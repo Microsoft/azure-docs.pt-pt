@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/05/2020
-ms.openlocfilehash: d169c638869cd9488605117552c9017dfd10c911
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 08/05/2020
+ms.openlocfilehash: 31bdcd9994ebfcea77b25422997463cc6a9bfddc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118326"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053529"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentor e itens a partir do portal Azure
 
@@ -40,20 +40,20 @@ Uma subscrição da Azure ou conta de teste gratuita da Azure Cosmos DB
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB**.
+Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB**.
 
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="O painel da base de dados do portal do Azure":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="O painel Bases de dados do portal do Azure":::
 
 1. Selecione **Adicionar**.
 1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
-    |Definição|Valor|Description |
+    |Definição|Valor|Descrição |
     |---|---|---|
     |Subscrição|Nome da subscrição|Selecione a subscrição do Azure que quer utilizar para esta conta do Azure Cosmos. |
     |Grupo de Recursos|Nome do grupo de recursos|Selecione um grupo de recursos ou selecione **Criar novo** e, em seguida, introduza um nome exclusivo para o novo grupo de recursos. |
     |Nome da Conta|Um nome exclusivo|Introduza um nome para identificar a conta do Azure Cosmos. Uma vez que *documents.azure.com* é anexado ao nome que indicar para criar o URI, utilize um nome exclusivo.<br><br>O nome só pode conter letras minúsculas, números e o caráter de hífen (-). Tem de ter entre 3 e 31 carateres.|
     |API|O tipo de conta a criar|Selecione **Núcleo (SQL)** para criar uma base de dados de documentos e consultar com a sintaxe SQL. <br><br>A API determina o tipo de conta a criar. A Azure Cosmos DB fornece cinco APIs: Core (SQL) e MongoDB para dados de documentos, Gremlin para dados gráficos, Tabela Azure e Cassandra. De momento, deve criar uma conta separada para cada API. <br><br>[Saiba mais sobre a API SQL](introduction.md).|
-    |Aplicar desconto de nível gratuito|Aplicar ou não aplicar|Com o nível livre Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente numa conta. Saiba mais sobre [o free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Aplicar Desconto de Escalão Gratuito|Aplicar ou não aplicar|Com o nível livre Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente numa conta. Saiba mais sobre [o free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Localização|A região mais próxima dos seus utilizadores|Selecione a localização geográfica para alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos utilizadores para lhes dar o acesso mais rápido aos dados.|
     |Tipo de Conta|Produção ou Não Produção|Selecione **Produção** se a conta for utilizada para uma carga de trabalho de produção. Selecione **Não-Produção** se a conta for utilizada para não produção, por exemplo, desenvolvimento, teste, QA ou encenação. Esta é uma definição de marcação de recursos Azure que afina a experiência portal mas não afeta a conta DB Azure Cosmos subjacente. Pode alterar este valor a qualquer momento.|
     |Redundância Geográfica|Ativar ou Desativar|Ativar ou desativar a distribuição global na sua conta, emparelhando a sua região com uma região de pares. Pode adicionar mais regiões à sua conta mais tarde.|
@@ -70,7 +70,7 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
 
 1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel de Notificações de portal do Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel de Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB. 
 
@@ -92,8 +92,8 @@ Pode utilizar o Data Explorer no portal Azure para criar uma base de dados e um 
     |Definição|Valor sugerido|Descrição
     |---|---|---|
     |**ID da Base de Dados**|ToDoList|*Insira o ToDoList* como o nome da nova base de dados. Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
-    |**Débito**|400|Deixe a produção a 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
-    |**ID do contentor**|Itens|*Insira os Itens* como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
+    |**Débito**|400|Deixe a produção a 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde.| 
+    |**ID do Contentor**|Itens|*Insira os Itens* como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
     |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
 
     

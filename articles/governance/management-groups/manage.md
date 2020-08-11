@@ -1,14 +1,14 @@
 ---
 title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535013"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055144"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
-1. Não existem grupos de gestão de crianças ou assinaturas no âmbito do grupo de gestão.
-
-   - Para mover um grupo de subscrição ou gestão para outro grupo de gestão veja [grupos de gestão moving e subscrições na hierarquia](#moving-management-groups-and-subscriptions).
+1. Não existem grupos de gestão de crianças ou assinaturas no âmbito do grupo de gestão. Para mover um grupo de subscrição ou gestão para outro grupo de gestão, consulte [grupos de gestão moving e subscrições na hierarquia.](#moving-management-groups-and-subscriptions)
 
 1. É necessário escrever permissões sobre o grupo de gestão ("Proprietário", "Colaborador" ou "Colaborador do Grupo de Gestão"). Para ver que permissões tem, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os papéis de Azure, ver  
    [Gerir acessos e permissões com o RBAC.](../../role-based-access-control/overview.md)
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 Uma das razões para criar um grupo de gestão é juntar assinaturas. Apenas grupos de gestão e assinaturas podem ser feitos filhos de outro grupo de gestão. Uma subscrição que se move para um grupo de gestão herda todo o acesso ao utilizador e políticas do grupo de gestão de pais
 
-Ao mover um grupo de gestão ou subscrição para ser filho de outro grupo de gestão três regras devem ser avaliadas como verdadeiras.
+Ao mover um grupo de gestão ou subscrição para ser filho de outro grupo de gestão, três regras devem ser avaliadas como verdadeiras.
 
 Se estás a fazer a ação de movimento, precisas: 
 

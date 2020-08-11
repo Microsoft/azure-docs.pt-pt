@@ -1,18 +1,18 @@
 ---
 title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
-ms.date: 05/21/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422832"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056623"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
-Os seus recursos, grupos de recursos, subscrições, grupos de gestão e inquilinos constituem colectivamente a sua hierarquia de recursos. As configurações no grupo de gestão de raízes, tais como funções personalizadas Azure ou atribuições de política da Azure Policy, podem ter impacto em todos os recursos da sua hierarquia de recursos. É importante proteger a hierarquia de recursos de mudanças que podem ter um impacto negativo em todos os recursos.
+Os seus recursos, grupos de recursos, subscrições, grupos de gestão e inquilinos constituem colectivamente a sua hierarquia de recursos. As configurações no grupo de gestão de raízes, tais como funções personalizadas Azure ou atribuições de políticas da Azure Policy, podem ter impacto em todos os recursos da sua hierarquia de recursos. É importante proteger a hierarquia de recursos de mudanças que podem ter um impacto negativo em todos os recursos.
 
 Os grupos de gestão têm agora configurações de hierarquia que permitem ao administrador do inquilino controlar estes comportamentos. Este artigo abrange cada uma das definições de hierarquia disponíveis e como defini-las.
 
@@ -75,7 +75,7 @@ Para configurar esta definição, o ponto final da API de [Definições de Hiera
 
 Para desligar a regulação, utilize o mesmo ponto final e defina **o requerer a Autenticação para oGroupCreation** a um valor de **falso**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

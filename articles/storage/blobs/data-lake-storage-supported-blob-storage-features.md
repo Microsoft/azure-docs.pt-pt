@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0d915c0b293e9f3deadbfb2a5fb0ff7f379e1717
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513796"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053478"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -30,8 +30,8 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 
 |Recurso blob armazenamento |V2 de uso geral |BlockBlobStorage (Premium) |Artigos relacionados |
 |---------------|-------------------|---|
-|Escalão de acesso frequente|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
-|Escalão de acesso esporádico|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
+|Camada de armazenamento frequente|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
+|Camada de armazenamento esporádico|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponível em Geral|Pré-visualizar|[Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)|
 |Métricas (Clássico)|Disponível em Geral|Não suportado|[Métricas de análise de armazenamento Azure (Clássico)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Métricas no Azure Monitor|Disponível em Geral|Pré-visualizar|[Métricas do Armazenamento do Azure no Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -42,15 +42,17 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |Nível de acesso ao arquivo|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Políticas de gestão do ciclo de vida|Disponível em Geral|Ainda não suportado|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
 |Início de sessão no Monitor Azure|Pré-visualizar |Ainda não suportado|[Monitorização do Armazenamento Azure](../common/monitor-storage.md)|
-|Instantâneos|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Snapshots blob](snapshots-overview.md)|
-|Web sites estáticos|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Static website hosting in Azure Storage](storage-blob-static-website.md) (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)|
-|Armazenamento imutável|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
+|Instantâneos|Pré-visualizar|Ainda não suportado|[Snapshots blob](snapshots-overview.md)|
+|Web sites estáticos|Pré-visualizar|Ainda não suportado|[Static website hosting in Azure Storage](storage-blob-static-website.md) (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)|
+|Armazenamento imutável|Pré-visualizar|Ainda não suportado|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
+|Políticas de gestão do ciclo de vida|Pré-visualizar|Ainda não suportado|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
+|Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
+|Blob soft delete|Ainda não suportado|Ainda não suportado|[Excluir suave para bolhas](storage-blob-soft-delete.md)|
 |Rio Blobfuse|Pré-visualizar|Ainda não suportado|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Conjunto de recipiente ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
-|Eliminação suave|Ainda não suportado|Ainda não suportado|[Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](storage-blob-soft-delete.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> Para contas de armazenamento de blocos premium, os registos de diagnóstico (clássico) não podem ser ativados utilizando o portal Azure. Ative-os utilizando o PowerShell.</div><br>
 
@@ -58,7 +60,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 
 <div id="preview-form"><sup>3</sup> Para utilizar instantâneos, armazenamento imutável ou websites estáticos com Data Lake Storage Gen2, você precisa inscrever-se na pré-visualização completando este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulário</a>.  </div>
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Serviços Azure que suportam Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

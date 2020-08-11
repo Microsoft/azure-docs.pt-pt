@@ -1,6 +1,6 @@
 ---
 title: O que é Azure single sign-on (SSO)?
-description: Aprenda a escolher um único método de inscrição ao configurar aplicações no Azure Ative Directory (Azure AD). Utilize um único sinal de entrada para que os utilizadores não precisem de se lembrar de senhas para cada aplicação e de simplificar a administração da gestão de conta.
+description: Saiba como funciona o único sign-on (SSO) com o Azure Ative Directory. Utilize SSO para que os utilizadores não precisem de se lembrar de senhas para cada aplicação. Utilize também o SSO para simplificar a gestão de contas.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,22 +12,31 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0928cb264dcff43cc0a3e45a8417dcd1e23a1ed3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042603"
+ms.locfileid: "88053784"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
-O sign-on único (SSO) adiciona segurança e comodidade quando os utilizadores se inscrevem em aplicações no Azure Ative Directory (Azure AD). Este artigo descreve os métodos de inscrição único e ajuda-o a escolher o método SSO mais adequado ao configurar as suas aplicações.
+Uma única sindução significa que um utilizador não tem de iniciar sôms em todas as aplicações que utiliza. O utilizador inicia sessão uma vez e essa credencial também é utilizada para outras aplicações.
+
+Se é um utilizador final, provavelmente não se importa muito com detalhes do SSO. Você só quer usar as aplicações que o tornam produtivo sem ter que escrever tanto a sua senha. Pode encontrar as suas aplicações em: https://myapps.microsoft.com .
+ 
+Se você é um administrador, ou profissional de TI, então leia para saber mais sobre como o SSO é implementado em Azure.
+
+## <a name="single-sign-on-basics"></a>Básicos de inscrição única
+O sign-on único dá um grande salto em frente na forma como os utilizadores insinuam e usam aplicações. Os sistemas de autenticação baseados em sinais únicos são muitas vezes chamados de "autenticação moderna". Para entender o que torna possível um único sinal, confira este vídeo.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+
+## <a name="choosing-a-single-sign-on-method"></a>Escolher um único método de inscrição
 
 - **Com uma única solução,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Após a sessão, o utilizador pode lançar aplicações a partir do portal Office 365 ou do painel de acesso Azure AD MyApps. Os administradores podem centralizar a gestão da conta de utilizador e adicionar ou remover automaticamente o acesso do utilizador a aplicações com base na adesão ao grupo.
 
 - **Sem uma única sincê-in,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sôs-se em cada aplicação. O pessoal de TI precisa de criar e atualizar contas de utilizador para cada aplicação, como o Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para iniciar súm na súmia de cada aplicação.
-
-## <a name="choosing-a-single-sign-on-method"></a>Escolher um único método de inscrição
 
 Existem várias formas de configurar um pedido de inscrição única. A escolha de um único método de inscrição depende da configuração da aplicação para autenticação.
 
@@ -105,7 +114,7 @@ O único sinal baseado em palavra-passe é suportado para qualquer aplicação b
 - Chrome no Windows 7 ou mais tarde, e no macOS X ou mais tarde
 - Firefox 26.0 ou mais tarde no Windows XP SP2 ou mais tarde, e no macOS X 10.6 ou mais tarde
 
-Para configurar uma aplicação em nuvem para um único sinal de assinatura baseado em palavra-passe, consulte [configurar a palavra-passe de um único sinal](configure-password-single-sign-on-non-gallery-applications.md).
+Para configurar uma aplicação em nuvem para um único sinal de assinatura baseado em palavra-passe, consulte [configurar o sign-in único da palavra-passe](configure-password-single-sign-on-non-gallery-applications.md).
 
 Para configurar um pedido no local para um único sinal de acesso através de Procuração de Aplicação, consulte [abotoação de palavra-passe para um único sinal de acesso com procuração de aplicação](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -197,10 +206,5 @@ Uma vez que este cenário é oferecido através de uma parceria entre a Azure AD
 
 Para mais informações, consulte [as edições do Azure Ative Directory.](../fundamentals/active-directory-whatis.md)
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
-* [Configurar um único sinal baseado em palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configuração de inscrição ligada](configure-linked-sign-on.md)
-* [Introdução à Gestão do Acesso às Aplicações](what-is-access-management.md)
-* Link de descarregamento: [Plano único de implantação de s-on](https://aka.ms/SSODeploymentPlan).

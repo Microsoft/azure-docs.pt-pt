@@ -1,24 +1,24 @@
 ---
-title: Atualizar uma oferta de Mercado Comercial existente
-description: Como fazer atualizações a uma oferta existente do Mercado Comercial, incluindo edição, eliminação de um rascunho, cancelamento de um pedido de publicação, parar de vender uma oferta ou plano, e sincronizar audiências privadas.
+title: Atualizar uma oferta de mercado comercial existente
+description: Como fazer atualizações para uma oferta comercial existente, incluindo edição, eliminação de um rascunho, cancelamento de um pedido de publicação, parar de vender uma oferta ou plano, e sincronizar audiências privadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006796"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056147"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace Comercial
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no mercado comercial
 
 Pode ver as suas ofertas existentes no **separador Visão Geral** do [portal Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Partner Center.
 
-Para atualizar uma oferta existente que está atualmente ao vivo no mercado:
+Para atualizar uma oferta existente que está atualmente ao vivo no mercado comercial:
 
 1. Selecione o nome da oferta que gostaria de atualizar. O estado da oferta pode ser listado como **Preview**, **Live**, **Publish em curso**, **Draft**, **Atenção necessária**, ou **Não disponível** (se já escolheu deixar de vender a oferta). Uma vez selecionado, a página geral da **Oferta** para essa oferta será aberta.
 2. Selecione **Update** a partir do cartão na página geral da oferta, ou o item do menu na navegação esquerda para a área que gostaria de atualizar. Pode querer atualizar a **configuração**da Oferta , **Propriedades**, **Listagem de Ofertas,** **Pré-visualização,** **Configuração Técnica,** **Visão geral do Plano**ou Test **drive**.
@@ -74,7 +74,7 @@ Agora que escondeu o plano com o preço antigo, crie uma cópia desse plano com 
 1. Selecione **Guardar rascunho**.
 1. Depois de ter concluído todas as secções necessárias para o novo plano, selecione **'Rever' e publicar**. Isto submeterá a sua oferta para revisão e publicação. Leia [a Revisão e publique uma oferta no mercado comercial](../review-publish-offer.md) para mais detalhes.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Compare as alterações às ofertas de mercado
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Compare as alterações às ofertas de mercado comercial
 
 Pode auditar as alterações que faz a uma oferta [publicada](#compare-changes-to-published-offer) ou [de pré-visualização](#compare-changes-to-a-preview-offer) antes de as tornar ao vivo utilizando **o Compare**.
 
@@ -161,15 +161,17 @@ Se quiser publicar a oferta mais tarde, terá de começar o processo de publica�
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Pare de vender uma oferta ou plano
 
+Por várias razões, pode decidir remover a sua lista de ofertas do mercado comercial da Microsoft. A remoção da oferta garante que os novos clientes já não podem comprar ou implementar a sua oferta, mas não tem impacto nos clientes existentes.
+
 Para parar de vender uma oferta depois de a publicar, selecione Pare de **vender** na página geral da **Oferta.**
 
-Uma vez confirmado que pretende deixar de vender a oferta, dentro de algumas horas deixará de ser visível no mercado e nenhum cliente novo poderá descarregá-la.
+Depois de confirmar que pretende deixar de vender a oferta, dentro de algumas horas deixará de ser visível no mercado comercial e nenhum novo cliente poderá descarregá-la.
 
-Para parar de vender um plano, selecione Pare de **vender** na página **de visão geral** do Plano. A opção de parar de vender um plano só está disponível se tiver mais do que um plano na oferta. Pode optar por parar de vender um plano sem afetar outros planos dentro da sua oferta. Uma vez confirmado que quer parar de vender o plano, deve republicar a oferta para que a mudança entre em vigor. Após a republicação da oferta, o plano deixará de ser visível no mercado e nenhum novo cliente poderá descarregá-la.
+Para parar de vender um plano, selecione Pare de **vender** na página **de visão geral** do Plano. A opção de parar de vender um plano só está disponível se tiver mais do que um plano na oferta. Pode optar por parar de vender um plano sem afetar outros planos dentro da sua oferta. Uma vez confirmado que quer parar de vender o plano, deve republicar a oferta para que a mudança entre em vigor. Após a republicação da oferta, o plano deixará de ser visível no mercado comercial e nenhum novo cliente poderá descarregá-la.
 
 Todos os clientes que anteriormente adquiriram a oferta ou plano ainda podem usá-la. Podem descarregá-lo novamente, mas não receberão atualizações se atualizarem e reeditarem a oferta ou planearem posteriormente.
 
-Depois de o seu pedido para parar de vender a oferta/plano ter sido concluído, ainda o verá no portal mercado comercial no Partner Center com um estatuto **de Não disponível.**
+Depois de o seu pedido para parar de vender a oferta/plano ter sido concluído, ainda o verá no portal do mercado comercial no Partner Center com um estatuto **de Não disponível.**
 
 Se decidir listar ou vender esta oferta ou planear novamente, siga as instruções para [atualizar uma oferta existente](#update-an-existing-offer-in-the-commercial-marketplace). Não se esqueça que terá de **publicar** novamente a oferta ou planear depois de escamar quaisquer alterações.
 
@@ -190,4 +192,4 @@ Para atualizar e sincronizar o público privado para o seu plano):
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Consulte o estado editorial da sua oferta de Mercado Comercial](./publishing-status.md)
+- [Verifique o estado editorial da sua oferta de mercado comercial](./publishing-status.md)

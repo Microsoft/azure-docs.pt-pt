@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518746"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055432"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)
 
 O objetivo do feed de alteração é fornecer registos de transações de todas as alterações que ocorrem às bolhas e aos metadados blob na sua conta de armazenamento. O feed de alteração fornece registo **de leitura,** **garantido,** **durável,** **imutável,** **apenas de leitura** destas alterações. As aplicações do cliente podem ler estes registos a qualquer momento, seja em streaming ou em modo de lote. O feed de alteração permite-lhe construir soluções eficientes e escaláveis que processam eventos que ocorrem na sua conta Blob Storage a baixo custo.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 O feed de alteração é armazenado como [bolhas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a [um](https://azure.microsoft.com/pricing/details/storage/blobs/) preço normal. Pode controlar o período de retenção destes ficheiros com base nas suas necessidades (Ver as [condições](#conditions) da libertação atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquema inline. Este formato é amplamente utilizado no ecossistema Hadoop, Stream Analytics e Azure Data Factory.
 
@@ -71,7 +71,7 @@ Ativar o feed de alteração na sua conta de armazenamento utilizando o portal A
 
 4. Escolha o botão **Guardar** para confirmar as definições **de Proteção de Dados.**
 
-    ![Screenshot que mostra as definições de proteção de dados.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Screenshot que mostra as definições de proteção de dados.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -337,7 +337,7 @@ O feed de alteração é uma solução que fornece registo transacional de muta�
 ### <a name="should-i-use-change-feed-or-storage-events"></a>Devo utilizar eventos de feed ou armazenamento de alterações?
 Pode aproveitar ambas as funcionalidades, uma vez que os eventos de feed change e blob fornecem as [mesmas](storage-blob-event-overview.md) informações com a mesma garantia de fiabilidade de entrega, sendo a principal diferença a latência, encomenda e armazenamento de registos de eventos. O feed de alteração publica registos no registo dentro de poucos minutos após a alteração e também garante a ordem de mudança de operações por blob. Os eventos de armazenamento são empurrados em tempo real e podem não ser encomendados. Os eventos de feed change são conservados duravelmente dentro da sua conta de armazenamento como registos estáveis apenas de leitura com a sua própria retenção definida, enquanto os eventos de armazenamento são transitórios para serem consumidos pelo manipulador de eventos, a menos que os armazene explicitamente. Com o feed Change, qualquer número das suas aplicações pode consumir os registos à sua própria conveniência usando APIs blob ou SDKs. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja um exemplo de como ler o feed de alteração utilizando uma aplicação de cliente .NET. Consulte [os registos de alimentação de alteração de processo no armazenamento de blob Azure](storage-blob-change-feed-how-to.md).
 - Saiba como reagir aos acontecimentos em tempo real. Ver [reagir a eventos de armazenamento de blob](storage-blob-event-overview.md)

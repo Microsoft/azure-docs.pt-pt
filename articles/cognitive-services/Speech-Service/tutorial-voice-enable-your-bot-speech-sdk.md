@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041789"
+ms.locfileid: "88056657"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot utilizando o SDK de discurso
 
@@ -60,7 +60,7 @@ Eis o que precisa para completar este tutorial:
 - Um PC Windows 10 com microfone e altifalantes de funcionamento (ou auscultadores)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou superior, com a ASP.NET e a carga de trabalho **de desenvolvimento web** instalada
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) ou superior
-- Uma conta do Azure. [Inscreva-se gratuitamente.](https://azure.microsoft.com/free/ai/)
+- Uma conta do Azure. [Inscreva-se gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 - Uma conta do [GitHub](https://github.com/)
 - [Git para Windows](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Se você quiser usar uma região diferente para este tutorial estes fatores pode
 
 * Certifique-se de que utiliza uma [região de Azure apoiada.](regions.md#voice-assistants)
 * O canal Direct Line Speech utiliza o serviço text-to-speech, que tem vozes padrão e neurais. As vozes neurais [limitam-se a regiões específicas de Azure.](regions.md#standard-and-neural-voices)
-* As chaves de ensaio gratuitas podem ser restringidas a uma região específica.
 
 Para obter mais informações sobre as regiões, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)
 

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498604"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056538"
 ---
 # <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
 
@@ -24,6 +24,8 @@ Pode permitir que a versão de armazenamento Blob (pré-visualização) mantenha
 A versão blob está ativada na conta de armazenamento e aplica-se a todas as bolhas na conta de armazenamento. Depois de ativar a versão blob para uma conta de armazenamento, o Azure Storage mantém automaticamente versões para cada bolha na conta de armazenamento.
 
 A Microsoft recomenda a utilização de versões blob para manter versões anteriores de uma bolha para uma proteção de dados superior. Quando possível, utilize a versão blob em vez de imagens blob para manter as versões anteriores. Os instantâneos blob fornecem uma funcionalidade semelhante na medida em que mantêm versões anteriores de uma bolha, mas as imagens devem ser mantidas manualmente pela sua aplicação.
+
+Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 
 > [!IMPORTANT]
 > A versão blob não pode ajudá-lo a recuperar da eliminação acidental de uma conta de armazenamento ou de um recipiente. Para evitar a eliminação acidental da conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
@@ -179,7 +181,7 @@ A tabela que se segue mostra quais as ações do RBAC que suportam a eliminaçã
 
 | Descrição | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Colaborador de dados blob de armazenamento |
+| Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário de dados blob de armazenamento |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parâmetros de assinatura de acesso partilhado (SAS)
@@ -204,7 +206,8 @@ A versão blob está disponível em pré-visualização nas seguintes regiões:
 - Leste do Canadá
 - Canadá Central
 
-A pré-visualização destina-se apenas à utilização não-produção.
+> [!IMPORTANT]
+> A pré-visualização da versão blob destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
 
 Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
@@ -226,7 +229,7 @@ Para se inscrever na pré-visualização da versão blob, utilize o PowerShell o
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para se registar no PowerShell, ligue para o comando [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
+Para se registar no PowerShell, ligue para o comando [Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Para se registar no Azure CLI, ligue para o comando [de registo de recurso az.](/cli/azure/feature#az-feature-register)
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Para verificar o estado da sua inscrição com o Azure CLI, ligue para o comando [de recurso az.](/cli/azure/feature#az-feature-show)
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---
@@ -318,7 +320,7 @@ No cenário 4, a bolha de base foi completamente atualizada e não contém nenhu
 
 ![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Ativar a criação de versões de blobs](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083604"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056083"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -54,8 +54,6 @@ Estas APIs Blob REST não são suportadas:
 * [Obter Gamas de Páginas](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Bolha de cópia incremental](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Colocar página de URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Coloque Blob (Apêndice)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Bloco de Apêndice](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Bloco de Apêndice de URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Os discos VM não geridos não são suportados em contas que tenham um espaço hierárquico de nomes. Se pretender ativar um espaço hierárquico numa conta de armazenamento, coloque discos VM não geridos numa conta de armazenamento que não tenha a funcionalidade de espaço hierárquico ativada.

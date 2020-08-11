@@ -1,6 +1,6 @@
 ---
-title: Cópia gerida instantâneo de disco para uma subscrição - Amostra de CLI
-description: Amostra de script do Azure CLI - Copiar (ou mover) instantâneo de um disco gerido para a mesma subscrição ou subscrição diferente com O CLI
+title: Cópia gerida instantâneo de disco para uma subscrição - Amostra CLI, Linux VM
+description: Amostra de script do Azure CLI - Copiar (ou mover) instantâneo de um disco gerido para a mesma subscrição ou subscrição diferente com O CLI, num Linux VM
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c17773da09b51e135e855002de7b35628c21508f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 637c8c3a2f6ba90a7a16fa375d99a7463be71270
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509767"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056096"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar o instantâneo de um disco gerido para uma subscrição idêntica ou diferente com a CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-linux-vm"></a>Copiar instantâneo de um disco gerido para a mesma subscrição com CLI, num Linux VM
 
 Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Utilize este script para os seguintes cenários:
 
@@ -48,7 +48,7 @@ Este script utiliza os seguintes comandos para criar um instantâneo na subscri�
 | [az snapshot show](/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo através do nome e das propriedades do grupo de recursos do instantâneo. A propriedade do ID é utilizada para copiar o instantâneo para uma subscrição diferente.  |
 | [az snapshot create](/cli/azure/snapshot) | Copia um instantâneo através da criação de um instantâneo numa subscrição diferente com o ID e o nome do instantâneo principal.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual a partir de um instantâneo](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

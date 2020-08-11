@@ -10,18 +10,21 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098274"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056283"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Sobre a renovação do certificado Azure Key Vault
 
 O Azure Key Vault permite-lhe facilmente provisões, gestão e implementação de certificados digitais para a sua rede e para permitir comunicações seguras para aplicações. Para obter informações mais gerais sobre certificados, consulte [certificados de cofre chave Azure](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates)
 
 Ter certificado de curta duração ou aumentar a frequência de rotação do certificado limita o âmbito de danos do adversário.
+
+## <a name="certificate-expiration-notifications"></a>Notificações de expiração do certificado
+Em primeiro lugar, certifique-se de adicionar o contacto do Certificado ao seu Cofre-Chave para ser notificado quando os certificados estiverem prestes a expirar (por exemplo. utilizando o PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)) Segundo, configurar quando pretender ser notificado sobre a expiração do certificado. Para configurar a ação de tempo de vida, siga [aqui](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)
 
 Há três categorias de criação de certificados no cofre-chave. Este guia irá ajudá-lo a entender como a renovação de certificados pode ser alcançada.
 -   Certificados criados com CA integrado (DigiCert ou GlobalSign)
@@ -53,8 +56,12 @@ Os passos são semelhantes à criação de um novo certificado e são documentad
 
 Boas notícias de novo! A Azure Key Vaults também cuidará da renovação automática de certificados auto-assinados para os seus utilizadores. Para saber mais sobre a alteração da política de emissão e a atualização dos atributos de ação vitalícia do certificado, leia mais [aqui.](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, consulte a Operação certificado para visualizar a mensagem de erro desse certificado.
+
+### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+As etiquetas serão replicadas após a renovação automática do certificado?
+Não, as etiquetas não se replicariam a menos que o utilizador copiasse manualmente as próprias etiquetas.
 
 ### <a name="see-also"></a>Consulte também
 *   [Integrar o Key Vault com a Autoridade de Certificação DigiCert](how-to-integrate-certificate-authority.md)

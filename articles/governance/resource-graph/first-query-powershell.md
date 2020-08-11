@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: A sua primeira consulta powerShell'
-description: Neste arranque rápido, siga os passos para ativar o módulo De recursos para o Azure PowerShell e execute a sua primeira consulta.
-ms.date: 05/20/2020
+title: 'Quickstart: A sua primeira consulta PowerShell'
+description: Neste arranque rápido, siga os passos para ativar o módulo Gráfico de Recursos para Azure PowerShell e executar a sua primeira consulta.
+ms.date: 08/10/2020
 ms.topic: quickstart
-ms.openlocfilehash: e98ca5974ba46d4d908cfe6dd8c04d3f6ba33a2a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 4cc7eb524060f2a797077f38321ae9ce6c9cf267
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872010"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056419"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando a Azure PowerShell
 
 O primeiro passo para utilizar o Azure Resource Graph é garantir que o módulo do Azure PowerShell está instalado. Este início rápido explica-lhe o processo para adicionar o módulo à instalação do Azure PowerShell.
 
@@ -18,13 +18,13 @@ No final deste processo, terá adicionado o módulo à instalação do Azure Pow
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-module"></a>Adicionar o módulo do Resource Graph
 
-Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com powerShell instalado localmente, com [Azure Cloud Shell,](https://shell.azure.com)ou com a [imagem PowerShell Docker](https://hub.docker.com/_/microsoft-powershell).
+Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com PowerShell instalado localmente, com [Azure Cloud Shell,](https://shell.azure.com)ou com a [imagem PowerShell Docker](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Requisitos de base
 
@@ -34,18 +34,18 @@ O módulo do Azure Resource Graph necessita do seguinte software:
 
 - PowerShellGet 2.0.1 ou superior. Se não estiver ainda instalado ou atualizado, siga [estas instruções](/powershell/scripting/gallery/installing-psget).
 
-### <a name="install-the-module"></a>Instalar o módulo
+### <a name="install-the-module"></a>Instale o módulo
 
-O módulo De Recurso Graph para PowerShell é **Az.ResourceGraph**.
+O módulo gráfico de recurso para powerShell é **Az.ResourceGraph**.
 
-1. A partir de um pedido **administrativo** da PowerShell, executar o seguinte comando:
+1. A partir de um pedido **administrativo** powerShell, executar o seguinte comando:
 
    ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Valide que o módulo foi importado e é a versão mais recente (0.7.5):
+1. Validar que o módulo foi importado e é a versão mais recente (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -54,7 +54,7 @@ O módulo De Recurso Graph para PowerShell é **Az.ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolve os primeiros cinco recursos Azure com o **Nome** e **O Tipo** de Recursos de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolve os primeiros cinco recursos Azure com o **Nome** e Tipo de **Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzGraph`:
 
@@ -76,7 +76,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
    ```
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando limita primeiro os resultados da consulta e depois ordena-os.
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 
@@ -88,7 +88,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
 > [!NOTE]
-> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, note que a `Search-AzGraph` cmdlet falha nas subscrições no contexto predefinido. Para ver a lista de IDs de subscrição que fazem parte do contexto padrão executar isto Se desejar pesquisar em todas as subscrições a `(Get-AzContext).Account.ExtendedProperties.Subscriptions` que tem acesso, pode definir os PSDefaultParâmetrometerValues para `Search-AzGraph` cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, então note que `Search-AzGraph` o CMDlet predefini às subscrições no contexto padrão. Para ver a lista de IDs de subscrição que fazem parte do contexto padrão executar isto `(Get-AzContext).Account.ExtendedProperties.Subscriptions` Se pretender pesquisar em todas as subscrições a que tem acesso, pode-se definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -103,11 +103,11 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]
-> Este comando não elimina o ficheiro do módulo que transferiu anteriormente. Apenas o remove da sessão do PowerShell.
+> Isto não elimina o ficheiro do módulo descarregado anteriormente. Apenas o remove da sessão do PowerShell.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, adicionou o módulo De recursos gráficos ao seu ambiente Azure PowerShell e executa a sua primeira consulta. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, adicionou o módulo Gráfico de Recursos ao seu ambiente Azure PowerShell e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 
 > [!div class="nextstepaction"]
-> [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)
+> [Obtenha mais informações sobre o idioma de consulta](./concepts/query-language.md)

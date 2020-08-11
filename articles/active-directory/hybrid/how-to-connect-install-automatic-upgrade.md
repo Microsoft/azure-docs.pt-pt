@@ -16,15 +16,15 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359012"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053291"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
-Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
+Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md) e agora suporta cenários adicionais que anteriormente não eram suportados.
 
 ## <a name="overview"></a>Descrição geral
 Certificar-se de que a instalação Azure AD Connect está sempre atualizada nunca foi tão fácil com a funcionalidade **de atualização automática.** Esta funcionalidade é ativada por padrão para instalações expressas e atualizações dirSync. Quando uma nova versão é lançada, a sua instalação é automaticamente atualizada.
@@ -73,7 +73,7 @@ O código de resultados tem um prefixo com uma visão geral do estado.
 
 | Prefixo do código de resultados | Descrição |
 | --- | --- |
-| Êxito |A instalação foi atualizada com sucesso. |
+| Success |A instalação foi atualizada com sucesso. |
 | UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
 | UpgradeNotSupported |O sistema tem uma configuração que está a impedir que o sistema seja automaticamente atualizado. Será novamente julgado para ver se o Estado está a mudar, mas a expectativa é que o sistema tenha de ser atualizado manualmente. |
 
@@ -99,5 +99,5 @@ Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos,
 |UpgradeNotSupedLocaldbSizeExceed|O tamanho DB local é maior ou igual a 8 GB|
 |UpgradeNotSupportedAADHealthUploadDisabled|Os uploads de dados de saúde foram desativados do portal|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

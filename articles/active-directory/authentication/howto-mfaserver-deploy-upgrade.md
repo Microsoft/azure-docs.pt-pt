@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653106"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054005"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualização para o Servidor Multi-Factor Authentication do Azure mais recente
 
@@ -41,7 +41,7 @@ Atualizar passos num ápice:
 4. Execute o novo instalador em cada Servidor MFA. Atualizar os servidores subordinados primeiro porque podem ler o antigo ficheiro de dados que está a ser replicado pelo mestre.
 
    > [!NOTE]
-   > Ao atualizar um servidor, deve ser removido de qualquer loadbalancing ou partilha de tráfego com outros Servidores MFA.
+   > Ao atualizar um servidor, deve ser removido de qualquer equilíbrio de carga ou partilha de tráfego com outros Servidores MFA.
    >
    > Não é necessário desinstalar o atual Servidor MFA antes de executar o instalador. O instalador executa uma atualização no local. O caminho de instalação é recolhido a partir do registo da instalação anterior, pelo que se instala no mesmo local (por exemplo, C:\Program Files\Multi-Factor Authentication Server).
   
@@ -110,7 +110,7 @@ Estas instruções só se aplicam se executar o Servidor de Autenticação Multi
 9. Repita o passo 2 para atualizar os servidores agora removidos da fazenda AD FS e reinicie o serviço AD FS nesses servidores.
 10. Adicione os servidores de volta à fazenda AD FS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha exemplos de [cenários avançados com autenticação multi-factor Azure e VPNs de terceiros](howto-mfaserver-nps-vpn.md)
 

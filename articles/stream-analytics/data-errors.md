@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041052"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053155"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
-Erros de dados são erros que ocorrem durante o processamento dos dados.  Estes erros ocorrem mais frequentemente durante as operações de des-serialização, serialização e escrita de dados.  Quando ocorrem erros de dados, o Stream Analytics escreve informações detalhadas e exemplos de eventos para os registos de recursos.  Em alguns casos, o resumo desta informação também é fornecido através de notificações do portal.
+Erros de dados são erros que ocorrem durante o processamento dos dados.  Estes erros ocorrem mais frequentemente durante as operações de des-serialização, serialização e escrita de dados.  Quando ocorrem erros de dados, o Stream Analytics escreve informações detalhadas e exemplos de eventos para os registos de recursos. Ative os registos de diagnóstico no seu trabalho para obter estes detalhes adicionais. Em alguns casos, um resumo desta informação também é fornecido através de notificações do portal.
 
 Este artigo descreve os diferentes tipos de erros, causas e detalhes de registo de recursos para erros de dados de entrada e saída.
 
@@ -287,7 +287,7 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas Azure Stream Analytics usando registos de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 

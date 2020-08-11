@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bc0390ba9bf8d0f80d1533fe6e40b42df0cb5359
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835719"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053172"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o `mount` comando e no arranque, criando uma entrada em `/etc/fstab` .
@@ -26,7 +26,7 @@ A forma recomendada de montar uma partilha de ficheiros Azure no Linux está a u
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | Mais de 10 |
 | openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
+| SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
 Se estiver a utilizar uma distribuição Linux não listada na tabela acima, pode verificar se a sua distribuição Linux suporta SMB 3.0 com encriptação, verificando a versão do kernel Do Linux. SMB 3.0 com encriptação foi adicionado à versão 4.11 do kernel linux. O `uname` comando devolverá a versão do kernel Linux em uso:
 

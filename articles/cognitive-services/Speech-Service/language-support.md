@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902050"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053580"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -361,20 +361,20 @@ Consulte a tabela seguinte para as línguas suportadas para as várias APIs de r
 | Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 | pt-PT | Inglês (E.U.A.) | sim | sim | sim |
-|zh-CN  |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|
-|de-DE  |Alemão (Alemanha)   |n/a    |sim    |sim|
-|en-GB  |Inglês (Reino Unido)   |n/a    |sim    |sim|
-|fr-FR  |Francês (França)    |n/a    |sim    |sim|
-|en-AU  |Inglês (Austrália)    |n/a    |sim    |sim|
-|en-CA  |Inglês (Canadá)   |n/a|   sim|    sim|
-|fr-CA  |Francês (Canadá)    |n/a    |sim|   sim|
-|it-IT  |Italiano|   n/a |sim|   sim|
-|es-ES| Espanhol (Espanha) |n/a    |sim|   sim|
-|es-MX  |Espanhol (México)   |n/a|   sim|    sim|
-|ja-JP| Japonês    |n/a    |sim    |sim|
-|pt-BR| Português (Brasil)|    n/a|    sim|    sim|
+|zh-CN    |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|
+|de-DE    |Alemão (Alemanha)    |n/a    |sim    |sim|
+|en-GB    |Inglês (Reino Unido)    |n/a    |sim    |sim|
+|fr-FR    |Francês (França)    |n/a    |sim    |sim|
+|en-AU    |Inglês (Austrália)    |n/a    |sim    |sim|
+|en-CA    |Inglês (Canadá)    |n/a|    sim|    sim|
+|fr-CA    |Francês (Canadá)    |n/a    |sim|    sim|
+|it-IT    |Italiano|    n/a    |sim|    sim|
+|es-ES|    Espanhol (Espanha)    |n/a    |sim|    sim|
+|es-MX    |Espanhol (México)    |n/a|    sim|    sim|
+|ja-JP|    Japonês    |n/a    |sim    |sim|
+|pt-BR|    Português (Brasil)|    n/a|    sim|    sim|
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Obtenha a subscrição do seu teste de serviço de discurso](https://azure.microsoft.com/try/cognitive-services/)
+* [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * [Veja como reconhecer a fala em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

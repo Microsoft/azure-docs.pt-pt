@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083519"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056249"
 ---
-# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
+# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
 Antes de carregar uma máquina virtual Windows (VM) das instalações para o Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta a geração 1 e a geração 2 VMs que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o OS VHD numa geração 1 VM é de 2 TB.
 
@@ -488,6 +488,7 @@ Em particular, a Sysprep exige que as unidades sejam totalmente desencriptadas a
 
 1. Inscreva-se no Windows VM.
 1. Executar uma sessão PowerShell como administrador.
+1. Elimine o diretório da pantera (C:\Windows\Panther).
 1. Mude o diretório para `%windir%\system32\sysprep` . Em seguida, execute o `sysprep.exe`.
 1. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE) e certifique-se**de que a caixa de **verificação Generalize** está selecionada.
 

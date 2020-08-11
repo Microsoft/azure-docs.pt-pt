@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187324"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055297"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -30,7 +30,7 @@ As variáveis de automatização são úteis para os seguintes cenários:
 
 A Azure Automation persiste em variáveis e disponibiliza-as mesmo que uma configuração de runbook ou DSC falhe. Este comportamento permite que um livro de execução ou configuração DSC desaje assim seja utilizado por outro runbook, ou pela mesma configuração de runbook ou DSC da próxima vez que for executado.
 
-A Azure Automation armazena cada variável encriptada de forma segura. Ao criar uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. 
+A Azure Automation armazena cada variável encriptada de forma segura. Quando cria uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Depois de criar a variável, não pode alterar o seu estado de encriptação sem recriar a variável. Uma recomendação do Azure Security Center é encriptar todas as variáveis Azure Automation, tal como descritas nas [variáveis de conta Demôm automação, devem ser encriptadas](../../security-center/recommendations-reference.md#recs-computeapp). 
 
 >[!NOTE]
 >Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Azure Automation utilizando uma chave única que é gerada para cada conta Dem automação. A Azure Automation armazena a chave no Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e utiliza-a para encriptar o ativo. 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372370"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055042"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Visão geral da implementação do Azure Firewall Manager
 
@@ -65,6 +65,8 @@ Há mais de uma maneira de implantar o Azure Firewall Manager, mas recomenda-se 
 > - Não se pode ter mais do que um centro por cada região. Mas pode adicionar várias WANs virtuais na região para conseguir isso.
 > - Não pode ter espaços IP sobrepostos para centros em um vWAN.
 > - As ligações VNet do seu hub devem estar na mesma região que o hub.
+>
+> Para questões mais conhecidas, veja [o que é Azure Firewall Manager?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Converter redes virtuais
 

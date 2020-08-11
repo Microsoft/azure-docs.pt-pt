@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550956"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055773"
 ---
 # <a name="blob-snapshots"></a>Snapshots blob
 
@@ -33,7 +33,7 @@ Uma imagem instantânea de uma bolha é idêntica à sua bolha de base, exceto q
 > Todas as fotos partilham o URI da bolha da base. A única distinção entre a bolha de base e o instantâneo é o valor **de DateTime** anexado.
 >
 
-Uma bolha pode ter várias fotos. As imagens persistem até serem explicitamente eliminadas, o que significa que um instantâneo não pode sobreviver à sua bolha de base. Pode enumerar os instantâneos associados à bolha de base para rastrear as suas imagens atuais.
+Uma bolha pode ter várias fotos. As imagens persistem até serem explicitamente eliminadas, independentemente ou como parte da operação Delete Blob para a bolha de base. Pode enumerar os instantâneos associados à bolha de base para rastrear as suas imagens atuais.
 
 Quando se cria uma imagem instantânea de uma bolha, as propriedades do sistema da bolha são copiadas para o instantâneo com os mesmos valores. Os metadados da bolha de base também são copiados para o instantâneo, a menos que especifique metadados separados para a imagem quando o criar. Depois de criar uma imagem, pode ler, copiar ou apagar, mas não pode modificá-la.
 
@@ -89,7 +89,7 @@ No cenário 4, a bolha de base foi completamente atualizada e não contém nenhu
 
 ![Recursos de armazenamento Azure](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir um instantâneo blob em .NET](snapshots-manage-dotnet.md)
 - [Apoiar discos VM não geridos da Azure com instantâneos incrementais](../../virtual-machines/windows/incremental-snapshots.md)

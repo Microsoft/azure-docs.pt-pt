@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 08/10/2020
 ms.author: iainfou
-ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051670"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054294"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
 
@@ -197,6 +197,12 @@ Para preparar o domínio gerido para a migração, complete os seguintes passos:
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Defina uma variável para o seu ID de subscrição Azure. Se necessário, pode utilizar o [cmdlet Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para listar e ver os seus IDs de subscrição. Forneça o seu próprio ID de subscrição no seguinte comando:
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. Agora, executar o `Migrate-Aadds` cmdlet usando o parâmetro *-Preparar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido, como *aaddscontoso.com:*
 
@@ -204,7 +210,8 @@ Para preparar o domínio gerido para a migração, complete os seguintes passos:
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## <a name="migrate-the-managed-domain"></a>Migrar o domínio gerido
@@ -224,7 +231,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 Depois de o script validar o domínio gerido está preparado para a migração, insira *Y* para iniciar o processo de migração.
@@ -310,7 +318,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### <a name="restore"></a>Restauro

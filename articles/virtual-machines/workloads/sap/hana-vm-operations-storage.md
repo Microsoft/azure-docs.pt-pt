@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074026"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053444"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -321,6 +321,44 @@ Por isso, pode considerar a implementação de uma produção semelhante para os
 > Pode redimensionar os volumes Azure NetApp Files dinamicamente, sem necessidade `unmount` de volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para atender a sua aplicação, tanto as exigências de produção esperadas como imprevistas.
 
 A documentação sobre como implantar uma configuração de escala SAP HANA com nó de espera utilizando volumes NFS v4.1 que são hospedados na ANF é publicada em [escala SAP HANA com nó de standby em Azure VMs com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solução consciente de custos com armazenamento premium Azure
+Até agora, a solução de armazenamento premium Azure descrita neste documento na secção [Soluções com armazenamento premium e acelerador de escrita Azure para máquinas virtuais Azure M-Series destinavam-se](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) a cenários apoiados pela produção SAP HANA. Uma das características das configurações de produção suportais é a separação dos volumes para dados SAP HANA e refazer o registo em dois volumes diferentes. A razão para tal separação é que as características da carga de trabalho nos volumes são diferentes. E que, com as configurações de produção sugeridas, poderiam ser necessários diferentes tipos de caching ou mesmo diferentes tipos de armazenamento de blocos Azure. As configurações suportadas pela produção utilizando o alvo de armazenamento do bloco Azure também estão em conformidade com o [SLA VM único para máquinas virtuais Azure.](https://azure.microsoft.com/support/legal/sla/virtual-machines/)  No caso de cenários não produtivos, algumas das considerações tomadas para os sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, os dados HANA e o volume de registo podem ser combinados. Embora eventualmente com alguns culpados, como eventualmente não cumprir certos KPI's de produção ou latência que são necessários para os sistemas de produção. Outro aspeto para reduzir os custos nestes ambientes pode ser a utilização do [armazenamento SSD Standard Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage) Embora uma escolha que invalida o [único VM SLA para máquinas virtuais Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Uma alternativa menos dispendiosa para tais configurações poderia parecer:
+
+
+| SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/dados e /hana/log<br /> listrado com LVM ou MDADM | /hana/compartilhado | /volume de raiz | /usr/seiva | comentários |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM tipo não certificado HANA <br /> Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| M32ts | GiB de 192 | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 5.000<sup>2</sup> |
+| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM tipo não certificado HANA <br /> Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| E32ds_v4 | 256 GiB | 768 MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 5.000<sup>2</sup> |
+| E48ds_v4 | 384 GiB | 1.152 MBps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| E64v3 | 432 GiB | 1.200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Não conseguirá menos de 1 ms de latência de armazenamento<sup>1</sup> |
+| M64ls | 512 GiB | 1.000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 10.000<sup>2</sup> |
+| M64s | 1.000 GiB | 1.000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 10.000<sup>2</sup> |
+| M64ms | 1.750 GiB | 1.000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 10.000<sup>2</sup> |
+| M128s | 2.000 GiB | 2.000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 20.000<sup>2</sup> |
+| M208s_v2 | 2.850 GiB | 1.000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 10.000<sup>2</sup> |
+| M128ms | 3.800 GiB | 2.000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 20.000<sup>2</sup> |
+| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 10.000<sup>2</sup> |
+| M416s_v2 | 5.700 GiB | 2.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 20.000<sup>2</sup> |
+| M416ms_v2 | 11400 GiB | 2.000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | A utilização do Acelerador de Escrita para dados combinados e volume de registo limitará a taxa de IOPS a 20.000<sup>2</sup> |
+
+
+<sup>1</sup> [O Acelerador de Escrita Azure](../../linux/how-to-enable-write-accelerator.md) não pode ser utilizado com as famílias Ev4 e Ev4 VM. Como resultado da utilização do armazenamento premium Azure, a latência de E/S não será inferior a 1 ms
+
+<sup>2</sup> A família VM suporta [o Acelerador de Escrita Azure,](../../linux/how-to-enable-write-accelerator.md)mas existe um potencial para que o limite IOPS do acelerador Write possa limitar as configurações de disco capacidades IOPS
+
+No caso de combinar os dados e o volume de registo para o SAP HANA, os discos que construem o volume listrado não devem ter lido cache ou leitura/gravação de cache ativada.
+
+Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
 ## <a name="next-steps"></a>Passos seguintes

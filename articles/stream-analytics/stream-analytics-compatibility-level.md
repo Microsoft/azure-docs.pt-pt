@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087857"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056521"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para empregos Azure Stream Analytics
 
@@ -142,13 +142,13 @@ Introduzem-se as seguintes grandes alterações no nível de compatibilidade 1.1
 
 **Nível 1.1:** CRIAR TABELA permite especificar um esquema forte. O motor Stream Analytics valida que os dados estão em conformidade com este esquema. Com este modelo, o comando pode filtrar eventos com valores NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Desative o upcast automático para cadeias de datas em JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Desativar a conversão automática de cadeias de datas para o tipo DateTime na entrada para JSON
 
-**Nível 1.0:** O analisador JSON automaticamente aumentaria os valores de cadeia com informações de data/hora/fuso para o tipo DateTime e, em seguida, convertê-lo-ia em UTC. Este comportamento resultou na perda da informação do tempo.
+**Nível 1.0:** O analisador JSON converteria automaticamente os valores de cadeia com informações de data/hora/fuso para o tipo DATETIME na entrada, de modo a que o valor perca imediatamente a sua informação original de formatação e fuso horário. Porque isto é feito em entrada, mesmo que esse campo não tenha sido usado na consulta, é convertido em UTC DateTime.
 
-**Nível 1.1:** Não existe mais automaticamente a revisão dos valores de cadeia com informações de data/hora/fuso para o tipo DateTime. Como resultado, a informação sobre o ausso é mantida.
+**Nível 1.1:** Não existe conversão automática de valores de cadeia com informação de data/hora/fuso para o tipo DATETIME. Como resultado, as informações sobre o azono e a formatação original são mantidas. No entanto, se o campo NVARCHAR(MAX) for utilizado na consulta como parte de uma expressão DATETIME (função DATEADD, por exemplo), é convertido para tipo DATETIME para executar o cálculo e perde a sua forma original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Saúde do recurso stream Analytics](stream-analytics-resource-health.md)

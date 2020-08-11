@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445783"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056351"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Perguntas frequentes - Importação de Certificado de Cofre chave Azure
 
@@ -32,6 +32,10 @@ O certificado protegido carregado após o armazenamento no cofre da chave não p
 ### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>Como posso resolver "Erro de parâmetro grave"? Quais são os formatos de certificado suportados para importação no Key Vault?
 
 Quando está a importar o certificado, tem de se certificar de que a chave está incluída no próprio ficheiro. Se tiver a chave privada separadamente num formato diferente, terá de combinar a chave com o certificado. Algumas autoridades de certificados fornecem certificados em diferentes formatos, por conseguinte, antes de importar o certificado, certifique-se de que estão em formato .pem ou .pfx e que a chave utilizada é RSA ou ECC. Consulte-os para rever [os requisitos dos certificados](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) e [os requisitos-chave dos certificados.](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)
+
+###  <a name="can-i-import-certificate-using-arm-template"></a>Posso importar certificado usando o modelo ARM?
+
+Não, não é possível fazer operações certificadas utilizando modelos ARM. A solução recomendada seria utilizar os métodos de importação de certificados na API ou no CLI ou no PowerShell. Se tiver um certificado de exisitng, então pode importá-lo como um segredo.
 
 ### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>Erro “Ocorreu um erro” ao importar o certificado através do Portal. Como posso investigar mais?
     

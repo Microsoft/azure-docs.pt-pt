@@ -7,17 +7,17 @@ author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 08/07/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 520033620e9dae5b694b24594be803dcd97509cd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f929d8d45f82ab605cb93ff3e3862ef2ccfe8681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010325"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053036"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Lidar com exceções e erros no MSAL para Android
 

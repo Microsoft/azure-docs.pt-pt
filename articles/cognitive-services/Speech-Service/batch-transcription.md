@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 9804992aee318fdc34815bdbe4187144704cd667
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099766"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053921"
 ---
 # <a name="what-is-batch-transcription"></a>O que é transcrição do lote?
 
@@ -63,7 +63,7 @@ Se pretende personalizar modelos, siga os passos na [personalização acústica]
 
 A API de Transcrição de Lote suporta os seguintes formatos:
 
-| Formato | Codec | Bitrate | Taxa de amostra                     |
+| Formatar | Codec | Bitrate | Taxa de amostra                     |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
 | MP3    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
@@ -346,4 +346,4 @@ Pode encontrar a amostra no `samples/batch` diretório do [repositório de amost
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Referência da API do texto v3](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

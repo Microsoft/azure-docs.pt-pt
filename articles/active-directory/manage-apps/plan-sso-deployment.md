@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387783"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054805"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -235,11 +235,11 @@ Utilize sempre a função com o menor número de permissões disponíveis para r
 
 | Persona| Funções | Papel de AD AZure (se necessário) |
 |--------|-------|-----------------------------|
-| Administração de mesa de ajuda | Suporte de nível 1 | Nenhum |
+| Administração de mesa de ajuda | Suporte de nível 1 | Nenhuma |
 | Administrador de identidade | Configurar e depurar quando as questões impactam Azure AD | Administrador global |
-| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
+| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
 | Administradores de infraestruturas | Cert proprietário de capotamento | Administrador global |
-| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
+| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
 
 Recomendamos a [utilização de Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerir as suas funções para fornecer auditoria, controlo e revisão de acesso adicionais para utilizadores com permissões de diretório.
 
@@ -303,7 +303,7 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 - [Problema com SSO federado para candidaturas NÃO listados na Galeria de Aplicações Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Depuração SSO baseada em SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
@@ -324,3 +324,5 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 [Acesso SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [SSO Tutorial de Aplicação](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Transferência whitepaper - Plano único de implantação de sinal-on](https://aka.ms/SSODeploymentPlan)

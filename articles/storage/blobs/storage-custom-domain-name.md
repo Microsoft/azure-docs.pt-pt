@@ -9,18 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465546"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053631"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob
 
 Pode mapear um domínio personalizado para um ponto final de serviço blob ou um ponto final [estático do site.](storage-blob-static-website.md) 
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Este mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com` ). Se quiser que o seu ponto final da web esteja disponível no domínio raiz (por exemplo: `contoso.com` ), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa de um domínio personalizado com secção [via HTTPS](#enable-https) deste artigo. Porque a sua ida para aquela secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para permitir HTTPS é opcional. 
@@ -326,6 +326,6 @@ Para mapear um domínio personalizado e permitir o acesso a HTTPS, faça o segui
 
    * [Preços e faturação ao utilizar o Blob Storage com Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o alojamento estático do site no armazenamento do Azure Blob](storage-blob-static-website.md)

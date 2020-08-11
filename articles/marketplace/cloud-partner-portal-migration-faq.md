@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279309"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056555"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -25,7 +25,7 @@ Pode continuar a fazer negócios como de costume no Partner Center:
 | Área<img src="" width=200px> | Alterações |
 | --- | --- |
 | Conta | Não há necessidade de criar uma nova conta partner Center; pode utilizar as credenciais existentes do Cloud Partner Portal para iniciar sessão no Partner Center, onde irá agora gerir a sua conta, utilizadores, permissões e faturação. O contrato de publicação e as informações de perfil da empresa são migrados para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento, contas e permissões de utilizador e ofertas ativas. Saiba mais na [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
-| Oferecer experiência de publicação e gestão de ofertas | Mudamos os dados da sua oferta do Portal do Parceiro Cloud para o Partner Center. Agora terá acesso às suas ofertas no Partner Center, que oferece uma melhor experiência de utilizador e interface intuitiva. Saiba como [atualizar uma oferta existente no Mercado Comercial.](partner-center-portal/update-existing-offer.md) |
+| Oferecer experiência de publicação e gestão de ofertas | Mudamos os dados da sua oferta do Portal do Parceiro Cloud para o Partner Center. Agora terá acesso às suas ofertas no Partner Center, que oferece uma melhor experiência de utilizador e interface intuitiva. Saiba como [atualizar uma oferta existente no mercado comercial.](partner-center-portal/update-existing-offer.md) |
 | Disponibilidade das suas ofertas no mercado comercial | Sem alterações. Se a sua oferta for ao vivo no mercado comercial, continuará a ser ao vivo. |
 | Novas compras e implementações | Sem alterações. Os seus clientes podem continuar a comprar e implementar as suas ofertas sem interrupções. |
 | Pagamentos | Quaisquer compras e implementações continuarão a ser pagos normalmente. Saiba mais sobre [ser pago no mercado comercial.](partner-center-portal/get-paid.md) |
@@ -143,7 +143,7 @@ As atualizações que não publica são guardadas como rascunhos. Continue a usa
 
 ### <a name="enhanced-preview-options"></a>Opções de pré-visualização melhoradas
 
-O Partner Center inclui uma [funcionalidade de comparação](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) com opções de filtragem melhoradas. Isto dá-lhe a capacidade de comparar com as versões de pré-visualização e ao vivo da oferta.
+O Partner Center inclui uma [funcionalidade de comparação](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) com opções de filtragem melhoradas. Isto dá-lhe a capacidade de comparar com as versões de pré-visualização e ao vivo da oferta.
 
 [![A screenshot mostra a função de comparação do Partner Center.](media/cpp-pc-faq/compare.png "Mostra a função de comparação do Centro parceiro")](media/cpp-pc-faq/compare.png#lightbox)
 

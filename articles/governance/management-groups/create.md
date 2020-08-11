@@ -1,14 +1,14 @@
 ---
 title: Criar grupos de gestão para organizar recursos - Azure Governance
 description: Saiba como criar grupos de gestão Azure para gerir múltiplos recursos usando o portal, Azure PowerShell e Azure CLI.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 0739eafdf4cf41195b189a8496c331ab470bbec0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971141"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056640"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização e gestão de recursos
 
@@ -39,7 +39,7 @@ Pode criar o grupo de gestão utilizando o portal, um [modelo Azure Resource Man
 
    - O **ID do Grupo de Gestão** é o identificador único do diretório que é usado para submeter comandos neste grupo de gestão. Este identificador não é editável após a criação, uma vez que é usado em todo o sistema Azure para identificar este grupo. O [grupo de gestão de raiz](overview.md#root-management-group-for-each-directory) é automaticamente criado com um ID que é o ID do Diretório Ativo Azure. Para todos os outros grupos de gestão, atribua uma identificação única.
    - O campo de nome de exibição é o nome que é apresentado dentro do portal Azure. Um nome de exibição separado é um campo opcional ao criar o grupo de gestão e pode ser alterado em qualquer  
-     tempo.
+     Hora.
 
    :::image type="content" source="./media/create_context_menu.png" alt-text="Opções de criação de um novo grupo de gestão" border="false":::
 
@@ -90,7 +90,7 @@ Nos exemplos anteriores, o novo grupo de gestão é criado no âmbito do grupo d
 az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

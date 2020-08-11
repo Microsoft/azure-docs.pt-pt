@@ -1,6 +1,6 @@
 ---
-title: Copiar instantâneo de um disco gerido para uma subscrição - Amostra de CLI
-description: Exemplo do Script da CLI do Azure – Copiar (mover) o instantâneo de um disco gerido para uma subscrição idêntica ou diferente com a CLI
+title: Copiar instantâneo de um disco gerido para uma subscrição - Amostra CLI, Windows VM
+description: Amostra de script do Azure CLI - Copy (move) snapshot de um disco gerido para a mesma subscrição ou diferente com O CLI, em um VM do Windows
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 54029e2ccbf592dfcde484728fa9cb969a668edd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b73bf62bfce456e65fde153379690bc9823e6a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010104"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056742"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar o instantâneo de um disco gerido para uma subscrição idêntica ou diferente com a CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-windows-vm"></a>Copiar instantâneo de um disco gerido para a mesma subscrição com CLI, num VM do Windows
 
 Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Utilize este script para os seguintes cenários:
 

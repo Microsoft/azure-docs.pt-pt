@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034401"
+ms.locfileid: "88056266"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -47,7 +47,7 @@ Depois de criar um ponto final do servidor no Windows Server 2012 R2, ocorre o s
 driveletter:\ não é acessível.  
 Parâmetro incorreto.
 
-Para resolver, instale as últimas atualizações para o Windows Server 2012 R2 e reinicie o servidor.
+Para resolver este problema, instale [o KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) e reinicie o servidor. Se esta atualização não for instalada porque uma atualização posterior já está instalada, vá ao Windows Update, instale as mais recentes atualizações para o Windows Server 2012 R2 e reinicie o servidor.
 
 <a id="server-registration-missing-subscriptions"></a>**O Registo do Servidor não lista todas as Subscrições do Azure**  
 Ao registar um servidor utilizando ServerRegistration.exe, faltam subscrições quando clica na entrega da Subscrição Azure.
@@ -338,7 +338,7 @@ Para ver estes erros, execute **o**FileSyncErrorsReport.ps1script PowerShell (lo
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | O ficheiro não pode ser sincronizado porque o número máximo de ficheiros de conflito foi atingido. O Azure File Sync suporta 100 ficheiros de conflito por ficheiro. Para saber mais sobre conflitos de ficheiros, consulte a Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Para resolver este problema, reduza o número de ficheiros de conflitos. O ficheiro sincronizará uma vez que o número de ficheiros de conflitos seja inferior a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Manuseamento de caracteres não suportados
-Se o **FileSyncErrorsReport.ps1** script PowerShell apresentar falhas devido a caracteres não suportados (código de erro 0x8007007b ou 0x80c80255), deve remover ou renomear os caracteres em falta dos respetivos nomes de ficheiros. O PowerShell provavelmente imprimirá estes caracteres como pontos de interrogação ou retângulos vazios, uma vez que a maioria destes caracteres não têm codificação visual padrão. A [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar caracteres que não são suportados.
+Se o **FileSyncErrorsReport.ps1** script PowerShell mostrar erros de sincronização por item devido a caracteres não suportados (código de erro 0x8007007b ou 0x80c80255), deve remover ou renomear os caracteres em falta dos respetivos nomes de ficheiros. O PowerShell provavelmente imprimirá estes caracteres como pontos de interrogação ou retângulos vazios, uma vez que a maioria destes caracteres não têm codificação visual padrão. A [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar caracteres que não são suportados. Se o seu conjunto de dados tiver vários ficheiros com caracteres inválidos, utilize o script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para renomear ficheiros que contenham caracteres não suportados.
 
 A tabela abaixo contém todos os caracteres unicode Azure File Sync ainda não suporta.
 
@@ -1290,7 +1290,7 @@ Para a versão do agente v10 e mais cedo:
 5. Reproduza o problema. Quando terminar, insira **D.**
 6. Um ficheiro .zip que contenha registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)

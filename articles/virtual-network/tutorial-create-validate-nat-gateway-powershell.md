@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar e testar uma porta de entrada NAT - Azure PowerShell'
+title: Criar e testar uma porta DE NAT - Azure PowerShell
 titlesuffix: Azure Virtual Network NAT
 description: Este tutorial mostra como criar um gateway NAT usando o Azure PowerShell e testar o serviço NAT
 services: virtual-network
@@ -10,17 +10,17 @@ Customer intent: I want to test a NAT gateway for outbound connectivity for my v
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: 059d1f99bafe656aaaf4dbab69e437728b9afdfb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3eaade678142a26be562d6c216f9932bcbaf2c39
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735307"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054039"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Tutorial: Criar uma porta de entrada NAT utilizando a Azure PowerShell e testar o serviço NAT
 

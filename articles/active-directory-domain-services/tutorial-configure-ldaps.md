@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404179"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054345"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -265,7 +265,7 @@ Para ligar e ligar ao seu domínio gerido e pesquisar sobre o LDAP, utilize a fe
 Em seguida, ligue-se ao seu domínio gerido. Os utilizadores (e contas de serviço) não podem executar ligações simples LDAP se tiver desativado a sincronização de hash de palavra-passe NTLM no seu domínio gerido. Para obter mais informações sobre a sincronização de hash de palavra-passe NTLM, consulte [Secure your managed domain][secure-domain].
 
 1. Selecione a opção **menu 'Ligação'** e, em seguida, escolha **'Ligar'...**.
-1. Fornecer as credenciais de uma conta de utilizador pertencente ao grupo *de administradores da AAD DC,* tais como *contosoadmin*. Introduza a palavra-passe da conta de utilizador e, em seguida, introduza o seu domínio, como *aaddscontoso.com*.
+1. Forneça as credenciais de uma conta de utilizador que pertence ao domínio gerido. Introduza a palavra-passe da conta de utilizador e, em seguida, introduza o seu domínio, como *aaddscontoso.com*.
 1. Para **o tipo Bind**, escolha a opção para Bind com *credenciais*.
 1. Selecione **OK** para ligar ao seu domínio gerido.
 
@@ -280,7 +280,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

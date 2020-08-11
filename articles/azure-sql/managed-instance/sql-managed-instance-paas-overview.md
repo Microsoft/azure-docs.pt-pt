@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073356"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055232"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Parte da família de produtos Azure SQL, Azure SQL Managed Instance é o serviço inteligente e escalável de base de dados de nuvem que combina a compatibilidade mais ampla do motor de base de dados SQL Server com todos os benefícios de uma plataforma totalmente gerida e verde como um serviço. A SQL Managed Instance tem quase 100% de compatibilidade com o mais recente motor de base de dados SQL Server (Enterprise Edition), fornecendo uma implementação de rede virtual nativa [(VNet)](../../virtual-network/virtual-networks-overview.md) que aborda preocupações de segurança comuns, e um modelo de [negócio](https://azure.microsoft.com/pricing/details/sql-database/) favorável aos clientes existentes do SQL Server. A SQL Managed Instance permite que os clientes existentes do SQL Server levantem e transloquem as suas aplicações no local para a nuvem com alterações mínimas de aplicação e de base de dados. Ao mesmo tempo, a SQL Managed Instance preserva todas as capacidades paaS (remendos automáticos e atualizações de versão, [backups automatizados,](../database/automated-backups-overview.md) [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gestão e tCO.
+Azure SQL Managed Instance é o serviço inteligente e escalável de base de dados de nuvem que combina a compatibilidade mais ampla do motor de base de dados sql server com todos os benefícios de uma plataforma totalmente gerida e verde como um serviço. A SQL Managed Instance tem quase 100% de compatibilidade com o mais recente motor de base de dados SQL Server (Enterprise Edition), fornecendo uma implementação de rede virtual nativa [(VNet)](../../virtual-network/virtual-networks-overview.md) que aborda preocupações de segurança comuns, e um modelo de [negócio](https://azure.microsoft.com/pricing/details/sql-database/) favorável aos clientes existentes do SQL Server. A SQL Managed Instance permite que os clientes existentes do SQL Server levantem e transloquem as suas aplicações no local para a nuvem com alterações mínimas de aplicação e de base de dados. Ao mesmo tempo, a SQL Managed Instance preserva todas as capacidades paaS (remendos automáticos e atualizações de versão, [backups automatizados,](../database/automated-backups-overview.md) [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gestão e tCO.
 
 > [!IMPORTANT]
 > Para obter uma lista das regiões onde o SQL Managed Instance está atualmente disponível, consulte [as regiões apoiadas.](resource-limits.md#supported-regions)
@@ -53,15 +53,15 @@ As principais características da SQL Managed Instance são mostradas na tabela 
 |Funcionalidade | Descrição|
 |---|---|
 | Versão/construção do SQL Server | Motor de base de dados SQL Server (mais recente estável) |
-| Backups automatizados geridos | Yes |
-| Caso incorporado e monitorização e métricas de bases de dados | Yes |
-| Patching automático de software | Yes |
-| As mais recentes funcionalidades do motor da base de dados | Yes |
+| Backups automatizados geridos | Sim |
+| Caso incorporado e monitorização e métricas de bases de dados | Sim |
+| Patching automático de software | Sim |
+| As mais recentes funcionalidades do motor da base de dados | Sim |
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
-| VNet - Implementação do Gestor de Recursos Azure | Yes |
-| VNet - Modelo de implementação clássico | No |
-| Suporte ao portal | Yes|
+| VNet - Implementação do Gestor de Recursos Azure | Sim |
+| VNet - Modelo de implementação clássico | Não |
+| Suporte ao portal | Sim|
 | Serviço de Integração Incorporada (SSIS) | No - SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | No - SSAS é [paaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
 | Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospedeiro SSRS num Azure VM. Embora a SQL Managed Instance não possa executar o SSRS como um serviço, pode hospedar [bases de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatório instalado na Máquina Virtual Azure, utilizando a autenticação do SQL Server. |

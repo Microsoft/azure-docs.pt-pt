@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125485"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055178"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis em .NET
 
@@ -471,7 +471,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
         case "delete":
             ctx.DeleteState();
@@ -507,7 +507,7 @@ Finalmente, os seguintes membros são usados para sinalizar outras entidades, ou
 * `SignalEntity(EntityId, operation, input)`: envia uma mensagem de ida para uma entidade.
 * `CreateNewOrchestration(orchestratorFunctionName, input)`: inicia uma nova orquestração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça os conceitos de entidade](durable-functions-entities.md)

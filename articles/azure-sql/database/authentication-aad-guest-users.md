@@ -9,12 +9,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294459"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053767"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD
 
@@ -133,9 +133,9 @@ Siga estes passos para definir um utilizador convidado Azure AD como administrad
 
 ## <a name="limitations"></a>Limitações
 
-Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para base de dados SQL, SQL Managed Instance e Azure Synapse. Para contas de hóspedes fora do seu AD Azure como * \@ outlook.com*, * \@ hotmail.com*, * \@ live.com*, ou * \@ gmail.com*, o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD Azure para o servidor lógico SQL.
+Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para Azure Managed Instance. Para contas de hóspedes fora do seu AD Azure como * \@ outlook.com*, * \@ hotmail.com*, * \@ live.com*, ou * \@ gmail.com*, o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD AZure para a Sql Managed Instance.
 
-Esta funcionalidade será ativada para Base de Dados SQL e Sinapse Azure antes da Disponibilidade Geral desta funcionalidade.
+Esta funcionalidade será ativada para SQL Managed Instance antes da Disponibilidade Geral desta funcionalidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 

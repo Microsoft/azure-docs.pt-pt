@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062543"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053750"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configure as chaves geridas pelo cliente para a sua conta Azure Batch com cofre de chave Azure e identidade gerida
 
@@ -82,7 +82,7 @@ No campo **Seleção** em **Princípio,** preencha o `principalId` que recuperou
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Gere uma chave no Cofre da Chave Azure
 
-No portal Azure, aceda à instância Key Vault na secção **chave,** **selecione Gerar/Importar**. Selecione o **tipo de** chave para ser `RSA` e o tamanho da **chave** para ser `2048` .
+No portal Azure, aceda à instância Key Vault na secção **chave,** **selecione Gerar/Importar**. Selecione o **tipo de** chave para ser `RSA` e o tamanho da chave **RSA** para ser pelo menos `2048` bits. `EC`os tipos-chave não são atualmente suportados como uma chave gerida pelo cliente numa conta Batch.
 
 ![Criar uma chave](./media/batch-customer-managed-key/create-key.png)
 
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Atualize a versão chave gerida pelo cliente
 
-Quando criar uma nova versão de uma chave, atualize a conta Batch para utilizar a nova versão. Siga estes passos:
+Quando criar uma nova versão de uma chave, atualize a conta Batch para utilizar a nova versão. Siga estes passos.
 
 1. Navegue na sua conta Batch no portal Azure e apresente as definições de Encriptação.
 2. Introduza o URI para a nova versão chave. Em alternativa, pode selecionar o cofre da chave e a chave novamente para atualizar a versão.
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
   * **As chaves geridas pelo cliente são suportadas para as contas existentes do Batch?** Não. As chaves geridas pelo cliente só são suportadas para novas contas Batch.
+  * **Posso selecionar tamanhos de chave RSA maiores que 2048 bits?** Sim, os tamanhos e bits das chaves RSA `3072` `4096` também são suportados.
   * **Que operações estão disponíveis após a revogação de uma chave gerida pelo cliente?** A única operação permitida é a eliminação de conta se o Batch perder o acesso à chave gerida pelo cliente.
   * **Como devo restaurar o acesso à minha conta batch se eu acidentalmente apagar a chave key vault?** Uma vez que a proteção da purga e a eliminação suave estão ativadas, pode restaurar as teclas existentes. Para mais informações, consulte [Recuperar um Cofre de Chaves Azure](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Posso desativar as chaves geridas pelo cliente?** Pode configurar o tipo de encriptação da Conta Lote de volta para "Tecla gerida pela Microsoft" a qualquer momento. Depois disso, pode apagar ou alterar a chave.

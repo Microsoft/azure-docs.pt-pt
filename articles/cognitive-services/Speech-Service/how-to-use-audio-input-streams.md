@@ -1,7 +1,7 @@
 ---
-title: Conceitos de fluxo de fluxo de entrada de áudio SDK de fala
+title: Conceitos de fluxo de entrada de áudio SDK de discurso
 titleSuffix: Azure Cognitive Services
-description: Uma visão geral das capacidades da corrente de entrada áudio do Speech SDK API.
+description: Uma visão geral das capacidades da API de entrada de áudio do Speech SDK.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1574ea1c6f97606198d071d79ea69d58304a6159
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584931"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053563"
 ---
-# <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre o fluxo de entrada áudio SDK speech SDK API
+# <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre o fluxo de entrada de áudio SDK do Discurso API
 
-A API audio **input stream** do Speech SDK fornece uma forma de transmitir áudio para os reputadores em vez de usar o microfone ou o ficheiro de entrada APIs.
+A API do **Fluxo** de Entrada áudio do Speech SDK fornece uma forma de transmitir áudio para os reconhecedores em vez de utilizar as APIs do microfone ou do ficheiro de entrada.
 
-São necessários os seguintes passos quando utilizar fluxos de entrada áudio:
+São necessários os seguintes passos quando se utilizam fluxos de entrada de áudio:
 
-- Identifique o formato do fluxo de áudio. O formato deve ser apoiado pelo SDK da Fala e pelo serviço de Discurso. Atualmente, apenas é suportada a seguinte configuração:
+- Identifique o formato do fluxo de áudio. O formato deve ser suportado pelo Speech SDK e pelo serviço Speech. Atualmente, apenas é suportada a seguinte configuração:
 
-  Amostras de áudio em formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois blocos alinhados (16 bits incluindo enchimento para uma amostra).
+  Amostras de áudio em formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois blocos alinhados (16 bits incluindo estofos para uma amostra).
 
   O código correspondente no SDK para criar o formato áudio é assim:
 
@@ -36,7 +36,7 @@ São necessários os seguintes passos quando utilizar fluxos de entrada áudio:
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Certifique-se de que o seu código pode fornecer os dados áudio RAW de acordo com estas especificações. Se os seus dados de fonte de áudio não corresponderem aos formatos suportados, o áudio deve ser transcodificado para o formato necessário.
+- Certifique-se de que o seu código pode fornecer os dados áudio RAW de acordo com estas especificações. Se os dados da fonte de áudio não corresponderem aos formatos suportados, o áudio deve ser transcodificado para o formato necessário.
 
 - Crie a sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback` . Implementar os `Read()` e `Close()` membros. A assinatura exata da função é dependente da linguagem, mas o código será semelhante a esta amostra de código:
 
@@ -59,7 +59,7 @@ São necessários os seguintes passos quando utilizar fluxos de entrada áudio:
    };
   ```
 
-- Crie uma configuração de áudio baseada no seu formato de áudio e fluxo de entrada. Passe tanto na configuração regular da fala como na configuração de entrada de áudio quando criar o seu reconhecimento. Por exemplo:
+- Crie uma configuração áudio baseada no seu formato de áudio e fluxo de entrada. Passe tanto na configuração regular da fala como na configuração de entrada de áudio quando criar o seu reconhecimento. Por exemplo:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
@@ -75,5 +75,5 @@ São necessários os seguintes passos quando utilizar fluxos de entrada áudio:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Veja como reconhecer o discurso em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
+- [Veja como reconhecer a fala em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

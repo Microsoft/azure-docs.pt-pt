@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma porta de entrada NAT - Modelo de gestor de recursos'
+title: Criar um gateway NAT - Modelo de gestor de recursos
 titleSuffix: Azure Virtual Network NAT
 description: Este quickstart mostra como criar uma porta de entrada NAT utilizando o modelo Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84703575"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053903"
 ---
-# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Tutorial: Criar uma porta de entrada NAT - Modelo de Gestor de Recursos
+# <a name="create-a-nat-gateway---resource-manager-template"></a>Criar um gateway NAT - Modelo de Gestor de Recursos
 
 Inicie-se com o VIRTUAL Network NAT utilizando um modelo de gestor de recursos Azure.  Este modelo implementa uma rede virtual, um recurso de gateway NAT e uma máquina virtual Ubuntu. A máquina virtual Ubuntu é implantada numa sub-rede que está associada ao recurso de gateway NAT.
 

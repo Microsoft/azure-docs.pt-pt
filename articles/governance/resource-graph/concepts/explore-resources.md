@@ -1,14 +1,14 @@
 ---
 title: Explorar os seus recursos do Azure
 description: Aprenda a usar a linguagem de consulta de gráfico de recurso para explorar os seus recursos e descobrir como estão conectados.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654497"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056589"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorar os seus recursos do Azure com o Resource Graph
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Antes de executar a consulta, como é que sabíamos que o **tipo** deveria agora ser **Microsoft.Compute/disks?**
-Se olhar para o ID completo, verá **/fornecedores/Microsoft.Compute/disks/** como parte da cadeia. Este fragmento de corda dá-lhe uma pista sobre que tipo procurar. Um método alternativo seria remover o limite por tipo e, em vez disso, procurar apenas pelo campo ID. Como o ID é único, apenas um disco seria devolvido e a propriedade **tipo** nele fornece esse detalhe.
+Antes de executar a consulta, como é que sabíamos que o **tipo** deveria agora ser **Microsoft.Compute/disks?** Se olhar para o ID completo, verá **/fornecedores/Microsoft.Compute/disks/** como parte da cadeia.
+Este fragmento de corda dá-lhe uma pista sobre que tipo procurar. Um método alternativo seria remover o limite por tipo e, em vez disso, procurar apenas pelo campo ID. Como o ID é único, apenas um disco seria devolvido e a propriedade **tipo** nele fornece esse detalhe.
 
 > [!NOTE]
 > Para que este exemplo funcione, deve substituir o campo de identificação por um resultado do seu próprio ambiente.
@@ -307,7 +307,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 
 Para ver como realizar estes passos numa única consulta com o `join` operador, consulte as [máquinas virtuais List com](../samples/advanced.md#join-vmpip) a sua interface de rede e amostra de IP pública.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
