@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856369"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056895"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global de rede de trânsito e WAN Virtual
 
@@ -133,6 +133,9 @@ Os hubs Azure Virtual WAN interligam todos os pontos finais de rede em toda a re
 
 **Figura 5: Centro virtual seguro com firewall Azure**
 
+> [!NOTE]
+> O inter-hub com firewall não é suportado atualmente. O tráfego entre os hubs passará diretamente pela Firewall Azure em cada hub.
+
 O Azure Firewall para o WAN virtual suporta os seguintes caminhos globais de conectividade de trânsito garantidos. As letras em parênteses mapeam para a Figura 5.
 
 * VNet-para-VNet trânsito seguro (e)
@@ -168,7 +171,7 @@ Se já existir uma rota predefinida aprendida (via BGP) pelo Centro Virtual a pa
 > Atualmente não existe opção de selecionar firewall ou Azure Firewall (e Fornecedor de Segurança Fidedigna) para tráfego ligado à Internet originário de Vnets, Branches ou Utilizadores. A rota padrão aprendida com a definição do Azure Firewall Manager é sempre preferida sobre a rota padrão aprendida a partir de um dos ramos.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma ligação utilizando o Virtual WAN e implementar a firewall Azure no(s) hub(s) VWAN.
 

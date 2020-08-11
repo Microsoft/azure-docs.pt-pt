@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841971"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057727"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites adicionais de nível de ações de ficheiros premium
 
@@ -23,11 +23,11 @@ ms.locfileid: "87841971"
 
 #### <a name="file-level-limits"></a>Limites de nível de ficheiro
 
-|Área  |Arquivo premium  |Arquivo padrão |
+|Área  |Arquivo padrão  |Arquivo premium  |
 |---------|---------|---------|
-|Tamanho                  |4 TiB         |1 TiB|
-|Max IOPS por ficheiro     |5000         |1,000|
-|Pegas simultâneas    |2.000         |2.000|
-|Saída  |300 MiB/seg|      Ver valores de produção de ficheiros padrão|
-|Entrada  |200 MiB/seg| Ver valores de produção de ficheiros padrão|
-|Débito| Ver valores de entrada/saída de ficheiros premium| Até 60 MiB/seg|
+|Tamanho     |1 TiB         |4 TiB         |
+|Max IOPS por ficheiro      |1,000         |5000         |
+|Pegas simultâneas     |2.000         |2.000         |
+|Saída     |Ver valores de produção de ficheiros padrão         |300 MiB/seg         |
+|Entrada     |Ver valores de produção de ficheiros padrão         |200 MiB/seg         |
+|Débito     |Até 60 MiB/seg         |Ver valores de entrada/saída de ficheiros premium         |

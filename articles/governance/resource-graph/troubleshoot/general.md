@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com os vários SDKs enquanto consulta recursos Azure com O Gráfico de Recursos Azure.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 052c3e1c10f1b0ca94653f086e2df4f3d395070e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683228"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056946"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Erros de resolução de problemas usando gráfico de recurso Azure
 
@@ -104,7 +104,7 @@ Se o cliente não tiver lido permissão para todas as subscrições fornecidas, 
 
 Inclua pelo menos uma subscrição na lista de subscrição a que o cliente que executa a consulta tem pelo menos acesso lido. Para obter mais informações, consulte [permissões no Gráfico de Recursos Azure](../overview.md#permissions-in-azure-resource-graph).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

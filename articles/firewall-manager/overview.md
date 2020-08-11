@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384774"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056997"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -78,13 +78,15 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-|A divisão do tráfego não está atualmente suportada.|O Escritório 365 e a Divisão de Tráfego Público de Azure não são atualmente apoiados. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
-|Um centro virtual seguro por região.|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
-|As políticas de base devem estar na mesma região que a política local.|Crie todas as suas políticas locais na mesma região que a política de base. Pode ainda aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
-|Comunicação inter-hub não passando pelo Secured Virtual Hub|A comunicação secured Virtual Hub para Secured Virtual Hub ainda não está suportada, no entanto a comunicação do Hub para o Hub ainda irá funcionar.|A investigar|
+|Divisão de tráfego|O escritório 365 e a divisão de tráfego do Azure Public PaaS não são suportados neste momento. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
+|Um centro virtual seguro por região|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
+|As políticas de base devem estar na mesma região que a política local|Crie todas as suas políticas locais na mesma região que a política de base. Pode ainda aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
+|Filtrar o tráfego inter-hub em implementações de centros virtuais seguros|O Hub Virtual Seguro para a filtragem de comunicação do Hub Virtual Garantido ainda não está suportado. No entanto, a comunicação do hub para hub ainda funciona se a filtragem de tráfego privado através do Azure Firewall não estiver ativada.|A investigar|
+|Raios de voz em regiões diferentes do centro virtual|Os raios de voz em diferentes regiões do que o centro virtual não são apoiados.|A investigar<br><br>Crie um hub por região e pares VNets na mesma região que o hub.|
+|Sucursal para sucursal de tráfego com filtragem de tráfego privado habilitado|O tráfego de sucursal não é suportado quando a filtragem do tráfego privado está ativada. |A investigar.<br><br>Não proteja o tráfego privado se a conectividade do ramo for fundamental.|
 |Todos os Hubs Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Hubs WAN Virtuais hoje em dia.|Crie várias WANs virtuais para permitir a criação de Hubs Virtuais Seguros em diferentes grupos de recursos.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever [visão geral do Azure Firewall Manager](deployment-overview.md)
 - Saiba mais sobre [os Centros Virtuais Seguros.](secured-virtual-hub.md)

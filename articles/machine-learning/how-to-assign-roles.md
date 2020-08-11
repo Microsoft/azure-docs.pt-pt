@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002227"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056929"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,6 +146,8 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Criar novo papel personalizado | Titular, colaborador ou papel personalizado permitindo`Microsoft.Authorization/roleDefinitions/write` | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/computes/write` |
 
+> [!TIP]
+> Se receber uma falha ao tentar criar um espaço de trabalho pela primeira vez, certifique-se de que o seu papel permite `Microsoft.MachineLearningServices/register/action` . Esta ação permite-lhe registar o fornecedor de recursos Azure Machine Learning com a sua assinatura Azure.
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>P. Estamos a publicar papéis incorporados no Azure para o serviço de Machine Learning?
 

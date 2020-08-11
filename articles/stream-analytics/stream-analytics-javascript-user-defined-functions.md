@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430807"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056912"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | Cadeia
+nvarchar(MAX) | String
 Registo | Objeto
 Matriz | Matriz
 NULL | Nulo
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Date | DateTime
-Cadeia | nvarchar(MAX)
+String | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
 Null, Undefined | NULL
@@ -132,7 +132,61 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="cast-string-to-json-object-to-process"></a>Fio de elenco para JSON objeto para processar
+
+Se tiver um campo de cordas que seja JSON e quiser convertê-lo num objeto JSON para processamento num UDF JavaScript, pode utilizar a função **JSON.parse()** para criar um objeto JSON que pode ser utilizado.
+
+**Definição da função definida pelo utilizador do JavaScript:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Consulta de amostras:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>Utilize tentativa/captura para manuseamento de erros
+
+Os blocos de tentativa/captura podem ajudá-lo a identificar problemas com dados de entrada mal formados que são transmitidos num UDF JavaScript.
+
+**Definição da função definida pelo utilizador do JavaScript:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Consulta de amostra: Passe todo o registo como primeiro parâmetro para que possa ser devolvido em caso de erro.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [UDF de aprendizagem automática](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
 * [UDF em C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

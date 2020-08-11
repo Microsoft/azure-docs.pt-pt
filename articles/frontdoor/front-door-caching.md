@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471749"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056963"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
 O documento que se segue especifica o comportamento para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) e assim, juntamente com a aceleração dinâmica do site e o equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
@@ -112,7 +112,13 @@ Os seguintes cabeçalhos de pedido não serão encaminhados para um backend dura
 - Comprimento do conteúdo
 - Codificação de transferências
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="cache-duration"></a>Duração da cache
+
+A duração da cache pode ser configurada tanto no Front Door Designer como no Regimento. A duração da cache definida no designer Frontdoor é a duração mínima da cache. Esta sobreposição não funcionará se o cabeçalho de controlo de cache da origem tiver um TTL maior do que o valor de sobreposição. 
+
+A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do que é o cabeçalho de resposta de origem.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

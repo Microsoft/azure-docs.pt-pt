@@ -14,17 +14,18 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f469256841bf81f5e35ebf9c4a0fe322b513153d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291939"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056980"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido :criar uma rede virtual com o PowerShell
 
 Uma rede virtual permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem-se em privado entre si e com a internet. Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, conecta-se aos VMs a partir da internet e comunica-se em privado através da rede virtual.
 
+## <a name="prerequisites"></a>Pré-requisitos
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -209,7 +210,7 @@ mstsc /v:<publicIpAddress>
 
 1. Feche a ligação de ambiente de trabalho remoto à *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar com a rede virtual e os VMs, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que tem:
 
@@ -219,6 +220,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligou a uma VM a partir da Internet e comunicou em privado entre a VM e outra VM. Para saber mais sobre as definições de rede virtual, veja [Gerir uma rede virtual](manage-virtual-network.md).
-
-O Azure permite uma comunicação privada sem restrições entre máquinas virtuais. Por predefinição, o Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Para saber mais sobre a configuração de diferentes tipos de comunicações de rede VM, aceda ao tutorial de tráfego da [rede Filter.](tutorial-filter-network-traffic.md)
+Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligou-se a um VM da internet e comunicou-se em privado entre os dois VMs.
+O Azure permite uma comunicação privada sem restrições entre os VMs. Por predefinição, o Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Avance para o próximo artigo para saber mais sobre a configuração de diferentes tipos de comunicações de rede VM:
+> [!div class="nextstepaction"]
+> [Filtrar o tráfego de rede](tutorial-filter-network-traffic.md)

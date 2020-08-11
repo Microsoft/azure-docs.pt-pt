@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079238"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056810"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -69,7 +69,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Obrigatório |
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -169,10 +169,10 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Necessário |
-| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Necessário |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Obrigatório |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Obrigatório |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Obrigatório |
+| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Obrigatório |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
@@ -241,6 +241,6 @@ Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services)
+- [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)
