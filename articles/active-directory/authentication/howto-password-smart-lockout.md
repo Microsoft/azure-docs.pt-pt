@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035422"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065986"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteja as contas dos utilizadores de ataques com o bloqueio inteligente do Azure Ative Directory
 
@@ -24,7 +24,7 @@ O bloqueio inteligente ajuda a bloquear os maus atores que tentam adivinhar as p
 
 ## <a name="how-smart-lockout-works"></a>Como funciona o bloqueio inteligente
 
-Por predefinição, o bloqueio inteligente bloqueia a conta de tentativas de inscrição durante um minuto após 10 tentativas falhadas. A conta bloqueia novamente após cada tentativa falhada de inscrição, durante um minuto no início e mais tempo nas tentativas subsequentes.
+Por predefinição, o bloqueio inteligente bloqueia a conta de tentativas de inscrição durante um minuto após 10 tentativas falhadas. A conta bloqueia novamente após cada tentativa falhada de inscrição, durante um minuto no início e mais tempo nas tentativas subsequentes. Para minimizar as formas como um intruso pode trabalhar em torno deste comportamento, não divulgamos a taxa a que o período de bloqueio cresce ao longo de tentativas adicionais de insu certo.
 
 O bloqueio inteligente rastreia os últimos três haques de palavra-passe estragados para evitar o incremento do contador de bloqueio para a mesma palavra-passe. Se alguém introduzir a mesma palavra-passe errada várias vezes, este comportamento não fará com que a conta bloqueie.
 

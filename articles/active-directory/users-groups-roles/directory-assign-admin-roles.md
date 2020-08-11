@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551698"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066071"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -545,11 +545,11 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 | microsoft.diretório/appRoleAssignments/update | Atualizar apreciamentos AlooleAssignments no Azure Ative Directory. |
 | microsoft.diretório/appRoleAssignments/delete | Elimine as assinaturas do AppRoleAss no Diretório Ativo Azure. |
 | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
-| microsoft.diretório/conectorGrupos/tudo/ler | Leia as propriedades do grupo de conector proxy de aplicação no Azure Ative Directory. |
-| microsoft.diretório/conectorGroups/tudo/atualização | Atualize todas as propriedades do grupo de conector proxy de aplicação em Azure Ative Directory. |
+| microsoft.diretório/conectorGroups/allProperties/read | Leia as propriedades do grupo de conector proxy de aplicação no Azure Ative Directory. |
+| microsoft.diretório/conectorGroups/allProperties/update | Atualize todas as propriedades do grupo de conector proxy de aplicação em Azure Ative Directory. |
 | microsoft.diretório/conectorGroups/criar | Criar grupos de conector de procuração de aplicação no Diretório Ativo Azure. |
 | microsoft.diretório/conectorGroups/delete | Eliminar grupos de conector de procuração de aplicações no Diretório Ativo Azure. |
-| microsoft.diretório/conectores/tudo/ler | Leia todas as propriedades do conector proxy de aplicação no Azure Ative Directory. |
+| microsoft.diretório/conectores/allProperties/read | Leia todas as propriedades do conector proxy de aplicação no Azure Ative Directory. |
 | microsoft.diretório/conectores/criar | Criar conectores de procuração de aplicação no Diretório Ativo Azure. |
 | microsoft.diretório/políticas/aplicaçãoConfiguration/basic/read | Ler políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
 | microsoft.diretório/políticas/aplicaçãoConfiguration/basic/update | Atualização políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
@@ -1426,7 +1426,6 @@ Pode gerir os serviços de cloud de aplicações do Office, incluindo a gestão 
 | microsoft.office365.messageCenter/messages/read | Leia as mensagens no microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
-| microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Leia e atualize a visibilidade das mensagens What's New. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
@@ -1991,7 +1990,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

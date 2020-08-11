@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/10/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002884"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067023"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
@@ -76,24 +76,22 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 ## <a name="june-2020-guest-os"></a>Junho 2020 Guest OS
->[!NOTE]
->O June Guest OS está atualmente a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações.
 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561616]  |  Última atualização cumulativa (LCU)  |  5.44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561608]  |  Última atualização cumulativa (LCU)  |  6.20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562030]  |  Atualização de Stack de Manutenção  |  2.99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561643]  |  Rollup mensal  |  2.99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562252]  |  Atualização de Stack de Manutenção  |  3.86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561612]  |  Rollup mensal  |  3.86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561600]  |  Flash  |  3.86, 4.79, 5.44, 6.20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562253]  |  Atualização de Stack de Manutenção  |  4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561666]  |  Rollup mensal  |  4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562561]  |  Atualização de Stack de Manutenção  |  5.44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562562]  |  Atualização de Stack de Manutenção  |  6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Última atualização cumulativa (LCU)  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Última atualização cumulativa (LCU)  |  [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Atualização de Stack de Manutenção  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Rollup mensal  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Atualização de Stack de Manutenção  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Rollup mensal  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3.86], [4.79], [5.44], [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Atualização de Stack de Manutenção  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Rollup mensal  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Atualização de Stack de Manutenção  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Atualização de Stack de Manutenção  |  [6.20]  |  Jun 9, 2020  |
 
 
 
@@ -109,6 +107,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Maio 2020 Guest OS

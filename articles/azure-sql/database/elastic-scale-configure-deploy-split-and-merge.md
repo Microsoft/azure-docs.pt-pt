@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045649"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064949"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão dividida para mover dados entre bases de dados de fragmentos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie uma base de dados de base de dados Azure SQL que será usada como base de dados de estado de fusão dividida. Vá ao [portal Azure.](https://portal.azure.com) Criar uma nova **Base de Dados SQL.** Dê à base de dados um nome e crie um novo administrador e senha. Certifique-se de que grava o nome e a palavra-passe para posterior utilização.
+1. Crie uma base de dados de base de dados Azure SQL que será usada como base de dados de estado de fusão dividida. Aceda ao [portal do Azure](https://portal.azure.com). Criar uma nova **Base de Dados SQL.** Dê à base de dados um nome e crie um novo administrador e senha. Certifique-se de que grava o nome e a palavra-passe para posterior utilização.
 
 1. Certifique-se de que o seu servidor permite que os Serviços Azure se conectem ao mesmo. No portal, nas **Definições**de Firewall , certifique-se de que o acesso à definição **de Serviços Azure** está definido para **On**. Clique no ícone "salvar".
 
@@ -108,7 +108,7 @@ Executar o seguinte comando a partir da mesma janela onde o certificado foi exec
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Faça o upload do ficheiro PFX para o serviço de nuvem
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 2. Selecione **Serviços cloud**.
 3. Selecione o serviço de nuvem que criou acima para o serviço Split/Merge.
 4. Clique em **Certificados** no menu superior.
@@ -173,6 +173,9 @@ Determine o ponto final web do seu serviço Split-Merge. Pode encontrar isso no 
 ### <a name="test-with-powershell-scripts"></a>Teste com scripts PowerShell
 
 A implementação e o seu ambiente podem ser testados executando os scripts powerShell da amostra incluídos.
+
+> [!IMPORTANT]
+> Os scripts da amostra são executados no PowerShell 5.1. Atualmente, não funcionam no PowerShell 6 ou mais tarde.
 
 Os ficheiros de script incluídos são:
 

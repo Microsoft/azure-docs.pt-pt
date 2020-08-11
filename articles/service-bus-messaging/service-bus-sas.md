@@ -3,12 +3,12 @@ title: Controlo de acesso a autocarros da Azure Service com assinaturas de acess
 description: Visão geral do controlo de acesso do Service Bus utilizando a visão geral do Shared Access Signatures, detalhes sobre a autorização da SAS com a Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460699"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066190"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
 
@@ -27,7 +27,7 @@ A SAS guarda acesso ao Service Bus com base nas regras de autorização. Estes s
 
 As Assinaturas de Acesso Partilhado são um mecanismo de autorização baseado em sinistros que utiliza fichas simples. Utilizando SAS, as chaves nunca são transmitidas no fio. As chaves são usadas para assinar criptograficamente informações que podem ser verificadas posteriormente pelo serviço. O SAS pode ser usado semelhante a um esquema de nome de utilizador e senha onde o cliente está na posse imediata de um nome de regra de autorização e uma chave correspondente. O SAS também pode ser usado semelhante a um modelo de segurança federado, onde o cliente recebe um token de acesso limitado e assinado a partir de um serviço de ficha de segurança sem nunca ter entrado na posse da chave de assinatura.
 
-A autenticação SAS em Service Bus está configurada com [as regras](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de autorização de acesso partilhado com direitos de acesso associados e um par de chaves criptográficas primárias e secundárias. As chaves são valores de 256 bits na representação da Base64. Pode configurar regras ao nível do espaço de nome, nos [retransmissores](../service-bus-relay/relay-what-is-it.md)de Service Bus, [filas](service-bus-messaging-overview.md#queues)e [tópicos.](service-bus-messaging-overview.md#topics)
+A autenticação SAS em Service Bus está configurada com [as regras](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de autorização de acesso partilhado com direitos de acesso associados e um par de chaves criptográficas primárias e secundárias. As chaves são valores de 256 bits na representação da Base64. Pode configurar regras ao nível do espaço de nome, nos [retransmissores](../azure-relay/relay-what-is-it.md)de Service Bus, [filas](service-bus-messaging-overview.md#queues)e [tópicos.](service-bus-messaging-overview.md#topics)
 
 O token [assinatura de acesso partilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contém o nome da regra de autorização escolhida, o URI do recurso a que deve ser acedido, um instante de expiração, e uma assinatura criptográfica HMAC-SHA256 calculada sobre estes campos utilizando a chave criptográfica primária ou secundária da regra de autorização escolhida.
 
@@ -84,7 +84,7 @@ O token contém os valores não hashed para que o destinatário possa recompensa
 
 O recurso URI é o URI completo do recurso Service Bus a que o acesso é reclamado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>` , isto é, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
-**O URI deve estar [codificado por cento.](https://msdn.microsoft.com/library/4fkewx0t.aspx)**
+**O URI deve estar [codificado por cento.](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1)**
 
 A regra de autorização de acesso partilhado utilizada para a assinatura deve ser configurada na entidade especificada por este URI, ou por um dos seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 

@@ -4,12 +4,12 @@ description: Este artigo explica como usar bibliotecas de gestão de autocarros 
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341712"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066173"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gestão do Service Bus
 
@@ -26,11 +26,11 @@ As bibliotecas de gestão de autocarros da Azure Service podem providenciar dina
 
 Para começar a utilizar as bibliotecas de gestão de serviços do Service Bus, tem de autenticar com o serviço Azure Ative Directory (Azure AD). A Azure AD requer que você autentica como um principal de serviço, que fornece acesso aos seus recursos Azure. Para obter informações sobre a criação de um principal serviço, consulte um destes artigos:  
 
-* [Utilize o portal Azure para criar aplicação de Diretório Ativo e diretor de serviços que possa aceder a recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Utilize o CLI do Azure para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Utilize o portal Azure para criar aplicação de Diretório Ativo e diretor de serviços que possa aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Utilize o CLI do Azure para criar um principal de serviço para aceder aos recursos](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Estes tutoriais fornecem-lhe um `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todos eles utilizados para autenticação pelas bibliotecas de gestão. Deve ter pelo menos permissões de Proprietário de Dados de Autocarros do [**Serviço Azure**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) ou [**do Contribuinte**](/azure/role-based-access-control/built-in-roles#contributor) para o grupo de recursos em que deseja executar.
+Estes tutoriais fornecem-lhe um `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todos eles utilizados para autenticação pelas bibliotecas de gestão. Deve ter pelo menos permissões de Proprietário de Dados de Autocarros do [**Serviço Azure**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) ou [**do Contribuinte**](../role-based-access-control/built-in-roles.md#contributor) para o grupo de recursos em que deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
@@ -156,5 +156,5 @@ namespace SBusADApp
 > [!IMPORTANT]
 > Para um exemplo completo, consulte a [amostra de gestão .NET no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Referência Microsoft.Azure.Management.ServiceBus API](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

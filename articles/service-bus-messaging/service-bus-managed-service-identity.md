@@ -3,12 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a3458d7d160317e383da6217252e3dd7ed52e90f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008904"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066292"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -65,10 +65,10 @@ Para obter mais informações sobre como as funções incorporadas são [definid
 ## <a name="enable-managed-identities-on-a-vm"></a>Permitir identidades geridas num VM
 Antes de utilizar identidades geridas para a Azure Resources para autorizar os recursos do Service Bus a partir do seu VM, tem primeiro de ativar identidades geridas para recursos Azure no VM. Para aprender como permitir identidades geridas para recursos Azure, consulte um destes artigos:
 
-- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Portal do Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Modelo de gestor de recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD

@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8d8b558ebc49a009548afe9a8527985b9e4f5c75
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057278"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066666"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Ative e gere a eliminação suave para recipientes (pré-visualização)
 
 O recipiente de exclusão suave (pré-visualização) protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave do contentor estiver ativada para uma conta de armazenamento, um recipiente e o seu conteúdo podem ser recuperados após a sua eliminação, dentro de um período de retenção que especifique.
 
-Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se interlige com a eliminação suave do contentor. Este artigo mostra como permitir a eliminação suave para recipientes. Para obter mais informações sobre a eliminação suave do recipiente, consulte [a exclusão suave para recipientes (pré-visualização)](soft-delete-container-overview.md).
+Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se interlige com a eliminação suave do contentor. Este artigo mostra como permitir a eliminação suave para recipientes. Para obter mais detalhes sobre a eliminação suave do recipiente, incluindo como se registar para a pré-visualização, consulte [Soft delete para recipientes (pré-visualização)](soft-delete-container-overview.md).
 
 Para a proteção de dados de ponta a ponta, a Microsoft recomenda que também permita eliminar suavemente para bolhas e versões blob (pré-visualização). Para aprender a permitir também a eliminação suave para bolhas, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md). Para aprender a permitir a versão blob, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
 

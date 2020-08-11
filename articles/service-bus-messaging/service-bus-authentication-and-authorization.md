@@ -3,12 +3,12 @@ title: Autenticação e autorização do Azure Service Bus Microsoft Docs
 description: Autenticar aplicativos para Service Bus com autenticação de assinatura de acesso partilhado (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337714"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066867"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus
 Existem duas formas de autenticar e autorizar o acesso aos recursos do Azure Service Bus: Azure Activity Directory (Azure AD) e Shared Access Signatures (SAS). Este artigo dá-lhe detalhes sobre a utilização destes dois tipos de mecanismos de segurança. 
@@ -30,7 +30,7 @@ Para obter mais informações sobre a autenticação com Azure AD, consulte os s
 ## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
 [A autenticação SAS](service-bus-sas.md) permite-lhe conceder acesso ao utilizador aos recursos do Service Bus, com direitos específicos. A autenticação SAS em Service Bus envolve a configuração de uma chave criptográfica com direitos associados num recurso de Service Bus. Os clientes podem então ter acesso a esse recurso apresentando um token SAS, que consiste no recurso a que o URI está a ser acedido e um prazo de validade assinado com a chave configurada.
 
-Pode configurar as chaves para SAS num espaço de nomes de Service Bus. A chave aplica-se a todas as entidades de mensagens dentro desse espaço de nome. Também pode configurar chaves nas filas e tópicos do Service Bus. O SAS também é suportado no [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
+Pode configurar as chaves para SAS num espaço de nomes de Service Bus. A chave aplica-se a todas as entidades de mensagens dentro desse espaço de nome. Também pode configurar chaves nas filas e tópicos do Service Bus. O SAS também é suportado no [Azure Relay](../azure-relay/relay-authentication-and-authorization.md).
 
 Para utilizar SAS, pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num espaço de nome, fila ou tópico. Esta regra consiste nos seguintes elementos:
 
@@ -46,9 +46,9 @@ Para aceder a uma entidade, o cliente requer um token SAS gerado usando uma [reg
 O suporte de autenticação SAS para Service Bus está incluído nas versões Azure .NET SDK 2.0 e posteriormente. O SAS inclui suporte para uma [Regra de Poliétula Desauthorization.](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de conexão SAS.
 
 > [!IMPORTANT]
-> Se estiver a utilizar o Azure Ative Directory Access Control (também conhecido como Access Control Service ou ACS) com o Service Bus, note que o suporte para este método é agora limitado e que deverá [migrar a sua aplicação para utilizar SAS](service-bus-migrate-acs-sas.md) ou utilizar a autenticação OAuth 2.0 com Azure AD (recomendado). Para mais informações sobre a depreciação da ACS, consulte [este post de blog.](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
+> Se estiver a utilizar o Azure Ative Directory Access Control (também conhecido como Access Control Service ou ACS) com o Service Bus, note que o suporte para este método é agora limitado e que deverá [migrar a sua aplicação para utilizar SAS](service-bus-migrate-acs-sas.md) ou utilizar a autenticação OAuth 2.0 com Azure AD (recomendado). Para mais informações sobre a depreciação da ACS, consulte [este post de blog.](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a autenticação com Azure AD, consulte os seguintes artigos:
 
 - [Autenticação com identidades geridas](service-bus-managed-service-identity.md)

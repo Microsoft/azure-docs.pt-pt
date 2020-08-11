@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 15e0312fab4558b9aeea1748c6ff70cf77973fb5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057269"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066615"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 

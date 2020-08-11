@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a usar tópicos e subscrições do Az
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: f2161d39961cc52bc0f0da509abec3ed6377cc07
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341092"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066207"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Quickstart: Como usar tópicos e subscrições de Service Bus com PHP
 
@@ -261,13 +261,13 @@ for($i = 0; $i < 5; $i++){
 Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas num tópico, contudo, existe um limite do tamanho total das mensagens contidas num tópico. Este limite superior no tamanho do tópico é de 5 GB. Para obter mais informações sobre quotas, consulte [as quotas de Service Bus.][Service Bus quotas]
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
-A melhor maneira de receber mensagens de uma subscrição é usar um `ServiceBusRestProxy->receiveSubscriptionMessage` método. As mensagens podem ser recebidas em dois modos diferentes: [ *ReceberAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é a predefinição.
+A melhor maneira de receber mensagens de uma subscrição é usar um `ServiceBusRestProxy->receiveSubscriptionMessage` método. As mensagens podem ser recebidas em dois modos diferentes: [ *ReceberAndDelete* e *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é a predefinição.
 
-Na utilização do modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), a receção é uma operação única; ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa subscrição, aquele marca a mensagem como consumida e devolve a mesma à aplicação. O modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar não processar uma mensagem quando ocorre uma falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Como a Service Bus marcou a mensagem como sendo consumida, então quando a aplicação reinicia e volta a consumir mensagens, perdeu a mensagem que foi consumida antes do acidente.
+Na utilização do modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), a receção é uma operação única; ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa subscrição, aquele marca a mensagem como consumida e devolve a mesma à aplicação. O modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) * é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar não processar uma mensagem quando ocorre uma falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Como a Service Bus marcou a mensagem como sendo consumida, então quando a aplicação reinicia e volta a consumir mensagens, perdeu a mensagem que foi consumida antes do acidente.
 
-No modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) predefinido, receber uma mensagem torna-se uma operação de duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após o final da aplicação ter terminado o processamento da mensagem (ou armazena-a de forma fiável para o processamento futuro), completa a segunda fase do processo de receção, passando a mensagem recebida para `ServiceBusRestProxy->deleteMessage` . Quando a Service Bus vê a `deleteMessage` chamada, marca a mensagem como sendo consumida e retira-a da fila.
+No modo [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) predefinido, receber uma mensagem torna-se uma operação de duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após o final da aplicação ter terminado o processamento da mensagem (ou armazena-a de forma fiável para o processamento futuro), completa a segunda fase do processo de receção, passando a mensagem recebida para `ServiceBusRestProxy->deleteMessage` . Quando a Service Bus vê a `deleteMessage` chamada, marca a mensagem como sendo consumida e retira-a da fila.
 
-O exemplo a seguir mostra como receber e processar uma mensagem utilizando o modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (o modo predefinido). 
+O exemplo a seguir mostra como receber e processar uma mensagem utilizando o modo [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) (o modo predefinido). 
 
 ```php
 require_once 'vendor/autoload.php';

@@ -3,12 +3,12 @@ title: Analise o vídeo ao vivo usando o seu próprio modelo - Azure
 description: Neste arranque rápido, aplicará visão computacional para analisar o feed de vídeo ao vivo a partir de uma câmara IP (simulada).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 75e18917b0d44dc33999d17360cd66a538c83d2b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065204"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Quickstart: Analise o vídeo ao vivo usando o seu próprio modelo
 
@@ -31,7 +31,7 @@ Este quickstart usa um Azure VM como um dispositivo IoT Edge, e utiliza um strea
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 Quando configura os recursos Azure, um pequeno vídeo de tráfego rodoviário é copiado para o Linux VM em Azure que você está usando como o dispositivo IoT Edge. Este quickstart utiliza o ficheiro de vídeo para simular uma transmissão em direto.
 
-Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para [o vídeo](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar a reprodução. Vê-se as imagens de muitos veículos a moverem-se no trânsito rodoviário.
+Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione `Ctrl+N` e, em seguida, cole um link para [o vídeo da amostra de intersecção da autoestrada](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar a reprodução. Vê-se as imagens de muitos veículos a moverem-se no trânsito rodoviário.
 
 Neste arranque rápido, você usará Live Video Analytics no IoT Edge para detetar objetos como veículos e pessoas. Publicará eventos de inferência associados ao IoT Edge Hub.
 
@@ -107,9 +107,18 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 1. Quando lhe for solicitado que selecione um dispositivo IoT Hub, selecione **o dispositivo de amostra de Lva**.
 1. Após cerca de 30 segundos, no canto inferior esquerdo da janela, refresque o Azure IoT Hub. O dispositivo de borda mostra agora os seguintes módulos implantados:
 
-    * O módulo Live Video Analytics, chamado **LvaEdge**
-    * O **módulo rtspsim,** que simula um servidor RTSP e funciona como a fonte de um feed de vídeo ao vivo
-    * O módulo **yolov3,** que é o modelo de deteção de objetos YOLOv3 que aplica visão computacional às imagens e devolve várias classes de tipos de objetos
+    * O módulo live video analytics, nomeado`lvaEdge`
+    * O `rtspsim` módulo, que simula um servidor RTSP e funciona como a fonte de um feed de vídeo ao vivo
+    > [!NOTE]
+    > Se estiver a utilizar o seu próprio dispositivo de borda em vez do previsto no nosso script de configuração, vá ao seu dispositivo de borda e execute os seguintes comandos com **direitos de administração**, para puxar e armazenar o ficheiro de vídeo de amostra utilizado para este arranque rápido:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * O `yolov3` módulo, que é o modelo de deteção de objetos YoloV3 que aplica visão computacional às imagens e devolve várias classes de tipos de objetos
  
       ![Módulos que são implantados no dispositivo de borda](./media/quickstarts/yolov3.png)
 
@@ -282,9 +291,9 @@ Nas mensagens, note os seguintes detalhes:
 
 Se pretende tentar outros quickstarts, mantenha os recursos que criou. Caso contrário, vá ao portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este quickstart e elimine todos os recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Experimente uma [versão segura do modelo YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) e desloque-o para o dispositivo de borda IOT. 
+* Experimente uma [versão segura do modelo YoloV3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) e desloque-o para o dispositivo IoT Edge. 
 
 Rever desafios adicionais para utilizadores avançados:
 

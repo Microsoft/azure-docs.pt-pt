@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder a entidades de autocarros da Azure
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder a entidades de autocarros de serviço da Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006269"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064830"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
 A Azure Service Bus suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos a entidades de Service Bus (filas, tópicos, subscrições ou filtros). Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador, grupo ou diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -102,7 +102,7 @@ Depois de ter registado a sua candidatura, verá o **ID de Aplicação (cliente)
 
 ![ID de aplicação do pedido registado](./media/authenticate-application/application-id.png)
 
-Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Tome nota do **TenantId** e do **ApplicationId.** Vai precisar destes valores para executar a aplicação.

@@ -3,12 +3,12 @@ title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microso
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511318"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064541"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
@@ -73,7 +73,7 @@ Ligações, canais e sessões são efémeras. Se a ligação subjacente colapsar
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída amQP
 
-Os clientes que utilizam ligações AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas na firewall local. Juntamente com estas portas, poderá ser necessário abrir portas adicionais se a função [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver ativada. `EnableLinkRedirect`é uma nova funcionalidade de mensagens que ajuda a saltar um salto enquanto recebe mensagens, ajudando assim a aumentar a produção. O cliente começaria a comunicar diretamente com o serviço back-end sobre a gama de portas 104XX, como mostrado na imagem seguinte. 
+Os clientes que utilizam ligações AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas na firewall local. Juntamente com estas portas, poderá ser necessário abrir portas adicionais se a função [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver ativada. `EnableLinkRedirect`é uma nova funcionalidade de mensagens que ajuda a saltar um salto enquanto recebe mensagens, ajudando assim a aumentar a produção. O cliente começaria a comunicar diretamente com o serviço back-end sobre a gama de portas 104XX, como mostrado na imagem seguinte. 
 
 ![Lista de portos de destino][4]
 
@@ -359,10 +359,10 @@ A mensagem de pedido tem as seguintes propriedades de aplicação:
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |string |**put-token** |
-| tipo |Não |string |O tipo de símbolo que está a ser colocado. |
-| name |Não |string |O "público" a que o símbolo se aplica. |
-| expiração |Sim |carimbo de data/hora |O prazo de validade do token. |
+| operação |No |cadeia |**put-token** |
+| tipo |No |cadeia |O tipo de símbolo que está a ser colocado. |
+| name |No |cadeia |O "público" a que o símbolo se aplica. |
+| expiração |Yes |carimbo de data/hora |O prazo de validade do token. |
 
 O *nome* da propriedade identifica a entidade com a qual o símbolo deve ser associado. No Service Bus é o caminho para a fila, ou tópico/subscrição. A propriedade *tipo* identifica o tipo de símbolo:
 
@@ -378,8 +378,8 @@ A mensagem de resposta tem os seguintes valores *de propriedades de aplicação*
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| descrição do estado |Sim |string |Descrição do estado. |
+| código de estado |No |int |Código de resposta HTTP **[RFC2616]**. |
+| descrição do estado |Yes |cadeia |Descrição do estado. |
 
 O cliente pode ligar *para o put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens são telescópios para o cliente atual e ancorados na ligação atual, o que significa que o servidor deixa cair quaisquer fichas retidas quando a ligação cai.
 
@@ -404,13 +404,13 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre AMQP, visite os seguintes links:
 
 * [Visão geral do AMQP do autocarro de serviço]
 * [Suporte AMQP 1.0 para filas e tópicos divididos do Service Bus]
-* [AMQP no ônibus de serviço para windows server]
+* [AMQP em ônibus de serviço para windows server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -419,5 +419,5 @@ Para saber mais sobre AMQP, visite os seguintes links:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Visão geral do AMQP do autocarro de serviço]: service-bus-amqp-overview.md
-[Suporte AMQP 1.0 para filas e tópicos divididos do Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP no ônibus de serviço para windows server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Suporte AMQP 1.0 para filas e tópicos divididos do Service Bus]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290164"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064796"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -26,7 +26,7 @@ Key Vault é um sistema de gestão de chaves externo baseado na nuvem. É altame
 
 ## <a name="benefits"></a>Benefícios
 
-A encriptação de dados para a base de dados Azure para o servidor Single PostgreSQL fornece os seguintes benefícios:
+A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single fornece os seguintes benefícios:
 
 * O acesso a dados é totalmente controlado por si pela capacidade de remover a chave e tornar a base de dados inacessível 
 *    Controlo total sobre o ciclo-chave de vida, incluindo a rotação da chave para alinhar com as políticas corporativas
@@ -48,8 +48,8 @@ Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma ent
 Para que um servidor PostgreSQL utilize teclas geridas pelo cliente armazenadas no Cofre de Chaves para encriptação do DEK, um administrador do Key Vault dá os seguintes direitos de acesso ao servidor:
 
 * **obter**: Para recuperar a parte pública e as propriedades da chave no cofre chave.
-* **wrapKey**: Para ser capaz de encriptar o DEK.
-* **desembrulharKey**: Para ser capaz de desencriptar o DEK.
+* **wrapKey**: Para ser capaz de encriptar o DEK. O DEK encriptado está armazenado na Base de Dados Azure para PostgreSQL.
+* **desembrulharKey**: Para ser capaz de desencriptar o DEK. A Azure Database for PostgreSQL precisa do DEK desencriptado para encriptar/desencriptar os dados
 
 O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
@@ -59,16 +59,16 @@ Quando o servidor está configurado para utilizar a chave gerida pelo cliente ar
 
 Seguem-se os requisitos para a configuração do Cofre de Chaves:
 
-* Key Vault e Azure Database for PostgreSQL Single servidor deve pertencer ao mesmo inquilino do Azure Ative Directory (Azure AD). O Key Vault e as interações do servidor não são suportados. A movimentação de recursos requer que reconfigure a encriptação de dados.
+* Key Vault e Azure Database for PostgreSQL Single servidor deve pertencer ao mesmo inquilino do Azure Ative Directory (Azure AD). O Key Vault e as interações do servidor não são suportados. A deslocação do recurso Key Vault requer que reconfigure a encriptação de dados.
 * Ativar a função de eliminação suave no cofre da chave, para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias são retidos, a menos que o utilizador os recupere ou purgue entretanto. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
-* Conceda à Base de Dados Azure para o acesso do servidor single PostgreSQL ao cofre de chaves com as permissões get, wrapKey e desembrulhar, utilizando a sua identidade gerida única. No portal Azure, a identidade única é criada automaticamente quando a encriptação de dados é ativada no servidor PostgreSQL Single. Consulte [a encriptação de dados para a base de dados Azure para o servidor Single PostgreSQL, utilizando o portal Azure](howto-data-encryption-portal.md) para obter instruções detalhadas, passo a passo, quando estiver a utilizar o portal Azure.
+* Conceda à Base de Dados Azure para o acesso do servidor single PostgreSQL ao cofre de chaves com as permissões get, wrapKey e desembrulhar, utilizando a sua identidade gerida única. No portal Azure, a identidade única de 'Serviço' é criada automaticamente quando a encriptação de dados é ativada no servidor PostgreSQL Single. Consulte [a encriptação de dados para a base de dados Azure para o servidor Single PostgreSQL, utilizando o portal Azure](howto-data-encryption-portal.md) para obter instruções detalhadas, passo a passo, quando estiver a utilizar o portal Azure.
 
 Seguem-se os requisitos para a configuração da chave gerida pelo cliente:
 
 * A chave gerida pelo cliente para encriptar o DEK só pode ser assimétrica, RSA 2048.
 * A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade (se definida) deve ser uma data e hora futuras.
 * A chave deve estar no estado *ativado.*
-* Se estiver a importar uma chave existente para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiros suportados `.pfx` (, `.byok` , . `.backup`
+* Se estiver [a importar uma chave existente](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiros suportados `.pfx` (, , `.byok` . `.backup`
 
 ## <a name="recommendations"></a>Recomendações
 

@@ -3,12 +3,12 @@ title: Use a PowerShell para gerir os recursos do Azure Service Bus Microsoft Do
 description: Este artigo explica como usar o módulo Azure PowerShell para criar e gerir entidades de Service Bus (espaços de nome, filas, tópicos, subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341743"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065748"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o PowerShell para gerir os recursos do Service Bus
 
@@ -151,7 +151,7 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 Pode utilizar o [módulo Service Bus PowerShell](/powershell/module/az.servicebus) para o fornecimento de outras entidades, tais como tópicos e subscrições. Estes cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na secção anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [aqui](/powershell/module/az.servicebus)a documentação completa do módulo PowerShell do Service Bus Resource Manager . Esta página lista todos os cmdlets disponíveis.
 - Para obter informações sobre a utilização de modelos do Gestor de Recursos Azure, consulte o artigo [Criar recursos de ônibus de serviço usando modelos de Gestor de Recursos Azure](service-bus-resource-manager-overview.md).
@@ -159,8 +159,8 @@ Pode utilizar o [módulo Service Bus PowerShell](/powershell/module/az.servicebu
 
 Existem algumas formas alternativas de gerir as entidades de Service Bus, como descrito nestas publicações de blog:
 
-* [Como criar filas, tópicos e subscrições de Service Bus usando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [Como criar um espaço de nome de ônibus de serviço e um centro de eventos usando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [Como criar filas, tópicos e subscrições de Service Bus usando um script PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Como criar um espaço de nome de ônibus de serviço e um centro de eventos usando um script PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Scripts powershell de ônibus de serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

@@ -3,12 +3,12 @@ title: Isolar as aplicações do Azure Service Bus contra interrupções e desas
 description: Estes artigos fornecem técnicas para proteger as aplicações contra uma possível paragem do autocarro da Azure Service.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339651"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065629"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
 
@@ -72,11 +72,11 @@ Ao utilizar a replicação passiva, nos seguintes cenários as mensagens podem s
 A [geo-replicação com][Geo-replication with Service Bus Standard Tier] a amostra Service Bus Standard Tier demonstra a replicação passiva de entidades de mensagens.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Proteção dos pontos finais de retransmissão contra interrupções ou desastres do datacenter
-A geo-replicação dos pontos finais da [Azure Relay](../service-bus-relay/relay-what-is-it.md) permite que um serviço que expõe um ponto final de retransmissão seja alcançável na presença de paragens de Service Bus. Para obter a geo-replicação, o serviço deve criar dois pontos finais de retransmissão em diferentes espaços de nome. Os espaços de nome devem residir em diferentes datacenters e os dois pontos finais devem ter nomes diferentes. Por exemplo, um ponto final primário pode ser alcançado sob **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto a sua contraparte secundária pode ser alcançada sob **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+A geo-replicação dos pontos finais da [Azure Relay](../azure-relay/relay-what-is-it.md) permite que um serviço que expõe um ponto final de retransmissão seja alcançável na presença de paragens de Service Bus. Para obter a geo-replicação, o serviço deve criar dois pontos finais de retransmissão em diferentes espaços de nome. Os espaços de nome devem residir em diferentes datacenters e os dois pontos finais devem ter nomes diferentes. Por exemplo, um ponto final primário pode ser alcançado sob **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto a sua contraparte secundária pode ser alcançada sob **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 O serviço então ouve em ambos os pontos finais, e um cliente pode invocar o serviço através de qualquer ponto final. Uma aplicação de cliente escolhe aleatoriamente um dos retransmissores como ponto final primário, e envia o seu pedido para o ponto final ativo. Se a operação falhar com um código de erro, esta falha indica que o ponto final do relé não está disponível. A aplicação abre um canal para o ponto final de reserva e reedita o pedido. Nessa altura, o ponto final ativo e o backup trocam as funções: a aplicação do cliente considera o antigo ponto final ativo como o novo ponto final de backup, e o antigo ponto final de backup é o novo ponto final ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecem inalteradas e um erro é devolvido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a recuperação de desastres, consulte estes artigos:
 
 * [Recuperação de geo-desastre de autocarro de serviço Azure](service-bus-geo-dr.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827627"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065476"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais em Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 | [Com otimização de computação](sizes-compute.md) | F, Fs, Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
 | [Com otimização de memória](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Relação memória alta-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](sizes-storage.md) | Lsv2 | Alta produção de disco e IO ideal para Big Data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais.  |
-| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3, NVv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferenização (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplas. |
+| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (Preview), ND, NDv2 (Preview), NV, NVv3, NVv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferenização (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplas. |
 | [Computação de elevado desempenho](sizes-hpc.md) | HB, HBv2, HC, H | As nossas máquinas virtuais mais rápidas e poderosas do CPU com interfaces de rede de alta produção opcional (RDMA). |
 
 - Para obter informações sobre preços dos vários tamanhos, consulte as páginas de preços do [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) ou [do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).

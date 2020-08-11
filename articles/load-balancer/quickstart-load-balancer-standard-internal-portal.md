@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1ec3eaac90e1d2bc24608f6cb4546d5bed859b5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033245"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065238"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -65,7 +65,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Insira **myVNet**                                    |
+    | Name             | Insira **myVNet**                                    |
     | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
@@ -112,7 +112,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Name                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
@@ -275,7 +275,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2|
     | ------- | ----- |
-    | Nome |  **myVM2** |
+    | Name |  **myVM2** |
     | Zona de disponibilidade | **2** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
@@ -309,7 +309,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Insira **myVNet**                                    |
+    | Name             | Insira **myVNet**                                    |
     | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
@@ -356,7 +356,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Name                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Basic** |
@@ -500,7 +500,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
     | Subrede | Selecione **myBackendSubnet** |
-    | IP público | Selecione **Criar novo** </br> **Insira o myVM-ip** em nome. </br> Selecione **OK** |
+    | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> Selecione **OK** |
     | **Balanceamento de carga**  |
@@ -523,7 +523,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2 |
     | ------- | ----- |
-    | Nome |  **myVM2** |
+    | Name |  **myVM2** |
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
@@ -651,7 +651,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
    
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue o Balancer e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
 

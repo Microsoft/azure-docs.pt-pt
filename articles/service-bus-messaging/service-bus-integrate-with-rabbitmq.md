@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071624"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064558"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Como integrar o RabbitMQ com o Azure Service Bus
 
@@ -20,7 +20,7 @@ Neste guia, vamos aprender a enviar mensagens da RabbitMQ para a Azure Service B
 
 Aqui estão alguns cenários em que podemos fazer uso destas capacidades:
 
-- **Configurações de bordas**: Temos uma configuração de borda onde estamos a enviar mensagens para o RabbitMQ, mas queremos encaminhar essas mensagens para [a Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) para posterior processamento, para que possamos usar muitas das capacidades do [Azure Big Data.](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data)
+- **Configurações de bordas**: Temos uma configuração de borda onde estamos a enviar mensagens para o RabbitMQ, mas queremos encaminhar essas mensagens para [a Azure Service Bus](./service-bus-messaging-overview.md) para posterior processamento, para que possamos usar muitas das capacidades do [Azure Big Data.](/azure/architecture/guide/architecture-styles/big-data)
 - **Hybrid Cloud**: A sua empresa acaba de adquirir um terceiro que usa o RabbitMQ para as suas necessidades de mensagens. Estão numa nuvem diferente. Enquanto eles fazem a transição para a Azure já pode começar a partilhar dados fazendo a ponte rabbitMQ com a Azure Service Bus.
 - **Integração de terceiros**: Um terceiro usa o RabbitMQ como corretor, e quer enviar os seus dados para nós, mas eles estão fora da nossa organização. Podemos fornecer-lhes a Sas Key dando-lhes acesso a um conjunto limitado de filas de autocarros da Azure Service para onde podem reencaminar as suas mensagens.
 
@@ -28,7 +28,7 @@ A lista continua, mas podemos resolver a maioria destes casos de uso, fazendo a 
 
 Primeiro precisa criar uma conta Azure gratuita ao inscrever-se [aqui](https://azure.microsoft.com/free/)
 
-Assim que fizer o seu contrato de sessão, vá ao [portal Azure](https://portal.azure.com/) e crie um novo [espaço de nomes](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)para o Azure Service Bus . Os espaços de nome são os recipientes de deteção onde os nossos componentes de mensagens vão viver, como filas e tópicos.
+Assim que fizer o seu contrato de sessão, vá ao [portal Azure](https://portal.azure.com/) e crie um novo [espaço de nomes](./service-bus-create-namespace-portal.md)para o Azure Service Bus . Os espaços de nome são os recipientes de deteção onde os nossos componentes de mensagens vão viver, como filas e tópicos.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>Adicionar um novo espaço de nomes de autocarros da Azure Service
 
@@ -40,7 +40,7 @@ Em seguida, selecione Integração e clique no Azure Service Bus para criar um e
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Selecione ônibus da Azure Service":::
 
-Serão solicitados a introduzir a informação do espaço de nome. Selecione a subscrição do Azure que pretende utilizar. Se não tiver um [grupo de recursos,](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)pode criar um novo.
+Serão solicitados a introduzir a informação do espaço de nome. Selecione a subscrição do Azure que pretende utilizar. Se não tiver um [grupo de recursos,](../azure-resource-manager/management/manage-resource-groups-portal.md)pode criar um novo.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Create namespace":::
 
@@ -76,7 +76,7 @@ Agora é hora de obter as credenciais necessárias para ligar RabbitMQ a Azure.
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Ligando o RabbitMQ ao ônibus de serviço Azure
 
-Terá de criar uma Política de [Acesso Partilhado](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) para a sua fila, para que o RabbitMQ possa publicar mensagens para a sua fila. Uma Política SAS permite-lhe especificar o que é permitido a parte externa fazer com o seu recurso. A ideia é que o RabbitMQ seja capaz de enviar mensagens, mas não ouvir ou gerir a fila.
+Terá de criar uma Política de [Acesso Partilhado](../storage/common/storage-sas-overview.md) (SAS) para a sua fila, para que o RabbitMQ possa publicar mensagens para a sua fila. Uma Política SAS permite-lhe especificar o que é permitido a parte externa fazer com o seu recurso. A ideia é que o RabbitMQ seja capaz de enviar mensagens, mas não ouvir ou gerir a fila.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Adicionar política SAS":::
 

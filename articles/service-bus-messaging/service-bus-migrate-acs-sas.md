@@ -3,16 +3,16 @@ title: Azure Service Bus - Migrar para autorização de assinatura de acesso par
 description: Saiba como migrar do Serviço de Controlo de Acesso ao Diretório Ativo Azure para a autorização de Assinatura de Acesso Partilhado.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340125"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064626"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus - Migrar do Azure Ative Directory Access Control Service para autorização de assinatura de acesso partilhado
 
-As aplicações da Service Bus já tiveram a opção de utilizar dois modelos de autorização diferentes: o modelo de token [Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) fornecido diretamente pela Service Bus, e um modelo federado onde a gestão das regras de autorização é gerida no interior pelo [Azure Ative Directory](/azure/active-directory/) Access Control Service (ACS), e os tokens obtidos da ACS são passados à Service Bus para autorizar o acesso às funcionalidades desejadas.
+As aplicações da Service Bus já tiveram a opção de utilizar dois modelos de autorização diferentes: o modelo de token [Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) fornecido diretamente pela Service Bus, e um modelo federado onde a gestão das regras de autorização é gerida no interior pelo [Azure Ative Directory](../active-directory/index.yml) Access Control Service (ACS), e os tokens obtidos da ACS são passados à Service Bus para autorizar o acesso às funcionalidades desejadas.
 
 O modelo de autorização ACS foi há muito substituído pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido, e toda a documentação, orientação e amostras utilizam exclusivamente SAS hoje em dia. Além disso, já não é possível criar novos espaços de nomes do Service Bus que estejam emparelhados com ACS.
 
@@ -50,10 +50,9 @@ Você pode fazer esta configuração nova e adicional de SAS no lugar em qualque
 
 As regras da SAS não se destinam a ser contas, mas são nomeadas chaves de assinatura associadas a direitos. Como tal, os cenários em que a aplicação cria muitas identidades de serviço e lhes concede direitos de acesso a várias entidades ou a todo o espaço de nome ainda requerem um intermediário de emissão de fichas. Pode obter orientação para tal intermediário [contactando o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a autenticação do Service Bus, consulte os seguintes tópicos:
 
 * [Autenticação e autorização do Service Bus](service-bus-authentication-and-authorization.md)
 * [Autenticação de ônibus de serviço com assinaturas de acesso compartilhado](service-bus-sas.md)
-

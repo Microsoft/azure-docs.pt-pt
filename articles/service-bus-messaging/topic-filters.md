@@ -3,12 +3,12 @@ title: Filtros tópicos do ônibus da Azure Service / Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais as mensagens que querem receber de um tópico especificando filtros.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339968"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066751"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
@@ -57,11 +57,9 @@ O encaminhamento utiliza filtros para distribuir mensagens através de subscriç
 > [!NOTE]
 > Como o portal Azure suporta agora a funcionalidade Service Bus Explorer, os filtros de subscrição podem ser criados ou editados a partir do portal. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte as seguintes amostras: 
 
 - [.NET - Envio básico e receber tutorial com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET - Filtros tópicos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Modelo Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
-
-
+- [Modelo de gestor de recursos Azure](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

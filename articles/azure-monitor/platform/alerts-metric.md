@@ -4,14 +4,14 @@ description: Saiba como usar o portal Azure ou OCli para criar, visualizar e ger
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042739"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065867"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -139,9 +139,18 @@ As secções anteriores descreveram como criar, visualizar e gerir regras de ale
 
 As regras de alerta métrico têm cmdlets powerShell dedicados disponíveis:
 
-- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Cria uma nova regra de alerta métrico ou atualiza uma existente.
-- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Obtém uma ou mais regras de alerta métricas.
-- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Remove uma regra de alerta métrico.
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Criar uma nova regra de alerta métrico ou atualizar uma existente.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Obtenha uma ou mais regras de alerta métricas.
+- [Remover-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Eliminar uma regra de alerta métrico.
+
+## <a name="with-rest-api"></a>Com a API REST
+
+- [Criar ou atualizar:](/rest/api/monitor/metricalerts/createorupdate)Criar uma nova regra de alerta métrico ou atualizar uma existente.
+- [Obter:](/rest/api/monitor/metricalerts/get)Obtenha uma regra específica de alerta métrico.
+- [Lista por Grupo de Recursos](/rest/api/monitor/metricalerts/listbyresourcegroup): Obtenha uma lista de regras de alerta métrico num grupo de recursos específico.
+- [Lista por subscrição](/rest/api/monitor/metricalerts/listbysubscription): Obtenha uma lista de regras de alerta métrico numa subscrição específica.
+- [Atualização](/rest/api/monitor/metricalerts/update): Atualizar uma regra de alerta métrico.
+- [Excluir](/rest/api/monitor/metricalerts/delete): Elimine uma regra de alerta métrico.
 
 ## <a name="next-steps"></a>Passos seguintes
 

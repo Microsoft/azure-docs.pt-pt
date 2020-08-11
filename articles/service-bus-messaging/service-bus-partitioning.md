@@ -3,12 +3,12 @@ title: Crie filas e tópicos do Azure Service Bus divididos Microsoft Docs
 description: Descreve como dividir filas e tópicos do Service Bus usando vários corretores de mensagens.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339636"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064864"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -141,7 +141,7 @@ Atualmente, a Service Bus impõe as seguintes limitações em filas e tópicos d
 * Filas e tópicos divididos não suportam o envio de mensagens que pertencem a diferentes sessões numa única transação.
 * Atualmente, o Service Bus permite até 100 filas ou tópicos particionados por espaço de nomes. Cada fila ou tópico dividido conta para a quota de 10.000 entidades por espaço de nome (não se aplica ao nível Premium).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os conceitos fundamentais da especificação de mensagens AMQP 1.0 no guia do [protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md).
 
@@ -149,4 +149,4 @@ Leia sobre os conceitos fundamentais da especificação de mensagens AMQP 1.0 no
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

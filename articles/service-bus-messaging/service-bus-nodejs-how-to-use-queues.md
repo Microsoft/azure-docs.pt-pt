@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: 076233c52074bca646c072e9a1abe63b15412c1b
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: cebbab4045b3f8af061bfececff1af9ed70c50de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430649"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065130"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Use as filas de ônibus de serviço em Azure com Node.js e o pacote azure-sb
 Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e receber mensagens de uma fila de autocarros da Azure Service usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente o pacote azure-sb.
@@ -20,7 +20,7 @@ Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e 
 > [!IMPORTANT]
 > O pacote [azure-sb](https://www.npmjs.com/package/azure-sb) utiliza [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o protocolo [AMQP 1.0](service-bus-amqp-overview.md)mais rápido . 
 > 
-> Para saber mais sobre o novo pacote, consulte [Como usar as filas de Service Bus com Node.js e @azure/service-bus pacote,](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)caso contrário continue a ler para ver como usar o pacote [azul.](https://www.npmjs.com/package/azure)
+> Para saber mais sobre o novo pacote, consulte [Como usar as filas de Service Bus com Node.js e @azure/service-bus pacote,](./service-bus-nodejs-how-to-use-queues-new-package.md)caso contrário continue a ler para ver como usar o pacote [azul.](https://www.npmjs.com/package/azure)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
@@ -181,7 +181,7 @@ No caso de a aplicação falhar após o processamento da mensagem, mas antes do 
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as filas, consulte os seguintes recursos.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f4d90693f2cd3bdd440b7cb914e7fc037103d362
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 440007767835de4641fb828b41d572f35997acd2
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120998"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064473"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MySQL, bem como como o tráfego é direcionado para a sua Base de Dados Azure para o caso MySQL de clientes dentro e fora de Azure.
@@ -65,9 +65,9 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | Sul do Reino Unido | 51.140.184.11   |
 | Oeste do Reino Unido | 51.141.8.11  |
 | E.U.A. Centro-Oeste | 13.78.145.25     |
-| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
-| E.U.A. Oeste | 104.42.238.205, 23.99.34.75  |
-| E.U.A.Oeste 2 | 13.66.226.202  |
+| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208 ,104.40.169.187 |
+| E.U.A. Oeste | 104.42.238.205, 23.99.34.75 ,13.86.216.212, 13.86.217.212 |
+| E.U.A. Oeste 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Redirecionamento de conexão
@@ -81,7 +81,7 @@ O suporte para a reorientação está disponível na extensão php [mysqlnd_azur
 > [!IMPORTANT]
 > O suporte para a reorientação na extensão [php mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) está atualmente em pré-visualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerir a Base de Dados Azure para as regras de firewall do MySQL utilizando o portal Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados Azure para as regras de firewall mySQL usando O Azure CLI](./howto-manage-firewall-using-cli.md)

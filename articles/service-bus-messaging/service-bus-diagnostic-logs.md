@@ -3,12 +3,12 @@ title: Registos de diagnóstico de autocarros da Azure Service / Microsoft Docs
 description: Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis para a Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337528"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064439"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus
 
@@ -25,7 +25,7 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON) 
 
 As cordas JSON de registo operacional incluem os elementos listados na tabela seguinte:
 
-| Name | Descrição |
+| Nome | Descrição |
 | ------- | ------- |
 | ActivityId | ID interno, usado para identificar a atividade especificada |
 | EventName | Nome da operação |
@@ -65,7 +65,7 @@ As seguintes operações de gestão são capturadas em registos operacionais:
 | Âmbito | Operação|
 |-------| -------- |
 | Espaço de Nomes | <ul> <li> Criar espaço de nome</li> <li> Atualizar espaço de nome </li> <li> Excluir espaço de nomes </li> <li> Atualizar a política de Partilha de Espaços de Nome </li> </ul> | 
-| Filas | <ul> <li> Criar fila</li> <li> Atualização da fila</li> <li> Apagar fila </li> <li> AutoDelete Delete Queue </li> </ul> | 
+| Fila | <ul> <li> Criar fila</li> <li> Atualização da fila</li> <li> Apagar fila </li> <li> AutoDelete Delete Queue </li> </ul> | 
 | Tópico | <ul> <li> Criar Tópico </li> <li> Tópico de Atualização </li> <li> Eliminar Tópico </li> <li> AutoDelete Delete Topic </li> </ul> |
 | Subscrição | <ul> <li> Criar Subscrição </li> <li> Atualização subscrição </li> <li> Excluir subscrição </li> <li> Assinatura de Exclusão automática </li> </ul> |
 
@@ -101,9 +101,9 @@ Os registos operacionais são desativado por predefinição. Para ativar registo
 
 As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.**
 
-Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Service Bus, consulte:
 

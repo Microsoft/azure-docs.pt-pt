@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91fecbc68efec1adcee9a2c4013dea46f6da86af
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504908"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066479"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qual é a hierarquia de armazenamento dos ficheiros Azure NetApp
 
@@ -50,15 +50,13 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
 - Um volume é medido pelo consumo de capacidade lógica e é escalável. 
 - O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
 - Cada volume pertence a apenas um conjunto, mas um conjunto pode conter vários volumes. 
-- Não se pode mover um volume através de piscinas de capacidade. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  Por exemplo, no [diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover os volumes do Pool 1 da Capacidade 1 para o Pool 2 da Capacidade.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual da hierarquia de armazenamento 
 O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp, conjuntos de capacidade e volumes.   
 
 ![Diagrama conceptual da hierarquia de armazenamento](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 - [Registar-se nos Azure NetApp Files](azure-netapp-files-register.md)

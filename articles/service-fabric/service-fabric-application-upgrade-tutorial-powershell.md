@@ -2,13 +2,13 @@
 title: Upgrade da App de Tecido de Serviço usando PowerShell
 description: Este artigo percorre a experiência de implementar uma aplicação de Tecido de Serviço, alterar o código e lançar uma atualização utilizando o PowerShell.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/5/2020
+ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195889"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064592"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade de aplicação de tecido de serviço usando PowerShell
 > [!div class="op_single_selector"]
@@ -24,6 +24,21 @@ A abordagem de atualização mais utilizada e recomendada é a atualização de 
 Uma atualização de aplicações monitorizada pode ser realizada usando as APIs geridas ou nativas, PowerShell, Azure CLI, Java ou REST. Para obter instruções sobre a realização de uma atualização utilizando o Visual Studio, consulte [atualizar a sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Com o Service Fabric monitorizado a fazer upgrades, o administrador de aplicação pode configurar a política de avaliação de saúde que o Service Fabric utiliza para determinar se a aplicação é saudável. Além disso, o administrador pode configurar as medidas a tomar quando a avaliação de saúde falhar (por exemplo, fazer um revés automático.) Esta secção passa por uma atualização monitorizada para uma das amostras SDK que utiliza o PowerShell. 
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s não são preservados através de uma atualização de aplicações. Para preservar os parâmetros de aplicação atuais, o utilizador deve obter os parâmetros primeiro e passá-los para a chamada de API de upgrade como abaixo:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passo 1: Construir e implantar a amostra de Objetos Visuais
 Construa e publique a aplicação clicando à direita no projeto de **aplicação, VisualObjectsApplication,** e selecionando o comando **Publicar.**  Para mais informações, consulte [o tutorial de atualização de aplicações do Service Fabric.](service-fabric-application-upgrade-tutorial.md)  Em alternativa, pode utilizar o PowerShell para implementar a sua aplicação.

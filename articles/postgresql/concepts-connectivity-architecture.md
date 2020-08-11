@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 2ac15317fe45573805ff7f6395884f7cb101fec3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f03b5e93e4ed5155f6a713c152fbcf34dc873674
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112838"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065884"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -65,12 +65,12 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | Sul do Reino Unido | 51.140.184.11   |
 | Oeste do Reino Unido | 51.141.8.11  |
 | E.U.A. Centro-Oeste | 13.78.145.25     |
-| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
-| E.U.A. Oeste | 104.42.238.205, 23.99.34.75  |
-| E.U.A.Oeste 2 | 13.66.226.202  |
+| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
+| E.U.A. Oeste | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
+| E.U.A. Oeste 2 | 13.66.226.202  |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerir a Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall postgresQL usando Azure CLI](./howto-manage-firewall-using-cli.md)

@@ -3,12 +3,12 @@ title: Configure as regras de firewall IP para o Azure Service Bus
 description: Como utilizar as Regras de Firewall para permitir ligações de endereços IP específicos para o Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e9b39f1b163a894bf4831662ac050463086133d5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552922"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064643"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nome do Service Bus estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -154,7 +154,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para limitar o acesso às redes virtuais service bus para Azure, consulte o seguinte link:
 
@@ -164,4 +164,4 @@ Para limitar o acesso às redes virtuais service bus para Azure, consulte o segu
 
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services
