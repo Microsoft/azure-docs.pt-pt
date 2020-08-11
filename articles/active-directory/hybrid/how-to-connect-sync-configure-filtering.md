@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357771"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061511"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -47,7 +47,7 @@ Uma vez que a filtragem pode remover muitos objetos ao mesmo tempo, deseja certi
 
 Para protegê-lo de eliminar muitos objetos por acidente, a função "[evitar eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)" está acesa por defeito. Se eliminar muitos objetos devido à filtragem (500 por defeito), tem de seguir os passos deste artigo para permitir que as eliminações passem para Azure AD.
 
-Se utilizar uma construção antes de novembro de 2015 ([1.0.9125),](reference-connect-version-history.md#1091250)altere para uma configuração de filtro e utilize a sincronização de hash de palavra-passe, então tem de ativar uma sincronização completa de todas as palavras-passe depois de ter concluído a configuração. Para obter etapas sobre como desencadear uma sincronização completa da palavra-passe, consulte [Trigger uma sincronização completa de todas as palavras-passe](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se estiver na construção 1.0.9125 ou mais tarde, então a ação regular **de sincronização completa** também calcula se as palavras-passe devem ser sincronizadas e se este passo extra já não é necessário.
+Se utilizar uma construção antes de novembro de 2015 ([1.0.9125),](reference-connect-version-history.md)altere para uma configuração de filtro e utilize a sincronização de hash de palavra-passe, então tem de ativar uma sincronização completa de todas as palavras-passe depois de ter concluído a configuração. Para obter etapas sobre como desencadear uma sincronização completa da palavra-passe, consulte [Trigger uma sincronização completa de todas as palavras-passe](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se estiver na construção 1.0.9125 ou mais tarde, então a ação regular **de sincronização completa** também calcula se as palavras-passe devem ser sincronizadas e se este passo extra já não é necessário.
 
 Se os objetos **do utilizador** forem apagados inadvertidamente no AD AZure devido a um erro de filtragem, pode recriar os objetos do utilizador em AD Azure removendo as configurações de filtragem. Depois podes sincronizar os teus diretórios outra vez. Esta ação restaura os utilizadores do caixote do lixo em Azure AD. No entanto, não se pode desdelear outros tipos de objetos. Por exemplo, se eliminar acidentalmente um grupo de segurança e foi usado para a ACL um recurso, o grupo e os seus ACLs não podem ser recuperados.
 
@@ -202,7 +202,7 @@ Pode configurar o motor de sincronização para não sincronizar novos OUs depoi
 Com esta configuração, um novo OU que foi criado sob ManagedObjects não é sincronizado.
 
 ## <a name="attribute-based-filtering"></a>Filtragem baseada em atributos
-Certifique-se de que está a usar o novembro de[2015 (1.0.9125)](reference-connect-version-history.md#1091250)ou posteriormente construir para que estes passos funcionem.
+Certifique-se de que está a usar o novembro de[2015 (1.0.9125)](reference-connect-version-history.md)ou posteriormente construir para que estes passos funcionem.
 
 > [!IMPORTANT]
 >A Microsoft recomenda não modificar as regras padrão criadas pelo **Azure AD Connect**. Se quiser modificar a regra, clone-a e desative a regra original. Faça qualquer alteração à regra clonada. Tenha em atenção que ao fazê-lo (desativando a regra original) perderá quaisquer correções ou funcionalidades ativadas através dessa regra.
@@ -328,6 +328,6 @@ Ao sincronizar várias florestas de AD, pode configurar a filtragem baseada em g
 * Tem um utilizador numa floresta que tem um contacto de correio correspondente noutra floresta. Além disso, configura o Azure AD Connect para ligar o utilizador ao contacto de correio. Ambos os objetos devem estar dentro do âmbito de filtragem baseado em grupo. Caso contrário, o utilizador não será sincronizado com a Azure AD.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre a configuração [de sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 - Saiba mais sobre [a integração das suas identidades no local com a Azure AD.](whatis-hybrid-identity.md)
