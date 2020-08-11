@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369038"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067159"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus
 
@@ -84,7 +84,7 @@ A Service Bus suporta a comunicação sobre o protocolo AMQP. Para o efeito, per
 
 ### <a name="set-up-enterprise-configurations"></a>Configurar configurações empresariais
 
-O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, consulte: 
+O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, veja: 
 
   * [Pontos finais de serviço de rede virtual](service-bus-service-endpoints.md)
   * [Firewall](service-bus-ip-filtering.md)
@@ -272,7 +272,7 @@ Agora que modificou a aplicação para começar a enviar e receber mensagens da 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [Boot Starter Spring para o Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) para uma integração perfeita com o Service Bus.
+Utilize o [Boot Starter Spring para o Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) para uma integração perfeita com o Service Bus.
 
 Para saber mais sobre as mensagens de Service Bus e JMS, consulte:
 

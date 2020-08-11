@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034963"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067499"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura pós-SQL dupla encriptação
 
@@ -20,7 +20,7 @@ ms.locfileid: "86034963"
 
 A Azure Database for PostgreSQL utiliza encriptação de armazenamento [de dados em repouso](concepts-security.md#at-rest) para dados usando as chaves geridas da Microsoft. Os dados, incluindo cópias de segurança, são encriptados no disco e esta encriptação está sempre acesa e não pode ser desativada. A encriptação utiliza o módulo criptográfico validado FIPS 140-2 e uma cifra AES de 256 bits para a encriptação de armazenamento Azure.
 
-A encriptação dupla da infraestrutura adiciona uma segunda camada de encriptação usando chaves geridas pelo serviço. Utiliza o módulo criptográfico validado FIPS 140-2, mas com um algoritmo de encriptação diferente. Isto fornece uma camada adicional de proteção para os seus dados em repouso. A chave utilizada na infraestrutura A encriptação dupla também é gerida pela Base de Dados Azure para o serviço PostgreSQL. A dupla encriptação da infraestrutura não é ativada por padrão, uma vez que a camada adicional de encriptação pode ter um impacto de desempenho.
+A encriptação dupla da infraestrutura adiciona uma segunda camada de encriptação usando chaves geridas pelo serviço. Utiliza o módulo criptográfico validado FIPS 140-2, mas com um algoritmo de encriptação diferente. Isto fornece uma camada adicional de proteção para os seus dados em repouso. A chave utilizada na encriptação dupla infraestrutura também é gerida pela Base de Dados Azure para o serviço PostgreSQL. A dupla encriptação da infraestrutura não é ativada por padrão, uma vez que a camada adicional de encriptação pode ter um impacto de desempenho.
 
 > [!NOTE]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para PostgreSQL suporta os níveis de preços "Final Geral" e "Memória Otimizada".
@@ -36,7 +36,7 @@ A implementação nas camadas de infraestrutura também suporta uma diversidade 
 
 A dupla encriptação da infraestrutura para a Base de Dados de Azure para PostgreSQL proporciona os seguintes benefícios:
 
-1. **Além da diversidade de implementação de cripto** - A mudança planeada para encriptação baseada em hardware irá diversificar ainda mais as implementações, fornecendo uma implementação baseada em hardware, para além da implementação baseada em software.
+1. **Diversidade adicional de implementação de cripto** - A mudança planeada para encriptação baseada em hardware irá diversificar ainda mais as implementações, fornecendo uma implementação baseada em hardware, além da implementação baseada em software.
 2. **Erros** de implementação - Duas camadas de encriptação na camada de infraestrutura protegem contra quaisquer erros na gestão de caching ou memória em camadas mais altas que expõem dados de texto simples. Além disso, as duas camadas também garantem contra erros na implementação da encriptação em geral.
 
 A combinação destes proporciona uma forte proteção contra ameaças e fraquezas comuns usadas para atacar a criptografia.
@@ -45,7 +45,7 @@ A combinação destes proporciona uma forte proteção contra ameaças e fraquez
 
 As capacidades de encriptação fornecidas pela Azure Database para PostgreSQL podem ser usadas em conjunto. Abaixo está um resumo dos vários cenários que pode utilizar:
 
-|  ##   | Encriptação padrão | Encriptação dupla da infraestrutura | Encriptação de dados utilizando chaves geridas pelo Cliente  |
+|  ##   | Encriptação padrão | Encriptação dupla de infraestrutura | Encriptação de dados utilizando chaves geridas pelo Cliente  |
 |:------|:------------------:|:--------------------------------:|:--------------------------------------------:|
 | 1     | *Sim*              | *Não*                             | *Não*                                         |
 | 2     | *Sim*              | *Sim*                            | *Não*                                         |
@@ -54,7 +54,7 @@ As capacidades de encriptação fornecidas pela Azure Database para PostgreSQL p
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - O cenário 2 e 4 terão um impacto significativo no desempenho na Base de Dados Azure para o servidor PostgreSQL devido à camada adicional de encriptação da infraestrutura.
+> - O cenário 2 e 4 terão impacto no desempenho na Base de Dados Azure para o servidor PostgreSQL devido à camada adicional de encriptação da infraestrutura.
 > - Configurar a encriptação dupla da Infraestrutura para a Base de Dados Azure para PostgreSQL só é permitida durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a encriptação de armazenamento. No entanto, ainda é possível ativar a encriptação de Dados utilizando as chaves geridas pelo cliente para o servidor criado com/sem infraestrutura dupla encriptação.
 
 ## <a name="limitations"></a>Limitações
@@ -68,6 +68,6 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para a dupla encriptação
     > - Todos os **novos** servidores PostgreSQL criados nas regiões acima listadas também suportam encriptação de dados com chaves de gestor de clientes. Neste caso, os servidores criados através de restauro pontual (PITR) ou réplicas de leitura não se qualificam como "novos".
     > - Para validar se o seu servidor a provisionado suporta até 16 TB, pode ir à lâmina de nível de preços no portal e ver se o slider de armazenamento pode ser movido até 16 TB. Se só conseguir mover o slider até 4 TB, o seu servidor poderá não suportar a encriptação com as teclas geridas pelo cliente; no entanto, os dados são criptografados usando chaves geridas pelo serviço em todos os momentos. Por favor, contacte AskAzureDBforPostgreSQL@service.microsoft.com se tiver alguma pergunta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar a [encriptação dupla infraestrutura para a base de dados Azure para PostgreSQL](howto-double-encryption.md).

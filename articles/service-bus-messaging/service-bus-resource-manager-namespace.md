@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336830"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067397"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Crie um espaço de nome de ônibus de serviço usando um modelo de gestor de recursos Azure
 
-Saiba como implementar um modelo de Gestor de Recursos Azure para criar um espaço de nomes de Service Bus. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [a documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/).
+Saiba como implementar um modelo de Gestor de Recursos Azure para criar um espaço de nomes de Service Bus. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [a documentação do Gestor de Recursos Azure](../azure-resource-manager/index.yml).
 
 Os seguintes modelos também estão disponíveis para criar espaços de nomes de Service Bus:
 
@@ -79,7 +79,7 @@ Azure PowerShell é usado para implementar o modelo neste tutorial. Para outros 
 * [Utilizando o Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 * [Utilizando a API REST.](../azure-resource-manager/templates/deploy-rest.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Se a camada cloud ainda estiver aberta, não precisa copiar/executar a primeira e segunda linhas do seguinte script.
 
@@ -92,7 +92,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um espaço de nomes de Service Bus. Veja os outros quickstarts para aprender a criar filas, tópicos/subscrições e use-as:
 

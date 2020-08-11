@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074451"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067941"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -86,8 +86,8 @@ O Live Video Analytics on IoT Edge expõe propriedades gémeas do módulo que es
 
 ### <a name="deploy-using-the-azure-portal"></a>Implementar com o portal do Azure
 
-O portal Azure guia-o através da criação de um manifesto de implantação e empurrando a implementação para um dispositivo IoT Edge.
-Selecione o seu dispositivo
+O portal Azure guia-o através da criação de um manifesto de implantação e empurrando a implementação para um dispositivo IoT Edge.  
+#### <a name="select-your-device-and-set-modules"></a>Selecione o seu dispositivo e definir módulos
 
 1. Inscreva-se no [portal Azure](https://ms.portal.azure.com/) e navegue até ao seu hub IoT.
 1. Selecione **IoT Edge** no menu.
@@ -112,23 +112,12 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     > [!TIP]
     > Não **selecione Adicionar** até ter especificado **valores**nas Definições do Módulo , **Opções de Criação de Recipientes**e Separadores **de Configurações Gémeas do Módulo,** conforme descrito neste procedimento.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > O Azure IoT Edge é sensível a casos quando faz chamadas para módulos. Tome nota da cadeia exata que usa como nome do módulo.»
 
 1. Abra o **separador Variáveis ambientais.**
    
-   Copie e cole o JSON seguinte na caixa, para fornecer o ID do utilizador e o ID do grupo para serem utilizados para guardar os dados da aplicação e as saídas de vídeo.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Adicione os seguintes valores nas caixas de entrada que vê ![ Variáveis ambientais](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Abra o **separador Opções de Criação de Recipientes.**
 
@@ -201,8 +190,8 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   A propriedade twin **permite que Os pontos de Finalidades de Sedcured** são definidos como verdadeiros para o propósito dos tutoriais e dos quickstarts.   
+   > [!Note]
+   > A propriedade twin **permite que Os pontos de Finalidades de Sedcured** são definidos como verdadeiros para o propósito dos tutoriais e dos quickstarts.   
    Você deve definir esta propriedade **falsa** quando estiver correndo em ambiente de produção. Isto garantirá que a aplicação bloqueará todos os pontos finais não protegidos e, para executar as topologias de gráficos, serão necessárias credenciais de ligação válidas.  
    
     Selecione Adicionar para adicionar as propriedades gémeas do módulo.
@@ -258,5 +247,7 @@ Em seguida, vamos testar a amostra invocando um método direto. Leia [os método
     ![A mensagem status 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
+Experimente [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> No comando, executará a seguir, use o seu `device-id` em vez do padrão `lva-sample-device` .

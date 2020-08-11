@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535179"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067778"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs com o portal do Azure
 
@@ -29,9 +29,9 @@ Neste guia de introdução, irá aprender a utilizar o [portal do Azure](https:/
 Para criar um contentor no portal do Azure, siga estes passos:
 
 1. No portal do Azure, navegue para a sua nova conta de armazenamento.
-2. No menu esquerdo para a conta de armazenamento, desloque-se para a secção de **serviço Blob** e, em seguida, selecione **Recipientes**.
+2. No menu esquerdo para a conta de armazenamento, percorra a secção **de serviço Blob** e, em seguida, selecione **Recipientes**.
 3. Selecione o botão **+ Contentor**.
-4. Escreva um nome para o novo contentor. O nome do contentor tem estar em minúsculas, tem de começar com uma letra ou um número e só pode incluir letras, números e o caráter de travessão (-). Para obter mais informações sobre nomeações de contentores e blobs, consulte [Nomear e referenciar contentores, bolhas e metadados.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+4. Escreva um nome para o novo contentor. O nome do contentor tem estar em minúsculas, tem de começar com uma letra ou um número e só pode incluir letras, números e o caráter de travessão (-). Para obter mais informações sobre os nomes dos recipientes e blobs, consulte [o nome e os recipientes de referência, bolhas e metadados.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
 5. Defina o nível de acesso público ao contentor. O nível predefinido é **Privado (sem acesso anónimo)**.
 6. Selecione **OK** para criar o contentor.
 
@@ -44,8 +44,8 @@ Os blobs de blocos são compostos por blocos de dados reunidos para criar um blo
 Para carregar um blob de blocos para o novo contentor no portal do Azure, siga estes passos:
 
 1. No portal do Azure, navegue para o contentor que criou na secção anterior.
-1. Selecione o contentor para mostrar uma lista dos blobs que ele contém. Este contentor é novo, por isso ainda não conterá bolhas.
-1. Selecione o botão **Upload** para abrir a lâmina de upload e navegue no seu sistema de ficheiros local para encontrar um ficheiro para carregar como uma bolha de bloco. Pode expandir opcionalmente a secção avançada para configurar outras definições para o funcionamento do upload.
+1. Selecione o contentor para mostrar uma lista dos blobs que ele contém. Este contentor é novo, por isso ainda não contém bolhas.
+1. Selecione o botão **Upload** para abrir a lâmina de upload e navegue no seu sistema de ficheiros local para encontrar um ficheiro para carregar como uma bolha de bloco. Pode expandir opcionalmente a secção **Advanced** para configurar outras definições para a operação de upload.
 
     ![A captura de ecrã mostra como carregar um blob a partir do disco local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Pode transferir um blob de blocos para apresentar no browser ou guardar no seu s
 1. Navegue para a lista de blobs que carregou na secção anterior.
 1. Clique com o botão direito do rato no blob que pretende transferir e selecione **Transferir**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+    ![Screenshot mostrando como baixar uma bolha](media/storage-quickstart-blobs-portal/download-blob.png)
 
-Para remover os recursos que criou neste início rápido, pode eliminar o contentor. Todos os blobs no contentor também serão eliminados.
+## <a name="delete-a-block-blob"></a>Apagar uma bolha de bloco
+
+Pode transferir um blob de blocos para apresentar no browser ou guardar no seu sistema de ficheiros local. Para transferir um blob de blocos, siga estes passos:
+
+1. Navegue para a lista de blobs que carregou na secção anterior.
+1. Selecione as bolhas que pretende eliminar e selecione **Eliminar** na barra de ação superior.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para remover todos os recursos que criou neste arranque rápido, pode simplesmente apagar o recipiente. Todos os blobs no contentor também serão eliminados.
 
 Para eliminar o contentor:
 

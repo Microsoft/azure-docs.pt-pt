@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244451"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067363"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
 
@@ -60,7 +60,7 @@ Abaixo está uma topologia de rede implantada em clusters AKS por padrão, que u
 
 Se `userDefinedRouting` estiver definido, a AKS não configurará automaticamente caminhos de saída. A configuração da saída tem de ser feita por si.
 
-O cluster AKS deve ser implantado numa rede virtual existente com uma sub-rede previamente configurada porque ao utilizar a arquitetura do balanceador de carga padrão (SLB), deve estabelecer uma saída explícita. Como tal, esta arquitetura requer o envio explícito de tráfego de saída para um aparelho como uma firewall, gateway, proxy ou para permitir que a Tradução de Endereços de Rede (NAT) seja feita por um IP público atribuído ao balanceador de carga padrão ou ao aparelho.
+O cluster AKS deve ser implantado numa rede virtual existente com uma sub-rede previamente configurada porque quando não se utiliza a arquitetura do balanceador de carga padrão (SLB), deve estabelecer uma saída explícita. Como tal, esta arquitetura requer o envio explícito de tráfego de saída para um aparelho como uma firewall, gateway, proxy ou para permitir que a Tradução de Endereços de Rede (NAT) seja feita por um IP público atribuído ao balanceador de carga padrão ou ao aparelho.
 
 O fornecedor de recursos AKS irá implantar um balanceador de carga padrão (SLB). O equilibrador de carga não está configurado com nenhuma regra e [não incorre numa carga até que uma regra seja colocada](https://azure.microsoft.com/pricing/details/load-balancer/). A AKS **não** fornece automaticamente um endereço IP público para o frontend SLB nem configura automaticamente o pool de backend do balançador de carga.
 

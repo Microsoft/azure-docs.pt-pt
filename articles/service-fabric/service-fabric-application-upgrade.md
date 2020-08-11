@@ -2,16 +2,31 @@
 title: Atualização da aplicação do Tecido de Serviço
 description: Este artigo fornece uma introdução à atualização de uma aplicação de Tecido de Serviço, incluindo a escolha de modos de atualização e realização de verificações de saúde.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 8/5/2020
+ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248004"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067516"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização da aplicação do Tecido de Serviço
 Uma aplicação Azure Service Fabric é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo manifesto de [aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais os serviços na aplicação que requerem atualizações. O Service Fabric compara os números de versão do serviço com os números da versão na versão anterior. Se um serviço não tiver sido alterado, esse serviço não será atualizado.
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s não são preservados através de uma atualização de aplicações. Para preservar os parâmetros de aplicação atuais, o utilizador deve obter os parâmetros primeiro e passá-los para a chamada de API de upgrade como abaixo:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="rolling-upgrades-overview"></a>Visão geral das atualizações de rolamento
 Numa atualização de aplicações rolantes, a atualização é realizada por etapas. Em cada fase, a atualização é aplicada a um subconjunto de nós no cluster, chamado domínio de atualização. Como resultado, a aplicação permanece disponível durante toda a atualização. Durante a atualização, o cluster pode conter uma mistura das versões antigas e novas.

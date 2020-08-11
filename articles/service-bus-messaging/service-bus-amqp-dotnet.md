@@ -3,12 +3,12 @@ title: Azure Service Bus com .NET e AMQP 1.0 ! Microsoft Docs
 description: Este artigo descreve como utilizar o Azure Service Bus a partir de uma aplicação .NET utilizando AMQP (Protocolo avançado de fila de mensagens).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340191"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067108"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilize o ônibus de serviço de .NET com AMQP 1.0
 
@@ -68,9 +68,9 @@ Para facilitar a interoperabilidade com non-.NET clientes, utilize apenas tipos 
 | DateTime |carimbo de data/hora |Valor AMQP |
 | GUID |uuid |Valor AMQP |
 | byte[] |binary |Valor AMQP |
-| string |string |Valor AMQP |
-| System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
-| Sistema.Array |array |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
+| cadeia |cadeia |Valor AMQP |
+| System.Collections.IList |lista |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
+| Sistema.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
 | System.Collections.IDictionary |mapa |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. Nota: apenas as teclas de corda são suportadas. |
 | Uri |Cadeia descrita (ver tabela a seguir) |Valor AMQP |
 | Início de execução de tempo de data |Descrito longo (ver tabela a seguir) |Valor AMQP |
@@ -101,7 +101,7 @@ As [APIs .NET](/dotnet/api/) expõem várias configurações para controlar o co
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Se as transferências forem lotáveis, este valor determina o atraso máximo para o envio de disposições. Herdado por remetentes/recetores por defeito. O remetente/recetor individual pode anular o padrão, que é de 20 milissegundos.
 * **[MensagensFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controla se as ligações AMQP são estabelecidas sobre uma ligação TLS. O padrão é **verdadeiro.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está pronto para saber mais? Visite os seguintes links:
 
@@ -109,7 +109,7 @@ Está pronto para saber mais? Visite os seguintes links:
 * [Guia do protocolo AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ Está pronto para saber mais? Visite os seguintes links:
 [Azure portal]: https://portal.azure.com
 [Visão geral do AMQP do autocarro de serviço]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-

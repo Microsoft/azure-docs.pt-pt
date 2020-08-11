@@ -1,24 +1,28 @@
 ---
 title: Ativar e gerir a versão blob (pré-visualização)
 titleSuffix: Azure Storage
-description: Saiba como ativar a versão blob no portal Azure ou utilizando um modelo de Gestor de Recursos Azure.
+description: Saiba como ativar a versão blob (pré-visualização) no portal Azure ou utilizando um modelo de Gestor de Recursos Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086052"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067278"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Ativar e gerir a versão blob
+# <a name="enable-and-manage-blob-versioning-preview"></a>Ativar e gerir a versão blob (pré-visualização)
 
-Pode ativar ou desativar a versão blob (pré-visualização) para a conta de armazenamento a qualquer momento, utilizando o portal Azure ou um modelo de Gestor de Recursos Azure.
+Pode permitir que a versão de armazenamento Blob (pré-visualização) mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
+
+Este artigo mostra como ativar ou desativar a versão blob para a conta de armazenamento utilizando o portal Azure ou um modelo de Gestor de Recursos Azure.
+
+Tem de se registar para a pré-visualização antes de ativar a versão blob. Para saber mais sobre a versão blob, incluindo como se registar para a pré-visualização, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Ativar a criação de versões de blobs
 

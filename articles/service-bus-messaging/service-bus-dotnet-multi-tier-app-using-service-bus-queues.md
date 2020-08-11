@@ -4,12 +4,12 @@ description: Um tutorial de .NET que ajuda a desenvolver uma aplicação multica
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083944"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067839"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -24,7 +24,7 @@ Aprenderá o seguinte:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Neste tutorial, compilará e executará a aplicação multicamadas num serviço em nuvem do Azure. O front-end é uma função da Web de MVC do ASP.NET e o back-end é uma função de trabalho que utiliza uma fila do Service Bus. Pode criar a mesma aplicação multicamadas com o front-end como um projeto Web implementado num site do Azure em vez de num serviço cloud. Pode também experimentar o tutorial [Aplicação .NET híbrida no local/nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Neste tutorial, compilará e executará a aplicação multicamadas num serviço em nuvem do Azure. O front-end é uma função da Web de MVC do ASP.NET e o back-end é uma função de trabalho que utiliza uma fila do Service Bus. Pode criar a mesma aplicação multicamadas com o front-end como um projeto Web implementado num site do Azure em vez de num serviço cloud. Pode também experimentar o tutorial [Aplicação .NET híbrida no local/nuvem](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 A imagem que se segue mostra a aplicação completa.
 

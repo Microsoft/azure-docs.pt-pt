@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924432"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067261"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -44,7 +44,8 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
     - Princípios de segurança para a execução de dados de negócios de alto impacto em Azure. Para conhecer a segurança dos dados, comece com a documentação de segurança do [Azure.](../../../security/index.yml)
 2.  Documento de design técnico. Este documento deve conter:
     - Um diagrama de bloco para a solução.
-    - O dimensionamento de componentes de computação, armazenamento e rede em Azure. Para o tamanho SAP de VMs Azure, consulte [a nota de suporte do SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+    - O dimensionamento de componentes de computação, armazenamento e rede em Azure. Para o tamanho SAP de Azure VMs, consulte [SAP) 
+    -  nota https://launchpad.support.sap.com/#/notes/1928533) #1928533].
     - Continuidade de negócios e arquitetura de recuperação de desastres.
     - Informações detalhadas sobre as versões do pacote de suporte DES, DB, Kernel e SAP. Não é necessariamente verdade que todas as versões de SO suportadas por SAP NetWeaver ou S/4HANA são suportadas em VMs Azure. O mesmo se aplica aos lançamentos do DBMS. Verifique as seguintes fontes para alinhar e, se necessário, atualizar as versões SAP, as versões DBMS e os sistemas operativos para garantir o suporte SAP e Azure. É necessário ter combinações de lançamento suportadas pela SAP e pela Azure para obter o apoio total da SAP e da Microsoft. Se necessário, tem de planear a atualização de alguns componentes do software. Mais detalhes sobre o software SUPORTADO SAP, OS e DBMS são documentados aqui:
         - [Nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Esta nota define as versões mínimas de SO suportadas nos VMs Azure. Também define as versões mínimas de base de dados necessárias para a maioria das bases de dados não-HANA. Por último, fornece o tamanho SAP para os tipos de VM Azure suportados pelo SAP.
@@ -56,9 +57,11 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
         - [Nota de suporte SAP #2555629 - SAP HANA 2.0 Dynamic Tiering – Hipervisor e Suporte à Nuvem](https://launchpad.support.sap.com/#/notes/2555629)
         - [Nota de suporte SAP #1662610 - Detalhes de suporte para suíte de proteção SIOS para Linux](https://launchpad.support.sap.com/#/notes/1662610)
         - Notas SAP para outros produtos específicos da SAP.     
-    - Recomendamos desenhos rigorosos de três níveis para sistemas de produção SAP. Não recomendamos combinar servidores ASCS e/ou DBMS e/ou aplicativos num VM. A utilização de configurações de cluster multi-SID para serviços centrais SAP é suportada em sistemas operativos de hóspedes do Windows no Azure. Mas esta configuração não é suportada para os Serviços Centrais SAP em sistemas operativos Linux em Azure. Pode encontrar documentação para o cenário de OS do hóspede do Windows nestes artigos:
+    - A utilização de configurações de cluster multi-SID para serviços centrais SAP é suportada em sistemas operativos de hóspedes Windows, SLES e RHEL em Azure. Tenha em mente que o raio de explosão pode aumentar quanto mais ASCS/SCS colocar num cluster multi-SID. Pode encontrar documentação para o respetivo cenário de OS convidados nestes artigos:
         - [SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Failover do Servidor do Windows e disco partilhado em Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Falha de Falha do Servidor do Windows e partilha de ficheiros no Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+        - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+        - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
     - Alta disponibilidade e arquitetura de recuperação de desastres.
         - Com base na RTO e na RPO, defina como a arquitetura de alta disponibilidade e recuperação de desastres precisa de ser.
         - Para obter uma elevada disponibilidade dentro de uma zona, verifique o que o DBMS desejado tem para oferecer em Azure. A maioria dos pacotes DBMS oferecem métodos sincronizados de um standby quente sincronizado, que recomendamos para sistemas de produção. Verifique também a documentação relacionada com o SAP para diferentes bases de dados, começando com [considerações para a implementação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP e documentos relacionados.](./dbms_guide_general.md)
@@ -78,7 +81,7 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
     - Topologia de grupo de recursos.
     - [Estratégia de marcação](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Nomear convenções para VMs e outros componentes de infraestrutura e/ou nomes lógicos.
-5.  Contrato de Suporte Premier da Microsoft. Identifique o seu Gestor de Conta Técnica da Microsoft (TAM). Para os requisitos de suporte SAP, consulte [a nota de suporte SAP #2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.  Contrato microsoft Professional ou Premier Support. Identifique o seu Gestor de Conta Técnica da Microsoft (TAM) se tiver um contrato de suporte Premier com a Microsoft. Para os requisitos de suporte SAP, consulte [a nota de suporte SAP #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  O número de assinaturas Azure e quota-base para as assinaturas. [Pedidos de apoio aberto para aumentar as quotas de assinaturas Azure,](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) se necessário.
 7.  Plano de redução de dados e migração de dados para a migração de dados SAP para o Azure. Para os sistemas SAP NetWeaver, o SAP tem orientações sobre como limitar o volume de grandes quantidades de dados. Consulte [este guia SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) sobre gestão de dados em sistemas ERP SAP. Alguns dos conteúdos também se aplicam aos sistemas NetWeaver e S/4HANA em geral.
 8.  Uma abordagem automatizada de implantação. O objetivo da automatização das infraestruturas em Azure é implementar de forma determinística e obter resultados determinísticos. Muitos clientes usam scripts baseados em PowerShell ou CLI. Mas existem várias tecnologias de código aberto que pode usar para implantar infraestruturas Azure para SAP e até instalar software SAP. Pode encontrar exemplos no GitHub:
@@ -106,6 +109,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
            -  [Tamanhos para máquinas virtuais Windows em Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar o *limite máximo de disco não-achado* para o tamanho.
            -  [Tamanhos para máquinas virtuais Linux em Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar o *limite máximo de disco não-achado* para o tamanho.
    2. Armazenamento.
+        - Consulte os [tipos de armazenamento Azure para obter carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
         - No mínimo, utilize [o armazenamento SSD Standard Azure](../../windows/disks-types.md#standard-ssd) para VMs que representem camadas de aplicação SAP e para a implantação de DBMSs que não sejam sensíveis ao desempenho.
         - Em geral, não recomendamos a utilização de [discos HDD Standard Azure](../../windows/disks-types.md#standard-hdd).
         - Utilize [o Azure Premium Storage](../../windows/disks-types.md#premium-ssd) para quaisquer VMs DBMS que sejam remotamente sensíveis ao desempenho.

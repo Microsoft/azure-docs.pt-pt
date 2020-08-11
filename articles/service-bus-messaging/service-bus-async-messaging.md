@@ -3,12 +3,12 @@ title: Mensagens assíncronias do Service Bus Microsoft Docs
 description: Saiba como a Azure Service Bus suporta o assíncronismo através de uma loja e mecanismo de avanço com filas, tópicos e subscrições.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b628dd72efe0280e688b602f873a3f01d15ef587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ea2a2f51d29f1a65926509581df49b453bde59f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337796"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067550"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronos e alta disponibilidade
 
@@ -53,11 +53,11 @@ Com qualquer aplicação, as circunstâncias podem fazer com que um componente i
 
 Nestes casos, a aplicação do cliente gera uma exceção [System.TimeoutException][System.TimeoutException] ou [MessagingException.][MessagingException] A Service Bus contém uma mitigação para este problema sob a forma de lógica automatizada de relemisão do cliente. Uma vez esgotado o período de retíria e a mensagem não é entregue, pode explorar utilizando outros mencionados no artigo sobre [interrupções e desastres][handling outages and disasters]de manuseamento .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu o básico das mensagens assíncronos na Service Bus, leia mais detalhes sobre [interrupções e desastres.][handling outages and disasters]
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
-[System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
+[System.TimeoutException]: /dotnet/api/system.timeoutexception?view=netcore-3.1
 [MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
@@ -70,8 +70,8 @@ Agora que aprendeu o básico das mensagens assíncronos na Service Bus, leia mai
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
+[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero?view=netcore-3.1
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
-[UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
+[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
 [handling outages and disasters]: service-bus-outages-disasters.md

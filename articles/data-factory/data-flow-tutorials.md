@@ -5,39 +5,41 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848904"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067856"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Abaixo está uma lista de vídeos tutoriais de fluxo de dados de mapeamento criados pela equipa azure Data Factory. 
+Abaixo está uma lista de vídeos tutoriais de fluxo de dados de mapeamento criados pela equipa da Azure Data Factory. 
 
-Como as atualizações são constantemente feitas para o produto, algumas funcionalidades têm adicionado ou diferentes funcionalidades na experiência atual do utilizador da Azure Data Factory.
+Como as atualizações são constantemente feitas ao produto, algumas funcionalidades adicionaram ou diferentes funcionalidades na experiência atual do utilizador da Azure Data Factory.
 
 ## <a name="getting-started"></a>Introdução
 
-[Começar com fluxos de dados de mapeamento na Fábrica de Dados Azure](http://youtu.be/MFw7t_8tuV4)
+[Começar com fluxos de dados de mapeamento na Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 
-## <a name="debugging-and-developing-mapping-data-flows"></a>Depuração e desenvolvimento de fluxos de dados de mapeamento
+## <a name="debugging-and-developing-mapping-data-flows"></a>Depurar e desenvolver fluxos de dados de mapeamento
 
-[Depuração e teste de mapeamento fluxos](https://www.youtube.com/watch?v=3ANxyvDGfjA)de dados .
+[Depurar e testar fluxos de dados de mapeamento](https://www.youtube.com/watch?v=3ANxyvDGfjA).
 
 [Exploração de dados](https://www.youtube.com/watch?v=En1ztyh5GaA)
 
-[Pré-visualização de dados ações rápidas](https://www.youtube.com/watch?v=CP0TnNmaLA0)
+[Ações rápidas de pré-visualização de dados](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
-[Monitorizar e gerir o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
+[Monitorize e gere o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
-[Tempos de referência](http://youtu.be/6CSbWm4lRhw?hd=1)
+[Timings de referência](http://youtu.be/6CSbWm4lRhw?hd=1)
 
-## <a name="transformation-overviews"></a>Vistas gerais de transformação
+[Depurar fluxos de trabalho para fluxos de dados](https://youtu.be/y3suL7UsWVw)
+
+## <a name="transformation-overviews"></a>Visões gerais da transformação
 
 [Transformação agregada](http://youtu.be/jdL75xIr98I)
 
@@ -47,35 +49,35 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Junte-se à transformação](https://www.youtube.com/watch?v=zukwayEXRtg)
 
-[Padrão de auto-adesão](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+[Padrão de união de auto-junção](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
-[Transformação de lookup](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
+[Transformação de procura](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
-[Atualizações de transformação de procuração & dicas](https://youtu.be/MBskWoeuTLw)
+[Atualizações de transformação de &](https://youtu.be/MBskWoeuTLw)
 
-[Transformação de pivô](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
+[Transformação pivô](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
-[Transformação de pivô: mapear colunas à deriva](https://youtu.be/5MygzCX0wnM)
+[Transformação do pivô: mapeamento de colunas à deriva](https://youtu.be/5MygzCX0wnM)
 
 [Selecione a transformação](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
-[Transformação selecionada: Mapeamento baseado em regras](https://youtu.be/5lf1lh1qMwU)
+[Selecione a transformação: Mapeamento baseado em regras](https://youtu.be/5lf1lh1qMwU)
 
-[Selecione transformação: Grandes Conjuntos de Dados](https://www.youtube.com/watch?v=R5ea2_R0ouc)
+[Selecione a transformação: Grandes Conjuntos de Dados](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Transformação chave de substituição](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
 [Transformação da União](http://youtu.be/_Et6mg1tEr8?hd=1)
 
-[Transformação despivot](http://youtu.be/KFYkxcpB8b0?hd=1)
+[Transformação não-depívora](http://youtu.be/KFYkxcpB8b0?hd=1)
 
-[Transformação da Janela](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+[Transformação de janelas](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
 
-[Transformação do filtro](https://youtu.be/OhbKDOXSfeE)
+[Transformação de Filtros](https://youtu.be/OhbKDOXSfeE)
 
-[Transformação de divisão condicional](http://youtu.be/W1lQHojhKZw?hd=1)
+[Transformação de Divisão Condicional](http://youtu.be/W1lQHojhKZw?hd=1)
 
-[Existe A Transformação](http://youtu.be/GS8JVgNBMfs?hd=1)
+[Transformação existente](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 [Juntas Dinâmicas e Lookups Dinâmicos](https://youtu.be/CMOPPie9bXM)
 
@@ -83,23 +85,23 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 ## <a name="source-and-sink"></a>Fonte e pia
 
-[JSONs de leitura e escrita](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
+[Leitura e escrita JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
 
-[Arquivos de texto parquet e delimitado](https://youtu.be/V_2a60j2Kjo)
+[Arquivos de texto de parquet e delimitados](https://youtu.be/V_2a60j2Kjo)
 
 [Conector CosmosDB](http://youtu.be/plp1etT2ftY?hd=1)
 
 [Inferir tipos de dados em ficheiros de texto delimitados](https://www.youtube.com/watch?v=nJjRzlFktlA)
 
-[Leitura e escrita de ficheiros divididos](https://www.youtube.com/watch?v=7Q-db4Qgc4M)
+[Ler e escrever ficheiros divididos](https://www.youtube.com/watch?v=7Q-db4Qgc4M)
 
-[Transforme e crie várias tabelas SQL](https://www.youtube.com/watch?v=Sj15Yjwai1A)
+[Transformar e criar várias tabelas SQL](https://www.youtube.com/watch?v=Sj15Yjwai1A)
 
 [Partição dos seus ficheiros no lago de dados](https://youtu.be/VNWv-MvLQ_0)
 
 [Padrão de carregamento de armazém de dados](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
-[Opções de saída de ficheiros de data lake](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+[Opções de saída de ficheiros de lago de dados](https://www.youtube.com/watch?v=NAPSbjvSQA8)
 
 ## <a name="optimizing-mapping-data-flows"></a>Otimização dos fluxos de dados de mapeamento
 
@@ -107,11 +109,11 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Sugestões de otimização](https://www.youtube.com/watch?v=a2KtwUJngHo)
 
-[Ficheiros de iterado com parâmetros](http://youtu.be/uEgz0ptYRDM?hd=1)
+[Ficheiros iterados com parâmetros](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Diminuir os tempos de arranque](https://youtu.be/FFCbU4ujCiY?t=528)
 
-[Desempenho sQL DB](https://youtu.be/iyZT5CY3V_4)
+[Desempenho do SQL DB](https://youtu.be/iyZT5CY3V_4)
 
 [Registo e auditoria](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
@@ -119,9 +121,11 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Otimizar os tempos de arranque do fluxo de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
+[Tempos de execução de integração Azure para fluxos de dados](https://mssqldude.wordpress.com/)
+
 ## <a name="mapping-data-flow-scenarios"></a>Mapear cenários de fluxo de dados
 
-[Lookups fuzzy](http://youtu.be/7gdwExjHBbw)
+[Lookups felpudos](http://youtu.be/7gdwExjHBbw)
 
 [Padrão de dados de encenação](https://youtu.be/mZLKdyoL3Mo)
 
@@ -129,19 +133,19 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Eliminação de duplicados](https://www.youtube.com/watch?v=OLenvYwg__I)
 
-[Fundir ficheiros](http://youtu.be/WbDTBAyYte8)
+[Arquivos de fusão](http://youtu.be/WbDTBAyYte8)
 
-[Mudança lenta de dimensões tipo 1: sobrepor](http://youtu.be/Rz2zx5GRbrA)
+[Mudanças lentas de dimensões tipo 1: substituição](http://youtu.be/Rz2zx5GRbrA)
 
-[Mudança lenta de dimensões tipo 2: história](http://youtu.be/123CptslKvU)
+[Mudanças lentas de dimensões tipo 2: história](http://youtu.be/123CptslKvU)
 
-[Carga de mesa de factos](http://youtu.be/ABG3X9pgFPQ)
+[Carga de tabela de factos](http://youtu.be/ABG3X9pgFPQ)
 
 [Transforme o SQL Server on-prem com o padrão de carregamento de dados delta](https://youtu.be/IN-4v0e7UIs)
 
-[Parametrização](https://www.youtube.com/watch?v=vpuuQcFojt8)
+[Parametização](https://www.youtube.com/watch?v=vpuuQcFojt8)
 
-[Linha distinta & linhas conta](https://youtu.be/ryYo8UFUgTI)
+[Linha distinta & fileira conta](https://youtu.be/ryYo8UFUgTI)
 
 [Manipulação de erros de truncação](http://youtu.be/sPpcSiKQz34)
 
@@ -153,18 +157,18 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Detetar alterações de dados de origem](http://youtu.be/CaxIlI7oXfI?hd=1)
 
-[Dimensão genérica tipo 2 em mudança lenta](http://youtu.be/tc283k8CWh8)
+[Dimensão genérica do tipo 2 mudando lentamente a dimensão](http://youtu.be/tc283k8CWh8)
 
 ## <a name="data-flow-expressions"></a>Expressões de fluxo de dados
 
-[Expressões de data/hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+[Expressãos de data/hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
-[Conjuntos de divisão e declaração de caso](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+[Divisão de matrizes e declaração de caso](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Diversão com interpolação de cordas e parâmetros](https://youtu.be/hb3-cn2CMgM)
 
-[Introdução do script de fluxo de dados: cópia, pasta, snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+[Introdução do script do fluxo de dados: Copiar, colar, snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
 
-[Expressões de Qualidade de Dados](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+[Expressões de qualidade de dados](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Recolher função agregada](https://www.youtube.com/watch?v=zneE18EHJSE)

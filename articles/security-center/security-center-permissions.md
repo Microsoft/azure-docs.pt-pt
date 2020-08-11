@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 3f7d08e2290291dfcd931ed5609e30d5fec9f973
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835651"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067227"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -45,7 +45,7 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 |Editar a política de segurança|-|✔|-|-|✔|
 |Aduse/atribuir iniciativas (incluindo) normas de conformidade regulamentar)|-|-|-|-|✔|
 |Alterar o nível de preços de subscrição|-|✔|-|-|✔|
-|Ativar /desativar o fornecimento automático|-|✔|✔|-|✔|
+|Ativar /desativar o fornecimento automático|-|✔|-|✔|✔|
 |Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Alertas de dispensa|-|✔|-|✔|✔|
 |Ver alertas e recomendações|✔|✔|✔|✔|✔|

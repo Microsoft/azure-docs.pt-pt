@@ -3,15 +3,15 @@ title: Lista de URL seguro do Windows Virtual Desktop - Azure
 description: Uma lista de URLs que deve desbloquear para garantir que a sua implementação virtual do Windows funciona como pretendido.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009482"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067210"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -67,13 +67,15 @@ Quaisquer clientes de Ambiente de Trabalho remoto que utilize devem ter acesso a
 
 |Endereço|Porta TCP de saída|Objetivo|Clientes(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Tudo|
-|*.servicebus.windows.net|443|Dados de resolução de problemas|Tudo|
-|go.microsoft.com|443|Microsoft FWLinks|Tudo|
-|aka.ms|443|Encurtador de URL da Microsoft|Tudo|
-|docs.microsoft.com|443|Documentation|Tudo|
-|privacy.microsoft.com|443|Declaração de privacidade|Tudo|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|
+|go.microsoft.com|443|Microsoft FWLinks|Todos|
+|aka.ms|443|Encurtador de URL da Microsoft|Todos|
+|docs.microsoft.com|443|Documentação|Todos|
+|privacy.microsoft.com|443|Declaração de privacidade|Todos|
 |query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|
 
 >[!IMPORTANT]
->A abertura destes URLs é essencial para uma experiência confiável do cliente. O bloqueio do acesso a estes URLs não é suportado e irá afetar a funcionalidade do serviço. Estes URLs apenas correspondem aos sites e recursos do cliente, e não incluem URLs para outros serviços como o Azure Ative Directory.
+>A abertura destes URLs é essencial para uma experiência confiável do cliente. O bloqueio do acesso a estes URLs não é suportado e irá afetar a funcionalidade do serviço.
+>
+>Estes URLs apenas correspondem a sites e recursos de clientes. Esta lista não inclui URLs para outros serviços como o Azure Ative Directory. Os URLs do Diretório Ativo Azure podem ser encontrados no ID 56 nos [intervalos de endereços UrLs e IP do Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

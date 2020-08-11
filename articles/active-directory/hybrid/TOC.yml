@@ -374,3 +374,5 @@
       href: reference-connect-msexchuserholdpolicies.md
     - name: Compreender o desaparecimento do dispositivo Azure AD Connect 1.4.xx.x
       href: reference-connect-device-disappearance.md
+    - name: Arquivo do histórico de versões do Azure AD Connect
+      href: reference-connect-version-history-archive.md

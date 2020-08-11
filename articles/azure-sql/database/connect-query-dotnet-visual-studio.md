@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: 497de36d63a909d2c53374482dfe09d1f19dfded
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/10/2020
+ms.openlocfilehash: ed0ad6c5597d63c411eeb323cf00dcb7f044f667
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033124"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067822"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET e C# no Estúdio Visual para ligar e consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ Este quickstart mostra como usar o código [.NET Framework](https://www.microsof
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma base de dados na Base de Dados Azure SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
@@ -62,17 +62,17 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
 
 ## <a name="create-code-to-query-the-database-in-azure-sql-database"></a>Criar código para consultar a base de dados na Base de Dados Azure SQL
 
-1. No Estúdio Visual, selecione **File**  >  **New**  >  **Project**. 
+1. No Visual Studio, crie um novo projeto. 
    
-1. No diálogo New **Project,** selecione **Visual C#** e, em seguida, selecione **App console (.NET Framework)**.
+1. No diálogo New **Project,** selecione o **Visual C#**, **App de Consola (.NET Framework)**.
    
 1. Introduza *o sqltest* para o nome do projeto e, em seguida, selecione **OK**. O novo projeto é criado. 
    
 1. Selecione **Projeto**  >  **Gerir Pacotes NuGet**. 
    
-1. No **NuGet Package Manager**, selecione o separador **Browse** e, em seguida, procure e selecione **System.Data.SqlClient**.
+1. No **NuGet Package Manager**, selecione o separador **Browse** e, em seguida, procure e selecione **Microsoft.Data.SqlClient**.
    
-1. Na página **System.Data.SqlClient,** **selecione Instalar**. 
+1. Na página **Microsoft.Data.SqlClient,** **selecione Instalar**. 
    - Se solicitado, selecione **OK** para continuar com a instalação. 
    - Se aparecer uma janela **de aceitação da licença,** selecione **I Accept**.
    
@@ -85,7 +85,7 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
    
    ```csharp
    using System;
-   using System.Data.SqlClient;
+   using Microsoft.Data.SqlClient;
    using System.Text;
    
    namespace sqltest

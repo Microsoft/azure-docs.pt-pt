@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341016"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067533"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço
 As amostras de mensagens Service Bus demonstram características-chave nas [mensagens service bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar as amostras nos seguintes locais:
@@ -25,10 +25,9 @@ As amostras de mensagens Service Bus demonstram características-chave nas [mens
 
 Além disso, o [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) é uma amostra hospedada no GitHub que lhe permite conectar-se a um espaço de nome de serviço de serviço de Service Bus e gerir facilmente entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação e a capacidade de testar entidades de mensagens e serviços de retransmissão. Você pode encontrar a fonte completa de Service Bus Explorer e documentação no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes tópicos para visões conceptuais do Service Bus.
 
 * [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
-* [Arquitetura do Service Bus](service-bus-architecture.md)
-
+* [Arquitetura do Service Bus](./service-bus-messaging-overview.md)

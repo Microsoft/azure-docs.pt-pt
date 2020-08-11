@@ -28,8 +28,22 @@
           href: tutorial-iot-central-digital-distribution-center.md
     - name: Centro do micro-cumprimento
       items:
-        - name: Criar uma aplicação do centro do micro-cumprimento
+        - name: Criar uma aplicação do centro de micro-cumprimento
           href: tutorial-micro-fulfillment-center.md
+    - name: Análise de vídeo - deteção de objetos e movimentos
+      items:
+        - name: 1 - Criar uma aplicação de análise de vídeo
+          href: tutorial-video-analytics-create-app.md
+        - name: 2 - Configurar um dispositivo do IoT Edge
+          items:
+            - name: Criar um dispositivo de análise de vídeo na periferia (VM do Linux)
+              href: tutorial-video-analytics-iot-edge-vm.md
+            - name: Criar um dispositivo de análise de vídeo na periferia (Intel NUC)
+              href: tutorial-video-analytics-iot-edge-nuc.md
+        - name: 3 - Monitorizar e gerir uma aplicação de análise de vídeo
+          href: tutorial-video-analytics-manage.md
+        - name: 4 - Modificar e criar os módulos de gateway de análise de vídeo em direto
+          href: tutorial-video-analytics-build-module.md
 - name: Conceitos
   items:
     - name: Arquitetura do modelo de aplicação de logística associada
@@ -42,12 +56,16 @@
       href: store-analytics-architecture.md
     - name: Arquitetura do modelo de aplicação de centro de microconclusão
       href: architecture-micro-fulfillment-center.md
+    - name: Arquitetura do modelo de aplicação de análise de vídeo
+      href: architecture-video-analytics.md
     - name: Conectividade
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: O que são modelos de aplicação?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guias de procedimentos
   items:
+    - name: Implementar a aplicação de deteção de objetos e movimentos
+      href: howto-deploy-video-analytics-template.md
     - name: Ligar dispositivos
       items:
         - name: "Preparar e ligar um Rigado Cascade\_500"

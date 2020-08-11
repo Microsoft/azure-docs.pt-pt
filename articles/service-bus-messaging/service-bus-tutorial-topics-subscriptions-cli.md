@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500475"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067601"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes
 Para desenvolver uma aplicação Service Bus com Java, tem de ter o seguinte instalado:
 
 - [Kit de Desenvolvimento de Java](https://aka.ms/azure-jdks), versão mais recente.
-- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [CLI do Azure](/cli/azure)
 - [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -152,7 +152,7 @@ Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter 
 
    ![saída do programa](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Execute o seguinte comando para remover o grupo de recursos, o espaço de nomes e todos os recursos relacionados:
 

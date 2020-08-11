@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432017"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067176"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelos
 
@@ -49,6 +49,12 @@ O conteúdo do ficheiro deve satisfazer o seguinte esquema json:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -131,6 +137,12 @@ O `none` modo tem menos tempo de funcionamento e também tempos de carregamento 
 
 * `axis`- Para anular a coordenada unidade-vectores do sistema. Os valores predefinidos são `["+x", "+y", "+z"]` . Em teoria, o formato FBX tem um cabeçalho onde esses vetores são definidos e a conversão usa essa informação para transformar a cena. O formato glTF também define um sistema de coordenadas fixa. Na prática, alguns ativos têm informações incorretas no seu cabeçalho ou foram salvos com uma convenção de sistema de coordenadas diferente. Esta opção permite-lhe anular o sistema de coordenadas para compensar. Por exemplo: `"axis" : ["+x", "+z", "-y"]` irá trocar o eixo Z e o eixo Y e manter a mão do sistema de coordenadas invertendo a direção do eixo Y.
 
+### <a name="node-meta-data"></a>Dados de meta de nó
+
+* `metadataKeys`- Permite especificar as teclas das propriedades dos metadados de nó que pretende manter no resultado da conversão. Pode especificar as chaves exatas ou as chaves wildcard. As teclas Wildcard são do formato "ABC*" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor dos metadados suportados `bool` `int` `float` são, `string` e.
+
+    Para ficheiros GLTF estes dados provêm do [objeto extras nos nós](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Para ficheiros FBX estes dados provêm dos `Properties70` dados em `Model nodes` . Consulte a documentação da sua Ferramenta de Ativo 3D para mais detalhes.
+
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
 
 É possível ajustar o :::no-loc text="vertex"::: formato de uma malha, para trocar precisão por poupança de memória. Uma pegada de memória mais baixa permite-lhe carregar modelos maiores ou obter um melhor desempenho. No entanto, dependendo dos seus dados, o formato errado pode impactar significativamente a qualidade de renderização.
@@ -182,7 +194,7 @@ Estes formatos são permitidos para os respetivos componentes:
 
 As pegadas de memória dos formatos são as seguintes:
 
-| Formato | Descrição | Bytes per:::no-loc text="vertex"::: |
+| Formato | Description | Bytes per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|precisão de ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|precisão de ponto flutuante metade de dois componentes|4
@@ -288,7 +300,7 @@ Nestes casos de utilização, os modelos têm frequentemente detalhes muito elev
 O fornecimento de definições que utilizem o nome de ficheiro não específico do modelo `conversionSettings.json` ainda é suportado, mas prectado.
 Utilize o nome de ficheiro específico do `<modelName>.ConversionSettings.json` modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conversão de modelo](model-conversion.md)
 * [Materiais de cor](../../overview/features/color-materials.md)

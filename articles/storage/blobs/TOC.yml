@@ -158,8 +158,10 @@
           items:
             - name: Controlo de versões
               href: versioning-overview.md
-            - name: Eliminação recuperável
-              href: soft-delete-overview.md
+            - name: Eliminação recuperável para blobs
+              href: soft-delete-blob-overview.md
+            - name: Eliminação recuperável para contentores
+              href: soft-delete-container-overview.md
             - name: Instantâneos
               href: snapshots-overview.md
             - name: Feed de alterações
@@ -423,8 +425,10 @@
           items:
             - name: Ativar a criação de versões de blobs
               href: versioning-enable.md
-            - name: Ativar a eliminação recuperável
-              href: soft-delete-enable.md
+            - name: Ativar a eliminação recuperável para blobs
+              href: soft-delete-blob-enable.md
+            - name: Ativar a eliminação recuperável para contentores
+              href: soft-delete-container-enable.md
             - name: Criar instantâneos (.NET)
               href: snapshots-manage-dotnet.md
             - name: Processar registos do feed de alterações

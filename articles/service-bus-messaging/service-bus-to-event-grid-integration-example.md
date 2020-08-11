@@ -6,12 +6,12 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337052"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067295"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder aos eventos de autocarro do Azure Service recebidos através da Azure Event Grid utilizando funções Azure e Apps Azure Logic
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
@@ -62,7 +62,7 @@ Conecte uma aplicação lógica com a Azure Service Bus e a Azure Event Grid seg
 1. Crie uma aplicação lógica no portal Azure.
     1. Selecione **+ Crie um recurso,** selecione **Integração**e, em seguida, selecione **a Aplicação Lógica**. 
     2. Na **Aplicação Lógica - Criar** página, insira um **nome** para a aplicação lógica.
-    3. Selecione a sua **subscrição** do Azure. 
+    3. Selecione a sua **subscrição Azure**. 
     4. Selecione **Utilizar o** **grupo de recursos**e selecione o grupo de recursos que utilizou para outros recursos (como a função Azure, Service Bus namespace) que criou anteriormente. 
     5. Selecione a **Localização** para a aplicação lógica. 
     6. Selecione **Criar** para criar a aplicação lógica. 
@@ -355,10 +355,10 @@ Nesta secção, saiba como receber e processar mensagens depois de receber um ev
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).
-* Saiba mais sobre a [funcionalidade Logic Apps do Serviço de Aplicações do Azure](https://docs.microsoft.com/azure/logic-apps/).
-* Saiba mais sobre o [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Saiba mais sobre o [Azure Event Grid](../event-grid/index.yml).
+* Saiba mais sobre as [Funções do Azure](../azure-functions/index.yml).
+* Saiba mais sobre a [funcionalidade Logic Apps do Serviço de Aplicações do Azure](../logic-apps/index.yml).
+* Saiba mais sobre o [Azure Service Bus](/azure/service-bus/).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

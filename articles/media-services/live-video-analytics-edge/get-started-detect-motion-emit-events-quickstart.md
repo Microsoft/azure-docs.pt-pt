@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090081"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067708"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -84,7 +84,7 @@ Se a ligação for bem sucedida, aparece a lista de dispositivos de borda. Deve 
 
 ![Nó de dispositivo de amostra de lva](./media/quickstarts/lva-sample-device-node.png)
 
-## <a name="use-direct-methods"></a>Utilizar métodos diretos
+## <a name="use-direct-method-calls"></a>Use chamadas de métodos diretos
 
 Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando métodos diretos. Para obter mais informações, consulte [métodos diretos para análise de vídeo ao vivo no IoT Edge](direct-methods.md). 
 
@@ -675,7 +675,7 @@ Experimente os próximos passos:
 1. Invoque `GraphTopologyList` e observe que o módulo não contém topologias de gráficos.
 1. Invoque `GraphInstanceList` utilizando a mesma carga útil que `GraphTopologyList` . Observe que não são enumeradas instâncias de gráficos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou neste arranque rápido.
 

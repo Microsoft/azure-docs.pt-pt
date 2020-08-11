@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 4b77c2d724a8540c0e43c45690877367a4b72416
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: 92e2269c0ef0a6b0e8f0f0676ef76359dffe83dd
+  ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337029"
+  ms.lasthandoff: 08/10/2020
+  ms.locfileid: "88034826"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -68,9 +68,9 @@ conceptualContent:
     - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: Criar uma regra de telemetria
-    - url: ./core/howto-export-data.md
+    - url: ./core/howto-use-data-export.md
       itemType: how-to-guide
-      text: Exportar dados para destinos no Azure
+      text: Exportar dados para destinos da cloud - pré-visualização
     footerLink:
       url: ./core/index.yml
       text: Ver mais
