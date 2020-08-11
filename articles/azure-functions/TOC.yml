@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Registar as extensões de enlace
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Padrões de expressão de enlace
           href: functions-bindings-expressions-patterns.md
         - name: Utilizar valores de retorno de enlace
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Definir a versão runtime
           href: set-runtime-version.md
-        - name: Registar uma extensão manualmente
-          href: install-update-binding-extensions-manual.md
         - name: Desativar uma função
           href: disable-function.md
         - name: Recuperação após desastre geográfica

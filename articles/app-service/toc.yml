@@ -66,6 +66,8 @@
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+    - name: Terraform
+      href: samples-terraform.md
 - name: Conceitos
   items:
     - name: Planos do Serviço de Aplicações
