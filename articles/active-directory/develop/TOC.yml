@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: Núcleo de ASP.NET
+        - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -468,13 +468,13 @@
     - name: Aprovisionamento automático de utilizadores (SCIM)
       items:
         - name: O que é o aprovisionamento automático de utilizadores?
-          href: /azure/active-directory/app-provisioning/user-provisioning
+          href: ../app-provisioning/user-provisioning.md
         - name: Desenvolver e integrar um ponto final SCIM
-          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
         - name: Cenários comuns de aprovisionamento
-          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+          href: ../app-provisioning/scim-graph-scenarios.md
         - name: Automatizar a configuração com o MS Graph
-          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+          href: ../app-provisioning/application-provisioning-configure-api.md
     - name: Artigos de ajuda do portal do Azure
       items:
         - name: Predefinições de duração do token para uma aplicação personalizada
@@ -630,7 +630,7 @@
         - name: Publicar na Galeria da Aplicação Azure AD
           href: v2-howto-app-gallery-listing.md
         - name: "Publicar no Dashboard de Vendedor do Office\_365"
-          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Referência
   items:
     - name: Manifesto de aplicação
@@ -642,7 +642,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: Identificar e aceder a APIs no Microsoft Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
+      href: /graph/api/resources/azure-ad-overview
     - name: Códigos de erro de autenticação e autorização
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -663,7 +663,7 @@
     - name: Experimentar Iniciar sessão com a Microsoft
       href: 'https://azure.microsoft.com/develop/identity/signin/'
     - name: Identidades geridas para os recursos do Azure
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md
     - name: Obter ajuda
       displayName: 'support, help options'
       href: developer-support-help-options.md

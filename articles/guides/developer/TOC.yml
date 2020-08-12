@@ -7,7 +7,7 @@
 - name: Início Rápido
   items:
     - name: Aplicações Web
-      href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
+      href: 'https://docs.microsoft.com/azure/app-service/quickstart-html'
     - name: Máquinas virtuais
       items:
         - name: Linux
@@ -29,9 +29,9 @@
         - name: .NET com BD SQL
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase'
         - name: Node.js com Mongo DB
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app'
         - name: PHP com MySQL
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app'
         - name: Java com MySQL
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql'
     - name: Implementar modelos de VM complexos

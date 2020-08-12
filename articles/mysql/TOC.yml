@@ -57,10 +57,10 @@
     - name: 2 - Criar uma Aplicação Web
       items:
         - name: Wordpress em contentores com o MySQL
-          href: ../app-service/containers/tutorial-multi-container-app.md
+          href: ../app-service/tutorial-multi-container-app.md
           maintainContext: true
         - name: PHP com MySQL
-          href: ../app-service/app-service-web-tutorial-php-mysql.md
+          href: ../app-service/tutorial-php-mysql-app.md
           maintainContext: true
 - name: Amostras
   items:

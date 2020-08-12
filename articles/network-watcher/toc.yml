@@ -49,6 +49,8 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: Residência dos dados
+      href: data-residency.md
 - name: Guias de procedimentos
   items:
     - name: Configurar o Observador de Rede
