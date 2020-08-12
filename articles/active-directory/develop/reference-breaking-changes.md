@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026735"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115038"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
 
@@ -49,7 +49,7 @@ Nenhum programado neste momento.  Veja abaixo as alterações que estão ou est�
 
 Em 1 de junho de 2018, a Autoridade Oficial do Azure Ative Directory (AAD) para o Governo Azure passou de `https://login-us.microsoftonline.com` `https://login.microsoftonline.us` . Esta alteração também se aplicava ao Microsoft 365 GCC High e DoD, que o Azure Government AAD também presta serviços. Se possuir uma aplicação dentro de um inquilino do Governo dos EUA, deve atualizar a sua aplicação para iniciar sômsião no `.us` ponto final.  
 
-A partir de 5 de maio, a Azure AD começará a impor a mudança de ponto final, impedindo os utilizadores do governo de assinarem em aplicações hospedadas em inquilinos do governo dos EUA usando o ponto final público `microsoftonline.com` .  As aplicações impactadas começarão a ver um `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` erro. Este erro indica que a aplicação está a tentar assinar num utilizador do Governo dos EUA no ponto final da nuvem pública. Se a sua aplicação estiver num inquilino de nuvem pública e tiver a intenção de apoiar utilizadores do Governo dos EUA, terá de [atualizar a sua app para as suportar explicitamente.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) Isto pode exigir a criação de um novo registo de aplicações na nuvem do Governo dos EUA. 
+A partir de 5 de maio, a Azure AD começará a impor a mudança de ponto final, impedindo os utilizadores do governo de assinarem em aplicações hospedadas em inquilinos do governo dos EUA usando o ponto final público `microsoftonline.com` .  As aplicações impactadas começarão a ver um `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` erro. Este erro indica que a aplicação está a tentar assinar num utilizador do Governo dos EUA no ponto final da nuvem pública. Se a sua aplicação estiver num inquilino de nuvem pública e tiver a intenção de apoiar utilizadores do Governo dos EUA, terá de [atualizar a sua app para as suportar explicitamente.](./authentication-national-cloud.md) Isto pode exigir a criação de um novo registo de aplicações na nuvem do Governo dos EUA. 
 
 A aplicação desta mudança será feita utilizando um lançamento gradual baseado na frequência com que os utilizadores do Governo dos EUA assinam a sua assinatura na aplicação - as aplicações que assinam no Governo dos EUA raramente verão a aplicação em primeiro lugar, e as aplicações frequentemente utilizadas pelos utilizadores do Governo dos EUA serão as últimas a ter aplicação da aplicação. Esperamos que a aplicação esteja concluída em todas as aplicações em junho de 2020. 
 
@@ -98,7 +98,7 @@ Quando uma resposta de autenticação é enviada de login.microsoftonline.com pa
 
 **Pontos finais impactados**: V1.0 e v2.0
 
-**Protocolo impactado**: Qualquer posto de correio é utilizado[(credenciais de cliente,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) [resgate de código de autorização,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) [OBO,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [resgate de fichas de atualização)](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)
+**Protocolo impactado**: Qualquer posto de correio é utilizado[(credenciais de cliente,](./v2-oauth2-client-creds-grant-flow.md) [resgate de código de autorização,](./v2-oauth2-auth-code-flow.md) [ROPC,](./v2-oauth-ropc.md) [OBO,](./v2-oauth2-on-behalf-of-flow.md)e [resgate de fichas de atualização)](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)
 
 A partir da semana de 9/2, os pedidos de autenticação que utilizem o método POST serão validados com normas HTTP mais rigorosas.  Especificamente, os espaços e as cotações duplas (") deixarão de ser removidos dos valores do formulário de pedido. Não se espera que estas alterações quebrem os clientes existentes, e garantirão que os pedidos enviados para a Azure AD são manuseados de forma fiável todas as vezes. No futuro (ver acima) planeamos rejeitar adicionalmente duplicar parâmetros e ignorar o BOM dentro dos pedidos.
 
@@ -113,9 +113,9 @@ Hoje, `?e=    "f"&g=h` é analisado de forma idêntica como - assim `?e=f&g=h` `
 
 **Data de efetivo**: 26 de julho de 2019
 
-**Pontos finais impactados**: [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Pontos finais impactados**: [V1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) e [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocolo impactado**: [Credenciais de Cliente (fichas só para aplicações)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocolo impactado**: [Credenciais de Cliente (fichas só para aplicações)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 Uma mudança de segurança entrou em direto a 26 de julho que altera a forma como são emitidas fichas só de aplicações (através da concessão de credenciais de cliente). Anteriormente, as aplicações eram autorizadas a obter fichas para ligar para qualquer outra app, independentemente da presença no arrendatário ou funções consentidas para essa aplicação.  Este comportamento foi atualizado de modo que para os recursos (por vezes chamados APIs web) definidos para ser um único inquilino (o padrão), a aplicação do cliente deve existir dentro do inquilino de recursos.  Note que o consentimento existente entre o cliente e a API ainda não é necessário, e as aplicações devem ainda estar a fazer os seus próprios controlos de autorização para garantir que uma `roles` reclamação está presente e contém o valor esperado para a API.
 

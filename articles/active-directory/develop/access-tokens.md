@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afa9c6a508e0215b905a39a430cb64161575b748
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552008"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116019"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -71,7 +71,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="header-claims"></a>Reclamações de cabeçalho
 
-|Afirmação | Formatar | Descrição |
+|Afirmação | Formato | Descrição |
 |--------|--------|-------------|
 | `typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
 | `nonce` | String | Um identificador único usado para proteger contra ataques de repetição de símbolos. O seu recurso pode registar este valor para proteger contra repetições. |
@@ -81,7 +81,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
-| Afirmação | Formatar | Descrição |
+| Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 | `aud` | String, um ID URI de aplicativo | Identifica o destinatário pretendido do token. Em fichas de identificação, o público é o ID da aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deve validar este valor e rejeitar o token se o valor não corresponder. |
 | `iss` | String, um STS URI | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o token, e o inquilino AD AZure em que o utilizador foi autenticado. Se o token emitido for um sinal v2.0 (ver `ver` reclamação), o URI terminará em `/v2.0` . O GUID que indica que o utilizador é um utilizador consumidor de uma conta microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad` . A sua aplicação deve utilizar a parte GUID da reivindicação para restringir o conjunto de inquilinos que podem iniciar sôm na app, se aplicável. |
@@ -100,7 +100,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 | `name` | String | Fornece um valor legível pelo homem que identifica o sujeito do símbolo. O valor não é garantido ser único, é mutável, e é projetado para ser usado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta reclamação. |
 | `scp` | String, uma lista de âmbitos separados do espaço | O conjunto de âmbitos expostos pelo seu pedido para o qual o pedido do cliente solicitou (e recebeu) consentimento. A sua aplicação deve verificar se estes âmbitos são válidos expostos pela sua app e tomar decisões de autorização com base no valor destes âmbitos. Incluído apenas para [fichas de utilizador](#user-and-application-tokens). |
 | `roles` | Matriz de cordas, uma lista de permissões | O conjunto de permissões expostas pela sua aplicação que o pedido de pedido ou utilizador foi autorizado a ligar. Para [fichas de aplicação,](#user-and-application-tokens)esta é utilizada durante o fluxo de credencial do cliente[(v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) em vez de âmbitos de utilização.  Para [fichas de utilizador](#user-and-application-tokens) este é preenchido com as funções a que o utilizador foi atribuído na aplicação-alvo. |
-| `wids` | Matriz de [GUIDs RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota as funções atribuídas a este utilizador, a partir da secção de funções presentes na [página de funções de administração](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta reclamação é configurada numa base por aplicação, através da `groupMembershipClaims` propriedade do manifesto de [aplicação.](reference-app-manifest.md)  É necessário defini-lo para "All" ou "DirectoryRole".  Não pode estar presente em fichas obtidas através do fluxo implícito devido a preocupações de comprimento simbólico. |
+| `wids` | Matriz de [GUIDs RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) | Denota as funções atribuídas a este utilizador, a partir da secção de funções presentes na [página de funções de administração](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids).  Esta reclamação é configurada numa base por aplicação, através da `groupMembershipClaims` propriedade do manifesto de [aplicação.](reference-app-manifest.md)  É necessário defini-lo para "All" ou "DirectoryRole".  Não pode estar presente em fichas obtidas através do fluxo implícito devido a preocupações de comprimento simbólico. |
 | `groups` | JSON array de GUIDs | Fornece iDs de objeto que representam os membros do grupo do sujeito. Estes valores são únicos (ver Object ID) e podem ser utilizados com segurança para gerir o acesso, como impor autorização de acesso a um recurso. Os grupos incluídos nos grupos afirmam que são configurados por aplicação, através `groupMembershipClaims` da propriedade do manifesto de [aplicação.](reference-app-manifest.md) Um valor de nulo excluirá todos os grupos, um valor de "SecurityGroup" incluirá apenas membros do Ative Directory Security Group, e um valor de "All" incluirá tanto grupos de segurança como listas de distribuição do Office 365. <br><br>Consulte a `hasgroups` reclamação abaixo para obter mais informações sobre a utilização da `groups` reclamação com a subvenção implícita. <br>Para outros fluxos, se o número de grupos em que o utilizador se encontra ultrapassar um limite (150 para o SAML, 200 para o JWT), então será adicionada uma reclamação por excesso de informação às fontes de reclamação que apontam para o ponto final do Microsoft Graph contendo a lista de grupos para o utilizador. |
 | `hasgroups` | Booleano | Se estiver presente, `true` denota sempre, o utilizador está em pelo menos um grupo. Utilizado em vez da reclamação de `groups` JWTs em fluxos de subvenções implícitos se os grupos completos alegarem estender o fragmento URI para além dos limites de comprimento do URL (atualmente 6 ou mais grupos). Indica que o cliente deve utilizar a API do Microsoft Graph para determinar os grupos do utilizador `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` (). |
 | `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados (ver `hasgroups` acima) mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como uma reclamação distribuída, para a SAML como uma nova reivindicação em vez da `groups` reclamação. <br><br>**Exemplo JWT Valor**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
@@ -139,10 +139,10 @@ Pode utilizar a `BulkCreateGroups.ps1` pasta de [Scripts de Criação de Aplica�
 
 As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas não estão incluídas em fichas v2.0 por padrão. Se estiver a utilizar o v2.0 e precisar de uma destas reclamações, solicite-os usando [reclamações opcionais](active-directory-optional-claims.md).
 
-| Afirmação | Formatar | Descrição |
+| Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 | `ipaddr`| String | O endereço IP do utilizador autenticado. |
-| `onprem_sid`| String, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta alegação fornece o seu SID. Pode usar `onprem_sid` para autorização em aplicações antigas.|
+| `onprem_sid`| String, em [formato SID](/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta alegação fornece o seu SID. Pode usar `onprem_sid` para autorização em aplicações antigas.|
 | `pwd_exp`| int, um timetamp UNIX | Indica quando a palavra-passe do utilizador expira. |
 | `pwd_url`| String | Um URL onde os utilizadores podem ser enviados para redefinir a sua palavra-passe. |
 | `in_corp`| boolean | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída. |
@@ -171,7 +171,7 @@ As identidades da Microsoft podem autenticar de diferentes formas, o que pode se
 
 Para validar um id_token ou um access_token, a sua aplicação deve validar tanto a assinatura do token como as reclamações. Para validar os tokens de acesso, a sua aplicação também deve validar o emitente, o público e os tokens de assinatura. Estes devem ser validados contra os valores do documento de descoberta OpenID. Por exemplo, a versão independente do inquilina do documento situa-se em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration) .
 
-O middleware AD AD Azure tem capacidades incorporadas para validar tokens de acesso, e você pode navegar através das nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um no idioma à sua escolha.
+O middleware AD AD Azure tem capacidades incorporadas para validar tokens de acesso, e você pode navegar através das nossas [amostras](../azuread-dev/sample-v1-code.md) para encontrar um no idioma à sua escolha.
 
 Fornecemos bibliotecas e amostras de código que mostram como lidar com a validação de fichas. A informação abaixo é fornecida para aqueles que desejam compreender o processo subjacente. Existem também várias bibliotecas de código aberto de terceiros disponíveis para validação JWT - há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação AD AZure e amostras de código, consulte [as bibliotecas de autenticação V1.0](../azuread-dev/active-directory-authentication-libraries.md) e [as bibliotecas de autenticação V2.0](reference-v2-libraries.md).
 
@@ -224,13 +224,13 @@ A lógica de negócio da sua aplicação ditará este passo, alguns métodos de 
 * Validar o estado de autenticação do cliente que telefona a usar `appidacr` - não deve ser 0 se os clientes públicos não estiverem autorizados a ligar para a sua API.
 * Verifique contra uma lista de `nonce` alegações passadas para verificar se o símbolo não está a ser reproduzido.
 * Verifique se `tid` o inquilino corresponde a um inquilino que pode ligar para a sua API.
-* Utilize a `acr` reclamação para verificar se o utilizador realizou MFA. Isto deve ser aplicado utilizando [o Acesso Condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Utilize a `acr` reclamação para verificar se o utilizador realizou MFA. Isto deve ser aplicado utilizando [o Acesso Condicional](../conditional-access/overview.md).
 * Se você solicitou as `roles` `groups` reclamações ou reclamações no token de acesso, verifique se o utilizador está no grupo autorizado a fazer esta ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente terá de consultar o [Microsoft Graph](https://developer.microsoft.com/graph/) para estes dados, uma vez que é muitas vezes demasiado grande para caber no token.
 
 ## <a name="user-and-application-tokens"></a>Fichas de utilizador e aplicação
 
-A sua aplicação pode receber fichas para o utilizador (o fluxo normalmente discutido) ou diretamente a partir de uma aplicação (através do fluxo de credenciais do [cliente).](v1-oauth2-client-creds-grant-flow.md) Estes tokens apenas para aplicações indicam que esta chamada vem de uma aplicação e não tem um utilizador a apoiá-la. Estes tokens são manuseados em grande parte da mesma forma:
+A sua aplicação pode receber fichas para o utilizador (o fluxo normalmente discutido) ou diretamente a partir de uma aplicação (através do fluxo de credenciais do [cliente).](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) Estes tokens apenas para aplicações indicam que esta chamada vem de uma aplicação e não tem um utilizador a apoiá-la. Estes tokens são manuseados em grande parte da mesma forma:
 
 * Utilize `roles` para ver permissões que tenham sido concedidas ao objeto do token (o titular do serviço, em vez de um utilizador neste caso).
 * Utilize `oid` ou `sub` valide que o principal do serviço de chamadas é o esperado.
@@ -262,8 +262,8 @@ As fichas de atualização podem ser revogadas pelo servidor devido a uma altera
 | Palavra-passe alterada pelo utilizador | Revoked | Revoked | Permanece vivo | Permanece vivo | Permanece vivo |
 | O utilizador faz SSPR | Revoked | Revoked | Permanece vivo | Permanece vivo | Permanece vivo |
 | Admin reinicia senha | Revoked | Revoked | Permanece vivo | Permanece vivo | Permanece vivo |
-| Utilizador revoga os seus tokens de atualização [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
-| Admin revoga todos os tokens de atualização para um utilizador [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| Utilizador revoga os seus tokens de atualização [via PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
+| Admin revoga todos os tokens de atualização para um utilizador [via PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
 | Único sign-out[(v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out) ) na web | Revoked | Permanece vivo | Revoked | Permanece vivo | Permanece vivo |
 
 > [!NOTE]
@@ -273,7 +273,7 @@ As fichas de atualização podem ser revogadas pelo servidor devido a uma altera
 >
 > Os tokens de atualização não são invalidados ou revogados quando usados para obter um novo token de acesso e atualização token.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na sua. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [ `id_tokens` em Azure AD](id-tokens.md).
 * Saiba mais sobre permissão e consentimento [(v1.0,](../azuread-dev/v1-permissions-consent.md) [v2.0](v2-permissions-and-consent.md)).

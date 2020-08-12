@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477809"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116976"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Processar as alterações de cookies do SameSite no browser do Chrome
 
@@ -59,7 +59,7 @@ A tabela abaixo apresenta os pedidos de puxar que trabalharam em torno das alter
 
 para mais detalhes sobre como lidar com os cookies SameSite em ASP.NET e ASP.NET Core, consulte também:
 
-- [Trabalhe com cookies SameSite em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
+- [Trabalhe com cookies SameSite em ASP.NET Core](/aspnet/core/security/samesite) .
 - [ASP.NET Blog sobre a edição do SameSite](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # <a name="python"></a>[Python](#tab/python)
@@ -77,7 +77,7 @@ para mais detalhes sobre como lidar com os cookies SameSite em ASP.NET e ASP.NET
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o SameSite e o cenário da aplicação Web:
 

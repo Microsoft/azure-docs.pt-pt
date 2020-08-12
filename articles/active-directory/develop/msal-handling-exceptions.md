@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204631"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120954"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
 
@@ -236,7 +236,7 @@ No MSAL para Python, a maioria dos erros são transmitidos como um valor de reto
 * Uma resposta bem sucedida contém a `"access_token"` chave. O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.1 Resposta com sucesso](https://tools.ietf.org/html/rfc6749#section-5.1)
 * Uma resposta de erro contém `"error"` e normalmente `"error_description"` . O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.2 Error Response](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-Quando um erro é devolvido, a `"error_description"` tecla contém uma mensagem legível pelo homem; que, por sua vez, normalmente contém um código de erro da plataforma de identidade da Microsoft. Para obter mais informações sobre os vários códigos de erro, consulte [códigos de erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Quando um erro é devolvido, a `"error_description"` tecla contém uma mensagem legível pelo homem; que, por sua vez, normalmente contém um código de erro da plataforma de identidade da Microsoft. Para obter mais informações sobre os vários códigos de erro, consulte [códigos de erro de autenticação e autorização](./reference-aadsts-error-codes.md).
 
 No MSAL para Python, as exceções são raras porque a maioria dos erros são tratados devolvendo um valor de erro. A `ValueError` exceção só é lançada quando há um problema com a forma como está a tentar usar a biblioteca - como quando os parâmetros(s) da API estão mal formados.
 

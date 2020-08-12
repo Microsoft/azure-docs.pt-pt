@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313494"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115990"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
@@ -69,7 +69,7 @@ No diagrama acima:
   - Um perfil de inquilino para `tom@live.com` existir em cada um destes inquilinos.
 - A informação sobre o Tom e o Bob noutros inquilinos pode diferir da que está no sistema de registos. Podem diferir por atributos como O título de Emprego, Localização do Escritório, e assim por diante. Podem ser membros de grupos e/ou funções dentro de cada organização (Azure Ative Directory Tenant). Referimo-nos a esta informação como bob@contoso.com perfil de inquilino.
 
-No diagrama, bob@contoso.com e ter acesso a recursos em tom@live.com diferentes inquilinos do Azure Ative Directory. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+No diagrama, bob@contoso.com e ter acesso a recursos em tom@live.com diferentes inquilinos do Azure Ative Directory. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Contas e sso único (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Para ver uma lista de reclamações disponíveis no objeto da conta, consulte [as reclamações num id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Para ver uma lista de reclamações disponíveis no objeto da conta, consulte [as reclamações num id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Para incluir reclamações adicionais no seu id_token, consulte a documentação de reclamações opcionais em [Como: Fornecer reclamações opcionais à sua app AZure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Para incluir reclamações adicionais no seu id_token, consulte a documentação de reclamações opcionais em [Como: Fornecer reclamações opcionais à sua app AZure AD](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Acesso reclamações de perfil do inquilino
 

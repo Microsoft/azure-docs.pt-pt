@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2020
+ms.date: 08/11/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fbc6c7b8811f3cf46b4f31387c2181c8d085e39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce82193b1af07b993b02319397a00b802589579f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684876"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116415"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operativos compatíveis para grandes instâncias HANA
 
@@ -28,6 +28,7 @@ ms.locfileid: "83684876"
   | SLES 12 SP2      | Não é mais oferecido | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
   | SLES 12 SP3      | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
   | SLES 12 SP4      | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
+  | RHEL 7.6         | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
 
   
 ### <a name="persistent-memory-skus"></a>SKUs de memória persistente

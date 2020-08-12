@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026266"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118676"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
@@ -41,7 +41,7 @@ Pode utilizar estes links para a criação da sua aplicação web:
 > O portal a utilizar é diferente dependendo se a sua aplicação funciona na nuvem pública do Microsoft Azure ou numa nuvem nacional ou soberana. Para mais informações, consulte [as nuvens nacionais.](./authentication-national-cloud.md#app-registration-endpoints)
 
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft. Em alternativa, inscreva-se no [portal Azure de eleição](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) para a nuvem nacional.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft. Em alternativa, inscreva-se no [portal Azure de eleição](./authentication-national-cloud.md#app-registration-endpoints) para a nuvem nacional.
 2. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Em seguida, desa um pouco para o inquilino pretendido do Azure Ative Directory (Azure AD).
 3. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**  >  **Novo registo**.
 
@@ -119,7 +119,7 @@ Pode utilizar estes links para a criação da sua aplicação web:
 > - MyOrg (contas apenas neste diretório organizacional)
 > - AnyOrg (contas em qualquer diretório organizacional)
 >
-> Pode criar uma aplicação que assina nos utilizadores com as suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, criar uma aplicação multitenant. Os tipos de conta suportado são contas em qualquer diretório organizacional. Em seguida, altere o [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) imóvel para **2** e o [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) imóvel para `AzureADandPersonalMicrosoftAccount` no manifesto de [aplicação](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) a partir do portal Azure. Para mais informações, consulte o [passo 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial do Núcleo ASP.NET. Pode generalizar este passo para aplicações web em qualquer idioma.
+> Pode criar uma aplicação que assina nos utilizadores com as suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, criar uma aplicação multitenant. Os tipos de conta suportado são contas em qualquer diretório organizacional. Em seguida, altere o [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) imóvel para **2** e o [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) imóvel para `AzureADandPersonalMicrosoftAccount` no manifesto de [aplicação](./reference-app-manifest.md) a partir do portal Azure. Para mais informações, consulte o [passo 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial do Núcleo ASP.NET. Pode generalizar este passo para aplicações web em qualquer idioma.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054073"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116772"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -35,16 +35,18 @@ O quadro que se segue descreve quais os métodos disponíveis para a autenticaç
 
 | Método | Autenticação primária | Autenticação secundária |
 | --- | --- | --- |
-| [Palavra-passe](#password) | Sim | |
+| [Palavra-passe](#password) | Yes | |
 | [Aplicação Microsoft Authenticator](#microsoft-authenticator-app) | Sim (pré-visualização) | MFA e SSPR |
-| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Sim | Apenas MFA |
-| [Fichas de software OATH](#oath-software-tokens) | Não | MFA |
-| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | Não | MFA |
+| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Yes | Apenas MFA |
+| [Fichas de software OATH](#oath-software-tokens) | No | MFA |
+| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Sim (pré-visualização) | MFA e SSPR |
-| [Chamada de voz](#phone-options) | Não | MFA e SSPR |
-| [Perguntas de segurança](#security-questions) | Não | Apenas SSPR |
-| [Endereço de e-mail](#email-address) | Não | Apenas SSPR |
-| [Palavras-passe da aplicação](#app-passwords) | Não | MFA apenas em certos casos |
+| [Chamada de voz](#phone-options) | No | MFA e SSPR |
+| [Perguntas de segurança](#security-questions) | No | Apenas SSPR |
+| [Endereço de e-mail](#email-address) | No | Apenas SSPR |
+| [Palavras-passe da aplicação](#app-passwords) | No | MFA apenas em certos casos |
+
+Estes métodos de autenticação podem ser configurados no portal Azure e, cada vez mais, utilizando a beta API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 Este artigo descreve estes diferentes métodos de autenticação e verificação disponíveis no AZure AD e quaisquer limitações ou restrições específicas.
 
@@ -297,6 +299,8 @@ Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)]
 Para saber mais sobre os conceitos SSPR, consulte [como funciona o reset da palavra-passe de autosserviço AZure AD][concept-sspr].
 
 Para saber mais sobre os conceitos de MFA, consulte [como funciona a autenticação multi-factor Azure.][concept-mfa]
+
+Saiba mais sobre a configuração dos métodos de autenticação utilizando a [beta API do Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

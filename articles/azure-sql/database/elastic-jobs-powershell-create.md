@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 093214241757bdc3973d88d5a0e6f3157c6178c7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 84f3bbc01d7161dd6d7002102cc006dfae3ce3e4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251136"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118166"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As [tarefas elásticas](job-automation-overview.md#elastic-database-jobs-preview) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
+[Os trabalhos elásticos (pré-visualização)](job-automation-overview.md#elastic-database-jobs-preview) permitem o funcionamento de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
 Neste tutorial, você aprende os passos necessários para executar uma consulta em várias bases de dados:
 
@@ -280,15 +280,15 @@ A tabela que se segue enumera os possíveis estados de execução de empregos:
 |**Criado** | A execução do emprego acabou de ser criada e ainda não está em curso.|
 |**InProgress** | A execução do emprego está em andamento.|
 |**WaitingForRetry** | A execução do trabalho não foi capaz de completar a sua ação e está à espera de voltar a tentar.|
-|**Bem-sucedido** | A execução do trabalho foi concluída com sucesso.|
+|**Com êxito** | A execução do trabalho foi concluída com sucesso.|
 |**SucedeuWithSkipped** | A execução do emprego foi concluída com sucesso, mas alguns dos seus filhos foram ignorados.|
-|**Falhou** | A execução do emprego falhou e esgotou as suas recaídas.|
+|**Com falhas** | A execução do emprego falhou e esgotou as suas recaídas.|
 |**TimedOut** | A execução do trabalho está no intervalo.|
 |**Cancelado** | A execução do emprego foi cancelada.|
 |**Ignorado** | A execução do emprego foi ignorada porque outra execução do mesmo passo de trabalho já estava a decorrer no mesmo alvo.|
 |**WaitingForChildJobExecutions** | A execução do trabalho está à espera que as suas execuções infantis terminem.|
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Elimine os recursos do Azure criados neste tutorial ao eliminar o grupo de recursos.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925792"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121532"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/). Os agentes windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Azure Monitor, bem como quaisquer registos ou métricas únicos definidos numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md)
@@ -174,7 +174,7 @@ Para garantir a segurança dos dados em trânsito para os registos do Azure Moni
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Requisito de suporte de assinatura de código SHA-2 para windows
-O agente do Windows começará a utilizar exclusivamente a assinatura SHA-2 no dia 17 de agosto de 2020. Esta alteração irá afetar os clientes que utilizam o agente Log Analytics num sistema operativo legado como parte de qualquer serviço Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). A alteração não requer qualquer ação do cliente a menos que esteja a executar o agente numa versão antiga do SISTEMA (Windows 7, Windows Server 2008 R2 e Windows Server 2008). Os clientes que executam uma versão de SISTEMA legado são obrigados a tomar as seguintes ações nas suas máquinas antes de 17 de agosto de 2020 ou os seus agentes deixarão de enviar dados para os seus espaços de trabalho Log Analytics:
+O agente do Windows começará a utilizar exclusivamente a assinatura SHA-2 no dia 2 de novembro de 2020. Esta alteração irá afetar os clientes que utilizam o agente Log Analytics num sistema operativo legado como parte de qualquer serviço Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). A alteração não requer qualquer ação do cliente a menos que esteja a executar o agente numa versão antiga do SISTEMA (Windows 7, Windows Server 2008 R2 e Windows Server 2008). Os clientes que executam uma versão de SISTEMA legado são obrigados a tomar as seguintes ações nas suas máquinas antes de 2 de novembro de 2020 ou os seus agentes deixarão de enviar dados para os seus espaços de trabalho Log Analytics:
 
 1. Instale o mais recente Pacote de Serviços para o seu SISTEMA. As versões de pacote de serviços necessárias são:
     - Windows 7 SP1
@@ -197,10 +197,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |
-|*.azure-automation.net |Porto 443 |Saída|Sim |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.blob.core.windows.net |Porto 443 |Saída|Yes |
+|*.azure-automation.net |Porto 443 |Saída|Yes |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

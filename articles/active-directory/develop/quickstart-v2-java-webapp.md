@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 1474a8ad73f7deb9a7c321f7d7994a7b2b73d624
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312406"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115225"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -212,7 +212,7 @@ Se quiser colocar a amostra web no Tomcat, terá de efetuar algumas alterações
 
 
 > [!IMPORTANT]
-> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança é recomendado que use um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [as credenciais do Certificado para autenticação de pedidos.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)
+> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança é recomendado que use um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [as credenciais do Certificado para autenticação de pedidos.](./active-directory-certificate-credentials.md)
 
 ## <a name="more-information"></a>Mais informações
 
@@ -249,16 +249,16 @@ Adicione uma referência ao MSAL para a Java adicionando o seguinte código à p
 import com.microsoft.aad.msal4j.*;
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre permissões e consentimento:
 
 > [!div class="nextstepaction"]
-> [Permissões e Consentimento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Permissões e Consentimento](./v2-permissions-and-consent.md)
 
 Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de código de autorização Oauth 2.0:
 
 > [!div class="nextstepaction"]
-> [Fluxo de Oauth código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Fluxo de Oauth código de autorização](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

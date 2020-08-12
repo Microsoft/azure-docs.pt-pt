@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 5abc10d149cdb2c054f4122cd805ec22b2e37e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098134"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114664"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementar a Cloud Shell numa rede virtual Azure
 > [!NOTE]
@@ -103,7 +103,7 @@ Navegue para o relé criado usando o modelo acima, selecione "Networking" em def
 > [!NOTE]
 > Este passo deve ser concluído para cada administrador utilizar a Cloud Shell.
 
-Depois de ter concluído os passos acima, navegue até cloud Shell no portal Azure ou em https://shell.azure.com .
+Depois de ter concluído os passos acima, navegue até cloud Shell no portal Azure ou em https://shell.azure.com . Uma destas experiências deve ser usada sempre que quiser ligar-se a uma experiência isolada da Cloud Shell.
 
 > [!NOTE]
 > Se a Cloud Shell foi utilizada no passado, a nuvem existente deve ser desmontada. Para fazer esta corrida `clouddrive unmount` a partir de uma sessão de Cloud Shell ativa, refresque a sua página.

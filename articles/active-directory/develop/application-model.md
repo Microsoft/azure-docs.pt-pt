@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584314"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117486"
 ---
 # <a name="application-model"></a>Modelo de aplicação
 
@@ -86,4 +86,4 @@ Para saber mais sobre o modelo de candidatura:
 
 * Veja [como e por que as aplicações são adicionadas ao Azure AD](active-directory-how-applications-are-added.md) para mais informações sobre objetos de aplicações e principais de serviço na plataforma de identidade da Microsoft.
 * Consulte [o Tenancy in Azure Ative Directory](single-and-multi-tenant-apps.md) para obter mais informações sobre aplicações de inquilinos individuais e aplicações multi-arrendatários.
-* Consulte [a documentação do Azure Ative Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c) para obter mais informações sobre como a Azure AD também fornece o Azure Ative Directory B2C para que as organizações possam assinar nos utilizadores, normalmente clientes, utilizando identidades sociais como uma conta da Google.
+* Consulte [a documentação do Azure Ative Directory B2C](../../active-directory-b2c/index.yml) para obter mais informações sobre como a Azure AD também fornece o Azure Ative Directory B2C para que as organizações possam assinar nos utilizadores, normalmente clientes, utilizando identidades sociais como uma conta da Google.

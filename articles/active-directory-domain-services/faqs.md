@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005218"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116704"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services
 
@@ -47,13 +47,13 @@ As redes virtuais clássicas não são suportadas para novas implementações. O
 Para mais informações, consulte o [aviso oficial de depreciação.](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Posso ativar os Serviços de Domínio AZure AD numa rede virtual Azure Resource Manager?
-Yes. Os Serviços de Domínio Azure AD podem ser ativados numa rede virtual Azure Resource Manager. As redes virtuais Classic Azure já não estão disponíveis quando crias um domínio gerido.
+Sim. Os Serviços de Domínio Azure AD podem ser ativados numa rede virtual Azure Resource Manager. As redes virtuais Classic Azure já não estão disponíveis quando crias um domínio gerido.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar o meu domínio gerido de uma rede virtual clássica para uma rede virtual do Gestor de Recursos?
-Yes. Para obter mais informações, consulte [os Serviços de Domínio Azure Migrate Azure do modelo de rede virtual Clássico ao Gestor de Recursos.](migrate-from-classic-vnet.md)
+Sim. Para obter mais informações, consulte [os Serviços de Domínio Azure Migrate Azure do modelo de rede virtual Clássico ao Gestor de Recursos.](migrate-from-classic-vnet.md)
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Posso ativar os Serviços de Domínio AZure AD numa subscrição Azure CSP (Cloud Solution Provider)?
-Yes. Para obter mais informações, consulte [como ativar os Serviços de Domínio Azure AD nas assinaturas Azure CSP](csp.md).
+Sim. Para obter mais informações, consulte [como ativar os Serviços de Domínio Azure AD nas assinaturas Azure CSP](csp.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Posso permitir que os Serviços de Domínio AD da Azure num diretório federado da AD Azure? Não sincronizo as hashes de palavra-passe para a Azure AD. Posso ativar os Serviços de Domínio AZure AD para este diretório?
 Não. Para autenticar os utilizadores através da NTLM ou da Kerberos, o Azure AD Domain Services necessita de acesso às hashes de palavra-passe das contas dos utilizadores. Num diretório federado, as hashes de senha não são armazenadas no diretório AD Azure. Portanto, os Serviços de Domínio AD Azure não funcionam com tais diretórios AD Azure.
@@ -64,7 +64,7 @@ No entanto, se estiver a utilizar o Azure AD Connect para sincronização de has
 O serviço em si não suporta diretamente este cenário. O seu domínio gerido está disponível apenas numa rede virtual de cada vez. No entanto, é possível configurar a conectividade entre várias redes virtuais para expor os Serviços de Domínio AZure AD a outras redes virtuais. Para obter mais informações, consulte [como ligar redes virtuais em Azure utilizando gateways VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) ou [espreitamento de rede virtual.](../virtual-network/virtual-network-peering-overview.md)
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Posso ativar os serviços de domínio Azure AD utilizando o PowerShell?
-Yes. Para obter mais informações, consulte [como ativar os Serviços de Domínio Azure AD utilizando o PowerShell](powershell-create-instance.md).
+Sim. Para obter mais informações, consulte [como ativar os Serviços de Domínio Azure AD utilizando o PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso ativar os serviços de domínio Azure AD usando um modelo de gestor de recursos?
 Sim, pode criar um domínio gerido por Serviços de Domínio AZure AD utilizando um modelo de Gestor de Recursos. Um chefe de serviço e um grupo AD AD para administração devem ser criados usando o portal Azure ou Azure PowerShell antes de o modelo ser implementado. Para obter mais informações, consulte [Criar um domínio gerido AZure AD DS utilizando um modelo de Gestor de Recursos Azure](template-create-instance.md). Quando cria um domínio gerido por Serviços de Domínio AZure AD no portal Azure, existe também uma opção para exportar o modelo para utilização com implementações adicionais.
@@ -80,7 +80,7 @@ Não. Depois de criar um domínio gerido por Azure AD Domain Services, não é p
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Os Serviços de Domínio AZure AD incluem opções de alta disponibilidade?
 
-Yes. Cada domínio gerido por Azure AD Domain Services inclui dois controladores de domínio. Não se gere ou se liga a estes controladores de domínio, eles fazem parte do serviço gerido. Se colocar os Serviços de Domínio Azure AD numa região que suporta Zonas de Disponibilidade, os controladores de domínio são distribuídos por zonas. Nas regiões que não suportam Zonas de Disponibilidade, os controladores de domínio são distribuídos por Conjuntos de Disponibilidade. Não tem opções de configuração ou controlo de gestão sobre esta distribuição. Para obter mais informações, consulte [as opções de Disponibilidade para máquinas virtuais em Azure.](../virtual-machines/windows/availability.md)
+Sim. Cada domínio gerido por Azure AD Domain Services inclui dois controladores de domínio. Não se gere ou se liga a estes controladores de domínio, eles fazem parte do serviço gerido. Se colocar os Serviços de Domínio Azure AD numa região que suporta Zonas de Disponibilidade, os controladores de domínio são distribuídos por zonas. Nas regiões que não suportam Zonas de Disponibilidade, os controladores de domínio são distribuídos por Conjuntos de Disponibilidade. Não tem opções de configuração ou controlo de gestão sobre esta distribuição. Para obter mais informações, consulte [as opções de Disponibilidade para máquinas virtuais em Azure.](../virtual-machines/windows/availability.md)
 
 ## <a name="administration-and-operations"></a>Administração e operações
 
@@ -114,13 +114,17 @@ As alterações efetuadas no seu diretório AD Azure utilizando o Azure AD UI ou
 Não. O esquema é administrado pela Microsoft para o domínio gerido. As extensões de Schema não são suportadas pelos Serviços de Domínio AD da Azure.
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Posso modificar ou adicionar registos DNS no meu domínio gerido?
-Yes. Os membros do grupo *de administradores da AAD DC* recebem privilégios de administrador de *DNS* para modificar os registos DNS no domínio gerido. Estes utilizadores podem utilizar a consola DNS Manager numa máquina que executa o Windows Server, juntando-se ao domínio gerido para gerir o DNS. Para utilizar a consola DNS Manager, instale *as Ferramentas do Servidor DNS*, que faz parte da funcionalidade opcional de Administração de *Servidores Remotos* no servidor. Para obter mais informações, consulte [Administrar DNS num domínio gerido pelos Serviços de Domínio AZure AD](manage-dns.md).
+Sim. Os membros do grupo *de administradores da AAD DC* recebem privilégios de administrador de *DNS* para modificar os registos DNS no domínio gerido. Estes utilizadores podem utilizar a consola DNS Manager numa máquina que executa o Windows Server, juntando-se ao domínio gerido para gerir o DNS. Para utilizar a consola DNS Manager, instale *as Ferramentas do Servidor DNS*, que faz parte da funcionalidade opcional de Administração de *Servidores Remotos* no servidor. Para obter mais informações, consulte [Administrar DNS num domínio gerido pelos Serviços de Domínio AZure AD](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Qual é a política de vida útil de senha num domínio gerido?
-A vida útil da palavra-passe padrão num domínio gerido pelos Serviços de Domínio AD Azure é de 90 dias. Esta vida útil da palavra-passe não é sincronizada com a vida útil da palavra-passe configurada em Azure AD. Portanto, pode ter uma situação em que as palavras-passe dos utilizadores expiram no seu domínio gerido, mas ainda são válidas em Azure AD. Nestes cenários, os utilizadores precisam de alterar a sua palavra-passe em AZure AD e a nova palavra-passe sincronizará para o seu domínio gerido. Além disso, os atributos *de palavra-passe-não-expiração* e *de alteração de palavra-passe-no-próximo-logon* para contas de utilizador não são sincronizados com o seu domínio gerido.
+A vida útil da palavra-passe padrão num domínio gerido pelos Serviços de Domínio AD Azure é de 90 dias. Esta vida útil da palavra-passe não é sincronizada com a vida útil da palavra-passe configurada em Azure AD. Portanto, pode ter uma situação em que as palavras-passe dos utilizadores expiram no seu domínio gerido, mas ainda são válidas em Azure AD. Nestes cenários, os utilizadores precisam de alterar a sua palavra-passe em AZure AD e a nova palavra-passe sincronizará para o seu domínio gerido. Se pretender alterar a vida útil da palavra-passe padrão num domínio gerido, pode [criar e configurar políticas de palavras-passe personalizadas.](password-policy.md)
+
+Além disso, a política de palavra-passe AD AZure para *DisablePasswordExpiration* é sincronizada para um domínio gerido. Quando *o DisablePasswordExpiration* é aplicado a um utilizador em Azure AD, o valor *UserAccountControl* para o utilizador sincronizado no domínio gerido *DONT_EXPIRE_PASSWORD* aplicado.
+
+Quando os utilizadores reiniciam a sua palavra-passe em Ad Azure, é aplicado o atributo *forceChangePasswordNextSignIn=True.* Um domínio gerido sincroniza este atributo a partir do Azure AD. Quando o domínio gerido deteta *forceChangePasswordNextSignIn* é definido para um utilizador sincronizado a partir de Azure AD, o atributo *pwdLastSet* no domínio gerido é definido para *0*, o que invalida a palavra-passe atualmente definida.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Os Serviços de Domínio Azure AD fornecem proteção contra bloqueio de conta AD?
-Yes. Cinco tentativas de senha inválidas no prazo de 2 minutos no domínio gerido fazem com que uma conta de utilizador fique bloqueada durante 30 minutos. Após 30 minutos, a conta do utilizador é desbloqueada automaticamente. As tentativas de palavra-passe inválidas no domínio gerido não bloqueiam a conta de utilizador no Azure AD. A conta de utilizador está bloqueada apenas dentro do domínio gerido pelos Serviços de Domínio Azure AD. Para obter mais informações, consulte [as políticas de bloqueio de passwords e conta em domínios geridos](password-policy.md).
+Sim. Cinco tentativas de senha inválidas no prazo de 2 minutos no domínio gerido fazem com que uma conta de utilizador fique bloqueada durante 30 minutos. Após 30 minutos, a conta do utilizador é desbloqueada automaticamente. As tentativas de palavra-passe inválidas no domínio gerido não bloqueiam a conta de utilizador no Azure AD. A conta de utilizador está bloqueada apenas dentro do domínio gerido pelos Serviços de Domínio Azure AD. Para obter mais informações, consulte [as políticas de bloqueio de passwords e conta em domínios geridos](password-policy.md).
 
 ### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Posso configurar o Sistema de Ficheiros Distribuídos e a replicação nos Serviços de Domínio AD Azure?
 Não. Sistema de Ficheiros Distribuídos (DFS) e replicação não estão disponíveis quando se utilizam os Serviços de Domínio AD Azure.
@@ -135,7 +139,7 @@ Não. Sistema de Ficheiros Distribuídos (DFS) e replicação não estão dispon
 * [Em que regiões de Azure está o serviço disponível?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
 
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>A Azure AD Domain Services é um serviço pago?
-Yes. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+Sim. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 ### <a name="is-there-a-free-trial-for-the-service"></a>Há um julgamento gratuito para o serviço?
 Os Serviços de Domínio Azure AD estão incluídos no teste gratuito para a Azure. Pode inscrever-se para um [julgamento gratuito de um mês de Azure.](https://azure.microsoft.com/pricing/free-trial/)

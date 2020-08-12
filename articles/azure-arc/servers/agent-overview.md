@@ -1,19 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do Arco Azure para servidores (pré-visualização) disponíveis, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0337894eb0309c5be42c52233df44edcdc06f022
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904979"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121838"
 ---
 # <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Visão geral do Azure Arc para servidores (pré-visualização) agente
 
@@ -162,8 +157,8 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
     |Pasta |Descrição |
     |-------|------------|
-    |%ProgramFiles%\AzureConnectedMachineagent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
-    |%ProgramaData%\AzureConnectedMachineagent |Contém os ficheiros de configuração do agente.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
+    |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contém os tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contém o ficheiro de configuração do agente `agentconfig.json` que regista as suas informações de registo com o serviço.|
     |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Caminho de instalação que contém os ficheiros do agente de configuração do hóspede. |
@@ -179,7 +174,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Nome |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -241,7 +236,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Nome |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

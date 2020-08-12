@@ -13,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: fb536b27fe283170626ca6ffa2d21749d511f244
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923514"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115072"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
 O manifesto da aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade de aplicação da API](/graph/api/resources/application)do gráfico.
 
-Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente [a API](/graph/api/resources/application) ou [o PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que será necessário editar o manifesto da app para configurar o atributo de uma aplicação. Os cenários incluem:
+Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente [a API](/graph/api/resources/application) ou [o PowerShell](/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que será necessário editar o manifesto da app para configurar o atributo de uma aplicação. Os cenários incluem:
 
 * Se registou a aplicação como multi-inquilino e contas pessoais da Microsoft, não pode alterar as contas da Microsoft suportadas na UI. Em vez disso, deve utilizar o editor manifesto de aplicação para alterar o tipo de conta suportada.
 * Se precisar de definir permissões e funções que a sua aplicação suporta, tem de modificar o manifesto da aplicação.
@@ -534,7 +534,7 @@ Esta propriedade multi-valor detém a lista de valores de redirect_uri registado
 - `InstalledClient`
 - `Spa`
 
-Para saber mais, consulte [as restrições e limitações de respostaUrl](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Para saber mais, consulte [as restrições e limitações de respostaUrl](./reply-url.md).
 
 Exemplo:
 
@@ -686,14 +686,14 @@ Utilize a secção de comentários a seguir para fornecer feedback que ajude a r
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
+[APPLICATION-ENTITY]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
-[INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
-[O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
-[O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
+[INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
+[O365-PERM-DETAILS]: /graph/permissions-reference
+[O365-SERVICE-DAEMON-APPS]: /previous-versions/office/office-365-api/
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
