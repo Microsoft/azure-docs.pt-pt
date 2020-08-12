@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848749"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117027"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
 
@@ -110,6 +110,11 @@ Siga os passos em [Começar com a Autenticação Multi-Factor Azure na nuvem](ho
 Uma vez ativada uma conta para MFA, não pode subscrever os recursos regidos pela política do MFA até que tenha configurado com sucesso um dispositivo de confiança para utilizar para o segundo fator de autenticação e tenha autenticado usando a verificação em duas etapas.
 
 Siga os passos em [O que significa Azure Multi-Factor Authentication para mim?](../user-help/multi-factor-authentication-end-user.md)
+
+> [!IMPORTANT]
+> O sinal de comportamento para Remote Desktop Gateway não fornece a opção de introduzir um código de verificação com autenticação multi-factor Azure. Uma conta de utilizador deve ser configurada para verificação de telefone ou a App autenticador da Microsoft com notificações push.
+>
+> Se um destes dois métodos de autenticação não estiver configurado para um utilizador, não será capaz de completar o desafio de autenticação multi-factor Azure e iniciar sação no Gateway de Desktop Remoto.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalar e configurar extensão NPS
 
@@ -385,7 +390,7 @@ A imagem abaixo do Microsoft Message Analyzer mostra o tráfego de rede filtrado
 
 ![Microsoft Message Analyzer mostrando tráfego filtrado](./media/howto-mfa-nps-extension-rdg/image36.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md) (Como obter a Multi-Factor Authentication do Azure)
 

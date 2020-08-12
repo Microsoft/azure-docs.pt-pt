@@ -12,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256701"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120818"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Quickstart: Criar um inquilino
+# <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino
 
 A plataforma de identidade da Microsoft permite que os programadores criem aplicações orientadas para uma grande variedade de ambientes personalizados e identidades do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará de acesso a um ambiente, também chamado de inquilino Azure AD, que pode registar e gerir aplicações, ter acesso aos dados do Microsoft 365, e implementar restrições personalizadas de Acesso Condicional e inquilino.
 
@@ -72,5 +72,5 @@ Para começar a criar aplicações que iniciem sessão nas contas de redes socia
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Registe uma aplicação](quickstart-register-app.md) e integre-a com a plataforma de identidade da Microsoft. 
-* Aprenda o [básico da autenticação.](authentication-scenarios.md)
+* Aprenda o [básico da autenticação.](./authentication-vs-authorization.md)
 * Consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para obter detalhes sobre a relação entre subscrições e um inquilino AZure AD.

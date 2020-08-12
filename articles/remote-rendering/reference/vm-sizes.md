@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84810209"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121617"
 ---
 # <a name="vm-sizes"></a>Tamanhos de VM
 
@@ -76,13 +76,13 @@ Assim, é possível escrever uma aplicação que vise o `standard` tamanho que c
 
 Existem duas formas de determinar o número de polígonos de um modelo ou cena que contribuem para o limite orçamental do `standard` tamanho VM:
 * No lado da conversão do modelo, recupere o [ficheiro json de saída de conversão](../how-tos/conversion/get-information.md)e verifique a entrada na secção `numFaces` [ *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Se a sua aplicação estiver a lidar com conteúdo dinâmico, o número de polígonos renderizados pode ser consultado dinamicamente durante o tempo de funcionamento. Utilize uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique se o membro da `polygonsRendered` `FrameStatistics` estrutura. O fundo de tabuleiro de verificação é sempre desvanecido com algum atraso para garantir que as ações do utilizador podem ser tomadas após esta consulta assíncronea. A ação do utilizador pode, por exemplo, ocultar ou eliminar exemplos de modelos.
+* Se a sua aplicação estiver a lidar com conteúdo dinâmico, o número de polígonos renderizados pode ser consultado dinamicamente durante o tempo de funcionamento. Utilize uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique se o membro da `polygonsRendered` `FrameStatistics` estrutura. O `polygonsRendered` campo será definido para quando o `bad` renderizador atingir a limitação do polígono. O fundo de tabuleiro de verificação é sempre desvanecido com algum atraso para garantir que as ações do utilizador podem ser tomadas após esta consulta assíncronea. A ação do utilizador pode, por exemplo, ocultar ou eliminar exemplos de modelos.
 
 ## <a name="pricing"></a>Preços
 
 Para uma repartição detalhada dos preços de cada tipo de VM, consulte a página [de preços de renderização remota.](https://azure.microsoft.com/pricing/details/remote-rendering)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)
 * [Conversão de modelo](../how-tos/conversion/model-conversion.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807626"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119713"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (XAML)
 
@@ -27,7 +27,7 @@ Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP
 No final deste guia, a sua aplicação chama uma API protegida utilizando contas pessoais. Exemplos são outlook.com, live.com, e outros. A sua aplicação também chama contas de trabalho e escola de qualquer empresa ou organização que tenha diretório Azure Ative (Azure AD).
 
 >[!NOTE]
-> Este guia requer o desenvolvimento do Visual Studio com a Plataforma Universal Windows instalada. Para obter instruções para descarregar e configurar o Visual Studio para desenvolver aplicações da Plataforma Universal Windows, consulte [a configuração](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> Este guia requer o desenvolvimento do Visual Studio com a Plataforma Universal Windows instalada. Para obter instruções para descarregar e configurar o Visual Studio para desenvolver aplicações da Plataforma Universal Windows, consulte [a configuração](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > Se for novo na plataforma de identidade da Microsoft, comece com [a Chamada API do Microsoft Graph API a partir de um quickstart de aplicação universal Windows Platform (UWP).](quickstart-v2-uwp.md)
@@ -42,7 +42,7 @@ Este guia cria uma aplicação UWP de amostra que consulta a API do Gráfico mic
 
 Este guia utiliza o seguinte pacote NuGet:
 
-|Biblioteca|Description|
+|Biblioteca|Descrição|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca do cliente do Microsoft Graph|
@@ -336,7 +336,7 @@ private async Task DisplayMessageAsync(string message)
      }
 ```
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 
 Agora tem de registar a sua candidatura:
 
@@ -459,7 +459,7 @@ Vê as informações do perfil do utilizador devolvidas pela chamada da Microsof
 
 Você também vê informações básicas sobre o símbolo adquirido via `AcquireTokenInteractive` ou na caixa de Info `AcquireTokenSilent` **Token:**
 
-|Propriedade  |Formato  |Description |
+|Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |O nome de utilizador que identifica o utilizador.|
 |`Token Expires` |`DateTime` |O tempo em que o símbolo expira. A Microsoft Authentication Library prolonga a data de validade renovando o token conforme necessário.|

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696423"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120903"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre MSAL JS e ADAL JS
 
@@ -30,7 +30,7 @@ Este artigo descreve como escolher entre a Biblioteca de Autenticação do Micro
 
 Na maioria dos casos pretende utilizar a plataforma de identidade da Microsoft e MSAL.js, que é a última geração de bibliotecas de autenticação da Microsoft. Utilizando MSAL.js, adquire fichas para utilizadores que se inscrevam na sua aplicação com Azure AD (contas de trabalho e escola), contas da Microsoft (pessoais) (MSA) ou Azure AD B2C.
 
-Se já está familiarizado com o ponto final v1.0 (e ADAL.js), talvez queira ler [O que há de diferente no ponto final v2.0?](active-directory-v2-compare.md)
+Se já está familiarizado com o ponto final v1.0 (e ADAL.js), talvez queira ler [O que há de diferente no ponto final v2.0?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 No entanto, ainda precisa de utilizar ADAL.js se a sua aplicação precisar de assinar em utilizadores com versões anteriores dos Serviços da [Federação de Diretórios Ativos (ADFS)](/windows-server/identity/active-directory-federation-services).
 
@@ -95,5 +95,5 @@ Em v2.0, usando a `https://login.microsoftonline.com/common` autoridade, permiti
     acquireTokenPopup(request);
     ```
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações, consulte a [comparação v1.0 e v2.0](active-directory-v2-compare.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações, consulte a [comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541911"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121090"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera as cordas que definem os âmbitos para os quais é necessário um símbolo. Se o token for Microsoft Graph, pode encontrar os âmbitos necessários na referência API de cada API do Microsoft Graph. Na referência, aceda à secção "Permissões".
 
-Por exemplo, para [listar os contactos do utilizador,](https://docs.microsoft.com/graph/api/user-list-contacts)utilize o âmbito "Utilizador.Ler", "Contactos.Ler". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por exemplo, para [listar os contactos do utilizador,](/graph/api/user-list-contacts)utilize o âmbito "Utilizador.Ler", "Contactos.Ler". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 No Android, pode especificar a atividade dos pais quando criar a aplicação `PublicClientApplicationBuilder` utilizando. Se não especificar a atividade dos pais nessa altura, poderá especicioná-la utilizando `.WithParentActivityOrWindow` como na secção seguinte. Se especificar a atividade dos pais, então o símbolo volta à atividade dos pais após a interação. Se não o especificar, a `.ExecuteAsync()` chamada abre uma exceção.
 
@@ -234,7 +234,7 @@ A classe define as seguintes constantes:
 - `ForceLogin`permite que o serviço indique o utilizador para obter credenciais mesmo que a solicitação não seja necessária.
 
     Esta opção pode ser útil se a aquisição do token falhar e pretender que o utilizador volte a entrar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. É possível que queira utilizar esta opção em aplicações focadas na segurança, onde a governação da organização exige que o utilizador assine cada vez que acede a partes específicas da aplicação.
-- `Never`é apenas .NET 4.5 e Windows Runtime (WinRT). Esta constante não irá incitar o utilizador, mas tentará usar o cookie que está armazenado na vista web incorporada escondida. Para obter mais informações, consulte [utilizar os navegadores web com MSAL.NET.](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers)
+- `Never`é apenas .NET 4.5 e Windows Runtime (WinRT). Esta constante não irá incitar o utilizador, mas tentará usar o cookie que está armazenado na vista web incorporada escondida. Para obter mais informações, consulte [utilizar os navegadores web com MSAL.NET.](./msal-net-web-browsers.md)
 
     Se esta opção falhar, então `AcquireTokenInteractive` lança uma exceção para notificá-lo de que é necessária uma interação de UI. Então tens de usar outro `Prompt` parâmetro.
 - `NoPrompt`não envia um pedido para o fornecedor de identidade.

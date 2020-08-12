@@ -3,18 +3,18 @@ title: 'Tutorial: Criar um geofence e rastrear dispositivos num Mapa do Microsof
 description: Aprenda a criar uma geofence. Veja como rastrear dispositivos em relação à geofence utilizando o serviço Azure Maps Spatial.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037648"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121243"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
 
@@ -25,7 +25,7 @@ Este tutorial acompanha-o através dos fundamentos da criação e utilização d
 A Azure Maps disponibiliza uma série de serviços de apoio ao rastreio de equipamentos que entram e saem da área de construção no cenário acima referido. Neste tutorial cobrimos como:
 
 > [!div class="checklist"]
-> * Upload [Geoencing GeoJSON dados](geofence-geojson.md) que definem as áreas do estaleiro de construção que queremos monitorizar. Usaremos a [API de upload de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para carregar geofences como coordenadas de polígono na sua conta Azure Maps.
+> * Carregar [dados geofencing GeoJSON](geofence-geojson.md) que definem as áreas do estaleiro de construção que queremos monitorizar. Usaremos a [API de upload de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para carregar geofences como coordenadas de polígono na sua conta Azure Maps.
 > * Crie duas [Aplicações Lógicas](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, quando desencadeadas, enviarão notificações por e-mail ao Gestor de Operações do estaleiro de construção quando o equipamento entrar e sair da área de geofência.
 > * Utilize a [Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/overview) para subscrever eventos de entrada e saída de geofence do Azure Maps. Configuraremos duas subscrições de eventos Web Hook que chamarão os pontos finais HTTP definidos nas suas duas Aplicações Lógicas. As Aplicações Lógicas enviarão então as notificações de e-mail apropriadas de equipamentos que vão além ou entram na geofence.
 > * Utilize [o Geofence Search Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para receber notificações quando um pedaço de equipamento sai e entra nas áreas de geofência.

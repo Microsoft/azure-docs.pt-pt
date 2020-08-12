@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 822390200b7a94f2bbf8aac56d26812f36b5f12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1efae6563b88f82318f9b8358d255b234c6cb7fd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387614"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116211"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)
 
@@ -124,4 +124,4 @@ Para amostras e tutoriais que demonstrem diferentes padrões de utilização par
 
 - [Guia do Programador de Diretórios Azure Ative](v1-overview.md)
 - [Bibliotecas de autenticação de diretório ativo Azure](active-directory-authentication-libraries.md)
-- [Microsoft Graph API conceptual e referência](https://docs.microsoft.com/graph/use-the-api)
+- [Microsoft Graph API conceptual e referência](/graph/use-the-api)

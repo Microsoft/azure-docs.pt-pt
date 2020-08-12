@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e440628526dada7655cc71f63fc9fff006cc5ef5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7319aacabd2c479c578fbb71ae0bc9fbb2dee9f2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885451"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119135"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon app que chama APIs web - ligue para uma API web a partir da app
 
@@ -65,21 +65,21 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 Para aplicações daemon, as APIs web a que chama precisam de ser pré-aprovadas. Não há consentimento incremental com aplicações daemon. (Não há interação do utilizador.) O administrador inquilino precisa de dar consentimento antecipadamente para o pedido e todas as permissões da API. Se quiser ligar para várias APIs, tem de adquirir um símbolo para cada recurso, cada vez que `AcquireTokenForClient` ligue. A MSAL utilizará o cache de ficha de aplicação para evitar chamadas de serviço desnecessárias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Daemon app - passe para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+> [Daemon app - passe para a produção](./scenario-daemon-production.md?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Daemon app - passe para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+> [Daemon app - passe para a produção](./scenario-daemon-production.md?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Daemon app - passe para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+> [Daemon app - passe para a produção](./scenario-daemon-production.md?tabs=java)
 
 ---

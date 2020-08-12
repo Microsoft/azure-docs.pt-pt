@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31aaa0134ffe34d0424868221f01b68b64e4b088
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371163"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121600"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação java Spring
 
@@ -102,7 +102,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
     Esta operação devolve uma série de pares chave/valor:
 
-    ```console
+    ```json
     {
     "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -118,31 +118,51 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
 1. Executar o seguinte comando para permitir que o principal de serviço aceda ao seu cofre chave:
 
-    ```console
+    ```azurecli
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
 
 1. Executar o seguinte comando para obter o seu id de objeto e, em seguida, adicioná-lo à Configuração de Aplicação.
 
-    ```console
+    ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Criar as seguintes variáveis ambientais, utilizando os valores para o principal de serviço que foram apresentados no passo anterior:
+1. Crie as variáveis ambientais **AZURE_CLIENT_ID,** **AZURE_CLIENT_SECRET**e **AZURE_TENANT_ID.** Utilize os valores para o principal de serviço que foram apresentados nos passos anteriores. Na linha de comando, executar os seguintes comandos e reiniciar o pedido de comando para permitir que a alteração produza efeitos:
 
-    * **AZURE_CLIENT_ID**: *clientId*
-    * **AZURE_CLIENT_SECRET**: *clientSecret*
-    * **AZURE_TENANT_ID**: *tenantId*
+    ```cmd
+    setx AZURE_CLIENT_ID "clientId"
+    setx AZURE_CLIENT_SECRET "clientSecret"
+    setx AZURE_TENANT_ID "tenantId"
+    ```
+
+    Se utilizar o Windows PowerShell, executar o seguinte comando:
+
+    ```azurepowershell
+    $Env:AZURE_CLIENT_ID = "clientId"
+    $Env:AZURE_CLIENT_SECRET = "clientSecret"
+    $Env:AZURE_TENANT_ID = "tenantId"
+    ```
+
+    Se utilizar o macOS ou o Linux, executar o seguinte comando:
+
+    ```cmd
+    export AZURE_CLIENT_ID ='clientId'
+    export AZURE_CLIENT_SECRET ='clientSecret'
+    export AZURE_TENANT_ID ='tenantId'
+    ```
+
 
 > [!NOTE]
 > Estas credenciais key vault são usadas apenas dentro da sua aplicação.  A sua aplicação autentica-se diretamente com o Key Vault utilizando estas credenciais sem envolver o serviço de Configuração de Aplicações.  O Cofre-Chave fornece autenticação tanto para a sua aplicação como para o seu serviço de Configuração de Aplicações sem partilhar ou expor chaves.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualize o seu código para utilizar uma referência do Cofre de Chaves
 
-1. Crie uma variável ambiental chamada **APP_CONFIGURATION_ENDPOINT.** Desaponte o seu valor para o ponto final da sua loja de Configuração de Aplicações. Pode encontrar o ponto final na lâmina **'Chaves de acesso'** no portal Azure.
+1. Crie uma variável ambiental chamada **APP_CONFIGURATION_ENDPOINT.** Desaponte o seu valor para o ponto final da sua loja de Configuração de Aplicações. Pode encontrar o ponto final na lâmina **'Chaves de acesso'** no portal Azure. Reinicie o pedido de comando para permitir que a alteração entre em vigor. 
 
-1. Abrir *botastrap.propriedades* na pasta *de recursos.* Atualize este ficheiro para utilizar o ponto final de Configuração da Aplicação, em vez de uma cadeia de ligação.
+
+1. Abrir *botastrap.propriedades* na pasta *de recursos.* Atualize este ficheiro para utilizar o valor **APP_CONFIGURATION_ENDPOINT.** Remova quaisquer referências a uma cadeia de ligação neste ficheiro. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -218,7 +238,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
     }
     ```
 
-1. Crie um novo ficheiro nos seus recursos o diretório META-INF chamado *spring.factorys* e adicione.
+1. Crie um novo ficheiro nos seus recursos o diretório META-INF chamado *spring.factorys* e adicione o código abaixo.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
@@ -244,7 +264,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma chave de Configuração de Aplicações que faz referência a um valor armazenado no Key Vault. Para aprender a usar bandeiras de recurso na sua aplicação Java Spring, continue até ao próximo tutorial.
 

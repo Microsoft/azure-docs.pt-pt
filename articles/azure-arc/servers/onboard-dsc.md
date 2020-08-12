@@ -1,25 +1,20 @@
 ---
 title: Instale o agente da máquina conectada utilizando o Windows PowerShell DSC
 description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando o Azure Arc para servidores (pré-visualização) utilizando o Windows PowerShell DSC.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cdda3e6681d3e6912d031c45f5c6da9e92814e8f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003894"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121005"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC
 
 Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), pode automatizar a instalação e configuração do software para um computador Windows. Este artigo descreve como utilizar o DSC para instalar o Arco Azure para servidores Agentes de Máquinas Conectadas em máquinas híbridas do Windows.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 - Versão 4.0 ou superior do Windows PowerShell
 

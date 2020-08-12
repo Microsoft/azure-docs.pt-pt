@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: c91c3dfc23c0a8a9dffb38788f3a8fea08096f5c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825060"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120869"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
 
@@ -60,7 +60,7 @@ Para escolher entre URIs de redirecionamento sugerido para clientes públicos, s
 1. Selecione um ou mais URIs de redirecionamento para a sua aplicação. Também pode introduzir um URI de redirecionamento personalizado. Se não sabe o que usar, consulte a documentação da biblioteca.
 1. Selecione **Guardar**.
 
-Algumas restrições aplicam-se ao redirecionamento de URIs. Para obter mais informações, consulte [as restrições e limitações de URL de redirecionamento URI/resposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Algumas restrições aplicam-se ao redirecionamento de URIs. Para obter mais informações, consulte [as restrições e limitações de URL de redirecionamento URI/resposta](./reply-url.md).
 
 > [!NOTE]
 > Experimente a experiência das novas definições **de autenticação** onde pode configurar as definições para a sua aplicação com base na plataforma ou dispositivo que pretende direcionar.

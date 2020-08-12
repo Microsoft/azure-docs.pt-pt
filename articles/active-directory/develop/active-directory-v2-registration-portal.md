@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115582"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 
@@ -26,7 +26,7 @@ Este documento fornece contexto e descrições de várias [funcionalidades encon
 
 ## <a name="my-applications-or-converged-applications"></a>As minhas aplicações ou aplicações convergentes
 
-Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0). Estas aplicações têm a capacidade de assinar em utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a [visão geral v2.0](active-directory-appmodel-v2-overview.md). Estas aplicações também podem ser utilizadas para integrar-se com o ponto final de autenticação da conta Microsoft, `https://login.live.com` .
+Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0). Estas aplicações têm a capacidade de assinar em utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a [visão geral v2.0](./v2-overview.md). Estas aplicações também podem ser utilizadas para integrar-se com o ponto final de autenticação da conta Microsoft, `https://login.live.com` .
 
 ## <a name="azure-ad-only-applications"></a>Azure AD apenas aplicações
 

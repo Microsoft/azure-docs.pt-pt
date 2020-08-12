@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6a20bbeef83072b6fb76bd4e9214e63f094736a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b76e77d6d8575fa086f74c956594a344076f7c74
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118846"
 ---
 # <a name="add-your-application-to-the-azure-active-directory-application-gallery"></a>Adicione a sua candidatura à galeria de candidaturas Azure Ative Directory
 
@@ -89,14 +89,14 @@ O utilizador convidado é federado a um inquilino doméstico que também é um A
 
 Para listar uma aplicação na galeria de aplicações AZure AD, primeiro tem de implementar um dos seguintes protocolos da federação apoiados pela Azure AD. Também tem de concordar com os termos e condições da galeria de aplicações Azure. Leia os termos e condições da galeria de aplicações AZure AD [neste site.](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)
 
-- **Ligação OpenID**: Para integrar a sua aplicação com a Azure AD utilizando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores.](v1-authentication-scenarios.md)
+- **Ligação OpenID**: Para integrar a sua aplicação com a Azure AD utilizando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores.](../azuread-dev/v1-authentication-scenarios.md)
 
     ![Listagem de uma aplicação OpenID Connect na galeria](./media/howto-app-gallery-listing/openid.png)
 
     * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0** como mostrado.
     * Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar SAML 2.0, pode integrá-lo diretamente com um inquilino AZure AD seguindo as [instruções para adicionar uma aplicação personalizada.](../active-directory-saas-custom-apps.md)
+- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar SAML 2.0, pode integrá-lo diretamente com um inquilino AZure AD seguindo as [instruções para adicionar uma aplicação personalizada.](../manage-apps/view-applications-portal.md)
 
   ![Listando uma aplicação SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
 
@@ -155,6 +155,6 @@ A cronologia do processo de listagem de uma aplicação OpenID Connect na galeri
 
 Para qualquer escalada, envie um e-mail para a [Equipa de Integração SSO do Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) SaaSApplicationIntegrations@service.microsoft.com em , e responderemos o mais rapidamente possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre aplicações de construção que suportem as entradas AD do Azure, consulte cenários de [autenticação para Azure AD](authentication-flows-app-scenarios.md).

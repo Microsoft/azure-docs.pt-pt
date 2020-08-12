@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533364"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121464"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | ---| --- |
 | Recuperação acelerada da base de dados com bases de dados únicas e piscinas elásticas | Para obter informações, consulte [a Recuperação acelerada da base de dados.](../accelerated-database-recovery.md)|
 | Deteção e classificação de dados  |Para obter informações, consulte [a Base de Dados Azure SQL e a Azure Synapse Analytics para a descoberta de dados & classificação](data-discovery-and-classification-overview.md).|
-| Tarefas de base de dados elástica | Para obter informações, consulte [Criar, configurar e gerir trabalhos elásticos.](elastic-jobs-overview.md) |
+| Trabalhos de base de dados elásticos (pré-visualização) | Para obter informações, consulte [Criar, configurar e gerir trabalhos elásticos.](elastic-jobs-overview.md) |
 | Consultas elásticas | Para obter informações, consulte [a visão geral da consulta elástica.](elastic-query-overview.md) |
 | Transações elásticas | [Transações distribuídas através de bases de dados em nuvem.](elastic-transactions-overview.md) |
 | Editor de consulta no portal Azure |Para obter informações, consulte [o editor de consulta SQL do portal Azure para ligar e consultar dados](connect-query-portal.md).|

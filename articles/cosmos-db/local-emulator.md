@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028238"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119526"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
@@ -112,7 +112,7 @@ Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o e
 
 ## <a name="developing-with-the-emulator"></a>Desenvolver com o emulador
 
-### <a name="sql-api"></a>SQL API
+### <a name="sql-api"></a>API SQL
 
 Assim que tiver o Emulador Azure Cosmos a funcionar no seu ambiente de trabalho, pode utilizar qualquer [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) suportado ou a [API API AZure Cosmos DB REST](/rest/api/cosmos-db/) para interagir com o emulador. O Emulador Azure Cosmos também inclui um Data Explorer incorporado que permite criar recipientes para API SQL ou Cosmos DB para Mongo DB API, e ver e editar itens sem escrever nenhum código.
 
@@ -508,6 +508,8 @@ Use as seguintes dicas para ajudar a resolver problemas que encontra com o Emula
 
 - Se receber uma mensagem de **serviço indisponível**, o emulador poderá estar a falhar ao inicializar a pilha de rede. Verifique se tem as redes de cliente seguro Pulse ou Juniper instaladas, dado que os respetivos controladores de filtro de rede poderão causar o problema. Desinstalar os controladores de filtro de rede de terceiros normalmente corrige o problema. Em alternativa, inicie o emulador com /DisableRIO, que irá mudar a comunicação da rede do emulador para winsock regular. 
 
+- Se encontrar **"Proibido", mensagem":"O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS de definição mínima permitida de protocolo..."** problemas de conectividade, que podem ser causados por alterações globais no SISTEMA (por exemplo, Insider Preview Build 20170) ou pelas configurações do navegador que permitem o TLS 1.3 como padrão. Pode ocorrer um erro semelhante ao utilizar o SDK para executar um pedido contra o emulador cosmos, como **Microsoft.Azure.Documents.DocumentClientExcepção: O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS definição mínima de protocolo permitido**. Isto é esperado neste momento, uma vez que o emulador cosmos só aceita e trabalha com o protocolo TLS 1.2. O trabalho recomendado é alterar as definições e o predefinição para TLS 1.2; por exemplo, no IIS Manager navegue para "Sites" -> "Web Sites predefinidos" e localize as "Ligações do Site" para a porta 8081 e edite-os para desativar o TLS 1.3. O funcionamento semelhante pode ser realizado para o navegador Web através das opções "Definições".
+
 - Enquanto o emulador estiver em execução, se o computador entrar no modo de suspensão ou executar quaisquer atualizações do SO, poderá ver a mensagem **O serviço está indisponível neste momento**. Repor os dados do emulador, clicando à direita no ícone que aparece no tabuleiro de notificação do Windows e selecione **Dados de Reset**.
 
 ### <a name="collect-trace-files"></a><a id="trace-files"></a>Recolher ficheiros de rastreio
@@ -530,7 +532,7 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar o emulador local para desenvolvimento local gratuito. Pode agora avançar para o próximo tutorial e aprender a exportar certificados emuladores TLS/SSL.
 

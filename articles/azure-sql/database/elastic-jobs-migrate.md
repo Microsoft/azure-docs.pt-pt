@@ -1,5 +1,5 @@
 ---
-title: Migrar para novos trabalhos de base de dados elásticas
+title: Migrar para novos trabalhos de base de dados elásticas (pré-visualização)
 description: Migrar para o novo Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050129"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121192"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Base de Dados Elásticas
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrar para os novos trabalhos de Base de Dados Elásticas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Está disponível uma versão atualizada do [Elastic Database Jobs.](elastic-jobs-overview.md)
@@ -628,7 +628,7 @@ Para quaisquer trabalhos que estivessem a funcionar num horário, lembre-se de h
 $jobs | Set-AzSqlElasticJob -Enable
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

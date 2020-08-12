@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035490"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116466"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Resolução de problemas: Proteção de senha azure AD
 
@@ -64,7 +64,7 @@ O Azure AD Password Protection tem uma dependência crítica da funcionalidade d
 
    Se o modo de arranque do serviço KDS tiver sido configurado para Desativar, esta configuração tem de ser corrigida antes de a Azure AD Password Protection funcionar corretamente.
 
-   Um teste simples para este problema é iniciar manualmente o serviço KDS, seja através da consola MMC de gestão de serviço, quer utilizando outras ferramentas de gestão (por exemplo, executar "net start kdssvc" a partir de uma consola de pedido de comando). Espera-se que o serviço KDS comece com sucesso e permaneça em funcionamento.
+   Um teste simples para este problema é iniciar manualmente o serviço KDS, quer através da consola MMC de gestão de serviço, quer utilizando outras ferramentas de gestão (por exemplo, executar "net start kdssvc" a partir de uma consola de pedido de comando). Espera-se que o serviço KDS comece com sucesso e permaneça em funcionamento.
 
    A causa de raiz mais comum para o serviço KDS não poder iniciar é que o objeto controlador de domínio do Diretório Ativo está localizado fora dos controladores de domínio padrão OU. Esta configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela Azure AD Password Protection. A correção para esta condição é mover o objeto do controlador de domínio para uma localização sob os controladores de domínio padrão OU.
 
@@ -72,7 +72,20 @@ O Azure AD Password Protection tem uma dependência crítica da funcionalidade d
 
    Foi introduzida uma correção de segurança KDS no Windows Server 2016 que modifica o formato dos buffers encriptados KDS; estes buffers por vezes não conseguem desencriptar no Windows Server 2012 e no Windows Server 2012 R2. A direção inversa está bem - os buffers que estão encriptados com KDS no Windows Server 2012 e o Windows Server 2012 R2 irá sempre desencriptar com sucesso no Windows Server 2016 e posteriormente. Se os controladores de domínio nos seus domínios ative directory estiverem a executar uma mistura destes sistemas operativos, podem ser reportadas falhas ocasionais de desencriptação de proteção de passwords Azure AD. Não é possível prever com precisão o tempo ou sintomas destas falhas dada a natureza da correção de segurança, e dado que não é determinista qual o agente Azure AD Password Protection DC agente em que o controlador de domínio irá encriptar dados num dado momento.
 
-   A Microsoft está a investigar uma correção para este problema, mas ainda não existe nenhum ETA disponível. Entretanto, não existe qualquer solução alternativa para esta questão que não seja a de não executar uma mistura destes sistemas operativos incompatíveis no seu(s) de Diretório Ativo. Por outras palavras, deverá executar apenas controladores de domínio Windows Server 2012 e Windows Server 2012 R2, OU só deverá executar controladores de domínio Windows Server 2016 e acima.
+   Não existe uma solução alternativa para esta questão que não seja para não executar uma mistura destes sistemas operativos incompatíveis no seu(s) ative directy(s). Por outras palavras, deverá executar apenas controladores de domínio Windows Server 2012 e Windows Server 2012 R2, OU só deverá executar controladores de domínio Windows Server 2016 e acima.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>O agente da DC acha que a floresta não foi registada.
+
+O sintoma desta edição é que 30016 eventos estão a ser registados no canal DC Agent\Admin que diz em parte:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Há duas causas possíveis para esta questão.
+
+1. A floresta não foi, de facto, registada. Para resolver o problema, por favor, execute o comando Register-AzureADPasswordProtectionForest, conforme descrito nos [requisitos de implantação](howto-password-ban-bad-on-premises-deploy.md).
+1. A floresta foi registada, mas o agente de DC não consegue desencriptar os dados do registo florestal. Este caso tem a mesma causa de raiz que a questão #2 listados acima sob [o agente DC é incapaz de encriptar ou desencriptar ficheiros de política de palavra-passe](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Uma forma fácil de confirmar esta teoria é que você verá este erro apenas em agentes DC em execução no Windows Server 2012 ou nos controladores de domínio Windows Server 2012R2, enquanto os agentes DC que executam no Windows Server 2016 e posteriormente os controladores de domínio estão bem. A solução alternativa é a mesma: atualize todos os controladores de domínio para o Windows Server 2016 ou mais tarde.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão sendo aceites, mas não devem ser
 

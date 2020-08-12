@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552786"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115616"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilização de atributos de extensão de esquema de diretório em sinistros
 
@@ -34,7 +34,7 @@ O identificador de um atributo de extensão de esquema de diretório é do formu
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registar e utilizar extensões de esquema de diretório
 Os atributos de extensão do esquema de diretório podem ser registados e povoados de uma de duas maneiras:
 
-- Configurando o AD Connect para criá-los e sincronizar os dados nos mesmos a partir das instalações AD. Ver [extensões de diretório de sincronização de ligação Azure AD](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- Configurando o AD Connect para criá-los e sincronizar os dados nos mesmos a partir das instalações AD. Ver [extensões de diretório de sincronização de ligação Azure AD](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Usando o Microsoft Graph para registar, definir os valores de, e ler a partir de extensão de esquema de diretório atribui [extensões de esquema de diretório / Conceitos de API de gráfico e/ou](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) PowerShell+ [Gerir atributos de extensão com cmdlets AzureAD PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emissão de reclamações com dados de atributos de extensão de esquema de diretório criados com AD Connect
@@ -71,6 +71,6 @@ Onde *xxxxxxx* é o ID da aplicação com que a extensão foi registada.
 >
 > O parâmetro "ID" no esquema de alegações utilizado para atributos de diretório incorporado é "ExtensionID" para atributos de extensão de diretório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT).](active-directory-optional-claims.md) 
 - Saiba como [personalizar as reclamações emitidas em fichas para uma aplicação específica.](active-directory-claims-mapping.md)

@@ -1,21 +1,16 @@
 ---
 title: Azure Arc para servidores (pré-visualização) Visão geral
 description: Aprenda a usar o Azure Arc para os servidores gerirem máquinas que estão hospedadas fora do Azure como se fosse um recurso Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121804"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (pré-visualização)?
 

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -8,19 +8,17 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961579"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116993"
 ---
-Se planeia continuar para o próximo tutorial, mantenha os recursos que criou neste quickstart para que possa reutilizá-los.
-
-Se terminar com a aplicação de amostra de arranque rápido, elimine os recursos Azure que criou neste arranque rápido para evitar encargos.
+Se não quiser continuar a utilizar os recursos criados neste artigo, elimine o grupo de recursos que criou aqui para evitar encargos.
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele nele são permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se criou os recursos para hospedar esta amostra dentro de um grupo de recursos que contém recursos que pretende manter, elimine cada recurso individualmente do seu respetivo painel em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele nele são permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se criou os recursos para este artigo dentro de um grupo de recursos que contém outros recursos que pretende manter, elimine cada recurso individualmente do seu respetivo painel em vez de eliminar o grupo de recursos.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione **grupos de Recursos**.
 1. Na caixa **de identificação filter by name,** insira o nome do seu grupo de recursos. 

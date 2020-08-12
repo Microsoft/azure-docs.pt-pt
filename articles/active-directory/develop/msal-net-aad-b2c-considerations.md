@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883231"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120614"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilize MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -134,7 +134,7 @@ Ao utilizar o nome de utilizador/palavra-passe num fluxo ROPC, sacrifica-se vár
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configure o fluxo ROPC em Azure AD B2C
 
-No seu inquilino Azure AD B2C, crie um novo fluxo de utilizador e selecione **Iniciar sessão utilizando o ROPC** para permitir o ropc para o fluxo do utilizador. Para obter mais informações, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso](/azure/active-directory-b2c/configure-ropc).
+No seu inquilino Azure AD B2C, crie um novo fluxo de utilizador e selecione **Iniciar sessão utilizando o ROPC** para permitir o ropc para o fluxo do utilizador. Para obter mais informações, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication`contém o `AcquireTokenByUsernamePassword` método:
 
@@ -182,7 +182,7 @@ Um sintoma de tal cenário é que MSAL.NET devoluções `Missing from the token 
 
 A solução proposta é utilizar [o caching pela política](#acquire-a-token-to-apply-a-policy) descrita anteriormente.
 
-Em alternativa, pode utilizar a `tid` reclamação se estiver a utilizar [políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) em Azure AD B2C. As políticas personalizadas podem devolver reclamações adicionais à sua aplicação utilizando a [transformação de sinistros.](/azure/active-directory-b2c/claims-transformation-technical-profile)
+Em alternativa, pode utilizar a `tid` reclamação se estiver a utilizar [políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) em Azure AD B2C. As políticas personalizadas podem devolver reclamações adicionais à sua aplicação utilizando a [transformação de sinistros.](../../active-directory-b2c/claims-transformation-technical-profile.md)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação por "Falta da resposta simbólica"
 
@@ -190,7 +190,7 @@ Uma opção é utilizar a `name` reclamação em vez de `preferred_username` . P
 
 Para obter mais informações sobre a especificação das reclamações devolvidas pelos fluxos do seu utilizador, consulte [Tutorial: Crie fluxos de utilizador em Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 São fornecidos mais detalhes sobre a aquisição de fichas interativamente com MSAL.NET para aplicações Azure AD B2C na amostra seguinte.
 

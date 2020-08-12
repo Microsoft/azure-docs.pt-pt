@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080322"
+ms.locfileid: "88120580"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -35,7 +35,7 @@ Este guia é uma introdução à plataforma Azure para desenvolvedores de aplica
 
 Com todos os serviços que a Azure oferece, pode ser uma tarefa intimidante descobrir que serviços precisa para apoiar a sua arquitetura de solução. Esta secção destaca os serviços Azure que os desenvolvedores usam comumente. Para obter uma lista de todos os serviços da Azure, consulte a documentação do [Azure.](../../index.yml)
 
-Primeiro, tem de decidir como hospedar a sua candidatura no Azure. Precisa de gerir toda a sua infraestrutura como uma máquina virtual (VM). Pode utilizar as instalações de gestão de plataformas que o Azure fornece? Talvez precises de uma estrutura sem servidor para hospedar apenas a execução de código?
+Primeiro, tem de decidir como hospedar a sua candidatura no Azure. Precisa de gerir toda a sua infraestrutura como uma máquina virtual (VM)? Pode utilizar as instalações de gestão de plataformas que o Azure fornece? Talvez precises de uma estrutura sem servidor para hospedar apenas a execução de código?
 
 A sua aplicação necessita de armazenamento em nuvem, para a qual o Azure oferece várias opções. Pode aproveitar a autenticação da empresa da Azure. Existem também ferramentas para o desenvolvimento e monitorização baseados na nuvem, e a maioria dos serviços de hospedagem oferecem integração de DevOps.
 

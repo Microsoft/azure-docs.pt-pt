@@ -1,16 +1,16 @@
 ---
-title: A bordo de um cliente para o Farol de Azure
+title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133480"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118880"
 ---
-# <a name="onboard-a-customer-to-azure-lighthouse"></a>A bordo de um cliente para o Farol de Azure
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
 Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para o Farol Azure. Ao fazê-lo, os recursos delegados do cliente (subscrições e/ou grupos de recursos) podem ser acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD), utilizando a [gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
 
@@ -86,7 +86,7 @@ Para definir as autorizações, você precisará saber os valores de ID para cad
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
@@ -120,7 +120,7 @@ Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Az
 |---------|---------|
 |**mspOfferName**     |Um nome descrevendo esta definição. Este valor é apresentado ao cliente como título da oferta.         |
 |**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "Oferta de gestão de Contoso VM").      |
-|**geridoByTenantId**     |Sua identificação de inquilino.          |
+|**managedByTenantId**     |Sua identificação de inquilino.          |
 |**autorizações**     |Os valores **principais** para os utilizadores/grupos/SPNs do seu inquilino, cada um com um **nome principalIdDisplayName** para ajudar o seu cliente a compreender o propósito da autorização, e mapeado para uma **função incorporadaDefinitionId** valor para especificar o nível de acesso.      |
 
 O processo de embarque requer um modelo de Gestor de Recursos Azure (fornecido nas [nossas amostras repo)](https://github.com/Azure/Azure-Lighthouse-samples/)e um ficheiro de parâmetros correspondente que modifica para corresponder à sua configuração e definir as suas autorizações.
@@ -131,7 +131,7 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 |---------|---------|---------|
 |Subscrição   |[delegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Grupo de recursos   |[rgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Vários grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Múltiplos grupos de recursos numa subscrição   |[multipleRgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
@@ -263,7 +263,7 @@ No arrendatário do prestador de serviços:
 No inquilino do cliente:
 
 1. Navegue para a [página de fornecedores de serviços.](view-manage-service-providers.md)
-2. Selecione **ofertas de prestador de serviços.**
+2. Selecione **Ofertas de fornecedores de serviços**.
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!NOTE]
@@ -285,7 +285,7 @@ Get-AzContext
 az account list
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.

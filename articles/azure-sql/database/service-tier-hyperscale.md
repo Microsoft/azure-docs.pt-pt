@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067635"
+ms.locfileid: "88120648"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -105,7 +105,9 @@ O Azure Storage contém todos os ficheiros de dados numa base de dados. Os servi
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-As cópias de segurança são baseadas em ficheiros e, portanto, são quase instantâneas. A separação de armazenamento e computação permite empurrar a operação de backup/restauro para a camada de armazenamento para reduzir o fardo de processamento na réplica do cálculo primário. Como resultado, a cópia de segurança da base de dados não afeta o desempenho do nó de computação primária. Da mesma forma, as restaurações são feitas revertendo para arquivar instantâneos, e como tal não são um tamanho de operação de dados. Restaurar é uma operação de tempo constante, e mesmo bases de dados de múltiplos terabytes podem ser restauradas em minutos em vez de horas ou dias. A criação de novas bases de dados através da restauração de uma cópia de segurança existente também tira partido desta funcionalidade: a criação de cópias de bases de dados para fins de desenvolvimento ou testes, mesmo de bases de dados de tamanho terabyte, é exequível em minutos.
+As cópias de segurança são baseadas em ficheiros e, portanto, são quase instantâneas. A separação de armazenamento e computação permite empurrar a operação de backup/restauro para a camada de armazenamento para reduzir o fardo de processamento na réplica do cálculo primário. Como resultado, a cópia de segurança da base de dados não afeta o desempenho do nó de computação primária. Da mesma forma, a recuperação de pontos no tempo (PITR) é feita revertendo para arquivar instantâneos, e como tal não é um tamanho de operação de dados. A restauração de uma base de dados de Hiperescala na mesma região de Azure é uma operação de tempo constante, e mesmo bases de dados de múltiplos terabytes podem ser restauradas em minutos em vez de horas ou dias. A criação de novas bases de dados através da restauração de uma cópia de segurança existente também tira partido desta funcionalidade: a criação de cópias de bases de dados para fins de desenvolvimento ou testes, mesmo de bases de dados de tamanho terabyte, é exequível em minutos.
+
+Para restaurar geo-restaurar as bases de dados de Hiperescala, consulte [restaurar uma base de dados de hiperescala para uma região diferente.](#restoring-a-hyperscale-database-to-a-different-region)
 
 ## <a name="scale-and-performance-advantages"></a>Vantagens de escala e desempenho
 
@@ -156,7 +158,7 @@ Para hiperescala SLA, consulte [sLA para a base de dados Azure SQL](https://azur
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Recuperação de desastres para bases de dados de hiperescala
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restaurar uma base de dados de hiperescala para uma geografia diferente
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Restaurar uma base de dados de hiperescala para uma região diferente
 
 Se precisar de restaurar uma base de dados de Hiperescala na Base de Dados Azure SQL para uma região diferente daquela em que está atualmente hospedada, como parte de uma operação de recuperação de desastres ou perfuração, deslocalização ou qualquer outra razão, o método principal é fazer um geo-restauro da base de dados. Isto envolve exatamente os mesmos passos que você usaria para restaurar qualquer outra base de dados na Base de Dados SQL para uma região diferente:
 
@@ -216,7 +218,7 @@ Regiões Habilitados:
 
 Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para remover o maior número possível destas limitações.
 
-| Problema | Description |
+| Problema | Descrição |
 | :---- | :--------- |
 | O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala. Estes serão filtrados da vista.  | A hiperescala tem um método separado para gerir backups, por isso as definições de retenção de backup de longo prazo e pontual não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.<br><br>Para as bases de dados migradas para Hyperscale a partir de outros níveis de serviço de base de dados Azure SQL, as cópias de segurança pré-migração são mantidas durante o período de [retenção](automated-backups-overview.md#backup-retention) de backup da base de dados de origem. Estas cópias de segurança podem ser usadas para [restaurar](recovery-using-backups.md#programmatic-recovery-using-automated-backups) a base de dados de origem a um ponto no tempo antes da migração.|
 | Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é possível [programáticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). A base de dados restaurada não será de Hiperescala. |

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986303"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121855"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -23,9 +23,45 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 
 ## <a name="august-2020"></a>agosto de 2020
 
+### <a name="general-api-updates"></a>Atualizações gerais da API
+
 * Versão modelo `2020-07-01` para o v3 `/keyphrases` , e `/pii` `/languages` pontos finais, que adiciona:
     * Categorias adicionais [de entidades específicas](named-entity-types.md?tabs=personal) do governo e do país para reconhecimento de entidades nomeadas.
 * Um erro HTTP 400 será agora devolvido para pedidos de V3 API que excedam os limites de [dados publicados](concepts/data-limits.md). 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Análise de texto para atualizações de agosto de contentores de saúde
+
+As seguintes atualizações são específicas para a libertação de agosto do Text Analytics apenas para recipientes de saúde.
+
+* Nova versão modelo para Text Analytics para a saúde:`2020-07-24`
+* Novo URL para envio de Texto Analytics para pedidos de saúde:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+As seguintes propriedades na resposta JSON mudaram:
+
+* `type` mudou de nome para `category` 
+* `score` mudou de nome para `confidenceScore`
+* As entidades no `category` domínio da saída JSON estão agora no caso Pascal. As seguintes entidades foram renomeadas:
+    * `EXAMINATION_RELATION`foi renomeado para `RelationalOperator` .
+    * `EXAMINATION_UNIT`foi renomeado para `MeasurementUnit` .
+    * `EXAMINATION_VALUE`foi renomeado para `MeasurementValue` .
+    * `ROUTE_OR_MODE`foi `MedicationRoute` renomeado.
+    * A entidade relacional `ROUTE_OR_MODE_OF_MEDICATION` foi renomeada para `RouteOfMedication` .
+
+Foram acrescentadas as seguintes entidades:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Extração de relação
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre Text Analytics para recipiente de saúde](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>Julho de 2020 
 
@@ -39,10 +75,6 @@ O recipiente oferece as seguintes características:
 * Extração de relação
 * Ligação de entidades
 * Negação
-
-
-> [!div class="nextstepaction"]
-> [Saiba mais sobre Text Analytics para recipiente de saúde](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 

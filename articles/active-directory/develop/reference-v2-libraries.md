@@ -12,16 +12,16 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f4d442831658b276f74146ef91e69b92dec83619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b844b9c2862d86dab322c4d2df3a96c206ebe8f0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553908"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115140"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação de plataformas de identidade da Microsoft
 
-O ponto final da [plataforma de identidade da Microsoft](active-directory-v2-compare.md) suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com o ponto final da plataforma de identidade da Microsoft. Também pode utilizar bibliotecas de código aberto que suportam OAuth 2.0 e OpenID Connect 1.0.
+O ponto final da [plataforma de identidade da Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com o ponto final da plataforma de identidade da Microsoft. Também pode utilizar bibliotecas de código aberto que suportam OAuth 2.0 e OpenID Connect 1.0.
 
 Recomendamos que utilize bibliotecas escritas por peritos em domínio de protocolo que sigam uma metodologia de Ciclo de Vida para o Desenvolvimento de Segurança (SDL). Tais metodologias incluem [a que a Microsoft segue.][Microsoft-SDL] Se entregar código para os protocolos, deve seguir uma metodologia como o Microsoft SDL. Preste muita atenção às considerações de segurança nas especificações de normas de cada protocolo.
 
@@ -52,7 +52,7 @@ Utilize bibliotecas de autenticação de clientes para adquirir um símbolo para
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Docs conceptuais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Angular SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](/azure/active-directory/develop/active-directory-windesktop) | [MSAL.NET](/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![Python](media/sample-v2-code/logo_python.png) | Pitão MSAL | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [LerTheDocs](https://msal-python.rtfd.io/) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
 | ![Java](media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [Referência](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS e macOS | MSAL iOS e macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [aplicativo iOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [app macOS](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Docs conceptuais](msal-overview.md) | |
@@ -64,8 +64,8 @@ Utilize bibliotecas de middleware para ajudar a proteger aplicações web e APIs
 
 | Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
-| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
-| ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
+| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](/dotnet/api/?view=aspnetcore-2.0) |
+| ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
 | ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passaporte Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicação Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
 ## <a name="microsoft-supported-libraries-by-os--language"></a>Bibliotecas suportadas pela Microsoft por SISTEMA / idioma
@@ -102,7 +102,7 @@ Para qualquer biblioteca conforme os padrões, pode utilizar o ponto final da pl
 * Para problemas e novos pedidos de funcionalidades no código da biblioteca, contacte o proprietário da biblioteca.
 * Para problemas e novos pedidos de funcionalidades na implementação do protocolo do lado do serviço, contacte a Microsoft.
 * [Arquiva um pedido de funcionalidade](https://feedback.azure.com/forums/169401-azure-active-directory) para funcionalidades adicionais que pretende ver no protocolo.
-* [Crie um pedido de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) se encontrar um problema em que o ponto final da plataforma de identidade da Microsoft não esteja em conformidade com o OAuth 2.0 ou o OpenID Connect 1.0.
+* [Crie um pedido de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md) se encontrar um problema em que o ponto final da plataforma de identidade da Microsoft não esteja em conformidade com o OAuth 2.0 ou o OpenID Connect 1.0.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre o ponto final da plataforma de identidade da
 [AAD-App-Model-V2-Overview]: v2-overview.md
 [ClientLib-NET-Lib]: https://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
-[ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
+[ClientLib-NET-Sample]: ./tutorial-v2-windows-desktop.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
 [ClientLib-Node-Sample]:/
@@ -131,7 +131,7 @@ Para obter mais informações sobre o ponto final da plataforma de identidade da
 [Microsoft-SDL]: https://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: https://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
+[ServerLib-Net4-Owin-Oidc-Sample]: ./tutorial-v2-asp-webapp.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: https://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/

@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77085175"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119934"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicações para MSAL para iOS e macOS
 
@@ -45,7 +45,7 @@ A plataforma de identidade da Microsoft tem algumas diferenças fundamentais com
 * O Azure Ative Directory v1.0 endpoint exige que todas as permissões sejam declaradas antecipadamente durante o registo da aplicação. Isto significa que as permissões são estáticas.
 * A plataforma de identidade da Microsoft permite-lhe solicitar permissões dinamicamente. As aplicações podem pedir permissões apenas quando necessário e pedir mais à medida que a app precisa delas.
 
-Para saber mais sobre as diferenças entre o Azure Ative Directory v1.0 e a plataforma de identidade da Microsoft, consulte [porquê a atualização para a plataforma de identidade da Microsoft (v2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)
+Para saber mais sobre as diferenças entre o Azure Ative Directory v1.0 e a plataforma de identidade da Microsoft, consulte [porquê a atualização para a plataforma de identidade da Microsoft (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 ## <a name="adal-and-msal-library-differences"></a>Diferenças na biblioteca ADAL e MSAL
 
@@ -77,7 +77,7 @@ Este é o espaço incorporado para cada aplicação. Refere-se à lista estátic
 
 Para utilizar o `/.default` âmbito, apê-lo `/.default` ao identificador de recursos. Por exemplo: `https://graph.microsoft.com/.default`. Se o seu recurso terminar com um corte `/` (), deve ainda apendê-lo, `/.default` incluindo o corte dianteiro principal, resultando num âmbito que tenha um corte duplo para a frente ( `//` ) nele.
 
-Pode ler mais informações sobre a utilização do âmbito "/.predefinição" [aqui](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+Pode ler mais informações sobre a utilização do âmbito "/.predefinição" [aqui](./v2-permissions-and-consent.md#the-default-scope)
 
 ### <a name="supporting-different-webview-types--browsers"></a>Suportando diferentes tipos de WebView & navegadores
 
@@ -207,7 +207,7 @@ MSAL no iOS também suporta dois outros tipos de SSO:
 
 ## <a name="intune-mam-sdk"></a>Intune MAM SDK
 
-O [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) suporta o MSAL para iOS a partir da versão [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+O [Intune MAM SDK](/intune/app-sdk-get-started) suporta o MSAL para iOS a partir da versão [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL e ADAL na mesma app
 
@@ -463,6 +463,6 @@ application.acquireTokenSilent(with: silentParameters) {
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

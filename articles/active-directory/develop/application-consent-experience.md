@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885587"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115480"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 
@@ -28,10 +28,10 @@ Saiba mais sobre a experiência do utilizador do consentimento do utilizador do 
 
 Consentimento é o processo de um utilizador que concede autorização a um pedido de acesso a recursos protegidos em seu nome. Um administrador ou utilizador pode ser solicitado consentimento para permitir o acesso à sua organização/dados individuais.
 
-A experiência real do utilizador de conceder o consentimento diferirá consoante as políticas definidas no arrendatário do utilizador, o âmbito de autoridade (ou função) do utilizador e o tipo de [permissões solicitadas](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) pela aplicação do cliente. Isto significa que os desenvolvedores de aplicações e administradores inquilinos têm algum controlo sobre a experiência de consentimento. Os administradores têm a flexibilidade de definir e desativar políticas num inquilino ou app para controlar a experiência de consentimento no seu inquilino. Os desenvolvedores de aplicações podem ditar que tipos de permissões estão a ser solicitadas e se querem orientar os utilizadores através do fluxo de consentimento do utilizador ou do fluxo de consentimento de administração.
+A experiência real do utilizador de conceder o consentimento diferirá consoante as políticas definidas no arrendatário do utilizador, o âmbito de autoridade (ou função) do utilizador e o tipo de [permissões solicitadas](../azuread-dev/v1-permissions-consent.md) pela aplicação do cliente. Isto significa que os desenvolvedores de aplicações e administradores inquilinos têm algum controlo sobre a experiência de consentimento. Os administradores têm a flexibilidade de definir e desativar políticas num inquilino ou app para controlar a experiência de consentimento no seu inquilino. Os desenvolvedores de aplicações podem ditar que tipos de permissões estão a ser solicitadas e se querem orientar os utilizadores através do fluxo de consentimento do utilizador ou do fluxo de consentimento de administração.
 
 - **O fluxo de consentimento do utilizador** é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final da autorização com a intenção de registar o consentimento apenas para o utilizador atual.
-- **O fluxo de consentimento da administração** é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final de consentimento administrativo com a intenção de registar o consentimento para todo o inquilino. Para garantir que o fluxo de consentimento administrativo funcione corretamente, os desenvolvedores de aplicações devem listar todas as permissões na `RequiredResourceAccess` propriedade no manifesto de aplicação. Para mais informações, consulte [o manifesto de aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- **O fluxo de consentimento da administração** é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final de consentimento administrativo com a intenção de registar o consentimento para todo o inquilino. Para garantir que o fluxo de consentimento administrativo funcione corretamente, os desenvolvedores de aplicações devem listar todas as permissões na `RequiredResourceAccess` propriedade no manifesto de aplicação. Para mais informações, consulte [o manifesto de aplicação.](./reference-app-manifest.md)
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Blocos de construção da solicitação de consentimento
 
@@ -80,7 +80,7 @@ Aqui estão as experiências de consentimento que um utilizador pode ver nos cen
         
     1. Os utilizadores não administrativos verão o mesmo ecrã que o 2.ii acima mostrado.
 
-## <a name="next-steps"></a>Próximos passos
-- Obtenha uma visão geral passo a passo de como o quadro de [consentimento Azure AD implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Para obter mais profundidade, saiba [como uma aplicação multi-inquilino pode usar o quadro de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
+## <a name="next-steps"></a>Passos seguintes
+- Obtenha uma visão geral passo a passo de como o quadro de [consentimento Azure AD implementa o consentimento](./quickstart-register-app.md).
+- Para obter mais profundidade, saiba [como uma aplicação multi-inquilino pode usar o quadro de consentimento](./howto-convert-app-to-be-multi-tenant.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
 - Saiba [como configurar o domínio de editor da aplicação.](howto-configure-publisher-domain.md)

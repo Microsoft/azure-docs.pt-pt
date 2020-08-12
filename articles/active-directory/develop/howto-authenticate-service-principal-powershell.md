@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 6204fcefa60d1a627e6e3d4e6b799efd3ee9298b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423ec19d249d183f8888bf9e1eb837e2c860b1ed
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505873"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117146"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -43,13 +43,13 @@ Para completar este artigo, você deve ter permissões suficientes tanto na sua 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir a candidatura a uma função
-Para aceder aos recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer as funções disponíveis, consulte [o RBAC: Construído em Papéis.](/azure/role-based-access-control/built-in-roles)
+Para aceder aos recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer as funções disponíveis, consulte [o RBAC: Construído em Papéis.](../../role-based-access-control/built-in-roles.md)
 
 Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função *Reader* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a *função Contribuinte.*
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar um principal de serviço com um certificado autoassinado
 
-O exemplo seguinte inclui um cenário simples. Utiliza [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um principal de serviço com um certificado auto-assinado e utiliza [a Assinatura New-AzRole](/powershell/module/az.resources/new-azroleassignment) para atribuir o papel de [Leitor](/azure/role-based-access-control/built-in-roles#reader) ao principal do serviço. A atribuição da função está confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+O exemplo seguinte inclui um cenário simples. Utiliza [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um principal de serviço com um certificado auto-assinado e utiliza [a Assinatura New-AzRole](/powershell/module/az.resources/new-azroleassignment) para atribuir o papel de [Leitor](../../role-based-access-control/built-in-roles.md#reader) ao principal do serviço. A atribuição da função está confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > O cmdlet New-SelfSignedCertificate e o módulo PKI não são atualmente suportados no PowerShell Core. 
@@ -220,8 +220,8 @@ Pode obter os seguintes erros ao criar um principal de serviço:
 
 * A sua conta **"não tem autorização para executar ações 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."** - Vê este erro quando a sua conta não tem permissões suficientes para atribuir uma função a uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para obter uma explicação mais detalhada de principais de serviço e de aplicações, veja [Objetos de Aplicações e Objetos de Principais de Serviço](app-objects-and-service-principals.md).
-* Para obter mais informações sobre a autenticação Azure AD, consulte [Cenários de Autenticação para Azure AD](authentication-scenarios.md).
+* Para obter mais informações sobre a autenticação Azure AD, consulte [Cenários de Autenticação para Azure AD](./authentication-vs-authorization.md).

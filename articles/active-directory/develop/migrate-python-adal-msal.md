@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 4737b2ef701f643ff5bec47be29b3139e27fb146
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845158"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119917"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração ADAL para MSAL para Python
 
@@ -38,19 +38,19 @@ Suportes:
   - OAuth v2.0
   - Ligação OpenID (OIDC)
 
-Veja [o que há de diferente na plataforma de identidade da Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) para mais detalhes.
+Veja [o que há de diferente na plataforma de identidade da Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) para mais detalhes.
 
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
-ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para miras. A superfície da API em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte os [âmbitos do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para miras. A superfície da API em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte os [âmbitos do Microsoft Graph](/graph/permissions-reference).
 
 Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e nos [Âmbitos para uma API Web aceitando artigos de fichas v1.0.](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes)
+Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e nos [Âmbitos para uma API Web aceitando artigos de fichas v1.0.](./msal-v1-app-scopes.md)
 
 ### <a name="error-handling"></a>Processamento de erros
 
-AZure Ative Directory Authentication Library (ADAL) para Python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [o MSAL para o tratamento de erros python](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+AZure Ative Directory Authentication Library (ADAL) para Python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [o MSAL para o tratamento de erros python](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Alterações na API
 
@@ -122,4 +122,4 @@ print("Migration completed")
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte a [comparação v1.0 e v2.0](active-directory-v2-compare.md).
+Para obter mais informações, consulte a [comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

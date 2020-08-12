@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 787f30302d163dc0097cde1be31e745d7f29bb64
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129785"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120529"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -111,7 +111,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 >
 > Em que:
 > - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)
+> - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
 > - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
 >    - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino** (por exemplo, *contoso.microsoft.com).*
 >    - Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.**
@@ -144,7 +144,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 > [!div renderon="docs"]
 >
 > Em que:
-> - *\<Enter_the_Graph_Endpoint_Here>* é o ponto final que as chamadas da API serão feitas contra. Para o serviço API principal ou global da Microsoft Graph, basta introduzir `https://graph.microsoft.com` . Para mais informações, consulte [a implantação nacional de nuvens](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* é o ponto final que as chamadas da API serão feitas contra. Para o serviço API principal ou global da Microsoft Graph, basta introduzir `https://graph.microsoft.com` . Para mais informações, consulte [a implantação nacional de nuvens](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
@@ -300,7 +300,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 Para um guia passo a passo mais detalhado sobre a construção do pedido para este arranque rápido, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sincê-lo e chamar MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Tutorial para iniciar sincê-lo e chamar MS Graph](./tutorial-v2-javascript-spa.md)
 
 Para consultar o repo MSAL para obter documentação, PERGUNTAS Frequentes, questões e muito mais, consulte:
 

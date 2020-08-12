@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034912"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116398"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
 
@@ -33,9 +33,9 @@ Ao desenvolver uma nova aplicação, é importante saber as diferenças entre a 
 
 * O ponto final v1.0 permite apenas que o trabalho e as contas escolares se inscrevam na sua candidatura (Azure AD)
 * O ponto final da plataforma de identidade da Microsoft permite que contas de trabalho e escola a partir de Azure AD e contas pessoais da Microsoft (MSA), como hotmail.com, outlook.com e msn.com, se inscrevam.
-* Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório AD Azure para aplicações configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatários* configuradas para apontar para o ponto final específico do inquilino ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
+* Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](../external-identities/what-is-b2b.md)* de um diretório AD Azure para aplicações configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatários* configuradas para apontar para o ponto final específico do inquilino ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam ins-ins a partir de contas pessoais da Microsoft, e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua aplicação completamente agnóstico de conta. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)algumas funcionalidades e dados adicionais estarão disponíveis para contas de trabalho, tais como os seus sites SharePoint ou dados de diretório. Mas para muitas ações, como [ler o correio de um utilizador,](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0)o mesmo código pode aceder ao e-mail tanto para contas pessoais como de trabalho e escolas.
+O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam ins-ins a partir de contas pessoais da Microsoft, e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua aplicação completamente agnóstico de conta. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)algumas funcionalidades e dados adicionais estarão disponíveis para contas de trabalho, tais como os seus sites SharePoint ou dados de diretório. Mas para muitas ações, como [ler o correio de um utilizador,](/graph/api/user-list-messages?view=graph-rest-1.0)o mesmo código pode aceder ao e-mail tanto para contas pessoais como de trabalho e escolas.
 
 Para o ponto final da plataforma de identidade da Microsoft, pode utilizar a Microsoft Authentication Library (MSAL) para ter acesso aos mundos do consumidor, educacional e empresarial. O ponto final Azure AD v1.0 aceita inscrições apenas do trabalho e das contas escolares.
 
@@ -141,7 +141,7 @@ As inscrições de aplicativos que suportam o trabalho e as contas escolares e c
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições aos URLs de redirecionamento
 
-Para obter as informações mais atualizadas sobre restrições em URLs de redirecionamento para aplicações registadas para plataforma de identidade da Microsoft, consulte [as restrições e limitações de URL de redirecionamento uri/resposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url) na documentação da plataforma de identidade da Microsoft.
+Para obter as informações mais atualizadas sobre restrições em URLs de redirecionamento para aplicações registadas para plataforma de identidade da Microsoft, consulte [as restrições e limitações de URL de redirecionamento uri/resposta](../develop/reply-url.md) na documentação da plataforma de identidade da Microsoft.
 
 Para saber como registar uma aplicação para uso com a plataforma de identidade da Microsoft, consulte [Registar uma aplicação utilizando a experiência de registos da nova App.](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 

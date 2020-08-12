@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489610"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121277"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,44 @@ A saída deste comando é semelhante à seguinte JSON:
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>Rede virtual e ponto final privado
+
+Se pretender restringir o acesso ao seu espaço de trabalho a uma rede virtual, pode utilizar os seguintes parâmetros:
+
+* `--pe-name`: O nome do ponto final privado que é criado.
+* `--pe-auto-approval`: Se as ligações privadas ao espaço de trabalho devem ser automaticamente aprovadas.
+* `--pe-resource-group`: O grupo de recursos para criar o ponto final privado em. Deve ser o mesmo grupo que contém a rede virtual.
+* `--pe-vnet-name`: A rede virtual existente para criar o ponto final privado em.
+* `--pe-subnet-name`: O nome da sub-rede para criar o ponto final privado em. O valor predefinido é `default`.
+
+Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-enable-virtual-network.md)
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Chave gerida pelo cliente e espaço de trabalho de alto impacto do negócio
+
+Por padrão, as métricas e metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft. 
+
+Se estiver a criar uma versão __Enterprise__ de Azure Machine Learning, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
+
+> [!IMPORTANT]
+> Antes de utilizar os `--cmk-keyvault` parâmetros e `--resource-cmk-uri` parâmetros, deve primeiro executar as seguintes ações:
+>
+> 1. Autorize a __App de Aprendizagem automática__ (em Gestão de Identidade e Acesso) com permissões de colaboradores na sua subscrição.
+> 1. Siga os passos em [Chaves geridas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:
+>     * Registe-se no fornecedor Azure Cosmos DB
+>     * Criar e configurar um Cofre de Chaves Azure
+>     * Gerar uma chave
+>
+>     Não precisa de criar manualmente o exemplo DB do Azure Cosmos, um deles será criado para si durante a criação do espaço de trabalho. Esta instância DB Azure Cosmos será criada num grupo de recursos separado usando um nome baseado neste padrão: `<your-resource-group-name>_<GUID>` .
+>
+> Não é possível alterar esta definição após a criação do espaço de trabalho. Se eliminar o Azure Cosmos DB utilizado pelo seu espaço de trabalho, também deve eliminar o espaço de trabalho que o está a utilizar.
+
+Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, utilize o `--hbi-workspace` parâmetro. 
+
+> [!IMPORTANT]
+> A seleção de um impacto de alto negócio só pode ser feita quando se cria um espaço de trabalho. Não é possível alterar esta definição após a criação do espaço de trabalho.
+
+Para obter mais informações sobre chaves geridas pelo cliente e espaço de trabalho de alto impacto empresarial, consulte [a segurança da Empresa para a Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Utilizar os recursos existentes
 

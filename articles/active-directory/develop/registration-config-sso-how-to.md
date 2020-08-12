@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890470"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120682"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar um único sinal para uma aplicação
 
@@ -26,20 +26,20 @@ Ativar o único sign-on federado (SSO) na sua aplicação é automaticamente ati
 
 * Se estiver a construir uma aplicação móvel, poderá necessitar de configurações adicionais para ativar SSO intermediado ou não intermediado.
 
-Para Android, consulte [Enableing Cross App SSO no Android.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+Para Android, consulte [Enableing Cross App SSO no Android.](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-Para iOS, consulte [Enableing Cross App SSO no iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+Para iOS, consulte [Enableing Cross App SSO no iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Ativar o SSO da App Cross no Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Ativar o SSO da App Cross no Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Ativar o SSO da Aplicação Cross no iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Ativar o SSO da Aplicação Cross no iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integração de Apps para AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integração de Apps para AzureAD](./quickstart-register-app.md)<br>
 
-[Permissões e consentimento no ponto final da plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Permissões e consentimento no ponto final da plataforma de identidades da Microsoft](./v2-permissions-and-consent.md)<br>
 
 [Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)

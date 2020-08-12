@@ -4,12 +4,12 @@ description: Começa com o Azure App Service implementando a sua primeira aplica
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: b258185d2fb7220332ee1287d399f0e49e5708a9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 5463b23a4c19681515197f7d0cf880235ef6c0f2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085278"
+ms.locfileid: "88121549"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
@@ -63,6 +63,8 @@ Este comando abre um browser para recolher as suas credenciais. Quando o comando
 
 Uma vez assinado, pode executar comandos Azure com o CLI Azure para trabalhar com recursos na sua subscrição.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clone-the-sample"></a>Clonar o exemplo
 
 Clone o repositório de amostras com o seguinte comando. [(Instale git](https://git-scm.com/downloads) se ainda não tiver git.)
@@ -78,6 +80,8 @@ cd python-docs-hello-world
 ```
 
 O código de amostra contém um ficheiro *application.py,* que diz ao Serviço de Aplicações que o código contém uma aplicação Flask. Para obter mais informações, consulte [o processo de arranque do Contentor.](configure-language-python.md#container-startup-process)
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -140,6 +144,8 @@ Abra um navegador web e vá para a aplicação de amostras em `http://localhost:
 
 Na janela do terminal, pressione **o Ctrl** + **C** para sair do servidor de desenvolvimento do Flask.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="deploy-the-sample"></a>Implementar a amostra
 
 Desloque o código na sua pasta local *(python-docs-hello-world)* utilizando o `az webapp up` comando:
@@ -157,6 +163,8 @@ O comando pode demorar alguns minutos a ser concluído. Durante a execução, fo
 
 ![Exemplo de saída do comando az webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 [!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
@@ -168,6 +176,8 @@ O código de amostra Python está a executar um contentor Linux no Serviço de A
 ![Executar uma amostra python app em Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Parabéns!** Implementou a sua aplicação Python para o Serviço de Aplicações.
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="redeploy-updates"></a>Atualizações de recolocação
 
@@ -193,6 +203,8 @@ Uma vez concluída a implementação, volte para a janela do navegador aberta pa
 
 ![Executar uma aplicação python de amostra atualizada em Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 > [!TIP]
 > O Visual Studio Code fornece extensões poderosas para o Serviço de Aplicações Python e Azure, que simplificam o processo de implementação de aplicações web Python para o App Service. Para obter mais informações, consulte [aplicações implementar python para o Serviço de Aplicações a partir do Código do Estúdio Visual.](/azure/python/tutorial-deploy-app-service-on-linux-01)
 
@@ -212,6 +224,8 @@ Também pode inspecionar os ficheiros de registo do navegador em `https://<app-n
 
 Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C**.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="manage-the-azure-app"></a>Gerir a app Azure
 
 Vá ao <a href="https://portal.azure.com" target="_blank">portal Azure</a> para gerir a app que criou. Procure e selecione **Serviços de Aplicações.**
@@ -228,6 +242,8 @@ A seleção da aplicação abre a sua página **de Visão Geral,** onde pode exe
 
 O menu Serviço de Aplicações fornece diferentes páginas para configurar a sua aplicação.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS" dependendo da sua localização. Se utilizar um SKU de Serviço de Aplicações que não seja o nível F1 gratuito, estes recursos incorrem em custos contínuos (ver [preços do Serviço de Aplicações).](https://azure.microsoft.com/pricing/details/app-service/linux/)
@@ -241,6 +257,8 @@ az group delete
 O comando utiliza o nome do grupo de recursos em cache no ficheiro *.azure/config.*
 
 O comando pode demorar um minuto a ser concluído.
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="next-steps"></a>Passos seguintes
 

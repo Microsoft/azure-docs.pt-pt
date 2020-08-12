@@ -1,6 +1,6 @@
 ---
-title: Assine os utilizadores & ligue para o Microsoft Graph (Android) - Plataforma de identidade da Microsoft Azure
-description: Obtenha um sinal de acesso e ligue para o Microsoft Graph ou APIs que requerem fichas de acesso da plataforma de identidade da Microsoft (Android)
+title: Os utilizadores de iniciar snus in/out & ligar para o Microsoft Graph (Android) - Plataforma de identidade da Microsoft ; Rio Azure
+description: Obtenha um token de acesso e ligue para o Microsoft Graph ou APIs que requerem tokens de acesso a partir da plataforma de identidade da Microsoft (Android)
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,88 +12,88 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4de8a5e96466ea324475030df1f00eb6bb5cf1a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380065"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118293"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação Android 
 
 >[!NOTE]
->Este tutorial demonstra exemplos simplificados de como trabalhar com o MSAL para Android. Para a simplicidade, este tutorial utiliza apenas o Modo De Conta Única. Também pode ver o repo e clonar a aplicação de [amostras pré-configurada](https://github.com/Azure-Samples/ms-identity-android-java/) para explorar cenários mais complexos. Veja o [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) para mais informações sobre a aplicação de amostra, configuração e registo. 
+>Este tutorial demonstra exemplos simplificados de como trabalhar com o MSAL para Android. Para simplificar, este tutorial utiliza apenas o Modo conta única. Também pode ver o repo e clonar [a aplicação de amostra pré-configurada](https://github.com/Azure-Samples/ms-identity-android-java/) para explorar cenários mais complexos. Veja o [Quickstart](./quickstart-v2-android.md) para mais informações sobre a aplicação, configuração e registo da amostra. 
 
-Neste tutorial, você vai aprender a integrar a sua aplicação android com a plataforma de identidade Microsoft usando a Microsoft Authentication Library para Android. Você vai aprender a iniciar sessão e assinar um utilizador, obter um sinal de acesso para ligar para a API do Microsoft Graph, e fazer um pedido para a API graph. 
+Neste tutorial, irá aprender a integrar a sua aplicação para Android com a plataforma de identidade da Microsoft utilizando a Microsoft Authentication Library para Android. Você vai aprender a iniciar sômsemuada e assinar um utilizador, obter um token de acesso para ligar para a Microsoft Graph API, e fazer um pedido para a API do gráfico. 
 
 > [!div class="checklist"]
-> * Integre a sua aplicação Android com a Plataforma de Identidade da Microsoft 
+> * Integre a sua Aplicação Android com a Plataforma de Identidade da Microsoft 
 > * Inscreva-se num utilizador 
-> * Obtenha um sinal de acesso para ligar para a Microsoft Graph API 
+> * Obtenha um token de acesso para ligar para a Microsoft Graph API 
 > * Ligue para a Microsoft Graph API 
 > * Assine um utilizador 
 
-Quando tiver concluído este tutorial, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) bem como contas de trabalho ou escola de qualquer empresa ou organização que utilize o Diretório Ativo Azure.
+Quando tiver concluído este tutorial, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) bem como contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="how-this-tutorial-works"></a>Como funciona este tutorial
 
-![Mostra como funciona a aplicação de amostragerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
+![Mostra como funciona a app de amostras gerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-A aplicação neste tutorial irá inscrever os utilizadores e obter dados em seu nome. Estes dados serão acedidos através de uma API protegida (Microsoft Graph API) que requer autorização e está protegida pela plataforma de identidade da Microsoft.
+A aplicação neste tutorial irá iniciar snuários nos utilizadores e obter dados em seu nome. Estes dados serão acedidos através de uma API protegida (Microsoft Graph API) que requer autorização e está protegida pela plataforma de identidade da Microsoft.
 
 Mais especificamente:
 
-* A sua aplicação irá iniciar sessão de atividade através de um navegador ou do Microsoft Authenticator e do Portal da Empresa Intune.
+* A sua aplicação irá iniciar súbs no utilizador através de um browser ou do Microsoft Authenticator e do Portal da Empresa Intune.
 * O utilizador final aceitará as permissões que a sua aplicação solicitou.
-* A sua aplicação será emitida um sinal de acesso para a API do Microsoft Graph.
-* O token de acesso será incluído no pedido http para a Web API.
+* A sua aplicação será emitida um token de acesso para a API do Gráfico da Microsoft.
+* O token de acesso será incluído no pedido HTTP para a API web.
 * Processe a resposta do Microsoft Graph.
 
-Esta amostra utiliza a biblioteca de autenticação da Microsoft para Android (MSAL) para implementar a Autenticação: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
+Esta amostra utiliza a biblioteca microsoft authentication para Android (MSAL) para implementar autenticação: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
- A MSAL renovará automaticamente as fichas, entregará um único sinal (SSO) entre outras aplicações no dispositivo e gerirá a conta(s).
+ A MSAL renovará automaticamente os tokens, entregará um único sign-on (SSO) entre outras aplicações no dispositivo e gerirá a Conta(s).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * Este tutorial requer a versão 3.5+ do Android Studio
 
 ## <a name="create-a-project"></a>Criar um Projeto
-Se ainda não tem uma aplicação Android, siga estes passos para configurar um novo projeto. 
+Se ainda não tem uma aplicação Android, siga estes passos para criar um novo projeto. 
 
-1. Abra o Android Studio e selecione **Iniciar um novo projeto Android Studio.**
-2. Selecione **Atividade Básica** e selecione **Next**.
+1. Abra o Android Studio e selecione **Iniciar um novo projeto Android Studio**.
+2. Selecione **A Atividade Básica** e selecione **Seguinte**.
 3. Dê um nome à aplicação.
-4. Guarde o nome do pacote. Entrará mais tarde no portal Azure.
-5. Mude a linguagem de **Kotlin** para **Java.**
-6. Detete o **nível mínimo de API** para **API 19** ou superior e clique em **Terminar**.
-7. Na vista do projeto, escolha **Project** no dropdown para exibir ficheiros de projetos `targetSdkVersion` de `28`origem e não-fonte, **app aberta/build.gradle** e definido para .
+4. Guarde o nome do pacote. Vai inseri-lo mais tarde no portal Azure.
+5. Mude a língua de **Kotlin** para **Java.**
+6. Desa estatua o **nível mínimo de API** para **API 19** ou superior, e clique em **Terminar**.
+7. Na visão do projeto, **escolha** Project no dropdown para exibir ficheiros de projetos de origem e não fonte, abrir **app/build.gradle** e definir `targetSdkVersion` para `28` .
 
-## <a name="integrate-with-microsoft-authentication-library"></a>Integrar com a Microsoft Authentication Library 
+## <a name="integrate-with-microsoft-authentication-library"></a>Integrar-se com a Microsoft Authentication Library 
 
-### <a name="register-your-application"></a>Registar a sua aplicação
+### <a name="register-your-application"></a>Registar a aplicação
 
-1. Vá ao [portal Azure.](https://aka.ms/MobileAppReg)
-2. Abra a lâmina de [registos](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App e clique **em +Nova inscrição.**
-3. Introduza um **Nome** para a sua aplicação e, em seguida, **sem** configurar um Redirect URI, clique em **Register**.
-4. Na secção **Gerir** do painel que aparece, selecione **Autenticação** > **+ Adicione uma plataforma** > **Android**. (Pode ter de selecionar "Mudar para a nova experiência" perto da parte superior da lâmina para ver esta secção)
-5. Insira o Nome pacote do seu projeto. Se descarregou o código, `com.azuresamples.msalandroidapp`este valor é .
-6. Na secção signature **hash** da página de **aplicações Configure a sua aplicação Android,** clique em **Gerar um desenvolvimento Signature Hash.** e copiar o comando KeyTool para usar para a sua plataforma.
+1. Aceda ao [portal do Azure](https://aka.ms/MobileAppReg).
+2. Abra a lâmina de [registos](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App e clique **em +Novo registo.**
+3. Introduza um **Nome** para a sua aplicação e, em seguida, **sem** definir um URI de redirecionamento, clique em **Registar**.
+4. Na secção **Gerir** o painel que aparece, selecione **Autenticação**  >  **+ Adicione uma plataforma**  >  **Android**. (Pode ter de selecionar "Mudar para a nova experiência" perto da parte superior da lâmina para ver esta secção)
+5. Insira o nome do pacote do seu projeto. Se descarregou o código, este valor é `com.azuresamples.msalandroidapp` .
+6. Na secção **de hash Signature** da página de **aplicações Configure o Android,** clique em **Gerar um Hash signature de desenvolvimento.** e copiar o comando KeyTool para usar para a sua plataforma.
 
    > [!Note]
-   > KeyTool.exe é instalado como parte do Kit de Desenvolvimento Java (JDK). Também deve instalar a ferramenta OpenSSL para executar o comando KeyTool. Consulte a [documentação do Android sobre a geração de uma chave](https://developer.android.com/studio/publish/app-signing#generate-key) para mais informações. 
+   > KeyTool.exe é instalado como parte do Kit de Desenvolvimento de Java (JDK). Também tem de instalar a ferramenta OpenSSL para executar o comando KeyTool. Consulte a documentação do [Android sobre a geração de uma chave](https://developer.android.com/studio/publish/app-signing#generate-key) para mais informações. 
 
 7. Introduza o **hash Signature** gerado pelo KeyTool.
-8. Clique `Configure` e guarde a **Configuração MSAL** que aparece na página de **configuração do Android** para que possa inseri-la quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
+8. Clique `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração** do Android para que possa introduzi-la quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
 
 ### <a name="configure-your-application"></a>Configurar a aplicação 
 
-1. No painel de projetos do Android Studio, navegue para **app\src\main\res**.
-2. Clique na direita **res** e escolha **Novo** > **Diretório**. Introduza `raw` como novo nome de diretório e clique **OK**.
-3. Na **aplicação** > **src** > **main** > **res** > **raw**, `auth_config_single_account.json` crie um novo ficheiro JSON chamado e colhe a Configuração MSAL que guardou anteriormente. 
+1. No painel de projeto do Android Studio, navegue para **app\src\main\res**.
+2. **Clique** à direita e escolha **Novo**  >  **Diretório**. Insira `raw` como o novo nome do diretório e clique em **OK**.
+3. Na **app**  >  **src**  >  **main**  >  **res**  >  **raw**, crie um novo ficheiro JSON chamado `auth_config_single_account.json` e cole a Configuração MSAL que guardou anteriormente. 
 
-    Abaixo do URI redirecionamento, cola: 
+    Abaixo do redirecionamento URI, pasta: 
     ```json
       "account_mode" : "SINGLE",
     ```
@@ -117,9 +117,9 @@ Se ainda não tem uma aplicação Android, siga estes passos para configurar um 
    ```
     
    >[!NOTE]
-   >Este tutorial apenas demonstra como configurar uma aplicação no modo Conta Única. Consulte a documentação para obter mais informações sobre o [modo de conta individual vs. múltipla](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) e [configurar a sua aplicação](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
+   >Este tutorial apenas demonstra como configurar uma aplicação no modo Conta Única. Consulte a documentação para obter mais informações sobre [o modo de conta única vs. múltipla](./single-multi-account.md) e [configurar a sua app](./msal-configuration.md)
    
-4. Na **aplicação** > **src** > **main** > **AndroidManifest.xml,** adicione a `BrowserTabActivity` atividade abaixo ao corpo de aplicação. Esta entrada permite que a Microsoft volte a ligar para a sua aplicação depois de concluída a autenticação:
+4. Na **app**  >  **src**  >  **main**  >  **AndroidManifest.xml**, adicione a `BrowserTabActivity` atividade abaixo ao corpo de aplicação. Esta entrada permite que a Microsoft volte a ligar para a sua aplicação depois de completar a autenticação:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -136,16 +136,16 @@ Se ainda não tem uma aplicação Android, siga estes passos para configurar um 
     </activity>
     ```
 
-    Substitua o nome do pacote registado `android:host=` no portal Azure pelo valor.
-    Substitua o hash chave que registou `android:path=` no portal Azure pelo valor. O Hash Signature **não** deve ser codificado por URL. Certifique-se de `/` que há uma liderança no início do seu Signature Hash. 
+    Substitua o nome do pacote que registou no portal Azure pelo `android:host=` valor.
+    Substitua o haxixe chave que registou no portal Azure pelo `android:path=` valor. O Hash assinatura **não** deve ser codificado url. Certifique-se de que existe uma liderança `/` no início do seu Signature Hash. 
     >[!NOTE]
-    >O "Nome do Pacote" `android:host` com o qual substituirá o valor deve ser semelhante ao: "com.azuresamples.msalandroidapp" O "Signature Hash" com que substituirá o seu `android:path` valor deve ser semelhante ao: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=" Poderá também encontrar estes valores na lâmina de autenticação do registo da sua aplicação. Note que o seu URI redirecionado será semelhante ao: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Enquanto o Hash Signature é URL codificado no final deste **not** valor, o Hash `android:path` Signature não deve ser codificado no seu valor. 
+    >O "Nome do Pacote" por que substituirá o `android:host` valor deve ser semelhante a: "com.azuresamples.msalandroidapp" O "Hash de assinatura" por que irá substituir o seu valor deve ser semelhante `android:path` a: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=" Também poderá encontrar estes valores na lâmina de autenticação do seu registo de aplicações. Note que o seu URI redirecionado será semelhante a: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Enquanto o Hash assinatura é URL codificado no final deste valor, o Hash assinatura **não** deve ser codificado no seu `android:path` valor. 
 
-## <a name="use-msal"></a>Use MSAL 
+## <a name="use-msal"></a>Utilizar MSAL 
 
 ### <a name="add-msal-to-your-project"></a>Adicione MSAL ao seu projeto
 
-1. Na janela do projeto Android Studio, navegue para **app** > **src** > **build.gradle** e adicione o seguinte: 
+1. Na janela do projeto Android Studio, navegue para **app**  >  **src**  >  **build.gradle** e adicione o seguinte: 
 
     ```gradle
     repositories{
@@ -163,7 +163,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para configurar um 
 
 ### <a name="required-imports"></a>Importações Exigidas 
 
-Adicione o seguinte ao topo da **app** > **src** > **main**> **java** > **com.example (yourapp)** > **MainActivity.java** 
+Adicione o seguinte ao topo da **app**  >  **src**  >  **main** >  **java**  >  **com.example (yourapp)**  >  **MainActivity.java** 
 
 ```java
 import android.os.Bundle;
@@ -206,8 +206,8 @@ TextView logTextView;
 TextView currentUserTextView;
 ```
 
-### <a name="oncreate"></a>onCriar
-Dentro `MainActivity` da classe, consulte o seguinte método onCreate() para `SingleAccountPublicClientApplication`instantaneamente MSAL usando o .
+### <a name="oncreate"></a>onCreate
+No interior da `MainActivity` classe, consulte o seguinte método onCreate() para instantaneaizar o MSAL utilizando o `SingleAccountPublicClientApplication` .
 
 ```java
 @Override
@@ -264,8 +264,8 @@ private void loadAccount() {
 }
 ```
 
-### <a name="initializeui"></a>inicializarUI
-Ouça os botões e os métodos de chamada ou faça log erros em conformidade. 
+### <a name="initializeui"></a>inicializeUI
+Ouça os botões e os métodos de chamada ou faça login em conformidade. 
 ```java
 private void initializeUI(){
         signInButton = findViewById(R.id.signIn);
@@ -331,10 +331,10 @@ private void initializeUI(){
 ```
 
 > [!Important]
-> A assinatura com a MSAL remove todas as informações conhecidas sobre um utilizador da aplicação, mas o utilizador ainda terá uma sessão ativa no seu dispositivo. Se o utilizador tentar voltar a iniciar o contrato, poderá ver uI de entrada, mas pode não precisar de reintroduzir as suas credenciais porque a sessão do dispositivo ainda está ativa. 
+> A assinatura com o MSAL remove todas as informações conhecidas sobre um utilizador da aplicação, mas o utilizador ainda terá uma sessão ativa no seu dispositivo. Se o utilizador tentar entrar novamente, poderá ver uI de inscrição, mas pode não precisar de reentrar nas suas credenciais porque a sessão do dispositivo ainda está ativa. 
 
 ### <a name="getauthinteractivecallback"></a>getAuthInteractiveCallback
-Callback usado para pedidos interativos.
+Chamada usada para pedidos interativos.
 
 ```java 
 private AuthenticationCallback getAuthInteractiveCallback() {
@@ -364,7 +364,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 }
 ```
 
-### <a name="getauthsilentcallback"></a>getAuthSilentCallback
+### <a name="getauthsilentcallback"></a>obterAuthSilentCallback
 Callback usado para pedidos silenciosos 
 ```java 
 private SilentAuthenticationCallback getAuthSilentCallback() {
@@ -385,7 +385,7 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
 
 ## <a name="call-microsoft-graph-api"></a>Chamar o Microsoft Graph API 
 
-O código que se segue demonstra como chamar o GraphAPI utilizando o Graph SDK. 
+O código a seguir demonstra como ligar para o GraphAPI utilizando o Gráfico SDK. 
 
 ### <a name="callgraphapi"></a>callGraphAPI 
 
@@ -426,10 +426,10 @@ private void callGraphAPI(IAuthenticationResult authenticationResult) {
 
 ## <a name="add-ui"></a>Adicionar UI
 ### <a name="activity"></a>Atividade 
-Se quiser modelar o seu UI deste tutorial, os seguintes métodos fornecem um guia para atualizar texto e ouvir botões.
+Se quiser modelar a sua UI fora deste tutorial, os seguintes métodos fornecem um guia para atualizar texto e ouvir botões.
 
-#### <a name="updateui"></a>atualizarUI
-Ativar/desativar botões com base no estado de início de sessão e definir texto.  
+#### <a name="updateui"></a>updateUI
+Ative/desative os botões com base no estado de inscrição e no texto definido.  
 ```java 
 private void updateUI(@Nullable final IAccount account) {
     if (account != null) {
@@ -448,7 +448,7 @@ private void updateUI(@Nullable final IAccount account) {
     }
 }
 ```
-#### <a name="displayerror"></a>displayErro
+#### <a name="displayerror"></a>displayError
 ```java 
 private void displayError(@NonNull final Exception exception) {
        logTextView.setText(exception.toString());
@@ -462,8 +462,8 @@ private void displayGraphResult(@NonNull final JsonObject graphResponse) {
       logTextView.setText(graphResponse.toString());
   }
 ```
-#### <a name="performoperationonsignout"></a>executarOperationOnSignOut
-Método para atualizar texto em UI para refletir o signo. 
+#### <a name="performoperationonsignout"></a>performOperationOnSignOut
+Método para atualizar texto em UI para refletir a assinatura. 
 
 ```java
 private void performOperationOnSignOut() {
@@ -473,9 +473,9 @@ private void performOperationOnSignOut() {
             .show();
 }
 ```
-### <a name="layout"></a>Esquema 
+### <a name="layout"></a>Layout 
 
-Amostra `activity_main.xml` de ficheiro para visualizar botões e caixas de texto. 
+Ficheiro de amostra `activity_main.xml` para exibir botões e caixas de texto. 
 
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>
@@ -568,18 +568,18 @@ Amostra `activity_main.xml` de ficheiro para visualizar botões e caixas de text
 
 ### <a name="run-locally"></a>Executar localmente
 
-Construa e implemente a aplicação para um dispositivo de teste ou emulador. Deverá poder iniciar sessão e obter fichas para contas Azure AD ou pessoais da Microsoft.
+Construa e implemente a aplicação num dispositivo de teste ou emulador. Você deve ser capaz de iniciar seduca e obter fichas para Azure AD ou contas pessoais da Microsoft.
 
-Depois de iniciar sessão, a aplicação apresentará os dados devolvidos a partir do ponto final do Microsoft Graph. `/me`
+Depois de iniciar sposição, a aplicação apresentará os dados devolvidos a partir do ponto final do Microsoft `/me` Graph.
 
-### <a name="consent"></a>Consentimento
+### <a name="consent"></a>Consent (Consentimento)
 
-A primeira vez que qualquer utilizador entrar na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Alguns inquilinos da AD Azure têm o consentimento de utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para apoiar este cenário, você precisará criar o seu próprio inquilino ou receber o consentimento do administrador. 
+A primeira vez que qualquer utilizador entrar na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Alguns inquilinos da AD Azure têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para apoiar este cenário, você precisará criar o seu próprio inquilino ou receber o consentimento administrativo. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, elimine o objeto de aplicação que criou no registo da sua etapa de [aplicação.](#register-your-application)
+Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)
 
 ## <a name="get-help"></a>Obter ajuda
 
-Visite [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.
+Visite [a Ajuda e suporte](./developer-support-help-options.md) se tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.

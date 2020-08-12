@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 28613138170d83c1073671fcb57c98203df64b37
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6d4710f0b8756ea9b7f824b8b0aa1221ad8b30f0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846297"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120393"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
-Neste quickstart, escreva uma aplicação Python que obtém um token de acesso usando a identidade da aplicação e, em seguida, ligue para a Microsoft Graph API para apresentar uma [lista de utilizadores](https://docs.microsoft.com/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador.
+Neste quickstart, escreva uma aplicação Python que obtém um token de acesso usando a identidade da aplicação e, em seguida, ligue para a Microsoft Graph API para apresentar uma [lista de utilizadores](/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador.
 
 > [!div renderon="docs"]
 > ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)

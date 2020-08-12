@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229453"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121872"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?
 
@@ -44,7 +44,17 @@ Para obter detalhes sobre a configuração de um destes test drives, consulte a 
 
 ### <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
-Este modelo de implementação contém todos os recursos Azure que compõem a sua solução. Os produtos que se adequam a este cenário utilizam apenas recursos Azure. Esta é a única opção de test drive para máquina virtual ou aplicação Azure.
+Este modelo de implementação contém todos os recursos Azure que compõem a sua solução. Os produtos que se adequam a este cenário utilizam apenas recursos Azure. O test drive Azure Resource Manager está disponível para estes tipos de oferta: 
+
+- Aplicações do Azure
+- Dynamics 365 for Business Central
+- Dinâmica 365 para Envolvimento de Clientes & PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Máquinas virtuais
+
+>[!NOTE]
+>Esta é a única opção de test drive para máquina virtual e ofertas de aplicações Azure.
 
 ### <a name="hosted-test-drive"></a>Unidade de teste hospedada
 

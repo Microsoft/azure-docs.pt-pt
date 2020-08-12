@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5ea28a7a4669fd000800bf62b7b940abefcf7551
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030967"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114902"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -108,9 +108,9 @@ Os alertas métricos são declarados por defeito, e por isso os alertas adiciona
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Defina uma regra de alerta sobre uma métrica personalizada que ainda não é emitida
 
-Ao criar uma regra de alerta métrico, o nome métrico é validado contra a [API de Definições Métricas](/rest/api/monitor/metricdefinitions/list) para se certificar de que existe. Em alguns casos, gostaria de criar uma regra de alerta sobre uma métrica personalizada mesmo antes de ser emitida. Por exemplo, ao criar (usando um modelo ARM) um recurso Application Insights que emitirá uma métrica personalizada, juntamente com uma regra de alerta que monitoriza essa métrica.
+Ao criar uma regra de alerta métrico, o nome métrico é validado contra a [API de Definições Métricas](/rest/api/monitor/metricdefinitions/list) para se certificar de que existe. Em alguns casos, gostaria de criar uma regra de alerta sobre uma métrica personalizada mesmo antes de ser emitida. Por exemplo, ao criar (usando um modelo de Gestor de Recursos) um recurso Application Insights que emitirá uma métrica personalizada, juntamente com uma regra de alerta que monitoriza essa métrica.
 
-Para evitar que a implementação falhe ao tentar validar as definições da métrica personalizada, pode utilizar o parâmetro *skipMetricValidation* na secção de critérios da regra de alerta, o que fará com que a validação métrica seja ignorada. Consulte o exemplo abaixo para saber como utilizar este parâmetro num modelo ARM (para amostras completas do modelo ARM para criar regras de alerta métricos, consulte [aqui).]( ./alerts-metric-create-templates.md)
+Para evitar que a implementação falhe ao tentar validar as definições da métrica personalizada, pode utilizar o parâmetro *skipMetricValidation* na secção de critérios da regra de alerta, o que fará com que a validação métrica seja ignorada. Veja o exemplo abaixo para saber como usar este parâmetro num modelo de Gestor de Recursos. Para obter mais informações, consulte as [amostras completas do modelo do Gestor de Recursos para criar regras de alerta métricos](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {

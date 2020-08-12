@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308586"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119795"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilize a Microsoft Authentication Library para o JavaScript para trabalhar com o Azure AD B2C
 
@@ -44,7 +44,7 @@ MSAL.js para o Nó está atualmente em desenvolvimento. Para mais informações,
 
 ### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 
-Para proteger a sua API web com Azure AD B2C, primeiro tem de registá-la. Consulte [registar o seu pedido](../../active-directory-b2c/add-web-application.md) de etapas detalhadas.
+Para proteger a sua API web com Azure AD B2C, primeiro tem de registá-la. Consulte [registar o seu pedido](../../active-directory-b2c/add-web-api-application.md) de etapas detalhadas.
 
 ### <a name="step-2-download-the-sample-application"></a>Passo 2: Descarregue a aplicação da amostra
 
@@ -205,7 +205,7 @@ Quando um utilizador **seleciona a palavra-passe Esquecida,** a sua aplicação 
 
     Para obter mais informações sobre códigos de erro e exceções de manuseamento, consulte [códigos de erro e de exceção da MSAL](msal-handling-exceptions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre estes conceitos Azure AD B2C:
 
