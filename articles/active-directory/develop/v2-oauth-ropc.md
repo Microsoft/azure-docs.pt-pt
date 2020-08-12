@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83770981"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118625"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade microsoft e credenciais de senha do proprietário de recursos OAuth 2.0
 
@@ -33,7 +33,7 @@ A plataforma de identidade microsoft suporta a [concessão de Credenciais de Sen
 > * As contas pessoais que são convidadas para um inquilino da AD Azure não podem usar o ROPC.
 > * As contas que não têm senhas não podem entrar através do ROPC. Para este cenário, recomendamos que utilize um fluxo diferente para a sua aplicação.
 > * Se os utilizadores precisarem de utilizar a [autenticação de vários fatores (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sessão na aplicação, serão bloqueados.
-> * O ROPC não é suportado em cenários [de federação de identidade híbrida](/azure/active-directory/hybrid/whatis-fed) (por exemplo, Azure AD e ADFS usados para autenticar contas no local). Se os utilizadores forem redirecionados para um fornecedor de identidade no local, o Azure AD não é capaz de testar o nome de utilizador e a palavra-passe contra esse fornecedor de identidade. No entanto, [a autenticação pass-through](/azure/active-directory/hybrid/how-to-connect-pta) é suportada com ROPC.
+> * O ROPC não é suportado em cenários [de federação de identidade híbrida](../hybrid/whatis-fed.md) (por exemplo, Azure AD e ADFS usados para autenticar contas no local). Se os utilizadores forem redirecionados para um fornecedor de identidade no local, o Azure AD não é capaz de testar o nome de utilizador e a palavra-passe contra esse fornecedor de identidade. No entanto, [a autenticação pass-through](../hybrid/how-to-connect-pta.md) é suportada com ROPC.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -66,7 +66,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O inquilino do diretório em que quer entrar no utilizador. Isto pode ser em formato GUIADO ou friendly name. Este parâmetro não pode ser definido `common` para ou , mas pode ser definido para `consumers` `organizations` . |
+| `tenant` | Obrigatório | O inquilino do diretório em que quer entrar no utilizador. Isto pode ser em formato GUIADO ou friendly name. Este parâmetro não pode ser definido `common` para ou , mas pode ser definido para `consumers` `organizations` . |
 | `client_id` | Necessário | O ID da Aplicação (cliente) que o [portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `grant_type` | Necessário | Deve ser definido para `password` . |
 | `username` | Necessário | O endereço de correio eletrónico do utilizador. |
@@ -90,7 +90,7 @@ O exemplo a seguir mostra uma resposta simbólica bem sucedida:
 }
 ```
 
-| Parâmetro | Formatar | Descrição |
+| Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
 | `token_type` | String | Sempre definido para `Bearer` . |
 | `scope` | Cadeias separadas do espaço | Se um token de acesso foi devolvido, este parâmetro lista os âmbitos para os quais o token de acesso é válido. |
@@ -113,4 +113,4 @@ Se o utilizador não tiver fornecido o nome de utilizador ou palavra-passe corre
 ## <a name="learn-more"></a>Saiba mais
 
 * Experimente ropc por si mesmo usando a aplicação da [consola de amostras](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Para determinar se deve utilizar o ponto final v2.0, leia sobre [as limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+* Para determinar se deve utilizar o ponto final v2.0, leia sobre [as limitações da plataforma de identidade da Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).

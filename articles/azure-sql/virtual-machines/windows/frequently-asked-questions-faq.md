@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955680"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121447"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso instalar uma segunda instância do SQL Server no mesmo VM? Posso alterar as funcionalidades instaladas da instância padrão?**
 
-   Sim. O meio de instalação do SQL Server está localizado numa pasta na unidade **C.** Executar **Setup.exe** a partir desse local para adicionar novas instâncias do SQL Server ou para alterar outras funcionalidades instaladas do SQL Server na máquina. Note que algumas funcionalidades, tais como cópia de segurança automatizada, patching automatizado e integração de cofre de chave Azure, apenas operam contra a instância padrão, ou um caso nomeado que foi configurado corretamente (Ver Pergunta 3). 
+   Sim. O meio de instalação do SQL Server está localizado numa pasta na unidade **C.** Executar **Setup.exe** a partir desse local para adicionar novas instâncias do SQL Server ou para alterar outras funcionalidades instaladas do SQL Server na máquina. Note que algumas funcionalidades, tais como cópia de segurança automatizada, patching automatizado e integração de cofre de chave Azure, apenas operam contra a instância padrão, ou um caso nomeado que foi configurado corretamente (Ver Pergunta 3). Os clientes que utilizam [a Software Assurance através do Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) ou do modelo de licenciamento **pay-as-you-go** podem instalar várias instâncias do SQL Server na máquina virtual sem incorrer em custos de licenciamento extra. Casos adicionais do SQL Server podem forçar os recursos do sistema a menos que configurados corretamente. 
 
 1. **Posso desinstalar a instância predefinida do SQL Server?**
 

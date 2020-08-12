@@ -1,14 +1,14 @@
 ---
 title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
-ms.date: 07/10/2020
+ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b19f56538f060a158fd665a9bef3bf43a9d087
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252288"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119016"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -23,7 +23,7 @@ Este tópico explica as permissões necessárias para monitorizar a atividade da
 
 ## <a name="enable-access-to-tenant-level-data"></a>Permitir o acesso aos dados ao nível do inquilino
 
-Para aceder aos dados do Registo de Atividade ao nível do inquilino, deve ser atribuída uma conta à função incorporada do Leitor de [Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader) no âmbito raiz (/). Esta atribuição deve ser executada por um utilizador que tenha a função de Administrador Global com acesso adicional elevado.
+Para aceder aos dados do Registo de Atividade ao nível do inquilino, deve ser atribuída uma conta à função incorporada do [Leitor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure no âmbito raiz (/). Esta atribuição deve ser executada por um utilizador que tenha a função de Administrador Global com acesso adicional elevado.
 
 ### <a name="elevate-access-for-a-global-administrator-account"></a>Elevar o acesso a uma conta de Administrador Global
 
@@ -31,16 +31,18 @@ Para atribuir uma função no âmbito raiz (/), terá de ter a função de Admin
 
 Para obter instruções detalhadas sobre a adição e remoção da elevação, consulte [o acesso elevate para gerir todas as assinaturas e grupos de gestão da Azure.](../../role-based-access-control/elevate-access-global-admin.md)
 
-Depois de elevar o seu acesso, a sua conta terá a função de Administrador de Acesso ao Utilizador em Azure no âmbito raiz. Esta atribuição de funções permite-lhe visualizar todos os recursos e atribuir acesso em qualquer grupo de subscrição ou gestão no diretório, bem como fazer atribuições de papéis no âmbito raiz. 
+Depois de elevar o seu acesso, a sua conta terá a função de Administrador de Acesso ao Utilizador em Azure no âmbito raiz. Esta atribuição de funções permite-lhe visualizar todos os recursos e atribuir acesso em qualquer grupo de subscrição ou gestão no diretório, bem como fazer atribuições de papéis no âmbito raiz.
 
 ### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Criar uma nova conta principal de serviço para aceder aos dados de nível do inquilino
 
-Uma vez elevado o seu acesso, pode atribuir as permissões apropriadas a uma conta para que possa consultar os dados de registo de atividade ao nível do inquilino. Esta conta terá de ter a função de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) incorporada atribuída no âmbito raiz do seu inquilino gerente.
+Uma vez elevado o seu acesso, pode atribuir as permissões apropriadas a uma conta para que possa consultar os dados de registo de atividade ao nível do inquilino. Esta conta terá de ter a função de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure atribuída no âmbito raiz do seu inquilino gerente.
 
 > [!IMPORTANT]
 > Conceder uma atribuição de papel no âmbito raiz significa que as mesmas permissões se aplicarão a todos os recursos do arrendatário.
 
-Por se trata de um amplo nível de acesso, recomendamos que atribua esta função a uma conta principal de serviço, em vez de a um utilizador individual ou a um grupo. Além disso, recomendamos as seguintes boas práticas:
+Por se trata de um amplo nível de acesso, recomendamos que atribua esta função a uma conta principal de serviço, em vez de a um utilizador individual ou a um grupo.
+
+ Além disso, recomendamos as seguintes boas práticas:
 
 - [Crie uma nova conta principal](../../active-directory/develop/howto-create-service-principal-portal.md) de serviço para ser utilizada apenas para esta função, em vez de atribuir esta função a um principal de serviço existente utilizado para outra automatização.
 - Certifique-se de que este diretor de serviço não tem acesso a quaisquer recursos delegados do cliente.
@@ -65,13 +67,16 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
 
+> [!NOTE]
+> Também pode atribuir o papel incorporado ao Monitor reader Azure no âmbito raiz aos utilizadores individuais ou aos grupos de utilizadores. Isto pode ser útil se pretender que um utilizador possa [ver as informações da delegação diretamente no portal Azure.](#view-delegation-changes-in-the-azure-portal) Se o fizer, esteja ciente de que se trata de um amplo nível de acesso que deve limitar-se ao menor número possível de utilizadores.
+
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Remover acesso elevado para a conta de Administrador Global
 
 Depois de ter criado a sua conta principal de serviço e atribuído a função de Monitoring Reader no âmbito raiz, certifique-se de [remover o acesso elevado](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) para a conta de Administrador Global, uma vez que este nível de acesso deixará de ser necessário.
 
 ## <a name="query-the-activity-log"></a>Consulta do registo de atividade
 
-Uma vez criada uma nova conta principal de serviço com o monitor de acesso do Leitor ao âmbito de raiz do seu inquilino gerente, pode usá-la para consultar e reportar sobre a atividade da delegação no seu inquilino. 
+Uma vez criada uma nova conta principal de serviço com o monitor de acesso do Leitor ao âmbito de raiz do seu inquilino gerente, pode usá-la para consultar e reportar sobre a atividade da delegação no seu inquilino.
 
 [Este script Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) pode ser usado para consultar o último dia de atividade e relatórios sobre quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem sucedidas). Questiona os dados do [Registo de Atividades](/rest/api/monitor/TenantActivityLogs/List) do Arrendatário e, em seguida, constrói os seguintes valores para reportar sobre as delegações adicionadas ou removidas:
 
@@ -85,7 +90,7 @@ Ao consultar estes dados, tenha em mente:
 
 - Se vários grupos de recursos forem delegados numa única implantação, serão devolvidas entradas separadas para cada grupo de recursos.
 - As alterações introduzidas numa delegação anterior (como a atualização da estrutura de permissões) serão registadas como uma delegação adicional.
-- Como referido acima, uma conta deve ter o monitoring Reader papel incorporado no âmbito raiz (/) a fim de aceder a estes dados ao nível do inquilino.
+- Como referido acima, uma conta deve ter o monitor azure papel incorporado no âmbito raiz (/) para aceder a estes dados ao nível do inquilino.
 - Pode utilizar estes dados nos seus próprios fluxos de trabalho e reporte. Por exemplo, pode utilizar a [API do Retorno de Dados HTTP (pré-visualização pública)](../../azure-monitor/platform/data-collector-api.md) para registar dados no Azure Monitor a partir de um cliente REST API e, em seguida, utilizar [grupos](../../azure-monitor/platform/action-groups.md) de ação para criar notificações ou alertas.
 
 ```azurepowershell-interactive
@@ -159,6 +164,15 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Ver alterações de delegação no portal Azure
+
+Os utilizadores a quem foi atribuído o papel incorporado no Monitoring Reader Azure no âmbito raiz podem ver as alterações da delegação diretamente no portal Azure.
+
+1. Navegue na página **Dos Meus clientes** e, em seguida, selecione registo de **atividade** a partir do menu de navegação à esquerda.
+1. Certifique-se de que a **Atividade do Diretório** é selecionada no filtro perto da parte superior do ecrã.
+
+Aparecerá uma lista de alterações de delegação. Pode selecionar **colunas Editar** para mostrar ou ocultar o Estado , **Categoria** **evento**, **Tempo**, **Hora, Assinatura,** **Evento iniciado por,** Grupo **de Recursos,** **Tipo de Recurso**e Valores de **Recursos.** **Subscription**
 
 ## <a name="next-steps"></a>Passos seguintes
 

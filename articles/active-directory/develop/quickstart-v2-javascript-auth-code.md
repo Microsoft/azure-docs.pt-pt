@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311947"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115191"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
 Neste quickstart, você executou uma amostra de código que demonstra como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares usando o fluxo de código de autorização. A amostra de código também demonstra obter um token de acesso para chamar uma API web, neste caso a Microsoft Graph API. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
-Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorização. Para um quickstart semelhante que utiliza MSAL.js 1.0 com o fluxo implícito, consulte [Quickstart: Inicie nos utilizadores em aplicações de página única JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorização. Para um quickstart semelhante que utiliza MSAL.js 1.0 com o fluxo implícito, consulte [Quickstart: Inicie nos utilizadores em aplicações de página única JavaScript](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
@@ -152,7 +152,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`é o ponto final que as chamadas da API serão feitas contra. Para o serviço API do Microsoft Graph principal(global), `https://graph.microsoft.com/` insira (inclua o corte dianteiro). Para obter mais informações sobre o Microsoft Graph nas nuvens nacionais, consulte [a implementação nacional da nuvem](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here`é o ponto final que as chamadas da API serão feitas contra. Para o serviço API do Microsoft Graph principal(global), `https://graph.microsoft.com/` insira (inclua o corte dianteiro). Para obter mais informações sobre o Microsoft Graph nas nuvens nacionais, consulte [a implementação nacional da nuvem](/graph/deployments).
 >
 > Os `graphMeEndpoint` `graphMailEndpoint` valores e valores no ficheiro *graphConfig.js* devem ser semelhantes ao seguinte se estiver a utilizar o serviço API principal (global) da Microsoft Graph:
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 Para um guia passo a passo mais detalhado sobre a construção da aplicação utilizada neste arranque rápido, consulte o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sincê-lo e ligar para o MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Tutorial para iniciar sincê-lo e ligar para o MS Graph >](./tutorial-v2-javascript-auth-code.md)

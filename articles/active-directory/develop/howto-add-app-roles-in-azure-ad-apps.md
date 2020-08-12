@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041464"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117078"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 
@@ -95,7 +95,7 @@ Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos
 "availableToOtherTenants": false,
 ```
 
-O número de funções definidas afeta os limites que o manifesto de aplicação tem. Foram discutidos em pormenor na página de [limites manifestos.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits)
+O número de funções definidas afeta os limites que o manifesto de aplicação tem. Foram discutidos em pormenor na página de [limites manifestos.](./reference-app-manifest.md#manifest-limits)
 
 ### <a name="assign-users-and-groups-to-roles"></a>Atribuir utilizadores e grupos a funções
 
@@ -128,6 +128,6 @@ Quando os utilizadores atribuídos às várias funções da aplicação iniciare
 - [Adicione autorização usando funções de aplicações & as funções reivindicam uma aplicação web core ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Implementar autorização nas suas aplicações com a plataforma de identidade microsoft (Vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Diretório Ativo Azure, agora com Reivindicações de Grupo e Funções de Aplicação](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifesto da aplicação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifesto da aplicação do Azure Active Directory](./reference-app-manifest.md)
 - [Fichas de acesso AAD](access-tokens.md)
 - [RIO AAD`id_tokens`](id-tokens.md)

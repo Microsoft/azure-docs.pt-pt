@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 303caf36b613e4bcd6a5c48317710b69a3ffbc0a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875222"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118200"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -323,7 +323,7 @@ Crie um novo ficheiro .js `authConfig.js` nomeado, que conterá os seus parâmet
 
  Em que:
  - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
- - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)
+ - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
  - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
    - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino** (por exemplo, *contoso.microsoft.com).*
    - Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.**
@@ -447,7 +447,7 @@ O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos
    ```
 
    Em que:
-   - *\<Enter_the_Graph_Endpoint_Here>* é o caso da MS Graph API. Para o ponto final global da MS Graph API, basta substituir esta cadeia por `https://graph.microsoft.com` . Para implementações em nuvem nacional, consulte a [Documentação da API do Gráfico.](https://docs.microsoft.com/graph/deployments)
+   - *\<Enter_the_Graph_Endpoint_Here>* é o caso da MS Graph API. Para o ponto final global da MS Graph API, basta substituir esta cadeia por `https://graph.microsoft.com` . Para implementações em nuvem nacional, consulte a [Documentação da API do Gráfico.](/graph/deployments)
 
 1. Em seguida, crie um ficheiro .js nomeado `graph.js` , que fará uma chamada REST para a Microsoft Graph API, e adicione o seguinte código:
 

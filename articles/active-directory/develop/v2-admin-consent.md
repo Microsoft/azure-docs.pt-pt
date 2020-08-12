@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868672"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119611"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento de administração na plataforma de identidade da Microsoft
 
@@ -47,7 +47,7 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro     | Condição     | Descrição                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
-| `tenant` | Necessário | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com `organizations` o que se vê no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
+| `tenant` | Obrigatório | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com `organizations` o que se vê no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `redirect_uri` | Necessário |O URI de redirecionamento onde deseja que a resposta seja enviada para que a sua aplicação seja tratada. Deve corresponder exatamente a um dos URIs redirecionados que registou no portal de registo de aplicações. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam. |
@@ -85,8 +85,8 @@ Adicionando aos parâmetros vistos numa resposta bem sucedida, os parâmetros de
 | `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
 | `admin_consent`   | Será programado `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 - Saiba como [o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Saiba [como uma aplicação multi-arrendatário pode usar o quadro de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
+- Saiba [como uma aplicação multi-arrendatário pode usar o quadro de consentimento](./howto-convert-app-to-be-multi-tenant.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
 - Compreender [experiências de consentimento de pedidos de Azure AD](application-consent-experience.md)

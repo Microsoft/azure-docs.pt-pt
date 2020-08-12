@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383874"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116347"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -99,7 +99,7 @@ Para listar uma aplicação na galeria de aplicações AZure AD, primeiro tem de
     * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0** como mostrado.
     * Se tiver algum problema de acesso, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar SAML 2.0, pode integrá-lo diretamente com um inquilino AZure AD seguindo as [instruções para adicionar uma aplicação personalizada.](../active-directory-saas-custom-apps.md)
+- **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar SAML 2.0, pode integrá-lo diretamente com um inquilino AZure AD seguindo as [instruções para adicionar uma aplicação personalizada.](../manage-apps/view-applications-portal.md)
 
   ![Listando uma aplicação SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
 

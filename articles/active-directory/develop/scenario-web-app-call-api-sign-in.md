@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be8208c7b2b67610f8d579b1bc0094bf09b3033e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5246100815fde569c55027a555464c44a240d4b3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026293"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120002"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Uma aplicação web que chama APIs web: Remova as contas da cache simbólica no sign-out global
 
@@ -51,21 +51,21 @@ A amostra python não remove as contas da cache na assinatura global.
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Adquira um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+> [Adquira um símbolo para a aplicação web](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Adquira um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+> [Adquira um símbolo para a aplicação web](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Adquira um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+> [Adquira um símbolo para a aplicação web](./scenario-web-app-call-api-acquire-token.md?tabs=java)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Adquira um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+> [Adquira um símbolo para a aplicação web](./scenario-web-app-call-api-acquire-token.md?tabs=python)
 
 ---

@@ -13,12 +13,12 @@ ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: f1ad755e444968cbbbe9e048be53fb72f65c3b37
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312644"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114783"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Apoio aos Serviços da Federação De Diretório Ativo no MSAL para a Java
 
@@ -48,4 +48,4 @@ Quando adquire um token usando `ConfidentialClientApplication.AcquireToken()` ou
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

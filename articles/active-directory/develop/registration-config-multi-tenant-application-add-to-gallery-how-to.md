@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: b8d998d40b9920ccbdaf0079c32a0feb84bba87b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680277"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120716"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar uma aplicação multi-inquilino à galeria da aplicação do Azure AD
 
@@ -29,9 +29,9 @@ Azure Ative Directory (Azure AD) é um serviço de identidade baseado na nuvem. 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se a sua aplicação suportar SAML ou OpenIDConnect
 Se tiver uma aplicação multitenante que pretenda listada na galeria de aplicações AZure AD, deve primeiro certificar-se de que a sua aplicação suporta uma das seguintes tecnologias de inscrição única:
 
-- **OpenID Connect**: Para ter a sua aplicação listada, crie a aplicação multitenante em AZure AD e implemente o [quadro de consentimento Azure AD](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) para a sua aplicação. Envie o pedido de login para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso de um utilizador com base no ID do inquilino e na UPN do utilizador recebida no token. Submeta o pedido utilizando o processo delineado na [Listagem da sua candidatura na galeria de candidaturas Azure Ative.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+- **OpenID Connect**: Para ter a sua aplicação listada, crie a aplicação multitenante em AZure AD e implemente o [quadro de consentimento Azure AD](./consent-framework.md) para a sua aplicação. Envie o pedido de login para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso de um utilizador com base no ID do inquilino e na UPN do utilizador recebida no token. Submeta o pedido utilizando o processo delineado na [Listagem da sua candidatura na galeria de candidaturas Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
-- **SAML**: Se a sua aplicação suportar SAML 2.0, a aplicação pode ser listada na galeria. Siga as instruções na [Listagem do seu pedido na galeria de candidaturas do Azure Ative.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+- **SAML**: Se a sua aplicação suportar SAML 2.0, a aplicação pode ser listada na galeria. Siga as instruções na [Listagem do seu pedido na galeria de candidaturas do Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se a sua aplicação não suportar SAML ou OpenIDConnect
 As aplicações que não suportam SAML ou OpenIDConnect ainda podem ser integradas na galeria de aplicações através da tecnologia de assinatura única.
@@ -39,12 +39,12 @@ As aplicações que não suportam SAML ou OpenIDConnect ainda podem ser integrad
 O sismo único de palavra-passe, também chamado de cofre de palavras-passe, permite-lhe gerir o acesso ao utilizador e as palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, como é o caso das contas de aplicações de redes sociais da sua organização. 
 
 Se quiser listar a sua aplicação com esta tecnologia:
-1. Crie uma aplicação web que tenha uma página de entrada HTML para configurar [o sign-in único da palavra-passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
-2. Submeta o pedido conforme descrito na [Listagem do seu pedido na galeria de candidaturas Azure Ative.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+1. Crie uma aplicação web que tenha uma página de entrada HTML para configurar [o sign-in único da palavra-passe](../manage-apps/what-is-single-sign-on.md). 
+2. Submeta o pedido conforme descrito na [Listagem do seu pedido na galeria de candidaturas Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ## <a name="escalations"></a>Escaladas
 
 Para qualquer escalada, envie um e-mail para a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e entraremos em conversações consigo o mais rapidamente possível.
 
-## <a name="next-steps"></a>Próximos passos
-Saiba como listar a [sua candidatura na galeria de candidaturas do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+## <a name="next-steps"></a>Passos seguintes
+Saiba como listar a [sua candidatura na galeria de candidaturas do Azure Ative Directory.](../azuread-dev/howto-app-gallery-listing.md)

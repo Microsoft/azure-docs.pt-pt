@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552871"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115735"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -31,7 +31,7 @@ Pode utilizar reclamações opcionais para:
 
 Para as listas de reclamações padrão, consulte o [token de acesso](access-tokens.md) e [id_token](id-tokens.md) documentação de reclamações.
 
-Embora as reclamações opcionais sejam suportadas em fichas de formato v1.0 e v2.0, bem como em fichas SAML, fornecem a maior parte do seu valor ao passar de v1.0 para v2.0. Um dos objetivos do ponto final da [plataforma de identidade V2.0 microsoft](active-directory-appmodel-v2-overview.md) é tamanhos de token mais pequenos para garantir o melhor desempenho dos clientes. Como resultado, várias reclamações anteriormente incluídas no acesso e fichas de identificação já não estão presentes em fichas v2.0 e devem ser solicitadas especificamente por aplicação.
+Embora as reclamações opcionais sejam suportadas em fichas de formato v1.0 e v2.0, bem como em fichas SAML, fornecem a maior parte do seu valor ao passar de v1.0 para v2.0. Um dos objetivos do ponto final da [plataforma de identidade V2.0 microsoft](./v2-overview.md) é tamanhos de token mais pequenos para garantir o melhor desempenho dos clientes. Como resultado, várias reclamações anteriormente incluídas no acesso e fichas de identificação já não estão presentes em fichas v2.0 e devem ser solicitadas especificamente por aplicação.
 
 **Quadro 1: Aplicabilidade**
 
@@ -61,10 +61,10 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente que solicita (quando dentro de um VNET) |
 | `ctry`                     | País/região do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor da reclamação for um código padrão de dois letras país/região, como FR, JP, SZ, e assim por diante. |
 | `tenant_ctry`              | País/região do arrendatário de recursos | JWT | | |
-| `xms_pdl`             | Localização de dados preferenciais   | JWT | | Para os inquilinos multi-Geo, a localização de dados preferida é o código de três letras que mostra a região geográfica em que o utilizador se encontra. Para obter mais informações, consulte a documentação do [Azure AD Connect sobre a localização de dados preferenciais.](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)<br/>Por exemplo: `APC` para a Ásia-Pacífico. |
+| `xms_pdl`             | Localização de dados preferenciais   | JWT | | Para os inquilinos multi-Geo, a localização de dados preferida é o código de três letras que mostra a região geográfica em que o utilizador se encontra. Para obter mais informações, consulte a documentação do [Azure AD Connect sobre a localização de dados preferenciais.](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)<br/>Por exemplo: `APC` para a Ásia-Pacífico. |
 | `xms_pl`                   | Linguagem preferida do utilizador  | JWT ||O idioma preferido do utilizador, se for definido. Proveniente do inquilino de casa, em cenários de acesso a hóspedes. LL-CC formatado ("en-us"). |
 | `xms_tpl`                  | Língua preferida do inquilino| JWT | | A linguagem preferida do inquilino de recursos, se definido. LL formatado ("en"). |
-| `ztdid`                    | ID de implementação de toque zero | JWT | | A identidade do dispositivo utilizada para [o Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `ztdid`                    | ID de implementação de toque zero | JWT | | A identidade do dispositivo utilizada para [o Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | O e-mail endereçada para este utilizador, se o utilizador tiver um.  | JWT | MSA, Azure AD | Este valor é incluído por padrão se o utilizador for um hóspede no inquilino.  Para os utilizadores geridos (os utilizadores dentro do arrendatário), este deve ser solicitado através desta reclamação opcional ou, apenas em v2.0, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail deve ser definido no [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Estado da conta dos utilizadores no inquilino | JWT | | Se o utilizador for membro do arrendatário, o valor é `0` . Se são um hóspede, o valor `1` é. |
 | `groups`| Formatação opcional para reclamações em grupo |JWT| |Utilizado em conjunto com o GrupoMembershipClas definindo no manifesto de [aplicação,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reclamações do Grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre reclamações em grupo, consulte [Como configurar as reclamações do grupo](../hybrid/how-to-connect-fed-group-claims.md)
@@ -183,7 +183,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Nome          | Tipo                       | Description                                           |
+| Nome          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -191,12 +191,12 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 ### <a name="optionalclaim-type"></a>Opcional TipoClaim
 
-Contém uma reclamação opcional associada a uma aplicação ou a um principal de serviço. As propriedades idToken, accessToken e saml2Token do tipo [OpcionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) é uma coleção de OpcionalClaim.
+Contém uma reclamação opcional associada a uma aplicação ou a um principal de serviço. As propriedades idToken, accessToken e saml2Token do tipo [OpcionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) é uma coleção de OpcionalClaim.
 Se suportado por uma reclamação específica, também pode modificar o comportamento do OpcionalClaim utilizando o campo Deproperties Adicionais.
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Nome                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |
@@ -205,7 +205,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurar pedidos opcionais de extensão de diretório
 
-Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para obter mais informações, consulte [a extensão do Microsoft GraphProperty documentação](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para obter mais informações, consulte [a extensão do Microsoft GraphProperty documentação](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
 As extensões de esquema e abertas não são suportadas por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Consulte a parte inferior desta página para dar um exemplo.
 
@@ -362,8 +362,8 @@ Nesta secção, pode percorrer um cenário para ver como pode utilizar a funcion
 Existem várias opções disponíveis para atualizar as propriedades na configuração de identidade de uma aplicação para permitir e configurar reclamações opcionais:
 
 - Pode utilizar a **UI de configuração token** (ver exemplo abaixo)
-- Pode utilizar o **Manifesto** (ver exemplo abaixo). Leia o [Documento manifesto de aplicação Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para uma introdução ao manifesto.
-- Também é possível escrever uma aplicação que utilize a API do [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) para atualizar a sua aplicação. O tipo [OpcionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência da Microsoft Graph API pode ajudá-lo a configurar as reclamações opcionais.
+- Pode utilizar o **Manifesto** (ver exemplo abaixo). Leia o [Documento manifesto de aplicação Azure AD](./reference-app-manifest.md) primeiro para uma introdução ao manifesto.
+- Também é possível escrever uma aplicação que utilize a API do [Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) para atualizar a sua aplicação. O tipo [OpcionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência da Microsoft Graph API pode ajudá-lo a configurar as reclamações opcionais.
 
 **Exemplo:**
 
@@ -404,7 +404,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 1. Selecione **Azure Ative Directory** a partir do menu da mão esquerda.
 1. Encontre a aplicação que pretende configurar reclamações opcionais para a lista e selecione-a.
 1. Na secção **Gerir,** selecione **Manifesto** para abrir o editor manifesto inline.
-1. Pode editar diretamente o manifesto usando este editor. O manifesto segue o esquema para a [entidade Aplicação,](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e automaticamente forma o manifesto uma vez guardado. Novos elementos serão adicionados à `OptionalClaims` propriedade.
+1. Pode editar diretamente o manifesto usando este editor. O manifesto segue o esquema para a [entidade Aplicação,](./reference-app-manifest.md)e automaticamente forma o manifesto uma vez guardado. Novos elementos serão adicionados à `OptionalClaims` propriedade.
 
     ```json
     "optionalClaims": {
@@ -435,7 +435,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

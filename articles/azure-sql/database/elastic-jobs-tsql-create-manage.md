@@ -1,5 +1,5 @@
 ---
-title: Criar e gerir trabalhos de base de dados elásticos com Transact-SQL (T-SQL)
+title: Criar e gerir trabalhos de base de dados elásticos (pré-visualização) com Transact-SQL (T-SQL)
 description: Execute scripts em muitas bases de dados com agente de trabalho de base de dados elástica usando o Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045040"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119118"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilize o Transact-SQL (T-SQL) para criar e gerir empregos elásticos de base de dados
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utilize o Transact-SQL (T-SQL) para criar e gerir trabalhos de base de dados elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece muitos cenários de exemplo para começar a trabalhar com a Elastic Jobs usando T-SQL.
@@ -1346,7 +1346,7 @@ Mostra todos os membros de todos os grupos-alvo.
 
 - ![Ícone de ligação tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de ligação de tópico") [Convenções de Sintaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Autorização e Permissões](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

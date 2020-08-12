@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986768"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120937"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Versão de modelo na API de Análise de Texto
 
@@ -38,15 +38,17 @@ Utilize a tabela abaixo para saber quais as versões do modelo suportadas por ca
 
 Pode encontrar detalhes sobre as atualizações para estes modelos no [Que há de novo.](../whats-new.md)
 
-## <a name="text-analytics-for-health"></a>Análise de Texto para a Saúde
+## <a name="text-analytics-for-health"></a>Análise de Texto para a saúde
 
 O [recipiente Text Analytics for Health](../how-tos/text-analytics-for-health.md) utiliza a versão de modelo separada do que os pontos finais da API acima.  Por favor, note que apenas uma versão modelo está disponível por imagem de recipiente.
 
 | Ponto final                        | Etiqueta de imagem de recipiente                     | Versão modelo |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.012640001-amd64-preview`ou mais recente | `2020-05-08`  |
+| `/domains/health`               | `1.1.013150001-amd64-preview`ou mais recente | `2020-07-24`  |
+| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
 
 
 

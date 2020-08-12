@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129190"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115242"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -47,7 +47,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a sua conta no canto superior direito e desemconfie da sua sessão de portal para o inquilino AZure AD que pretende utilizar.
-> 1. Siga as instruções para [registar uma aplicação de uma página](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
+> 1. Siga as instruções para [registar uma aplicação de uma página](./scenario-spa-app-registration.md) no portal Azure.
 > 1. Adicione uma nova plataforma no painel de **autenticação** do registo da sua aplicação e registe o redireccionamento URI: `http://localhost:4200/` .
 > 1. Este quickstart utiliza o [fluxo de subvenção implícito.](v2-oauth2-implicit-grant-flow.md) Selecione as definições implícitas de **concessão** **para fichas de identificação** e **fichas de acesso**. São necessários tokens de ID e fichas de acesso porque esta aplicação assina nos utilizadores e chama uma API.
 
@@ -99,7 +99,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >|Nome do valor|Descrição|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
->|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
+>|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|
 >|Enter_the_Tenant_Info_Here| Definir uma das seguintes opções: Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo ID do diretório (inquilino) ou nome do inquilino (por exemplo, **contoso.microsoft.com).** Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por **comum**. Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor pelos **consumidores**. |
 >|Enter_the_Redirect_Uri_Here|Substitua-a por **http://localhost:4200** .|
 >|cacheLocação  | (Opcional) Desa estação o armazenamento do navegador para o estado de autenticação. O padrão é **sessãoStorage**.   |
@@ -142,5 +142,4 @@ Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A
 Em seguida, aprenda a assinar num utilizador e adquira fichas no tutorial angular:
 
 > [!div class="nextstepaction"]
-> [Tutorial angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Tutorial angular](./tutorial-v2-angular.md)

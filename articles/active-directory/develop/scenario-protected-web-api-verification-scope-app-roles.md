@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563317"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120971"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo
 
@@ -88,7 +88,7 @@ O `VerifyUserHasAnyAcceptedScope` método faz algo como os seguintes passos:
 
 #### <a name="verify-the-scopes-more-globally"></a>Verifique os âmbitos mais globalmente
 
-Definir os âmbitos granulares para a sua API web e verificar os âmbitos de cada ação do controlador é a abordagem recomendada. No entanto, também é possível verificar os âmbitos ao nível da aplicação ou de um controlador utilizando ASP.NET Core. Para mais [informações,](https://docs.microsoft.com/aspnet/core/security/authorization/claims) consulte a autorização baseada em reclamações na documentação principal ASP.NET.
+Definir os âmbitos granulares para a sua API web e verificar os âmbitos de cada ação do controlador é a abordagem recomendada. No entanto, também é possível verificar os âmbitos ao nível da aplicação ou de um controlador utilizando ASP.NET Core. Para mais [informações,](/aspnet/core/security/authorization/claims) consulte a autorização baseada em reclamações na documentação principal ASP.NET.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ Para ASP.NET, basta substituir `HttpContext.User` por , e substituir o tipo de `
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Verifique as funções de aplicações em APIs chamadas por apps daemon
 
-Se a sua API web for chamada por uma [aplicação daemon,](scenario-daemon-overview.md)essa aplicação deve exigir uma permissão de aplicação para a sua API web. Como mostrado na [Exposing permissões de aplicações (funções de aplicação)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), a sua API expõe tais permissões. Um exemplo é o papel da `access_as_application` aplicação.
+Se a sua API web for chamada por uma [aplicação daemon,](scenario-daemon-overview.md)essa aplicação deve exigir uma permissão de aplicação para a sua API web. Como mostrado na [Exposing permissões de aplicações (funções de aplicação)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), a sua API expõe tais permissões. Um exemplo é o papel da `access_as_application` aplicação.
 
 Precisa agora que a sua API verifique se o token que recebe contém a `roles` reclamação e que esta reclamação tem o valor esperado. O código de verificação é semelhante ao código que verifica as permissões delegadas, exceto que o seu controlador testa as funções em vez de âmbitos:
 
@@ -150,7 +150,7 @@ bool isAppOnlyToken = oid == sub;
 
 A verificação da condição inversa permite apenas aplicações que assinam num utilizador para ligar para a sua API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Mover para produção](scenario-protected-web-api-production.md)

@@ -3,15 +3,15 @@ title: Windows Virtual Desktop ambiente anfitrião criação de piscina - Azure
 description: Como resolver problemas e resolver problemas de inquilinos e piscinas durante a configuração de um ambiente de desktop virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006167"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121379"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **Causa:** Este erro deve-se a uma rota estática, regra de firewall ou NSG bloqueando o descarregamento do ficheiro zip ligado ao modelo Azure Resource Manager.
 
 **Correção:** Remova a rota estática de bloqueio, a regra da firewall ou a NSG. Opcionalmente, abra o ficheiro json do modelo Azure Resource Manager num editor de texto, pegue o link para o ficheiro zip e descarregue o recurso para uma localização permitida.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Erro: Não é possível apagar um anfitrião da sessão da piscina anfitriã depois de eliminar o VM
+
+**Causa:** Tem de eliminar o anfitrião da sessão antes de eliminar o VM.
+
+**Correção:** Coloque o anfitrião da sessão no modo de drenagem, inscreva todos os utilizadores do anfitrião da sessão e, em seguida, elimine o anfitrião.
 
 ## <a name="next-steps"></a>Passos seguintes
 

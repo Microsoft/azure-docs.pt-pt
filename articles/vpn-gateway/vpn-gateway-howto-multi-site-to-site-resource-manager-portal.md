@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984146"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121430"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma ligação Site-a-Site a um VNet com uma ligação de gateway VPN existente
 
@@ -43,7 +43,7 @@ Verifique os seguintes itens:
 * O portal de rede virtual para o seu VNet é RouteBased. Se tiver uma porta VPN VPN de 44 de política, deve eliminar o gateway de rede virtual e criar um novo gateway VPN como RouteBased.
 * Nenhum dos intervalos de endereços se sobrepõe a nenhum dos VNets a que este VNet está a ligar.
 * Tem um dispositivo VPN compatível e alguém que seja capaz de o configurar. Veja [Acerca dos Dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se não estiver familiarizado com a configuração do dispositivo VPN ou com os intervalos de endereços IP localizados na configuração da rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes.
-* Tem um endereço IP público virado para o exterior para o seu dispositivo VPN. Este endereço IP não pode estar localizado atrás de um NAT.
+* Tem um endereço IP público virado para o exterior para o seu dispositivo VPN.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Parte 1 - Configurar uma ligação
 1. Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
@@ -86,6 +86,6 @@ Verifique os seguintes itens:
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte o [caminho de aprendizagem das máquinas virtuais](/learn/paths/deploy-a-website-with-azure-virtual-machines/) para obter mais informações.

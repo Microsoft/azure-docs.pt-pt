@@ -2,14 +2,14 @@
 title: Contentores sem servidor em Azure
 description: O serviço Azure Container Instances oferece a forma mais rápida e simples de executar contentores isolados em Azure, sem ter que gerir máquinas virtuais e sem ter que adotar um orquestrador de nível superior.
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498689"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121668"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -35,10 +35,15 @@ A azure Container Instances também suporta a execução de um comando num recip
 > [!IMPORTANT]
 > A partir de 13 de janeiro de 2020, as Instâncias de Contentores Azure exigirão todas as ligações seguras dos servidores e aplicações para utilizar o TLS 1.2. O suporte para tLS 1.0 e 1.1 será retirado.
 
-## <a name="hypervisor-level-security"></a>Segurança ao nível do hipervisor
+## <a name="compliant-deployments"></a>Implementações compatíveis
+
+### <a name="hypervisor-level-security"></a>Segurança ao nível do hipervisor
 
 Historicamente, os contentores têm vindo a oferecer isolamento de dependências de aplicações e governação de recursos, mas não têm sido considerados suficientemente fortalecidos para utilização multi-inquilinos hostil. O Azure Container Instances garante que a sua aplicação está tão isolada num contentor como estaria numa VM.
 
+### <a name="customer-data"></a>Dados do cliente
+
+O serviço ACI armazena os dados mínimos do cliente necessários para garantir que os seus grupos de contentores estão a funcionar como esperado. Atualmente, o armazenamento de dados dos clientes numa única região só está disponível na Região do Sudeste Asiático (Singapura) da Ásia-Pacífico Geo. Para todas as outras regiões, os dados dos clientes são armazenados na [Geo.](https://azure.microsoft.com/global-infrastructure/geographies/) Por favor, entre em contato com a Azure Support para saber mais.
 
 ## <a name="custom-sizes"></a>Tamanhos personalizados
 

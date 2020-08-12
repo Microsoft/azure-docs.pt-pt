@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 624824f5b6b8f7154ccd7b50da49f3f4bb179bb9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 97f0412141f15ad0a72c02b92cfcf089b61db0cf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542809"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120354"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -100,12 +100,11 @@ Para mais informações, consulte a documentação para a [classe Modelo.](https
 
 Para obter mais informações sobre o trabalho com modelos treinados fora do Azure Machine Learning, consulte [Como implementar um modelo existente.](../articles/machine-learning/how-to-deploy-existing-model.md)
 
-
 ## <a name="define-an-entry-script"></a>Definir um script de entrada
 
 [!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
-## <a name="define-an-inference-configuration"></a>Definir uma configuração de inferência
+## <a name="define-an-inferenceconfig"></a>Definir um InferenceConfig
 
 Uma configuração de inferência descreve como configurar o serviço web que contém o seu modelo. É usado mais tarde, quando se implanta o modelo.
 
@@ -162,12 +161,9 @@ Para obter mais informações sobre a configuração da inferência, consulte a 
 
 ## <a name="choose-a-compute-target"></a>Escolha um alvo de cálculo
 
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-
-
-## <a name="define-a-deployment-configuration"></a>Definir uma configuração de implementação
+## <a name="define-a-deploymentconfiguration"></a>Definir uma Configuração de Implantação
 
 Antes de implementar o seu modelo, tem de definir a configuração de implementação. *A configuração de implementação é específica do alvo do cálculo que irá hospedar o serviço web.* Por exemplo, quando implementa um modelo localmente, deve especificar a porta onde o serviço aceita pedidos. A configuração de implementação não faz parte do seu script de entrada. É usado para definir as características do alvo do cálculo que irá hospedar o modelo e o script de entrada.
 
@@ -187,7 +183,6 @@ As classes para instâncias locais, azure container e serviços web AKS podem se
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-
 ## <a name="deploy-your-model"></a>Implemente o seu modelo
 
 Está agora pronto para lançar o seu modelo. O exemplo abaixo demonstra uma implantação local. A sintaxe variará dependendo do alvo de computação que escolheu no passo anterior.
@@ -203,11 +198,9 @@ print(service.state)
 
 Para mais informações, consulte a documentação para [LocalWebservice,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py) [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-
 ## <a name="delete-resources"></a>Eliminar recursos
 
 Para eliminar um serviço web implantado, utilize `service.delete()` .
 Para eliminar um modelo registado, utilize `model.delete()` .
 
 Para obter mais informações, consulte a documentação para [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-

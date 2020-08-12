@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e210c19f40ed77bd7c1bc1dcfc2f2787e3ea2087
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054666"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120291"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Aplicações migratórias para MSAL.NET
 
@@ -37,7 +37,7 @@ Este artigo descreve as diferenças entre a Biblioteca de Autenticação da Micr
 
 Na maioria dos casos pretende utilizar MSAL.NET e o ponto final da plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Utilizando MSAL.NET, adquire fichas para os utilizadores que se inscrevam na sua aplicação com Azure AD (contas de trabalho e escola), contas da Microsoft (pessoais) (MSA) ou Azure AD B2C.
 
-Se já está familiarizado com o AD Azure para programadores (v1.0) (e ADAL.NET), talvez queira ler [O que é diferente sobre a plataforma de identidade da Microsoft (v2.0) ponto final?](active-directory-v2-compare.md)
+Se já está familiarizado com o AD Azure para programadores (v1.0) (e ADAL.NET), talvez queira ler [O que é diferente sobre a plataforma de identidade da Microsoft (v2.0) ponto final?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 No entanto, ainda precisa de utilizar ADAL.NET se a sua aplicação precisar de assinar em utilizadores com versões anteriores dos Serviços da [Federação de Diretórios Ativos (ADFS)](/windows-server/identity/active-directory-federation-services). Para mais informações, consulte [o suporte da ADFS.](https://aka.ms/msal-net-adfs-support)
 
@@ -161,7 +161,7 @@ Para obter mais informações sobre os tokens v1.0 e v2.0, consulte [os tokens d
 
 ## <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Âmbitos para uma API web aceitando fichas v1.0
 
-As permissões OAuth2 são âmbitos de permissão que uma aplicação de API (recurso) da web v1.0 expõe às aplicações do cliente. Estes âmbitos de permissão podem ser concedidos aos pedidos do cliente durante o consentimento. Consulte a secção sobre as oauth2Permissions in [Azure Ative Directory manifesto](active-directory-application-manifest.md).
+As permissões OAuth2 são âmbitos de permissão que uma aplicação de API (recurso) da web v1.0 expõe às aplicações do cliente. Estes âmbitos de permissão podem ser concedidos aos pedidos do cliente durante o consentimento. Consulte a secção sobre as oauth2Permissions in [Azure Ative Directory manifesto](./reference-app-manifest.md).
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Âmbitos para solicitar acesso a permissões específicas de OAuth2 de uma aplicação v1.0
 
@@ -264,6 +264,6 @@ Verá um token de acesso e um token de ID devolvidos no seu AuthenticationResult
 
 Você também pode usar este método para vários cenários de integração onde você tem um token de atualização disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar mais informações sobre os âmbitos de [aplicação em Scopes, permissões e consentimento no ponto final da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904801"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121056"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
@@ -102,9 +102,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="find-more-app-building-parameters"></a>Encontre mais parâmetros de construção de aplicativos
 
-Para obter uma lista de todos os métodos `PublicClientApplicationBuilder` disponíveis, consulte a lista [métodos.](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+Para obter uma lista de todos os métodos `PublicClientApplicationBuilder` disponíveis, consulte a lista [métodos.](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 
-Para uma descrição de todas as opções `PublicClientApplicationOptions` expostas, consulte a [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+Para uma descrição de todas as opções `PublicClientApplicationOptions` expostas, consulte a [documentação de referência](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## <a name="tasks-for-xamarin-ios"></a>Tarefas para Xamarin iOS
 
@@ -365,7 +365,7 @@ Aqui está um exemplo de como `LSApplicationQueriesSchemes` adicionar:
 
 Para obter informações sobre como ativar um corretor no Android, consulte [a autenticação mediada em Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aquisição de um símbolo](scenario-mobile-acquire-token.md)

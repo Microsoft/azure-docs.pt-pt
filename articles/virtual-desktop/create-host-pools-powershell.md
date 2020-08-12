@@ -3,15 +3,15 @@ title: Criar o Windows Virtual Desktop host pool PowerShell - Azure
 description: Como criar uma piscina de anfitriões no Windows Virtual Desktop com cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002593"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121158"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 
@@ -116,6 +116,32 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 
 >[!IMPORTANT]
 >Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs da piscina anfitriã. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [acesso vm just-in-time](../security-center/security-center-just-in-time.md). Recomendamos também que não atribua os seus VMs a um IP público.
+
+## <a name="update-the-agent"></a>Atualizar o agente
+
+Terá de atualizar o agente se estiver numa das seguintes situações:
+
+- Você quer migrar uma sessão previamente registada para uma nova piscina de anfitriões
+- O anfitrião da sessão não aparece na piscina do anfitrião após uma atualização
+
+Para atualizar o agente:
+
+1. Inscreva-se no VM como administrador.
+2. Vá a **Serviços,** em seguida, pare os processos de Carregador de Agente de Ambiente de Trabalho **Rdagent** e **Remote.**
+3. Em seguida, encontre o agente e a esclerose múltipla. Ou estão localizados na pasta **C:\DeployAgent** ou em qualquer local para onde a guardou quando a instalou.
+4. Encontre os seguintes ficheiros e desinstale-os:
+     
+     - Microsoft.RDInfra.RDAgent.Installer-x64-verx.x.x
+     - Microsoft.RDInfra.RDAgentBootLoader.Installer-x64
+
+   Para desinstalar estes ficheiros, clique com o botão direito em cada nome de ficheiro e, em seguida, selecione **Desinstalar**.
+5. Opcionalmente, também pode remover as seguintes definições de registo:
+     
+     - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MICROSOFT\RDAgentBootLoader
+
+6. Uma vez desinstalados estes itens, isto deve remover todas as associações com a antiga piscina de anfitriões. Se pretender voltar a inscrever este anfitrião no serviço, siga as instruções no [Registo das máquinas virtuais para o pool de anfitriões virtual do Ambiente de Trabalho WIndows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

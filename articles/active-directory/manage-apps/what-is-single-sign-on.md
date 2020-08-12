@@ -11,13 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053784"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121515"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
@@ -31,6 +30,14 @@ Se você é um administrador, ou profissional de TI, então leia para saber mais
 O sign-on único dá um grande salto em frente na forma como os utilizadores insinuam e usam aplicações. Os sistemas de autenticação baseados em sinais únicos são muitas vezes chamados de "autenticação moderna". Para entender o que torna possível um único sinal, confira este vídeo.
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
+## <a name="understanding-where-an-app-is-hosted"></a>Compreender onde uma aplicação é hospedada
+A forma como implementa um único sign-on para uma aplicação tem muito a ver com o local onde a aplicação está hospedada. O alojamento é importante devido à forma como o tráfego de rede é encaminhado para aceder à app. Se uma aplicação for hospedada e acedida através da sua rede local, chamada app no local, então não há necessidade de os utilizadores acederem à Internet para usar a app. Se a aplicação estiver hospedada em outro lugar, chamada app hospedada em nuvem, então os utilizadores terão de aceder à Internet para poderem utilizar a app.
+
+> [!TIP]
+> As aplicações cloud também são chamadas de software como aplicações de serviço (SaaS). 
+
+> [!TIP]
+> Os termos cloud e Internet são frequentemente usados intercambiáveis. A razão para isto tem a ver com os diagramas de rede. É comum denotar grandes redes de computador com uma forma de nuvem num diagrama porque não é viável desenhar todos os componentes. A Internet é a rede mais conhecida e, portanto, é fácil usar os termos intercambiavelmente. No entanto, qualquer rede de computador pode ser cunhada uma nuvem.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Escolher um único método de inscrição
 

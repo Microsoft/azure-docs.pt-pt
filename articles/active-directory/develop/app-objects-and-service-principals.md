@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a3e6d918f4ab94c4533e930ea73b5267deb53a4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027264"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115531"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -91,12 +91,12 @@ Neste cenário de exemplo:
 ## <a name="next-steps"></a>Passos seguintes
 
 - Pode utilizar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos principais da aplicação e do serviço.
-- Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o editor manifesto de aplicação [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), representado pela sua entidade de [aplicação][MS-Graph-App-Entity]OData .
-- Pode aceder ao objeto principal de serviço de uma aplicação através dos cmdlets API ou [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), representados pela sua entidade OData [ServicePrincipal][MS-Graph-Sp-Entity].
+- Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o editor manifesto de aplicação [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell](/powershell/azure/?view=azureadps-2.0), representado pela sua entidade de [aplicação][MS-Graph-App-Entity]OData .
+- Pode aceder ao objeto principal de serviço de uma aplicação através dos cmdlets API ou [Azure AD PowerShell](/powershell/azure/?view=azureadps-2.0), representados pela sua entidade OData [ServicePrincipal][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 
 <!--Reference style links -->
-[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: /graph/api/resources/application
+[MS-Graph-Sp-Entity]: /graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

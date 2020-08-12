@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98be2ef6a82c099425655fd7e5d25a4358844bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982587"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115446"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)
 
@@ -40,7 +40,7 @@ O plug-in Microsoft Enterprise SSO para dispositivos Apple oferece os seguintes 
 - Fornece contas SSO para Azure AD em todas as aplicações que suportam a funcionalidade Enterprise Single Sign-On da Apple.
 - Entregue automaticamente no Microsoft Authenticator e pode ser ativado por qualquer solução de gestão de dispositivos móveis (MDM).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para utilizar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 
@@ -70,7 +70,7 @@ Utilize os seguintes parâmetros para configurar o plug-in Microsoft Enterprise 
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Pode utilizar o Microsoft Intune como o seu serviço MDM para facilitar a configuração do plug-in Microsoft Enterprise SSO. Para obter mais informações, consulte a documentação de [configuração intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+Pode utilizar o Microsoft Intune como o seu serviço MDM para facilitar a configuração do plug-in Microsoft Enterprise SSO. Para obter mais informações, consulte a documentação de [configuração intune](/intune/configuration/ios-device-features-settings).
 
 ## <a name="using-the-sso-extension-in-your-application"></a>Utilização da extensão SSO na sua aplicação
 
@@ -78,6 +78,6 @@ A [Microsoft Authentication Library (MSAL) para dispositivos Apple](https://gith
 
 Se pretender suportar o modo de dispositivo partilhado fornecido pelo plug-in Microsoft Enterprise SSO para dispositivos Apple, certifique-se de que as suas aplicações utilizam a versão mínima especificada do MSAL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o modo de dispositivo partilhado no iOS, consulte [o modo de dispositivo partilhado para dispositivos iOS](msal-ios-shared-devices.md).

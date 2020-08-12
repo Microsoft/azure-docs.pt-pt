@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540347"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116330"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource Certificado para Azure Ative Directory
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre o multi-arrendamento, consulte [Como assinar
 
 Uma *aplicação de inquilino único* é uma aplicação que apenas aceita inscrições de utilizadores de uma instância AD definida. Os utilizadores externos (incluindo contas de trabalho ou escola de outras organizações, ou contas pessoais) podem inscrever-se numa aplicação de um único inquilino depois de adicionar cada utilizador como conta de hóspedes à instância AD do Azure que a aplicação está registada. 
 
-Pode adicionar os utilizadores como contas de hóspedes ao Azure AD através da [colaboração Azure AD B2B](../b2b/what-is-b2b.md) e pode fazê-lo [programáticamente.](../../active-directory-b2c/code-samples.md) Ao utilizar o B2B, os utilizadores podem criar um portal de self-service que não requer um convite para iniciar sessão. Para mais informações, consulte [o portal self-service para inscrição de colaboração Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+Pode adicionar os utilizadores como contas de hóspedes ao Azure AD através da [colaboração Azure AD B2B](../external-identities/what-is-b2b.md) e pode fazê-lo [programáticamente.](../../active-directory-b2c/code-samples.md) Ao utilizar o B2B, os utilizadores podem criar um portal de self-service que não requer um convite para iniciar sessão. Para mais informações, consulte [o portal self-service para inscrição de colaboração Azure AD B2B](../external-identities/self-service-portal.md).
 
 As aplicações de um único inquilino podem ativar a experiência *Do Contacto Me,* mas se quiser ativar a experiência de teste de um clique/teste gratuito que o AppSource recomenda, em vez disso, ativar o multi-arrendamento na sua aplicação.
 
@@ -108,7 +108,7 @@ Para obter mais informações sobre a experiência de teste appSource, consulte 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre aplicações de construção que suportem as entradas AD do Azure, consulte cenários de [autenticação para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
+- Para obter mais informações sobre aplicações de construção que suportem as entradas AD do Azure, consulte cenários de [autenticação para Azure AD](./v1-authentication-scenarios.md).
 - Para obter informações sobre como listar a sua aplicação SaaS no AppSource, vá ver [Informações de Parceiros appSource](https://appsource.microsoft.com/partners)
 
 ## <a name="get-support"></a>Obter suporte

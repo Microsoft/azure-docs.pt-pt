@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 95cb1181f841ce5f958b8a85697d7261f442b410
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 29c57411a2a35c36d0b4a9d4def931821b795094
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799604"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121141"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API web que chama APIs web: configuração de código
 
@@ -176,7 +176,7 @@ Também pode ver um exemplo da implementação do fluxo OBO em [Node.js e funç�
 
 ## <a name="protocol"></a>Protocolo
 
-Para obter mais informações sobre o protocolo OBO, consulte a [plataforma de identidade da Microsoft e o fluxo OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Para obter mais informações sobre o protocolo OBO, consulte a [plataforma de identidade da Microsoft e o fluxo OAuth 2.0 On-Behalf-Of](./v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

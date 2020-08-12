@@ -13,12 +13,12 @@ ms.date: 06/22/2018
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 59ba97ccc0bc4a1a273873d638ef3f519b91e530
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284443"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114970"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência simbólica Azure AD SAML
 
@@ -27,7 +27,7 @@ O Azure Ative Directory (Azure AD) emite vários tipos de fichas de segurança n
 ## <a name="claims-in-saml-tokens"></a>Reclamações em fichas SAML
 
 > [!div class="mx-codeBreakAll"]
-> | Nome | Reivindicação equivalente do JWT | Descrição | Exemplo |
+> | Name | Reivindicação equivalente do JWT | Descrição | Exemplo |
 > | --- | --- | --- | ------------|
 > |Audiência | `aud` |O destinatário pretendido do símbolo. A aplicação que recebe o token deve verificar se o valor do público está correto e rejeitar quaisquer fichas destinadas a um público diferente. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Autenticação Instantânea | |Regista a data e a hora em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
@@ -39,7 +39,7 @@ O Azure Ative Directory (Azure AD) emite vários tipos de fichas de segurança n
 > |Emitida | `iat` |Armazena o momento em que o símbolo foi emitido. É frequentemente usado para medir a frescura simbólica. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Emissor | `iss` |Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Nos tokens que a Azure AD retorna, o emitente é sts.windows.net. O valor de reclamação GUID no Emitente é o iD do inquilino do diretório AD Azure. A identificação do inquilino é um identificador imutável e fiável do diretório. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Apelido | `family_name` |Fornece o apelido, apelido ou nome de família do utilizador, conforme definido no objeto de utilizador Azure AD. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Nome | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e é projetado para ser usado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |Name | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e é projetado para ser usado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |ID de objeto | `oid` |Contém um identificador único de um objeto em Azure AD. Este valor é imutável e não pode ser reatribuído ou reutilizado. Utilize o ID do objeto para identificar um objeto em consultas ao Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Funções | `roles` |Representa todas as funções de candidatura que o sujeito foi concedido direta e indiretamente através da adesão ao grupo e pode ser usado para impor o controlo de acesso baseado em funções. As funções de candidatura são definidas por aplicação, através `appRoles` da propriedade do manifesto de aplicação. A `value` propriedade de cada função de candidatura é o valor que aparece na reivindicação de funções. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Assunto | `sub` |Identifica o principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado, pelo que pode ser utilizado para efetuar verificações de autorização com segurança. Como o assunto está sempre presente nos tokens as questões da AD Azure, recomendamos a utilização deste valor num sistema de autorização para fins gerais. <br> `SubjectConfirmation`não é uma reivindicação. Descreve como o objeto do símbolo é verificado. `Bearer`indica que o sujeito é confirmado pela sua posse do símbolo. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
@@ -154,7 +154,7 @@ Esta é uma amostra de um símbolo típico de SAML.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* Consulte o [recurso Policy](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), para saber mais sobre como gerir a política de vida útil do Token utilizando a API do Gráfico microsoft.
+* Consulte o [recurso Policy](/graph/api/resources/policy?view=graph-rest-beta), para saber mais sobre como gerir a política de vida útil do Token utilizando a API do Gráfico microsoft.
 * Para obter mais informações e amostras sobre a gestão de políticas através de cmdlets PowerShell, incluindo amostras, consulte [as vidas simbólicas configurantes em Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
 * Adicione [reclamações personalizadas e opcionais](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) aos tokens para a sua aplicação.
 * Utilize [o signo único ligado (SSO) com SAML](single-sign-on-saml-protocol.md).

@@ -3,15 +3,15 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Perguntas frequentes e boas práticas para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007493"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121124"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -47,8 +47,6 @@ Para restringir um administrador apenas para gerir as sessões de utilizador, co
 Quando um utilizador é atribuído a um grupo de aplicações, o serviço faz uma simples atribuição de funções Azure. Como resultado, o Azure Ative Directory (AD) do utilizador e o AD Azure do grupo de aplicações devem estar no mesmo local. Todos os objetos de serviço, tais como piscinas de anfitriões, grupos de aplicações e espaços de trabalho, também devem estar no mesmo AD Azure que o utilizador.
 
 Pode criar máquinas virtuais (VMs) num AD Azure diferente, desde que sincronize o Ative Directory com o AD Azure do utilizador na mesma rede virtual (VNET).
-
-O Azure Lighthouse não suporta totalmente a gestão do ambiente de trabalho virtual do Windows. Uma vez que o Farol não suporta atualmente a gestão de utilizadores de inquilinos cross-Azure AD, os clientes do Farol ainda precisam de assinar no AD Azure que os clientes usam para gerir os utilizadores.
 
 ## <a name="what-are-location-restrictions"></a>O que são restrições de localização?
 
@@ -132,3 +130,11 @@ Estes fatores podem afetar o limite de escala para as piscinas hospedeiras:
 - Existem restrições sobre quantos núcleos pode criar por região e por subscrição. Por exemplo, se tiver uma subscrição do Enterprise Agreement, pode criar 350 núcleos. Terá de dividir 350 pelo número padrão de núcleos por VM ou pelo seu próprio limite de núcleo para determinar quantos VMs pode criar cada vez que executar o modelo. Saiba mais nos [limites das Máquinas Virtuais - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - O nome do prefixo VM e o número de VMs são inferiores a 15 caracteres. Para saber mais, consulte [as regras de nomeação e as restrições para os recursos da Azure.](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute)
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Posso gerir ambientes de desktop virtual do Windows com o Azure Lighthouse?
+
+O Azure Lighthouse não suporta totalmente a gestão de ambientes de ambientes de ambiente de trabalho virtual do Windows. Uma vez que o Farol não suporta atualmente a gestão de utilizadores de inquilinos cross-Azure AD, os clientes do Farol ainda precisam de assinar no AD Azure que os clientes usam para gerir os utilizadores.
+
+Também não pode utilizar subscrições de caixa de areia CSP com o serviço De Ambiente de Trabalho Virtual do Windows. Para saber mais, consulte [a conta de caixa de areia Integração.](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)
+
+Finalmente, se for habilitado o fornecedor de recursos a partir da conta do proprietário da CSP, as contas de clientes da CSP não poderão modificar o fornecedor de recursos.

@@ -1,18 +1,18 @@
 ---
-title: Crie um Azure DB para MariaDB usando um modelo ARM
-description: Neste artigo, aprenda a criar uma Base de Dados Azure para servidor MariaDB utilizando um modelo de Gestor de Recursos Azure.
+title: 'Quickstart: Criar um Azure DB para MariaDB - modelo ARM'
+description: Neste artigo quickstart, aprenda a criar uma Base de Dados Azure para servidor MariaDB utilizando um modelo de Gestor de Recursos Azure.
 author: mgblythe
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cc79002adef4555a7a159238b7087ba7c20be7a1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134101"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120274"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para servidor MariaDB
 
@@ -20,7 +20,7 @@ A Azure Database for MariaDB é um serviço gerido que utiliza para executar, ge
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
@@ -46,7 +46,7 @@ Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.m
 
 Vai criar um Azure Database for MariaDB Server com um conjunto definido de recursos de armazenamento e computação. Para saber mais, consulte [a Base de Dados Azure para os níveis de preços da MariaDB](concepts-pricing-tiers.md). Irá criar o servidor dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md).
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
@@ -175,7 +175,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 
@@ -207,7 +207,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo ARM, consulte:
 

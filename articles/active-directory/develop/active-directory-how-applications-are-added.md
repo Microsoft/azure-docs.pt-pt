@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884278"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115769"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que as aplicações são adicionadas ao Azure AD
 
@@ -74,7 +74,7 @@ Tal como os objetos de aplicação, os principais de serviço também podem ser 
   * Quando subscreve o Office 365 ou inicia um ensaio, um ou mais diretores de serviço são criados no diretório que representa os vários serviços que são utilizados para fornecer toda a funcionalidade associada ao Office 365.
   * Alguns serviços do Office 365, como o SharePoint, criam princípios de serviços numa base contínua para permitir uma comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Quando um administrador adiciona uma aplicação da galeria de aplicações (isto também criará um objeto de aplicação subjacente)
-* Adicione uma aplicação para usar o [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
+* Adicione uma aplicação para usar o [Azure AD Application Proxy](../manage-apps/application-proxy.md)
 * Conecte um pedido de sinal único utilizando o SSL ou o sign-on único da palavra-passe (SSO)
 * Programáticamente através da Microsoft Graph API ou PowerShell
 
@@ -104,8 +104,8 @@ As aplicações que se adiciona (representadas como **App (sua)** no diagrama) i
   * Regras de transformação de sinistros
   * Mapeamentos de atributos (fornecimento de utilizador)
 * Para obter informações mais detalhadas sobre o principal do serviço e os objetos de aplicação, consulte a documentação de referência da Microsoft Graph API:
-  * [Aplicação](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Diretor de Serviço](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Aplicação](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Diretor de Serviço](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Porque é que as aplicações se integram com a Azure AD?
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154955"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116449"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicação em v1.0
 
@@ -41,7 +41,7 @@ Estes são os cinco cenários de candidatura primária apoiados pela Azure AD:
 Siga os links para saber mais sobre cada tipo de aplicação e compreenda os cenários de alto nível antes de começar a trabalhar com o código. Também pode aprender sobre as diferenças que precisa de saber ao escrever uma determinada aplicação que funciona com o ponto final v1.0 ou v2.0.
 
 > [!NOTE]
-> O ponto final v2.0 não suporta todos os cenários e funcionalidades do AD Azure. Para determinar se deve utilizar o ponto final v2.0, leia sobre [as limitações v2.0](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+> O ponto final v2.0 não suporta todos os cenários e funcionalidades do AD Azure. Para determinar se deve utilizar o ponto final v2.0, leia sobre [as limitações v2.0](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
 
 Pode desenvolver qualquer uma das aplicações e cenários descritos aqui usando vários idiomas e plataformas. Todas elas são apoiadas por amostras de código completas disponíveis no guia de amostras de código: [amostras de código v1.0 por cenário](sample-v1-code.md) e [amostras de código v2.0 por cenário](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). Também pode descarregar as amostras de código diretamente dos [repositórios de amostras do GitHub correspondentes.](https://github.com/Azure-Samples?q=active-directory)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 65d254cec5735c54e19f5adfde57fb6aed776a2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881490"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118711"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
@@ -77,26 +77,26 @@ Como segunda fase, pode ativar a sua aplicação para ligar para APIs web em nom
 - No código da sua aplicação, terá de fornecer a autoridade à qual os delegados da sua aplicação web se inscrevem. É possível que queira personalizar a validação de símbolos (em particular, em cenários de parceiros).
 - As aplicações web suportam quaisquer tipos de conta. Para obter mais informações, consulte [os tipos de conta suportados.](v2-supported-account-types.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
+> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=java)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=python)
 
 ---

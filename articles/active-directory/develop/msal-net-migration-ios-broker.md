@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185834"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117877"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicações iOS que usam o Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -38,7 +38,7 @@ Permitem:
 
 - Início de sessão único.
 - Identificação do dispositivo, que é exigida por algumas [políticas de acesso condicional](../conditional-access/overview.md). Para obter mais informações, consulte [a gestão do Dispositivo.](../conditional-access/concept-conditional-access-conditions.md#device-platforms)
-- Verificação de identificação de aplicação, que também é necessária em alguns cenários empresariais. Para obter mais informações, consulte [a Gestão de Aplicações Móveis Intune (MAM)](https://docs.microsoft.com/intune/mam-faq).
+- Verificação de identificação de aplicação, que também é necessária em alguns cenários empresariais. Para obter mais informações, consulte [a Gestão de Aplicações Móveis Intune (MAM)](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrar de ADAL para MSAL
 
@@ -239,6 +239,6 @@ Exemplo:
 
 Para obter mais informações sobre como registar o URI de redirecionamento no portal, consulte [Alavancagem do corretor em aplicações Xamarin.iOS](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Conheça as [considerações específicas do Xamarin iOS com MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Conheça as [considerações específicas do Xamarin iOS com MSAL.NET](msal-net-xamarin-ios-considerations.md).

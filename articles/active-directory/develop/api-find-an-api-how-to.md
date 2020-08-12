@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: cd3b21050c6a442284647212fdf7c5707943ffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3d79211ce594ec4c175aa6f6b5f8df3a7c4ba8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115548"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como encontrar uma API específica necessária para uma aplicação desenvolvida sob medida
 
@@ -29,6 +29,6 @@ Quando expõe a sua API web, a API será exibida na lista **Select a API** ao ad
 
 Ao adicionar permissões ao registo da sua aplicação, pode **adicionar acesso API** a APIs web expostos. Para aceder às APIs web, siga os passos descritos em [Configurar uma aplicação do cliente para aceder a APIs web](quickstart-configure-app-access-web-apis.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender o manifesto de candidatura do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+- [Compreender o manifesto de candidatura do Diretório Ativo Azure](./reference-app-manifest.md)

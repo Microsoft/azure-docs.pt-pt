@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550418"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116602"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -27,10 +27,10 @@ Este documento centra-se em ativar a autenticação sem palavras-passe baseada e
 > [!NOTE]
 > As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 - [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)
-- [Pré-visualização do registo combinado de informações de segurança](concept-registration-mfa-sspr-combined.md)
+- Ativar a [pré-visualização do registo de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - WebAuthN requer versão 1809 ou superior do Windows 10**
 
@@ -97,7 +97,7 @@ O fornecimento e desavising do administrador das chaves de segurança não estã
 
 Estamos a trabalhar no suporte de uma funcionalidade que permite a mudança da UPN nos dispositivos híbridos Azure AD e Azure AD. Se a UPN de um utilizador mudar, já não é possível modificar as teclas de segurança FIDO2 para ter em conta a alteração. A resolução é para reiniciar o dispositivo e o utilizador tem de se recandistar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Chave de segurança FIDO2, o Windows 10, in](howto-authentication-passwordless-security-key-windows.md)
 

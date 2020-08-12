@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533994"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119443"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de cumprir estes pré-requisitos.
 
 ### <a name="choose-the-appropriate-identities"></a>Escolha as identidades apropriadas
 
-As aplicações [do Governo Azure](https://docs.microsoft.com/azure/azure-government/) podem usar identidades do Governo AD Azure e identidades públicas da Azure AD para autenticar os utilizadores. Como pode usar qualquer uma destas identidades, tem de decidir qual o ponto final da autoridade que deve escolher para o seu cenário:
+As aplicações [do Governo Azure](../../azure-government/index.yml) podem usar identidades do Governo AD Azure e identidades públicas da Azure AD para autenticar os utilizadores. Como pode usar qualquer uma destas identidades, tem de decidir qual o ponto final da autoridade que deve escolher para o seu cenário:
 
 - Público Azure AD: Normalmente usado se a sua organização já tem um inquilino público Azure AD para apoiar o Office 365 (Público ou GCC) ou outra aplicação.
 - Governo Azure AD: Normalmente usado se a sua organização já tem um inquilino do Governo Azure AD para apoiar o Office 365 (GCC High ou DoD) ou está a criar um novo inquilino no Governo Azure AD.
@@ -49,7 +49,7 @@ Depois de decidir, uma consideração especial é onde realiza o registo da sua 
 
 ### <a name="get-an-azure-government-subscription"></a>Obtenha uma assinatura do Governo Azure
 
-Para obter uma assinatura do Governo Azure, consulte [Managing e connecting à sua subscrição no Governo Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+Para obter uma assinatura do Governo Azure, consulte [Managing e connecting à sua subscrição no Governo Azure](../../azure-government/documentation-government-manage-subscriptions.md).
 
 Se não tiver uma assinatura do Governo Azure, crie uma [conta gratuita](https://azure.microsoft.com/global-infrastructure/government/request/) antes de começar.
 
@@ -127,14 +127,14 @@ Neste código:
     - Se a sua candidatura apoiar **contas neste diretório organizacional,** substitua este valor pelo ID do inquilino ou nome do inquilino (por exemplo, contoso.microsoft.com).
     - Se a sua aplicação suportar **contas em qualquer diretório organizacional,** substitua este valor por `organizations` .
 
-    Para encontrar pontos finais de autenticação para todas as nuvens nacionais, consulte [os pontos finais de autenticação AD AZure](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    Para encontrar pontos finais de autenticação para todas as nuvens nacionais, consulte [os pontos finais de autenticação AD AZure](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > As contas pessoais da Microsoft não são suportadas nas nuvens nacionais.
 
 - `graphEndpoint`é o ponto final do Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
 
-   Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais do Microsoft Graph em nuvens nacionais.](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)
+   Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais do Microsoft Graph em nuvens nacionais.](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)
 
 ## <a name="python"></a>[Python](#tab/python)
 
@@ -150,7 +150,7 @@ Para ativar a sua aplicação MSAL Python para nuvens soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Aqui está um exemplo de um ponto final gráfico, com âmbito:
 
@@ -173,7 +173,7 @@ Aqui está uma autoridade exemplo:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Aqui está um exemplo de um ponto final gráfico, com âmbito:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Saiba mais sobre:
 
 - [Autenticação em Nuvens Nacionais](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Alemanha](https://docs.microsoft.com/azure/germany/)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Alemanha](../../germany/index.yml)

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: f2be5a4ffb239b445381b5e7c84de15c0bcea371
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b060b1b36edf0bf92f7aac9687b1e833c79a4062
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553913"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120495"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
-Neste arranque rápido, você vai aprender a escrever uma aplicação .NET Core que pode obter um token de acesso usando a própria identidade da aplicação e, em seguida, ligar para a Microsoft Graph API para mostrar uma [lista de utilizadores](https://docs.microsoft.com/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste arranque rápido, você vai aprender a escrever uma aplicação .NET Core que pode obter um token de acesso usando a própria identidade da aplicação e, em seguida, ligar para a Microsoft Graph API para mostrar uma [lista de utilizadores](/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -198,13 +198,13 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Em que: | Description |
+> | Em que: | Descrição |
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 > | `config.Authority`    | (Opcional) O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id do seu inquilino.|
 
-Para mais informações, consulte a [documentação de referência para `ConfidentialClientApplication` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Para mais informações, consulte a [documentação de referência para `ConfidentialClientApplication` ](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
@@ -215,11 +215,11 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
-Para mais informações, consulte a [documentação de referência para `AcquireTokenForClient` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
+Para mais informações, consulte a [documentação de referência para `AcquireTokenForClient` ](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

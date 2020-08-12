@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194058"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119900"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache fichas utilizando a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -30,7 +30,7 @@ Também pode limpar a cache simbólica, que é conseguida removendo as contas da
 
 ## <a name="scopes-when-acquiring-tokens"></a>Âmbitos na aquisição de fichas
 
-[Os âmbitos](v2-permissions-and-consent.md) são as permissões que uma API web expõe a que as aplicações do cliente podem solicitar acesso. As aplicações do cliente solicitam o consentimento do utilizador para estes âmbitos ao escrutinar pedidos de autenticação para obter fichas para aceder às APIs da web. O MSAL permite-lhe obter fichas para aceder a Azure AD para programadores (v1.0) e plataforma de identidade microsoft (v2.0) APIs. o protocolo v2.0 utiliza âmbitos em vez de recursos nos pedidos. Para mais informações, leia [a comparação v1.0 e v2.0](active-directory-v2-compare.md). Com base na configuração da API web da versão simbólica que aceita, o ponto final v2.0 devolve o token de acesso ao MSAL.
+[Os âmbitos](v2-permissions-and-consent.md) são as permissões que uma API web expõe a que as aplicações do cliente podem solicitar acesso. As aplicações do cliente solicitam o consentimento do utilizador para estes âmbitos ao escrutinar pedidos de autenticação para obter fichas para aceder às APIs da web. O MSAL permite-lhe obter fichas para aceder a Azure AD para programadores (v1.0) e plataforma de identidade microsoft (v2.0) APIs. o protocolo v2.0 utiliza âmbitos em vez de recursos nos pedidos. Para mais informações, leia [a comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Com base na configuração da API web da versão simbólica que aceita, o ponto final v2.0 devolve o token de acesso ao MSAL.
 
 Vários dos métodos de aquisição simbólicos da MSAL requerem um `scopes` parâmetro. O `scopes` parâmetro é uma lista de cordas que declaram as permissões desejadas e os recursos solicitados. Os âmbitos bem conhecidos são as permissões do [Microsoft Graph](/graph/permissions-reference).
 
@@ -116,7 +116,7 @@ Quando o seu cliente solicita um token de acesso, a Azure AD também retorna um 
 - As miras para as quais o símbolo foi emitido.
 - O ID único para o utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se estiver a utilizar o MSAL para Java, aprenda sobre [a serialização de cache de fichas personalizadas em MSAL para Java.](msal-java-token-cache-serialization.md)
 

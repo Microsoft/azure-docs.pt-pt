@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e5d25169aa3daee33a9f02e605cbff91776dc7f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72e6d0a8677f7a8175223b80541c99026a9eb16f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885434"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119169"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon app que chama APIs web - passe para a produção
 
@@ -33,7 +33,7 @@ Terá de explicar aos seus clientes como realizar estas operações. Para mais i
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão alguns links para ajudá-lo a aprender mais:
 
@@ -41,8 +41,8 @@ Aqui estão alguns links para ajudá-lo a aprender mais:
 
 - Quickstart: [Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola utilizando a identidade da aplicação](./quickstart-v2-netcore-daemon.md).
 - Documentação de referência para:
-  - ConfidencialIzação [ConfidencialApplicação](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)de Pensão .
-  - Chamando [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - ConfidencialIzação [ConfidencialApplicação](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)de Pensão .
+  - Chamando [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Outras amostras/tutoriais:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) apresenta uma aplicação simples de consola .NET Core daemon que exibe os utilizadores de um inquilino consultando o Microsoft Graph.
 

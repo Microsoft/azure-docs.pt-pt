@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8d22e86a37ca386d41374cf0b4811943108d293b
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553855"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114562"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -128,7 +128,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
@@ -150,7 +150,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `_scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 
@@ -165,7 +165,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 > | `firstAccount` | Especifica o primeiro utilizador na cache (a MSAL suporta vários utilizadores numa única aplicação). |
@@ -177,4 +177,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 
 > [!div class="nextstepaction"]
-> [Chamar tutorial da Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
+> [Chamar tutorial da Graph API](./tutorial-v2-windows-desktop.md)

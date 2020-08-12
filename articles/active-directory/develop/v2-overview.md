@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231680"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119560"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Visão geral da plataforma de identidade da Microsoft
 
@@ -42,14 +42,14 @@ Com a plataforma de identidade da Microsoft, pode escrever código uma vez e che
 
 Escolha o cenário de [candidatura](authentication-flows-app-scenarios.md) que gostaria de construir. Cada um destes caminhos de cenário começa com uma visão geral e liga-se a um arranque rápido para ajudá-lo a levantar-se e a correr:
 
-- [Aplicativo de uma só página (SPA)](scenario-spa-overview.md)
+- [Aplicação de página única (SPA)](scenario-spa-overview.md)
 - [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md)
 - [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 - [API web protegida](scenario-protected-web-api-overview.md)
 - [API Web que chama APIs Web](scenario-web-api-call-api-overview.md)
 - [Aplicação de ambiente de trabalho](scenario-desktop-overview.md)
 - [Aplicações daemon](scenario-daemon-overview.md)
-- [Aplicativo móvel](scenario-mobile-overview.md)
+- [Aplicação móvel](scenario-mobile-overview.md)
 
 À medida que trabalha com a plataforma de identidade da Microsoft para integrar a autenticação e autorização nas suas apps, pode consultar esta imagem que descreve os cenários de aplicações mais comuns e os seus componentes de identidade. Selecione a imagem para vê-la em tamanho real.
 
@@ -59,7 +59,7 @@ Escolha o cenário de [candidatura](authentication-flows-app-scenarios.md) que g
 
 Saiba como a autenticação central e os conceitos AD do Azure se aplicam à plataforma de identidade da Microsoft neste conjunto recomendado de artigos:
 
-- [Noções básicas sobre autenticação](authentication-scenarios.md)
+- [Noções básicas sobre autenticação](./authentication-vs-authorization.md)
 - [Diretores de aplicação e serviços](app-objects-and-service-principals.md)
 - [Audiências](v2-supported-account-types.md)
 - [Permissões e consentimento](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Saiba como a autenticação central e os conceitos AD do Azure se aplicam à pla
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) - Construa aplicações voltadas para o cliente que os seus utilizadores podem iniciar súb9 para usar as suas contas sociais como facebook ou Google, ou usando um endereço de e-mail e senha.
 
-[Azure AD B2B](../b2b/what-is-b2b.md) - Convide os utilizadores externos para o seu inquilino Azure AD como utilizadores "convidados" e atribua permissões de autorização enquanto utilizam as suas credenciais existentes para autenticação.
+[Azure AD B2B](../external-identities/what-is-b2b.md) - Convide os utilizadores externos para o seu inquilino Azure AD como utilizadores "convidados" e atribua permissões de autorização enquanto utilizam as suas credenciais existentes para autenticação.
 
 > [!TIP]
 > Procura documentação da *plataforma de desenvolvimento do Azure Ative Directory (v1.0)* ? Consulte o [Diretório Ativo Azure para programadores (v1.0) visão geral](../azuread-dev/v1-overview.md).

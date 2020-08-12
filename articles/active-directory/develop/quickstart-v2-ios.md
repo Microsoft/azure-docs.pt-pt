@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554060"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115259"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Quickstart: Inicie sísmia nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação para iOS ou macOS
 
@@ -101,12 +101,12 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
-> 1. Se estiver a construir uma aplicação para [nuvens nacionais Azure AD,](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints)substitua a linha que começa por 'let kGraphEndpoint' e 'let kAuthority' com os pontos finais corretos. Para acesso global, utilize valores predefinidos:
+> 1. Se estiver a construir uma aplicação para [nuvens nacionais Azure AD,](/graph/deployments#app-registration-and-token-service-root-endpoints)substitua a linha que começa por 'let kGraphEndpoint' e 'let kAuthority' com os pontos finais corretos. Para acesso global, utilize valores predefinidos:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
-> 1. Outros pontos finais estão documentados [aqui.](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints) Por exemplo, para executar o quickstart com a Azure AD Germany, use o seguinte:
+> 1. Outros pontos finais estão documentados [aqui.](/graph/deployments#app-registration-and-token-service-root-endpoints) Por exemplo, para executar o quickstart com a Azure AD Germany, use o seguinte:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
@@ -173,7 +173,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `clientId` | O ID de Aplicação da aplicação registada em *portal.azure.com* |
 > | `authority` | O ponto final da plataforma de identidade da Microsoft. Na maioria dos casos será *https<span/>: //login.microsoftonline.com/common* |
@@ -237,7 +237,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 
@@ -257,7 +257,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 > | `account` | A conta está a ser pedida. Este quickstart é sobre uma única aplicação de conta. Se quiser construir uma aplicação multi-conta, terá de definir lógica para identificar qual a conta a utilizar para pedidos simbólicos usando `accountsFromDeviceForParameters:completionBlock:` e passando corretamente`accountIdentifier` |
@@ -269,6 +269,6 @@ Experimente o tutorial para iOS e macOS para um guia completo passo a passo sobr
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar a aplicação utilizada neste arranque rápido
 
 > [!div class="nextstepaction"]
-> [Ligue para o tutorial da API do Gráfico para iOS e macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Ligue para o tutorial da API do Gráfico para iOS e macOS](./tutorial-v2-ios.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

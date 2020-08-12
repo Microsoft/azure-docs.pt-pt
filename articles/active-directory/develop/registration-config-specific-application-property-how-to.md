@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883173"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120699"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo no portal do Azure para aplicações personalizadas
 
@@ -36,9 +36,9 @@ Este artigo dá-lhe uma breve descrição de todos os campos disponíveis no for
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | O nome da aplicação. Deve ter um mínimo de quatro caracteres.                |
+| Nome             | O nome da aplicação. Deve ter um mínimo de quatro caracteres.                |
 | Tipos de conta suportados| Selecione quais as contas que gostaria que a sua candidatura suportasse: contas apenas neste diretório organizacional, contas em qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
-| Redirecionamento URI (opcional) | Selecione o tipo de aplicação que está a construir, **Web** ou **cliente público (mobile & desktop)** e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para a sua aplicação. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico da sua aplicação, como myapp://auth. Para ver exemplos específicos para aplicações web ou aplicações nativas, confira os [nossos quickstarts](https://docs.microsoft.com/azure/active-directory/develop).|
+| Redirecionamento URI (opcional) | Selecione o tipo de aplicação que está a construir, **Web** ou **cliente público (mobile & desktop)** e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para a sua aplicação. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico da sua aplicação, como myapp://auth. Para ver exemplos específicos para aplicações web ou aplicações nativas, confira os [nossos quickstarts](./index.yml).|
 
 Depois de ter preenchido os campos acima, a aplicação está registada no portal Azure e é redirecionada para a página geral da aplicação. As páginas de definições no painel esquerdo em **Manage** têm mais campos para você personalizar a sua aplicação. As tabelas abaixo descrevem todos os campos. Você só veria um subconjunto destes campos, dependendo se você criou uma aplicação web ou uma aplicação de cliente público.
 
@@ -70,6 +70,6 @@ Depois de ter preenchido os campos acima, a aplicação está registada no porta
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Segredos de cliente            | Pode criar segredos de clientes, ou chaves, para aceder programáticamente às APIs da web protegidas pela Azure AD sem qualquer interação do utilizador. A partir da página secreta do **novo cliente,** insira uma descrição chave e a data de validade e guarde para gerar a chave. Certifique-se de guardá-lo em algum lugar seguro, já que não poderá acessá-lo mais tarde.             |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gestão de Aplicações com Diretório Ativo Azure](../manage-apps/what-is-application-management.md)

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479518"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119679"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-A Microsoft Graph API é uma API web RESTful que lhe permite aceder aos recursos de serviço da Microsoft Cloud. Depois de registar a sua aplicação e obter fichas de autenticação para um utilizador ou serviço, pode escrupulesar os pedidos para a API do Gráfico da Microsoft. Para obter mais informações, consulte [a visão geral do Microsoft Graph](https://docs.microsoft.com/graph/overview).
+A Microsoft Graph API é uma API web RESTful que lhe permite aceder aos recursos de serviço da Microsoft Cloud. Depois de registar a sua aplicação e obter fichas de autenticação para um utilizador ou serviço, pode escrupulesar os pedidos para a API do Gráfico da Microsoft. Para obter mais informações, consulte [a visão geral do Microsoft Graph](/graph/overview).
 
 O Microsoft Graph expõe AS APIs e bibliotecas de clientes para aceder a dados sobre os seguintes serviços Microsoft 365:
 - Serviços do Office 365: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
@@ -30,11 +30,11 @@ O Microsoft Graph expõe AS APIs e bibliotecas de clientes para aceder a dados s
 
 ## <a name="versions"></a>Versões
 
-O Microsoft Graph suporta atualmente duas versões: v1.0 e beta. A versão v1.0 inclui APIs geralmente disponíveis. Utilize a versão v1.0 para todas as aplicações de produção. A beta inclui APIs que estão atualmente em pré-visualização. Como podemos introduzir alterações de rutura nas nossas APIs beta, recomendamos que utilize a versão beta apenas para testar aplicações que estão em desenvolvimento; não utilize APIs beta nas suas aplicações de produção. Para obter mais informações, consulte [as políticas de versão, suporte e quebra de alterações para o Microsoft Graph](https://docs.microsoft.com/graph/versioning-and-support).
+O Microsoft Graph suporta atualmente duas versões: v1.0 e beta. A versão v1.0 inclui APIs geralmente disponíveis. Utilize a versão v1.0 para todas as aplicações de produção. A beta inclui APIs que estão atualmente em pré-visualização. Como podemos introduzir alterações de rutura nas nossas APIs beta, recomendamos que utilize a versão beta apenas para testar aplicações que estão em desenvolvimento; não utilize APIs beta nas suas aplicações de produção. Para obter mais informações, consulte [as políticas de versão, suporte e quebra de alterações para o Microsoft Graph](/graph/versioning-and-support).
 
-Para começar a utilizar as APIs beta, consulte a [referência do ponto final beta do Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-beta)
+Para começar a utilizar as APIs beta, consulte a [referência do ponto final beta do Microsoft Graph](/graph/api/overview?view=graph-rest-beta)
 
-Para começar a utilizar as APIs v1.0, consulte a [referência API do Microsoft Graph REST v1.0](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)
+Para começar a utilizar as APIs v1.0, consulte a [referência API do Microsoft Graph REST v1.0](/graph/api/overview?view=graph-rest-1.0)
 
 ## <a name="get-started"></a>Introdução
 
@@ -42,7 +42,7 @@ Para ler ou escrever para um recurso como um utilizador ou uma mensagem de e-mai
 
 `{HTTP method} https://graph.microsoft.com/{version}/{resource}?{query-parameters}`
 
-Para obter mais informações sobre os elementos do pedido construído, consulte [utilizar a API do Gráfico da Microsoft](https://docs.microsoft.com/graph/use-the-api)
+Para obter mais informações sobre os elementos do pedido construído, consulte [utilizar a API do Gráfico da Microsoft](/graph/use-the-api)
 
 As amostras Quickstart estão disponíveis para lhe mostrar como aceder à potência da API do Gráfico microsoft. As amostras disponíveis acedem a dois serviços com uma autenticação: conta Microsoft e Outlook. Cada quickstart acede a informações dos perfis dos utilizadores da conta da Microsoft e exibe eventos a partir do seu calendário.
 Os arranques rápidos envolvem quatro passos:
@@ -51,7 +51,7 @@ Os arranques rápidos envolvem quatro passos:
 - Construa a amostra
 - Inscreva-se e veja eventos no seu calendário
 
-Quando completar o arranque rápido, tem uma aplicação pronta a ser executada. Para obter mais informações, consulte o [Microsoft Graph quickstart FAQ](https://docs.microsoft.com/graph/quick-start-faq). Para começar com as amostras, consulte o [Microsoft Graph QuickStart](https://developer.microsoft.com/graph/quick-start).
+Quando completar o arranque rápido, tem uma aplicação pronta a ser executada. Para obter mais informações, consulte o [Microsoft Graph quickstart FAQ](/graph/quick-start-faq). Para começar com as amostras, consulte o [Microsoft Graph QuickStart](https://developer.microsoft.com/graph/quick-start).
 
 ## <a name="tools"></a>Ferramentas
 

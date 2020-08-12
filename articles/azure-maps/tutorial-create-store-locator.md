@@ -3,18 +3,18 @@ title: 'Tutorial: Criar uma aplicação de localizador de loja usando Azure Maps
 description: Saiba como criar aplicações web localizadoras de loja. Utilize o Azure Maps Web SDK para criar uma página web, consultar o serviço de pesquisa e exibir resultados num mapa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 08/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: e69385d174cfb2ea3aa37867d65e0ac9eb5eaff0
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080801"
+ms.locfileid: "88121260"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -31,25 +31,24 @@ Este tutorial guia-o através do processo de criação de um localizador de loja
 
 <a id="Intro"></a>
 
-Salte para a frente para o [exemplo do localizador](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) da loja ao vivo ou [código fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Salte para a frente para o [exemplo do localizador](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) da loja ao vivo ou [código fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos neste tutorial, primeiro precisa de criar uma conta Azure Maps e obter a sua chave primária (chave de subscrição). Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma subscrição de conta Azure Maps com nível de preços S1 e siga os passos na chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
+1. [Faça uma conta Azure Maps com nível de preços S1](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
+
+Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
 ## <a name="design"></a>Conceção
 
 Antes de entrar no código, é uma boa ideia começar com um desenho. O localizador da sua loja pode ser tão simples ou complexo como pretende. Neste tutorial, criamos um simples localizador de lojas. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se assim o desejar. Criamos um localizador de lojas para uma empresa fictícia chamada Contoso Coffee. A seguinte figura mostra uma estrutura de arame do layout geral do localizador da loja que construímos neste tutorial:
 
-<center>
-
-![Wireframe de uma aplicação de localizador de loja para locais do café Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe de uma aplicação de localizador de loja para locais do café Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)
 
 Para maximizar a utilidade deste localizador de loja, incluímos um layout responsivo que se ajusta quando a largura do ecrã de um utilizador é inferior a 700 pixels de largura. Um layout responsivo facilita a utilização do localizador da loja num pequeno ecrã, como num dispositivo móvel. Aqui está uma moldura de um layout de pequeno ecrã:  
 
-<center>
-
-![Wireframe da aplicação de localizador de café Contoso em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe da aplicação de localizador de café Contoso em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</
 
 Os cabos mostram uma aplicação bastante simples. A aplicação tem uma caixa de pesquisa, uma lista de lojas próximas, e um mapa que tem alguns marcadores, como símbolos. E tem uma janela pop-up que exibe informações adicionais quando o utilizador seleciona um marcador. Mais detalhadamente, eis as funcionalidades que construímos neste localizador de loja neste tutorial:
 
@@ -71,45 +70,36 @@ Os cabos mostram uma aplicação bastante simples. A aplicação tem uma caixa d
 
 Antes de desenvolvermos uma aplicação de localizador de loja, precisamos de criar um conjunto de dados das lojas que queremos exibir no mapa. Neste tutorial, usamos um conjunto de dados para um café fictício chamado Contoso Coffee. O conjunto de dados deste simples localizador de loja é gerido num livro do Excel. O conjunto de dados contém 10.213 locais de café Contoso, distribuídos por nove países/regiões: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Aqui está uma imagem de como os dados parecem:
 
-<center>
+![Screenshot dos dados do localizador da loja num livro do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)
 
-![Screenshot dos dados do localizador da loja num livro do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
-
-Pode [descarregar o livro excel.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) 
+Pode [descarregar o livro excel.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)
 
 Olhando para a imagem dos dados, podemos fazer as seguintes observações:
-    
+
 * As informações de localização são armazenadas utilizando as **colunas AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas para cada café Contoso. Se não tiver informações de coordenadas, pode utilizar os serviços de Pesquisa no Azure Maps para determinar as coordenadas de localização.
 * Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para acesso wi-fi e cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
 
-> [!Note]
-> O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4325" que usam o datum WGS84. 
+> [!NOTE]
+> O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4325" que usam o datum WGS84.
 
-Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem é carregar os dados numa base de dados e expor um serviço web que questione os dados. Em seguida, pode enviar os resultados para o navegador do utilizador. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados frequentemente. No entanto, esta opção requer mais trabalho de desenvolvimento e tem um custo mais elevado. 
+Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem é carregar os dados numa base de dados e expor um serviço web que questione os dados. Em seguida, pode enviar os resultados para o navegador do utilizador. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados frequentemente. No entanto, esta opção requer mais trabalho de desenvolvimento e tem um custo mais elevado.
 
 Outra abordagem é converter este conjunto de dados num ficheiro de texto plano que o navegador pode facilmente analisar. O ficheiro em si pode ser hospedado com o resto da aplicação. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados mais pequenos porque o utilizador descarrega todos os dados. Utilizamos o ficheiro de texto plano para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do *ficheiroContosoCoffee.txt*. 
+Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do *ficheiroContosoCoffee.txt*.
 
-<center>
-
-![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
 Se abrir o ficheiro de texto no Bloco de Notas, este é semelhante ao seguinte valor:
 
-<center>
-
-![Screenshot de um ficheiro Notepad que mostra um conjunto de dados delimitado por separador](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
-
+![Screenshot de um ficheiro Notepad que mostra um conjunto de dados delimitado por separador](./media/tutorial-create-store-locator/StoreDataTabFile.png)
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
 Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *index.css*e *index.js*. Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens*. Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
 
-<center>
-
-![Screenshot da pasta do projeto do localizador de loja simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Screenshot da pasta do projeto do localizador de loja simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Criar a interface de utilizador
 
@@ -922,23 +912,17 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
 
 Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o *ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
 
-A primeira vez que um utilizador seleciona o botão 'Localização' o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zooms na localização do utilizador e nas cafetarias próximas são mostrados. 
+A primeira vez que um utilizador seleciona o botão 'Localização' o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zooms na localização do utilizador e nas cafetarias próximas são mostrados.
 
-<center>
-
-![Screenshot do pedido do navegador para aceder à localização do utilizador](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![Screenshot do pedido do navegador para aceder à localização do utilizador](./media/tutorial-create-store-locator/GeolocationApiWarning.png)
 
 Quando se faz zoom perto o suficiente numa área que tem localizações de café, os clusters separam-se em locais individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up. O pop-up mostra informações para o local selecionado.
 
-<center>
+![Screenshot do localizador de loja acabado](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)
 
-![Screenshot do localizador de loja acabado](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+Se redimensionar a janela do navegador para menos de 700 pixels de largura ou abrir a aplicação num dispositivo móvel, o layout muda para ser mais adequado para ecrãs mais pequenos.
 
-Se redimensionar a janela do navegador para menos de 700 pixels de largura ou abrir a aplicação num dispositivo móvel, o layout muda para ser mais adequado para ecrãs mais pequenos. 
-
-<center>
-
-![Screenshot da versão de pequeno ecrã do localizador da loja](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Screenshot da versão de pequeno ecrã do localizador da loja](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

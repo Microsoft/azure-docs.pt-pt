@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696526"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119883"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
 
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações autuçam os utilizadores com identidades sociais e locais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações.
+A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações autuçam os utilizadores com identidades sociais e locais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configure as autoridades conhecidas e redirecione a URI
 
@@ -54,7 +54,7 @@ O ficheiro de configuração da aplicação declararia dois `authorities` . Um p
 }
 ```
 
-O `redirect_uri` deve ser registado na configuração da aplicação, bem como para apoiar a `AndroidManifest.xml` reorientação durante o fluxo de [concessão](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)de código de autorização .
+O `redirect_uri` deve ser registado na configuração da aplicação, bem como para apoiar a `AndroidManifest.xml` reorientação durante o fluxo de [concessão](../../active-directory-b2c/authorization-code-flow.md)de código de autorização .
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicializar IPublicClientApplication
 
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Lidar com políticas de mudança de senha
 
-A inscrição na conta local ou o fluxo de utilizador de entrada mostra uma **' Palavra-passe esquecida?** ligação. Clicar neste link não aciona automaticamente o fluxo do utilizador de redefinição de palavra-passe.
+A inscrição na conta local ou o fluxo de utilizador de entrada mostra uma **' Palavra-passe esquecida?** . Clicar neste link não aciona automaticamente o fluxo do utilizador de redefinição de palavra-passe.
 
 Em vez disso, o código de erro `AADB2C90118` é devolvido à sua aplicação. A sua aplicação deve lidar com este código de erro executando um fluxo de utilizador específico que reinicie a palavra-passe.
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken reclama
 
-As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns IDPs não fornecem a `preferred_username` reclamação. Uma vez que esta alegação é utilizada pela MSAL para caching, um valor de espaço `MISSING FROM THE TOKEN RESPONSE` reservado, é usado no seu lugar. Para obter mais informações sobre as reclamações do B2C IdToken, consulte [a visão geral dos tokens no Azure Ative Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns IDPs não fornecem a `preferred_username` reclamação. Uma vez que esta alegação é utilizada pela MSAL para caching, um valor de espaço `MISSING FROM THE TOKEN RESPONSE` reservado, é usado no seu lugar. Para obter mais informações sobre as reclamações do B2C IdToken, consulte [a visão geral dos tokens no Azure Ative Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestão de contas e políticas
 
@@ -237,6 +237,6 @@ Cada política adiciona uma `IAccount` cache para cada utilizador. Se um utiliza
 
 Quando renovar os tokens para uma política com `acquireTokenSilent` , forneça o mesmo que foi devolvido de `IAccount` invocações anteriores da apólice para `AcquireTokenSilentParameters` . Fornecer uma conta devolvida por outra apólice resultará num erro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Azure Ative Directory B2C (Azure AD B2C) no [What is Azure Ative Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+Saiba mais sobre o Azure Ative Directory B2C (Azure AD B2C) no [What is Azure Ative Directory B2C?](../../active-directory-b2c/overview.md)

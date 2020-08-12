@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268535"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119645"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Ponto final da plataforma de identidade da Microsoft UserInfo
 
@@ -34,7 +34,7 @@ Como parte da especificação OpenID Connect, o ponto final do UserInfo é frequ
 
 A informação disponível no token de ID que a sua aplicação pode receber é um superconjunto da informação que pode obter do ponto final do UserInfo.  Como pode obter um token de ID ao mesmo tempo que obtém um token para ligar para o ponto final do UserInfo, sugerimos que utilize esse token de ID para obter informações sobre o utilizador em vez de ligar para o ponto final do UserInfo.  A utilização do token de ID eliminará um a dois pedidos de rede do lançamento da sua aplicação, reduzindo a latência na sua aplicação.
 
-Se necessitar de mais detalhes sobre o utilizador, deverá ligar para a [ `/user` API](https://docs.microsoft.com/graph/api/user-get) do Microsoft Graph para obter informações como o número de escritório ou o título de emprego.   Também pode utilizar [pedidos opcionais](active-directory-optional-claims.md) para incluir informações adicionais do utilizador no seu ID e fichas de acesso.
+Se necessitar de mais detalhes sobre o utilizador, deverá ligar para a [ `/user` API](/graph/api/user-get) do Microsoft Graph para obter informações como o número de escritório ou o título de emprego.   Também pode utilizar [pedidos opcionais](active-directory-optional-claims.md) para incluir informações adicionais do utilizador no seu ID e fichas de acesso.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Chamando o ponto final do UserInfo
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050919"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116653"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Impor no local proteção de senha azure AD para serviços de domínio de diretório ativo
 
@@ -87,6 +87,9 @@ Os componentes de proteção de senha azure AD funcionam da seguinte forma:
 A implantação da Azure AD Password Protection numa floresta AD DS requer o registo dessa floresta com Azure AD. Cada serviço de procuração que seja implantado também deve ser registado no Azure AD. Estes registos florestais e de procuração estão associados a um inquilino específico da AD Azure, que é identificado implicitamente pelas credenciais que são utilizadas durante o registo.
 
 A floresta AD DS e todos os serviços de procuração implantados dentro de uma floresta devem ser registados com o mesmo inquilino. Não é suportado para ter uma floresta AD DS ou qualquer serviço de procuração naquela floresta sendo registrado para diferentes inquilinos AD AZure. Os sintomas de tal implementação mal configurada incluem a incapacidade de descarregar políticas de senha.
+
+> [!NOTE]
+> Os clientes que têm vários inquilinos AD Azure devem, portanto, escolher um inquilino distinto para registar cada floresta para efeitos de Proteção de Senha Azure AD.
 
 ## <a name="download"></a>Download
 

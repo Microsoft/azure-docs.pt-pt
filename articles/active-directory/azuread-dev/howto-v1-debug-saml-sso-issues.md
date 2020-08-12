@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116143"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
 
@@ -102,6 +102,6 @@ Para resolver o erro, siga estes passos:
 1. Agora que reviu a resposta DO SAML, consulte [Error na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
 1. Se ainda não conseguir assinar com sucesso, pode perguntar ao vendedor de aplicações o que falta na resposta SAML.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que o único sign-on está a funcionar com a sua aplicação, pode [automatizar o fornecimento e desaprovisionamento do utilizador às aplicações saaS](../manage-apps/user-provisioning.md) ou [começar com o Acesso Condicional.](../conditional-access/app-based-conditional-access.md)
+Agora que o único sign-on está a funcionar com a sua aplicação, pode [automatizar o fornecimento e desaprovisionamento do utilizador às aplicações saaS](../app-provisioning/user-provisioning.md) ou [começar com o Acesso Condicional.](../conditional-access/app-based-conditional-access.md)

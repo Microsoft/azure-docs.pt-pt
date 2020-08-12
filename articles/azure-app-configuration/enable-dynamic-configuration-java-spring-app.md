@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327927"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121566"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use configuração dinâmica numa aplicação java primavera
 
@@ -36,7 +36,7 @@ Em seguida, abra o ficheiro *pom.xml* num editor de texto e adicione um `<depend
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -46,11 +46,33 @@ Em seguida, abra o ficheiro *pom.xml* num editor de texto e adicione um `<depend
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Guarde o ficheiro, depois construa e execute a sua aplicação como de costume.
+## <a name="run-and-test-the-app-locally"></a>Executar e testar a aplicação localmente
+
+1. Crie a aplicação Spring Boot com o Maven e execute-a.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Abra uma janela do navegador e vá para o URL: `http://localhost:8080` .  Verá a mensagem associada à sua chave. 
+
+    Também pode usar *caracóis* para testar a sua aplicação, por exemplo: 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. Para testar a configuração dinâmica, abra o portal de Configuração de Aplicações Azure associado à sua aplicação. Selecione **Configuration Explorer**e atualize o valor da sua chave apresentada, por exemplo:
+    | Chave | Valor |
+    |---|---|
+    | aplicação/config.message | Olá - Atualizado |
+
+1. Refresque a página do navegador para ver a nova mensagem exibida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

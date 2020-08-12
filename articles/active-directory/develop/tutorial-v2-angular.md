@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 67ce5f898f2f9b6be088a0d01aec908c93ce7418
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446889"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118302"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -71,7 +71,7 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
-Siga as [instruções para registar uma aplicação de uma página](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
+Siga as [instruções para registar uma aplicação de uma página](./scenario-spa-app-registration.md) no portal Azure.
 
 Na página **geral** da aplicação do seu registo, note o valor de **ID da Aplicação (cliente)** para posterior utilização.
 
@@ -124,7 +124,7 @@ Registe o seu valor **URI de redirecionamento** como **http://localhost:4200/** 
     |Nome do valor|Sobre|
     |---------|---------|
     |Enter_the_Application_Id_Here|Na página **geral** do registo da sua candidatura, este é o seu valor **de ID de candidatura (cliente).** |
-    |Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
+    |Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|
     |Enter_the_Tenant_Info_Here| Definir uma das seguintes opções: Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo ID do diretório (inquilino) ou nome do inquilino (por exemplo, **contoso.microsoft.com).** Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por **comum**. Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor pelos **consumidores**. |
     |Enter_the_Redirect_Uri_Here|Substitua-a por **http://localhost:4200** .|
 

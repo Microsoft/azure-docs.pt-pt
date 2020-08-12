@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478200"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117299"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
@@ -61,7 +61,7 @@ A sua aplicação pode apresentar caminhos diferentes para inscrição e início
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Documentação de orientação visual para aquisição de aplicações
 
-A hiperligação "obter a aplicação" tem de redirecionar o utilizador para a página de concessão de acesso (autorização) do Azure AD, para permitir que o administrador de uma organização autorize que a sua aplicação tenha acesso aos dados da respetiva organização, que são alojados pela Microsoft. O artigo [Integrar aplicações com o Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) inclui detalhes sobre como pedir acesso.
+A hiperligação "obter a aplicação" tem de redirecionar o utilizador para a página de concessão de acesso (autorização) do Azure AD, para permitir que o administrador de uma organização autorize que a sua aplicação tenha acesso aos dados da respetiva organização, que são alojados pela Microsoft. O artigo [Integrar aplicações com o Azure Active Directory](./quickstart-register-app.md) inclui detalhes sobre como pedir acesso.
 
 Após o consentimento dos administradores para a sua aplicação, podem optar por adicioná-la à experiência do lançador de aplicações Office 365 dos seus utilizadores (acessível a partir do waffle e a partir de [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Se quiser anunciar esta capacidade, pode utilizar termos como "Adicionar esta aplicação à sua organização" e mostrar um botão como no exemplo seguinte:
 

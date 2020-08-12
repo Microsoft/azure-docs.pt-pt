@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115939"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -286,7 +286,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 #### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de identificação válidos por fonte
 
-| Fonte | ID | Descrição |
+| Origem | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | surname | Nome da família |
 | Utilizador | givenname | Nome Próprio |
@@ -387,7 +387,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para SAML NameID
 
-|Fonte|ID|Descrição|
+|Origem|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | correio|Endereço de E-mail|
 | Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|
@@ -413,12 +413,12 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 | TransformaçãoMethod | Restrições |
 | ----- | ----- |
-| ExtratoMailPrefixo | Nenhum |
+| ExtratoMailPrefixo | Nenhuma |
 | Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto principal de serviço para que uma política de mapeamento de reclamações entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por atores maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao objeto principal de serviço para que uma política de mapeamento de reclamações entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por atores maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 As aplicações que tenham pedido mapeamento de sinistros habilitadas devem validar as suas chaves de assinatura simbólicas, anexando `appid={client_id}` os seus [pedidos de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
 

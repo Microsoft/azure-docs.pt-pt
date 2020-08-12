@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652676"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118693"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações para usar Xamarin Android com MSAL.NET
 Este artigo discute o que deve considerar quando utiliza o Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
@@ -92,7 +92,7 @@ O *ficheiroAndroidManifest.xml* deve conter os seguintes valores:
 
 Substitua o nome do pacote que registou no portal Azure pelo `android:host=` valor. Substitua o haxixe chave que registou no portal Azure pelo `android:path=` valor. O haxixe de assinatura *não* deve ser codificado url. Certifique-se de que um corte dianteiro de referência `/` aparece no início do seu haxixe de assinatura.
 
-Em alternativa, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade em código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
+Em alternativa, [crie a atividade em código](/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade em código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
 
 Aqui está um exemplo de uma classe que representa os valores do ficheiro XML:
 
@@ -160,6 +160,6 @@ Este exemplo contém um caminho de ficheiro correto:
 
 Para mais informações, consulte a amostra de uma [aplicação móvel Xamarin que utiliza a plataforma de identidade da Microsoft.](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) A tabela seguinte resume as informações relevantes no ficheiro README.
 
-| Sample | Plataforma | Description |
+| Sample | Plataforma | Descrição |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | Uma aplicação simples Xamarin.Forms que mostra como usar o MSAL para autenticar contas pessoais da Microsoft e AD AD AZure através do ponto final Azure AD 2.0. A aplicação também mostra como aceder ao Microsoft Graph e mostra o token resultante. <br>![Topologia](media/msal-net-xamarin-android-considerations/topology.png) |

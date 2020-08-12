@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2da2755af4b44c0b17550676845c38c1a93cf801
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ac438b42f25fc82a0a5dd5384205e809e45ff57a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845192"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120090"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -61,7 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 Se estiver interessado em entender mais sobre a cache simbólica, consulte as [opções de serialização da cache token](#token-cache)
 
 > [!NOTE]
-> Para compreender plenamente os exemplos de código aqui, é necessário estar familiarizado com [ASP.NET fundamentos fundamentais do Núcleo](https://docs.microsoft.com/aspnet/core/fundamentals), e em particular com a injeção de [dependência](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) e [as opções.](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)
+> Para compreender plenamente os exemplos de código aqui, é necessário estar familiarizado com [ASP.NET fundamentos fundamentais do Núcleo](/aspnet/core/fundamentals), e em particular com a injeção de [dependência](/aspnet/core/fundamentals/dependency-injection) e [as opções.](/aspnet/core/fundamentals/configuration/options)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -268,7 +268,7 @@ O uso de afirmações de clientes é um cenário avançado, detalhado nas [afirm
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-O ASP.NET tutorial principal usa a injeção de dependência para permitir que você decida a implementação da cache simbólica no ficheiro Startup.cs para a sua aplicação. Microsoft.Identity.Web vem com serializers de cache de fichas pré-construídos descritos na [serialização da cache Token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Uma possibilidade interessante é escolher [caches](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)de memória distribuídos ASP.NET Core:
+O ASP.NET tutorial principal usa a injeção de dependência para permitir que você decida a implementação da cache simbólica no ficheiro Startup.cs para a sua aplicação. Microsoft.Identity.Web vem com serializers de cache de fichas pré-construídos descritos na [serialização da cache Token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Uma possibilidade interessante é escolher [caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache)de memória distribuídos ASP.NET Core:
 
 ```csharp
 // Use a distributed token cache by adding:

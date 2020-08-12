@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82593170"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115650"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicação
 
@@ -154,9 +154,9 @@ Alguns cenários, como os que envolvem Acesso Condicional relacionado com um ID 
 Para mais informações, consulte [a aplicação Mobile que chama APIs web](scenario-mobile-overview.md).
 
 > [!NOTE]
-> Uma aplicação móvel que usa MSAL.iOS, MSAL. Android, ou MSAL.NET em Xamarin pode ter políticas de proteção de aplicações aplicadas ao mesmo. Por exemplo, as políticas podem impedir um utilizador de copiar texto protegido. A aplicação móvel é gerida pela Intune e é reconhecida pela Intune como uma aplicação gerida. Para obter mais informações, consulte [a visão geral da App SDK da Microsoft Intune](https://docs.microsoft.com/intune/app-sdk).
+> Uma aplicação móvel que usa MSAL.iOS, MSAL. Android, ou MSAL.NET em Xamarin pode ter políticas de proteção de aplicações aplicadas ao mesmo. Por exemplo, as políticas podem impedir um utilizador de copiar texto protegido. A aplicação móvel é gerida pela Intune e é reconhecida pela Intune como uma aplicação gerida. Para obter mais informações, consulte [a visão geral da App SDK da Microsoft Intune](/intune/app-sdk).
 >
-> A [Aplicação Intune SDK](https://docs.microsoft.com/intune/app-sdk-get-started) é separada das bibliotecas MSAL e interage com a Azure AD por si só.
+> A [Aplicação Intune SDK](/intune/app-sdk-get-started) é separada das bibliotecas MSAL e interage com a Azure AD por si só.
 
 ### <a name="protected-web-api"></a>API web protegida
 
@@ -305,5 +305,5 @@ Para obter mais informações, consulte [as bibliotecas suportadas pela Microsof
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [os básicos de autenticação](authentication-scenarios.md) e [os tokens de acesso na plataforma de identidade da Microsoft.](access-tokens.md)
+* Saiba mais sobre [os básicos de autenticação](./authentication-vs-authorization.md) e [os tokens de acesso na plataforma de identidade da Microsoft.](access-tokens.md)
 * Saiba mais sobre [garantir o acesso a aplicações IoT.](/azure/architecture/example-scenario/iot-aad/iot-aad)

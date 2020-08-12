@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 7075fbd098736bb297f4a2e3a93aecca5b9182a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b43029f9c955b69e91ea3a65c2b62391ec1da5b4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478863"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114630"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com o meu projeto WebAPI (serviço de ligação ao Visual Studio Azure Ative Directory)
 
@@ -125,7 +125,7 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 retrosseca os ficheiros 
 
 [Saiba mais sobre o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Cenários de autenticação para o Azure Ative Directory](authentication-scenarios.md)
+- [Cenários de autenticação para o Azure Ative Directory](./authentication-vs-authorization.md)
 - [Adicione o s-in com a Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)

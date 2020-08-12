@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828936"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117231"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -178,7 +178,7 @@ Se optar por não utilizar um certificado, pode criar um novo segredo de aplica�
    ![Copie o valor secreto porque não pode recuperar isto mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configure políticas de acesso aos recursos
-Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.  
+Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.  
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o cofre e selecione **as políticas de acesso**.  
 1. **Selecione Adicionar a política de acesso,** em seguida, selecione as permissões de chave, segredo e certificado que pretende conceder à sua candidatura.  Selecione o principal de serviço que criou anteriormente.

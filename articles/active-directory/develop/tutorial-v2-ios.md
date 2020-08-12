@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904767"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118149"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
@@ -64,7 +64,7 @@ Este tutorial vai criar um novo projeto. Se pretender descarregar o tutorial com
 5. Desa estaca o **idioma** para **Swift** e selecione **Seguinte**.
 6. Selecione uma pasta para criar a sua aplicação e clique em **Criar**.
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 
 1. Vá ao [portal Azure](https://aka.ms/MobileAppReg)
 2. Abra a lâmina de registos da App e clique **em +Novo registo.**
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-O único valor que precisa de modificar acima é o valor atribuído `kClientID` para ser o seu [ID de aplicação.](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id) Este valor faz parte dos dados de Configuração MSAL que guardou durante o passo no início deste tutorial para registar a aplicação no portal Azure.
+O único valor que precisa de modificar acima é o valor atribuído `kClientID` para ser o seu [ID de aplicação.](./developer-glossary.md#application-id-client-id) Este valor faz parte dos dados de Configuração MSAL que guardou durante o passo no início deste tutorial para registar a aplicação no portal Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Configurar definições de projeto xcode
 
@@ -842,4 +842,4 @@ Depois de iniciar sposição, a aplicação apresentará os dados devolvidos a p
 
 ## <a name="get-help"></a>Obter ajuda
 
-Visite [a Ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.
+Visite [a Ajuda e suporte](./developer-support-help-options.md) se tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.
