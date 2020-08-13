@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760804"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167033"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
 Pode montar um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) baseada no Windows ou linux ou num sistema Windows ou Linux que funciona no local utilizando o protocolo NFS 3.0. Este artigo fornece orientação passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3.0 no armazenamento blob, consulte [o suporte ao sistema de ficheiros de rede (NFS) 3.0 no armazenamento do Blob Azure Blob (pré-visualização)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> O suporte ao protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública e está disponível nas seguintes regiões: EUA Leste, US Central e Canadá Central.
+> O apoio ao protocolo NFS 3.0 no armazenamento de Azure Blob está em pré-visualização pública e está disponível nas seguintes regiões: EUA Leste, EUA Central, Eua West Central, Austrália Sudeste, Europa do Norte, Reino Unido Oeste, Coreia Central, Coreia do Sul e Canadá Central.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Passo 1: Registe a função de protocolo NFS 3.0 com a sua assinatura
 
@@ -92,7 +92,7 @@ Ao configurar a conta, escolha estes valores:
 
 |Definição | Valor|
 |----|---|
-|Localização|Uma das seguintes regiões: EUA Leste, EUA Central e Canadá Central |
+|Localização|Uma das seguintes regiões: EUA Leste, EUA Central, EUA West Central, Austrália Sudeste, Europa do Norte, Reino Unido Oeste, Coreia Central, Coreia do Sul e Canadá Central |
 |Desempenho|Premium|
 |Tipo de conta|BlockBlobStorage|
 |Replicação|Armazenamento localmente redundante (LRS)|
@@ -109,7 +109,7 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 
 |Ferramentas|SDKs|
 |---|---|
-|[Explorador de Armazenamento do Azure](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Explorador do Storage do Azure](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|

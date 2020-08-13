@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760928"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166982"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)
 
 O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes Windows ou Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local. 
 
 > [!NOTE]
-> O suporte ao protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública e está disponível nas seguintes regiões: EUA Leste, US Central e Canadá Central.
+> O apoio ao protocolo NFS 3.0 no armazenamento de Azure Blob está em pré-visualização pública e está disponível nas seguintes regiões: EUA Leste, EUA Central, Eua West Central, Austrália Sudeste, Europa do Norte, Reino Unido Oeste, Coreia Central, Coreia do Sul e Canadá Central.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Fluxo de trabalho geral: Montagem de um recipiente de conta de armazenamento
 

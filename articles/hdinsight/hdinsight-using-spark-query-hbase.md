@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087491"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166948"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
 
-O Apache HBase é tipicamente consultado com a sua API de baixo nível (digitalizações, gets e puts) ou com uma sintaxe SQL usando Apache Phoenix. A Apache também fornece o Conector Apache Spark HBase. O Conector é uma alternativa conveniente e performativa para consultar e modificar dados armazenados pela HBase.
+O Apache HBase é tipicamente consultado com a sua API de baixo nível (digitalizações, gets e puts) ou com uma sintaxe SQL usando Apache Phoenix. A Apache também fornece o Conector Apache Spark HBase. O Conector é uma alternativa conveniente e eficiente para consultar e modificar dados armazenados pela HBase.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,11 +27,10 @@ O Apache HBase é tipicamente consultado com a sua API de baixo nível (digitali
 
 ## <a name="overall-process"></a>Processo geral
 
-O processo de alto nível para permitir que o seu cluster Spark questione o seu cluster HDInsight é o seguinte:
+O processo de alto nível para permitir que o seu cluster Spark questione o seu cluster HBase é o seguinte:
 
 1. Prepare alguns dados da amostra na Base H.
-2. Adquirir o ficheiro hbase-site.xml da sua pasta de configuração de cluster HBase (/etc/hbase/conf).
-3. Coloque uma cópia de hbase-site.xml na sua pasta de configuração Spark 2 (/etc/spark2/conf).
+2. Adquirir o ficheiro hbase-site.xml da sua pasta de configuração do cluster HBase (/etc/hbase/conf) e colocar uma cópia de hbase-site.xml na sua pasta de configuração Spark 2 (/etc/spark2/conf). (OPCIONAL: utilizar o script fornecido pela equipa hdInsight para automatizar este processo)
 4. Executar `spark-shell` referência ao Conector Spark HBase pelas coordenadas Maven na `packages` opção.
 5. Defina um catálogo que mapeie o esquema de Spark para HBase.
 6. Interaja com os dados HBase utilizando as APIs RDD ou DataFrame.
@@ -76,36 +75,77 @@ Neste passo, você cria e povoa uma tabela em Apache HBase que você pode então
     ```hbase
     exit
     ```
+    
+## <a name="run-scripts-to-set-up-connection-between-clusters"></a>Executar scripts para configurar a ligação entre clusters
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Copiar hbase-site.xml para o cluster Spark
+Para configurar a comunicação entre clusters, siga os passos abaixo para executar dois scripts nos seus clusters. Estes scripts automatizarão o processo de cópia de ficheiros descrito na secção 'Configurar a comunicação manualmente' abaixo. 
 
-Copie o hbase-site.xml do armazenamento local para a raiz do armazenamento padrão do seu cluster Spark.  Edite o comando abaixo para refletir a sua configuração.  Em seguida, desde a sua sessão SSH aberta até ao cluster HBase, insira o comando:
+* O script que executar a partir do cluster HBase irá carregar `hbase-site.xml` e hBase ip-mapping informações para o armazenamento padrão anexado ao seu cluster Spark. 
+* O guião que você corre do cluster Spark cria dois cron jobs para executar dois scripts ajudantes periodicamente:  
+    1.  HBase cron job – descarregue novos `hbase-site.xml` ficheiros e mapeamento IP HBase da conta de armazenamento padrão Spark para nó local
+    2.  Spark cron job – verifique se ocorreu uma escala de faísca e se o cluster está seguro. Em caso afirmativo, edite `/etc/hosts` para incluir mapeamento IP HBase armazenado localmente
 
-| Valor de sintaxe | Valor novo|
-|---|---|
-|[Regime URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modifique para refletir o seu armazenamento.  A sintaxe abaixo é para armazenamento de bolhas com transferência segura ativada.|
-|`SPARK_STORAGE_CONTAINER`|Substitua-o pelo nome do recipiente de armazenamento predefinido utilizado para o cluster Spark.|
-|`SPARK_STORAGE_ACCOUNT`|Substitua-a pelo nome da conta de armazenamento predefinido utilizada para o cluster Spark.|
+__NOTA:__ Antes de prosseguir, certifique-se de que adicionou a conta de armazenamento do cluster Spark ao seu cluster HBase como conta de armazenamento secundário. Certifique-se de que os scripts estão em ordem, conforme indicado abaixo.
 
-```bash
-hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
-```
 
-Em seguida, saia da sua ligação ssh para o seu cluster HBase.
+1. Utilize [a Ação do Script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) no seu cluster HBase para aplicar as alterações com as seguintes considerações: 
 
-```bash
-exit
-```
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Coloque hbase-site.xml no seu cluster spark
+    |Propriedade | Valor |
+    |---|---|
+    |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
+    |Tipo de nó(s)|Região|
+    |Parâmetros|`-s SECONDARYS_STORAGE_URL`|
+    |Persistiu|sim|
 
-1. Ligue-se ao nó de cabeça do seu cluster Spark utilizando SSH. Edite o comando abaixo substituindo `SPARKCLUSTER` pelo nome do seu cluster Spark e, em seguida, insira o comando:
+    * `SECONDARYS_STORAGE_URL`é a url do armazenamento padrão do lado da Faísca. Exemplo de parâmetro:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+
+
+2.  Utilize a Ação do Script no seu cluster Spark para aplicar as alterações com as seguintes considerações:
+
+    |Propriedade | Valor |
+    |---|---|
+    |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
+    |Tipo de nó(s)|Cabeça, Trabalhador, Zookeeper|
+    |Parâmetros|`-s "SPARK-CRON-SCHEDULE"`(opcional) `-h "HBASE-CRON-SCHEDULE"` (opcional)|
+    |Persistiu|sim|
+
+
+    * Pode especificar com que frequência pretende que este cluster verifique automaticamente se a atualização é atualizada. Predefinido: -s "*/1 * * * *" -h 0 (Neste exemplo, o cron Spark corre a cada minuto, enquanto o cron HBase não funciona)
+    * Uma vez que o cron HBase não está configurado por padrão, tem de repetir este script quando executa a escala do seu cluster HBase. Se o seu cluster HBase for frequentemente, pode optar por configurar automaticamente o cron da HBase. Por exemplo: `-h "*/30 * * * *"` configura o script para efetuar verificações a cada 30 minutos. Isto executará periodicamente o cron cron da HBase para automatizar o descarregamento de novas informações HBase na conta de armazenamento comum para o nó local.
+    
+    
+
+## <a name="set-up-communication-manually-optional-if-provided-script-in-above-step-fails"></a>Configurar a comunicação manualmente (Opcional, se o script fornecido em cima do passo falhar)
+
+__NOTA:__ Estes passos precisam de ser atuados sempre que um dos aglomerados passa por uma atividade de escala.
+
+1. Copie o hbase-site.xml do armazenamento local para a raiz do armazenamento padrão do seu cluster Spark.  Edite o comando abaixo para refletir a sua configuração.  Em seguida, desde a sua sessão SSH aberta até ao cluster HBase, insira o comando:
+
+    | Valor de sintaxe | Valor novo|
+    |---|---|
+    |[Regime URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modifique para refletir o seu armazenamento.  A sintaxe abaixo é para armazenamento de bolhas com transferência segura ativada.|
+    |`SPARK_STORAGE_CONTAINER`|Substitua-o pelo nome do recipiente de armazenamento predefinido utilizado para o cluster Spark.|
+    |`SPARK_STORAGE_ACCOUNT`|Substitua-a pelo nome da conta de armazenamento predefinido utilizada para o cluster Spark.|
+
+    ```bash
+    hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+    ```
+
+2. Em seguida, saia da sua ligação ssh para o seu cluster HBase.
+
+    ```bash
+    exit
+    ```
+
+
+3. Ligue-se ao nó de cabeça do seu cluster Spark utilizando SSH. Edite o comando abaixo substituindo `SPARKCLUSTER` pelo nome do seu cluster Spark e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Introduza o comando abaixo para copiar `hbase-site.xml` do armazenamento predefinido do seu cluster Spark para a pasta de configuração Spark 2 no armazenamento local do cluster:
+4. Introduza o comando abaixo para copiar `hbase-site.xml` do armazenamento predefinido do seu cluster Spark para a pasta de configuração Spark 2 no armazenamento local do cluster:
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -125,7 +165,7 @@ Como exemplo, a tabela a seguir lista duas versões e os comandos correspondente
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
     |      2,4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Mantenha esta instância de concha spark aberta e continue a [definir um catálogo e consulta.](#define-a-catalog-and-query) Se não encontrar os frascos que correspondem às suas versões no resposição do SHC Core, continue a ler. 
+2. Mantenha esta instância de concha spark aberta e continue a [definir um catálogo e consulta.](#define-a-catalog-and-query) Se não encontrar os frascos que correspondem às suas versões no repositório SHC Core, continue a ler. 
 
 Pode construir os frascos diretamente a partir do ramo [GitHub, conector de faíscas.](https://github.com/hortonworks-spark/shc) Por exemplo, se estiver a correr com Spark 2.3 e HBase 1.1, complete estes passos:
 
@@ -303,6 +343,6 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
     :q
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conector Apache Spark HBase](https://github.com/hortonworks-spark/shc)
