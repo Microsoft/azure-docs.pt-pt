@@ -161,8 +161,11 @@
             - name: Gerir utilizadores e funções
               href: how-to-assign-roles.md
             - name: Utilizar redes virtuais
-              displayName: 'vnet, blob, private endpoint, private link'
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Utilizar o Private Link
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: Proteger os serviços Web com TLS
               displayName: ssl
               href: how-to-secure-web-service.md

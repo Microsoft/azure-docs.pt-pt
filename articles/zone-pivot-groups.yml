@@ -512,10 +512,26 @@ groups:
     title: SDK Python
   - id: cli
     title: CLI do Azure
+- id: speech-full-stack
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-spx
+    title: CLI
 metadata:
-  ms.openlocfilehash: ea0c191d392c23aa876f794b092fc8b019c44fa7
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 4b45a1cd0fb06c37d79b629fd57329ea937694b8
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88079795"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167526"
