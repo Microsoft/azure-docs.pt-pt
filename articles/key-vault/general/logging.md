@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault registação / Microsoft Docs
-description: Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure.
+description: Saiba como monitorizar o acesso aos seus cofres chave, permitindo o registo do Cofre da Chave Azure, que guarda informações numa conta de armazenamento Azure que fornece.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 263568ef53ec2353bf00ebcd5b48a212f0f1eb2d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090591"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192791"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -184,7 +184,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Como pode ver desta saída, as bolhas seguem uma convenção de nomeação:`resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Como pode ver desta saída, as bolhas seguem uma convenção de nomeação: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Os valores data e hora utilizam o UTC.
 

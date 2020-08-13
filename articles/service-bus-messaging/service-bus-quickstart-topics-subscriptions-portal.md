@@ -5,14 +5,14 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: fc84b9ec9cc71d35e31a5c11ae0dd0d2228621da
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341068"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191532"
 ---
-# <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições para o tema
+# <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico
 Neste arranque rápido, você usa o portal Azure para criar um tópico de Service Bus e, em seguida, criar subscrições para esse tópico. 
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as subscrições do Service Bus?

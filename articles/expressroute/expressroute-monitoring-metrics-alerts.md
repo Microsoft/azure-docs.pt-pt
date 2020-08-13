@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Monitorização, Métricas e Alertas'
-description: Esta página fornece informações sobre a monitorização ExpressRoute
+description: Saiba mais sobre a monitorização, métricas e alertas Azure ExpressRoute utilizando o Azure Monitor, o balcão único para todas as métricas, alertando, registos de diagnóstico em Azure.
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49e5acb7fc0cfe947d846f2943fb5071d6554ea5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738911"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192479"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -134,7 +134,7 @@ Nos **Critérios de Alerta,** pode selecionar **O Registo de Atividade** para o 
 
   ![outro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configurar a ligação do ExpressRoute.
   

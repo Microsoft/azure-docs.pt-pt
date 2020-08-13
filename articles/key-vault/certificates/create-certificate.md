@@ -1,6 +1,6 @@
 ---
 title: Métodos de criação de certificados
-description: Formas de criar um certificado em Key Vault.
+description: Saiba mais sobre diferentes opções para criar ou importar um certificado Key Vault em Azure Key Vault. Há várias formas de criar um certificado key vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 312f04ff4b1d860724640dfc9e5ea9d75bb76bae
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81866262"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189978"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 

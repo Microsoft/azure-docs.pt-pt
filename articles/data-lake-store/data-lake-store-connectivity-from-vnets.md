@@ -1,6 +1,6 @@
 ---
 title: Ligue-se ao Azure Data Lake Storage Gen1 a partir de VNETs Microsoft Docs
-description: Ligue-se ao Azure Data Lake Storage Gen1 a partir de VNETs Azure
+description: Saiba como permitir o acesso ao Azure Data Lake Storage Gen1 a partir de máquinas virtuais Azure que têm acesso restrito a recursos.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985412"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191394"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acesso Azure Data Lake Storage Gen1 a partir de VMs dentro de um Azure VNET
 Azure Data Lake Storage Gen1 é um serviço PaaS que funciona em endereços IP da Internet públicos. Qualquer servidor que possa ligar-se à Internet pública pode normalmente ligar-se aos pontos finais da Azure Data Lake Storage Gen1. Por padrão, todos os VMs que estão em VNETs Azure podem aceder à Internet e, portanto, podem aceder a Azure Data Lake Storage Gen1. No entanto, é possível configurar VMs num VNET para não ter acesso à Internet. Para estes VMs, o acesso ao Azure Data Lake Storage Gen1 também é restrito. O bloqueio do acesso público à Internet dos VMs em VNETs Azure pode ser feito utilizando qualquer uma das seguintes abordagens:
@@ -54,7 +54,7 @@ Quando as rotas, quer as UDRs quer as rotas trocadas pelo BGP, são usadas para 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Permitir a conectividade dos VMs restritos através da utilização do ExpressRoute
 Quando um circuito ExpressRoute é configurado, os servidores no local podem aceder ao Data Lake Storage Gen1 através do espreitamento público. Mais detalhes sobre a configuração do ExpressRoute para o espreitamento público estão disponíveis nas [FAQs ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteger dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 

@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Controlos de segurança'
-description: Uma lista de controlos de segurança para a avaliação do Azure ExpressRoute
+description: Conheça os controlos de segurança no Azure ExpressRoute, que são qualidades ou funcionalidades que ajudam a prevenir, detetar e responder a vulnerabilidades de segurança.
 services: expressroute
 ms.service: expressroute
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4589d1aa768548f2ae9ffa01f289c823c0b2e5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74079920"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192414"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Controlos de segurança para a Azure ExpressRoute
 
@@ -61,6 +61,6 @@ Este artigo documenta os controlos de segurança incorporados no Azure ExpressRo
 |---|---|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Através do Fornecedor de Recursos de Rede (NRP). |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

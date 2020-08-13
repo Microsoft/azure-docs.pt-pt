@@ -1,6 +1,6 @@
 ---
 title: Funcionalidades de dados do cliente do Azure Key Vault - Azure Key Vault Microsoft Docs
-description: Saiba mais sobre os dados dos clientes no Key Vault
+description: Conheça os dados do cliente, que o Azure Key Vault recebe durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento geridas.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81617894"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189920"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funcionalidades de dados do cliente do Azure Key Vault
 
@@ -50,7 +50,7 @@ O registo de acesso ao Cofre de Chaves Azure é uma funcionalidade opcional que 
 
 Os registos de diagnóstico Azure Key Vault que contenham dados pessoais podem ser recuperados fazendo um pedido de exportação no portal privacidade do utilizador. Este pedido deve ser feito pelo administrador do arrendatário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Key Vault Logging](logging.md))
 

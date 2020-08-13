@@ -1,6 +1,6 @@
 ---
 title: Autenticação, Pedidos e Respostas
-description: Autenticar para AD para usar o Cofre de Chaves
+description: Saiba como o Azure Key Vault utiliza pedidos e respostas formatados por JSON e sobre a autenticação necessária para a utilização de um cofre de chaves.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430893"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191795"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -28,15 +28,15 @@ Este tópico abrange especificidades para o serviço Azure Key Vault. Para obter
 
  Para trabalhar com objetos no Cofre da Chave Azure, os seguintes são URLs de exemplo:  
 
-- Para criar uma chave chamada TESTKEY numa utilização do Cofre de Chaves -`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Para criar uma chave chamada TESTKEY numa utilização do Cofre de Chaves - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Importar uma chave chamada IMPORTEDKEY para uma utilização do Cofre de Chaves -`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Importar uma chave chamada IMPORTEDKEY para uma utilização do Cofre de Chaves - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Para obter um segredo chamado MYSECRET em um uso de Cofre chave -`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Para obter um segredo chamado MYSECRET em um uso de Cofre chave - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Para assinar uma digestão usando uma chave chamada TESTKEY numa utilização do Cofre de Chaves -`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Para assinar uma digestão usando uma chave chamada TESTKEY numa utilização do Cofre de Chaves - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  A autoridade para um pedido a um Cofre chave é sempre a seguinte,`https://{keyvault-name}.vault.azure.net/`  
+  A autoridade para um pedido a um Cofre chave é sempre a seguinte,  `https://{keyvault-name}.vault.azure.net/`  
 
   As chaves são sempre armazenadas sob o caminho /chaves, os segredos são sempre armazenados sob o caminho /segredos.  
 

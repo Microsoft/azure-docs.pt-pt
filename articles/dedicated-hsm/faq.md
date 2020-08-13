@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes - Azure Dedicado HSM / Microsoft Docs
-description: Perguntas frequentes sobre diferentes tópicos sobre Azure Dedicado HSM
+description: Encontre respostas a perguntas comuns sobre o Módulo de Segurança de Hardware Dedicado Azure, tais como informações básicas, interoperabilidade, alta disponibilidade e suporte.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310390"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189878"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 Encontre respostas a perguntas comuns sobre o Microsoft Azure Dedicado HSM.
 
@@ -69,9 +69,9 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 * E.U.A. Leste
 * E.U.A. Leste 2
 * E.U.A. Oeste
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 * E.U.A. Centro-Sul
-* Ásia Sudeste
+* Sudeste Asiático
 * Ásia Leste
 * Índia Central
 * Índia do Sul

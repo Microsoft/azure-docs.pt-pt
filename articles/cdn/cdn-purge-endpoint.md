@@ -1,6 +1,6 @@
 ---
 title: Purgue um ponto final do Azure CDN ! Microsoft Docs
-description: Aprenda a limpar todo o conteúdo em cache a partir de um ponto final Azure CDN.
+description: Saiba como limpar todos os conteúdos em cache a partir de um ponto final da Rede de Entrega de Conteúdos Azure. Os nós de bordas cache ativos até que o seu tempo de vida expire.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887303"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192543"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgue um ponto final Azure CDN
 ## <a name="overview"></a>Descrição geral
@@ -52,14 +52,14 @@ Este tutorial leva-o a purgar ativos de todos os nós de um ponto final.
    > 
    > 
 4. Selecione quais os ativos que deseja purgar dos nós de borda.  Se desejar limpar todos os ativos, clique na **caixa de verificação Purgar.**  Caso contrário, digite o caminho de cada ativo que pretende purgar na caixa de texto **Path.** Os formatos abaixo são suportados no caminho.
-    1. **Purga de URL única**: Purgue o ativo individual especificando o URL completo, com ou sem a extensão do ficheiro, por exemplo, `/pictures/strasbourg.png` ;`/pictures/strasbourg`
+    1. **Purga de URL única**: Purgue o ativo individual especificando o URL completo, com ou sem a extensão do ficheiro, por exemplo, `/pictures/strasbourg.png` ; `/pictures/strasbourg`
     2. **A purga wildcard**: Asterisco \* pode ser usado como um wildcard. Purgue todas as pastas, sub-pastas e ficheiros sob um ponto final com `/*` ou purgue todas as sub-pastas e ficheiros sob uma pasta específica especificando a pasta seguida por , por `/*` exemplo, `/pictures/*` .  Note que a purga wildcard não é suportada pela Azure CDN da Akamai atualmente. 
     3. **Purga do domínio raiz**: Purgue a raiz do ponto final com "/" no caminho.
    
    > [!TIP]
    > Os caminhos devem ser especificados para purga e devem ser um URL relativo que se enquadre na seguinte [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purgue tudo** e **a purga wildcard** não suportada pela **Azure CDN da Akamai** atualmente.
-   > > Purga de URL única`@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Cadeia de consulta`@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > Purga de URL única `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   > > Cadeia de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Purga wildcard `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` . 
    > 
    > Mais caixas de texto **path** aparecerão depois de introduzir texto para permitir a construção de uma lista de múltiplos ativos.  Pode eliminar os ativos da lista clicando no botão elipse (...) .
@@ -73,7 +73,7 @@ Este tutorial leva-o a purgar ativos de todos os nós de um ponto final.
 > 
 > 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência Azure CDN REST API - Purgar ou Pré-Carregar um ponto final](/rest/api/cdn/endpoints)
 

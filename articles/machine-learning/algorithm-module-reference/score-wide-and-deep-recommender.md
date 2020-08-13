@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536220"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192737"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Score Wide and Deep Recommender
 
@@ -33,7 +33,7 @@ Ao criar este último tipo de previsões, pode operar no *modo de produção* ou
 
 - **O modo de avaliação** funciona num conjunto reduzido de utilizadores ou itens que podem ser avaliados, e é normalmente utilizado durante a experimentação.
 
-Mais detalhes sobre o recomendador Wide and Deep e a sua teoria subjacente podem ser encontrados no artigo de investigação relevante: [Wide & Deep Learning for Recommender Systems](https://arxiv.org/pdf/1606.07792.pdf).  
+Mais detalhes sobre o recomendador Wide and Deep e a sua teoria subjacente podem ser encontrados no artigo de investigação relevante:  [Wide & Deep Learning for Recommender Systems](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-score-wide-and-deep-recommender"></a>Como configurar pontuação ampla e profunda recomendadora
 
@@ -148,9 +148,6 @@ O conjunto de dados pontuado devolvido pela **Score Wide e Deep Recommender** li
 - A primeira coluna contém os identificadores do utilizador.
 - São geradas várias colunas adicionais, dependendo do valor definido para o **número máximo de itens a recomendar a um utilizador**. Cada coluna contém um item recomendado (por identificador). As recomendações são ordenadas pela afinidade do artigo do utilizador, com o item com maior afinidade colocado na coluna, **ponto 1**.
 
-> [!WARNING]
-> Este conjunto de dados pontuado não pode ser avaliado utilizando o módulo [De Avaliação De recomendo.](evaluate-recommender.md)
-
 ##  <a name="technical-notes"></a>Notas técnicas
 
 Esta secção contém respostas a algumas perguntas comuns sobre a utilização do recomendador Wide & Deep para criar previsões.  
@@ -181,6 +178,6 @@ Se tiver experimentado com o recomendador Wide and Deep e, em seguida, mover o m
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

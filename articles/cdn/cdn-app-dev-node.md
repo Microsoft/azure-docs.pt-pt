@@ -1,6 +1,6 @@
 ---
 title: Começa com o Azure CDN SDK para Node.js Microsoft Docs
-description: Aprenda a escrever Node.js aplicações para gerir a Azure CDN.
+description: Aprenda a criar uma aplicação simples Node.js consola que demonstre como automatizar a criação e gestão de perfis e pontos finais da Azure CDN.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 96dc7e8d9fb647779fc2188fe36fe9fbced2e53c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: da695975b92ea6f81de103da5edf730811a193f8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387494"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190704"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Depois de as embalagens serem feitas para instalar, o *package.jsno* ficheiro de
 }
 ```
 
-Finalmente, utilizando o seu editor de texto, crie um ficheiro de texto em branco e guarde-o na raiz da nossa pasta de projeto *à medida queapp.js*.  Estamos prontos para começar a escrever código.
+Finalmente, utilizando o seu editor de texto, crie um ficheiro de texto em branco e guarde-o na raiz da nossa pasta de projeto * à medida queapp.js*.  Estamos prontos para começar a escrever código.
 
 ## <a name="requires-constants-authentication-and-structure"></a>Requer, constantes, autenticação e estrutura
 Com *app.js* aberto no nosso editor, vamos escrever a estrutura básica do nosso programa.
@@ -345,7 +345,7 @@ function cdnDelete() {
 Agora podemos executar o nosso programa de Node.js usando o nosso depuração favorito ou na consola.
 
 > [!TIP]
-> Se estiver a usar o Código do Estúdio Visual como seu depurado, terá de configurar o seu ambiente para passar nos parâmetros da linha de comando.  O Código do Estúdio Visual faz isto no **launch.jsem** ficheiro.  Procure uma propriedade chamada **Args** e adicione uma variedade de valores de corda para os seus parâmetros, de modo que se pareça com este: `"args": ["list", "profiles"]` .
+> Se estiver a usar o Código do Estúdio Visual como seu depurado, terá de configurar o seu ambiente para passar nos parâmetros da linha de comando.  O Código do Estúdio Visual faz isto no **launch.jsem** ficheiro.  Procure uma propriedade chamada **Args** e adicione uma variedade de valores de corda para os seus parâmetros, de modo que se pareça com este:  `"args": ["list", "profiles"]` .
 > 
 > 
 

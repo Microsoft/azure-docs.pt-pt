@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade - Azure Dedicado HSM / Microsoft Docs
-description: Azure Dedicado HSM exemplo de alta disponibilidade e considerações básicas
+description: Conheça as considerações básicas para a Azure Dedicada HSM alta disponibilidade. Este artigo inclui um exemplo.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70882243"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189856"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicado HSM alta disponibilidade
 
@@ -25,20 +25,20 @@ O Azure Dedicated HSM é apoiado pelos centros de dados altamente disponíveis d
 
 ## <a name="high-availability-example"></a>Exemplo de alta disponibilidade
 
-As informações sobre como configurar dispositivos HSM para uma elevada disponibilidade a nível de software estão no 'Guia de Administração HSM da Rede Gemalto Luna'. Este documento está disponível na [Página Gemalto HSM](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
+As informações sobre como configurar dispositivos HSM para uma elevada disponibilidade a nível de software estão no 'Guia de Administração HSM da Rede Gemalto Luna'. Este documento está disponível na  [Página Gemalto HSM](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
 O diagrama que se segue mostra uma arquitetura altamente disponível. Utiliza vários dispositivos na região e vários dispositivos emparelhados numa região separada. Esta arquitetura utiliza um mínimo de quatro dispositivos HSM e componentes de rede virtual.
 
 ![Diagrama de alta disponibilidade](media/high-availability/high-availability.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Recomenda-se que todos os conceitos-chave do serviço, tais como alta disponibilidade e segurança, sejam bem compreendidos antes do fornecimento de dispositivos e design de aplicações ou implementação.
 Outros tópicos de nível de conceito:
 
 * [Arquitetura de Implantação](deployment-architecture.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)
 

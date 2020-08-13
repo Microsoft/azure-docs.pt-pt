@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: afd3979690b8952c915a49099ee04b3d416031fd
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185677"
+ms.locfileid: "88189732"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para a replicação da VMware para a Azure
 
@@ -83,7 +83,7 @@ Excluir pastas seguintes do software Antivírus
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Diretório de instalação de servidor de processo equilibrado da Azure Site Recovery, Exemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
-## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se o Software Antivírus estiver ativo no Linux Master Target
+### <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se o Software Antivírus estiver ativo no Linux Master Target
 
 Excluir pastas seguintes do software Antivírus
 

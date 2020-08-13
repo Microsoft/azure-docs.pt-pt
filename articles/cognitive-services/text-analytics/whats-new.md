@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121855"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192030"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -33,18 +33,18 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 
 As seguintes atualizações são específicas para a libertação de agosto do Text Analytics apenas para recipientes de saúde.
 
-* Nova versão modelo para Text Analytics para a saúde:`2020-07-24`
-* Novo URL para envio de Texto Analytics para pedidos de saúde:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nova versão modelo para Text Analytics para a saúde: `2020-07-24`
+* Novo URL para envio de Texto Analytics para pedidos de saúde: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Por favor, note que será necessária uma limpeza de cache do navegador para utilizar a app web de demonstração incluída nesta nova imagem de recipiente)
 
 As seguintes propriedades na resposta JSON mudaram:
 
 * `type` mudou de nome para `category` 
 * `score` mudou de nome para `confidenceScore`
 * As entidades no `category` domínio da saída JSON estão agora no caso Pascal. As seguintes entidades foram renomeadas:
-    * `EXAMINATION_RELATION`foi renomeado para `RelationalOperator` .
-    * `EXAMINATION_UNIT`foi renomeado para `MeasurementUnit` .
-    * `EXAMINATION_VALUE`foi renomeado para `MeasurementValue` .
-    * `ROUTE_OR_MODE`foi `MedicationRoute` renomeado.
+    * `EXAMINATION_RELATION` foi renomeado para `RelationalOperator` .
+    * `EXAMINATION_UNIT` foi renomeado para `MeasurementUnit` .
+    * `EXAMINATION_VALUE` foi renomeado para `MeasurementValue` .
+    * `ROUTE_OR_MODE` foi `MedicationRoute` renomeado.
     * A entidade relacional `ROUTE_OR_MODE_OF_MEDICATION` foi renomeada para `RouteOfMedication` .
 
 Foram acrescentadas as seguintes entidades:
@@ -82,7 +82,7 @@ O recipiente oferece as seguintes características:
 
 A API v3 de Análise de Texto está disponível geralmente com as seguintes atualizações:
 
-* Versão modelo`2020-04-01`
+* Versão modelo `2020-04-01`
 * Novos [limites de dados](concepts/data-limits.md) para cada recurso
 * Suporte [linguístico](language-support.md) atualizado para [análise de sentimento (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * Ponto final separado para ligação de entidades 
@@ -98,13 +98,13 @@ A API v3 de Análise de Texto está disponível geralmente com as seguintes atua
    * Evento - Esportes
 
 Foram adicionadas as seguintes propriedades na resposta JSON:
-   * `SentenceText`em Análise de Sentimento
-   * `Warnings`para cada documento 
+   * `SentenceText` em Análise de Sentimento
+   * `Warnings` para cada documento 
 
 Os nomes das seguintes propriedades na resposta JSON foram alterados, se aplicável:
 
 * `score` mudou de nome para `confidenceScore`
-    * `confidenceScore`tem dois pontos decimais de precisão. 
+    * `confidenceScore` tem dois pontos decimais de precisão. 
 * `type` mudou de nome para `category`
 * `subtype` mudou de nome para `subcategory`
 
@@ -191,7 +191,7 @@ Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extração de expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

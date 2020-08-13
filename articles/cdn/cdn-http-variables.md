@@ -1,6 +1,6 @@
 ---
 title: Variáveis HTTP para motor de regras do Azure CDN / Microsoft Docs
-description: As variáveis HTTP permitem-lhe recuperar metadados de pedido e resposta HTTP.
+description: Saiba mais sobre variáveis HTTP, que lhe permitem obter metadados de pedido e resposta HTTP para algumas funcionalidades do motor de regras. Utilize metadados para alterar um pedido/resposta.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203575"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192669"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para motor de regras Azure CDN
 As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados http e resposta. Estes metadados podem então ser utilizados para alterar dinamicamente um pedido ou uma resposta. A utilização de variáveis HTTP limita-se às seguintes regras do motor:
@@ -34,7 +34,7 @@ As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados
 A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é devolvido quando os metadados GEO (por exemplo, código postal) não estão disponíveis para um pedido específico.
 
 
-| Nome | Variável | Descrição | Valor da amostra |
+| Name | Variável | Descrição | Valor da amostra |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Solicitador) | %{geo_asnum} | Indica o número de AS do solicitador. <br /><br />**Precado:** %{virt_dst_asnum}. <br />Esta variável foi depreciada a favor de %{geo_asnum}. Embora uma regra que usa esta variável prevadida continue a funcionar, você deve atualizá-la para usar a nova variável. | AS15133 |
 | Cidade (Solicitador) | %{geo_city} | Indica a cidade do solicitador. | Los Angeles |
@@ -72,7 +72,7 @@ A tabela seguinte descreve a sintaxe adequada para especificar uma variável HTT
 | Sintaxe | Exemplo | Descrição |
 | ------ | -------- | ---------- |
 | %{ &lt; HTTPVariable &gt; } | %{anfitrião} | Utilize esta sintaxe para obter o valor total correspondente ao &lt; HTTPVariable &gt; especificado. |
-| %{ &lt; HTTPVariableDelimiter &gt; } | %{anfitrião,} | Utilize esta sintaxe para definir a caixa para o valor total correspondente ao &lt; httpvariableDelimiter especificado &gt; . |
+| %{ &lt; HTTPVariableDelimiter &gt; } | %{anfitrião,} | Utilize esta sintaxe para definir a caixa para o valor total correspondente ao  &lt; httpvariableDelimiter especificado &gt; . |
 | %{ &lt; HTTPVariableDelimiterExpression &gt; } | %{host/=^www \. \. ([^]+) \. ([^:+)/cdn.$2.$3:80} \. | Utilize uma expressão regular para &lt; HTTPVariableDelimiterExpression &gt; para substituir, eliminar ou manipular o valor de uma variável HTTP. |
 
 Os nomes variáveis HTTP apenas suportam caracteres alfabéticos e sublinhados. Converter caracteres não suportados em sublinhados.

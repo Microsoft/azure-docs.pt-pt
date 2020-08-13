@@ -1,6 +1,6 @@
 ---
 title: Cofre de chaves Azure - Como usar soft-delete com PowerShell
-description: Use exemplos de casos de soft-delete com cortes de código PowerShell
+description: Aprenda a usar o Azure PowerShell para utilizar a funcionalidade de eliminação suave do Cofre da Chave Azure que permite a recuperação de cofres-chave e objetos-chave do cofre.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 094eb784244f74fe75bf456b01c9a85457b28ba3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136478"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191514"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 

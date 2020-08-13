@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 721f30f5b17b078f3a3905204f6be56db25adead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b74ed713485679576fdf7f4f0df54803b56caa
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669482"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192114"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ O SQL Server em Azure Virtual Machines permite-lhe utilizar versões completas d
 
 As máquinas virtuais do Azure executam em [regiões geográficas](https://azure.microsoft.com/regions/) muito diferentes em todo o mundo. Também oferece uma variedade de [tamanhos de máquina](../../../virtual-machines/windows/sizes.md). A galeria de imagens da máquina virtual permite-lhe criar uma VM do SQL Server com a versão, edição e sistema operativo corretos. Isto faz com que as máquinas virtuais sejam uma boa opção para várias cargas de trabalho do SQL Server. 
 
-## <a name="get-started-with-sql-server-vms"></a><a id="create"></a>Começar com VMs do SQL Server
+## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Começar com VMs do SQL Server
 
 Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server com a versão, edição e sistema operativo necessários. As secções seguintes fornecem ligações diretas para o portal do Azure para as imagens da galeria das máquinas virtuais do SQL Server.
 
@@ -38,9 +38,12 @@ Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server c
 
 | Versão | Sistema operativo | Edição |
 | --- | --- | --- |
-| **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
-| **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
-| **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
+| **SQL Server 2019** | Ubuntu 18.04 | [Empresa](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804enterprise-ARM), [Standard,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804standard-ARM) [Web,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804web-ARM) [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804sqldev-ARM) | 
+| **SQL Server 2019** | Red Hat Enterprise Linux (RHEL) 8 | [Empresa](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8enterprise-ARM), [Standard,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8standard-ARM) [Web,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8web-ARM) [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8sqldev-ARM)|
+| **SQL Server 2019** | SUSE Linux Enterprise Server (SLES) v12 SP5 | [Empresa](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5enterprise-ARM), [Standard,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5standard-ARM) [Web,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5web-ARM) [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5sqldev-ARM)|
+| **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
+| **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
+| **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
 
 > [!NOTE]
 > Para ver as imagens de máquinas virtuais do SQL Server disponíveis para Windows, consulte [a visão geral do SQL Server em Azure Virtual Machines (Windows)](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
@@ -51,8 +54,8 @@ Ao configurar o SQL Server no Linux, instale o pacote do Motor database e, em se
 
 | Distribuição | [Motor de Base de Dados](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Ferramentas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agente do Servidor SQL](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa em texto completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Suplemento do HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![não](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) |
-| SLES | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![não](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![não](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) |
+| RHEL | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| SLES | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![não](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
 | Ubuntu | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![sim](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## <a name="related-products-and-services"></a>Produtos e serviços relacionados
@@ -76,7 +79,7 @@ Ao configurar o SQL Server no Linux, instale o pacote do Motor database e, em se
 * [SqL Server na documentação do Linux](https://docs.microsoft.com/sql/linux)
 * [Comparação da Base de Dados SQL do Azure](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com o SQL Server em máquinas virtuais Linux:
 

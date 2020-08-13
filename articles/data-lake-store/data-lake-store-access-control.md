@@ -1,6 +1,6 @@
 ---
 title: Visão geral do controlo de acessos na Data Lake Storage Gen1 Microsoft Docs
-description: Entenda como funciona o controlo de acessos na Azure Data Lake Storage Gen1
+description: Conheça os fundamentos do modelo de controlo de acessos da Azure Data Lake Storage Gen1, que deriva do HDFS.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847819"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190158"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso no Azure Data Lake Storage Gen1
 
@@ -59,7 +59,7 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Leitura + Escrita + Execução |
 | 5            | `R-X`        | Leitura + Execução         |
-| 4            | `R--`        | Leitura                   |
+| 4            | `R--`        | Ler                   |
 | 0            | `---`        | Sem permissões         |
 
 
@@ -73,7 +73,7 @@ Seguem-se alguns cenários comuns para o ajudar a compreender quais as permissõ
 
 | Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Leitura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Ler      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Apêndice para | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Eliminar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
@@ -297,6 +297,6 @@ Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para fiche
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)

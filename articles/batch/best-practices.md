@@ -1,14 +1,14 @@
 ---
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474908"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191802"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -56,6 +56,10 @@ Falhas de atribuição de piscinas podem ocorrer em qualquer ponto durante a pri
 É possível que as piscinas de Batch experimentem eventos de inatividade em Azure. Tenha isto em mente ao planear e desenvolver o seu cenário ou fluxo de trabalho para o Batch.
 
 No caso de um nó falhar, o Batch tenta automaticamente recuperar estes nós de computação em seu nome. Isto pode desencadear o reagendamento de qualquer tarefa de execução no nó que é recuperado. Consulte [Design para recauchutagem](#design-for-retries-and-re-execution) para saber mais sobre tarefas interrompidas.
+
+### <a name="custom-image-pools"></a>Piscinas de imagem personalizadas
+
+Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual, especifica uma imagem VM que fornece o sistema operativo para cada nó de computação na piscina. Pode criar a piscina com uma imagem suportada do Azure Marketplace, ou pode [criar uma imagem personalizada com uma imagem da Galeria de Imagens Partilhada.](batch-sig-images.md) Embora também possa utilizar uma [imagem gerida](batch-custom-images.md) para criar um pool de imagens personalizado, recomendamos a criação de imagens personalizadas utilizando a Galeria de Imagens Partilhadas sempre que possível. A utilização da Galeria de Imagens Partilhadas ajuda-o a providenciar piscinas mais rapidamente, escalar maiores quantidades de VMs e melhorar a fiabilidade ao a provisionar VMs.
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 

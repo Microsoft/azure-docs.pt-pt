@@ -3,20 +3,20 @@ title: Questões conhecidas & resolução de problemas
 titleSuffix: Azure Machine Learning
 description: Obtenha ajuda para encontrar e corrigir erros ou falhas no Azure Machine Learning. Conheça questões conhecidas, resolução de problemas e soluções alternativas.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120767"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190494"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -203,7 +203,7 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
 |Ao rever imagens, imagens recentemente rotuladas não são mostradas.     |   Para carregar todas as imagens etiquetadas, escolha o botão **First.** O botão **First** irá levá-lo de volta para a frente da lista, mas carrega todos os dados rotulados.      |
 |Premir a tecla Esc durante a rotulagem para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. Enviar etiquetas neste estado falha.     |   Elimine a etiqueta clicando na marca transversal ao lado.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitores de deriva de dados
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitores de deriva de dados
 
 Limitações e questões conhecidas para monitores de deriva de dados:
 
@@ -248,6 +248,27 @@ A partir do Colecionador de Dados do Modelo, pode levar até (mas normalmente me
 ```python
 import time
 time.sleep(600)
+```
+
+* **Faça login para pontos finais em tempo real:**
+
+Os registos dos pontos finais em tempo real são dados do cliente. Para a resolução de problemas em tempo real, pode utilizar o código seguinte para ativar registos. 
+
+Consulte mais detalhes sobre a monitorização dos pontos finais do serviço web [neste artigo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Se tiver vários Inquilinos, poderá ter de adicionar o seguinte código autenticado antes `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Preparar modelos
@@ -306,14 +327,14 @@ time.sleep(600)
     * No Windows, executar automl_setup a partir de um Pedido de Anaconda. Para instalar o Miniconda clique [aqui.](https://docs.conda.io/en/latest/miniconda.html)
     * Certifique-se de que o conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser para Windows ou `win-64` `osx-64` mac.
     * Certifique-se de que a conda 4.4.10 ou posterior é instalada. Pode verificar a versão com o comando `conda -V` . Se tiver uma versão anterior instalada, pode atualizá-la utilizando o comando: `conda update conda` .
-    * Linux -`gcc: error trying to exec 'cc1plus'`
+    * Linux - `gcc: error trying to exec 'cc1plus'`
       *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o essencial da construção utilizando o comando do termino `sudo apt-get install build-essential` .
       * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente conda. Ver ambientes conda existentes utilizando `conda env list` e remova-os com `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux.sh falha:** Se automl_setup_linus.sh falhar em Ubuntu Linux com o erro:`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux.sh falha:** Se automl_setup_linus.sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
   1. Certifique-se de que as portas de saída 53 e 80 estão ativadas. Num VM Azure, pode fazê-lo a partir do Portal Azure selecionando o VM e clicando em Networking.
-  2. Executar o comando:`sudo apt-get update`
-  3. Executar o comando:`sudo apt-get install build-essential --fix-missing`
+  2. Executar o comando: `sudo apt-get update`
+  3. Executar o comando: `sudo apt-get install build-essential --fix-missing`
   4. Corra `automl_setup_linux.sh` de novo
 
 * **configuration.ipynb falha:**
@@ -327,9 +348,9 @@ time.sleep(600)
 
 * **workspace.from_config falha:** Se as chamadas ws = Workspace.from_config()' falhar -
   1. Certifique-se de que o portátil configuração.ipynb foi executado com sucesso.
-  2. Se o portátil estiver a ser executado a partir de uma pasta que não esteja por baixo da pasta onde `configuration.ipynb` foi executada, copie a pasta aml_config e o ficheiro config.jsque contém para a nova pasta. Workspace.from_config lê o config.jsligado para a pasta do portátil ou para a sua pasta principal.
+  2. Se o portátil estiver a ser executado a partir de uma pasta que não esteja por baixo da pasta onde `configuration.ipynb` foi executada, copie a pasta aml_config e o ficheiro config.jsque contém para a nova pasta. Workspace.from_config lê o config.jsligado para a pasta do portátil ou para a pasta dos pais.
   3. Se estiver a ser utilizada uma nova subscrição, grupo de recursos, espaço de trabalho ou região, certifique-se de que volta a executar o `configuration.ipynb` caderno. A alteração config.jsem direto só funcionará se o espaço de trabalho já existir no grupo de recursos especificado ao abrigo da subscrição especificada.
-  4. Se quiser alterar a região, por favor altere o espaço de trabalho, grupo de recursos ou subscrição. `Workspace.create`não criará nem atualizará um espaço de trabalho se já existir, mesmo que a região especificada seja diferente.
+  4. Se quiser alterar a região, por favor altere o espaço de trabalho, grupo de recursos ou subscrição. `Workspace.create` não criará nem atualizará um espaço de trabalho se já existir, mesmo que a região especificada seja diferente.
   
 * **O caderno da amostra falha:** Se um caderno de amostras falhar com um erro que a preperty, o método ou a biblioteca não existem:
   * Certifique-se de que o núcleo correto foi selecionado no caderno do jupyter. O núcleo é apresentado no lado superior direito da página do caderno. O padrão é azure_automl. Note que o núcleo é guardado como parte do caderno. Por isso, se mudar para um novo ambiente conda, terá de selecionar o novo núcleo no caderno.
@@ -352,7 +373,7 @@ Tome estas ações para os seguintes erros:
 |---------|---------|
 |Falha na construção de imagem ao implementar o serviço web     |  Adicione "pynacl==1.2.1" como uma dependência de pip ao ficheiro Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere o SKU para VMs utilizados na sua implantação para um que tenha mais memória. |
-|Falha da FPGA     |  Não poderá implementar modelos em FPGAs até que tenha solicitado e aprovado para a quota FPGA. Para solicitar o acesso, preencha o formulário de pedido de quota:https://aka.ms/aml-real-time-ai       |
+|Falha da FPGA     |  Não poderá implementar modelos em FPGAs até que tenha solicitado e aprovado para a quota FPGA. Para solicitar o acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai       |
 
 ### <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Atualizar componentes de aprendizagem automática Azure no cluster AKS
 

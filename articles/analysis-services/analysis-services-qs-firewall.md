@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0bb454897a8dfa340a3586c22619723464d5ca73
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: e4953137cf939c35c6ac73fe51ca43eca6e99edc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185575"
+ms.locfileid: "88192432"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar a firewall do servidor – Portal
 
@@ -24,7 +24,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 - Intervalos de endereços IP de um ou mais computadores cliente (se necessário).
 
 > [!NOTE]
-> Apenas no Que diz respeito ao Power BI Premium no Microsoft Cloud Germany, as ligações de importação de dados (atualização) e de relatórios paginados não são suportadas quando uma firewall está ativada, mesmo quando o acesso do Power BI está ativado.
+> As ligações de importação de dados (atualização) e de relatório paginado do Power BI Premium na Microsoft Cloud Germany não são atualmente suportadas quando uma firewall está ativada, mesmo quando o acesso do Enable a partir da definição power BI está definido para On.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure 
 
@@ -34,7 +34,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 
 1. Clique no servidor para abrir a página Descrição geral. 
 2. Em **DEFINIÇÕES**  >  **Firewall**  >  **Ative firewall**, selecione **On**.
-3. Para ativar todos os tipos de ligação a partir de Power BI e Power BI Premium, em **Permitir o acesso a partir de Power BI**, selecione **On**.  
+3. Para ativar as ligações a partir do Power BI e power BI Premium, em **Permitir o acesso a partir de Power BI**, selecione **On**.  
 4. (Opcional) Especifique um ou mais intervalos de endereços IP. Introduza um nome, um endereço IP de início e de fim para cada intervalo. O nome da regra de firewall deve ser limitado a 128 caracteres e só pode conter caracteres maiúsculas, caracteres minúsculos, números, sublinhados e hífen. Não são permitidos espaços em branco e outros caracteres especiais.
 5. Clique em **Guardar**.
 

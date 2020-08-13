@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167730"
+ms.locfileid: "88192404"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Uma __rede virtual__ funciona como uma fronteira de segurança, isolando os seus
 + Conhecimento geral de trabalho tanto do [serviço de Rede Virtual Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) como da rede [IP.](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 
 + Uma rede virtual pré-existente e uma sub-rede para utilizar com os seus recursos de computação.
+
++ Para implantar recursos numa rede virtual ou numa sub-rede, a sua conta de utilizador deve ter permissões para as seguintes ações nos controlos de acesso baseados em funções Azure (RBAC):
+
+    - "Microsoft.Network/virtualNetworks/join/action" no recurso de rede virtual.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" no recurso sub-rede.
+
+    Para obter mais informações sobre o RBAC com as funções em rede, consulte as [funções embutimento em rede](/azure/role-based-access-control/built-in-roles#networking)
 
 ## <a name="private-endpoints"></a>Pontos finais privados
 
@@ -97,7 +104,7 @@ Depois de adicionar o seu espaço de trabalho e conta de serviço de armazenamen
 
 1. Para criar uma nova loja de dados, selecione __+ Nova datastore__. Para atualizar uma existente, selecione a datastore e selecione __credenciais de Atualização__.
 
-1. Nas definições da datastore, selecione __Sim__ para __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__.
+1. Nas definições da datastore, selecione __Sim__ para  __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__.
 
 > [!NOTE]
 > Estas alterações podem demorar até 10 minutos a produzir efeitos.
@@ -263,7 +270,7 @@ Para utilizar um [ __alvo de computação__ Azure Machine Learning gerido](conce
 > Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da subscrição.
 
 
-### <a name="required-ports"></a><a id="mlcports"></a>Portos necessários
+### <a name="required-ports"></a><a id="mlcports"></a> Portos necessários
 
 Se planeia proteger a rede virtual restringindo o tráfego de rede de/para a internet pública, deve permitir comunicações de entrada a partir do serviço Azure Batch.
 
@@ -294,7 +301,7 @@ A configuração da regra NSG no portal Azure é mostrada nas seguintes imagens:
 
 ![As regras nSG de saída para o Cálculo de Aprendizagem automática](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
-### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a>Limitar a conectividade de saída da rede virtual
+### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a> Limitar a conectividade de saída da rede virtual
 
 Se não quiser utilizar as regras de saída predefinidos e pretender limitar o acesso de saída da sua rede virtual, utilize os seguintes passos:
 
@@ -639,7 +646,7 @@ Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os
     > [!IMPORTANT]
     > Ao ativar a delegação, utilize `Microsoft.ContainerInstance/containerGroups` como __sub-rede delegado o__ valor de serviço.
 
-2. Implementar o modelo utilizando [a AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), utilize os `vnet_name` parâmetros e `subnet_name` parâmetros. Deslo sente estes parâmetros no nome e na sub-rede de rede virtuais onde permitiu a delegação.
+2. Utilize o modelo utilizando [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), utilize os `vnet_name` parâmetros e `subnet_name` parâmetros. Deslo sente estes parâmetros no nome e na sub-rede de rede virtuais onde permitiu a delegação.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 

@@ -1,6 +1,6 @@
 ---
 title: Pré-carregar ativos num ponto final da Azure CDN Microsoft Docs
-description: Aprenda a pré-carregar o conteúdo em cache num ponto final Azure CDN.
+description: Saiba como pré-carregar o conteúdo em cache num ponto final da Rede de Entrega de Conteúdos Azure. Esta funcionalidade encontra-se disponível em certas versões do produto.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887578"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192573"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar recursos num ponto final da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -50,8 +50,8 @@ Este tutorial acompanha-o através do pré-carregamento de conteúdo em cache em
    > Depois de começar a introduzir texto, mais caixas de texto **de trajetória** de conteúdo aparecerão para que possa construir uma lista de múltiplos ativos. Para eliminar os ativos da lista, selecione o botão elipse (...) e, em seguida, selecione **Delete**.
    > 
    > Cada caminho de conteúdo deve ser um URL relativo que se enquadre nas [seguintes expressões regulares:](/dotnet/standard/base-types/regular-expression-language-quick-reference)  
-   > - Carregue um único caminho de arquivo:`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Carregue um único ficheiro com cadeia de consulta:`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Carregue um único caminho de arquivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Carregue um único ficheiro com cadeia de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Como cada ativo deve ter o seu próprio caminho, não há nenhuma funcionalidade wildcard para pré-carregamento de ativos.
    > 
@@ -66,7 +66,7 @@ Este tutorial acompanha-o através do pré-carregamento de conteúdo em cache em
 > 
 > 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Purgue um ponto final Azure CDN](cdn-purge-endpoint.md)
 * [Referência Azure CDN REST API: Pré-carregamento de conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Referência Azure CDN REST API: Purgar o conteúdo de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

@@ -1,6 +1,6 @@
 ---
 title: Failover em vários pontos finais do Azure CDN com o Traffic Manager
-description: Saiba como configurar o Azure Traffic Manager com os pontos finais do Azure CDN.
+description: Saiba como configurar o failover em vários pontos finais da Rede de Entrega de Conteúdos Azure utilizando o Azure Traffic Manager.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d557637815036fa49e83f1d11a948f264d493321
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888666"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192500"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar failover em vários pontos finais da Azure CDN com O Gestor de Tráfego Azure
 
@@ -95,7 +95,7 @@ Depois de configurar os perfis do CDN e do Traffic Manager, siga estes passos pa
  
 Depois de completar estes passos, o seu serviço multi-CDN com capacidades de failover é configurado com O Gestor de Tráfego Azure. Poderá aceder aos URLs de teste a partir do seu domínio personalizado. Para testar a funcionalidade, desative o ponto final primário do CDN e verifique se o pedido é corretamente transferido para o ponto final secundário do CDN. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode configurar outros métodos de encaminhamento, como geográficos, para equilibrar a carga entre diferentes pontos finais cdn. Para obter mais informações, consulte [configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de Tráfego.](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)
 
 

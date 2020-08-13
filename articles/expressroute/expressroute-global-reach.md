@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Conecte-se à Microsoft Cloud usando o Global Reach'
-description: Este artigo explica o ExpressRoute Global Reach.
+description: Saiba como o Azure ExpressRoute Global Reach pode ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes no local.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5022efacf33a2c07f1388666b5de26ee86322739
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c747253a56476b0fd9431311294d487ef336e69
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636738"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190761"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma forma privada e resiliente de ligar as suas redes no local ao Microsoft Cloud. Pode aceder a muitos serviços na nuvem da Microsoft, como o Azure, e o Office 365 do seu centro de dados privado ou da sua rede corporativa. Por exemplo, você pode ter uma sucursal em São Francisco com um circuito ExpressRoute em Silicon Valley e outra filial em Londres com um circuito ExpressRoute na mesma cidade. Ambas as sucursais podem ter conectividade de alta velocidade com os recursos da Azure nos EUA West e REINO UNIDO Sul. No entanto, as sucursais não podem trocar dados diretamente entre si. Ou seja, 10.0.1.0/24 pode enviar dados para 10.0.3.0/24 e 10.0.4.0/24, mas NÃO para 10.0.2.0/24.
@@ -50,7 +50,7 @@ O ExpressRoute Global Reach é atualmente suportado nos seguintes locais.
 
 Os seus circuitos ExpressRoute devem ser criados nos [locais de observação ExpressRoute](expressroute-locations.md) nos países ou regiões acima referidos. Para permitir o ExpressRoute Global Reach entre [diferentes regiões geopolíticas,](expressroute-locations.md)os seus circuitos devem ser Premium SKU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 1. [Ver o Global Reach FAQ](expressroute-faqs.md#globalreach)
 2. [Saiba como ativar o Alcance Global](expressroute-howto-set-global-reach.md)
 3. [Saiba como ligar um circuito ExpressRoute à sua rede virtual](expressroute-howto-linkvnet-arm.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 148b22e7abc4fca7b9cb104f3616562b74c73004
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: ed1104293aabdebd0e31c0c6ec0197fe10b64f06
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084769"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191003"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service
 
@@ -155,7 +155,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Obtenha a cadeia de ligação usando o [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) comando.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 Na saída de comando, *\<username>* substitua- e com as *\<password>* credenciais de administrador de base de dados que usou anteriormente.
@@ -269,7 +269,7 @@ Para definir as cordas de ligação para a sua aplicação Azure, utilize o [`az
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-Em ASP.NET Core, pode utilizar esta cadeia de ligação denominada `MyDbConnection` () utilizando o padrão padrão, como qualquer fio de ligação especificado em *appsettings.jsem*. Neste caso, `MyDbConnection` também é definido no seuappsettings.js*em*. Ao executar o Serviço de Aplicações, a cadeia de ligação definida no Serviço de Aplicações tem precedência sobre a cadeia de ligação definida no seu *appsettings.jsligado*. O código utiliza o *appsettings.jssobre* valor durante o desenvolvimento local, e o mesmo código utiliza o valor do Serviço de Aplicações quando implementado.
+Em ASP.NET Core, pode utilizar esta cadeia de ligação denominada `MyDbConnection` () utilizando o padrão padrão, como qualquer fio de ligação especificado em *appsettings.jsem*. Neste caso, `MyDbConnection` também é definido no seuappsettings.js* em*. Ao executar o Serviço de Aplicações, a cadeia de ligação definida no Serviço de Aplicações tem precedência sobre a cadeia de ligação definida no seu *appsettings.jsligado*. O código utiliza o *appsettings.jssobre* valor durante o desenvolvimento local, e o mesmo código utiliza o valor do Serviço de Aplicações quando implementado.
 
 Para ver como a cadeia de ligação é referenciada no seu código, consulte [a aplicação Configure para ligar à base de dados de produção.](#configure-app-to-connect-to-production-database)
 

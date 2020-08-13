@@ -1,6 +1,6 @@
 ---
 title: Key Vault .NET 2.x Notas de lançamento da API/ Microsoft Docs
-description: Os desenvolvedores .NET usarão esta API para codificar para Azure Key Vault
+description: Saiba como atualizar aplicações escritas para versões anteriores do Azure Key Vault para trabalhar com a versão 2.0 da biblioteca Azure Key Vault para C# e .NET.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431920"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189838"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre da Chave Azure .NET 2.0 - Guia de Lançamento e Migração
 As seguintes informações ajudam a migrar para a versão 2.0 da biblioteca Azure Key Vault para C# e .NET.  As aplicações escritas para versões anteriores precisam de ser atualizadas para suportar a versão mais recente.  Estas alterações são necessárias para suportar plenamente novas funcionalidades e **melhores,** tais como certificados Key Vault .
@@ -50,7 +50,7 @@ Os certificados Key Vault gerem certificados x509 e suportam os seguintes compor
 * *Segredo* alterado para *SecretBundle*
 * *Dicionário* alterado para *IDictionary*
 * *Lista, \<T> string []* alterado para *IList \<T> *
-* *NextList* alterado para *NextPageLink*
+* *NextList* alterado para  *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 

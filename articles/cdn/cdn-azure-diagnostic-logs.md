@@ -1,7 +1,7 @@
 ---
 title: Registos de diagnósticos
 titleSuffix: Azure Content Delivery Network
-description: O cliente pode ativar a análise de registo para a Azure CDN.
+description: Aprenda a usar registos de diagnóstico Azure para salvar análises fundamentais, o que lhe permite exportar métricas de utilização a partir do ponto final da Rede de Entrega de Conteúdos Azure.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116987"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191274"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure
 
@@ -192,7 +192,7 @@ Para descarregar a ferramenta, consulte o [Azure Storage Explorer](https://stora
 3.  Expanda o nó **de recipientes Blob** nesta conta de armazenamento.
 4.  Selecione o recipiente denominado *insights-logs-coreanalytics*.
 5.  Os resultados aparecem no painel direito, começando pelo primeiro nível, como *recursosId=*. Continue a selecionar cada nível até encontrar o ficheiro *PT1H.jsligado*. Para obter uma explicação do caminho, consulte o [formato do caminho blob](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  CadaPT1H.js*blob no* ficheiro representa os registos de análise durante uma hora para um ponto final específico do CDN ou para o seu domínio personalizado.
+6.  CadaPT1H.js* blob no* ficheiro representa os registos de análise durante uma hora para um ponto final específico do CDN ou para o seu domínio personalizado.
 7.  O esquema do conteúdo deste ficheiro JSON é descrito no esquema de secção dos registos de análise do núcleo.
 
 
@@ -221,7 +221,7 @@ Para aceder à análise do núcleo, é fornecido um código de amostra para uma 
 
 Eis como pode usar a ferramenta:
 
-1.  Visite o link GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visite o link GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Descarregue o código.
 3.  Siga as instruções para compilar e configurar.
 4.  Executar a ferramenta.
@@ -257,16 +257,16 @@ Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais
 | PedidoCountHttpStatus4xx | Contagem de todos os pedidos que resultaram num código HTTP 4xx (por exemplo, 400, 404). | Sim | Sim |Sim |
 | PedidoCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código HTTP 5xx (por exemplo, 500,504). | Sim | Sim |Sim |
 | PedidoCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx-5xx). | Sim | Sim |Sim |
-| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Yes | Não  |Yes |
-| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Yes | Não  |Yes |
-| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Yes | Não  |Yes |
-| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Yes | Não  |Yes |
-| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Yes | Não  |Yes |
+| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Sim | Não  |Sim |
+| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Sim | Não  |Sim |
+| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Sim | Não  |Sim |
+| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Sim | Não  |Sim |
+| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Sim | Não  |Sim |
 | PedidoCountCacheHit | Contagem de todos os pedidos que resultaram num ataque cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
 | PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e foi recuperado da origem. | Sim | Sim | Não |
 | PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que seja impedido de ser em cache devido a uma configuração do utilizador na borda. | Sim | Sim | Não |
 | PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expires do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Yes | Não  |
+| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Sim | Não  |
 | EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de estado 2xx HTTP em GB. | Sim | Sim | Não  |
 | EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de estado 3xx HTTP em GB. | Sim | Sim | Não  |
@@ -277,7 +277,7 @@ Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais
 | EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo, e recuperadas do servidor de origem. | Sim | Sim | Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de ser em cache devido a uma configuração do utilizador no limite. | Sim | Sim | Não |
 | EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser cacheed pelo Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Yes | Não |
+| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
 
 *Transferência de dados de saída refere-se ao tráfego entregue dos servidores CDN POP ao cliente.
 
@@ -371,7 +371,7 @@ Propriedades de exemplo:
 
 * [Registos de diagnóstico Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise de núcleo via portal suplementar Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

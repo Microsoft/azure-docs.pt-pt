@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Reset circuit peering'
-description: Como desativar e ativar os perspões do circuito ExpressRoute.
+description: Aprenda a desativar e a ativar os seus olhos de um circuito Azure ExpressRoute utilizando a Azure PowerShell. Quando configura os seus olhos, eles são ativados por padrão.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: cc4266a92d510ac84118922f7db09c99234045b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e576fe2f08d54d2642603e3b7974e00feec8ce93
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735256"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192182"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reset ExpressRoute
 
@@ -141,7 +141,7 @@ Existem alguns cenários em que poderá achar útil repor os seus seus olhos Exp
    ```
    O olhar deve estar num estado que definiu. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se precisar de ajuda para resolver um problema expressRoute, confira os seguintes artigos:
 * [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Resolver problemas de desempenho da rede](expressroute-troubleshooting-network-performance.md)

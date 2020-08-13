@@ -1,6 +1,6 @@
 ---
 title: Boas Práticas para usar Cofre chave - Cofre chave Azure / Microsoft Docs
-description: Este documento explica algumas das melhores práticas para usar o Cofre-Chave
+description: Saiba mais sobre as melhores práticas para o Azure Key Vault, incluindo o controlo do acesso, quando usar cofres-chave separados, backup, registo e opções de recuperação.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386236"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189888"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para usar o Cofre-Chave
 
@@ -33,7 +33,7 @@ As sugestões ao controlar o acesso ao seu cofre são as seguintes:
 
 A nossa recomendação é utilizar um cofre por aplicação por ambiente (Desenvolvimento, Pré-Produção e Produção). Isto ajuda-o a não partilhar segredos em ambientes e também reduz a ameaça em caso de violação.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 Certifique-se de que faz back ups regulares do seu cofre em atualização/exclusão/criação de objetos dentro de um Cofre.
 

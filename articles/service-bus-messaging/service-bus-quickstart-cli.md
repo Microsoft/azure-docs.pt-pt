@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4b4ce8a19d03a0323af934eac3868fdcc8d50ff
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182510"
+ms.locfileid: "88191261"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Use o CLI Azure para criar um espaço de nome de ônibus de serviço e uma fila
 Este quickstart mostra-lhe como criar um espaço de nome de Service Bus e uma fila usando o Azure CLI. Também mostra como obter credenciais de autorização que uma aplicação do cliente pode usar para enviar/receber mensagens de/para a fila. 
@@ -24,7 +24,7 @@ Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após
 
 ## <a name="provision-resources"></a>Recursos de aprovisionamento
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Lançar Azure Cloud Shell selecionando o ícone mostrado na seguinte imagem: 
+2. Lance Azure Cloud Shell selecionando o ícone mostrado na imagem seguinte. Mude para o modo **Bash** se o CloudShell estiver no modo **PowerShell.** 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Lançar Cloud Shell":::
 3. Executar o seguinte comando para criar um grupo de recursos Azure. Atualize o nome do grupo de recursos e a localização, se desejar. 
@@ -37,7 +37,7 @@ Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após
     ```azurecli-interactive
     az servicebus namespace create --resource-group ContosoRG --name ContosoSBusNS --location eastus
     ```
-5. Executar o seguinte comando para criar uma fila no espaço de nome que criou no passo anterior. Neste exemplo, `ContosoRG` é o grupo de recursos que criou no passo anterior. `ContosoSBusNS`é o nome do espaço de nomes do Service Bus criado nesse grupo de recursos. 
+5. Executar o seguinte comando para criar uma fila no espaço de nome que criou no passo anterior. Neste exemplo, `ContosoRG` é o grupo de recursos que criou no passo anterior. `ContosoSBusNS` é o nome do espaço de nomes do Service Bus criado nesse grupo de recursos. 
 
     ```azurecli-interactive
     az servicebus queue create --resource-group ContosoRG --namespace-name ContosoSBusNS --name ContosoOrdersQueue

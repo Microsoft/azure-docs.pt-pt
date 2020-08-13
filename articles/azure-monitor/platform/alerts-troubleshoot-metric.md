@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114902"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190674"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -130,9 +130,9 @@ Para evitar que a implementação falhe ao tentar validar as definições da mé
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo ARM de uma regra de alerta métrico através do portal Azure
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo do Gestor de Recursos Azure de uma regra de alerta métrico através do portal Azure
 
-Exportar o modelo ARM de uma regra de alerta métrico ajuda-o a compreender a sintaxe e propriedades JSON, e pode ser usado para automatizar futuras implementações.
+Exportar o modelo de Gestor de Recursos de uma regra de alerta métrico ajuda-o a compreender a sintaxe e propriedades JSON, e pode ser usado para automatizar futuras implementações.
 1. Navegue na secção **Grupos de Recursos** no portal e selecione o grupo de recursos que contém a regra.
 2. Na secção 'Visão Geral', verifique a caixa de verificação **dos tipos escondidos do Show.**
 3. No filtro **Tipo,** selecione *microsoft.insights/metricalerts*.
@@ -207,7 +207,7 @@ Certifique-se de que está a utilizar os comandos CLI certos para alertas métri
 
    - Para uma métrica da plataforma: Certifique-se de que está a usar o nome **métrico** a partir da [página de métricas suportadas pelo Monitor Azure](./metrics-supported.md), e não o **Nome de Visualização Métrica**
 
-   - Para uma métrica personalizada: Certifique-se de que a métrica já está a ser emitida (não pode criar uma regra de alerta sobre uma métrica personalizada que ainda não existe), e que está a fornecer o espaço de nome da métrica personalizada (ver um exemplo de modelo ARM [aqui)](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)
+   - Para uma métrica personalizada: Certifique-se de que a métrica já está a ser emitida (não é possível criar uma regra de alerta sobre uma métrica personalizada que ainda não existe), e que está a fornecer o espaço de nome da métrica personalizada (consulte [aqui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)um exemplo de modelo do Gestor de Recursos)
 
 - Se estiver a criar [alertas métricos nos registos,](./alerts-metric-logs.md)certifique-se de que as dependências adequadas estão incluídas. Veja o [modelo de exemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

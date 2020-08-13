@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288552"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191152"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos Azure VM sem disco temporário local 
 Este artigo fornece respostas a perguntas frequentes (FAQ) sobre tamanhos Azure VM que não têm um disco temporário local (ou seja, nenhum disco temporário local). Para obter mais informações sobre estes tamanhos VM, consulte [especificações para séries Dv4 e Dsv4 (Cargas de trabalho de finalidade geral)](dv4-dsv4-series.md) ou [especificações para sérieS Ev4 e Esv4 (Trabalhos de Trabalho Otimizados de Memória)](ev4-esv4-series.md).
@@ -47,7 +47,7 @@ Não. As únicas combinações permitidas para a redimensionamento são:
 > Se uma imagem depender do disco de recursos, ou de existir um ficheiro de página ou de um ficheiro de troca no disco temporário local, as imagens sem disco não funcionarão — em vez disso, utilize a alternativa 'com disco'. 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Estes tamanhos VM suportam sistemas operativos Linux e Windows (OS)?
-Yes.
+Sim.
 
 ## <a name="will-this-break-my-custom-scripts-custom-images-or-os-images-that-have-scratch-files-or-page-files-on-a-local-temp-disk"></a>Será que isto quebrará os meus scripts personalizados, imagens personalizadas ou imagens de SO que têm ficheiros de riscas ou ficheiros de página num disco temporário local?
 Se a imagem personalizada do SO aponta para o disco temporário local, a imagem pode não funcionar corretamente com este tamanho sem disco.
@@ -56,7 +56,7 @@ Se a imagem personalizada do SO aponta para o disco temporário local, a imagem 
 Preencha o [formulário de feedback]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## <a name="next-steps"></a>Passos seguintes 
-Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com VMs Azure com disco temporário local. Para obter mais informações sobre estes tamanhos VM, consulte os seguintes artigos:
+Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com VMs Azure sem disco temporário local. Para obter mais informações sobre estes tamanhos VM, consulte os seguintes artigos:
 
 - [Especificações para séries Dv4 e Dsv4 (Carga de Trabalho para Fins Gerais)](dv4-dsv4-series.md)
 - [Especificações para série Ev4 e Esv4 (Função de Trabalho Otimizada de Memória)](ev4-esv4-series.md)

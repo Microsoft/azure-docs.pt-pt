@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9229137c999157d2cea112ebb5e6e8b169eed96
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041681"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192778"
 ---
 # <a name="workflow-automation"></a>Automatização do fluxo de trabalho
 
@@ -32,7 +32,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 |----|:----|
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão gratuito|
-|Funções e permissões necessárias:|**Leitor** na assinatura que contém a configuração de exportação<br>**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
+|Funções e permissões necessárias:|**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
@@ -44,7 +44,8 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
     [![Lista de automatizações de fluxos de trabalho](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    A partir desta página pode criar novas regras de automatização, bem como ativar, desativar ou eliminar as existentes.  
+    A partir desta página pode criar novas regras de automatização, bem como ativar, desativar ou eliminar as existentes.
+
 1. Para definir um novo fluxo de trabalho, clique em **Adicionar automatização de fluxo de trabalho**. 
 
     Um painel aparece com as opções para a sua nova automatização. Aqui pode introduzir:
@@ -86,9 +87,9 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 ## <a name="manually-trigger-a-logic-app"></a>Desencadear manualmente uma Aplicação Lógica
 
-Também pode executar As Aplicações Lógicas manualmente ao visualizar um alerta de segurança ou qualquer recomendação que ofereça [remediação Quick Fix](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+Também pode executar As Aplicações Lógicas manualmente ao visualizar qualquer alerta de segurança ou recomendação.
 
-Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomendação que suporte a reparação de Quick Fix e clique na **App Lógica do Gatilho**:
+Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomendação e clique em **Trigger Logic App**:
 
 [![Desencadear manualmente uma Aplicação Lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

@@ -1,6 +1,6 @@
 ---
 title: Recupere a lista atual de POP IP para o Azure CDN. Microsoft Docs
-description: Saiba como recuperar a lista pop atual.
+description: Saiba como obter servidores POP utilizando a API REST. Os servidores POP fazem pedidos para servidores de origem associados aos pontos finais da Rede de Entrega de Conteúdos Azure.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668292"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192556"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recupere a lista ip pop atual para Azure CDN
 
@@ -46,6 +46,6 @@ Para utilizar tags de serviço com Azure CDN da Microsoft, utilize a etiqueta Az
 
 Para fins de segurança, pode utilizar esta lista de IP para impor que os pedidos ao seu servidor de origem são feitos apenas a partir de um Verizon POP válido. Por exemplo, se alguém descobrisse o nome de anfitrião ou o endereço IP para o servidor de origem de um cdN, poderia fazer pedidos diretamente para o servidor de origem, contornando assim as capacidades de escala e segurança fornecidas pela Azure CDN. Ao definir os IPs na lista de devoluções como os únicos IPs permitidos num servidor de origem, este cenário pode ser evitado. Para garantir que tem a mais recente lista POP, recupere-a pelo menos uma vez por dia. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a API REST, consulte [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/).

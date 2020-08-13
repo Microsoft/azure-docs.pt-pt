@@ -1,6 +1,6 @@
 ---
 title: Conceder permissão para candidaturas para aceder a um cofre de chaves Azure - Azure Key Vault / Microsoft Docs
-description: Saiba como conceder permissão a muitas aplicações para aceder a um cofre chave
+description: Saiba como registar manualmente um serviço principal e fornecer acesso ao Azure Key Vault utilizando uma política de controlo de acesso, o que pode ser necessário em alguns casos.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1b3f03458211e57f51c39cb5ca8da83943280aa8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406270"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192014"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer autenticação key vault com uma política de controlo de acesso
 
@@ -226,7 +226,7 @@ A aplicação também precisa de pelo menos uma função de Gestão de Identidad
 > [!WARNING]
 > Os grupos AD Azure com Identidades Geridas podem exigir até 8 horas para refrescar o token e tornar-se eficazes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre Azure Key: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
 - [Fornecer autenticação key vault com uma identidade gerida do Serviço de Aplicações](managed-identity.md)

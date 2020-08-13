@@ -1,6 +1,6 @@
 ---
-title: Cofre chave de acesso atrás de uma firewall - Cofre chave Azure / Microsoft Docs
-description: Saiba como aceder ao Azure Key Vault a partir de uma aplicação protegida por uma firewall
+title: Cofre de chave de acesso atrás de uma firewall - Azure Key Vault / Microsoft Docs
+description: Saiba mais sobre as portas, anfitriões ou endereços IP para abrir para permitir que uma aplicação de cliente de cofre chave atrás de uma firewall aceda a um cofre chave.
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 273579fb3dee1e941e9f464a1956189c8808c694
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834327"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190470"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Que portas, anfitriões ou endereços IP devo abrir para permitir a aplicação do meu cliente chave vault atrás de uma firewall para aceder ao cofre da chave?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Que portas, anfitriões ou endereços IP devo abrir para permitir que a minha aplicação de cliente do cofre chave atrás de uma firewall aceda ao cofre das chaves?
 
 Para aceder a um cofre de chaves, a sua aplicação cliente do cofre de chaves tem de aceder a vários pontos finais para várias funcionalidades:
 
@@ -31,7 +31,7 @@ Dependendo da configuração e do ambiente, existem algumas variações.
 
 ## <a name="ports"></a>Portas
 
-Todo o tráfego para um cofre de chaves para as três funções (autenticação, gestão e acesso ao plano de dados) é feito por HTTPS: porta 443. No entanto, existirá ocasionalmente tráfego HTTP (porta 80) para CRL. Os clientes que suportam a OCSP não devem chegar ao CRL, mas podem ocasionalmente chegar [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
+Todo o tráfego para um cofre de chaves para as três funções (autenticação, gestão e acesso ao plano de dados) é feito por HTTPS: porta 443. No entanto, existirá ocasionalmente tráfego HTTP (porta 80) para CRL. Os clientes que suportam o OCSP não devem chegar à CRL, mas podem ocasionalmente chegar [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
 
 ## <a name="authentication"></a>Autenticação
 
@@ -39,8 +39,8 @@ As aplicações cliente do Cofre de Chaves terão de aceder a pontos finais do A
 
 | Tipo de principal | Ponto final:porta |
 | --- | --- |
-| Utilizador com conta Microsoft<br> (por exemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **China azul:**<br> login.chinacloudapi.cn:443<br><br>**Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Principal de utilizador ou serviço com uma conta escolar ou profissional com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **China azul:**<br> login.chinacloudapi.cn:443<br><br>**Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443 |
+| Utilizador com conta Microsoft<br> (por exemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Governo Azure US:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Principal de utilizador ou serviço com uma conta escolar ou profissional com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Governo Azure US:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443 |
 | Principal de utilizador ou serviço com uma conta escolar ou profissional, mais Serviços de Federação do Active Directory (AD FS) ou outro ponto final federado (por exemplo, user@contoso.com) |Todos os pontos finais para uma conta escolar ou profissional, mais AD FS ou outros pontos finais federados |
 
 Existem outros cenários possíveis complexos. Consulte [Fluxo de Autenticação do Azure Active Directory](../../active-directory/develop/authentication-scenarios.md), [Integrar Aplicações com o Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Protocolos de Autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para obter informações adicionais.  
@@ -51,8 +51,8 @@ Para a gestão do Cofre de Chaves (CRUD e definição da política de acesso), a
 
 | Tipo de operação | Ponto final:porta |
 | --- | --- |
-| Operações do painel de controlo do Cofre de Chaves<br> através do Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **China azul:**<br> management.chinacloudapi.cn:443<br><br> **Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **China azul:**<br> graph.chinacloudapi.cn:443<br><br> **Governo dos EUA:**<br> graph.microsoft.com:443<br><br> **Azure Alemanha:**<br> graph.cloudapi.de:443 |
+| Operações do painel de controlo do Cofre de Chaves<br> através do Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Governo Azure US:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Governo Azure US:**<br> graph.microsoft.com:443<br><br> **Azure Alemanha:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operações do Cofre de Chaves
 
@@ -60,11 +60,11 @@ Para todas as operações criptográficas e de gestão de objetos do cofre de ch
 
 | Tipo de operação | Ponto final:porta |
 | --- | --- |
-| Operações, incluindo operações criptográficas em chaves; criar, ler, atualizar e eliminar chaves e segredos; definir ou obter etiquetas e outros atributos de objetos de cofre de chaves (chaves ou segredos) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **China azul:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Operações, incluindo operações criptográficas em chaves; criar, ler, atualizar e eliminar chaves e segredos; definir ou obter etiquetas e outros atributos de objetos de cofre de chaves (chaves ou segredos) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Governo Azure US:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>Intervalos de endereços IP
 
-O serviço Cofre de Chaves utiliza outros recursos do Azure, como a infraestrutura PaaS. Por isso, não é possível fornecer um intervalo de endereços IP específico que os pontos finais do serviço Cofre de Chaves terão num determinado momento. Se a sua firewall suportar apenas intervalos de endereços IP, consulte os documentos ip ranges do Microsoft Azure Datacenter disponíveis em:
+O serviço Cofre de Chaves utiliza outros recursos do Azure, como a infraestrutura PaaS. Por isso, não é possível fornecer um intervalo de endereços IP específico que os pontos finais do serviço Cofre de Chaves terão num determinado momento. Se a sua firewall suporta apenas intervalos de endereços IP, consulte os documentos IP Ranges do Microsoft Azure Datacenter disponíveis em:
 * [Público](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
 * [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
 * [Alemanha](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
@@ -74,4 +74,4 @@ A Autenticação e Identidade (Azure Active Directory) é um serviço global e p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver dúvidas sobre o Key Vault, visite o [Microsoft Q&Uma página de perguntas para o Cofre de Chaves Azure](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Se tiver dúvidas sobre o Key Vault, visite a página de perguntas do [Microsoft Q&A questione para o Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

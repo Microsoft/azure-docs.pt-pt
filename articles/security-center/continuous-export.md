@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042330"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192367"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -35,7 +35,7 @@ Utilizando estas ferramentas pode:
 |----|:----|
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão gratuito|
-|Funções e permissões necessárias:|**Leitor** na assinatura que contém a configuração de exportação<br>**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
+|Funções e permissões necessárias:|**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 

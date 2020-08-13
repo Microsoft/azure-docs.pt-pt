@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212059"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192326"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
 
@@ -44,13 +44,13 @@ Como os grupos de carga de trabalho operam com base na percentagem dos recursos 
 
 Com o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` conhecido, pode utilizar a sintaxe do GRUPO DE CARGA DE TRABALHO <link> CREATE para criar o grupo de carga de trabalho.  Pode especificar opcionalmente um `MIN_PERCENTAGE_RESOURCE` que seja maior do que zero para isolar recursos para o grupo de carga de trabalho.  Além disso, pode especificar opcionalmente `CAP_PERCENTAGE_RESOURCE` menos de 100 para limitar a quantidade de recursos que o grupo de carga de trabalho pode consumir.  
 
-O exemplo abaixo define `MIN_PERCENTAGE_RESOURCE` a dedicar 9,6% dos recursos do sistema `wgDataLoads` e garante que uma consulta será capaz de executar todos os tempos.  Adicionalmente, `CAP_PERCENTAGE_RESOURCE` está fixado em 38,4% e limita este grupo de carga de trabalho a quatro pedidos simultâneos.  Ao definir o `QUERY_EXECUTION_TIMEOUT_SEC` parâmetro para 3600, qualquer consulta que se prolongue por mais de 1 hora será automaticamente cancelada.
+Utilizando o mediumrc como base para um exemplo, o código abaixo define a `MIN_PERCENTAGE_RESOURCE` dedicão 10% dos recursos do sistema e garante que `wgDataLoads` uma consulta será capaz de executar todo o tempo.  Adicionalmente, `CAP_PERCENTAGE_RESOURCE` está definido para 40% e limita este grupo de carga de trabalho a quatro pedidos simultâneos.  Ao definir o `QUERY_EXECUTION_TIMEOUT_SEC` parâmetro para 3600, qualquer consulta que se prolongue por mais de 1 hora será automaticamente cancelada.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 
@@ -59,7 +59,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 Anteriormente, o mapeamento de consultas às aulas de recursos foi feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapa pedidos para grupos de carga de trabalho, utilize a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  A utilização de sp_addrolemember só lhe permitiu mapear recursos para um pedido com base num login.  Um classificador oferece opções adicionais para além do login, tais como:
     - etiqueta
     - sessão
-    - tempo O exemplo abaixo atribui consultas do `AdfLogin` login que também têm o RÓTULO DE [OPPÇÃO](sql-data-warehouse-develop-label.md) definido `factloads` para o grupo de carga de trabalho acima `wgDataLoads` criado.
+    - tempo O exemplo abaixo atribui consultas do `AdfLogin` login que também têm o RÓTULO DE [OPPÇÃO](sql-data-warehouse-develop-label.md)  definido `factloads` para o grupo de carga de trabalho acima `wgDataLoads` criado.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  
@@ -86,7 +86,7 @@ SELECT request_id, [label], classifier_name, group_name, command
   ORDER BY submit_time DESC
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
 - [Como criar um grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)

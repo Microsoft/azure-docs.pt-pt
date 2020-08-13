@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169145"
+ms.locfileid: "88191193"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -31,6 +31,9 @@ Pode considerar a execução de um [failover manual](../database/high-availabili
 - Teste como o failover impacta as sessões de base de dados existentes
 - Verifique se uma falha altera o desempenho de ponta a ponta devido a alterações na latência da rede
 - Em alguns casos de degradação do desempenho da consulta, o failover manual pode ajudar a atenuar a questão do desempenho.
+
+> [!NOTE]
+> Garantir que as suas aplicações são resistentes antes de serem implementadas para a produção ajudará a mitigar o risco de falhas de aplicação na produção e contribuirá para a disponibilidade de aplicações para os seus clientes.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar falha manual em SqL Managed Instance
 
@@ -113,7 +116,7 @@ O estado de funcionamento pode ser rastreado através da revisão das respostas 
 
 ## <a name="monitor-the-failover"></a>Monitorize a falha
 
-Para monitorizar o progresso da falha manual iniciada pelo utilizador, execute a seguinte consulta T-SQL no seu cliente favorito (tal é SSMS) em SQL Managed Instance. Lerá o sistema ver sys.dm_hadr_fabric_replica_states e reportar réplicas disponíveis no caso. Refresque a mesma consulta depois de iniciar o failover manual.
+Para monitorizar o progresso da falha manual iniciada pelo utilizador, execute a seguinte consulta T-SQL no seu cliente favorito (tal é SSMS) em SQL Managed Instance. Lerá a visão do sistema sys.dm_hadr_fabric_replica_states e reportará réplicas disponíveis no caso. Refresque a mesma consulta depois de iniciar o failover manual.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states

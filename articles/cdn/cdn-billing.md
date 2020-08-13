@@ -1,6 +1,6 @@
 ---
 title: Compreensão da faturação do Azure CDN ! Microsoft Docs
-description: Esta FAQ descreve como funciona a faturação do Azure CDN.
+description: Conheça a estrutura de faturação dos conteúdos hospedados pela Azure Content Delivery Network, incluindo regiões de faturação, taxas de entrega e gestão de custos.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254570"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191171"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
 
@@ -92,7 +92,7 @@ Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado
 
 - Storage do Azure
 - Serviços de Multimédia do Azure
-- Máquinas Virtuais do Azure
+- Máquinas Virtuais do Microsoft Azure
 - Rede Virtual
 - Balanceador de Carga
 - Gateway de Aplicação
@@ -107,7 +107,7 @@ Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado
 - Serviço de Aplicações Azure
 - Funções do Azure
 - Azure Data Factory
-- API Management do Azure
+- Gestão de API do Azure
 - Azure Batch 
 - Azure Data Explorer
 - HDInsight
