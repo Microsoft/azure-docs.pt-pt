@@ -1,7 +1,7 @@
 ---
 title: Gestão de atividades cloudSimple
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Descreve conceitos de atividade na Solução VMware por CloudSimple
+description: Conheça as páginas De Atividade, que resumem a atividade e permitem encontrar detalhes adicionais. As atividades incluem alertas, eventos, tarefas e atividade de auditoria.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77e996e83819b78bb9ab4484b9a1d3653a97560
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025100"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140977"
 ---
 # <a name="activity-management-overview"></a>Visão geral da gestão da atividade
 

@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Tabelas de firewall
-description: Saiba mais sobre as tabelas de firewall de nuvem privada Cloud Simple e as regras de firewall.
+description: Saiba mais sobre as tabelas de firewall e firewall privadas CloudSimple, incluindo regras padrão que são criadas em todas as tabelas de firewall.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025049"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140875"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
 

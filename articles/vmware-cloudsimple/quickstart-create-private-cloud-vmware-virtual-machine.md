@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Criar um VMware VMware Azure numa Nuvem Privada - Solução VMware Azure por CloudSimple
-description: Descreve como criar um VMware VMware Azure numa Nuvem Simple
+description: Saiba como criar uma máquina virtual VMware na CloudSimple Private Cloud. Aceda ao portal CloudSimple a partir do portal Azure.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091271"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140858"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware na sua Nuvem Privada
 
@@ -223,7 +223,7 @@ Pode instalar soluções na cloudSimple Private Cloud para tirar o máximo parti
 
 Para instalar uma solução, deve solicitar privilégios adicionais por um período limitado. Ver [privilégios escalate.](escalate-private-cloud-privileges.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](on-premises-connection.md)

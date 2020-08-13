@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Visão geral dos nodes
-description: Saiba mais sobre os nós e conceitos CloudSimple.
+description: Conheça os conceitos CloudSimple, incluindo nós, nós a provisionados, uma Nuvem Privada e Solução VMware por CloudSimple nos nós SKUs.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024930"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140841"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nóns cloudSimple
 
