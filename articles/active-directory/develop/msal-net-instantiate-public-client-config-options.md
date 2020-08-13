@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 171b4ddf9a6f3cb5868f2300ea892ad785cbaf22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 349ec8c99bc9e6768e5ec2ded346893da95c1636
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477435"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166149"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação de cliente público com opções de configuração usando MSAL.NET
 

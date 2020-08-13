@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: e36237e67b4498ca6aad4b7ffa8c645abeff6143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 6333d935e1a902ba173017f8149c098f44398955
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477299"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165877"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O utilizador obtém o consentimento de vários recursos utilizando MSAL.NET
 O ponto final da plataforma de identidade da Microsoft não permite obter um token para vários recursos de uma só vez. Ao utilizar a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método de ficha de aquisição só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir vários recursos antecipadamente, especificando âmbitos adicionais utilizando o `.WithExtraScopeToConsent` método de construtor.

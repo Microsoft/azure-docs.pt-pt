@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 62cebb4e774e2f86ed6a4a17edd6da71f7c7cd9f
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.openlocfilehash: 0fc31fd397f8206f7c6f0509dd03495631dde609
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141334"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165639"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade microsoft
 
@@ -172,7 +172,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o cenário de API web protegido que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Cenário de API web protegido](scenario-protected-web-api-overview.md)

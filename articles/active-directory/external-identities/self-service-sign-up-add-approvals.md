@@ -4,19 +4,19 @@ description: Adicione conectores API para fluxos de trabalho de homologação pe
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909195"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165255"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -65,7 +65,7 @@ Em seguida, [irá criar os conectores API](self-service-sign-up-add-api-connecto
 
   ![Verifique a configuração do conector API do estado de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Solicitar aprovação** - Enviar uma chamada para o sistema de aprovação depois de um utilizador completar a página de recolha de atributos, mas antes da conta de utilizador ser criada, para solicitar a aprovação. O pedido de aprovação pode ser concedido automaticamente ou revisto manualmente. Exemplo de um conector API de "Pedido de aprovação". Selecione quaisquer **Reclamações para enviar** que o sistema de aprovação precisa de tomar uma decisão de aprovação.
+- **Solicitar aprovação** - Enviar uma chamada para o sistema de aprovação depois de um utilizador completar a página de recolha de atributos, mas antes da conta de utilizador ser criada, para solicitar a aprovação. O pedido de aprovação pode ser concedido automaticamente ou revisto manualmente. Exemplo de um conector API de "Pedido de aprovação". 
 
   ![Solicitação de configuração do conector API de aprovação](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -90,28 +90,33 @@ Agora irá adicionar os conectores API a um fluxo de utilizador de inscrição d
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controlar o fluxo de inscrição com respostas API
 
-O seu sistema de aprovação pode utilizar os tipos de [resposta API](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) dos dois pontos finais da API para controlar o fluxo de inscrição.
+O seu sistema de aprovação pode utilizar as suas respostas quando é chamado para controlar o fluxo de inscrição. 
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Pedido e respostas para o conector API "Verificar o estado de aprovação"
 
 Exemplo do pedido recebido pela API a partir do conector API "Verificar o estado de aprovação":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
      "issuerAssignedId":"0123456789"
      }
  ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
  "ui_locales":"en-US"
 }
 ```
+
+As reclamações exatas enviadas à API dependem da informação fornecida pelo fornecedor de identidade. 'e-mail' é sempre enviado.
 
 #### <a name="continuation-response-for-check-approval-status"></a>Resposta de continuação para "Verificar o estado de aprovação"
 
@@ -169,12 +174,12 @@ Content-type: application/json
 Exemplo de um pedido HTTP recebido pela API a partir do conector API "Pedido de aprovação":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -182,11 +187,21 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+
+As reclamações exatas enviadas à API dependem de que informações são recolhidas junto do utilizador ou são fornecidas pelo fornecedor de identidade.
 
 #### <a name="continuation-response-for-request-approval"></a>Resposta de continuação para "Pedido de aprovação"
 

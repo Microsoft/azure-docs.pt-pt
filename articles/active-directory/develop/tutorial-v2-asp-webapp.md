@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40
+ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118234"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165588"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicione o acesso à Microsoft a uma aplicação web ASP.NET
 

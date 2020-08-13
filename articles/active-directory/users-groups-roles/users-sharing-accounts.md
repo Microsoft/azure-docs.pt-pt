@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206f87e45377287217b4895b8d481e14618c888c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386950"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164228"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
 
@@ -55,7 +55,7 @@ A Azure AD suporta contas partilhadas para qualquer Suíte de Mobilidade Empresa
 
 As funcionalidades AZURE AD que permitem a partilha de conta incluem:
 
-* [Assinatura única de acesso](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* [Assinatura única de acesso](../manage-apps/sso-options.md#password-based-sso)
 * Agente de inscrição único da palavra-passe
 * [Atribuição de grupo](groups-self-service-management.md)
 * Aplicativos de senha personalizada
@@ -74,7 +74,7 @@ Para utilizar a Azure AD para partilhar uma conta, tem de:
 
 Também pode tornar a sua conta partilhada mais segura com a Autenticação Multi-Factor (MFA) (saiba mais sobre [a garantia de aplicações com Azure AD)](../authentication/concept-mfa-whichversion.md)e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando a gestão do grupo [de self-service Azure AD.](groups-self-service-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Proteger aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)

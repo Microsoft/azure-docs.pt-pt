@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083980"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166200"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialize as aplicações do cliente utilizando MSAL.NET
 Este artigo descreve a inicialização de aplicações de cliente público e cliente confidencial utilizando a Microsoft Authentication Library para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
@@ -98,7 +98,7 @@ Os modificadores que pode definir num cliente público ou um construtor de aplic
 
 |Modificador | Descrição|
 |--------- | --------- |
-|`.WithAuthority()`7 sobreposições | Define a autoridade de incumprimento do pedido a uma autoridade AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
+|`.WithAuthority()` 7 sobreposições | Define a autoridade de incumprimento do pedido a uma autoridade AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
 |`.WithAdfsAuthority(string)` | Define a autoridade por incumprimento do pedido como uma autoridade ADFS.|
 |`.WithB2CAuthority(string)` | Define a autoridade por incumprimento do pedido como uma autoridade Azure AD B2C.|
 |`.WithClientId(string)` | Substitui a identificação do cliente.|

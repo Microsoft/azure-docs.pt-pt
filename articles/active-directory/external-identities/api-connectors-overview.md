@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cdb6e85b6d81de3d4b88ba315ddd35bd5b37ae7a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909705"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165214"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Utilize conectores API para personalizar e prolongar o autosserviço de inscrição 
 
@@ -30,7 +30,7 @@ Como desenvolvedor ou administrador de TI, pode utilizar conectores API para int
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
 - **Executar lógica de negócio personalizada**. Pode desencadear eventos a jusante nos seus sistemas de nuvem para enviar notificações push, atualizar bases de dados corporativas, gerir permissões, auditar bases de dados e realizar outras ações personalizadas.
 
-Um conector API representa um contrato entre a Azure AD e um ponto final da API, definindo o ponto final HTTP, autenticação, pedido e resposta esperada. Uma vez configurado um conector API, pode ative-lo para um passo específico no fluxo do utilizador. Quando um utilizador atinge esse passo no fluxo de inscrição, o conector API é invocado e materializa-se como um pedido HTTP POST, enviando reclamações selecionadas como pares de valor-chave num corpo JSON. A resposta da API pode afetar a execução do fluxo do utilizador. Por exemplo, a resposta da API pode bloquear a inscrição de um utilizador, pedir ao utilizador para reintrodutar informações, ou substituir e apendicar os atributos do utilizador.
+Um conector API fornece ao Azure Ative Directory as informações necessárias para ligar para o ponto final da API definindo o URL e a autenticação do ponto final HTTP. Uma vez configurado um conector API, pode ative-lo para um passo específico no fluxo do utilizador. Quando um utilizador atinge esse passo no fluxo de inscrição, o conector API é invocado e materializa-se como um pedido HTTP POST para a sua API, enviando informações do utilizador ("claims") como pares de valor-chave num corpo JSON. A resposta da API pode afetar a execução do fluxo do utilizador. Por exemplo, a resposta da API pode bloquear a inscrição de um utilizador, pedir ao utilizador para reintrodutar informações, ou substituir e apendicar os atributos do utilizador.
 
 ## <a name="where-you-can-enable-an-api-connector-in-a-user-flow"></a>Onde pode ativar um conector API num fluxo de utilizador
 
@@ -39,7 +39,8 @@ Existem dois lugares num fluxo de utilizador onde pode ativar um conector API:
 - Depois de iniciar sessão com um fornecedor de identidade
 - Antes de criar o utilizador
 
-Em ambos os casos, os conectores API são invocados durante a inscrição, não para iniciar sedutor.
+> [!IMPORTANT]
+> Em ambos os casos, os conectores API são invocados durante a **inscrição**do utilizador, não se inscrevam.
 
 ### <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 

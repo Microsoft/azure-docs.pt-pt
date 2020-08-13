@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037274"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166710"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -180,7 +180,7 @@ Na página de **listagem da Oferta,** define os detalhes da oferta, tais como no
 
 ### <a name="marketplace-details"></a>Detalhes do mercado
 
-#### <a name="name"></a>Nome
+#### <a name="name"></a>Name
 
 O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
 
@@ -226,7 +226,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
-- Nome
+- Name
 - E-mail
 - Telefone
 
@@ -234,7 +234,7 @@ Forneça informações de contacto para os parceiros da Microsoft utilizarem qua
 
 Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
 
-- Nome
+- Name
 - E-mail
 - Telefone
 
@@ -291,6 +291,8 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10 IDs) o
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Você pode fornecer uma variedade de opções de plano dentro da mesma oferta no Partner Center. Uma oferta requer pelo menos um plano (anteriormente chamado de SKU), que pode variar por rentabilização do público, região de Azure, recursos ou imagens VM.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Depois de criar os seus planos, selecione o separador **'visão geral' do Plano** para visualizar:
 

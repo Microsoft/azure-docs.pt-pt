@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718d51c94d05e8e18f2b254b5e81e346a67205a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 422ef08995a74b172271e165c0ec7be5010969b4
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170529"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164784"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
 
@@ -45,7 +45,7 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 * GitHub apoia **SP** iniciado SSO
 
 * GitHub suporta fornecimento [ **automatizado** de utilizadores (convites de organização)](github-provisioning-tutorial.md)
-* Assim que configurar o GitHub, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Uma vez configurado GitHub, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Adicionando GitHub da galeria
 
@@ -121,7 +121,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -138,8 +138,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     ![O link do utilizador adicionar](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+1. Se estiver à espera de qualquer valor de função na afirmação DE SAML, no **diálogo de funções Selecione,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+
+    ![função de utilizador](./media/github-tutorial/user-role.png)
+
+    > [!NOTE]
+    > **Selecione uma** opção de função será desativada e a função predefinitiva é USER para utilizador selecionado.
+
+7. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-github-sso"></a>Configurar GitHub SSO
 
@@ -147,11 +153,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Navegue para **Definições** e clique em **Segurança**
 
-    ![Definições](./media/github-tutorial/tutorial_github_config_github_03.png)
+    ![Definições](./media/github-tutorial/security.png)
 
 3. Verifique a caixa **de autenticação ATIVA SAML,** revelando os campos de configuração de inscrição de assinatura única. executar os seguintes passos:
 
-    ![Definições](./media/github-tutorial/tutorial_github_config_github_13.png)
+    ![Definições](./media/github-tutorial/saml-sso.png)
 
     a. Copie o valor **de URL de inscrição única** e cole este valor na caixa de texto do Sinal na caixa de texto **SÍBL na Configuração Básica SAML** no portal Azure. **Sign on URL**
     
@@ -159,7 +165,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Configure os seguintes campos:
 
-    ![Definições](./media/github-tutorial/tutorial_github_config_github_051.png)
+    ![Definições](./media/github-tutorial/configure.png)
 
     a. Na placa de texto **URL,** cole o valor URL do **Login** que copiou do portal Azure.
 
@@ -175,9 +181,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 5. Clique na **configuração do Test SAML** para confirmar que não há falhas de validação ou erros durante o SSO.
 
-    ![Definições](./media/github-tutorial/tutorial_github_config_github_06.png)
+    ![Definições](./media/github-tutorial/test.png)
 
-6. Clique em **Guardar**
+6. Clicar em **Guardar**
 
 > [!NOTE]
 > O único sign-on no GitHub autentica-se a uma organização específica no GitHub e não substitui a autenticação do próprio GitHub. Portanto, se a sessão de github.com do utilizador tiver expirado, poderá ser-lhe pedido que autente para autenticar com o ID/password do GitHub durante o processo de inscrição única.
@@ -192,21 +198,21 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no GitHub.
 
 2. Clique **em Pessoas.**
 
-    ![People](./media/github-tutorial/tutorial_github_config_github_08.png "People")
+    ![People](./media/github-tutorial/people.png "People")
 
 3. Clique **em Convidar membro**.
 
-    ![Convidar utilizadores](./media/github-tutorial/tutorial_github_config_github_09.png "Convidar utilizadores")
+    ![Convidar utilizadores](./media/github-tutorial/invite-member.png "Convidar utilizadores")
 
 4. Na página de diálogo **do membro convidado,** execute os seguintes passos:
 
     a. Na caixa de sms **do Email,** digite o endereço de e-mail da conta Britta Simon.
 
-    ![Convidar pessoas](./media/github-tutorial/tutorial_github_config_github_10.png "Convidar pessoas")
+    ![Convidar pessoas](./media/github-tutorial/email-box.png "Convidar pessoas")
 
     b. Clique **em Enviar Convite.**
 
-    ![Convidar pessoas](./media/github-tutorial/tutorial_github_config_github_11.png "Convidar pessoas")
+    ![Convidar pessoas](./media/github-tutorial/send-invitation.png "Convidar pessoas")
 
     > [!NOTE]
     > O titular da conta Azure Ative Directory receberá um e-mail e seguirá um link para confirmar a sua conta antes de ficar ativa.

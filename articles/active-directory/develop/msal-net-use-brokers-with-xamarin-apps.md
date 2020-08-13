@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 8e19677adf5fe0f64ad9e1c845f516f81ad89512
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692330"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166064"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 
@@ -305,6 +305,6 @@ Para janelas:`keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for An
 
 Para Mac:`keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [sobre considerações para utilizar a Plataforma Universal do Windows com MSAL.NET](msal-net-uwp-considerations.md).

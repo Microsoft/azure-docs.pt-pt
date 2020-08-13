@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 8aaac1beaae70325bee9752ca51a499f2908bdda
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 4107b0785ef4635e0e5e745a35b605d2634a220d
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119237"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166234"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Apoio aos Serviços da Federação Ativa em MSAL.NET
 Os Serviços da Federação de Diretórios Ativos (AD FS) no Windows Server permitem-lhe adicionar a autenticação baseada em OpenID Connect e OAuth 2.0 e autorização às aplicações que está a desenvolver. Essas aplicações podem, então, autenticar os utilizadores diretamente contra AD FS. Para mais informações, leia [cenários de FS da AD para desenvolvedores.](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)

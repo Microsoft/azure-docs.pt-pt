@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032786"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166744"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentores Azure no Azure Marketplace
 
@@ -133,7 +133,7 @@ Esta página permite definir os detalhes da oferta que são exibidos no mercado 
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase"Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -252,9 +252,11 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou ca
 
 **Selecione Guardar o projeto** antes de continuar.
 
-### <a name="plan-overview"></a>Visão geral do plano
+## <a name="plan-overview"></a>Visão geral do plano
 
 Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Os planos (anteriormente chamados SKUs) podem diferir em termos de que nuvens estão disponíveis, tais como nuvens globais, nuvens do governo, e a imagem referenciada pelo plano. Para listar a sua oferta no mercado comercial, tem de definir pelo menos um plano.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
@@ -269,7 +271,7 @@ As ações disponíveis no Resumo do Plano variam consoante o estado atual do se
 - **Eliminar rascunho** - Se o estado do plano for um Projeto.
 - **Parar o plano de venda** – Se o estado do plano for publicado em direto.
 
-#### <a name="create-new-plan"></a>Criar novo plano
+### <a name="create-new-plan"></a>Criar novo plano
 
 **Selecione Criar novo plano.** Aparece a caixa de diálogo do **novo plano.**
 
@@ -301,7 +303,7 @@ Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulame
 
 Para mostrar as suas certificações para estes programas, pode fornecer até 100 links que os descrevem. Estes podem ser links para as suas listas no programa diretamente ou para o seu próprio site. Estas ligações são visíveis apenas para clientes do Governo Azure.
 
-## <a name="plan-listing"></a>Listagem de planos
+### <a name="plan-listing"></a>Listagem de planos
 
 Este separador apresenta informações específicas para cada plano diferente dentro da oferta atual.
 
@@ -331,7 +333,7 @@ Estes são detalhes do plano no portal Azure:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra detalhes do plano no portal Azure.":::
 
-## <a name="plan-availability"></a>Disponibilidade do plano
+### <a name="plan-availability"></a>Disponibilidade do plano
 
 Se quiser ocultar a sua oferta publicada para que os clientes não possam pesquisar, navegar ou comprar no mercado, selecione a caixa de verificação do **plano Oculta** no separador **Disponibilidade.**
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80050297"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166319"
 ---
 # <a name="confidential-client-assertions"></a>Afirmações confidenciais do cliente
 
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 As alegações esperadas pela Azure AD são:
 
-Tipo de afirmação | Valor | Description
+Tipo de afirmação | Valor | Descrição
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A alegação "aud" (audiência) identifica os destinatários a que o JWT se destina (aqui Azure AD) Ver [RFC 7519, Secção 4.1.3]
 exp | Thu jun 27 2019 15:04:17 GMT+0200 (Horário de verão do Romance) | A alegação "exp" (tempo de validade) identifica o tempo de validade no ou após o qual o JWT NÃO DEVE ser aceite para processamento. Ver [RFC 7519, Secção 4.1.4]

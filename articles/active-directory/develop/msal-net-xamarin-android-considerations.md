@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 601a501114d754dc82991a3c19b977c0c63c5bc0
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118693"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165741"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações para usar Xamarin Android com MSAL.NET
 Este artigo discute o que deve considerar quando utiliza o Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 Esta linha garante que o controlo regressa à MSAL no final da parte interativa do fluxo de autenticação.
 
 ## <a name="update-the-android-manifest"></a>Atualize o manifesto Android
-O *ficheiroAndroidManifest.xml* deve conter os seguintes valores:
+O * ficheiroAndroidManifest.xml* deve conter os seguintes valores:
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
 ```

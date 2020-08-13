@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031035"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166727"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta SaaS no mercado comercial
 
@@ -351,6 +351,8 @@ Diagramas e explicações detalhadas que descrevem a utilização dos campos rec
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Esta página permite-lhe fornecer uma variedade de opções de plano dentro da mesma oferta. Estes planos (por vezes referidos como SKUs) poderiam diferir em termos de versão, rentabilização ou níveis de serviço. Tem de criar pelo menos um plano para vender a sua oferta no mercado.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Uma vez criado, verá os nomes do seu plano, IDs, modelos de preços, disponibilidade (Público ou Privado), estado de publicação atual e quaisquer ações disponíveis.
 

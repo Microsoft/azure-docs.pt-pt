@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080665"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164585"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilizar o Azure AD Application Proxy para publicar aplicações no local para utilizadores remotos
 
@@ -99,7 +99,7 @@ O App Proxy também suporta os seguintes protocolos de autenticação com integr
 * [**Autenticação baseada em formulários ou palavra-passe.**](application-proxy-configure-single-sign-on-password-vaulting.md) Com este método de autenticação, os utilizadores assinam a aplicação com um nome de utilizador e senha na primeira vez que acedem à sua aplicação. Após o primeiro início de sação, o Azure AD fornece o nome de utilizador e a palavra-passe à aplicação. Neste cenário, a autenticação é tratada pela Azure AD.
 * [**Autenticação SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). O sign-on único baseado em SAML é suportado para aplicações que usam protocolos SAML 2.0 ou WS-Federation. Com um único sinal de SATURA, o Azure AD autentica-se na aplicação utilizando a conta Azure AD do utilizador.
 
-Para obter mais informações sobre métodos suportados, consulte [escolher um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Para obter mais informações sobre métodos suportados, consulte [escolher um único método de inscrição](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Benefícios de segurança
 

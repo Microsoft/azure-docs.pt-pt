@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120614"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166438"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilize MSAL.NET para assinar em utilizadores com identidades sociais
 

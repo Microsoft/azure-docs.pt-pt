@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031506"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166693"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -202,7 +202,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Nome
+#### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -315,6 +315,8 @@ A configuração técnica define os detalhes (ID do inquilino e ID de aplicativo
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Estes planos (anteriormente chamados SKUs) podem diferir em termos de tipo de plano (modelo de solução vs aplicação gerida), monetização ou audiência. Configure pelo menos um plano para listar a sua oferta no mercado.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Uma vez criado, verá os nomes do seu plano, IDs, tipo de plano, disponibilidade (Público ou Privado), estado de publicação atual e quaisquer ações disponíveis neste separador.
 

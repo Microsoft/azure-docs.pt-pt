@@ -5,12 +5,12 @@ description: Saiba como atualizar os nós Linux e reinicie-os automaticamente co
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208079"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164245"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como usar o kured de código aberto [(KUbernetes REboot D
 > [!NOTE]
 > `Kured`é um projeto de código aberto da Weaveworks. O apoio a este projeto na AKS é prestado com o melhor esforço. Suporte adicional pode ser encontrado no canal slack #weave-comunidade.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -55,8 +55,8 @@ Não podes permanecer na mesma versão Kubernetes durante um evento de atualiza�
 Para implementar o `kured` DaemonSet, instale o seguinte gráfico oficial de Kured Helm. Isto cria um papel de papel e cluster, encadernações e uma conta de serviço, em seguida, implementa o DaemonSet usando `kured` .
 
 ```console
-# Add the stable Helm repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the Kured Helm repository
+helm repo add kured https://weaveworks.github.io/kured
 
 # Update your local Helm chart repository cache
 helm repo update
@@ -65,7 +65,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Também pode configurar parâmetros adicionais `kured` para, como a integração com Prometheus ou Slack. Para obter mais informações sobre parâmetros de configuração adicionais, consulte o [gráfico kured Helm][kured-install].
@@ -107,7 +107,7 @@ Para clusters AKS que usam nós do Windows Server, consulte [a atualização de 
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://hub.helm.sh/charts/stable/kured
+[kured-install]: https://github.com/weaveworks/kured/tree/master/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

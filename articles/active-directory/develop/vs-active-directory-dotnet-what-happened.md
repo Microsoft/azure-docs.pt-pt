@@ -9,13 +9,13 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
-ms.openlocfilehash: bc23a61c88337c152a764cc0ec90ddbbad25cef1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev, vs-azure
+ms.openlocfilehash: ab72512b2e5d915dbd4b8a3d7d8446a5932eef9e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114732"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165452"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço de ligação ao Visual Studio Azure Ative Directory)?
 
@@ -138,7 +138,7 @@ Alterações adicionais se selecionar a opção **de dados do diretório ler:**
 
 - Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio utiliza para acompanhar a adição do serviço conectado.
 
-- Se selecionou a opção **de dados do diretório ler,** adicione `Models/ADALTokenCache.cs` e suporte o `Models/ApplicationDbContext.cs` caching token. Também adicionou um controlador e uma visão adicionais para ilustrar o acesso a informações de perfil do utilizador usando APIs gráficos Azure: `Controllers/UserProfileController.cs` `Views/UserProfile/Index.cshtml` , e`Views/UserProfile/Relogin.cshtml`
+- Se selecionou a opção **de dados do diretório ler,** adicione `Models/ADALTokenCache.cs` e suporte o `Models/ApplicationDbContext.cs` caching token. Também adicionou um controlador e uma visão adicionais para ilustrar o acesso a informações de perfil do utilizador usando APIs gráficos Azure: `Controllers/UserProfileController.cs` `Views/UserProfile/Index.cshtml` , e `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup de ficheiros (Visual Studio 2015)
 

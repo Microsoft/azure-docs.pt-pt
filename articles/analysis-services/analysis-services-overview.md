@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: f1e70c5b7eb4efdde1bfc20b1ec3e058bfa5b054
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 7878ecd2b1ce223a95c229b93713a875636daa09
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918955"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164313"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -46,7 +46,7 @@ Este escalão é recomendado para cenários de avaliação, desenvolvimento e te
 |D1    |    20     |    3     |
 
 
-### <a name="basic-tier"></a>Escalão Basic
+### <a name="basic-tier"></a>Escalão básico
 
 Este nível é recomendado para soluções de produção com modelos tabulares mais pequenos, conuncy limitada do utilizador e requisitos simples de atualização de dados. A escala de réplica de consulta *não está disponível* para este nível. As perspetivas, partições múltiplas e funcionalidades de modelos em tabela do DirectQuery *não são suportadas* neste escalão.  
 
@@ -55,7 +55,7 @@ Este nível é recomendado para soluções de produção com modelos tabulares m
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
 
-### <a name="standard-tier"></a>Escalão Standard
+### <a name="standard-tier"></a>Escalão standard
 
 Este escalão destina-se a aplicações de produção críticas para o negócio, que requerem simultaneidade de utilizadores elástica e têm modelos de dados em rápido crescimento. Suporta a atualização de dados avançada para atualizações de modelos de dados quase em tempo real, bem como todas as funcionalidades de modelos em tabela.
 
@@ -88,6 +88,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|E.U.A. Central     |    S8v2, S9v2     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
@@ -111,9 +112,9 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
-|Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades
@@ -167,7 +168,7 @@ A Firewall do Azure Analysis Services bloqueia todas as ligações de cliente qu
 
 ### <a name="authentication"></a>Autenticação
 
-O [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) lida com a autenticação dos utilizadores. Ao iniciar sessão, os utilizadores recorrem a uma identidade de conta da organização, com acesso à base de dados baseado em funções. As identidades de utilizador têm de ser membros do Azure Active Directory predefinido da subscrição em que o servidor se encontra. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+O [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) lida com a autenticação dos utilizadores. Ao iniciar sessão, os utilizadores recorrem a uma identidade de conta da organização, com acesso à base de dados baseado em funções. As identidades de utilizador têm de ser membros do Azure Active Directory predefinido da subscrição em que o servidor se encontra. Para saber mais, veja [Authentication and user permissions](analysis-services-manage-users.md) (Permissões de autenticação e utilizador).
 
 ### <a name="data-security"></a>Segurança de dados
 
@@ -181,7 +182,7 @@ O Analysis Services utiliza a [autorização baseada em funções](https://docs.
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Segurança ao Nível da Linha
+### <a name="row-level-security"></a>Row-level security
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 

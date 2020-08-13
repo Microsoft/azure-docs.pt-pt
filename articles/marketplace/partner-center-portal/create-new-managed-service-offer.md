@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036611"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166608"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -90,7 +90,7 @@ Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 3. Ligações úteis
 4. Capturas de ecrã
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -175,6 +175,8 @@ Qualquer cliente associado a estas subscrições poderá ver a oferta no Azure M
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Cada oferta deve ter um ou mais planos (anteriormente chamados SKUs). Pode adicionar vários planos para suportar diferentes conjuntos de funcionalidades a diferentes preços ou para personalizar um plano específico para um público limitado de clientes específicos. Os clientes podem ver os planos que estão disponíveis ao abrigo da oferta dos pais.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Na página **de visão geral** do Plano, selecione + Criar novo **plano**. Em seguida, insira um **ID do plano** e um **nome de plano**. Ambos os valores só podem conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Estes valores podem ser visíveis para os clientes, e não podem ser alterados após a publicação da oferta.
 

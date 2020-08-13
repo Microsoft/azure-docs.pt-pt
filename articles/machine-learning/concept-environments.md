@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012812"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166778"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Para determinar se reutilizar uma imagem em cache ou construir uma nova, o servi
  * Lista de pacotes Python na definição de Conda
  * Lista de pacotes na definição de Faísca 
 
-O haxixe não depende do nome ou versão do ambiente - se mudar o nome do seu ambiente ou criar um novo ambiente com as propriedades exatas e pacotes de um existente, então o valor do haxixe permanece o mesmo. No entanto, as alterações na definição do ambiente, tais como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor do haxixe mude. É importante notar que qualquer alteração a um ambiente curado invalidará o haxixe e resultará num novo ambiente "não curado".
+O haxixe não depende do nome ou versão do ambiente - se mudar o nome do seu ambiente ou criar um novo ambiente com as propriedades exatas e pacotes de um existente, então o valor do haxixe permanece o mesmo. No entanto, as alterações na definição do ambiente, tais como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor do haxixe mude. Mudar a ordem das dependências ou canais num ambiente resultará num novo ambiente e, assim, exigirá uma nova construção de imagem. É importante notar que qualquer alteração a um ambiente curado invalidará o haxixe e resultará num novo ambiente "não curado".
 
 O valor do haxixe calculado é comparado com o do Espaço de Trabalho e do ACR Global (ou no alvo de computação para corridas locais). Se houver uma correspondência, então a imagem em cache é puxada, caso contrário, uma construção de imagem é desencadeada. A duração para puxar uma imagem em cache inclui o tempo de download, enquanto a duração para puxar uma imagem recém-construída inclui tanto o tempo de construção como o tempo de descarregamento. 
 
@@ -105,7 +105,7 @@ O diagrama a seguir mostra três definições ambientais. Dois deles têm nomes 
 >[!IMPORTANT]
 > Se criar um ambiente com uma dependência de pacotes não pinados, por ```numpy``` exemplo, esse ambiente continuará a utilizar a versão pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. 
 
-Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo as aninhadas, que poderão quebrar um cenário de trabalho anterior.
+Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo as aninhadas, que poderão quebrar um cenário de trabalho anterior. 
 
 > [!WARNING]
 >  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.

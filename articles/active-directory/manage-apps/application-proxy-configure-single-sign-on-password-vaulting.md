@@ -14,18 +14,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b25f1b506228d2d80aecae3845467759a4bc4f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764779"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165044"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Abóbada de senha para um único sinal com Proxy de aplicação
 
 O Azure Ative Directory Application Proxy ajuda-o a melhorar a produtividade publicando aplicações no local para que os funcionários remotos também possam aceder de forma segura. No portal Azure, também pode configurar um único sindes de inscrição (SSO) para estas aplicações. Os seus utilizadores apenas precisam de autenticar com Azure AD, e podem aceder à sua aplicação da empresa sem terem de voltar a iniciar sação.
 
-Application Proxy suporta vários [modos de inscrição única](what-is-single-sign-on.md#choosing-a-single-sign-on-method). O sign-on baseado em palavra-passe destina-se a aplicações que utilizem uma combinação de nome de utilizador/palavra-passe para autenticação. Ao configurar o sign-on baseado em palavra-passe para a sua aplicação, os seus utilizadores têm de iniciar sação na aplicação no local uma vez. Depois disso, o Azure Ative Directory armazena as informações de entrada e fornece-as automaticamente à aplicação quando os seus utilizadores acedem remotamente à sua aplicação.
+Application Proxy suporta vários [modos de inscrição única](sso-options.md#choosing-a-single-sign-on-method). O sign-on baseado em palavra-passe destina-se a aplicações que utilizem uma combinação de nome de utilizador/palavra-passe para autenticação. Ao configurar o sign-on baseado em palavra-passe para a sua aplicação, os seus utilizadores têm de iniciar sação na aplicação no local uma vez. Depois disso, o Azure Ative Directory armazena as informações de entrada e fornece-as automaticamente à aplicação quando os seus utilizadores acedem remotamente à sua aplicação.
 
 Já devia ter publicado e testado a sua aplicação com o Application Proxy. Caso contrário, siga os passos nas [aplicações de publicação usando o Azure AD Application Proxy](application-proxy-add-on-premises-application.md) e volte aqui.
 
@@ -66,7 +66,7 @@ Já devia ter publicado e testado a sua aplicação com o Application Proxy. Cas
 
 Vá ao portal My Apps. Faça o seu sômis com as suas credenciais (ou as credenciais para uma conta de teste que configura com acesso). Assim que se ter assinado com sucesso, clique no ícone da aplicação. Isto pode desencadear a instalação da extensão do navegador My Apps Secure Sign-in. Se o seu utilizador tiver credenciais predefinidas, a autenticação da aplicação deverá acontecer automaticamente, caso contrário deverá especificar o nome de utilizador ou a palavra-passe pela primeira vez. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre outras formas de implementar [o único sign-on](what-is-single-sign-on.md)
 - Saiba mais [sobre considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure](application-proxy-security.md)

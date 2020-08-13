@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2020
+ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 034e72238375750651a1374a94b844d36fd97d03
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438943"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166455"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,64 @@ A Azure Security está em desenvolvimento ativo e recebe melhorias continuamente
 - Funcionalidade preterida
 
 Esta página é atualizada regularmente, por isso revisite-a com frequência. Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
+
+## <a name="august-2020"></a>agosto de 2020
+
+### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação da vulnerabilidade em VMs - recomendações e políticas consolidadas
+
+O Centro de Segurança inspeciona os seus VMs para detetar se estão a executar uma solução de avaliação de vulnerabilidade. Se não for encontrada nenhuma solução de avaliação de vulnerabilidade, o Security Center fornece uma recomendação para simplificar a implementação.
+
+Quando as vulnerabilidades são encontradas, o Centro de Segurança fornece uma recomendação que resume as conclusões para que investigue e remediar se necessário.
+
+Para garantir uma experiência consistente para todos os utilizadores, independentemente do tipo de scanner que estão a usar, un we unificou quatro recomendações para as seguintes duas:
+
+|Recomendação unificada|Alterar descrição|
+|----|:----|
+|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**|Substitui as duas seguintes recomendações:<br> **• •** Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys (agora depreciadas) (Incluída com nível padrão)<br> **• •** A solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais (agora depreciadas) (Níveis standard e gratuitos)|
+|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**|Substitui as duas seguintes recomendações:<br>**• •** Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys) (agora depreciadas)<br>**• •** As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades (agora depreciada)|
+|||
+
+Agora você usará a mesma recomendação para implementar a extensão de avaliação de vulnerabilidade do Security Center ou uma solução licenciada privada ("BYOL") de um parceiro como Qualys ou Rapid7.
+
+Além disso, quando as vulnerabilidades forem encontradas e reportadas ao Security Center, uma única recomendação irá alertá-lo para as conclusões, independentemente da solução de avaliação de vulnerabilidade que as identificou.
+
+#### <a name="updating-dependencies"></a>Atualização das dependências
+
+Se tiver scripts, consultas ou automatizações referentes às recomendações anteriores ou chaves/nomes de apólices anteriores, utilize as tabelas abaixo para atualizar as referências:
+
+##### <a name="before-august-2020"></a>Antes de agosto de 2020
+
+|Recomendação|Âmbito|
+|----|:----|
+|**Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)**<br>Chave: 550e890b-e652-4d22-8274-60b3bdb24c63|Incorporado|
+|**Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys)**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado|
+|**Solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais**<br>Chave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
+|**As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades**<br>Chave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
+||||
+
+
+|Política|Âmbito|
+|----|:----|
+|**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Incorporado|
+|**As vulnerabilidades devem ser remediadas por uma solução de avaliação de vulnerabilidades**<br>ID da política: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### <a name="from-august-2020"></a>A partir de agosto de 2020
+
+|Recomendação|Âmbito|
+|----|:----|
+|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**<br>Chave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Incorporado + BYOL|
+|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado + BYOL|
+||||
+
+|Política|Âmbito|
+|----|:----|
+|[**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Incorporado + BYOL|
+||||
+
+
 
 ## <a name="july-2020"></a>Julho de 2020
 
@@ -119,12 +177,14 @@ Saiba mais sobre a segurança do contentor do Security Center nos seguintes arti
 
 A funcionalidade de controlos de aplicações adaptativas recebeu duas atualizações significativas:
 
-- Uma nova recomendação identifica um comportamento potencialmente legítimo que não foi permitido anteriormente. A nova recomendação, **as regras Allowlist na sua política de controlo de aplicações adaptativas devem ser atualizadas,** leva-o a adicionar novas regras à política existente para reduzir o número de falsos positivos nos alertas de violação de controlos de aplicações adaptativos.
+* Uma nova recomendação identifica um comportamento potencialmente legítimo que não foi permitido anteriormente. A nova recomendação, **as regras Allowlist na sua política de controlo de aplicações adaptativas devem ser atualizadas,** leva-o a adicionar novas regras à política existente para reduzir o número de falsos positivos nos alertas de violação de controlos de aplicações adaptativos.
 
-- As regras do caminho agora suportam wildcards. A partir desta atualização, pode configurar as regras de caminho permitidas usando wildcards. Há dois cenários apoiados:
+* As regras do caminho agora suportam wildcards. A partir desta atualização, pode configurar as regras de caminho permitidas usando wildcards. Há dois cenários apoiados:
 
-    - Usando um wildcard no final de um caminho para permitir todos os executáveis dentro desta pasta e sub-pastas
-    - Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc. 
+    * Usando um wildcard no final de um caminho para permitir todos os executáveis dentro desta pasta e sub-pastas
+
+    * Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc.
+
 
 [Saiba mais sobre controlos de aplicações adaptativos.](security-center-adaptive-application.md)
 
@@ -340,7 +400,7 @@ Os controlos de segurança - e este alternador - fazem parte da nova experiênci
 
 Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
 
-!["Grupo por controlos" alterna para recomendações](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+!["Grupo por controlos" alterna para recomendações](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
 
@@ -512,17 +572,4 @@ Duas recomendações de segurança relacionadas com aplicações web estão a se
 Estas recomendações deixarão de constar da lista de recomendações do Centro de Segurança. As políticas relacionadas deixarão de ser incluídas na iniciativa denominada "Security Center Default".
 
 Saiba mais sobre [recomendações de segurança.](recommendations-reference.md)
-
-
-
-## <a name="february-2020"></a>Fevereiro de 2020
-
-### <a name="fileless-attack-detection-for-linux-preview"></a>Deteção de ataque sem ficheiro para Linux (pré-visualização)
-
-À medida que os atacantes aumentam empregam métodos mais furtivos para evitar a deteção, o Azure Security Center está a alargar a deteção de ataques sem ficheiros para o Linux, além do Windows. Os ataques sem ficheiros exploram vulnerabilidades de software, injetam cargas maliciosas em processos benignos do sistema e escondem-se na memória. Estas técnicas:
-
-- minimizar ou eliminar vestígios de malware no disco
-- reduzir consideravelmente as chances de deteção por soluções de digitalização de malware baseadas em disco
-
-Para combater esta ameaça, o Azure Security Center lançou a deteção de ataques sem ficheiros para o Windows em outubro de 2018, e agora alargou também a deteção de ataques sem ficheiros no Linux. 
 
