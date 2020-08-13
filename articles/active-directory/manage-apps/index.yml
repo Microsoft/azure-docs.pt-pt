@@ -9,15 +9,15 @@ metadata:
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 10/10/2019
-  author: msmimart
-  ms.author: mimart
+  author: kenwith
+  ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: b91e63e7e0b639ca969f9a35c6e3352343408194
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: 875619de27cd3b4258fe5327b28d36d7b1f3f3a3
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87385811"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88120801"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:
@@ -25,8 +25,10 @@ landingContent:
     links:
     - text: O que é a gestão de aplicações?
       url: what-is-application-management.md
-    - text: Tutoriais de aplicações SaaS
-      url: /azure/active-directory/saas-apps/
+  - linkListType: quickstart
+    links:
+    - text: Série de Início Rápido
+      url: view-applications-portal.md
 - title: Gerir aplicações da cloud e o início de sessão único
   linkLists:
   - linkListType: concept
@@ -35,14 +37,8 @@ landingContent:
       url: what-is-single-sign-on.md
     - text: Experiências de utilizador final
       url: end-user-experiences.md
-  - linkListType: quickstart
-    links:
-    - text: Adicionar uma aplicação de galeria
-      url: add-application-portal.md
   - linkListType: how-to-guide
     links:
-    - text: Adicionar uma aplicação que não seja de galeria
-      url: add-non-gallery-app.md
     - text: Configurar o início de sessão único
       url: configure-saml-single-sign-on.md
     - text: Atribuir um utilizador ou grupo a uma aplicação

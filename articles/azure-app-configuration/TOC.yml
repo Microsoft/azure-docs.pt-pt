@@ -109,6 +109,8 @@
       href: howto-labels-aspnet-core.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
+    - name: Utilizar o tipo de conteúdo JSON para chaves-valores
+      href: howto-leverage-json-content-type.md
     - name: Encaminhar eventos para um ponto final personalizado
       href: howto-app-configuration-event.md
     - name: Fazer a cópia de segurança do arquivo de configurações automaticamente

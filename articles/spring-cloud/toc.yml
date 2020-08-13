@@ -22,6 +22,8 @@
   items:
     - name: Dimensionar manualmente uma aplicação
       href: spring-cloud-tutorial-scale-manual.md
+    - name: Dimensionar automaticamente uma aplicação
+      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Grupos de alertas e ações
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Utilizar o IntelliJ para implementar aplicações
@@ -38,8 +40,6 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: Utilizar a identidade gerida para ligar o Key Vault à aplicação Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Configurar o dimensionamento automático para aplicações de microsserviços
-      href: spring-cloud-tutorial-setup-autoscale.md
 - name: Amostras
   items:
     - name: Incorporações do Azure Policy

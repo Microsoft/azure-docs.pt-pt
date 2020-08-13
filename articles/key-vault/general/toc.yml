@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Utilizar uma política de controlo de acesso
           href: group-permissions-for-apps.md
+        - name: Resolução de problemas de acesso
+          href: troubleshooting-access-issues.md
     - name: Programar
       items:
         - name: Guia do Programador do Azure Key Vault
