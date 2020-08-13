@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple e Cloud Solutions Program Overview Microsoft Docs
-description: Uma visão geral sobre o StorSimple e cSP para parceiros StorSimple.
+description: Saiba informações introdutórias sobre o Programa StorSimple e Cloud Solutions (CSP) para parceiros StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: e2adccaf1371cf322b5a50b0e1f6ef64dde14b66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60628664"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182005"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para o Programa de Fornecedores de Soluções em Nuvem?
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Microsoft Azure StorSimple é uma abordagem única ao armazenamento empresarial com verdadeiras capacidades de armazenamento em nuvem híbrida. Capacita os clientes a aproveitarem o armazenamento económico em nuvem para os dados inativos, mantendo os seus dados críticos da missão no local para os mais altos níveis de desempenho. 
 

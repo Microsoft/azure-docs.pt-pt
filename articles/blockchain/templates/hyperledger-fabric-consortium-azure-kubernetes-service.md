@@ -1,15 +1,15 @@
 ---
 title: Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 description: Como implementar e configurar a rede de consórcios Hyperledger Fabric no Serviço Azure Kubernetes
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533432"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184215"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 
@@ -350,10 +350,22 @@ Siga os passos:
 A partir da aplicação do cliente por pares, execute abaixo do comando para instantanear o código de corrente no canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Passe o nome da função instantânea e o espaço separados lista de argumentos dentro `<instantiateFunc>` e `<instantiateFuncArgs>` respectivamente. Por exemplo, em chaincode_example02.go chaincode, para instantaneaizar o código de corrente definido `<instantiateFunc>` para `init` e para `<instantiateFuncArgs>` "a" "2000" "b" "1000".
+
+Também pode passar o ficheiro JSON de configuração de coleções utilizando a `--collections-config` bandeira. Ou, definir os argumentos transitórios usando a `-t` bandeira enquanto instantaneamente um código de corrente usado para transações privadas.
+
+Por exemplo:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+Este \<collectionConfigJSONFilePath\> é o caminho para o ficheiro JSON contendo as coleções definidas para a instantânea de um código de cadeia de dados privado. Pode encontrar um ficheiro JSON de configuração de recolhas de amostras relativamente ao diretório azhlfTool no seguinte caminho: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Passe \<transientArgs\> como um JSON válido em formato de corda. Escapar de qualquer personagem especial. Por exemplo: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Execute o comando pela uma vez de qualquer organização de pares no canal. Uma vez que a transação é submetida com sucesso ao ordenante, o ordenante distribui esta transação a todas as organizações de pares do canal. Assim, o código de corrente é instantâneo em todos os nós de pares em todas as organizações de pares do canal.  
@@ -377,8 +389,12 @@ Passe invocar o nome da função e o espaço separados lista de argumentos dentr
 Execute abaixo o comando para consultar o código de corrente:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Os pares de apoio são pares onde o código de corrente é instalado e é solicitado para a execução de transações. Deve definir os nomes dos \<endorsingPeers\> pares da organização atual de pares. Listar os pares de apoio para uma combinação de código de corrente e de canal separada por espaços. Por exemplo, `-p "peer1" "peer3"`.
+
+Se estiver a utilizar o azhlfTool para instalar o seu código de corrente, passe os nomes dos nóns pares como valor para o argumento do par de apoio. O código de corrente está instalado em todos os nós pares dessa organização. 
+
 Passe nome da função de consulta e espaço separado lista de argumentos dentro  `<queryFunction>`   e  `<queryFuncArgs>`   respectivamente. Mais uma vez, tomando chaincode_example02.go chaincode como referência, ao valor de consulta de "a" no estado mundial definido  `<queryFunction>`   para e para  `query`  `<queryArgs>` "a".  
 
 ## <a name="troubleshoot"></a>Resolução de problemas

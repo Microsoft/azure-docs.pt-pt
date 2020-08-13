@@ -170,6 +170,8 @@
         - name: Implementar AKS com Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Utilizar o visualizador de recursos do Kubernetes (Pré-visualização)
+          href: kubernetes-portal.md
         - name: Utilizar o dashboard do Kubernetes
           href: kubernetes-dashboard.md
     - name: Configurar volumes de dados

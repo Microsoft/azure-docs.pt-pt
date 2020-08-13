@@ -5,17 +5,20 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133748"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184623"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Problemas de resolução de problemas Problemas Azure VM problemas de extensão
 
 Este artigo fornece medidas de resolução de problemas que podem ajudá-lo a resolver erros de recuperação do site Azure relacionados com o agente VM e extensão.
 
+## <a name="low-system-resources"></a>Baixos recursos do sistema
+
+Este problema ocorre quando o sistema tem pouca memória disponível, e não é capaz de alocar memória para instalação de serviço de mobilidade. Certifique-se de que a memória foi libertada para que a instalação prossiga e complete com sucesso.
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Tempo de tempo de recuperação do local de Azure  
 
@@ -103,7 +106,7 @@ Para desinstalar a extensão:
 
 1. No [portal Azure,](https://portal.azure.com/)vá ao VM que está a sofrer falha de Backup.
 1. Selecione **Definições**.
-1. Selecione **Extensions** (Extensões).
+1. Selecione **Extensões**.
 1. Selecione **a extensão de recuperação do site**.
 1. Selecione **Desinstalar**.
 

@@ -1,5 +1,5 @@
 ---
-title: Conecte-se com Java - Azure Database para PostgreSQL - Servidor Único
+title: 'Quickstart: Connect with Java - Azure Database for PostgreSQL - Single Server'
 description: Este quickstart fornece uma amostra de código Java que pode utilizar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 8b11147c5266be17d188e915bf73a999ea157d24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e73cf35634b29409f8316080952e46825dd1a0d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321416"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182855"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 

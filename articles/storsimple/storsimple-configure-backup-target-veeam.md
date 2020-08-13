@@ -1,6 +1,6 @@
 ---
 title: StorSimple série 8000 como alvo de backup com Veeam Microsoft Docs
-description: Descreve a configuração do alvo de backup StorSimple com o Veeam.
+description: Conheça a configuração do alvo de backup StorSimple com o Veeam e as melhores práticas para integrar ambas as soluções.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 05ee60986703096c004c4d15764028b73d04c0bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077882"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183986"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de backup com Veeam
 
@@ -94,10 +94,10 @@ As tabelas a seguir mostram a orientação inicial do modelo-arquitectura do dis
 
 | Capacidade de armazenamento | 8100 | 8600 |
 |---|---|---|
-| Capacidade de armazenamento local | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Capacidade de armazenamento em nuvem | &gt;200 TiB\* | &gt;500 TiB\* |
+| Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Capacidade de armazenamento em nuvem | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
+\* O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
 
 **Capacidades StorSimple para backups primários e secundários**
 
@@ -266,7 +266,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 | Requisito GFS |   | 38 |   |
 | Quota adicional  | 4  |   | 42 requisitos totais de GFS  |
 
-\*O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
+\* O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
 
 ## <a name="set-up-veeam-storage"></a>Configurar o armazenamento veeam
 
@@ -386,7 +386,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Anualmente cheio |Disco StorSimple (a longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
 
-\*A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
+\* A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
 
 
 ### <a name="gfs-example-schedule"></a>Calendário de exemplo GFS

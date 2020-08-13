@@ -1,19 +1,19 @@
 ---
 title: Alterar o caminho do blob a partir do padrão
-description: Saiba como configurar uma função Azure para mudar o nome de um caminho de ficheiro blob
+description: Aprenda a configurar uma função Azure para mudar o nome de um caminho de ficheiro blob predefinido e mover as bolhas para um local diferente.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504836"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183722"
 ---
-# <a name="change-a-blob-path-from-the-default-path"></a>Mude um caminho de bolha a partir do caminho padrão
+# <a name="change-a-blob-path-from-the-default-path"></a>Mudar o caminho de um blob do caminho predefinido
 
 Quando o serviço StorSimple Data Manager transforma os dados, por padrão coloca as bolhas transformadas num recipiente de armazenamento, conforme especificado durante a criação do repositório-alvo. À medida que as bolhas chegam a este local, é melhor mover estas bolhas para um local alternativo. Este artigo descreve como configurar uma função Azure para mudar o nome de um caminho de ficheiro blob padrão e, assim, mover as bolhas para um local diferente.
 
@@ -25,9 +25,9 @@ Certifique-se de que tem uma definição de emprego corretamente configurada no 
 
 Para criar uma função Azure, execute os seguintes passos:
 
-1. Vá ao [portal Azure.](https://portal.azure.com/)
+1. Aceda ao [portal do Azure](https://portal.azure.com/).
 
-2. Clique **+ Crie um recurso.** Na caixa **'Procurar',** **digite App function** e prima **Enter**. Selecione e clique na **aplicação Função** na lista de aplicações apresentadas.
+2. Clique em **+ Criar um recurso**. Na caixa **'Procurar',** **digite App function** e prima **Enter**. Selecione e clique na **aplicação Função** na lista de aplicações apresentadas.
 
     ![Digite "App de função" na caixa de pesquisa](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
@@ -215,6 +215,6 @@ Para criar uma função Azure, execute os seguintes passos:
 
 Criou uma função Azure. Esta função é desencadeada cada vez que uma nova bolha é gerada pelo trabalho de transformação de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o StorSimple Data Manager UI para transformar os seus dados](storsimple-data-manager-ui.md)

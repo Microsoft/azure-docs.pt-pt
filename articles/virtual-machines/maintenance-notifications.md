@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510043"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182174"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Tratamento de notificações de manutenção planeadas
 
@@ -107,7 +107,8 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 **A:** Existem várias razões pelas quais não está a ver nenhuma informação de manutenção nos seus VMs:
 1.  Está a utilizar uma subscrição marcada como Interna da Microsoft.
 2.  Os seus VMs não estão programados para manutenção. Pode ser que a onda de manutenção tenha terminado, cancelada ou modificada para que os seus VMs não sejam mais afetados por ela.
-3.  Não tem a coluna **manutenção** adicionada à sua visualização da lista VM. Embora tenhamos adicionado esta coluna à vista padrão, os clientes que configuraram para ver colunas não predefinidas devem adicionar manualmente a coluna **manutenção** à sua vista de lista VM.
+3. Fizeste negócios com a VM e depois começaste. Isto pode fazer com que a VM se mova para um local que não tenha a onda de manutenção planeada programada. Assim, o VM não mostrará mais informações de manutenção. 
+4.  Não tem a coluna **manutenção** adicionada à sua visualização da lista VM. Embora tenhamos adicionado esta coluna à vista padrão, os clientes que configuraram para ver colunas não predefinidas devem adicionar manualmente a coluna **manutenção** à sua vista de lista VM.
 
 **P: O meu VM está programado para manutenção pela segunda vez. Porquê?**
 
@@ -119,6 +120,6 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode manusear a manutenção planeada utilizando o [Azure CLI,](maintenance-notifications-cli.md) [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).

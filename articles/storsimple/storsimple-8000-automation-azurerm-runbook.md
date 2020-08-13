@@ -1,17 +1,17 @@
 ---
 title: Utilize o Runbook Azure Automation para gerir dispositivos StorSimple
-description: Saiba como utilizar o Runbook Azure Automation para automatizar empregos StorSimple
+description: Saiba como utilizar o Azure Automation Runbook para gerir o seu dispositivo da série StorSimple 8000 no portal Azure.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 737533cd75ebec8d5d6c614f496e0c9b552217aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514171"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183484"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utilize os runbooks da Azure Automation para gerir dispositivos StorSimple
 
@@ -214,6 +214,6 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
     ![publicar livro de execução](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o serviço StorSimple Device Manager para gerir o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

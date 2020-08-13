@@ -1,18 +1,18 @@
 ---
 title: Opções de transferência de dados para a Azure usando um aparelho Microsoft Docs
-description: Saiba como escolher o aparelho certo para transferir dados para a Azure
+description: Saiba como escolher o aparelho certo para transferência de dados no local para Azure entre data box edge, Azure File Sync e série StorSimple 8000.
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 903342230b28f8e4fbdcdfd93543e5a0aa54975e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203986"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183280"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar o StorSimple com as opções de transferência de dados do Azure File Sync e do Data Box Edge 
 
@@ -28,7 +28,7 @@ Este documento fornece uma visão geral das opções para transferência de dado
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|**Descrição geral**     |Armazenamento híbrido hierárquico e arquivo|Armazenamento geral de servidor de ficheiros com tiering de nuvem e sincronização de vários locais.  |Solução de armazenamento para pré-processar dados e enviá-lo em rede para Azure.        |
+|**Descrição Geral**     |Armazenamento híbrido hierárquico e arquivo|Armazenamento geral de servidor de ficheiros com tiering de nuvem e sincronização de vários locais.  |Solução de armazenamento para pré-processar dados e enviá-lo em rede para Azure.        |
 |**Cenários**    |Servidor de ficheiros, arquivo, alvo de backup |Servidor de ficheiros, arquivo (multi-site)   |Transferência de dados, pré-processamento de dados, incluindo inferição de ML, IoT, arquivo    |
 |**Computação Edge** |Não disponível |Não disponível |Suporta recipientes de funcionamento usando Azure IoT Edge    |
 |**Fator de forma**  |Dispositivo físico   |Agente instalado no Windows Server |Dispositivo físico   |

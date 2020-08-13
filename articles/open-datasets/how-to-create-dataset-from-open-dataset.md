@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038241"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183061"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,19 +75,21 @@ Quando regista um conjunto de dados criado a partir de Conjuntos de Dados Aberto
 
 ## <a name="create-datasets-with-the-studio"></a>Criar conjuntos de dados com o estúdio
 
-Também pode criar conjuntos de dados a partir de conjuntos de dados abertos com o [estúdio Azure Machine Learning](https://ml.azure.com). No seu espaço de trabalho, selecione o **separador Datasets** em **Ativos**. No menu **Desabroso** do Conjunto de Dados, selecione **From Open Datasets**.
+Também pode criar conjuntos de dados a partir de conjuntos de dados abertos com o [estúdio Azure Machine Learning](https://ml.azure.com).
 
-![Conjunto de dados aberto com a UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. No seu espaço de trabalho, selecione o **separador Datasets** em **Ativos**. No menu **Desabroso** do Conjunto de Dados, selecione **From Open Datasets**.
 
-Selecione um conjunto de dados selecionando o seu azulejo. (Tem a opção de filtrar utilizando a barra de pesquisa.) Selecione **Seguinte**.
+    ![Conjunto de dados aberto com a UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Escolha conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Selecione um conjunto de dados selecionando o seu azulejo. (Tem a opção de filtrar utilizando a barra de pesquisa.) Selecione **Seguinte**.
 
-Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto de dados de feriados públicos, você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
+    ![Escolha conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Definir params de conjunto de dados e criar conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto **de dados de feriados públicos,** você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
 
-O conjunto de dados está agora disponível no seu espaço de trabalho nos **Conjuntos de Dados.** Pode usá-lo da mesma forma que outros conjuntos de dados que criou.
+    ![Definir params de conjunto de dados e criar conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    O conjunto de dados está agora disponível no seu espaço de trabalho nos **Conjuntos de Dados.** Pode usá-lo da mesma forma que outros conjuntos de dados que criou.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>Aceder a conjuntos de dados para as suas experiências

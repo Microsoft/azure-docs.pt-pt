@@ -91,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Proteger o arquivo de configuração com Pontos Finais Privados
           href: concept-private-endpoint.md
-        - name: Integrar na Identidade Gerida do Azure
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Permitir o acesso com o Azure Active Directory
           href: concept-enable-rbac.md
         - name: Atribuir uma Identidade Gerida do Azure
@@ -115,6 +113,8 @@
       href: howto-app-configuration-event.md
     - name: Fazer a cópia de segurança do arquivo de configurações automaticamente
       href: howto-backup-config-store.md
+    - name: Utilizar identidades geridas para aceder ao App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Referência
   items:
     - name: Configuração

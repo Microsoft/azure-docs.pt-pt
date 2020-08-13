@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 025d3b1e0ce2f46cc689d74fe659facf026dc215
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 05a70274e075ddda8770e57c71a7f55807cf3dcc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852502"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182141"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,33 +37,22 @@ Opções de configuração disponíveis em machine learning automatizado:
 
 Se preferir uma experiência sem código, também pode [criar as suas experiências automatizadas de aprendizagem automática de máquinas no estúdio Azure Machine Learning.](how-to-use-automated-ml-for-ml-models.md)
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para este artigo que precisa, 
+* Uma área de trabalho do Azure Machine Learning. Para criar o espaço de trabalho, consulte Criar um espaço de trabalho para [aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
+
+* A Azure Machine Learning Python SDK instalada.
+    Para instalar o SDK pode, 
+    * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Veja [o que é um azure machine learning por exemplo para](concept-compute-instance.md#managing-a-compute-instance) mais informações. 
+
+    * [Instale o SDK por si mesmo.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) Apenas certifique-se de incluir o `automl` extra. 
+
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 
-Antes de começar a sua experiência, deve determinar o tipo de problema de aprendizagem automática que está a resolver. A aprendizagem automática de máquinas suporta tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre [tipos de tarefas.](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)
+Antes de começar a sua experiência, deve determinar o tipo de problema de aprendizagem automática que está a resolver. A aprendizagem automática de máquinas suporta tipos de tarefas `classification` `regression` de, e `forecasting` . Saiba mais sobre [tipos de tarefas.](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)
 
-A aprendizagem automática de máquinas suporta os seguintes algoritmos durante o processo de automatização e afinação. Como utilizador, não há necessidade de especificar o algoritmo.
-
-> [!NOTE]
-> Se planeia exportar os seus modelos auto ML criados para um [modelo ONNX,](concept-onnx.md)apenas os algoritmos indicados com um * são capazes de ser convertidos para o formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Note-se também que o ONNX apenas suporta tarefas de classificação e regressão neste momento. 
-
-Classificação | Regressão | Previsão de Série Temporal
-|-- |-- |--
-[Regressão Logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Rede Elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[GBM leve](https://lightgbm.readthedocs.io/en/latest/index.html)* |[GBM leve](https://lightgbm.readthedocs.io/en/latest/index.html)*|[GBM leve](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Aumento do gradiente](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[Aumento do gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Aumento do gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Árvore da Decisão](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Árvore da Decisão](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Árvore da Decisão](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Vizinhos Mais Próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Vizinhos Mais Próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Vizinhos Mais Próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Laço LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Classificação do vetor de suporte (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Descida estocástica do gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[Descida estocástica do gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Classificador Perceptron Médio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Regressor de Descida de Gradiente Online](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Baías Ingénuas](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Rápido Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Profeta](https://facebook.github.io/prophet/docs/quick_start.html)
-[Descida estocástica do gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||PrevisãoTCN
-|[Classificador Linear SVM](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
-
-Utilize o `task` parâmetro no construtor para `AutoMLConfig` especificar o seu tipo de experiência.
+O código que se segue utiliza o `task` parâmetro no construtor para `AutoMLConfig` especificar o tipo de experiência como `classification` .
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -74,26 +63,27 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Fonte de dados e formato
 
-A aprendizagem automática de máquinas suporta dados que residem no seu ambiente de trabalho local ou na nuvem, como o Azure Blob Storage. Os dados podem ser lidos num **DataFrame pandas** ou num **Separador de Aprendizagem de Máquinas Azure.**  [Saiba mais sobre conjuntos de dados.](how-to-create-register-datasets.md)
+A aprendizagem automática de máquinas suporta dados que residem no seu ambiente de trabalho local ou na nuvem, como o Azure Blob Storage. Os dados podem ser lidos num **DataFrame pandas** ou num **Separador de Aprendizagem de Máquinas Azure.** [Saiba mais sobre conjuntos de dados.](how-to-create-register-datasets.md)
 
 Requisitos para dados de formação:
 - Os dados devem estar em forma tabular.
 - O valor a prever, coluna-alvo, deve estar nos dados.
 
-Os seguintes exemplos de código demonstram como armazenar os dados nestes formatos.
+**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. A AutoML só aceita [TabularDatasets de Aprendizagem de Máquinas Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ao trabalhar num computação remota. 
 
-* Conjunto de Dados Tabular
+Os conjuntos de dados Azure Machine Learning expõem a funcionalidade a:
 
-  ```python
-  from azureml.core.dataset import Dataset
-  from azureml.opendatasets import Diabetes
-  
-  tabular_dataset = Diabetes.get_tabular_dataset()
-  train_dataset, test_dataset = tabular_dataset.random_split(percentage=0.1, seed=42)
-  label = "Y"
+* Transfira facilmente dados de ficheiros estáticos ou fontes de URL para o seu espaço de trabalho.
+* Disponibilize os seus dados para os scripts de formação quando estiver em execução em recursos de computação em nuvem. Veja [como treinar com conjuntos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) de dados para um exemplo de utilização da classe para montar `Dataset` dados no seu alvo de computação remota.
+
+O código a seguir cria um SeparadorSet a partir de um url web. Consulte [Criar um Separador de Dados](how-to-create-register-datasets.md#create-a-tabulardataset) para obter exemplos de código sobre como criar conjuntos de dados de outras fontes, como ficheiros locais e datastores.
+
+```python
+from azureml.core.dataset import Dataset
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-
-* Dataframe de pandas
+**Para experiências locais de computação,** recomendamos dataframes pandas para tempos de processamento mais rápidos.
 
   ```python
   import pandas as pd
@@ -104,44 +94,30 @@ Os seguintes exemplos de código demonstram como armazenar os dados nestes forma
   label = "label-col-name"
   ```
 
-## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Recolher dados para executar experiência em computação remota
+## <a name="training-validation-and-test-data"></a>Dados de treino, validação e teste
 
-Para execuções remotas, os dados de treino devem estar acessíveis a partir do cálculo remoto. A classe [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) no SDK expõe a funcionalidade a:
+Pode especificar conjuntos de **treino e validação separados** diretamente no `AutoMLConfig` construtor. Saiba mais sobre [como configurar as divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para as suas experiências AutoML. 
 
-* transfira facilmente dados de ficheiros estáticos ou fontes de URL para o seu espaço de trabalho
-* disponibilize os seus dados para a formação de scripts quando estiver em execução em recursos de computação em nuvem
+Se não especificar explicitamente um `validation_data` ou `n_cross_validation` parâmetro, o AutoML aplica técnicas predefinidos para determinar como a validação é realizada. Esta determinação depende do número de linhas no conjunto de dados atribuído ao seu `training_data` parâmetro. 
 
-Consulte o [como fazer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) para um exemplo de utilização da classe para `Dataset` montar dados no seu alvo de computação.
+|Tamanho dos &nbsp; dados de formação &nbsp;| Técnica de validação |
+|---|-----|
+|**Maior &nbsp; que &nbsp; 20.000 &nbsp; linhas**| É aplicada a divisão de dados de comboio/validação. O padrão é tomar 10% do conjunto de dados de formação inicial como o conjunto de validação. Por sua vez, este conjunto de validação é usado para o cálculo de métricas.
+|**Menores &nbsp; de &nbsp; 20.000 &nbsp; filas**| Aplica-se uma abordagem de validação cruzada. O número predefinido de dobras depende do número de linhas. <br> **Se o conjunto de dados for inferior a 1.000 linhas,** são utilizadas 10 dobras. <br> **Se as linhas estiverem entre 1.000 e 20.000,** então são usadas três dobras.
 
-## <a name="train-and-validation-data"></a>Dados de treino e validação
-
-Pode especificar conjuntos de comboios e validação separados diretamente no `AutoMLConfig` construtor com as seguintes opções. Saiba mais sobre [como configurar as divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para as suas experiências AutoML. 
-
-### <a name="k-folds-cross-validation"></a>Validação cruzada K-Folds
-
-Utilize `n_cross_validations` a definição para especificar o número de validações cruzadas. O conjunto de dados de treino será dividido aleatoriamente em `n_cross_validations` dobras de tamanho igual. Durante cada ronda de validação cruzada, uma das dobras será utilizada para validação do modelo treinado nas restantes dobras. Este processo repete-se para `n_cross_validations` as rondas até que cada dobra seja utilizada uma vez como conjunto de validação. As pontuações médias em todas as `n_cross_validations` rondas serão reportadas, e o modelo correspondente será retreinado em todo o conjunto de dados de treino.
-
-Saiba mais sobre como a autoML aplica validação cruzada para [evitar modelos de sobreajustamento](concept-manage-ml-pitfalls.md#prevent-over-fitting).
-
-### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validação cruzada de Monte Carlo (Sub-Amostragem Aleatória Repetida)
-
-Utilize `validation_size` para especificar a percentagem do conjunto de dados de formação que deve ser utilizado para validação, e use `n_cross_validations` para especificar o número de validações cruzadas. Durante cada ronda de validação cruzada, será selecionado aleatoriamente um subconjunto de tamanho `validation_size` para validação do modelo treinado nos restantes dados. Finalmente, as pontuações médias em todas as `n_cross_validations` rondas serão reportadas, e o modelo correspondente será retreinado em todo o conjunto de dados de treino. Monte Carlo não é apoiado para a previsão de séries de tempo.
-
-### <a name="custom-validation-dataset"></a>Conjunto de dados de validação personalizada
-
-Utilize conjunto de dados de validação personalizada se a divisão aleatória não for aceitável, normalmente dados de séries de tempo ou dados desequilibrados. Pode especificar o seu próprio conjunto de dados de validação. O modelo será avaliado com o conjunto de dados de validação especificado em vez de conjunto de dados aleatórios. Saiba mais sobre [como configurar um conjunto de validação personalizada com o SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+Neste momento, precisa de fornecer os seus **próprios dados de teste** para avaliação de modelos. Para obter um exemplo de código de trazer os seus próprios dados de teste para avaliação de modelos consulte a secção de **Teste** [deste caderno Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar a experimentação
 
-Em seguida, determinar onde o modelo será treinado. Uma experiência automatizada de treinamento de machine learning pode ser executada com as seguintes opções de computação:
-* A sua máquina local, como um ambiente de trabalho local ou um portátil – Geralmente quando tem um conjunto de dados pequeno e ainda está na fase de exploração.
-* Uma máquina remota na nuvem – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) é um serviço gerido que permite treinar modelos de machine learning em clusters de máquinas virtuais Azure. 
+Em seguida, determinar onde o modelo será treinado. Uma experiência automatizada de treinamento de machine learning pode ser executada nas seguintes opções de computação. Aprenda os prós e contras das opções [de computação local e remota.](concept-automated-ml.md#local-remote) 
 
-  Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para ver exemplos de cadernos com alvos de computação local e remota.
+* A sua máquina **local,** como um ambiente de trabalho local ou um portátil – Geralmente quando tem um pequeno conjunto de dados e ainda está na fase de exploração. Consulte [este caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) para obter um exemplo de computação local. 
+ 
+* Uma máquina **remota** na nuvem – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) é um serviço gerido que permite treinar modelos de machine learning em clusters de máquinas virtuais Azure. 
 
-* Um cluster Azure Databricks na sua subscrição Azure. Pode encontrar mais detalhes aqui - [Configurar o cluster Azure Databricks para ML automatizado](how-to-configure-environment.md#azure-databricks)
+    Consulte [este caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto utilizando o Azure Machine Learning Managed Compute. 
 
-  Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
+* Um **cluster Azure Databricks** na sua subscrição Azure. Pode encontrar mais detalhes aqui - [Configurar o cluster Azure Databricks para ML Automatizado](how-to-configure-environment.md#azure-databricks). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -158,99 +134,111 @@ Alguns exemplos incluem:
        task='classification',
        primary_metric='AUC_weighted',
        experiment_timeout_minutes=30,
-       blacklist_models=['XGBoostClassifier'],
+       blocked_models=['XGBoostClassifier'],
        training_data=train_data,
        label_column_name=label,
        n_cross_validations=2)
    ```
-2. Abaixo está um exemplo de uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
+1. O exemplo a seguir é uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
    ```python
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['KNN'],
+      allowed_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
       n_cross_validations=5)
    ```
 
-Os três valores de `task` parâmetros diferentes (o terceiro tipo de tarefa é `forecasting` , e usa um conjunto de algoritmos semelhante como `regression` tarefas) determinam a lista de modelos a aplicar. Utilize os `whitelist` parâmetros ou `blacklist` parâmetros para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [Classe DeModels Suportados](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) para ([Classificação,](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification) [Previsão](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [Regressão).](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)
 
-Para evitar falhas no tempo de experiência, o serviço de validação automatizado da ML exigirá que `experiment_timeout_minutes` seja definido para um mínimo de 15 minutos, ou 60 minutos se o tamanho da sua linha por coluna exceder 10 milhões.
+1. As tarefas de previsão requerem uma configuração adicional, consulte o [auto-comboio um](how-to-auto-train-forecast.md) artigo de modelo de previsão da série de tempo para obter mais detalhes. 
+
+    ```python
+    time_series_settings = {
+        'time_column_name': time_column_name,
+        'time_series_id_column_names': time_series_id_column_names,
+        'drop_column_names': ['logQuantity'],
+        'forecast_horizon': n_test_periods
+    }
+    
+    automl_config = AutoMLConfig(task = 'forecasting',
+                                 debug_log='automl_oj_sales_errors.log',
+                                 primary_metric='normalized_root_mean_squared_error',
+                                 experiment_timeout_minutes=20,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 path=project_folder,
+                                 verbosity=logging.INFO,
+                                 **time_series_settings)
+    ```
+    
+### <a name="supported-models"></a>Modelos suportados
+
+A aprendizagem automática de máquinas tenta diferentes modelos e algoritmos durante o processo de automatização e afinação. Como utilizador, não há necessidade de especificar o algoritmo. 
+
+Os três valores de `task` parâmetros diferentes (o terceiro tipo de tarefa é `forecasting` , e usa um conjunto de algoritmos semelhante como `regression` tarefas) determinam a lista de algoritmos, modelos, para aplicar. Utilize os `allowed_models` parâmetros ou `blocked_models` parâmetros para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [Classe De Modelos Suportados](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) para [Classificação,](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification) [Previsão](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [Regressão.](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)
+
 
 ### <a name="primary-metric"></a>Métrica Primária
-A métrica primária determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte apresenta métricas primárias válidas para cada tipo de tarefa.
+O `primary metric` parâmetro determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte apresenta métricas primárias válidas para cada tipo de tarefa.
+
+Conheça as definições específicas destas métricas na Compreensão dos [resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
 
 |Classificação | Regressão | Previsão de Série Temporal
-|-- |-- |--
+|--|--|--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
 |average_precision_score_weighted | r2_score | r2_score
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-Conheça as definições específicas destas métricas na Compreensão dos [resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
-
 ### <a name="data-featurization"></a>A exibição de dados
 
-Em todas as experiências automatizadas de machine learning, os seus dados são [automaticamente dimensionados e normalizados](how-to-configure-auto-features.md#) para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes.  No entanto, também pode permitir a acoplamento adicional, como a imputação de valores em falta, codificação e transformação.
+Em todas as experiências automatizadas de machine learning, os seus dados são automaticamente dimensionados e normalizados para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes. Esta escala e normalização é referida como caracterização. Consulte [a Exibição em AutoML](how-to-configure-auto-features.md#) para obter mais detalhes e exemplos de código. 
 
-Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a participação na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a exibição no [objeto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Configuração de exibição | Descrição |
+|Configuração de exibição | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição predefinida**|
+|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição padrão**.|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que deve ser utilizado um passo de aposição personalizado. [Saiba como personalizar a caracterização.](how-to-configure-auto-features.md#customize-featurization)|
 
 > [!NOTE]
 > As etapas automatizadas de aprendizagem automática (normalização de recurso, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, aplicam-se automaticamente os mesmos passos de apresentação aplicados durante o treino.
 
-### <a name="time-series-forecasting"></a>Previsão de Série Temporal
-A tarefa da série de tempo `forecasting` requer parâmetros adicionais no objeto de configuração:
+<a name="ensemble"></a>
 
-1. `time_column_name`: Parâmetro requerido que define o nome da coluna nos seus dados de treino contendo uma série de tempo válida.
-1. `forecast_horizon`: Define quantos períodos para a frente gostaria de prever. O horizonte inteiro está em unidades da frequência dos tempos. Por exemplo, se tiver dados de treino com frequência diária, define a distância em dias para a qual pretende que o modelo treine.
-1. `time_series_id_column_names`: Define as colunas que identificam exclusivamente as séries temporais em dados que têm várias linhas com a mesma hora. Por exemplo, se estiver a prever vendas de uma determinada marca por loja, definiria as colunas de loja e marca como os seus identificadores de séries temporárias. Serão criadas previsões separadas para cada agrupamento. Se os identificadores de séries hortemitusos não forem definidos, presume-se que o conjunto de dados é uma série de tempo.
+### <a name="ensemble-configuration"></a>Configuração do conjunto
 
-Por exemplo, as definições utilizadas abaixo, consulte o [caderno de amostras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+Os modelos conjuntos são ativados por padrão e aparecem como as iterações de execução final numa execução AutoML. Atualmente **votingEnsemble** e **StackEnsemble** são suportados. 
 
-```python
-# Setting Store and Brand as time series identifiers for training.
-time_series_id_column_names = ['Store', 'Brand']
-nseries = data.groupby(time_series_id_column_names).ngroups
+O voto implementa o voto suave que utiliza médias ponderadas. A implementação do empilhamento usa uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal dos modelos a partir da primeira camada. 
 
-# View the number of time series data with defined time series identifiers
-print('Data contains {0} individual time-series.'.format(nseries))
-```
+Se estiver a utilizar modelos ONNX **ou** tiver a explicabilidade do modelo ativada, o empilhamento é desativado e apenas o voto é utilizado.
+
+O treino do conjunto pode ser desativado utilizando os `enable_voting_ensemble` parâmetros e `enable_stack_ensemble` booleanos.
 
 ```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'time_series_id_column_names': time_series_id_column_names,
-    'drop_column_names': ['logQuantity'],
-    'forecast_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task = 'forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             experiment_timeout_minutes=20,
-                             training_data=train_data,
-                             label_column_name=label,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        experiment_timeout_minutes=30,
+        training_data=data_train,
+        label_column_name=label,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
 ```
 
-### <a name="ensemble-configuration"></a><a name="ensemble"></a>Configuração do conjunto
+Para alterar o comportamento do conjunto padrão, existem múltiplos argumentos padrão que podem ser fornecidos como `kwargs` num `AutoMLConfig` objeto.
 
-Os modelos conjunto são ativados por padrão, e aparecem como as iterações de execução final numa corrida automática de aprendizagem automática. Os métodos de agrupamento atualmente suportados estão a votar e a empilhar. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal dos modelos a partir da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver a explicabilidade do modelo ativada, o empilhamento será desativado e apenas será utilizado o voto.
-
-Existem múltiplos argumentos padrão que podem ser fornecidos como `kwargs` num objeto para alterar o comportamento do conjunto `AutoMLConfig` padrão.
+> [!IMPORTANT]
+>  Os parâmetros a seguir não são parâmetros explícitos da classe AutoMLConfig. 
 
 * `ensemble_download_models_timeout_sec`: Durante a geração do modelo **VoteIngEnsemble** e **StackEnsemble,** são descarregados vários modelos equipados das anteriores corridas infantis. Se encontrar este erro: `AutoMLEnsembleException: Could not find any models for running ensembling` , poderá ter de dar mais tempo para que os modelos sejam descarregados. O valor predefinido é de 300 segundos para o descarregamento destes modelos em paralelo e não existe um limite máximo de tempo. Configure este parâmetro com um valor superior a 300 segundos, se for necessário mais tempo. 
 
@@ -292,21 +280,6 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-O treino do conjunto é ativado por padrão, mas pode ser desativado utilizando os `enable_voting_ensemble` parâmetros e `enable_stack_ensemble` booleanos.
-
-```python
-automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=data_train,
-        label_column_name=label,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
-        )
-```
-
 ## <a name="run-experiment"></a>Experiência de execução
 
 Para ml automatizado, você cria um `Experiment` objeto, que é um objeto nomeado em um `Workspace` usado para executar experiências.
@@ -333,173 +306,30 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez numa nova máquina.  Pode levar até 10 minutos antes de ser mostrada a saída.
 >Definição `show_output` para `True` resultados na saída mostrada na consola.
 
-### <a name="exit-criteria"></a><a name="exit"></a>Critérios de saída
+ <a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Critérios de saída
 
 Há algumas opções que pode definir para terminar a sua experiência.
-1. Sem critérios: Se não definir quaisquer parâmetros de saída, a experiência continuará até que não sejam feitos mais progressos na sua métrica primária.
-1. Saída após um período de tempo: A utilização `experiment_timeout_minutes` nas suas definições permite-lhe definir quanto tempo em minutos deve continuar a decorrer uma experiência.
-1. Saída após a conclusão de uma pontuação: A utilização `experiment_exit_score` completará a experiência depois de ter sido alcançada uma pontuação métrica primária.
 
-### <a name="explore-model-metrics"></a>Explore as métricas do modelo
+|Critérios| descrição
+|----|----
+Sem &nbsp; critérios | Se não definir quaisquer parâmetros de saída, a experiência continua até que não haja mais progressos na sua métrica primária.
+Depois de &nbsp; um longo período de &nbsp; &nbsp; &nbsp; tempo| Utilize `experiment_timeout_minutes` nas suas definições para definir quanto tempo, em minutos, a sua experiência deve continuar a decorrer. <br><br> Para evitar falhas no tempo de experiência, há um mínimo de 15 minutos, ou 60 minutos se o tamanho da sua linha por coluna exceder 10 milhões.
+Uma &nbsp; pontuação &nbsp; foi &nbsp; &nbsp; alcançada| A utilização completa a experiência depois de ter `experiment_exit_score` sido alcançada uma pontuação métrica primária especificada.
+
+## <a name="explore-models-and-metrics"></a>Explore modelos e métricas
 
 Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [Track e avalie os modelos](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obter mais detalhes.
 
+Consulte [os resultados automatizados de aprendizagem automática](how-to-understand-automated-ml.md) de máquinas para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução. 
+
+Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
+
+## <a name="register-and-deploy-models"></a>Registar e implantar modelos
+
 Para mais detalhes sobre como descarregar ou registar um modelo de implementação para um serviço web, consulte [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 
-## <a name="understand-automated-ml-models"></a>Compreender modelos ML automatizados
-
-Qualquer modelo produzido com ml automatizado inclui os seguintes passos:
-+ Engenharia de recursos automatizados `"featurization": 'auto'` (se)
-+ Escala/Normalização e algoritmo com valores de hiperparímetro
-
-Tornamos transparente obter esta informação da fitted_model produção de ML automatizado.
-
-```python
-automl_config = AutoMLConfig(…)
-automl_run = experiment.submit(automl_config …)
-best_run, fitted_model = automl_run.get_output()
-```
-
-### <a name="automated-feature-engineering"></a>Engenharia de recursos automatizados
-
-Consulte a lista de engenharia de recursos pré-processamento e [automatizado]() que acontece quando `"featurization": 'auto'` .
-
-Considere este exemplo:
-+ Existem quatro características de entrada: A (Numérico), B (numérico), C (numérico), D (DataTime)
-+ Recurso numérico C é largado porque é uma coluna de ID com todos os valores únicos
-+ Características numéricas A e B têm valores em falta e, portanto, são imputadas pela média
-+ A função DateTime D é apresentada em 11 diferentes funcionalidades de engenharia
-
-Utilize estes 2 APIs no primeiro passo do modelo equipado para entender mais.  Consulte [este caderno de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)
-
-+ API 1: `get_engineered_feature_names()` devolve uma lista de nomes de recursos projetados.
-
-  Utilização:
-  ```python
-  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
-  ```
-
-  ```
-  Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
-  ```
-
-  Esta lista inclui todos os nomes de recursos projetados.
-
-  >[!Note]
-  >Utilize o "timeseriestransformer" para a tarefa='previsão', então utilize o "adaptador de dados" para a tarefa de "regressão" ou "classificação".
-
-+ API 2: `get_featurization_summary()` retorna o resumo da exibição para todas as funcionalidades de entrada.
-
-  Utilização:
-  ```python
-  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
-  ```
-
-  >[!Note]
-  >Utilize o "timeseriestransformer" para a tarefa='previsão', então utilize o "adaptador de dados" para a tarefa de "regressão" ou "classificação".
-
-  Saída:
-  ```
-  [{'RawFeatureName': 'A',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 2,
-    'Tranformations': ['MeanImputer', 'ImputationMarker']},
-   {'RawFeatureName': 'B',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 2,
-    'Tranformations': ['MeanImputer', 'ImputationMarker']},
-   {'RawFeatureName': 'C',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'Yes',
-    'EngineeredFeatureCount': 0,
-    'Tranformations': []},
-   {'RawFeatureName': 'D',
-    'TypeDetected': 'DateTime',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 11,
-    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
-  ```
-
-   Em que:
-
-   |Saída|Definição|
-   |----|--------|
-   |RawFeatureName|Denominação/nome da coluna a partir do conjunto de dados fornecido.|
-   |TipoDetectado|Tipo de dados detetado da função de entrada.|
-   |Caiu|Indica se a função de entrada foi largada ou utilizada.|
-   |EngenhariaFeatureCount|Número de funcionalidades geradas através de transformações automatizadas de engenharia de recursos.|
-   |Transformações|Lista de transformações aplicadas às funcionalidades de entrada para gerar funcionalidades de engenharia.|
-### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Escala/Normalização e algoritmo com valores de hiperparímetro:
-
-Para compreender os valores de escala/normalização e algoritmo/hiperparímetro para um pipeline, utilize fitted_model.passos. [Saiba mais sobre escala/normalização.](how-to-configure-auto-features.md) Eis uma saída de exemplo:
-
-```
-[('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
-```
-
-Para obter mais detalhes, utilize esta função de ajudante: 
-
-```python
-from pprint import pprint
-
-
-def print_model(model, prefix=""):
-    for step in model.steps:
-        print(prefix + step[0])
-        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(
-                e[0] for e in step[1].estimators), 'weights': step[1].weights})
-            print()
-            for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0] + ' - ')
-        else:
-            pprint(step[1].get_params())
-            print()
-
-
-print_model(model)
-```
-
-A seguinte saída da amostra é para um oleoduto usando um algoritmo específico (LogísticaRegression com RobustScalar, neste caso).
-
-```
-RobustScaler
-{'copy': True,
-'quantile_range': [10, 90],
-'with_centering': True,
-'with_scaling': True}
-
-LogisticRegression
-{'C': 0.18420699693267145,
-'class_weight': 'balanced',
-'dual': False,
-'fit_intercept': True,
-'intercept_scaling': 1,
-'max_iter': 100,
-'multi_class': 'multinomial',
-'n_jobs': 1,
-'penalty': 'l2',
-'random_state': None,
-'solver': 'newton-cg',
-'tol': 0.0001,
-'verbose': 0,
-'warm_start': False}
-```
-
-### <a name="predict-class-probability"></a>Prever probabilidade de classe
-
-Os modelos produzidos com ML automatizado têm todos objetos de invólucro que espelham a funcionalidade da sua classe de origem aberta. A maioria dos objetos de invólucro de modelo de classificação devolvidos por ML automatizado implementam a `predict_proba()` função, que aceita uma amostra de dados matrizes semelhantes a matrizes ou escassas das suas funcionalidades (valores X), e devolve uma matriz n-dimensional de cada amostra e sua respetiva probabilidade de classe.
-
-Assumindo que recuperou o melhor modelo de execução e equipado utilizando as mesmas chamadas de cima, pode ligar `predict_proba()` diretamente do modelo equipado, fornecendo uma `X_test` amostra no formato adequado, dependendo do tipo de modelo.
-
-```python
-best_run, fitted_model = automl_run.get_output()
-class_prob = fitted_model.predict_proba(X_test)
-```
-
-Se o modelo subjacente não suportar a `predict_proba()` função ou o formato estiver incorreto, será lançada uma exceção específica da classe do modelo. Consulte os docs de referência [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para exemplos de como esta função é implementada para diferentes tipos de modelos.
 
 <a name="explain"></a>
 
@@ -519,4 +349,5 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 
 + Saiba mais sobre [como treinar um modelo de regressão com machine learning automatizado](tutorial-auto-train-models.md) ou como treinar utilizando [aprendizagem automática de máquinas num recurso remoto.](how-to-auto-train-remote.md)
-+ Saiba como treinar vários modelos com autoML no [Acelerador de Soluções de Muitos Modelos.](https://aka.ms/many-models)
+
++ Saiba como treinar vários modelos com AutoML no [Acelerador de Soluções de Muitos Modelos.](https://aka.ms/many-models)

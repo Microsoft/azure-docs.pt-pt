@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 270461ad0ba5c77f845af13d7cd4a24d0c098b31
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518712"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182464"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -50,13 +50,13 @@ O diagrama seguinte descreve as relações globais entre contas, contentores e b
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Criando uma bolha de página vazia de um tamanho especificado
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Primeiro, faça referência a um contentor. Para criar uma bolha de página, ligue para o método [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) e, em seguida, chame o método [PageBlobClient.Create.](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) Passe no tamanho máximo para a bolha criar. Esse tamanho deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para criar uma bolha de página, criamos primeiro um objeto **CloudBlobClient,** com o URI base para aceder ao armazenamento de bolhas para a sua conta de armazenamento *(pbaccount* na figura 1) juntamente com o objeto **StorageCredentialsAccountAndKey,** como mostrado no exemplo seguinte. O exemplo mostra então a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do recipiente *(testvhds*) se já não existir. Em seguida, utilizando o objeto **CloudBlobContainer,** crie uma referência a um objeto **CloudPageBlob** especificando o nome blob da página (os4.vhd) para aceder. Para criar a bolha de página, ligue para [CloudPageBlob.Create,](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)passando no tamanho máximo para a bolha criar. O *blobSize* deve ser um múltiplo de 512 bytes.
 
@@ -87,13 +87,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Redimensionar uma bolha de página
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para redimensionar uma bolha de página após a criação, utilize o método [Resize.](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) O tamanho solicitado deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para redimensionar uma bolha de página após a criação, utilize o método [Resize.](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) O tamanho solicitado deve ser um múltiplo de 512 bytes.
 
@@ -105,13 +105,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>Escrever páginas para uma bolha de página
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para escrever páginas, utilize o método [PageBlobClient.UploadPages.](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages)  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para escrever páginas, utilize o método [CloudPageBlob.WritePages.](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages)  
 
@@ -134,13 +134,13 @@ O diagrama abaixo mostra 2 operações de escrita separadas:
 
 #### <a name="reading-pages-from-a-page-blob"></a>Ler páginas de uma bolha de página
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para ler páginas, utilize o método [PageBlobClient.Descarregue](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) para ler uma série de bytes a partir da bolha de página. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para ler páginas, utilize o método [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) para ler uma série de bytes a partir da bolha de página. 
 
@@ -159,13 +159,13 @@ O seguinte número mostra uma operação de Leitura com uma compensação de 256
 
 Se tiver uma bolha pouco povoada, talvez queira apenas baixar as regiões de página válidas para evitar pagar a saída de bytes zero e reduzir a latência do download.  
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para determinar quais páginas são apoiadas por dados, utilize [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). Em seguida, pode enumerar as gamas devolvidas e descarregar os dados em cada intervalo. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para determinar quais páginas são apoiadas por dados, utilize [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Em seguida, pode enumerar as gamas devolvidas e descarregar os dados em cada intervalo. 
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Falha sobre o dispositivo físico StorSimple para o mesmo dispositivo
-description: Saiba como falhar sobre o seu dispositivo StorSimple para o mesmo dispositivo.
+description: Aprenda os passos necessários para falhar sobre um dispositivo físico da série StorSimple 8000 para si mesmo se houver um desastre.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 60bf5b593efc5a26387680c092fc972bf9274e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511745"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184334"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Falha no seu dispositivo físico StorSimple para o mesmo dispositivo
 
@@ -79,7 +79,7 @@ Execute os seguintes passos se precisar de falhar no mesmo dispositivo.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Depois de ter efetuado uma falha, poderá ter de [desativar ou eliminar o seu dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * Para obter informações sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

@@ -2,13 +2,13 @@
 title: Criar ambientes multi-VM e recursos PaaS com modelos
 description: Saiba como criar ambientes multi-VM e recursos PaaS em Azure DevTest Labs a partir de um modelo de Gestor de Recursos Azure
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: bab107257a6233543cecfb664b3a6d313dd0e538
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481430"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182413"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager
 
@@ -203,10 +203,10 @@ O seguinte guião de amostra cria um ambiente no seu laboratório. Os comentári
    Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
    # Get information about the user, specifically the user ID, which is used later in the script.  
-   $UserId = $((Get-AzADUser -UserPrincipalName (Get-AzContext).Account).Id.Guid)
+   $UserId = $((Get-AzADUser -UserPrincipalName ((Get-AzContext).Account).Id).Id)
 
    # Get information about the lab, such as lab location.
-   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName
+   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName
    if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." }
 
    # Get information about the repository in the lab.
@@ -282,7 +282,7 @@ Por exemplo, pode ter uma política de laboratório que um utilizador pode criar
 
   - Número de discos premium por utilizador de laboratório
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Uma vez criado um VM, pode ligar-se ao VM selecionando **Connect** no painel de gestão do VM.
 - Veja e gere recursos num ambiente selecionando o ambiente na lista **das minhas máquinas virtuais** no seu laboratório.
 - Explore os [modelos do Gestor de Recursos Azure da galeria de modelos Azure Quickstart.](https://github.com/Azure/azure-quickstart-templates)

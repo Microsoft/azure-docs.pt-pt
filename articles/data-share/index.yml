@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
-  ms.date: 09/13/2019
-  ms.openlocfilehash: 66350050a84617b789c6a73c38170dc25dad331d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/11/2020
+  ms.openlocfilehash: 43de19b3caa87bf410ad30a237c2c9e91beba63f
+  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73802908"
+  ms.lasthandoff: 08/12/2020
+  ms.locfileid: "88136376"
 landingContent:
 - title: Sobre o Azure Data Share
   linkLists:
@@ -24,13 +24,17 @@ landingContent:
     links:
     - text: O que é o Azure Data Share?
       url: overview.md
+    - text: Arquivos de dados suportados
+      url: supported-data-stores.md
   - linkListType: concept
     links:
-    - text: Conceitos do Azure Data Share
+    - text: Terminologia do Azure Data Share
       url: terminology.md
     - text: Funções e condições do Azure Data Share
       url: concepts-roles-permissions.md
-- title: Partilhar dados
+    - text: Compreender os preços
+      url: concepts-pricing.md
+- title: Partilhar e receber dados
   linkLists:
   - linkListType: tutorial
     links:
@@ -40,21 +44,25 @@ landingContent:
       url: subscribe-to-data-share.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar mapeamentos de conjuntos de dados
-      url: how-to-configure-mapping.md
     - text: Adicionar conjuntos de dados
       url: how-to-add-datasets.md
+    - text: Configurar mapeamentos de conjuntos de dados
+      url: how-to-configure-mapping.md
 - title: Monitorizar e gerir
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Monitorizar o Azure Data Share
+    - text: Monitorizar a sua partilha
       url: how-to-monitor.md
     - text: Resolver problemas comuns
       url: data-share-troubleshoot.md
-    - text: Adicionar conjuntos de dados
-      url: how-to-add-datasets.md
+    - text: Adicionar destinatários
+      url: how-to-add-recipients.md
     - text: Eliminar um convite
       url: how-to-delete-invitation.md
     - text: Revogar uma subscrição de partilha
       url: how-to-revoke-share-subscription.md
+    - text: Descrição geral de segurança do Azure Data Share
+      url: security.md
+    - text: Recuperação após desastre
+      url: disaster-recovery.md

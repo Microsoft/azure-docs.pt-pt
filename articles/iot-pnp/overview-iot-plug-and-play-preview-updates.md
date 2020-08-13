@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: 60ad7f5df4f13d626d7a2c24990c7f48db28d01d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 94cec26d883c29eb4d43d2f244a9a2b8f7aea9dd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475231"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183178"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>IoT Plug e Play atualização de pré-visualização
 
@@ -80,7 +80,7 @@ Os dispositivos que não utilizam componentes requerem alterações mínimas de 
 
 ### <a name="service-sdks"></a>SDKs de Serviço
 
-O serviço SDK está disponível em [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) e [Python.](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md)
+O serviço SDK está disponível em [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/pnp-preview-refresh/digitaltwins/service/readme.md) e [Python.](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md)
 
 ## <a name="vs-code-extension"></a>Extensão do Código VS
 

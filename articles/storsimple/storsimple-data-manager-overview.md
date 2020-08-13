@@ -1,6 +1,6 @@
 ---
 title: Visão geral do Microsoft Azure StorSimple Data Manager Microsoft Docs
-description: Fornece uma visão geral do serviço StorSimple Data Manager
+description: Conheça a solução StorSimple Data Manager e como pode utilizar este serviço para escrever aplicações que utilizam dados StorSimple e outros serviços Azure.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67876108"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183501"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral do StorSimple Data Manager
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Microsoft Azure StorSimple utiliza o armazenamento em nuvem como uma extensão da solução no local e tiers automaticamente dados através do armazenamento no local e na nuvem. Os dados são armazenados na nuvem num formato deduped e comprimido para a máxima eficiência e para reduzir custos. Como os dados são armazenados em formato StorSimple, não é facilmente consumível por outras aplicações em nuvem que possa querer utilizar.
 
@@ -47,10 +47,10 @@ Pode utilizar o Gestor de Dados com Funções Azure, Azure Automation e Azure Da
 
 O Gestor de Dados StorSimple está disponível nas seguintes 7 regiões:
 
- - Ásia Sudeste
+ - Sudeste Asiático
  - E.U.A. Leste
  - E.U.A. Oeste
- - E.U.A.Oeste 2
+ - E.U.A. Oeste 2
  - E.U.A. Centro-Oeste
  - Europa do Norte
  - Europa Ocidental

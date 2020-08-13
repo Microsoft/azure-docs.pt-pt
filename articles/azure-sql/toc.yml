@@ -72,7 +72,7 @@
               items:
                 - name: Configurar a autenticação do Azure AD
                   href: database/authentication-aad-configure.md
-                - name: Autenticação multifator do AAD
+                - name: Autenticação multifator do Azure AD
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Configurar a autenticação multifator
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Ligar a aplicações
           href: managed-instance/connect-application-instance.md
-        - name: Criar alertas
+        - name: Criar alertas na instância gerida
           href: managed-instance/alerts-create.md
+        - name: Iniciar manualmente uma ativação pós-falha na instância gerida
+          href: managed-instance/user-initiated-failover.md
     - name: Amostras
       items:
         - name: CLI do Azure

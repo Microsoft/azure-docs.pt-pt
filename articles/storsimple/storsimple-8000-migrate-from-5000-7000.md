@@ -1,6 +1,6 @@
 ---
 title: Migrar dados sobre a série StorSimple 5000-7000 para 8000 séries Microsoft Docs
-description: Fornece uma visão geral e os pré-requisitos da funcionalidade migração.
+description: Saiba mais sobre os dados migratórios do dispositivo da série StorSimple 5000-7000 para 8000 e quais são os pré-requisitos para o processo de migração.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206478"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184300"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados da série StorSimple 5000-7000 para 8000
 
@@ -136,12 +136,12 @@ Execute os seguintes passos para instalar a ferramenta de migração StorSimple 
     ```
 2. Editar os valores correspondentes às teclas e substituir por:
 
-    * `UserName`– Nome do utilizador para iniciar sessão no portal Azure.
-    * `SubscriptionName and SubscriptionId`– Nome e ID para a sua assinatura Azure. Na sua página de aterragem de serviço StorSimple Device Manager, em **Geral,** clique em **Propriedades**. Copie o nome de assinatura e o ID de assinatura associado ao seu serviço.
-    * `ResourceName`– Nome do seu serviço StorSimple Device Manager no portal Azure. Também mostrado em propriedades de serviço.
-    * `ResourceGroup`– Nome do grupo de recursos associado ao seu serviço StorSimple Device Manager no portal Azure. Também mostrado em propriedades de serviço.
+    * `UserName` – Nome do utilizador para iniciar sessão no portal Azure.
+    * `SubscriptionName and SubscriptionId` – Nome e ID para a sua assinatura Azure. Na sua página de aterragem de serviço StorSimple Device Manager, em **Geral,** clique em **Propriedades**. Copie o nome de assinatura e o ID de assinatura associado ao seu serviço.
+    * `ResourceName` – Nome do seu serviço StorSimple Device Manager no portal Azure. Também mostrado em propriedades de serviço.
+    * `ResourceGroup` – Nome do grupo de recursos associado ao seu serviço StorSimple Device Manager no portal Azure. Também mostrado em propriedades de serviço.
     ![Verifique as propriedades do serviço para o dispositivo alvo](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
-    * `TenantId`– ID do Azure Ative Directory Tenanty no portal Azure. Faça login no Microsoft Azure como administrador. No portal Microsoft Azure, clique em **Azure Ative Directory**. Em **Gerir**, clique em **Propriedades**. A identificação do inquilino é mostrada na caixa de identificação do **Diretório.**
+    * `TenantId` – ID do Azure Ative Directory Tenanty no portal Azure. Faça login no Microsoft Azure como administrador. No portal Microsoft Azure, clique em **Azure Ative Directory**. Em **Gerir**, clique em **Propriedades**. A identificação do inquilino é mostrada na caixa de identificação do **Diretório.**
     ![Verifique a ID do Inquilino para O Diretório Ativo Azure](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  Guarde as alterações efetuadas no ficheiro config.

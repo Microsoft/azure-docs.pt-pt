@@ -1,6 +1,6 @@
 ---
 title: Amostras de modelo do Azure Resource Manager - Azure Front Door
-description: Amostras de modelo do gestor de recursos Azure para a porta frontal Azure
+description: Saiba mais sobre as amostras de modelo do Gestor de Recursos para a porta frontal Azure, incluindo modelos para criar uma porta frontal básica e configurar a limitação da taxa da porta frontal.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: 47db565288d1bfe1f98c58536e726eb7ec55d0a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084641"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182192"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelos de implementação do Azure Resource Manager para o Front Door
 
 A tabela seguinte inclui links para modelos de modelos de implementação do Azure Resource Manager para a Porta Frontal Azure. 
 
-| Modelo | Descrição |
+| Modelo | Description |
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic) (Criar um Front Door básico)| Cria uma configuração básica do Front Door com um único back-end. |
 | [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends) (Criar um Front Door com vários back-ends e conjuntos de back-end e encaminhamento baseado em URL)| Cria um Front Door com balanceamento de carga configurado para vários back-ends no conjunto de back-end TA e também em conjuntos de back-end no caminho do URL. |

@@ -1,18 +1,18 @@
 ---
 title: Configure MPIO no anfitrião StorSimple Linux
-description: Configure mPIO em StorSimple ligado a um anfitrião Linux que executa o CentOS 6.6
+description: Aprenda os passos necessários para configurar o IO Multipating (MPIO) no seu servidor de anfitrião StorSimple Linux (Centos 6.6).
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187086"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183639"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
 Este artigo explica os passos necessários para configurar o IO Multipating (MPIO) no servidor anfitrião Centos 6.6. O servidor anfitrião está ligado ao seu dispositivo Microsoft Azure StorSimple para uma elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a descoberta automática de dispositivos multipatas e a configuração específica apenas para volumes StorSimple.
@@ -214,7 +214,7 @@ Os dispositivos suportados por vários caminhos podem ser automaticamente descob
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passo 2: Configurar multipatriamento para volumes StorSimple
 Por predefinição, todos os dispositivos são listados em preto no ficheiro multipata.conf e serão ignorados. Terá de criar exceções na lista negra para permitir a multipatração para volumes a partir de dispositivos StorSimple.
 
-1. Edite o `/etc/mulitpath.conf` ficheiro. Escreva:
+1. Editar o ficheiro `/etc/mulitpath.conf`. Escreva:
    
     `vi /etc/multipath.conf`
 1. Localize a secção blacklist_exceptions no ficheiro multipata.conf. O seu dispositivo StorSimple tem de ser listado como uma exceção à lista negra nesta secção. Pode descodê-lo de linhas relevantes neste ficheiro para modificá-lo conforme mostrado abaixo (utilize apenas o modelo específico do dispositivo que está a utilizar):
@@ -235,7 +235,7 @@ Por predefinição, todos os dispositivos são listados em preto no ficheiro mul
 ### <a name="step-3-configure-round-robin-multipathing"></a>Passo 3: Configurar multipathing round-robin
 Este algoritmo de equilíbrio de carga usa todos os multipatas disponíveis para o controlador ativo de uma forma equilibrada e redonda.
 
-1. Edite o `/etc/multipath.conf` ficheiro. Escreva:
+1. Editar o ficheiro `/etc/multipath.conf`. Escreva:
    
     `vi /etc/multipath.conf`
 1. Sob a `defaults` secção, desacione `path_grouping_policy` o `multibus` . O `path_grouping_policy` especificado a política de agrupamento de caminhos padrão para aplicar a multipatas não especificados. A secção de predefinições será a seguinte.
@@ -336,17 +336,17 @@ Esta secção fornece algumas dicas úteis se encontrar problemas durante a conf
 
 P. Não vejo as alterações nos `multipath.conf` ficheiros a fazer efeito.
 
-R. Se tiver escamado alguma alteração no `multipath.conf` ficheiro, terá de reiniciar o serviço multipatar. Escreva o seguinte comando:
+A. Se tiver escamado alguma alteração no `multipath.conf` ficheiro, terá de reiniciar o serviço multipatar. Escreva o seguinte comando:
 
 `service multipathd restart`
 
 P. Permiti duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no hospedeiro. Quando enusei os caminhos disponíveis, só vejo dois caminhos. Esperava ver quatro caminhos disponíveis.
 
-R. Certifique-se de que os dois caminhos estão na mesma sub-rede e roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e não forem encaminháveis, verá apenas dois caminhos. Uma forma de verificar isto é garantir que pode chegar a ambas as interfaces de anfitrião a partir de uma interface de rede no dispositivo StorSimple. Terá de [contactar](storsimple-8000-contact-microsoft-support.md) o Microsoft Support uma vez que esta verificação só pode ser feita através de uma sessão de suporte.
+A. Certifique-se de que os dois caminhos estão na mesma sub-rede e roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e não forem encaminháveis, verá apenas dois caminhos. Uma forma de verificar isto é garantir que pode chegar a ambas as interfaces de anfitrião a partir de uma interface de rede no dispositivo StorSimple. Terá de [contactar](storsimple-8000-contact-microsoft-support.md) o Microsoft Support uma vez que esta verificação só pode ser feita através de uma sessão de suporte.
 
 P. Quando enusei caminhos disponíveis, não vejo saída.
 
-R. Normalmente, não ver nenhum caminho multipatar sugere um problema com o deemon multi-pathing, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
+A. Normalmente, não ver nenhum caminho multipatar sugere um problema com o deemon multi-pathing, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
 
 Também valeria a pena verificar se pode realmente ver alguns discos depois de se ligar ao alvo, uma vez que nenhuma resposta das listas multipatar também pode significar que não tem discos.
 
@@ -379,7 +379,7 @@ Repita este comando para todas as interfaces de rede ligadas no alvo iSCSI, que 
 
 P. Não sei se o meu dispositivo está na lista branca.
 
-R. Para verificar se o seu dispositivo está na lista branca, utilize o seguinte comando interativo de resolução de problemas:
+A. Para verificar se o seu dispositivo está na lista branca, utilize o seguinte comando interativo de resolução de problemas:
 
 ```console
 multipathd -k

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253329"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184351"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -117,7 +117,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Descrição |
+   | Modelo | Description |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |
@@ -253,7 +253,7 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
 > | **Aplicação nativa** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
@@ -345,7 +345,7 @@ Pode configurar uma política de acesso condicional para a aplicação De inscri
 > [!NOTE]
 > A aplicação Intune Registration não é suportada para [termos de utilização por dispositivo.](#per-device-terms-of-use)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Como vejo quando/se um utilizador aceitou um termos de utilização?**<br />
 R: Nos Termos de Utilização, clique no número em **Aceito**. Também pode visualizar ou pesquisar a atividade de aceitação nos registos de auditoria Azure AD. Para obter mais informações, consulte o relatório de quem aceitou e recusou e [ver os registos de auditoria da AZure AD](#view-azure-ad-audit-logs).
@@ -363,7 +363,7 @@ R: Não, se um administrador editar os detalhes para um termos de utilização (
 R: Atualmente, não é possível atualizar um documento de utilização existente. Para alterar um documento de uso, terá de criar um novo exemplo de termos de utilização.
 
 **P: Se as hiperligações estiverem nos termos de utilização do documento PDF, os utilizadores finais poderão clicar neles?**<br />
-R: Sim, os utilizadores finais são capazes de selecionar hiperligações para páginas adicionais, mas as ligações para secções dentro do documento não são suportadas.
+R: Sim, os utilizadores finais são capazes de selecionar hiperligações para páginas adicionais, mas as ligações para secções dentro do documento não são suportadas. Além disso, as hiperligações em termos de utilização de PDFs não funcionam quando acedidas a partir do portal Azure AD MyApps/MyAccount.
 
 **P: Os termos de uso podem suportar várias línguas?**<br />
 R: Sim. Atualmente existem 108 idiomas diferentes que um administrador pode configurar para um único termos de uso. Um administrador pode carregar vários documentos PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os utilizadores finais se inscrevem, olhamos para a sua preferência de idioma do navegador e exibimos o documento correspondente. Se não houver correspondência, exibiremos o documento predefinido, que é o primeiro documento que é carregado.
@@ -389,7 +389,7 @@ R: Se tiver configurado os termos de utilização do AZure AD e os [termos e con
 **P: Que pontos finais utiliza os termos do serviço de utilização para autenticação?**<br />
 R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para iniciar sação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem](require-tou.md)
 - [Melhores práticas para acesso condicional no Diretório Ativo Azure](best-practices.md)
