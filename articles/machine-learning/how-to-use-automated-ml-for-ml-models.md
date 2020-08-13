@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539140"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185405"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -132,9 +132,9 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Descrição
+    Configurações adicionais|Description
     ------|------
-    Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#explore-model-metrics)
+    Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
     Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar a explicabilidade do melhor modelo recomendado.
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino.
     Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
@@ -154,7 +154,7 @@ Pode obter uma grande variedade de estatísticas sumárias através do seu conju
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-Estatística|Descrição
+Estatística|Description
 ------|------
 Funcionalidade| Nome da coluna que está a ser resumida.
 Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
@@ -164,7 +164,7 @@ Mín.| Valor mínimo da coluna. As entradas em branco aparecem para funcionalida
 Máx| Valor máximo da coluna. 
 de palavras| Número total de entradas desaparecidas e não desaparecidas na coluna.
 Contagem não faltando| Número de entradas na coluna que não faltam. Cordas e erros vazios são tratados como valores, para que não contribuam para a "contagem não em falta".
-Rio Quantiles| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
+Quantis| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
 Média| Média aritmética ou média da coluna.
 Desvio padrão| Medida da quantidade de dispersão ou variação dos dados desta coluna.
 Variância| Medida da distância que os dados desta coluna estão a partir do seu valor médio. 
@@ -225,7 +225,7 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome computacional| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ativar a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.

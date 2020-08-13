@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84124457"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186297"
 ---
 Este artigo explica como planear o backup e recuperação de desastres (DR) das máquinas virtuais IaaS (VMs) e discos em Azure. Este documento abrange discos geridos e não geridos.
 
@@ -107,7 +107,7 @@ Para discos não geridos, pode utilizar o tipo de armazenamento localmente redun
 
  O quadro a seguir é um resumo das soluções disponíveis para DR.
 
-| Scenario | Replicação automática | Solução DR |
+| Cenário | Replicação automática | Solução DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local[(armazenamento localmente redundante)](../articles/storage/common/storage-redundancy-lrs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Managed disks | Local[(armazenamento localmente redundante)](../articles/storage/common/storage-redundancy-lrs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
@@ -178,7 +178,7 @@ Um instantâneo é uma representação de um objeto num ponto específico do tem
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Crie instantâneos enquanto o VM está em execução
 
-Embora possa tirar uma fotografia a qualquer momento, se o VM estiver em execução, ainda há dados a serem transmitidos para os discos. As fotos podem conter operações parciais que estavam em voo. Além disso, se houver vários discos envolvidos, as imagens de diferentes discos podem ter ocorrido em momentos diferentes. Estes cenários podem fazer com que os instantâneos sejam descoordenados. Esta falta de coordenação é especialmente problemática para volumes às riscas cujos ficheiros podem ser corrompidos se forem feitas alterações durante a cópia de segurança.
+Embora possa tirar uma fotografia a qualquer momento, se o VM estiver em execução, ainda há dados a serem transmitidos para os discos. As fotos podem conter operações parciais que estavam em voo. Além disso, se houver vários discos envolvidos, as imagens de diferentes discos podem ter ocorrido em momentos diferentes. Estes cenários podem fazer com que os instantâneos sejam descoordenados. Esta falta de coordenação é especialmente problemática para volumes listrados cujos ficheiros podem ser corrompidos se forem feitas alterações durante a cópia de segurança.
 
 Para evitar esta situação, o processo de backup deve implementar as seguintes etapas:
 
@@ -257,9 +257,6 @@ A principal diferença entre o armazenamento geo-redundante e o armazenamento ge
 Se se revelar uma paragem significativa, a equipa Azure pode desencadear uma falha de geo-falha e alterar as entradas primárias de DNS para apontar para o armazenamento secundário. Neste momento, se tiver armazenamento geo-redundante ou armazenamento geo redundante de acesso à leitura, pode aceder aos dados da região que costumava ser o secundário. Por outras palavras, se a sua conta de armazenamento for um armazenamento geo-redundante e houver um problema, só poderá aceder ao armazenamento secundário se houver uma falha geo-failover.
 
 Para obter informações, veja [O que fazer em caso de falha do Armazenamento do Azure](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->A Microsoft controla se ocorre uma falha. O failover não é controlado por conta de armazenamento, por isso não é decidido por clientes individuais. Para implementar a recuperação de desastres para contas de armazenamento específicas ou discos de máquinas virtuais, deve utilizar as técnicas descritas anteriormente neste artigo.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

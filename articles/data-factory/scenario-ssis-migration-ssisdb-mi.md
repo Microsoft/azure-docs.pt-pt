@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116317"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186051"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migração SSIS com Azure SQL Caso Gerido como destino de carga de trabalho de base de dados
 
@@ -32,7 +32,9 @@ A migração SSISDB pode ser feita utilizando dMS, conforme descrito no artigo: 
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>SSIS empregos para agente de instância gerida da SQL
 
-SQL Managed Instance tem um programador nativo de primeira classe, tal como o SQL Server Agent no local.  Uma vez que uma ferramenta de migração para empregos SSIS ainda não está disponível, eles têm que ser migrados do SqL Server Agent nas instalações para o agente sql Managed Instance através de scripts/cópia manual.
+SQL Managed Instance tem um programador nativo de primeira classe, tal como o SQL Server Agent no local.  Pode [executar pacotes SSIS através do Agente de Instância Gerida Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Uma vez que uma ferramenta de migração para empregos SSIS ainda não está disponível, eles têm que ser migrados do SqL Server Agent nas instalações para o agente sql Managed Instance através de scripts/cópia manual.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -42,7 +44,7 @@ SQL Managed Instance tem um programador nativo de primeira classe, tal como o SQ
 - [Topologias de rede para migrações de instância gerida sql usando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)
 - [Migrar pacotes SSIS para uma sql gestudizada instância](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ligue ao SSISDB em Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
 - [Executar pacotes SSIS implantados em Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)

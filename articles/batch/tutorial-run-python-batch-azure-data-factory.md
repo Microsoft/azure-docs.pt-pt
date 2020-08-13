@@ -4,15 +4,15 @@ description: Tutorial - Aprenda a executar scripts Python como parte de um oleod
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853318"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185116"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 
@@ -67,8 +67,7 @@ Aqui irá criar recipientes blob que armazenarão os seus ficheiros de entrada e
 1. Inscreva-se no Storage Explorer utilizando as suas credenciais Azure.
 1. Utilizando a conta de armazenamento ligada à sua conta Batch, crie dois recipientes blob (um para ficheiros de entrada, um para ficheiros de saída) seguindo os passos da [Create a blob container](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Neste exemplo, chamaremos o nosso recipiente de `input` entrada, e o nosso recipiente de `output` saída.
-1. Faça upload `main.py` e para o seu recipiente de entrada utilizando o Storage Explorer seguindo os [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) `input` passos na [Gestão de bolhas num recipiente de bolhas](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Faça o upload [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) para o seu recipiente de entrada utilizando o Storage Explorer seguindo os `input` passos na [Gestão de bolhas num recipiente de bolhas](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um script em Python
 

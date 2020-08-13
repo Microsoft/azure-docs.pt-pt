@@ -11,14 +11,47 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415028"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185320"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
+
+## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
+Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias cs-CZ e hu-HU, 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [idiomas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
+
+| Região  | Linguagem                          |
+|---------|-----------------------------------|
+| `cs-CZ` | Checo (República Checa)            | 
+| `en-HK` | Inglês (Hong Kong)               | 
+| `en-IE` | Inglês (Irlanda)                 | 
+| `en-PH` | Inglês (Filipinas)             | 
+| `en-SG` | Inglês (Singapura)               | 
+| `en-ZA` | Inglês (África do Sul)            | 
+| `es-AR` | Espanhol (Argentina)               | 
+| `es-BO` | Espanhol (Bolívia)                 | 
+| `es-CL` | Espanhol (Chile)                   | 
+| `es-CO` | Espanhol (Colômbia)                | 
+| `es-CR` | Espanhol (Costa Rica)              | 
+| `es-CU` | Espanhol (Cuba)                    | 
+| `es-DO` | Espanhol (República Dominicana)      | 
+| `es-EC` | Espanhol (Equador)                 | 
+| `es-GT` | Espanhol (Guatemala)               | 
+| `es-HN` | Espanhol (Honduras)                | 
+| `es-NI` | Espanhol (Nicarágua)               | 
+| `es-PA` | Espanhol (Panamá)                  | 
+| `es-PE` | Espanhol (Peru)                    | 
+| `es-PR` | Espanhol (Porto Rico)             | 
+| `es-PY` | Espanhol (Paraguai)                | 
+| `es-SV` | Espanhol (El Salvador)             | 
+| `es-US` | Espanhol (EUA)                     | 
+| `es-UY` | Espanhol (Uruguai)                 | 
+| `es-VE` | Espanhol (Venezuela)               | 
+| `hu-HU` | Húngaro (Hungria)               | 
+
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>Discurso SDK 1.13.0: lançamento 2020-julho
 
@@ -85,7 +118,7 @@ Mantenha-se saudável!
 
 * Melhor precisão da pronúncia ao nível da palavra em 5 línguas.
 
-    | Idioma | Redução do erro de pronúncia |
+    | Linguagem | Redução do erro de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -98,7 +131,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e`es-MX`
      
-    | Idioma | Input | Leitura após melhoria |
+    | Linguagem | Entrada | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |

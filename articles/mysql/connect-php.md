@@ -1,5 +1,5 @@
 ---
-title: Conecte-se usando PHP - Base de Dados Azure para MySQL
+title: 'Quickstart: Conecte-se usando PHP - Azure Database para MySQL'
 description: Este guia de início rápido proporciona vários exemplos de código PHP que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ea1042d28102734429640c7e3c66fc6f1a70f950
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870135"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185881"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o PHP para se ligar e consultar dados
+# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize PHP para ligar e consultar dados na Base de Dados Azure para o MySQL
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -23,27 +23,27 @@ Este guia de início rápido utiliza os recursos criados em qualquer um desTes g
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 > [!IMPORTANT] 
-> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
+> Certifique-se de que o endereço IP de que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [O CLI do Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-php"></a>Instalar o PHP
 Instale o PHP no seu próprio servidor ou crie uma [aplicação Web](../app-service/overview.md) do Azure que inclua o PHP.
 
 ### <a name="macos"></a>MacOS
-- Baixar versão [PHP 7.1.4.](https://secure.php.net/downloads.php)
-- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.macosx.php) para posterior configuração.
+- Descarregue [a versão PHP 7.1.4](https://secure.php.net/downloads.php).
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.macosx.php) para uma posterior configuração.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Descarregue [a versão php 7.1.4 sem fios (x64)](https://secure.php.net/downloads.php)de segurança .
-- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.unix.php) para posterior configuração.
+- Descarregue [a versão PHP 7.1.4 sem fios (x64).](https://secure.php.net/downloads.php)
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.unix.php) para uma posterior configuração.
 
 ### <a name="windows"></a>Windows
-- Descarregue [a versão php 7.1.4 sem fios (x64)](https://windows.php.net/download#php-7.1)de segurança .
-- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.windows.php) para posterior configuração.
+- Descarregue [a versão PHP 7.1.4 sem fios (x64).](https://windows.php.net/download#php-7.1)
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.windows.php) para uma posterior configuração.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Faça login no [portal Azure.](https://portal.azure.com/)
+1. Faça login no [portal Azure](https://portal.azure.com/).
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.

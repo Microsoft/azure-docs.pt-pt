@@ -9,21 +9,23 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6c70f27eebc9d502ce7275603e99975c2efc267
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544614"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185490"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação de modelo sem código
 
 A implementação de modelos sem código está atualmente em pré-visualização e suporta os seguintes quadros de aprendizagem automática:
 
-## <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
-Os modelos tensorflow precisam de ser registados no **formato SaveModel** para funcionarem sem implementação de modelos sem código.
+## <a name="tensorflow-savedmodel-format"></a>Formato TensorFlow SavedModel
+Os modelos TensorFlow precisam de ser registados no **formato SaveModel** para funcionarem sem implementação de modelos sem código.
 
 Consulte [este link](https://www.tensorflow.org/guide/saved_model) para obter informações sobre como criar um SavedModel.
+
+Apoiamos qualquer versão TensorFlow que esteja listada em "Tags" no [TensorFlow Serving DockerHub](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model
@@ -129,7 +131,7 @@ print(output)
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
-* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
+* [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)

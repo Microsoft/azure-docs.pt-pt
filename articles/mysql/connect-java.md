@@ -1,5 +1,5 @@
 ---
-title: Conecte-se usando Java - Azure Database para MySQL
+title: 'Quickstart: Ligue-se usando Java - Base de Dados Azure para MySQL'
 description: Este quickstart fornece uma amostra de código Java que pode usar para ligar e consultar dados a partir de uma base de dados Azure para base de dados MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-ja
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 5/26/2020
-ms.openlocfilehash: 4da7efc40177937aad8f1a97e909d90c4cf5f466
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b6f928aba1c3abda57a8ed329c0ad4e7cdb5e881
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322861"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185898"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para o MySQL
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025642"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184946"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
 
@@ -162,7 +162,7 @@ Quando configuradas, as chaves BitLocker para os dispositivos Windows 10 são ar
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Por que deveria preocupar-me com dispositivos Windows Autopilot?
 
-Quando um dispositivo AD Azure foi associado a um objeto Do Piloto Automático do Windows, podem ocorrer três cenários se o dispositivo for reutilizado no futuro:
+Quando eliminar um dispositivo AD Azure que estava associado a um objeto Do Piloto Automático do Windows, podem ocorrer três cenários se o dispositivo for reutilizado no futuro:
 - Com as implementações orientadas pelo utilizador do Windows Autopilot sem a utilização de luva branca, será criado um novo dispositivo AZure AD, mas não será marcado com o ZTDID.
 - Com as implementações do modo de implantação autónoma do Windows Autopilot, falharão porque não é possível encontrar um dispositivo AD Azure associado.  (Este é um mecanismo de segurança para garantir que nenhum dispositivo "impostor" tente juntar-se à Azure AD sem credenciais.) A falha indicará uma incompatibilidade do ZTDID.
 - Com as colocações de luvas brancas do Windows Autopilot, falharão porque não é possível encontrar um dispositivo Azure AD associado. (Nos bastidores, as colocações de luvas brancas usam o mesmo processo de modo de implantação autónoma, pelo que impõem os mesmos mecanismos de segurança.)

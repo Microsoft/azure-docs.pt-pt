@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133538"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185218"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Instalação push do serviço de mobilidade de resolução de problemas
 
@@ -258,6 +258,10 @@ A partir da [versão 9.20,](https://support.microsoft.com/help/4478871/update-ro
 
 Quando o agente de mobilidade é copiado para a máquina de origem, é necessário pelo menos 100 MB de espaço livre. Certifique-se de que a sua máquina de origem tem a quantidade necessária de espaço livre e relemque o funcionamento.
 
+## <a name="low-system-resources"></a>Baixos recursos do sistema
+
+Este problema ocorre quando o sistema tem pouca memória disponível, e não é capaz de alocar memória para instalação de serviço de mobilidade. Certifique-se de que a memória foi libertada para que a instalação prossiga e complete com sucesso.
+
 ## <a name="vss-installation-failures"></a>Falhas de instalação vss
 
 A instalação do Serviço de Cópias Volume Shadow (VSS) faz parte da instalação do agente mobility. Este serviço é utilizado no processo para gerar pontos de recuperação consistentes de aplicação. Falhas durante a instalação VSS podem ocorrer devido a múltiplas razões. Para identificar os erros exatos, consulte _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_. Alguns dos erros comuns e as medidas de resolução são salientados na secção seguinte.
@@ -392,6 +396,6 @@ Para resolver o problema:
 
 1. Reinstalar os condutores desaparecidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](vmware-azure-tutorial.md) sobre como configurar a recuperação de desastres para VMware VMs.

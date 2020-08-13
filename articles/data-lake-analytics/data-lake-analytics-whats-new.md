@@ -1,21 +1,19 @@
 ---
 title: Data Lake Analytics alterações recentes
 description: Este artigo fornece uma lista contínua de alterações recentes que são feitas ao Data Lake Analytics.
-services: data-lake-analytics
 author: xujiang1
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: e78389ffc06f1b4cd4e39c15ac66215d514e9bc1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 0afd37a9f80fd2778f2b7206f58cec6ff423763e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476335"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184963"
 ---
-# <a name="whats-new-in-data-lake-analytics"></a>Quais as novidades no Data Lake Analytics?
+# <a name="whats-new-in-data-lake-analytics"></a>Quais são as novidades no Data Lake Analytics?
 
 O Azure Data Lake Analytics é atualizado numa base aperídica para determinados componentes. Para se manter atualizado com a mais recente atualização, este artigo fornece-lhe informações sobre:
 

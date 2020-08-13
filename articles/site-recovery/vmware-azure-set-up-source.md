@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135382"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185677"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para a replicação da VMware para a Azure
 
@@ -83,6 +83,18 @@ Excluir pastas seguintes do software Antivírus
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Diretório de instalação de servidor de processo equilibrado da Azure Site Recovery, Exemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
+## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se o Software Antivírus estiver ativo no Linux Master Target
 
-## <a name="next-steps"></a>Próximos passos
+Excluir pastas seguintes do software Antivírus
+
+1.  /usr/local/ASR
+2.  /usr/local/InMage
+3.  /var/log/vxlogs
+4.  /var/log
+5.  /var/log/ApplicationPolicyLogs
+6.  /var/log/ASRsetuptelemetry
+7.  /var/log/ASRsetuptelemetry_uploaded
+
+
+## <a name="next-steps"></a>Passos seguintes
 [Configurar o seu ambiente alvo](./vmware-azure-set-up-target.md) 

@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure FXT Edge Filer - Documentação adicional
-description: Documentos de referência adicionais para a instalação do Azure FXT Edge Filer
+description: Documentos de referência adicionais ajudam-no a compreender e a trabalhar com a cache híbrida Microsoft Azure FXT Edge Filer.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 4fe2867343f07a7b1a7dd3d8eb2b44dd1ec1e271
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 314d745072d33fecd8fbf9eafe543fd0d52fe3cb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086545"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185779"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Documentação adicional para Azure FXT Edge Filer
 

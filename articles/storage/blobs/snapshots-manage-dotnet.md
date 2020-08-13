@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463540"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185286"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerir um instantâneo blob em .NET
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre as fotos blob no Azure Storage, consulte [Cr
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
-# <a name="net-version-12x"></a>[.NET versão 12.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 12.x da biblioteca do cliente Azure Storage para .NET, utilize um dos seguintes métodos:
 
@@ -77,7 +77,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET versão 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 11.x da biblioteca do cliente Azure Storage para .NET, utilize um dos seguintes métodos:
 
@@ -126,7 +126,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Para eliminar uma bolha, deve primeiro eliminar quaisquer instantâneos dessa bolha. Pode eliminar uma imagem individualmente ou especificar que todas as imagens são eliminadas quando a bolha de origem é eliminada. Se tentar apagar uma bolha que ainda tenha instantâneos, resulta um erro.
 
-# <a name="net-version-12x"></a>[.NET versão 12.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para eliminar uma bolha e as suas imagens utilizando a versão 12.x da biblioteca do cliente do Azure Storage para .NET, utilize um dos seguintes métodos e inclua o [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) enum:
 
@@ -141,7 +141,7 @@ O exemplo de código que se segue mostra como apagar uma bolha e as suas imagens
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET versão 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para eliminar uma bolha e as suas imagens utilizando a versão 11.x da biblioteca do cliente do Azure Storage para .NET, utilize um dos seguintes métodos de eliminação de bolhas e inclua o [enum DeleteSnapshotsOption:](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption)
 
@@ -158,8 +158,8 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Snapshots blob](snapshots-overview.md)
 - [Versões blob (pré-visualização)](versioning-overview.md)
-- [Excluir suave para bolhas](storage-blob-soft-delete.md)
+- [Eliminação recuperável para blobs](storage-blob-soft-delete.md)

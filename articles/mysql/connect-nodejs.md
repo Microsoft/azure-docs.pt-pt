@@ -1,5 +1,5 @@
 ---
-title: Conecte-se usando Node.js - Azure Database for MySQL
+title: 'Quickstart: Conecte-se usando Node.js - Base de dados Azure para MySQL'
 description: Este guia de início rápido disponibiliza vários exemplos de código Node.js que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9d3e2d744c4800c06503483c6e7270ad1ca60e2c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423189"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185932"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -33,7 +33,7 @@ Este tópico pressupõe que está familiarizado com o desenvolvimento usando Nod
 
 Dependendo da sua plataforma, siga as instruções na secção apropriada para instalar [Node.js](https://nodejs.org). Utilize o npm para instalar o pacote [mysql](https://www.npmjs.com/package/mysql) e as suas dependências na sua pasta de projeto.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
 
 1. Visite a [página de transferências do Node. js](https://nodejs.org/en/download/) e, em seguida, selecione a opção de instalador Windows que pretende.
 2. Crie uma pasta de projeto local , como `nodejsmysql`. 
@@ -48,7 +48,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 5. Verifique a instalação verificando o `npm list` texto de saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Execute os seguintes comandos para instalar **Node.js** e **npm**, o gestor de pacotes para Node.js.
 
@@ -66,7 +66,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    ```
 3. Verifique a instalação verificando o texto de saída da lista npm. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
-### <a name="mac-os"></a>**Mac OS**
+### <a name="mac-os"></a>Mac OS
 
 1. Introduza os seguintes comandos para instalar **brew**, um gestor de pacotes de fácil utilização para Mac OS X e **Node.js**.
 
@@ -321,7 +321,7 @@ function deleteData(){
 };
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

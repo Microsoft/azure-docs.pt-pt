@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512427"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185388"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço Azure Import/Export?
 
@@ -120,14 +120,15 @@ O serviço Azure Import/Export suporta a cópia de dados de e para todas as cont
 
 |País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
-|E.U.A. Leste    | Europa do Norte        | Índia Central        |US Gov - Iowa         |
+|E.U.A. Leste    | Europa do Norte        | Central India        |US Gov - Iowa         |
 |E.U.A. Oeste     |Europa Ocidental         | Sul da Índia        | US DoD - Leste        |
 |E.U.A. Leste 2    | Ásia Leste        |  Oeste da Índia        | US DoD Centro        |
-|E.U.A.Oeste 2     | Ásia Sudeste        | Canadá Central        | Leste da China         |
+|E.U.A. Oeste 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
 |E.U.A. Central     | Leste da Austrália        | Leste do Canadá        | Norte da China        |
-|E.U.A. Centro-Norte     |  Austrália Sudeste       | Sul do Brasil        | Sul do Reino Unido        |
+|E.U.A. Centro-Norte     |  Sudeste da Austrália       | Sul do Brasil        | Sul do Reino Unido        |
 |E.U.A. Centro-Sul     | Oeste do Japão        |Coreia do Sul Central         | Alemanha Central        |
 |E.U.A. Centro-Oeste     |  Leste do Japão       | US Gov - Virginia        | Nordeste da Alemanha        |
+|África do Sul   |  África do Sul Norte |
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
@@ -157,7 +158,7 @@ Quando envia para Azure, paga o custo de envio para a transportadora. Quando a M
 
 [A taxa normal de transação de armazenamento](https://azure.microsoft.com/pricing/details/storage/) aplica-se durante a importação, bem como a exportação de dados. Os encargos de saída padrão também são aplicáveis, juntamente com os encargos de transação de armazenamento quando os dados são exportados do Azure Storage. Para obter mais informações sobre os custos de saída, consulte [os preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como utilizar o serviço de importação/exportação para:
 

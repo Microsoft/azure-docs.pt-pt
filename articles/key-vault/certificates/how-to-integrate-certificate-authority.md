@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d558b414bfa27b387a559ff6c8fdb5ada32730fc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964503"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185643"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -38,7 +38,7 @@ Para completar este guia, você deve ter os seguintes recursos.
 *   Permissões de nível de administrador nas suas contas.
 
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Certifique-se de que tem as seguintes informações úteis na sua conta DigiCert Central:
 -   ID de conta certcentral
@@ -131,6 +131,16 @@ Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, pro
  ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+- Posso gerar um certificado de wildcard digicert através do KeyVault? 
+   Sim. Depende de como configuraste a tua conta de digicert.
+- Se criássemos um certificado EV, como especificar isso? 
+   Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
+- Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?
+   Não. Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

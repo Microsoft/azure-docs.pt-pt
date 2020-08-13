@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9f20f4cced74c5607fbfea2119e22cface0a8e03
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499063"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185167"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
 
 Pode utilizar a CLI do Azure para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido descreve como pode utilizar a CLI do Azure para criar uma Azure Database for MariaDB Server num grupo de recursos do Azure em cerca de cinco minutos.
 
@@ -45,7 +45,7 @@ az group create --name myresourcegroup --location westus
 
 Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-Definição | Valor da amostra | Descrição
+Definição | Valor da amostra | Description
 ---|---|---
 name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **grupo myresource** | Introduza o nome do grupo de recursos do Azure.
@@ -223,7 +223,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
 
 4. Selecione a ligação para ligar com êxito ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa dos recursos que utilizou neste início rápido para outro início rápido ou tutorial, pode eliminá-los ao executar o seguinte comando: 
 

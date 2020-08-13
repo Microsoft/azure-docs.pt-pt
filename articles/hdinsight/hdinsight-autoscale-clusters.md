@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 29c04fc8f6af016200e06ad239095a3665de5869
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086437"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185813"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -39,7 +39,7 @@ Considere os seguintes fatores ao escolher um tipo de escala:
 
 A autoescala continuamente o cluster e recolhe as seguintes métricas:
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |---|---|
 |CPU total pendente|O número total de núcleos necessários para iniciar a execução de todos os contentores pendentes.|
 |Memória Total Pendente|A memória total (em MB) necessária para iniciar a execução de todos os recipientes pendentes.|
@@ -72,7 +72,7 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versão | Spark | Hive | LLAP | O HBase | Kafka | Tempestade | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
@@ -133,7 +133,7 @@ Para obter mais informações sobre a criação de clusters HDInsight utilizando
 
 #### <a name="load-based-autoscaling"></a>Autoscalagem baseada em carga
 
-Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Gestor de Recursos Azure, adicionando um `autoscale` nó à secção com as propriedades e como mostrado no `computeProfile`  >  `workernode` `minInstanceCount` `maxInstanceCount` snippet json abaixo.
+Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Gestor de Recursos Azure, adicionando um `autoscale` nó à secção com as propriedades e como mostrado no `computeProfile`  >  `workernode` `minInstanceCount` `maxInstanceCount` snippet json abaixo. Para obter um modelo completo de gestor de recursos, consulte [o modelo Quickstart: Implementar o Cluster de Faíscas com autoescala](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased)de carga ativada .
 
 ```json
 {
@@ -161,7 +161,7 @@ Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Ge
 
 #### <a name="schedule-based-autoscaling"></a>Autoscalagem baseada em horários
 
-Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` secção. O `autoscale` nó contém um que tem um e que descreve quando a mudança `recurrence` `timezone` `schedule` ocorrerá.
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` secção. O `autoscale` nó contém um que tem um e que descreve quando a mudança `recurrence` `timezone` `schedule` ocorrerá. Para obter um modelo completo de gestor de recursos, consulte [Implementar o Cluster de Faíscas com autoescalação baseada em horários Ativado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -225,9 +225,9 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Descrição |
+| Estado do cluster | Description |
 |---|---|
-| A executar | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
+| Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
 | Configuração HDInsight  | Está em curso uma operação de escala de cluster para cima ou para baixo.  |
 | Erro de Atualização  | O HDInsight reuniu problemas durante a atualização de configuração autoescala. Os clientes podem optar por voltar a tentar a atualização ou desativar a autoescala.  |
@@ -259,6 +259,6 @@ Os trabalhos de corrida continuarão. Os postos de trabalho pendentes aguardarã
 
 Não reduza o seu aglomerado para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente.  Para obter mais informações, consulte [Ficar preso no modo de segurança.](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre as diretrizes para dimensionamento manualmente em [diretrizes de escala](hdinsight-scaling-best-practices.md)

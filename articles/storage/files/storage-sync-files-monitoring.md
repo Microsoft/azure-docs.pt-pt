@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031086"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185626"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -40,7 +40,7 @@ As métricas do Azure File Sync são ativadas por predefinição e são enviadas
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
-| Nome da métrica | Descrição |
+| Nome da métrica | Description |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
@@ -70,7 +70,7 @@ Os alertas notificam-no proativamente quando forem encontradas condições impor
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Scenario | Métrica para usar para alerta |
+| Cenário | Métrica para usar para alerta |
 |-|-|
 | Saúde do ponto final do servidor mostra um erro no portal | Resultado da sessão de sincronização |
 | Os ficheiros não estão a sincronizar um servidor ou ponto final na nuvem | Ficheiros não sincronizados |
@@ -112,7 +112,7 @@ Para visualizar a saúde de um **ponto final** do servidor no portal, navegue pa
 
 - As seguintes tabelas métricas são visualizadas no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | Descrição | Nome da lâmina |
+  | Nome da métrica | Description | Nome da lâmina |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo sincronizado, ponto final do servidor |
   | Recuperação de camadas de nuvem | Tamanho dos dados recordados | Servidores registados |
@@ -156,12 +156,13 @@ Saúde de nivelamento de nuvens
   - O ID 9016 do evento fornece resultados fantasmagóricos para um volume. Por exemplo: Por exemplo: Por cento de espaço livre é, Número de ficheiros fantasmagóricos em sessão, e Número de ficheiros não fantasma.
   - O ID 9029 do evento fornece informações de sessão fantasmagórica para um ponto final do servidor. Por exemplo: Número de ficheiros tentados na sessão, Número de ficheiros hierárquicos na sessão e Número de ficheiros já nivelados.
   
-- Para monitorizar a atividade de recolha num servidor, utilize o Evento ID 9005, 9006, 9009 e 9059 no registo de eventos da Telemetria, que está localizado no Espectador de Eventos em *Aplicações e Serviços\Microsoft\FileSync\Agent*.
+- Para monitorizar a atividade de recolha num servidor, utilize o Evento ID 9005, 9006, 9009, 9059 e 9071 no registo de eventos da Telemetria, que está localizado no Espectador de Eventos em *Aplicações e Serviços\Microsoft\FileSync\Agent*.
 
   - O ID 9005 do evento proporciona fiabilidade de recuperação para um ponto final do servidor. Por exemplo: Ficheiros únicos totais acedidos e ficheiros exclusivos total com acesso falhado.
   - O ID 9006 do evento fornece uma distribuição de erro de recuperação para um ponto final do servidor. Por exemplo: Total de Pedidos Falhados e Código de Erro. Um evento é registado por código de erro.
   - O ID 9009 do evento fornece informações de sessão de recuperação para um ponto final do servidor. Por exemplo: DuraçõesSegundos, CondeFilesRecallSucceeded e CountFilesRecallFailed.
   - O ID 9059 do evento fornece distribuição de recolha de aplicações para um ponto final do servidor. Por exemplo: ShareId, Nome da Aplicação e TotalEgressNetworkBytes.
+  - O ID 9071 do evento proporciona eficiência de nivelamento em nuvem para um ponto final do servidor. Por exemplo: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes e TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Contadores de desempenho
 
@@ -171,7 +172,7 @@ Para ver os contadores de desempenho do Azure File Sync no servidor, abra o Moni
 
 Os seguintes contadores de desempenho para Azure File Sync estão disponíveis no Monitor de Desempenho:
 
-| Objeto de desempenho\Nome do contador | Descrição |
+| Objeto de desempenho\Nome do contador | Description |
 |-|-|
 | AFS Bytes Transferido\Downloaded Bytes/sec | Número de bytes descarregados por segundo. |
 | AFS Bytes transferido\Uploaded Bytes/sec | Número de bytes carregados por segundo. |

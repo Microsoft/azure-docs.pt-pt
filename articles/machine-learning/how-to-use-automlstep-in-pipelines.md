@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850445"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185660"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -328,8 +328,9 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 O snippet mostra uma idioma comumente usada com `AutoMLConfig` . Os argumentos mais fluidos (hiperparameter-ish) são especificados num dicionário separado, enquanto os valores menos propensos a alterar são especificados diretamente no `AutoMLConfig` construtor. Neste caso, `automl_settings` a especificação de uma breve execução: a corrida para após apenas 2 iterações ou 15 minutos, o que vier primeiro.
@@ -346,7 +347,7 @@ O `automl_settings` dicionário é passado para o construtor como `AutoMLConfig`
 O `AutoMLStep` próprio toma e `AutoMLConfig` tem, como saídas, os `PipelineData` objetos criados para segurar as métricas e os dados do modelo. 
 
 >[!Important]
-> Tem de definir `passthru_automl_config` se o seu está a usar `False` `AutoMLStep` `PipelineOutputTabularDataset` objetos para entrada.
+> Deve definir `enable_default_model_output` e não se estiver a `enable_default_metrics_output` `False` `AutoMLStep` utilizar.
 
 Neste exemplo, o processo automatizado de ML realizará validações cruzadas no `training_data` . Pode controlar o número de validações cruzadas com o `n_cross_validations` argumento. Se já dividiu os seus dados de treino como parte das suas etapas de preparação de dados, pode definir `validation_data` para os seus próprios `Dataset` .
 

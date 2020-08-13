@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8aa87eecc29a5b664520cb1be2cbc5e65b2969e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134552"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185422"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,13 +39,13 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 - Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 - Um modelo. Se não tiver um modelo treinado, pode utilizar os ficheiros de modelo e dependência fornecidos [neste tutorial](https://aka.ms/azml-deploy-cloud).
-- [A extensão da Interface da Linha de Comando Azure (CLI) para o serviço de machine learning](reference-azure-machine-learning-cli.md)
+- [A extensão da Interface da Linha de Comando Azure (CLI) para o serviço machine learning](reference-azure-machine-learning-cli.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 - Um modelo. Se não tiver um modelo treinado, pode utilizar os ficheiros de modelo e dependência fornecidos [neste tutorial](https://aka.ms/azml-deploy-cloud).
-- O [kit de desenvolvimento de software Azure Machine Learning (SDK) para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- O [kit de desenvolvimento de software Azure Machine Learning (SDK) para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -242,7 +242,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-Para uma discussão aprofundada sobre a utilização e personalização de ambientes Python com Azure Machine Learning, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md)
+Para uma discussão aprofundada sobre a utilização e personalização de ambientes Python com Azure Machine Learning, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
 
 Para obter informações sobre a utilização de uma imagem personalizada do Docker com uma configuração de inferência, consulte [Como implementar um modelo utilizando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
@@ -348,7 +348,7 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Descrição | Estado final?
+| Estado do serviço web | Description | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em processo de implantação. | Não |
 | Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
@@ -373,7 +373,7 @@ Para eliminar um serviço web implantado, utilize `az ml service <name of webser
 
 Para eliminar um modelo registado do seu espaço de trabalho, utilize`az ml model delete <model id>`
 
-Leia mais sobre [a eliminação de um webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) e [a eliminação de um modelo](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Leia mais sobre [a eliminação de um serviço web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) e a [eliminação de um modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -385,7 +385,7 @@ Para obter mais informações, consulte a documentação para [WebService.delete
 ---
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

@@ -1,5 +1,5 @@
 ---
-title: Ligar utilizando C++ - Base de Dados Azure para MySQL
+title: 'Quickstart: Ligue-se usando C++ - Base de Dados Azure para o MySQL'
 description: Este guia de início rápido disponibiliza um código de exemplo de C++ que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,19 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a8c922912cae72e1b4344d4d970ec9f3b4949d9f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6aa550a9c3f58fc7101e632bcd56800b27efc84e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871504"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185983"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o Connector/C++ para se ligar e consultar dados
-Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação C++. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico assume que está familiarizado com o desenvolvimento usando C++ e é novo a trabalhar com a Base de Dados Azure para o MySQL.
+# <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize o Conector/C++ para ligar e consultar dados na Base de Dados Azure para o MySQL
+
+Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação C++. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com o desenvolvimento usando C++ e é novo a trabalhar com a Azure Database para o MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Este guia de introdução utiliza os recursos criados em qualquer um dos guias seguintes como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -30,23 +32,23 @@ Também tem de:
 - Instalar o [Boost](https://www.boost.org/)
 
 > [!IMPORTANT] 
-> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
+> Certifique-se de que o endereço IP de que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [O CLI do Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-visual-studio-and-net"></a>Instalar o Visual Studio e .NET
-Os passos nesta secção assumem que está familiarizado com o desenvolvimento usando .NET.
+Os passos nesta secção assumem que está familiarizado com o desenvolvimento através do .NET.
 
 ### <a name="windows"></a>**Windows**
-- Instale o Visual Studio 2019 Community. Visual Studio 2019 Community é um IDE completo, extensível e gratuito. Com este IDE, pode criar aplicações modernas para Android, iOS, Windows, aplicações web e bases de dados e serviços na nuvem. Pode instalar o .NET Framework completo ou apenas .NET Core: os fragmentos de código no Guia de introdução funcionam com qualquer um. Se já tiver o Visual Studio instalado no seu computador, ignore os dois passos seguintes.
-   1. Descarregue o [instalador Visual Studio 2019.](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) 
+- Instalar Visual Studio 2019 Community. Visual Studio 2019 Community é um IDE completo, extensível e gratuito. Com este IDE, pode criar aplicações modernas para aplicações Android, iOS, Windows, web e base de dados e serviços na nuvem. Pode instalar o .NET Framework completo ou apenas .NET Core: os fragmentos de código no Guia de introdução funcionam com qualquer um. Se já tiver o Visual Studio instalado no seu computador, ignore os dois passos seguintes.
+   1. Descarregue o [instalador Visual Studio 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    2. Execute o instalador e siga as instruções de instalação, para concluí-la.
 
 ### <a name="configure-visual-studio"></a>**Configurar o Visual Studio**
-1. Do Estúdio Visual, Project -> Properties -> Linker -> Diretórios adicionais de Biblioteca seleções >, adicione o diretório "\lib\opt" (por exemplo: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) do conector C++.
+1. Do Visual Studio, Project -> Properties -> Linker -> General > Diretórios adicionais de bibliotecas, adicione o diretório "\lib\opt" (por exemplo: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) do conector C++.
 2. No Visual Studio, Project -> Properties -> C/C++ -> General -> Additional Include Directories:
-   - Adicione o diretório "\inclua" do conector c++ (por exemplo: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\incluir \) .
-   - Adicione o diretório raiz da biblioteca Boost (por exemplo: C:\boost_1_64_0 \) .
+   - Adicione o diretório "\incluir" do conector c++ (por exemplo: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\incluir \) .
+   - Adicione o diretório de raiz da biblioteca Boost (por exemplo: C:\boost_1_64_0 \) .
 3. No Visual Studio, Project -> Properties -> Linker -> Input > Additional Dependencies, adicione **mysqlcppconn.lib** no campo de texto.
-4. Ou copia **mysqlcppconn.dll** da pasta da biblioteca de conector C++ no passo 3 para o mesmo diretório que a aplicação executável ou adicione-a à variável ambiental para que a sua aplicação possa encontrá-la.
+4. Ou copia **mysqlcppconn.dll** da pasta da biblioteca de conector C++ no passo 3 para o mesmo diretório da aplicação executável ou adicione-a à variável ambiente para que a sua aplicação possa encontrá-la.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
@@ -60,7 +62,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO**. O código utiliza a classe sql::Driver com o método connect() para estabelecer uma ligação ao MySQL. Em seguida, o código utiliza o método createStatement() e o método execute() para executar os comandos da base de dados. 
 
-Substitua os parâmetros hostis, DBName, User e Password. Pode substituir os parâmetros com os valores que especificou quando criou o servidor e a base de dados. 
+Substitua os parâmetros Host, DBName, User e Password. Pode substituir os parâmetros pelos valores especificados quando criou o servidor e a base de dados. 
 
 ```c++
 #include <stdlib.h>
@@ -134,7 +136,7 @@ int main()
 
 Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT**. O código utiliza a classe sql::Driver com o método connect() para estabelecer uma ligação ao MySQL. Em seguida, o código utiliza o método prepareStatement() e executeQuery() para executar os comandos select. Em seguida, o código utiliza next() para avançar para os registos nos resultados. Finalmente, o código utiliza getInt() e getString() para analisar os valores do registo.
 
-Substitua os parâmetros hostis, DBName, User e Password. Pode substituir os parâmetros com os valores que especificou quando criou o servidor e a base de dados. 
+Substitua os parâmetros Host, DBName, User e Password. Pode substituir os parâmetros pelos valores especificados quando criou o servidor e a base de dados. 
 
 ```c++
 #include <stdlib.h>
@@ -193,7 +195,7 @@ int main()
 ## <a name="update-data"></a>Atualizar dados
 Utilize o código seguinte para se ligar e ler os dados com uma instrução SQL **UPDATE**. O código utiliza a classe sql::Driver com o método connect() para estabelecer uma ligação ao MySQL. Em seguida, o código utiliza o método prepareStatement() e executeQuery() para executar os comandos update. 
 
-Substitua os parâmetros hostis, DBName, User e Password. Pode substituir os parâmetros com os valores que especificou quando criou o servidor e a base de dados. 
+Substitua os parâmetros Host, DBName, User e Password. Pode substituir os parâmetros pelos valores especificados quando criou o servidor e a base de dados. 
 
 ```c++
 #include <stdlib.h>
@@ -251,7 +253,7 @@ int main()
 ## <a name="delete-data"></a>Eliminar dados
 Utilize o código seguinte para se ligar e ler os dados com a instrução SQL **DELETE**. O código utiliza a classe sql::Driver com o método connect() para estabelecer uma ligação ao MySQL. Em seguida, o código utiliza o método prepareStatement() e executeQuery() para executar os comandos delete.
 
-Substitua os parâmetros hostis, DBName, User e Password. Pode substituir os parâmetros com os valores que especificou quando criou o servidor e a base de dados. 
+Substitua os parâmetros Host, DBName, User e Password. Pode substituir os parâmetros pelos valores especificados quando criou o servidor e a base de dados. 
 
 ```c++
 #include <stdlib.h>
