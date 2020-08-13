@@ -488,6 +488,22 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: app-service-platform-windows-linux
+  title: Plataforma do Serviço de Aplicações
+  prompt: Escolher uma plataforma de alojamento
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: Serviço de Aplicações com contentores personalizados
+  prompt: Escolher uma plataforma de contentores personalizados
+  pivots:
+  - id: container-linux
+    title: Contentor do Linux
+  - id: container-windows
+    title: Contentor do Windows
 - id: aml-control-methods
   title: Plano de controlo do Azure Machine Learning
   prompt: Escolher uma interface do plano de controlo do Azure Machine Learning
@@ -497,9 +513,9 @@ groups:
   - id: cli
     title: CLI do Azure
 metadata:
-  ms.openlocfilehash: a16cb06637b777259e4e5115beb1299e8ed65a6b
-  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+  ms.openlocfilehash: ea0c191d392c23aa876f794b092fc8b019c44fa7
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/03/2020
-  ms.locfileid: "87543525"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88079795"

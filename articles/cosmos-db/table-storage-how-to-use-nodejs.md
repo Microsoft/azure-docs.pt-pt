@@ -477,7 +477,7 @@ Depois de definir a ACL, pode criar uma SAS com base no ID de uma política. O e
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte os seguintes recursos.
 

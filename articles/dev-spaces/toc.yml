@@ -25,38 +25,8 @@
           href: quickstart-existing-helm-chart.md
     - name: Tutoriais
       items:
-        - name: Java (VS Code e CLI)
-          items:
-            - name: 1 - Introdução
-              href: get-started-java.md
-            - name: 2 - Desenvolvimento de vários serviços
-              href: multi-service-java.md
-            - name: 3 - Desenvolvimento em equipa
-              href: team-development-java.md
-        - name: .NET Core (VS Code e CLI)
-          items:
-            - name: 1 - Introdução
-              href: get-started-netcore.md
-            - name: 2 - Desenvolvimento de vários serviços
-              href: multi-service-netcore.md
-            - name: 3 - Desenvolvimento em equipa
-              href: team-development-netcore.md
-        - name: .NET Core (Visual Studio)
-          items:
-            - name: 1 - Introdução
-              href: get-started-netcore-visualstudio.md
-            - name: 2 - Desenvolvimento de vários serviços
-              href: multi-service-netcore-visualstudio.md
-            - name: 3 - Desenvolvimento em equipa
-              href: team-development-netcore-visualstudio.md
-        - name: Node.js (VS Code e CLI)
-          items:
-            - name: 1 - Introdução
-              href: get-started-nodejs.md
-            - name: 2 - Desenvolvimento de vários serviços
-              href: multi-service-nodejs.md
-            - name: 3 - Desenvolvimento em equipa
-              href: team-development-nodejs.md
+        - name: Introdução ao Visual Studio
+          href: get-started-netcore-visualstudio.md
     - name: Conceitos
       items:
         - name: Como funciona o Dev Spaces
@@ -83,8 +53,6 @@
           href: how-to/install-dev-spaces.md
         - name: Criar um cluster do Kubernetes com o Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
-        - name: Partilhar os Espaços de Programador do Azure
-          href: how-to/share-dev-spaces.md
         - name: Gerir segredos
           href: how-to/manage-secrets.md
         - name: Utilize um feed personalizado do NuGet
