@@ -4,14 +4,14 @@ description: Obtenha respostas para perguntas frequentes sobre a API cassandra p
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449741"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167611"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
 
@@ -79,13 +79,13 @@ Os registos de diagnóstico são explicados no artigo de [registo de diagnóstic
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>O mapa principal da chave primária para o conceito chave de partição de Azure Cosmos DB?
 
-Sim, a chave de partição é usada para colocar a entidade no local certo. Em Azure Cosmos DB, é usado para encontrar a partição lógica certa que está armazenada numa partição física. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partition-data.md) O takeaway essencial aqui é que uma divisória lógica não deve passar do limite de 10 GB.
+Sim, a chave de partição é usada para colocar a entidade no local certo. Em Azure Cosmos DB, é usado para encontrar a partição lógica certa que está armazenada numa partição física. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partition-data.md) O takeaway essencial aqui é que uma divisória lógica não deve passar do limite de 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>O que acontece quando recebo uma notificação de que uma divisória está cheia?
 
 Azure Cosmos DB é um sistema baseado em acordo de nível de serviço (SLA). Proporciona uma escala ilimitada, com garantias de latência, produção, disponibilidade e consistência. Este armazenamento ilimitado baseia-se na escala horizontal dos dados, utilizando a partição como conceito-chave. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partition-data.md)
 
-Deve aderir ao limite de 10 GB no número de entidades ou itens por partição lógica. Para garantir que a sua aplicação se escasseia bem, recomendamos que *não* crie uma divisória quente armazenando todas as informações numa única partição e consultando-a. Este erro só pode vir se os seus dados forem distorcidos: ou seja, tem muitos dados para uma chave de partição (mais de 10 &nbsp; GB). Pode encontrar a distribuição de dados utilizando o portal de armazenamento. A forma de corrigir este erro é recriar a tabela e escolher uma chave primária granular (chave de partição), que permita uma melhor distribuição dos dados.
+Deve aderir ao limite de 20 GB no número de entidades ou itens por partição lógica. Para garantir que a sua aplicação se escasseia bem, recomendamos que *não* crie uma divisória quente armazenando todas as informações numa única partição e consultando-a. Este erro só pode vir se os seus dados forem distorcidos: ou seja, tem muitos dados para uma chave de partição (mais de 20 GB). Pode encontrar a distribuição de dados utilizando o portal de armazenamento. A forma de corrigir este erro é recriar a tabela e escolher uma chave primária granular (chave de partição), que permita uma melhor distribuição dos dados.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>Posso usar a API cassandra como uma loja de valor chave com milhões ou biliões de chaves de partição?
 
@@ -189,6 +189,6 @@ Fornecer feedback através do feedback de [voz do utilizador](https://feedback.a
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Começa com [a dimensionamento elasticamente de uma conta Azure Cosmos DB Cassandra API](manage-scale-cassandra.md).

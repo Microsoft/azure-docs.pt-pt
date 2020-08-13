@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19e7a7972af55173f19d5784b2a6ac78ae14a0f0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 46d1f811593571228d21c687be0a98d413cc9854
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124974"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168155"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -58,13 +58,13 @@ A Azure Private Link proporciona os seguintes benefícios:
 |Configuração da Aplicação Azure | Todas as regiões públicas      |  | Pré-visualizar   |
 |Azure Backup | Todas as regiões públicas<br/> Todas as regiões do Governo   |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/backup/private-endpoints)   |
 |Hub de Eventos do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo      |   | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Azure Service Bus | Todas as regiões públicas<br/>Todas as regiões do Governo  | Suportado com nível premium da Azure Service Bus. [Clique para níveis](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Service Bus do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo  | Suportado com nível premium da Azure Service Bus. [Clique para níveis](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Reencaminhamento do Azure | Todas as regiões públicas      |  | Pré-visualizar <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Aplicações Web do Azure | Todas as regiões públicas      | Suportado com Windows PremiumV2 e Funções Linux e Premium Elásticas  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO SUL DOS EUA      |  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2      |  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Automatização do Azure  | Todas as regiões públicas |  | Pré-visualizar | |
-| Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO SUL DOS EUA      |  | Pré-visualizar   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
 | Azure File Sync | Todas as regiões públicas      | |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |

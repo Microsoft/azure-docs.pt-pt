@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: e92f3b5d8c48c783648285c9a03d8cb8d391a5ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: af10ec10a1622f32dbc34a607b1200cb4cff8b59
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289607"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168053"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral do Padrão de Proteção Azure DDoS
 
@@ -45,9 +45,9 @@ A proteção Azure DDoS, combinada com as melhores práticas de design de aplica
 
 A Norma de Proteção DDoS pode atenuar os seguintes tipos de ataques:
 
-- **Ataques volumosos**: O objetivo do ataque é inundar a camada da rede com uma quantidade substancial de tráfego aparentemente legítimo. Inclui inundações da UDP, inundações de amplificação e outras inundações de pacotes falsificados. A DDoS Protection Standard atenua estes potenciais ataques multi-gigabytes absorvendo-os e esfregando-os, com a escala global de rede da Azure, automaticamente.
-- **Ataques de protocolos**: Estes ataques tornam um alvo inacessível, explorando uma fraqueza na pilha de protocolos de camada 3 e camada 4. Inclui ataques de inundações SYN, ataques de reflexão e outros ataques protocolares. A DDoS Protection Standard atenua estes ataques, diferenciando o tráfego malicioso e legítimo, interagindo com o cliente e bloqueando o tráfego malicioso. 
-- **Ataques de camadas de recursos (aplicações)**: Estes ataques visam pacotes de aplicações web, para perturbar a transmissão de dados entre anfitriões. Os ataques incluem violações do protocolo HTTP, injeção de SQL, scripts de cross-site e outros ataques da camada 7. Utilize uma Firewall de Aplicação Web, como a firewall da aplicação web Azure [Application Gateway,](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)bem como o DDoS Protection Standard para fornecer defesa contra estes ataques. Existem também ofertas de firewall de aplicações web de terceiros disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Ataques volumosos**: Estes ataques inundam a camada da rede com uma quantidade substancial de tráfego aparentemente legítimo. Incluem inundações da UDP, inundações de amplificação e outras inundações de pacotes falsificados. A DDoS Protection Standard atenua estes potenciais ataques multi-gigabytes absorvendo-os e esfregando-os, com a escala global de rede da Azure, automaticamente.
+- **Ataques de protocolos**: Estes ataques tornam um alvo inacessível, explorando uma fraqueza na pilha de protocolos de camada 3 e camada 4. Incluem ataques de inundações sINA, ataques de reflexão e outros ataques protocolares. A DDoS Protection Standard atenua estes ataques, diferenciando o tráfego malicioso e legítimo, interagindo com o cliente e bloqueando o tráfego malicioso. 
+- **Ataques de camadas de recursos (aplicações)**: Estes ataques visam pacotes de aplicações web, para perturbar a transmissão de dados entre anfitriões. Incluem violações do protocolo HTTP, injeção de SQL, scripts de cross-site e outros ataques de camada 7. Utilize uma Firewall de Aplicação Web, como a firewall da aplicação web Azure [Application Gateway,](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)bem como o DDoS Protection Standard para fornecer defesa contra estes ataques. Existem também ofertas de firewall de aplicações web de terceiros disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 A DDoS Protection Standard protege os recursos numa rede virtual, incluindo endereços IP públicos associados a máquinas virtuais, equilibradores de carga e gateways de aplicações. Quando associado à firewall da aplicação web Application Gateway, ou a uma firewall de aplicação web de terceiros implantada numa rede virtual com um IP público, o DDoS Protection Standard pode fornecer capacidade de mitigação da camada completa 3 à camada 7.
 
@@ -58,8 +58,8 @@ A DDoS Protection Standard protege os recursos numa rede virtual, incluindo ende
 As funcionalidades padrão de proteção DDoS incluem:
 
 - **Integração de plataformas nativas:** Integrado nativo no Azure. Inclui a configuração através do portal Azure. A DDoS Protection Standard compreende os seus recursos e a configuração dos recursos.
-- **Proteção da chave-de-turno:** A configuração simplificada protege imediatamente todos os recursos numa rede virtual assim que o DDoS Protection Standard estiver ativado. Não é necessária qualquer intervenção ou definição de utilizador. A Norma de Proteção DDoS atenua instantaneamente e atenua automaticamente o ataque, uma vez detetado.
-- **Monitorização do tráfego sempre ligado:** Os seus padrões de tráfego de aplicações são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques de DDoS. A mitigação é efetuada quando as políticas de proteção são ultrapassadas.
+- **Proteção chave na mão:** A configuração simplificada protege imediatamente todos os recursos numa rede virtual assim que o DDoS Protection Standard estiver ativado. Não é necessária qualquer intervenção ou definição de utilizador. A Norma de Proteção DDoS atenua instantaneamente e atenua automaticamente o ataque, uma vez detetado.
+- **Monitorização do tráfego sempre ligado:** Os seus padrões de tráfego de aplicações são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques DDoS. A mitigação é efetuada quando as políticas de proteção são ultrapassadas.
 - **Sintonização adaptativa:** O perfil de tráfego inteligente aprende o tráfego da sua aplicação ao longo do tempo e seleciona e atualiza o perfil que é o mais adequado para o seu serviço. O perfil ajusta-se à medida que o tráfego muda ao longo do tempo.
 - **Proteção em várias camadas:** Fornece proteção DDoS de pilha completa, quando usado com uma firewall de aplicação web.
 - **Escala de mitigação extensiva:** Mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques DDoS conhecidos.

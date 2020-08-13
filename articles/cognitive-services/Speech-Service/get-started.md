@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056470"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167815"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -87,7 +87,7 @@ Para mudar de uma subscrição para outra, por exemplo, quando o seu teste gratu
 
 ## <a name="about-regions"></a>Sobre as regiões
 
-- Se a sua aplicação utilizar um [Speech SDK,](speech-sdk.md)forneça o código da região, por `westus` exemplo, ao criar uma configuração de fala.
+- Se a sua aplicação utilizar um [Speech SDK,](speech-sdk.md)forneça o identificador da região, por `westus` exemplo, ao criar uma configuração de fala.
 - Se a sua aplicação utilizar uma das [APIs rest](rest-apis.md)do serviço de fala, a região faz parte do ponto final que utiliza ao fazer pedidos.
 - As chaves criadas para uma região são válidas apenas naquela região. Tentar usá-los com outras regiões resultará em erros de autenticação.
 

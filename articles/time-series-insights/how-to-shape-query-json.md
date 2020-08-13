@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc24c1f49a48e81509961d5d7d01dba60dc50475
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077644"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168240"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Moldar JSON para maximizar o desempenho da consulta no seu ambiente Gen1
 
@@ -24,7 +24,7 @@ Este artigo fornece orientações sobre como moldar o JSON para maximizar a efic
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Aprenda as melhores práticas para moldar o JSON para atender às suas necessidades de armazenamento.</br>
 
-> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
+> [!VIDEO <https://www.youtube.com/embed/b2BD5hwbg5I>]
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -60,7 +60,6 @@ No exemplo seguinte, há uma única mensagem Azure IoT Hub onde a matriz exterio
 
 Considere a seguinte carga JSON enviada para o seu ambiente Azure Time Series Insights GA utilizando um [objeto de mensagem de dispositivo IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que é serializado em JSON quando enviado para a nuvem Azure:
 
-
 ```JSON
 [
     {
@@ -90,14 +89,14 @@ Considere a seguinte carga JSON enviada para o seu ambiente Azure Time Series In
 ]
 ```
 
-* Tabela de dados de referência que tem o dispositivo de propriedade **chaveId**:
+- Tabela de dados de referência que tem o dispositivo de propriedade **chaveId**:
 
    | deviceId | messageId | dispositivoLocalização |
    | --- | --- | --- |
    | FXXX | \_DADOS DE LINHA | UE |
    | FYYY | \_DADOS DE LINHA | EUA |
 
-* Tabela de eventos Azure Time Series Insights, depois de achatamento:
+- Tabela de eventos Azure Time Series Insights, depois de achatamento:
 
    | deviceId | messageId | dispositivoLocalização | carimbo de data/hora | série. Caudal ft3/s | série. Pressão do Óleo do Motor psi |
    | --- | --- | --- | --- | --- | --- |
@@ -106,6 +105,7 @@ Considere a seguinte carga JSON enviada para o seu ambiente Azure Time Series In
    | FYYY | \_DADOS DE LINHA | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
+
 > - A coluna **deviceId** serve como cabeçalho de coluna para os vários dispositivos de uma frota. Fazer com que o **dispositivoDo** valor do seu próprio nome de propriedade limite o total de dispositivos para 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
 > - São evitadas propriedades desnecessárias (por exemplo, a informação de 2000 e modelos). Como as propriedades não serão questionadas no futuro, eliminá-las permite uma melhor eficiência de rede e armazenamento.
 > - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede. Os dois atributos **messageId** e **deviceLocation** são unidos usando o dispositivo de propriedade **chaveId**. Estes dados são associados aos dados da telemetria no momento de entrada e são depois armazenados em Azure Time Series Insights para consulta.
@@ -160,7 +160,7 @@ Exemplo JSON carga útil:
 ]
 ```
 
-* Tabela de dados de referência que tem as propriedades-chave **dispositivoId** e **série.tagId**:
+- Tabela de dados de referência que tem as propriedades-chave **dispositivoId** e **série.tagId**:
 
    | deviceId | series.tagId | messageId | dispositivoLocalização | tipo | unit |
    | --- | --- | --- | --- | --- | --- |
@@ -169,18 +169,19 @@ Exemplo JSON carga útil:
    | FYYY | bombearRate | \_DADOS DE LINHA | EUA | Caudal | ft3/s |
    | FYYY | óleoPressão | \_DADOS DE LINHA | EUA | Pressão do óleo do motor | psi |
 
-* Tabela de eventos Azure Time Series Insights, depois de achatamento:
+- Tabela de eventos Azure Time Series Insights, depois de achatamento:
 
    | deviceId | series.tagId | messageId | dispositivoLocalização | tipo | unit | carimbo de data/hora | série.valor |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | bombearRate | \_DADOS DE LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | bombearRate | \_DADOS DE LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
    | FXXX | óleoPressão | \_DADOS DE LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | bombearRate | \_DADOS DE LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | bombearRate | \_DADOS DE LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 |
    | FXXX | óleoPressão | \_DADOS DE LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
    | FYYY | bombearRate | \_DADOS DE LINHA | EUA | Caudal | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | óleoPressão | \_DADOS DE LINHA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
+
 > - Os **dispositivos** de colunasId e **série.tagId** servem como cabeçalhos de coluna para os vários dispositivos e tags numa frota. A utilização de cada um como seu atributo limita a consulta a 594 (para ambientes S1) ou 794 (para ambientes S2) dispositivos totais com as outras seis colunas.
 > - Foram evitadas propriedades desnecessárias, pela razão citada no primeiro exemplo.
 > - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede, introduzindo **o deviceId**, que é utilizado para o par único de **mensagensId** e **deviceLocation**. A **série-chave composta.tagId** é utilizada para o par único de **tipo** e **unidade**. A tecla composta permite que o par **deviceId** e **série.tagId** seja utilizado para se referir a quatro valores: **messageId, deviceLocation, type** e **unit**. Estes dados são associados aos dados da telemetria no momento de entrada. É então armazenado em Azure Time Series Insights para consulta.
@@ -190,13 +191,13 @@ Exemplo JSON carga útil:
 
 Para uma propriedade com um grande número de valores possíveis, é melhor enviar como valores distintos dentro de uma única coluna em vez de criar uma nova coluna para cada valor. Dos dois exemplos anteriores:
 
-  - No primeiro exemplo, algumas propriedades têm vários valores, por isso é apropriado fazer cada uma de uma propriedade separada.
-  - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, são uma variedade de valores ou medidas sob uma propriedade comum da série. O novo **tagId** da chave é enviado, que cria a nova série de **colunas.tagId** na tabela achatada. O **novo tipo** e **unidade** de propriedades são criados usando dados de referência para que o limite de propriedade não seja atingido.
+- No primeiro exemplo, algumas propriedades têm vários valores, por isso é apropriado fazer cada uma de uma propriedade separada.
+- No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, são uma variedade de valores ou medidas sob uma propriedade comum da série. O novo **tagId** da chave é enviado, que cria a nova série de **colunas.tagId** na tabela achatada. O **novo tipo** e **unidade** de propriedades são criados usando dados de referência para que o limite de propriedade não seja atingido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre o envio de [mensagens de dispositivo IoT Hub para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Leia [Azure Time Series Insights consulta sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para o Azure Time Series Insights acesso dados REST API.
+- Leia [Azure Time Series Insights consulta sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax) para saber mais sobre a sintaxe de consulta para o Azure Time Series Insights acesso dados REST API.
 
 - Aprenda [a moldar eventos.](./time-series-insights-send-events.md)

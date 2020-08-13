@@ -9,16 +9,16 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a5ee1cc8efead7c29dadaf64adb8e2686a10621
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495079"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168087"
 ---
-# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envie eventos para um ambiente Azure Time Series Insights Gen1 usando um centro de eventos
+# <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envie eventos para um ambiente Azure Time Series Insights Gen1 usando um centro de eventos
 
 Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um centro de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -55,9 +55,9 @@ Este artigo explica como criar e configurar um centro de eventos em Azure Event 
 
 ## <a name="add-an-azure-time-series-insights-instance"></a>Adicione uma instância de insights da série de tempo Azure
 
-No Azure Time Series Insights Gen 2 pode adicionar dados contextuais à telemetria de entrada utilizando o Modelo de Séries Tempotadas (TSM). Na TSM, as suas etiquetas ou sinais são referenciados como *instâncias,* e pode armazenar dados contextuais em *campos de exemplo.* Os dados são unidos no tempo de consulta utilizando um **ID da Série De Tempo**. O **ID da Série De Tempo** para o projeto de moinhos de vento que usamos mais tarde neste artigo é `id` . Para saber mais sobre o armazenamento de dados em campos de exemplo, leia a visão geral do Modelo série de [tempo.](./concepts-model-overview.md)
+No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetria de entrada utilizando o Modelo de Séries Tempotadas (TSM). Na TSM, as suas etiquetas ou sinais são referidos como *casos,* e pode armazenar dados contextuais em *campos de exemplo.* Os dados são unidos no tempo de consulta utilizando um **ID da Série De Tempo**. O **ID da Série De Tempo** para o projeto de moinhos de vento que usamos mais tarde neste artigo é `id` . Para saber mais sobre o armazenamento de dados em campos de exemplo, leia a visão geral do Modelo série de [tempo.](./concepts-model-overview.md)
 
-### <a name="create-a-azure-time-series-insights-event-source"></a>Criar uma fonte de eventos Azure Time Series Insights
+### <a name="create-an-azure-time-series-insights-event-source"></a>Criar uma fonte de eventos Azure Time Series Insights
 
 1. Se não criou uma fonte de evento, complete os passos para [criar uma fonte de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -73,15 +73,15 @@ No Azure Time Series Insights Gen 2 pode adicionar dados contextuais à telemetr
 
     [![Copie o valor para a cadeia de ligação da chave primária](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. O URL cria e executa dispositivos simulados de moinho de vento.
+1. Aceda a <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. O URL cria e executa dispositivos simulados de moinho de vento.
 1. Na caixa **de cordas de ligação** do centro de eventos na página web, cole a cadeia de ligação que copiou no campo de entrada do moinho de [vento](#push-events-to-windmills-sample).
   
     [![Cole a cadeia de ligação principal da chave na caixa de cordas de ligação do centro de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Selecione **Clique para iniciar**. 
+1. Selecione **Clique para iniciar**.
 
     > [!TIP]
-    > O simulador de moinho de vento também cria JSON que pode usar como uma carga útil com as APIs de [Consulta de Consultas Azure Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > O simulador de moinho de vento também cria JSON que pode usar como uma carga útil com as APIs de [Consulta de Consultas Azure Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > O simulador continuará a enviar dados até que o separador do navegador esteja fechado.
@@ -201,8 +201,8 @@ No Azure Time Series Insights Gen 2 pode adicionar dados contextuais à telemetr
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Veja o seu ambiente](https://insights.timeseries.azure.com) no Azure Time Series Insights Explorer.
+* [Veja o seu ambiente](https://insights.timeseries.azure.com) no Azure Time Series Insights Explorer.
 
-- Leia mais sobre [mensagens de dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Leia mais sobre [mensagens de dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

@@ -1,18 +1,21 @@
 ---
 title: Ver e gerir os clientes e os recursos delegados
-description: Como prestador de serviços que utiliza o Azure Lighthouse, pode visualizar todos os recursos e subscrições do seu cliente delegado indo para os meus clientes no portal Azure.
-ms.date: 07/06/2020
+description: Como prestador de serviços ou empresa que utiliza o Azure Lighthouse, pode visualizar todos os seus recursos e subscrições delegados indo para os meus clientes no portal Azure.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133278"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167203"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Ver e gerir os clientes e os recursos delegados
 
-Os prestadores de serviços que utilizam o [Farol Azure](../overview.md) podem utilizar a página **My customers** no [portal Azure](https://portal.azure.com) para visualizar os recursos e subscrições delegados do cliente. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
+Os prestadores de serviços que utilizam o [Farol Azure](../overview.md) podem utilizar a página **My customers** no [portal Azure](https://portal.azure.com) para visualizar os recursos e subscrições delegados do cliente. 
+
+> [!TIP]
+> Enquanto nos referimos a prestadores de serviços e clientes aqui, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para consolidar a sua experiência de gestão.
 
 Para aceder à página **Dos Meus clientes** no portal Azure, selecione **Todos os serviços,** em seguida, procure **os meus clientes** e selecione-o. Também pode encontrá-lo inserindo "Os meus clientes" na caixa de pesquisa perto do topo do portal Azure.
 
@@ -42,7 +45,7 @@ Pode ver as seguintes informações a partir desta página:
 
 ## <a name="view-and-manage-delegations"></a>Ver e gerir delegações
 
-As delegações mostram o grupo de subscrição/recursos que foi delegado, juntamente com os utilizadores e permissões que têm acesso ao mesmo. Para ver esta informação, selecione **Delegações** no lado esquerdo da página **dos meus clientes.**
+As delegações mostram a subscrição ou grupo de recursos que foi delegado, juntamente com os utilizadores e permissões que têm acesso à sua. Para ver esta informação, selecione **Delegações** no lado esquerdo da página **dos meus clientes.**
 
 Os filtros no topo da página permitem classificar e agrupar as suas informações de atribuição de acesso ou filtrar por clientes, ofertas ou palavras-chave específicas.
 
@@ -68,7 +71,7 @@ Se aceder a um serviço que suporta [experiências de gestão de inquilinos cruz
 
 Também pode aceder a funcionalidades relacionadas com subscrições delegadas ou grupos de recursos de dentro de serviços que suportam experiências de gestão de inquilinos cruzados selecionando o grupo de subscrição ou recursos a partir desse serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - Saiba como os seus clientes podem [ver e gerir os prestadores de serviços](view-manage-service-providers.md) indo aos **prestadores de serviços** no portal Azure.

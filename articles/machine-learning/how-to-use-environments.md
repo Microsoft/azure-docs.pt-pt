@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985908"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167152"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,6 +248,9 @@ build.wait_for_completion(show_output=True)
 ```
 
 É útil primeiro construir imagens localmente usando o [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) método. E definir o parâmetro opcional `pushImageToWorkspaceAcr = True` irá empurrar a imagem resultante para o registo do espaço de trabalho Azure ML. 
+
+> [!WARNING]
+>  Mudar a ordem das dependências ou canais num ambiente resultará num novo ambiente e exigirá uma nova construção de imagem.
 
 ## <a name="enable-docker"></a>Ativar Docker
 

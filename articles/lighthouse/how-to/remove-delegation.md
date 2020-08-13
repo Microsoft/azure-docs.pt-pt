@@ -1,20 +1,23 @@
 ---
 title: Remover o acesso a uma delegação
 description: Saiba como remover o acesso aos recursos que tinham sido delegados a um prestador de serviços para o Farol de Azure.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111733"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167236"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
 Depois de a subscrição ou grupo de recursos de um cliente ter sido delegada num prestador de serviços para o [Farol Azure,](../overview.md)a delegação pode ser removida se necessário. Uma vez removida uma delegação, o [Azure delegava](../concepts/azure-delegated-resource-management.md) o acesso à gestão de recursos que foi previamente concedido aos utilizadores do arrendatário do prestador de serviços deixará de ser aplicável.
 
 A remoção de uma delegação pode ser feita por um utilizador, quer no arrendatário do cliente, quer no arrendatário do prestador de serviços, desde que o utilizador tenha as permissões adequadas.
+
+> [!TIP]
+> Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar os mesmos processos.
 
 ## <a name="customers"></a>Clientes
 

@@ -1,26 +1,26 @@
 ---
-title: 'Quickstart: Visão computacional 2.1 e 3.0 - Extrato de texto impresso e manuscrito - REST, C #'
+title: 'Quickstart: OCR para texto impresso e manuscrito utilizando a operação de leitura da API de Visão de Computador 3.0 REST e C #'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador com C#.
+description: Neste arranque rápido, aplique OCR a uma imagem utilizando as operações de API de Visão De Computador 3.0 REST e C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 52cba173f7d3fe4c4d65d538fac3ef850f0491e2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 36f149019e37949445189045a8a71489f0f26418
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835413"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167832"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e C de Visão De Computador 3.0 REST #
+# <a name="quickstart-ocr-for-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Quickstart: OCR para texto impresso e manuscrito utilizando a operação de leitura da API de Visão de Computador 3.0 REST e C #
 
-Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina. 
+Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a nova tecnologia OCR disponível como parte da API de Visão Computacional 3.0 REST. Com os novos métodos [De Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina. 
 
 > [!IMPORTANT]
 > O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.

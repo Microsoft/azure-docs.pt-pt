@@ -4,14 +4,14 @@ description: Obtenha respostas para perguntas frequentes sobre a Tabela API em A
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392357"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167594"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB
 
@@ -274,7 +274,7 @@ A Azure Cosmos DB é projetado para ser um sistema baseado em SLA distribuído g
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca recebo uma cotação completa" (indicando que uma partição está cheia) quando ingeri dados no armazenamento da Tabela Azure. Com a API da mesa, recebo esta mensagem. Esta oferta está a limitar-me e a forçar-me a mudar a minha aplicação existente?
 
-Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada, com garantias de latência, produção, disponibilidade e consistência. Para garantir um desempenho premium garantido, certifique-se de que o tamanho e índice dos seus dados são geríveis e escaláveis. O limite de 10 GB no número de entidades ou itens por chave de partição é para garantir que fornecemos um grande desempenho de procura e consulta. Para garantir que a sua aplicação se escava bem, mesmo para o Azure Storage, recomendamos que *não* crie uma divisória quente armazenando todas as informações numa única divisória e consultando-a.
+Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada, com garantias de latência, produção, disponibilidade e consistência. Para garantir um desempenho premium garantido, certifique-se de que o tamanho e índice dos seus dados são geríveis e escaláveis. O limite de 20 GB para o número de entidades ou itens por chave de partição é para garantir que fornecemos um grande desempenho de procura e consulta. Para garantir que a sua aplicação se escava bem, mesmo para o Azure Storage, recomendamos que *não* crie uma divisória quente armazenando todas as informações numa única divisória e consultando-a.
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>Então, partitionKey e RowKey ainda são necessários com a Tabela API?
 
@@ -296,7 +296,7 @@ Pode partilhar o seu feedback de qualquer das seguintes formas:
 * [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow é o melhor para questões de programação. [Certifique-se de](https://stackoverflow.com/help/on-topic) que a sua pergunta está sobre o tema e forneça o máximo de detalhes [possível, tornando a pergunta clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construa uma app API de tabela com .NET SDK e Azure Cosmos DB](create-table-dotnet.md)
 * [Construa uma app Java para gerir dados da Azure Cosmos DB Table API](create-table-java.md)

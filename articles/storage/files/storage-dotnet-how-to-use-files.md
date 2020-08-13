@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515373"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167900"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -99,7 +99,7 @@ Em seguida, guarde as suas credenciais no arquivo do seu `App.config` projeto. N
 ```
 
 > [!NOTE]
-> A versão mais recente do emulador de armazenamento do Azure não suporta os Ficheiros do Azure. A sua cadeia de ligação tem de visar uma Conta de Armazenamento do Azure na cloud, para funcionar com os Ficheiros do Azure.
+> A versão mais recente do Emulador de Armazenamento Azure não suporta ficheiros Azure. A sua cadeia de ligação tem de visar uma Conta de Armazenamento do Azure na cloud, para funcionar com os Ficheiros do Azure.
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
@@ -480,7 +480,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se encontrar algum problema, pode consultar problemas de [Ficheiros Azure de resolução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Ficheiros Azure, consulte os seguintes recursos:
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420112"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168019"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -35,7 +35,7 @@ As ofertas privadas estão agora disponíveis para Máquina Virtual, Aplicação
 
 ## <a name="creating-private-offers-using-plans"></a>Criação de ofertas privadas usando planos
 
-Para *ofertas novas ou existentes com planos,* as editoras podem facilmente criar novas variações privadas, criando novos planos (anteriormente conhecidos como SKUs) e marcando-os como privados.  
+Para *ofertas novas ou existentes com planos,* as editoras podem facilmente criar novas variações privadas, criando novos planos (anteriormente conhecidos como SKUs) e marcando-os como privados. Cada oferta pode ter até 45 planos privados.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 

@@ -9,18 +9,18 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98077209e8245753bb9dae79fafd6c6a10f3eafb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a7307a5ecdc5f6aa4b90480fa769f87317605a61
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920726"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168070"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c"></a>Dados de consulta do ambiente Azure Time Series Insights Gen1 utilizando C #
+# <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>Dados de consulta do ambiente Azure Time Series Insights Gen1 usando C Sharp
 
-Este exemplo C# demonstra como usar as [APIs de consulta da Gen1 Para](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) consultar dados dos ambientes da Azure Time Series Insights Gen1.
+Este exemplo C# demonstra como usar as [APIs de consulta da Gen1 Para](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) consultar dados dos ambientes da Azure Time Series Insights Gen1.
 
 > [!TIP]
 > Ver amostras de código Gen1 C# em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
@@ -31,26 +31,26 @@ O código de amostra abaixo demonstra as seguintes características:
 
 * Como adquirir um token de acesso através do Azure Ative Directory utilizando [o Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
-* Como passar o token de acesso adquirido no `Authorization` cabeçalho dos pedidos subsequentes da API. 
+* Como passar o token de acesso adquirido no `Authorization` cabeçalho dos pedidos subsequentes da API.
 
 * A amostra chama cada uma das APIs de consulta da Gen1 que demonstram como os pedidos HTTP são feitos para:
-    * [Obter Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) para devolver os ambientes a que o utilizador tem acesso
-    * [Obter Disponibilidade ambiental API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
-    * [Obtenha API de Metadados ambientais](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) para recuperar metadados ambientais
-    * [Obter Eventos de Ambiente API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
-    * [Obter Agregados ambientais API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
-    
+  * [Obter Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environments-api) para devolver os ambientes a que o utilizador tem acesso
+  * [Obter Disponibilidade ambiental API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-availability-api)
+  * [Obtenha API de Metadados ambientais](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-metadata-api) para recuperar metadados ambientais
+  * [Obter Eventos de Ambiente API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-api)
+  * [Obter Agregados ambientais API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api)
+
 * Como interagir com as APIs de consulta da Gen1 usando wSS para enviar uma mensagem:
 
-   * [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
-   * [Obter Agregados ambientais Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
+  * [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-streamed-api)
+  * [Obter Agregados ambientais Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-streamed-api)
 
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
 Complete os seguintes passos antes de compilar e executar o código de amostra:
 
 1. [Provisionar um ambiente Gen1 Azure Time Series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)
-1. Configure o seu ambiente Azure Time Series Insights para o Azure Ative Directory, conforme descrito na [Autenticação e autorização](time-series-insights-authentication-and-authorization.md). 
+1. Configure o seu ambiente Azure Time Series Insights para o Azure Ative Directory, conforme descrito na [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 1. Instale as dependências de projetos necessárias.
 1. Edite o código de amostra abaixo substituindo cada **#DUMMY#** pelo identificador de ambiente apropriado.
 1. Execute o código dentro do Estúdio Visual.
@@ -75,11 +75,11 @@ Em alternativa, adicione os pacotes utilizando [o NuGet 2.12+](https://www.nuget
 
 ## <a name="c-sample-code"></a>Código de amostra C#
 
-[!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+As amostras da Time Series Insights Gen1 podem ser encontradas no [exemplo de csharpquery](https://github.com/Azure-Samples/Azure-Time-Series-Insights#tsi-gen1)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre consultas, leia a [referência API de Consulta.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)
+* Para saber mais sobre consultas, leia a [referência API de Consulta.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api)
 
-- Leia como [ligar uma aplicação JavaScript utilizando o cliente SDK](https://github.com/microsoft/tsiclient) a Time Series Insights.
+* Leia como [ligar uma aplicação JavaScript utilizando o cliente SDK](https://github.com/microsoft/tsiclient) a Time Series Insights.
 Azure-Samples/Azure-Time-Series-Insights/gen1-sample/csharp-tsi-gen1-sample/Program.cs

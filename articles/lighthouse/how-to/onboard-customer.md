@@ -1,30 +1,30 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 05/26/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118880"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167322"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
 Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para o Farol Azure. Ao fazê-lo, os recursos delegados do cliente (subscrições e/ou grupos de recursos) podem ser acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD), utilizando a [gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
 
-Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado assina no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão, sem ter que assinar em cada cliente inquilino individual.
+> [!TIP]
+> Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
-Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que você precisará realizar esta associação no seu inquilino prestador de serviços. Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e concedendo-lhe acesso reader a todos os clientes a bordo. Para obter mais informações, consulte [Link um ID do parceiro nas suas contas Azure.](../../cost-management-billing/manage/link-partner-id.md) 
+Pode repetir o processo de embarque para vários clientes. Quando um utilizador com as permissões adequadas assina no seu inquilino gerente, esse utilizador pode ser autorizado através de âmbitos de arrendamento de clientes para realizar operações de gestão, sem ter de se inscrever em cada cliente inquilino.
+
+Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e concedendo-lhe acesso reader a todos os clientes a bordo. Para obter mais informações, consulte [Link um ID do parceiro nas suas contas Azure.](../../cost-management-billing/manage/link-partner-id.md)
 
 > [!NOTE]
-> Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de serviços geridos (públicos ou privados) que publicou no Azure Marketplace. Para mais informações, consulte [as ofertas de Serviços Geridos da Publicação ao Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
+> Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de Serviço Gerido (público ou privado) que [publica no Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui ao lado das ofertas publicadas no Azure Marketplace.
 
 O processo de embarque requer a ações a tomar tanto dentro do arrendatário do prestador de serviços como do arrendatário do cliente. Todos estes passos são descritos neste artigo.
-
-> [!TIP]
-> Apesar de nos referirmos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Recolha detalhes do inquilino e da subscrição
 
@@ -65,9 +65,11 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir papéis e permissões
 
-Como prestador de serviços, poderá querer executar múltiplas tarefas para um único cliente, requerendo acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir [funções de controlo de acesso (RBAC) baseadas em funções](../../role-based-access-control/built-in-roles.md) para utilizadores do seu inquilino.
+Como prestador de serviços, poderá querer executar múltiplas tarefas para um único cliente, requerendo acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir as funções adequadas [de controlo de acesso (RBAC) aos](../../role-based-access-control/built-in-roles.md) utilizadores do seu inquilino.
 
-Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores AZure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Também pode querer atribuir funções a um diretor de serviço. Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para recomendações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e papéis em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
+Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores Azure AD para cada função. Isto dá-lhe a flexibilidade para adicionar ou remover utilizadores individuais ao grupo que tem acesso, para que não tenha que repetir o processo de embarque para fazer alterações no utilizador. Pode atribuir funções a um diretor de serviço, o que pode ser útil para cenários de automação.
+
+Ao definir as suas autorizações, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para obter orientações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e funções em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
 
 > [!IMPORTANT]
 > Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser a **Segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -109,12 +111,13 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > Recomendamos a atribuição da [Função de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Crie um modelo de gestor de recursos Azure
 
-Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Azure](../../azure-resource-manager/index.yml) para a sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDescription** serão visíveis para o cliente ao visualizar detalhes da oferta na página de [prestadores](view-manage-service-providers.md) de serviços do portal Azure.
+Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Azure](../../azure-resource-manager/index.yml) para a sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDscription** serão visíveis para o cliente na página de [prestadores](view-manage-service-providers.md) de serviços do portal Azure.
 
 |Campo  |Definição  |
 |---------|---------|
@@ -196,9 +199,7 @@ A última autorização no exemplo acima adiciona um **principalid** com a funç
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
-Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar (ou para cada subscrição que contenha grupos de recursos que pretende embarcar).
-
-Por se trata de uma implementação de nível de subscrição, não pode ser iniciada no portal Azure. A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
+Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar (ou para cada subscrição que contenha grupos de recursos que pretende embarcar). A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
 
 > [!IMPORTANT]
 > Esta implementação ao nível de subscrição deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](../../role-based-access-control/built-in-roles.md#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032837"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167186"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -131,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -233,7 +233,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Nome
+6. Name
 7. Resumo
 8. Descrição
 9. Ligações úteis
@@ -288,9 +288,11 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou ca
 
 **Selecione Guardar o rascunho** antes de avançar para a secção seguinte, Planview.
 
-### <a name="plan-overview"></a>Visão geral do plano
+## <a name="plan-overview"></a>Visão geral do plano
 
 Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Os planos (anteriormente chamados SKUs) podem diferir em termos de que nuvens estão disponíveis, tais como nuvens globais, nuvens do governo, e a imagem referenciada pelo plano. Para listar a sua oferta no mercado, tem de definir pelo menos um plano.
+
+Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
 Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
@@ -305,7 +307,7 @@ As ações disponíveis no Resumo do Plano variam consoante o estado atual do se
 - **Eliminar rascunho**: Se o estado do plano for um Projeto.
 - **Plano de venda**: Se o estado do plano for publicado em direto.
 
-#### <a name="create-new-plan"></a>Criar novo plano
+### <a name="create-new-plan"></a>Criar novo plano
 
 **Selecione Criar novo plano.** Aparece a caixa de diálogo do **novo plano.**
 
@@ -337,7 +339,7 @@ Esta opção só é visível se o **Governo Azure** for selecionado nas **regiõ
 
 Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para consciencializar as suas certificações para estes programas, pode fornecer até 100 links que descrevem as suas certificações. Estes podem ser links para as suas listas no programa diretamente ou para o seu próprio site. Estas ligações são visíveis apenas para clientes do Governo Azure.
 
-## <a name="plan-listing"></a>Listagem de planos
+### <a name="plan-listing"></a>Listagem de planos
 
 Este separador apresenta informações específicas para cada plano diferente dentro da mesma oferta.
 
@@ -377,7 +379,7 @@ Aqui está um exemplo dos detalhes do plano Azure Marketplace (quaisquer preços
 2. Nome do plano
 3. Descrição do plano
 
-## <a name="availability"></a>Disponibilidade
+### <a name="availability"></a>Disponibilidade
 
 Se quiser ocultar a sua oferta publicada para que os clientes não possam pesquisar, navegar ou comprar no mercado, selecione a caixa de verificação do **plano Oculta** no separador Disponibilidade.
 

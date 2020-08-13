@@ -3,12 +3,12 @@ title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
 ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ab12238bac7e479766b3e328c02f73521d08ad96
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407069"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167228"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -51,7 +51,7 @@ Depois de um cliente adicionar a sua oferta, eles serão capazes [de delegar uma
 
 Uma vez que o cliente delega uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição), o fornecedor de recursos **Microsoft.ManagedServices** será registado para essa subscrição, e os utilizadores no seu inquilino poderão aceder aos recursos delegados de acordo com as autorizações da sua oferta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o [Mercado Comercial.](../../marketplace/partner-center-portal/commercial-marketplace-overview.md)
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)

@@ -4,19 +4,19 @@ description: Use um dispositivo Azure IoT Edge como um gateway transparente que 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782590"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167407"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
@@ -73,14 +73,14 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
    2. [Criar certificado CA do dispositivo IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). No final destas instruções, terá dois ficheiros, um certificado de AC do dispositivo e a sua chave privada:
-      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem`e
+      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` e
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
 2. Se criou estes ficheiros numa máquina diferente, copie-os para o seu dispositivo IoT Edge.
 
 3. No seu dispositivo IoT Edge, abra o ficheiro de segurança daemon config.
-   * Janelas:`C:\ProgramData\iotedge\config.yaml`
-   * Linux:`/etc/iotedge/config.yaml`
+   * Janelas: `C:\ProgramData\iotedge\config.yaml`
+   * Linux: `/etc/iotedge/config.yaml`
 
 4. Encontre a secção de certificados do ficheiro e forneça os URIs de ficheiros aos seus três ficheiros como valores para as **seguintes** propriedades:
    * **device_ca_cert**: certificado ca do dispositivo
@@ -90,18 +90,22 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
 5. Guarde e feche o ficheiro.
 
 6. Reiniciar ioT Edge.
-   * Janelas:`Restart-Service iotedge`
-   * Linux:`sudo systemctl restart iotedge`
+   * Janelas: `Restart-Service iotedge`
+   * Linux: `sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Implementar edgeHub para o gateway
+## <a name="deploy-edgehub-and-route-messages"></a>Implementar edgeHub e mensagens de rota
 
-Quando instala pela primeira vez o IoT Edge num dispositivo, apenas um módulo de sistema começa automaticamente: o agente IoT Edge. Uma vez que você cria a primeira implementação para um dispositivo, o segundo módulo do sistema, o hub IoT Edge, também é iniciado.
+Os dispositivos a jusante enviam telemetria e mensagens para o dispositivo gateway, onde o módulo hub IoT Edge é responsável por encaminhar a informação para outros módulos ou para o IoT Hub. Para preparar o seu dispositivo de gateway para esta função, certifique-se de que:
 
-O hub IoT Edge é responsável por receber mensagens recebidas de dispositivos a jusante e encaminhá-las para o próximo destino. Se o módulo **EdgeHub** não estiver a funcionar no seu dispositivo, crie uma implementação inicial para o seu dispositivo. A implementação vai parecer vazia porque não adiciona nenhum módulo, mas irá certificar-se de que ambos os módulos do sistema estão em funcionamento.
+* O módulo hub IoT Edge é implantado no dispositivo.
 
-Pode verificar quais os módulos que estão a ser executadas num dispositivo, verificando os detalhes do dispositivo no portal Azure, visualizando o estado do dispositivo no Visual Studio ou visual Studio Code, ou executando o comando `iotedge list` no próprio dispositivo.
+  Quando instala pela primeira vez o IoT Edge num dispositivo, apenas um módulo de sistema começa automaticamente: o agente IoT Edge. Uma vez que cria a primeira implementação para um dispositivo, o segundo módulo do sistema, o hub IoT Edge, também começa. Se o módulo **EdgeHub** não estiver a funcionar no seu dispositivo, crie uma implementação para o seu dispositivo.
 
-Se o módulo **edgeAgent** estiver em funcionamento sem o módulo **EdgeHub,** utilize os seguintes passos:
+* O módulo hub IoT Edge tem rotas configuradas para lidar com mensagens recebidas de dispositivos a jusante.
+
+  O dispositivo gateway deve ter uma rota no lugar para lidar com mensagens de dispositivos a jusante ou então essas mensagens não serão processadas. Pode enviar as mensagens para módulos no dispositivo gateway ou diretamente para o IoT Hub.
+
+Para implantar o módulo hub IoT Edge e configurar-o com rotas para lidar com mensagens recebidas de dispositivos a jusante, siga estes passos:
 
 1. No portal do Azure, navegue para o seu hub IoT.
 
@@ -109,13 +113,27 @@ Se o módulo **edgeAgent** estiver em funcionamento sem o módulo **EdgeHub,** u
 
 3. Selecione **módulos de conjunto**.
 
-4. Selecione **Seguinte: Rotas**.
+4. Na página **Módulos,** pode adicionar todos os módulos que pretende implementar no dispositivo gateway. Para efeitos deste artigo estamos focados em configurar e implementar o módulo edgeHub, que não precisa de ser explicitamente definido nesta página.
 
-5. Na página **Rotas,** deverá ter uma rota predefinida que envie todas as mensagens, seja de um módulo ou de um dispositivo a jusante, para o IoT Hub. Caso contrário, adicione uma nova rota com os seguintes valores e, em seguida, selecione **Review + create**:
-   * **Nome:**`route`
-   * **Valor:**`FROM /messages/* INTO $upstream`
+5. Selecione **Seguinte: Rotas**.
 
-6. Na página **'Rever + criar',** selecione **Criar.**
+6. Na página **Rotas,** certifique-se de que existe uma rota para lidar com mensagens provenientes de dispositivos a jusante. Por exemplo:
+
+   * Uma rota que envia todas as mensagens, seja de um módulo ou de um dispositivo a jusante, para o IoT Hub:
+       * **Nome:**`allMessagesToHub`
+       * **Valor:**`FROM /messages/* INTO $upstream`
+
+   * Uma rota que envia todas as mensagens de todos os dispositivos a jusante para o IoT Hub:
+      * **Nome:**`allDownstreamToHub`
+      * **Valor:**`FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Esta rota funciona porque, ao contrário das mensagens dos módulos IoT Edge, as mensagens de dispositivos a jusante não têm um ID de módulo associado a eles. A utilização da cláusula **WHERE** da rota permite-nos filtrar quaisquer mensagens com essa propriedade do sistema.
+
+      Para obter mais informações sobre o encaminhamento de mensagens, consulte [os módulos de implantação e estabeleça rotas.](./module-composition.md#declare-routes)
+
+7. Assim que a sua rota ou rotas forem criadas, selecione **Review + create**.
+
+8. Na página **'Rever + criar',** selecione **Criar.**
 
 ## <a name="open-ports-on-gateway-device"></a>Portas abertas no dispositivo gateway
 
@@ -129,25 +147,6 @@ Para que um cenário de gateway funcione, pelo menos um dos protocolos suportado
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
 
-## <a name="route-messages-from-downstream-devices"></a>Mensagens de rota de dispositivos a jusante
-
-O tempo de funcionaamento do IoT Edge pode encaminhar mensagens enviadas de dispositivos a jusante, tal como as mensagens enviadas por módulos. Esta funcionalidade permite-lhe realizar análises num módulo em execução no gateway antes de enviar quaisquer dados para a nuvem.
-
-Atualmente, a forma como encaminha as mensagens enviadas por dispositivos a jusante é diferenciando-as das mensagens enviadas por módulos. As mensagens enviadas por módulos contêm uma propriedade do sistema chamada **ligaçãoModuleId,** mas as mensagens enviadas por dispositivos a jusante não contêm. Pode utilizar a cláusula WHERE da rota para excluir quaisquer mensagens que contenham essa propriedade do sistema.
-
-A rota abaixo é um exemplo que enviaria mensagens de qualquer dispositivo a jusante para um módulo chamado `ai_insights` , e depois de `ai_insights` ioT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Para obter mais informações sobre o encaminhamento de mensagens, consulte [os módulos de implantação e estabeleça rotas.](./module-composition.md#declare-routes)
-
 ## <a name="enable-extended-offline-operation"></a>Permitir uma operação offline alargada
 
 A partir da [libertação 1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) do tempo de funcionamento do IoT Edge, o dispositivo gateway e os dispositivos a jusante que o ligam podem ser configurados para um funcionamento offline prolongado.
@@ -156,6 +155,6 @@ Com esta capacidade, os módulos locais ou dispositivos a jusante podem reautor�
 
 Para ativar capacidades offline alargadas, estabelece uma relação pai-filho entre um dispositivo de gateway IoT Edge e dispositivos a jusante que se ligarão a ele. Esses passos são explicados mais detalhadamente no próximo artigo desta série, [Autenticar um dispositivo a jusante para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem um dispositivo IoT Edge configurado como um gateway transparente, precisa de configurar os seus dispositivos a jusante para confiar no gateway e enviar-lhe mensagens. Continue a [autenticar um dispositivo a jusante até ao Azure IoT Hub](how-to-authenticate-downstream-device.md) para os próximos passos na configuração do seu cenário transparente de gateway.

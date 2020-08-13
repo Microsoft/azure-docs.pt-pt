@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809770"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167934"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -23,7 +23,7 @@ As falhas de backup mais comuns podem ser auto-resolvidas seguindo as etapas de 
 
 ### <a name="step-1-check-azure-vm-health"></a>Passo 1: Verifique a saúde do Azure VM
 
-- **Certifique-se de que o estado de provisionamento Azure VM está em "funcionamento"**: Se o [estado de provisionamento VM](../virtual-machines/windows/states-lifecycle.md#provisioning-states) estiver no estado **de paragem/deallocated/atualização,** então interferirá com a operação de backup. O portal Open *Azure > VM > visão geral >* e verifique o estado de VM para garantir que está **a funcionar** e a tentar novamente a operação de backup.
+- **Certifique-se de que o estado de provisionamento Azure VM está em "funcionamento"**: Se o [estado de provisionamento VM](../virtual-machines/states-lifecycle.md#provisioning-states) estiver no estado **de paragem/deallocated/atualização,** então interferirá com a operação de backup. O portal Open *Azure > VM > visão geral >* e verifique o estado de VM para garantir que está **a funcionar**  e a tentar novamente a operação de backup.
 - **Reveja as atualizações ou reboots do SO pendentes**: Certifique-se de que não existem atualizações de SO pendentes ou reinicializações pendentes no VM.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Passo 2: Verifique a saúde do serviço de agente convidado Azure VM
@@ -67,7 +67,7 @@ O Azure Backup utiliza a Extensão de Instantâneo VM para obter uma cópia de s
 - **Siga as diretrizes de boas práticas**de backup : Reveja as [melhores práticas para permitir o backup do Azure VM](backup-azure-vms-introduction.md#best-practices).
 - **Rever as diretrizes para discos encriptados**: Se estiver a permitir a cópia de segurança para VMs com disco encriptado, certifique-se de que forneceu todas as permissões necessárias. Para saber mais, consulte [Back up e restaure O VM encriptado](backup-azure-vms-encryption.md#encryption-support).
 
-## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - o agente da VM não consegue comunicar com o Azure Backup
+## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable – o agente da VM não consegue comunicar com o Azure Backup
 
 **Código de erro**: UserErrorGuestAgentStatusUn disponível <br>
 **Error message**: VM Agent incapaz de comunicar com Azure Backup<br>
@@ -79,7 +79,7 @@ O agente Azure VM pode ser detido, desatualizado, num estado inconsistente, ou n
   - Para os VMs Linux, siga estes [passos](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar o Agente Convidado.
 - **O portal Open Azure > VM > Definições > extensões** > Garantir que todas as extensões estão em **estado de provisionamento bem sucedido.** Caso contrário, siga estes [passos](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para resolver a questão.
 
-## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - não foi possível comunicar com o agente da VM para obter o estado do instantâneo
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError – não foi possível comunicar com o agente da VM para obter o estado do instantâneo
 
 **Código de erro**: GuestAgentSnapshotTaskStatusError<br>
 **Error message**: Não foi possível comunicar com o agente VM para o estado do instantâneo <br>
@@ -101,7 +101,7 @@ Depois de registar e agendar um VM para o serviço Azure Backup, o Backup inicia
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de provisão falhado.<br>**O portal Open Azure > VM > Definições > Extensões > Estado das Extensões** e verifique se todas as extensões estão em **disposição estão bem sucedidas.** Para saber mais, consulte [os Estados de Provisionamento.](../virtual-machines/windows/states-lifecycle.md#provisioning-states)
+Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de provisão falhado.<br>**O portal Open Azure > VM > Definições > Extensões > Estado das Extensões** e verifique se todas as extensões estão em **disposição estão bem sucedidas.** Para saber mais, consulte [os Estados de Provisionamento.](../virtual-machines/states-lifecycle.md#provisioning-states)
 
 - Se a extensão VMSnapshot estiver num estado falhado, clique com o botão direito na extensão falhada e remova-a. Desencadeie uma cópia de segurança a pedido. Esta ação reinstalará as extensões e executará o trabalho de backup.  <br>
 - Se qualquer outra extensão estiver em estado de falha, então pode interferir com a cópia de segurança. Certifique-se de que estas questões de extensão estão resolvidas e relemisse a operação de reserva.
@@ -229,12 +229,12 @@ A maioria das falhas relacionadas com o agente ou relacionadas com extensões pa
    > [!NOTE]
    > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos o download do código de agente diretamente do GitHub e atualizá-lo. Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página do [agente Do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
 
-2. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando:`ps -e`
+2. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando: `ps -e`
 
    Se o processo não estiver em curso, reinicie-o utilizando os seguintes comandos:
 
-   - Para Ubuntu:`service walinuxagent start`
-   - Para outras distribuições:`service waagent start`
+   - Para Ubuntu: `service walinuxagent start`
+   - Para outras distribuições: `service waagent start`
 
 3. [Configure o agente de reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Faça um novo teste de reserva. Se a falha persistir, recolha os seguintes registos do VM:
@@ -252,7 +252,7 @@ Se necessitar de registo verboso para waagent, siga estes passos:
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>As opções de configuração do Agente VM não estão definidas (para Os VMs Linux)
 
 Um ficheiro de configuração (/etc/waagent.conf) controla as ações do waagent. Configuração Extensões de opções **de ficheiro.O enable** deve ser definido para **y** e **Provisioning.Agent** deve ser configurado para **auto** para cópia de segurança funcionar.
-Para obter a lista completa das opções de ficheiros de configuração de vídeo-agente VM, consulte<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Para obter a lista completa das opções de ficheiros de configuração de vídeo-agente VM, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controlo de aplicações está a bloquear IaaSBcdrExtension.exe
 
@@ -284,7 +284,7 @@ As seguintes condições podem fazer com que a tarefa do instantâneo falhe:
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a>Limpe a coleção de pontos de restauro
+### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a> Limpe a coleção de pontos de restauro
 
 Depois de retirar a fechadura, os pontos de restauro têm de ser limpos.
 
