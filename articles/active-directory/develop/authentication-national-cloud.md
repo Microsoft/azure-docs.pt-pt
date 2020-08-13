@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117418"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141504"
 ---
 # <a name="national-clouds"></a>Clouds nacionais
 
@@ -67,14 +67,14 @@ Para aplicações de inquilino único, substitua o "comum" nos URLs anteriores c
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Para aprender a chamar apis do Microsoft Graph num ambiente nacional de nuvem, vá ao [Microsoft Graph em implementações nacionais em nuvem](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Para aprender a chamar apis do Microsoft Graph num ambiente nacional de nuvem, vá ao [Microsoft Graph em implementações nacionais em nuvem](/graph/deployments).
 
 > [!IMPORTANT]
 > Certos serviços e características que se encontram em regiões específicas do serviço global podem não estar disponíveis em todas as nuvens nacionais. Para saber que serviços estão disponíveis, vá aos [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)
 
 Para aprender a construir uma aplicação utilizando a plataforma de identidade microsoft, siga o tutorial da [Microsoft Authentication Library (MSAL).](msal-national-cloud.md) Especificamente, esta aplicação irá iniciar seduca num utilizador e obter um token de acesso para ligar para a API do Gráfico microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

@@ -13,12 +13,12 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 8a7de1921732328fe4112de9b9171af3e21fe7e3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b9199c5ca70f0846f48c7b4ebaaa6cb38b969173
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832183"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142337"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportação e importação Registos de Centros de Notificação Azure a granel
 
@@ -50,7 +50,7 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
     StringBuilder builder = new StringBuilder();
     foreach (var registrationDescription in descriptions)
     {
-        builder.AppendLine(RegistrationDescription.Serialize());
+        builder.AppendLine(registrationDescription.Serialize());
     }
 
     var inputBlob = container.GetBlockBlobReference(INPUT_FILE_NAME);
@@ -215,7 +215,7 @@ namespace ConsoleApplication1
             StringBuilder builder = new StringBuilder();
             foreach (var registrationDescription in descriptions)
             {
-                builder.AppendLine(RegistrationDescription.Serialize());
+                builder.AppendLine(registrationDescription.Serialize());
             }
 
             var inputBlob = container.GetBlockBlobReference(INPUT_FILE_NAME);
@@ -295,7 +295,7 @@ while(true){
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as inscrições, consulte os seguintes artigos:
 

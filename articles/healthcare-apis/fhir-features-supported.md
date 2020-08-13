@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843509"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142524"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -35,7 +35,7 @@ As versões anteriores também suportadas incluem:`3.0.2`
 | atualização com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
 | atualização (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | patch                          | Não        | Não        | Não        |                                                     |
-| eliminação                         | Sim       | Sim       | Sim       |                                                     |
+| delete                         | Sim       | Sim       | Sim       |                                                     |
 | eliminar (condicional)           | Não        | Não        | Não        |                                                     |
 | criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
@@ -103,7 +103,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_count`                | Sim       | Sim       | Sim       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count`é apoiado |
 | `_include`              | Não        | Sim       | Não        |         |
-| `_revinclude`           | Não        | Não        | Não        |         |
+| `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos estão limitados a 100. |
 | `_contained`            | Não        | Não        | Não        |         |
 | `_elements`             | Não        | Não        | Não        |         |
 
@@ -121,7 +121,7 @@ O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/se
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

@@ -1,7 +1,7 @@
 ---
 title: Construa e implemente uma aplicação Node.js Express para a Azure Cloud Services
 titleSuffix: Azure Cloud Services
-description: Construa e implemente uma aplicação Express.js em Node.js para a Azure Cloud Services
+description: Utilize este tutorial para criar uma nova aplicação utilizando o módulo Express, que fornece uma estrutura MVC para criar aplicações web Node.js.
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d642119d2fe70236ec8cc4b85da07bc8a2dca0c3
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 80b7e80e3636b2005594706e17b088b833c7bce7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386508"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142456"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Construa e implemente uma aplicação web Node.js utilizando o Express em um Azure Cloud Services
 

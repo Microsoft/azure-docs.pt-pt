@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233312"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163701"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Crie um pipeline CI/CD para .NET com arranque Azure DevOps
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, pode obter uma subscrição gratuita at
 
 DevOps Starter cria um oleoduto CI/CD em Azure DevOps. Pode criar uma nova organização Azure DevOps ou utilizar uma organização existente. DevOps Starter também cria recursos Azure na subscrição Azure da sua escolha.
 
-1. Inscreva-se no [portal Microsoft Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
 1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo. 
 
@@ -124,7 +124,7 @@ O DevOps Starter cria um oleoduto de libertação para gerir as implementações
 
 1. Selecionar **Registos**. Os registos contêm informações úteis sobre o processo de implementação. Podem ser vistos durante e após as implementações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 

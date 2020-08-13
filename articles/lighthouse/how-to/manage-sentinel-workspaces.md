@@ -3,12 +3,12 @@ title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105273"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163242"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -17,6 +17,9 @@ Como prestador de serviços, pode ter a bordo vários inquilinos de clientes par
 O Azure Sentinel fornece analítica de segurança e inteligência de ameaças, fornecendo uma única solução para deteção de alerta, visibilidade de ameaças, caça proativa e resposta a ameaças. Com o Azure Lighthouse, você pode gerir vários espaços de trabalho Azure Sentinel em todos os inquilinos em escala. Isto permite que cenários como executar consultas em vários espaços de trabalho, ou criar livros de trabalho para visualizar e monitorizar dados a partir das suas fontes de dados conectadas para obter insights. IP como consultas e playbooks permanecem no seu inquilino gerente, mas pode ser usado para realizar gestão de segurança nos inquilinos do cliente.
 
 Este tópico fornece uma visão geral de como usar [o Azure Sentinel](../../sentinel/overview.md) de uma forma escalável para a visibilidade interina e serviços de segurança geridos.
+
+> [!TIP]
+> Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
 
 ## <a name="architectural-considerations"></a>Considerações arquitetónicas
 
@@ -76,7 +79,7 @@ Você pode usar a automatização para gerir vários espaços de trabalho do Azu
 
 Note que algumas capacidades não são [suportadas atualmente em vários espaços de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [Azure Sentinel.](../../sentinel/overview.md)
 - Reveja a [página de preços do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846739"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141130"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,24 +107,26 @@ Para definir quotas ao nível do espaço de trabalho, vá a qualquer espaço de 
 
 ## <a name="view-your-usage-and-quotas"></a>Veja o seu uso e quotas
 
-O Azure Machine Learning Compute é gerido separadamente de outras quotas de recursos Azure na sua subscrição. Para ver esta quota, você precisa aprofundar os serviços de Machine Learning.  
+A quota de Cálculo de Aprendizagem de Máquinas Azure na sua subscrição é gerida separadamente de outra quota de recursos Azure. Para ver esta quota, você precisa aprofundar os serviços de Machine Learning.  
 
 1. No painel esquerdo, selecione o **serviço machine learning** e, em seguida, selecione qualquer espaço de trabalho da lista mostrada.
 
-1. Na lâmina seguinte, sob a **secção De Suporte + Resolução de Problemas** selecione Usage + **quotas** para ver os seus limites de quota e utilização atuais.
+2. Na lâmina seguinte, sob a **secção De Suporte + Resolução de Problemas** selecione Usage + **quotas** para ver os seus limites de quota e utilização atuais.
 
-1. Selecione uma subscrição para ver os limites de quota. Lembre-se de filtrar para a região que lhe interessa.
+3. Selecione uma subscrição para ver os limites de quota. Lembre-se de filtrar para a região que lhe interessa.
 
-1. Agora pode alternar entre uma vista de nível de subscrição e uma vista de nível de espaço de trabalho:
-    + **Vista de assinatura:** Exibe o seu uso de quota principal pela família VM, expandindo-a por espaço de trabalho, e expandindo-a ainda mais pelos nomes reais do cluster. Entre rapidamente nos detalhes do uso do núcleo para uma família VM específica para ver a separação por espaços de trabalho e ainda mais pelos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral neste ponto é (utilização/quota), onde a utilização é o número atual de núcleos dimensionado, e a quota é o número máximo lógico de núcleos a que o recurso pode escalar. Para cada **espaço de trabalho,** a quota seria a quota de nível de trabalho (como explicado acima) que denota o número máximo de núcleos a que se pode escalar para uma determinada família de VM. Para um **cluster** da mesma forma, a quota é na verdade os núcleos correspondentes ao número máximo de nós que o cluster pode escalar para definido pela propriedade max_nodes.
-
+4. Agora pode alternar entre uma vista de nível de subscrição e uma vista de nível de espaço de trabalho:
+    + **Vista de assinatura:** Isto permite-lhe visualizar o seu uso de quota principal pela família VM, expandindo-a por espaço de trabalho, e expandindo-a ainda mais pelos nomes reais do cluster. Esta vista é ideal para entrar rapidamente nos detalhes do uso do núcleo para uma determinada família VM ver a separação por espaços de trabalho e ainda mais pelos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral neste ponto é (utilização/quota), onde a utilização é o número atual de núcleos dimensionado, e a quota é o número máximo lógico de núcleos a que o recurso pode escalar. Para cada **espaço de trabalho,** a quota seria a quota de nível de trabalho (como explicado acima) que denota o número máximo de núcleos a que se pode escalar para uma determinada família de VM. Para um **cluster** da mesma forma, a quota é na verdade os núcleos correspondentes ao número máximo de nós que o cluster pode escalar para definido pela propriedade max_nodes.
+    
     + **Vista do espaço de trabalho:** Isto permite-lhe visualizar o seu uso de quota principal pelo Workspace, expandindo-o pela família VM, e expandindo-o ainda mais pelos nomes reais do cluster. Esta visão é ideal para entrar rapidamente nos detalhes do uso do núcleo para um determinado espaço de trabalho para ver a separação por parte das famílias VM e ainda mais pelos clusters subjacentes para cada uma dessas famílias.
 
 Ver a sua quota para vários outros recursos Azure, como Máquinas Virtuais, Armazenamento, Rede, é fácil através do portal Azure.
 
 1. No painel esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Subscrições** na categoria Geral.
 
-1. Na lista de subscrições, selecione a subscrição cuja quota procura.
+2. Na lista de subscrições, selecione a subscrição cuja quota procura.
+
+3. Selecione **Use + quotas** para ver os seus limites de quota e utilização atuais. Utilize os filtros para selecionar o fornecedor e as localizações. 
 
 ## <a name="request-quota-increases"></a>Pedir aumentos de quota
 
@@ -135,8 +137,8 @@ Os limites não podem ser elevados acima do valor limite máximo indicado nas ta
 Ao solicitar um aumento de quota, precisa de selecionar o serviço que está a solicitar para aumentar a quota contra, que podem ser serviços como quota de serviço de Machine Learning, instâncias de contentores ou quota de armazenamento. Além de Azure Machine Learning Compute, pode clicar no botão **Quota de Pedido** enquanto visualiza a quota seguindo os passos acima.
 
 > [!NOTE]
-> [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [upgrade Azure Free Trial para Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) e [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [upgrade Azure Free Trial para Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) e  [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Plano & gerir custos para a Azure Machine Learning](concept-plan-manage-cost.md)

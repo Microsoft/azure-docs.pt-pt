@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dd3ede40582e8f2c71c0424df025d06ff7f0f79
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728372"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141606"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
-No Azure Ative Directory (Azure AD), pode criar regras complexas baseadas em atributos para permitir adesões dinâmicas para grupos. A adesão ao grupo dinâmico reduz a sobrecarga administrativa de adicionar e remover os utilizadores. Este artigo detalha as propriedades e sintaxe para criar regras dinâmicas de adesão para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
+No Azure Ative Directory (Azure AD), pode criar regras complexas baseadas em atributos para permitir adesões dinâmicas para grupos. A adesão ao grupo dinâmico reduz a sobrecarga administrativa de adicionar e remover os utilizadores. Este artigo detalha as propriedades e sintaxe para criar regras dinâmicas de adesão para utilizadores ou dispositivos. Pode configurar uma regra para a adesão dinâmica em grupos de segurança ou grupos Microsft 365.
 
 Quando quaisquer atributos de um utilizador ou dispositivo mudam, o sistema avalia todas as regras dinâmicas do grupo num diretório para ver se a alteração desencadearia qualquer grupo que adicionasse ou removesse. Se um utilizador ou dispositivo satisfaz uma regra de um grupo, são adicionados como membro desse grupo. Se já não satisfazem a regra, são removidos. Não é possível adicionar ou remover manualmente um membro de um grupo dinâmico.
 
@@ -138,7 +138,7 @@ A tabela que se segue lista todos os operadores apoiados e a sua sintaxe para um
 | Operador | Syntax |
 | --- | --- |
 | Não é igual |-ne |
-| É igual a |-eq |
+| Igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-começa Com |
 | Não contém |-nãoContóis |
@@ -269,7 +269,7 @@ a assignedPlans é uma propriedade multi-valor que lista todos os planos de serv
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Uma regra como esta pode ser usada para agrupar todos os utilizadores para os quais está ativada uma capacidade do Office 365 (ou outro Microsoft Online Service). Pode então aplicar-se com um conjunto de políticas ao grupo.
+Uma regra como esta pode ser usada para agrupar todos os utilizadores para os quais está ativada uma capacidade microsoft 365 (ou outro Microsoft Online Service). Pode então aplicar-se com um conjunto de políticas ao grupo.
 
 #### <a name="example-2"></a>Exemplo 2
 
@@ -395,7 +395,7 @@ Podem ser utilizados os seguintes atributos do dispositivo.
 > [!Note]  
 > Para o dispositivoSaonerar ao criar Grupos Dinâmicos para dispositivos, é necessário definir o valor igual a "Empresa". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte os [Tipos Proprietários](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estes artigos fornecem informações adicionais sobre grupos no Diretório Ativo Azure.
 

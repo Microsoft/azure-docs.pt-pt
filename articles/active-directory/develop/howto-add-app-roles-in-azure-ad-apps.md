@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117078"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141436"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 
@@ -30,7 +30,7 @@ Outra abordagem é utilizar grupos AD Ad E Reivindicações de Grupo, como mostr
 
 ## <a name="declare-roles-for-an-application"></a>Declarar funções para uma aplicação
 
-Estas funções de candidatura são definidas no [portal Azure](https://portal.azure.com) no manifesto de inscrição da candidatura.  Quando um utilizador assina a aplicação, a Azure AD emite uma `roles` reclamação por cada papel que o utilizador tenha sido concedido individualmente ao utilizador e da sua filiação em grupo.  A atribuição de utilizadores e grupos a funções pode ser feita através da UI do portal, ou utilizando programáticamente [o Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Estas funções de candidatura são definidas no [portal Azure](https://portal.azure.com) no manifesto de inscrição da candidatura.  Quando um utilizador assina a aplicação, a Azure AD emite uma `roles` reclamação por cada papel que o utilizador tenha sido concedido individualmente ao utilizador e da sua filiação em grupo.  A atribuição de utilizadores e grupos a funções pode ser feita através da UI do portal, ou utilizando programáticamente [o Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declare funções de aplicativo usando o portal Azure
 
@@ -38,7 +38,7 @@ Estas funções de candidatura são definidas no [portal Azure](https://portal.a
 1. Selecione o ícone **de inscrição + Diretório** na barra de ferramentas do portal.
 1. Na lista **de Favoritos** ou **Todos os Diretórios,** escolha o inquilino ative directory onde deseja registar a sua candidatura.
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
-1. No painel **Azure Ative Directory,** selecione **registos de Aplicações** para ver uma lista de todas as suas aplicações.
+1. No painel  **Azure Ative Directory,** selecione **registos de Aplicações** para ver uma lista de todas as suas aplicações.
 1. Selecione a aplicação em que pretende definir funções de aplicação. Em seguida, selecione **Manifesto**.
 1. Edite o manifesto da aplicação localizando a `appRoles` definição e adicionando todas as suas Funções de Aplicação.
 
@@ -130,4 +130,4 @@ Quando os utilizadores atribuídos às várias funções da aplicação iniciare
 - [Diretório Ativo Azure, agora com Reivindicações de Grupo e Funções de Aplicação](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto da aplicação do Azure Active Directory](./reference-app-manifest.md)
 - [Fichas de acesso AAD](access-tokens.md)
-- [RIO AAD`id_tokens`](id-tokens.md)
+- [RIO AAD `id_tokens`](id-tokens.md)

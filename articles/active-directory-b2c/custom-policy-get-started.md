@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169434"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163191"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -211,8 +211,8 @@ Como mencionado em [Pré-requisitos](#prerequisites), o Facebook *não* é neces
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.
 1. Selecione **Executar agora** e selecione Facebook para iniciar sinsução com o Facebook e testar a política personalizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, tente adicionar a Azure Ative Directory (Azure AD) como fornecedor de identidade. O ficheiro base utilizado neste guia de arranque já contém alguns dos conteúdos necessários para adicionar outros fornecedores de identidade como o Azure AD.
+Em seguida, tente adicionar a Azure Ative Directory (Azure AD) como fornecedor de identidade. O ficheiro base utilizado neste guia de arranque já contém alguns dos conteúdos necessários para adicionar outros fornecedores de identidade como o Azure AD. Para obter informações sobre a criação do Azure AD como fornecedor de identidade, consulte [Configurar e iniciar sposição com uma conta Azure Ative Directory utilizando políticas personalizadas do Ative Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Para obter informações sobre a criação do Azure AD como fornecedor de identidade, consulte [Configurar e iniciar sposição com uma conta Azure Ative Directory utilizando políticas personalizadas do Ative Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Visite a nossa [galeria de parceiros](partner-gallery.md) para saber mais sobre como implementar a integração isv usando políticas personalizadas. 

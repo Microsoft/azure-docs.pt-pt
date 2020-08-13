@@ -1,6 +1,6 @@
 ---
 title: Serviços cloud e certificados de gestão Microsoft Docs
-description: Saiba como criar e utilizar certificados com o Microsoft Azure
+description: Saiba como criar e implementar certificados para serviços na nuvem e para autenticar com a gestão API em Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024613"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142371"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Descrição geral dos certificados para os Serviços Cloud do Azure)
 Os certificados são utilizados no Azure para serviços na nuvem[(certificados](#what-are-service-certificates)de serviço) e para autenticação com a API de gestão[(certificados de gestão).](#what-are-management-certificates) Este tópico dá uma visão geral de [create](#create) ambos os tipos de certificados, como criá-los e implantá-los para Azure.

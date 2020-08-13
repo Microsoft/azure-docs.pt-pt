@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b23bed8163ffed6a610eda7677099989e966a646
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298772"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163820"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web utilizando o Azure Ative Directory B2C
 
 Este tutorial mostra-lhe como usar o Azure Ative Directory B2C (Azure AD B2C) para iniciar seduções e inscrever utilizadores numa aplicação web ASP.NET. O Azure AD B2C permite que as suas aplicações autentem para as contas sociais, contas empresariais e contas do Azure Ative Directory utilizando protocolos de série aberta.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação em Azure AD B2C
@@ -85,16 +85,16 @@ Os dois projetos seguintes constam da solução de amostra:
 * **TaskWebApp** - Criar e editar uma lista de tarefas. A amostra utiliza o fluxo de utilizador **de inscrição ou de inscrição** para se inscrever e iniciar s inscrição nos utilizadores.
 * **TaskService** - Suporta a funcionalidade de criar, ler, atualizar e eliminar a funcionalidade da lista de tarefas. A API está protegida pelo Azure AD B2C e é chamada pelo TaskWebApp.
 
-Altere a amostra para utilizar a aplicação registada no seu inquilino, que inclui o ID da aplicação e a chave que registou anteriormente. Também configura os fluxos de utilizador que criou. A amostra define os valores de configuração como definições no ficheiro *Web.config.*
+Altere a amostra para utilizar a aplicação registada no seu inquilino, que inclui o ID da aplicação e a chave que registou anteriormente. Também configura os fluxos de utilizador que criou. A amostra define os valores de configuração como definições no *ficheiroWeb.config.*
 
-Atualize as definições no ficheiro Web.config para trabalhar com o fluxo do utilizador:
+Atualize as definições no ficheiro Web.config para funcionar com o fluxo do utilizador:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp,** abra o ficheiro **Web.config.**
     1. Atualize o valor `ida:Tenant` e com o nome do inquilino `ida:AadInstance` Azure AD B2C que criou. Por exemplo, `fabrikamb2c` substitua-o por `contoso` .
     1. Substitua o valor do ID do `ida:TenantId` diretório, que pode encontrar nos imóveis para o seu inquilino Azure B2C (no portal Azure sob o ID do **Diretório Azure Ative**  >  **Directory**  >  **Directory ID**Properties).
     1. Substitua o valor do `ida:ClientId` ID da aplicação que registou.
-    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades XML predefinidas, por exemplo menos do que `<` ( , superiores a ( `>` ) ampersand ( `&` ) ou citação dupla ( ), `"` você deve escapar desses caracteres codificando o segredo do cliente antes de adicioná-lo à sua Web.config.
+    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades XML predefinidas, por exemplo menos do que `<` ( , superiores a ( `>` ) ampersand ( `&` ) ou citação dupla `"` (), você deve escapar desses caracteres codificando o segredo do cliente antes de adicioná-lo ao seu Web.config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .
     1. Substitua o valor de `ida:EditProfilePolicyId` `b2c_1_profileediting1` .
     1. Substitua o valor de `ida:ResetPasswordPolicyId` `b2c_1_passwordreset1` .

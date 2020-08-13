@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285871"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142184"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para a continuidade do negócio e recuperação de desastres no Serviço Azure Kubernetes (AKS)
 
@@ -93,7 +93,7 @@ A geo-replicação é uma característica dos registos de contentores *Premium* 
 
 O Estado pode ser externalizado ou cotado com o código que manipula o Estado. Normalmente, você externaliza o estado usando uma base de dados ou outra loja de dados que funciona em diferentes máquinas através da rede ou que fica sem processo na mesma máquina.
 
-Os contentores e microserviços são mais resistentes quando os processos que correm dentro deles não retêm o estado. Como as aplicações contêm quase sempre algum estado, utilize uma solução PaaS como a Base de Dados Azure para o MySQL, Base de Dados Azure para PostgreSQL ou Base de Dados Azure SQL.
+Os contentores e microserviços são mais resistentes quando os processos que correm dentro deles não retêm o estado. Como as aplicações contêm quase sempre algum estado, utilize uma solução PaaS como Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL ou Azure SQL Database.
 
 Para construir aplicações portáteis, consulte as seguintes diretrizes:
 
@@ -130,7 +130,7 @@ Kubernetes não fornece atualmente nenhuma implementação nativa para replicaç
 
 ![Replicação assíncronea baseada em aplicações](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo centra-se nas considerações de continuidade de negócios e recuperação de desastres para clusters AKS. Para obter mais informações sobre as operações de cluster em AKS, consulte estes artigos sobre as melhores práticas:
 

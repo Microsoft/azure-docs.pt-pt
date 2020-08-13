@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 280a59d8c378de6b3667560a4eb2b1cf95041f8d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298793"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163888"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API web ASP.NET usando o Azure Ative Directory B2C
 
 Este tutorial mostra-lhe como chamar um recurso de API web protegido em Azure Ative Directory B2C (Azure AD B2C) a partir de uma aplicação web ASP.NET.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
@@ -63,7 +63,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nos
 6. Para **incluir aplicativo web/web API,** selecione **Sim**.
 7. Para **URL de resposta,** insira um ponto final onde a Azure AD B2C deve devolver quaisquer fichas que o seu pedido de candidatura. Neste tutorial, a amostra corre localmente e `https://localhost:44332` ouve.
 8. Para **app ID URI,** insira o identificador utilizado para a sua API web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
-9. Clique **em Criar**.
+9. Clique em **Criar**.
 10. Na página de propriedades, grave o ID da aplicação que utilizará quando configurar a aplicação web.
 
 * * *
@@ -94,7 +94,7 @@ Existem dois projetos na solução de exemplo:
 ### <a name="configure-the-web-application"></a>Configure a aplicação web
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
-1. No projeto **TaskWebApp,** abra **web.config**.
+1. No projeto **TaskWebApp,** abra **Web.config**.
 1. Para executar a API localmente, utilize a definição de localhost **api:TaskServiceUrl**. Altere o Web.config da seguinte forma:
 
     ```csharp
@@ -111,7 +111,7 @@ Existem dois projetos na solução de exemplo:
 
 ### <a name="configure-the-web-api"></a>Configurar a API Web
 
-1. No projeto **TaskService,** abra **web.config**.
+1. No projeto **TaskService,** abra **Web.config**.
 1. Configure a API para utilizar o seu inquilino.
 
     ```csharp
@@ -147,7 +147,7 @@ Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 1. Altere a **Ação** em ambos os projetos para **Iniciar**.
 1. Clique **em OK** para guardar a configuração.
 1. Prima **F5** para executar as duas aplicações. Cada aplicação abre na sua própria janela de navegador.
-    * `https://localhost:44316/`é a aplicação web.
+    * `https://localhost:44316/` é a aplicação web.
     * `https://localhost:44332/` é a API Web.
 
 1. Na aplicação web, selecione **iniciar s inscrição /iniciar sôms** para iniciar sins in sê-lo na aplicação web. Utilize a conta que criou anteriormente.

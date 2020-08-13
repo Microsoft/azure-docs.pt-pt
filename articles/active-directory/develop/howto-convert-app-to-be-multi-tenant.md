@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: d3810d3998f82127fc32327f696a2784382b4537
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117044"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141369"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -53,7 +53,7 @@ Por padrão, as aplicações criadas através do portal Azure têm um ID URI de 
 
 Num único pedido de inquilina, os pedidos de inscrição são enviados para o ponto final de inscrição do inquilino. Por exemplo, para contoso.onmicrosoft.com o ponto final seria: `https://login.microsoftonline.com/contoso.onmicrosoft.com` . Os pedidos enviados para o ponto final de um inquilino podem inscrever-se nos utilizadores (ou hóspedes) nesse inquilino para as candidaturas nesse inquilino.
 
-Com uma aplicação multi-inquilino, a aplicação não sabe adiantado de que inquilino é o utilizador, por isso não pode enviar pedidos para o ponto final de um inquilino. Em vez disso, os pedidos são enviados para um ponto final que multiplexes em todos os inquilinos da AD Azure:`https://login.microsoftonline.com/common`
+Com uma aplicação multi-inquilino, a aplicação não sabe adiantado de que inquilino é o utilizador, por isso não pode enviar pedidos para o ponto final de um inquilino. Em vez disso, os pedidos são enviados para um ponto final que multiplexes em todos os inquilinos da AD Azure: `https://login.microsoftonline.com/common`
 
 Quando a plataforma de identidade da Microsoft recebe um pedido no ponto final /comum, assina o utilizador e, consequentemente, descobre de que inquilino o utilizador é. O ponto final /comum funciona com todos os protocolos de autenticação suportados pelo Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
 
@@ -179,7 +179,7 @@ Se um administrador consentir com uma aplicação para todos os utilizadores de 
 
 As aplicações multi-arrendadas também podem ter acesso a fichas para chamar APIs que estão protegidas pela Azure AD. Um erro comum ao utilizar a Biblioteca de Autenticação de Diretório Ativo (ADAL) com uma aplicação multi-arrendatário é solicitar inicialmente um token para um utilizador que utilize /comum, receber uma resposta e, em seguida, solicitar um token subsequente para esse mesmo utilizador também usando /comum. Porque a resposta da AZure AD vem de um inquilino, não /comum, ADAL caches o símbolo como sendo do inquilino. A chamada subsequente para /comum para obter um token de acesso para o utilizador falha a entrada de cache, e o utilizador é solicitado a iniciar novamente a sposição. Para evitar a falta da cache, certifique-se de que as chamadas subsequentes para um utilizador já assinado são feitas no ponto final do arrendatário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Office 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Office 365 como Exchange, SharePoint, OneDrive, OneNote, e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 
@@ -204,8 +204,8 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: /graph/
+[MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

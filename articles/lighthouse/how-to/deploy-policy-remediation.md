@@ -1,18 +1,21 @@
 ---
 title: Implementar uma política que pode ser corrigida
 description: Para implementar políticas que utilizem uma tarefa de reparação através do Farol Azure, você precisará criar uma identidade gerida no inquilino do cliente.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: fc13b6209826d4a59d82bca5db63d4ca5c39f9fb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105341"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163259"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
 
 [O Azure Lighthouse](../overview.md) permite que os prestadores de serviços criem e editem definições de política dentro de uma subscrição delegada. No entanto, para implementar políticas que utilizem uma [tarefa de remediação](../../governance/policy/how-to/remediate-resources.md) (isto é, políticas com o [efeito implantadoIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modificar](../../governance/policy/concepts/effects.md#modify) o efeito), terá de criar uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente. Esta identidade gerida pode ser usada pela Azure Policy para implementar o modelo dentro da política. Existem passos necessários para ativar este cenário, tanto quando você está a bordo do cliente para a Azure delegado gestão de recursos, e quando você implementa a própria política.
+
+> [!TIP]
+> Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar os mesmos processos.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um utilizador que possa atribuir funções a uma identidade gerida no inquilino do cliente
 
@@ -64,7 +67,7 @@ O exemplo a seguir mostra uma atribuição de funções com um **delegadoManaged
 > [!TIP]
 > Uma [amostra semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) está disponível para demonstrar como implementar uma política que adiciona ou remove uma etiqueta (usando o efeito modificar) a uma subscrição delegada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Política Azure.](../../governance/policy/index.yml)
 - Conheça [as identidades geridas para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)

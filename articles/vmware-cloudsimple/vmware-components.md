@@ -1,7 +1,7 @@
 ---
 title: Componentes VMware em nuvem privada
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Descreve como os componentes VMware são instalados em nuvem privada
+description: Saiba como o serviço CloudSimple permite-lhe implementar vMware de forma nativa em locais Azure. As Nuvens Privadas estão integradas com o resto da Nuvem Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702827"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142507"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes VMware de nuvem privada
 
@@ -33,7 +33,7 @@ Uma pilha de VMware cloud privada é implementada com a seguinte versão de soft
 |-----------|---------|------------------|
 | ESXi | 6.7U2 | Enterprise Plus |
 | vCenter | 6.7U2 | vCenter Standard |
-| vSAN | 6.7 | Enterprise |
+| vSAN | 6.7 | Grandes Empresas |
 | Centro de Dados NSX | 2.4.1 | Avançado |
 
 ## <a name="esxi"></a>ESXi

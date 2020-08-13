@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 75d848c8d4459e5534e2954a11612bdf44f6d1ce
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117316"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141555"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Enquadramento do consentimento do Azure Active Directory
 
@@ -28,7 +28,7 @@ O quadro baseia-se num utilizador ou administrador que dá consentimento a uma a
 
 O quadro de consentimento baseia-se na OAuth 2.0 e nos seus diversos fluxos, tais como concessão de código de autorização e concessão de credenciais de cliente, utilizando clientes públicos ou confidenciais. Ao utilizar o OAuth 2.0, o AZure AD permite construir muitos tipos diferentes de aplicações de clientes - como num telefone, tablet, servidor ou uma aplicação web -- e ter acesso aos recursos necessários.
 
-Para obter mais informações sobre a utilização do quadro de consentimento com bolsas de autorização OAuth2.0, consulte [o acesso autorizado a aplicações web utilizando cenários de AD e Azure AD e](v2-oauth2-auth-code-flow.md) [autenticação para Azure AD](./authentication-vs-authorization.md). Para obter informações sobre o acesso autorizado ao Office 365 através do Microsoft Graph, consulte [a autenticação da App com o Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Para obter mais informações sobre a utilização do quadro de consentimento com bolsas de autorização OAuth2.0, consulte [o acesso autorizado a aplicações web utilizando cenários de AD e Azure AD e](v2-oauth2-auth-code-flow.md) [autenticação para Azure AD](./authentication-vs-authorization.md). Para obter informações sobre o acesso autorizado ao Office 365 através do Microsoft Graph, consulte [a autenticação da App com o Microsoft Graph](/graph/).
 
 ## <a name="consent-experience---an-example"></a>Experiência de consentimento - um exemplo
 
@@ -62,7 +62,7 @@ Os passos a seguir mostram-lhe como funciona a experiência de consentimento tan
    > [!IMPORTANT]
    > A concessão de consentimento explícito utilizando o botão **de permissões Grant** é atualmente necessária para aplicações de uma página única (SPA) que usam ADAL.js. Caso contrário, a aplicação falha quando o token de acesso é solicitado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 * Para obter mais profundidade, saiba [como o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)

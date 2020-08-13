@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318339"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142417"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -138,7 +138,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de qualidade de monitorização de serviços, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saber mais
+Saiba mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -183,6 +183,16 @@ OpsGenie atua como um despachante para os alertas gerados pela Azure. A OpsGenie
 PagerDuty, a principal solução de gestão de incidentes, forneceu suporte de primeira classe para alertas Azure em métricas. PagerDuty suporta notificações em alertas do Azure Monitor, notificações de escala automática, eventos de registo de atividades e métricas de nível de plataforma para serviços Azure. Estes melhoramentos dão-lhe uma maior visibilidade na plataforma Azure core. Pode tirar o máximo partido das capacidades de gestão de incidentes do PagerDuty para uma resposta em tempo real. A integração expandida do Azure é possível através de webhooks. Os Webhooks permitem-lhe configurar e personalizar a solução de forma rápida e fácil.
 
 [Vá à documentação.][pagerduty-doc]
+
+## <a name="promitor"></a>Promitor
+
+![Logotipo do Promitor](./media/partners/promitor.png)
+
+Promitor é um raspador do Azure Monitor que disponibiliza as métricas em sistemas como Atlassian Statuspage, Prometheus e StatsD.
+
+Empurre todas as métricas para o Azure Monitor e consuma-as onde precisar.
+
+[Saiba mais.][promitor-doc]
 
 ## <a name="qradar"></a>QRadar
 
@@ -266,7 +276,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o Azure Monitor](../overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)
@@ -293,6 +303,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 [newrelic-doc]: https://newrelic.com/azure "Nova documentação relíquia."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação da OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação pagerDuty."
+[promitor-doc]: https://promitor.io/ "Documentação do promitor."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentação QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentação sciencelógica."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Documentação serverless360."

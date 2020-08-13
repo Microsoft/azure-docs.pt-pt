@@ -5,22 +5,25 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 08/11/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 61bc3933c699f747da10ac6d1b38ad64c76ab681
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793665"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162714"
 ---
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Alertas métricos (clássicos) |100 regras de alerta ativo por subscrição. | Chamada de apoio. |
+| Alertas métricos (clássicos) |100 regras de alerta ativo por subscrição. | Suporte de chamada |
 | Alertas de métricas |5.000 regras de alerta ativo por subscrição em Azure público, Azure China 21Vianet e Azure Government nuvens. Se estiver a atingir este limite, explore se pode utilizar [alertas multi-recursos do mesmo tipo.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)   | Chamada de apoio. |
-| Alertas do registo de atividades | 100 regras de alerta ativo por subscrição. | O mesmo que o padrão. |
-| Alertas de registo | 512 regras de alerta ativo por subscrição. 200 regras de alerta ativo por recurso. | Chamada de apoio. |
-| Grupos de ação |2.000 grupos de ação por subscrição. | Chamada de apoio. |
-| Definições de autoescala |100 por região por subscrição. | O mesmo que o padrão. |
-| Perfis de autoescala |20 perfis por definição de autoescala. | O mesmo que o padrão. |
+| Alertas do registo de atividades | 100 regras de alerta ativo por subscrição. | O mesmo que o padrão |
+| Alertas de registo | 512 regras de alerta ativo por subscrição. 200 regras de alerta ativo por recurso. | Suporte de chamada |
+| Grupos de ação |2.000 grupos de ação por subscrição. | Suporte de chamada |
+| Regras de alerta e duração das regras de ação| Log search alerta 4096 caracteres<br/>Todos os outros personagens de 2048 | O mesmo que o padrão |
+| Definições de autoescala |100 por região por subscrição. | O mesmo que o padrão |
+| Perfis de autoescala |20 perfis por definição de autoescala. | O mesmo que o padrão |
+
+

@@ -1,14 +1,14 @@
 ---
 title: Ofertas de Serviço Gerido no Azure Marketplace
-description: As ofertas de Serviços Geridos permitem que os prestadores de serviços vendam ofertas de gestão de recursos aos clientes no Azure Marketplace.
+description: As ofertas de Serviço Gerido permitem-lhe vender ofertas de gestão de recursos a clientes no Azure Marketplace.
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406865"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163327"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de Serviço Gerido no Azure Marketplace
 
@@ -18,7 +18,7 @@ Este artigo descreve o tipo de oferta **de serviço gerido** no [Azure Marketpla
 
 O Managed Service oferece agilização do processo de embarque de clientes para o Farol de Azure. Quando um cliente comprar uma oferta no Azure Marketplace, poderá especificar quais as subscrições e/ou grupos de recursos que devem ser a bordo.
 
-Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do inquilino da sua organização através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com funções que definem o seu nível de acesso. Ao atribuir permissões a um grupo Azure AD em vez de uma série de contas individuais de utilizador ou aplicação, pode adicionar ou remover utilizadores individuais quando os seus requisitos de acesso mudarem.
+Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do seu inquilino gerente através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com funções que definem o seu nível de acesso. Ao atribuir permissões a um grupo Azure AD em vez de uma série de contas individuais de utilizador ou aplicação, pode adicionar ou remover utilizadores individuais quando os seus requisitos de acesso mudarem.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 
@@ -40,7 +40,7 @@ Se for caso disso, pode incluir planos públicos e privados na mesma oferta.
 
 Para aprender a publicar uma oferta de Serviços Geridos, consulte [publicar uma oferta de Serviços Geridos ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de recursos delegadas da Azure](azure-delegated-resource-management.md) e [da gestão de inquilinos.](cross-tenant-management-experience.md)
 - [Publicar Serviços Geridos oferece](../how-to/publish-managed-services-offers.md) ao Azure Marketplace.

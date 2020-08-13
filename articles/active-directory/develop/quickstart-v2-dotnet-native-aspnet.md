@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 62cebb4e774e2f86ed6a4a17edd6da71f7c7cd9f
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339594"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141334"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade microsoft
 
@@ -82,13 +82,14 @@ Se quiser registar as suas aplicações manualmente, como um primeiro passo, ter
 
 ### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>Adicione o novo âmbito à app.config do *TodoListClient*
 
-1. Abra o ficheiro **app.config** localizado na pasta raiz do projeto **TodoListClient** e, em seguida, cole o ID da **aplicação** que acabou de registar para o seu *TodoListService* em `TodoListServiceScope` parâmetro, substituindo a cadeia `{Enter the Application ID of your TodoListService from the app registration portal}` .
+* Abra o ficheiro **app.config** localizado na pasta raiz do projeto **TodoListClient** e, em seguida, cole o ID da **aplicação** que acabou de registar para o seu *TodoListService* em `TodoListServiceScope` parâmetro, substituindo a cadeia `{Enter the Application ID of your TodoListService from the app registration portal}` .
 
-   > Nota: Certifique-se de que utiliza o seguinte formato:
-   >
-   > `api://{TodoListService-Application-ID}/access_as_user`
-   >
-   >(onde {TodoListService-Application-ID} é o GUID que representa o ID de aplicação para o seu TodoListService).
+  > [!NOTE]
+  > Certifique-se de que utiliza o seguinte formato:
+  >
+  > `api://{TodoListService-Application-ID}/access_as_user`
+  >
+  >(onde {TodoListService-Application-ID} é o GUID que representa o ID de aplicação para o seu TodoListService).
 
 ## <a name="register-the-client-app-todolistclient"></a>Registe a aplicação do cliente (TodoListClient)
 
@@ -102,15 +103,28 @@ Neste passo, configura o seu projeto *TodoListClient* registando uma nova aplica
    - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `NativeClient-DotNet-TodoListClient` exemplo.
    - Alterar **tipos de conta suportadas** para contas em qualquer **diretório organizacional**.
    - Selecione **Registar** para criar a aplicação.
-1. Na página Descrição geral da aplicação, selecione a secção **Autenticação**.
-   - Na secção **de redirecionamento de URIs**  |  **sugeridas para clientes públicos (mobile, desktop),** verifique**https://login.microsoftonline.com/common/oauth2/nativeclient**
-   - Selecione **Guardar**.
+   
+   > [!NOTE]
+   > Nas **app.config**do projeto *TodoListClient,* o valor padrão `ida:Tenant` de . `common`
+   >
+   > `common`significa que pode iniciar sôms, utilizando uma conta work ou school ou uma conta pessoal da Microsoft (porque selecionou **contas em qualquer diretório organizacional).**
+   >
+   > `organizations`significa que pode entrar usando uma conta de Trabalho ou Escola.
+   >
+   > `consumers`significa que só pode iniciar scontabilidade utilizando uma conta pessoal da Microsoft.
+   >
+   
+1. Na página 'Visão Geral' da aplicação, selecione a secção **autenticação.**
+   1. Nas **configurações da Plataforma,** selecione o botão **Adicionar uma plataforma.**
+   1. Para **aplicações móveis e desktop,** selecione as **aplicações Mobile e desktop**.
+   1. Para **redirecionar URIs,** selecione a **https://login.microsoftonline.com/common/oauth2/nativeclient** caixa de verificação.
+   1. Selecione **Configurar**.   
 1. Selecione a secção **de permissões API**
-   - Clique no botão **Adicionar um botão de permissão** e, em seguida,
-   - Selecione o **separador As Minhas APIs.**
-   - Na lista de APIs, selecione o `AppModelv2-NativeClient-DotNet-TodoListService API` , ou o nome que inseriu para a API web.
-   - Verifique a permissão **access_as_user** se ainda não foi verificada. Utilize a caixa de pesquisa, se necessário.
-   - Selecione o botão **adicionar permissões**
+   1. Selecione o botão **Adicionar uma permissão**.
+   1. Selecione o **separador As Minhas APIs.**
+   1. Na lista de APIs, selecione o `AppModelv2-NativeClient-DotNet-TodoListService API` , ou o nome que inseriu para a API web.
+   1. Verifique a permissão **access_as_user** se ainda não foi verificada. Utilize a caixa de pesquisa, se necessário.
+   1. Selecione o botão **'Adicionar permissões'.**
 
 ### <a name="configure-your-todolistclient-project"></a>Configure o seu projeto *TodoListClient*
 
@@ -158,7 +172,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o cenário de API web protegido que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Cenário de API web protegido](scenario-protected-web-api-overview.md)

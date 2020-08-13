@@ -1,5 +1,5 @@
 ---
-title: Fornecimento automatizado de utilizadores de aplicativo SaaS em Azure AD
+title: O que é automatizado fornecimento de utilizadores de aplicativos SaaS em Azure AD
 description: Uma introdução à forma como pode utilizar o Azure AD para provisões automáticas, desavisionamento e atualização contínua de contas de utilizadores através de várias aplicações SaaS de terceiros.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781095"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163786"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações com Azure AD
+# <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?
 
 No Azure Ative Directory (Azure AD), o termo **provisionamento de aplicações** refere-se à criação automática de identidades e funções de utilizador nas aplicações da cloud[(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)às que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
@@ -94,11 +94,8 @@ Para aplicações pré-integradas listadas na galeria, está disponível orienta
 Para outras aplicações que suportem o SCIM 2.0, siga os passos no artigo [Construa um ponto final SCIM e configuure o provisionamento do utilizador](use-scim-to-provision-users-and-groups.md).
 
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Passos seguintes
 
 - [Lista de tutoriais sobre como integrar apps saaS](../saas-apps/tutorial-list.md)
 - [Personalizar mapeamentos de atributos para fornecimento de utilizador](customize-application-attributes.md)
-- [Expressãos de escrita para mapeamentos de atributos](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtros de deteção para o fornecimento do utilizador](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](use-scim-to-provision-users-and-groups.md)
-- [Visão geral da API de sincronização AZure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Filtros de deteção para o fornecimento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)

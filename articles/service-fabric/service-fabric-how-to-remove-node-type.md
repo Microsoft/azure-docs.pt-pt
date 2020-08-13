@@ -4,14 +4,14 @@ description: Aprenda a remover um tipo de nó de um cluster de tecido de serviç
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247239"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163582"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um nó de tecido de serviço
 Este artigo descreve como escalar um cluster de tecido de serviço Azure removendo um tipo de nó existente de um cluster. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os conjuntos de escala de máquinas virtuais são um recurso computacional Azure que utiliza para implementar e gerir uma coleção de máquinas virtuais como conjunto. Todos os tipos de nó definidos num cluster Azure [são configurado como um conjunto de escala separada](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de balança de máquina virtual) e todos os seus nós.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -59,7 +59,7 @@ Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatament
     - O agrupamento é saudável.
     - Nenhum dos nós pertencentes ao tipo nó está marcado como Nó de Semente.
 
-4. Desative os dados para o tipo de nó.
+4. Desative cada nó no tipo de nó.
 
     Ligue ao cluster utilizando o PowerShell e, em seguida, corra o passo seguinte.
     
@@ -98,8 +98,20 @@ Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatament
     ```
     
     Aguarde até que todos os nós para o tipo de nó estejam marcados para baixo.
+
+6. Nódes deallocate no conjunto de escala de máquina virtual original
     
-6. Remova os dados para o tipo de nó.
+    Faça login na subscrição Azure onde o conjunto de escala foi implantado e remova o Conjunto de Escala de Máquina Virtual. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Remova os dados para o tipo de nó.
 
     Ligue ao cluster utilizando o PowerShell e, em seguida, corra o passo seguinte.
     
@@ -117,7 +129,7 @@ Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatament
 
     Aguarde até que todos os nós sejam removidos do aglomerado. Os nós não devem ser apresentados em SFX.
 
-7. Retire o tipo de nó da secção de tecido de serviço.
+8. Retire o tipo de nó da secção de tecido de serviço.
 
     - Localize o modelo do Gestor de Recursos Azure utilizado para a implementação.
     - Encontre a secção relacionada com o tipo de nó na secção Tecido de Serviço.
@@ -165,7 +177,7 @@ Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatament
     Em seguida, valide que:
     - O Recurso de Tecido de Serviço no portal mostra-se pronto.
 
-8. Remova todas as referências aos recursos relativos ao tipo de nó.
+9. Remova todas as referências aos recursos relativos ao tipo de nó do modelo ARM.
 
     - Localize o modelo do Gestor de Recursos Azure utilizado para a implementação.
     - Remova o conjunto de balanças de máquina virtual e outros recursos relacionados com o tipo de nó do modelo.
@@ -173,6 +185,13 @@ Ao remover um nó que seja bronze, todos os nós do tipo nó descem imediatament
 
     Em seguida:
     - Aguarde que a implantação esteja concluída.
+    
+10. Remova os recursos relativos ao tipo de nó que já não está a ser utilizado. Exemplo Balanceador de Carga e IP Público. 
+
+    - Para remover estes recursos, pode utilizar o mesmo comando PowerShell utilizado no passo 6 especificando o tipo de recurso específico e a versão API. 
+
+> [!Note]
+> Este passo é opcional se o mesmo Balanceador de Carga e IP for reutilizado entre os tipos de nós.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [as características de durabilidade do](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)cluster.

@@ -8,12 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233184"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163684"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementar para funções Azure com devOps Starter
 
@@ -34,7 +35,7 @@ Neste tutorial, irá:
 >* Examinar o pipeline de CI
 >* Examinar o pipeline de CD
 >* Cometa alterações no Git e desloque-as automaticamente para a Azure
->* Limpar recursos
+>* Limpar os recursos
 
 Atualmente, os tempos de funcionamento suportados para funções são **.NET** e **Node.js**. Nós usamos. Tempo de execução NET para este tutorial para implementar para as Funções Azure. 
 
@@ -46,7 +47,7 @@ Atualmente, os tempos de funcionamento suportados para funções são **.NET** e
 
 DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova organização Azure DevOps ou utilizar uma organização existente. DevOps Projects também cria recursos Azure, como um IoTHub, na subscrição Azure da sua escolha.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
 1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
@@ -94,7 +95,7 @@ O DevOps Starter configura automaticamente um pipeline CI/CD na sua organizaçã
 
 1. Clique na hiperligação em **Build**. Um separador de navegador exibe o pipeline de construção para o seu novo projeto.
 
-    ![Compilação](_img/azure-devops-project-functions/build.png)
+    ![Compilar](_img/azure-devops-project-functions/build.png)
 
 1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu oleoduto de construção. A construção executa várias tarefas, tais como o código fonte de busca do repo Git, a construção da aplicação, a execução de testes unitários e a publicação de saídas que são usadas para implementações.
 
@@ -149,7 +150,7 @@ Está agora pronto para colaborar com uma equipa na sua aplicação utilizando u
 
      Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar os recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
@@ -164,5 +165,5 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
-> * Limpar recursos
+> * Limpar os recursos
 

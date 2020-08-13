@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507202"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162792"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -53,7 +53,7 @@ Para aprender a transferir o seu vhd para Azure, consulte os artigos [CLI](../ar
 
 ### <a name="private-links"></a>Links Privados
 
-Os discos geridos suportam a utilização de Links Privados para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](../articles/private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
+O suporte private Link para discos geridos está atualmente em pré-visualização, e pode ser usado para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](../articles/private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
 
 Para saber como permitir links privados para importar ou exportar um disco gerido, consulte os artigos [do CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) ou [do Portal.](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md)
 

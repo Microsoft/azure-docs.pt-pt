@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121073"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141300"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parâmetros obrigatórios
 
-`AcquireTokenInteractive`tem apenas um parâmetro obrigatório, ``scopes`` que contém uma enumeração de cordas que definem os âmbitos para os quais é necessário um símbolo. Se o token for Microsoft Graph, os âmbitos necessários podem ser encontrados na referência API de cada API do Microsoft na secção denominada "Permissões". Por exemplo, para [listar os contactos do utilizador,](/graph/api/user-list-contacts)deve ser utilizado o âmbito "User.Read", "Contactos.Read". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório, ``scopes`` que contém uma enumeração de cordas que definem os âmbitos para os quais é necessário um símbolo. Se o token for Microsoft Graph, os âmbitos necessários podem ser encontrados na referência API de cada API do Microsoft na secção denominada "Permissões". Por exemplo, para [listar os contactos do utilizador,](/graph/api/user-list-contacts)deve ser utilizado o âmbito "User.Read", "Contactos.Read". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
 No Android, também é necessário especificar a atividade dos pais utilizando `.WithParentActivityOrWindow` , como mostra, para que o token volte à atividade dos pais após a interação. Se não o especificar, é lançada uma exceção ao `.ExecuteAsync()` ligar.
 
@@ -183,7 +183,7 @@ No Android, também é necessário especificar a atividade dos pais utilizando `
 
 #### <a name="withparentactivityorwindow"></a>ComParentActivityOrWindow
 
-A UI é importante porque é interativa. `AcquireTokenInteractive`tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma.
+A UI é importante porque é interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma.
 
 ```csharp
 // net45
@@ -211,17 +211,17 @@ Observações:
 
 #### <a name="withprompt"></a>ComPrompt
 
-`WithPrompt()`é utilizado para controlar a interatividade com o utilizador especificando uma solicitação.
+`WithPrompt()` é utilizado para controlar a interatividade com o utilizador especificando uma solicitação.
 
 ![Imagem mostrando os campos na estrutura Prompt. Estes valores constantes controlam a interatividade com o utilizador definindo o tipo de solicitação visualizada pelo método WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 A classe define as seguintes constantes:
 
-- ``SelectAccount``força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o utilizador tem uma sessão. Esta opção é útil quando os desenvolvedores de aplicações pretendem permitir que os utilizadores escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta é a opção predefinida. Faz um bom trabalho em fornecer a melhor experiência possível com base na informação disponível, como a conta e a presença de uma sessão para o utilizador. Não o mude a menos que tenha uma boa razão para fazê-lo.
-- ``Consent``permite que o desenvolvedor de aplicações force o utilizador a ser solicitado para o consentimento, mesmo que o consentimento tenha sido concedido antes. Neste caso, a MSAL envia `prompt=consent` ao fornecedor de identidade. Esta opção pode ser utilizada em algumas aplicações focadas na segurança, onde a governação da organização exige que o utilizador seja apresentado com a caixa de diálogo de consentimento sempre que a aplicação é utilizada.
-- ``ForceLogin``permite que o desenvolvedor de aplicações tenha o utilizador solicitado para credenciais pelo serviço, mesmo que esta solicitação do utilizador possa não ser necessária. Esta opção pode ser útil para permitir que o utilizador volte a entrar se adquirir um símbolo falhar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. Por vezes é usado em aplicações focadas na segurança, onde a governação da organização exige que o utilizador reassente em cada vez que acede a partes específicas de uma aplicação.
-- ``Never``(apenas para .NET 4.5 e WinRT) não vai solicitar o utilizador, mas tenta utilizar o cookie armazenado na vista web incorporada escondida. Para mais informações, consulte as vistas da web em MSAL.NET. Usar esta opção pode falhar. Nesse caso, `AcquireTokenInteractive` abre uma exceção para notificar que é necessária uma interação com a UI. Tens de usar outro `Prompt` parâmetro.
-- ``NoPrompt``não enviará qualquer aviso ao fornecedor de identidade. Esta opção é útil apenas para as políticas de perfil de edição de Edição Azure Ative (Azure AD) B2C. Para mais informações, consulte [as especificidades do Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
+- ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o utilizador tem uma sessão. Esta opção é útil quando os desenvolvedores de aplicações pretendem permitir que os utilizadores escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta é a opção predefinida. Faz um bom trabalho em fornecer a melhor experiência possível com base na informação disponível, como a conta e a presença de uma sessão para o utilizador. Não o mude a menos que tenha uma boa razão para fazê-lo.
+- ``Consent`` permite que o desenvolvedor de aplicações force o utilizador a ser solicitado para o consentimento, mesmo que o consentimento tenha sido concedido antes. Neste caso, a MSAL envia `prompt=consent` ao fornecedor de identidade. Esta opção pode ser utilizada em algumas aplicações focadas na segurança, onde a governação da organização exige que o utilizador seja apresentado com a caixa de diálogo de consentimento sempre que a aplicação é utilizada.
+- ``ForceLogin`` permite que o desenvolvedor de aplicações tenha o utilizador solicitado para credenciais pelo serviço, mesmo que esta solicitação do utilizador possa não ser necessária. Esta opção pode ser útil para permitir que o utilizador volte a entrar se adquirir um símbolo falhar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. Por vezes é usado em aplicações focadas na segurança, onde a governação da organização exige que o utilizador reassente em cada vez que acede a partes específicas de uma aplicação.
+- ``Never`` (apenas para .NET 4.5 e WinRT) não vai solicitar o utilizador, mas tenta utilizar o cookie armazenado na vista web incorporada escondida. Para mais informações, consulte as vistas da web em MSAL.NET. Usar esta opção pode falhar. Nesse caso, `AcquireTokenInteractive` abre uma exceção para notificar que é necessária uma interação com a UI. Tens de usar outro `Prompt` parâmetro.
+- ``NoPrompt`` não enviará qualquer aviso ao fornecedor de identidade. Esta opção é útil apenas para as políticas de perfil de edição de Edição Azure Ative (Azure AD) B2C. Para mais informações, consulte [as especificidades do Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
 
 #### <a name="withextrascopetoconsent"></a>ComExtraScopeToConsent
 
@@ -253,7 +253,7 @@ O anfitrião `end Url` é `redirectUri` sempre. Para `end Url` intercetar, faça
 
 ##### <a name="withcustomwebui-is-an-extensibility-point"></a>Com oCustomWebUi é um ponto de extensibilidade
 
-`WithCustomWebUi`é um ponto de extensibilidade que pode usar para fornecer a sua própria UI em aplicações de clientes públicos. Também pode deixar o utilizador passar pelo ponto final /Autorizar o fornecedor de identidade e deixá-lo entrar e consentir. MSAL.NET pode então resgatar o código de autenticação e obter um token. Por exemplo, é usado no Visual Studio para ter aplicações de eletrões (por exemplo, Visual Studio Feedback) fornecer a interação web, mas deixá-lo para MSAL.NET para fazer a maior parte do trabalho. Também pode usá-lo se quiser fornecer automatização de UI. Nas aplicações de clientes públicos, MSAL.NET usa a norma Proof Key for Code Exchange (PKCE) para garantir que a segurança é respeitada. Só MSAL.NET pode resgatar o código. Para mais informações, consulte [RFC 7636 - Chave de Prova para Troca de Código por Clientes Públicos da OAuth](https://tools.ietf.org/html/rfc7636).
+`WithCustomWebUi` é um ponto de extensibilidade que pode usar para fornecer a sua própria UI em aplicações de clientes públicos. Também pode deixar o utilizador passar pelo ponto final /Autorizar o fornecedor de identidade e deixá-lo entrar e consentir. MSAL.NET pode então resgatar o código de autenticação e obter um token. Por exemplo, é usado no Visual Studio para ter aplicações de eletrões (por exemplo, Visual Studio Feedback) fornecer a interação web, mas deixá-lo para MSAL.NET para fazer a maior parte do trabalho. Também pode usá-lo se quiser fornecer automatização de UI. Nas aplicações de clientes públicos, MSAL.NET usa a norma Proof Key for Code Exchange (PKCE) para garantir que a segurança é respeitada. Só MSAL.NET pode resgatar o código. Para mais informações, consulte [RFC 7636 - Chave de Prova para Troca de Código por Clientes Públicos da OAuth](https://tools.ietf.org/html/rfc7636).
 
   ```csharp
   using Microsoft.Identity.Client.Extensions;
@@ -1161,8 +1161,8 @@ No caso de .NET Framework e .NET Core, se não fizer nada extra, a cache simból
 As classes e interfaces envolvidas na serialização da cache simbólica são os seguintes tipos:
 
 - ``ITokenCache``, que define eventos para subscrever pedidos de serialização de cache simbólicos, e métodos para serializar ou deserizar a cache em vários formatos (ADAL v3.0, MSAL 2.x e MSAL 3.x = ADAL v5.0).
-- ``TokenCacheCallback``é uma chamada transmitida para os eventos para que possa lidar com a serialização. Serão chamados com argumentos do ``TokenCacheNotificationArgs`` tipo.
-- ``TokenCacheNotificationArgs``apenas fornece a aplicação ``ClientId`` e uma referência ao utilizador para o qual o token está disponível.
+- ``TokenCacheCallback`` é uma chamada transmitida para os eventos para que possa lidar com a serialização. Serão chamados com argumentos do ``TokenCacheNotificationArgs`` tipo.
+- ``TokenCacheNotificationArgs`` apenas fornece a aplicação ``ClientId`` e uma referência ao utilizador para o qual o token está disponível.
 
   ![Diagrama de serialização de cache token](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
@@ -1388,7 +1388,7 @@ namespace CommonCacheMsalV3
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue para uma API web a partir da aplicação de ambiente de trabalho](scenario-desktop-call-api.md)

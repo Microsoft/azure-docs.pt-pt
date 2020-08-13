@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115939"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141538"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -329,7 +329,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | facsimiletelephonenumber | Número de telefone facsímia |
 | Utilizador | entidades designadas | lista de funções da App atribuídas ao utilizador|
 | aplicação, recurso, audiência | nome de exibição | Nome a Apresentar |
-| aplicação, recurso, audiência | objeto | ObjectID |
+| aplicação, recurso, audiência | objectid | ObjectID |
 | aplicação, recurso, audiência | etiquetas | Etiqueta principal de serviço |
 | Empresa | país inquilino | País/região do arrendatário |
 
@@ -413,7 +413,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 | TransformaçãoMethod | Restrições |
 | ----- | ----- |
-| ExtratoMailPrefixo | Nenhuma |
+| ExtratoMailPrefixo | Nenhum |
 | Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada

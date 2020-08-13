@@ -1,6 +1,6 @@
 ---
 title: Eliminar os nó de nodes para VMware Solution by CloudSimple - Azure
-description: Saiba como eliminar os nódes do seu VMWare com implementação CloudSimple
+description: Saiba como eliminar nós do seu VMWare com implementação CloudSimple. Os nós CloudSimple são medidos. Elimine os nós que não são utilizados do portal Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 569bc6350b1bfa01228d49d28a1d12e2ab62f6f0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024743"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142269"
 ---
 # <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminar os nódes da Solução VMware Azure por CloudSimple
 

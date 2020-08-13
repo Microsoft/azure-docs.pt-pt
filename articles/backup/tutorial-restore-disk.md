@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Restaurar um disco VM com backup Azure
+title: Tutorial - Restaurar um VM com Azure CLI
 description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure com Serviços de Cópia de Segurança e de Recuperação.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: efad97c3668c50669be89e6eccaadb26cb313e81
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289464"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141351"
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
+# <a name="restore-a-vm-with-azure-cli"></a>Restaurar um VM com Azure CLI
 
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo explica como restaurar uma VM completa através do CLI. Neste tutorial, ficará a saber como:
 
@@ -25,7 +25,7 @@ Para obter informações sobre como utilizar o PowerShell para restaurar um disc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.18 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão 2.0.18 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Este tutorial requer uma VM Linux que tenha sido protegida com o Azure Backup. P
 
 ## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 
-Quando o Azure inicia uma cópia de segurança, a extensão da cópia de segurança na VM tira um instantâneo de ponto no tempo. A extensão da cópia de segurança é instalada na VM quando a primeira cópia de segurança é pedida. O Azure Backup também pode tirar um instantâneo de armazenamento subjacente se a VM não estiver em execução quando a cópia de segurança iniciar.
+Quando o Azure inicia uma cópia de segurança, a extensão da cópia de segurança na VM tira um instantâneo de ponto no tempo. A extensão da cópia de segurança é instalada na VM quando a primeira cópia de segurança é pedida. O Azure Backup também pode tirar uma foto do armazenamento subjacente se o VM não estiver a funcionar quando a cópia de segurança ocorrer.
 
 Por predefinição, o Azure Backup cria uma cópia de segurança consistente com o sistema de ficheiros. Assim que o Azure Backup tira o instantâneo, os dados são transferidos para o cofre dos Serviços de Recuperação. Para maximizar a eficiência, o Azure Backup identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
 
@@ -63,7 +63,7 @@ az backup recoverypoint list \
 
 ### <a name="managed-disk-restore"></a>Restauro do disco gerido
 
-Se o VM de back up tiver gerido discos e se a intenção é restaurar os discos geridos a partir do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Em seguida, também fornece um grupo de recursos-alvo para que os discos geridos sejam restaurados.
+Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos geridos a partir do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Em seguida, também fornece um grupo de recursos-alvo para que os discos geridos sejam restaurados.
 
 1. Para criar uma conta de armazenamento, utilize [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). O nome da conta de armazenamento tem de estar todo em minúsculas e ser globalmente exclusivo. Substitua *mystorageaccount* pelo seu próprio nome exclusivo:
 
@@ -101,11 +101,11 @@ Se o VM de back up tiver gerido discos e se a intenção é restaurar os discos 
     --restore-as-unmanaged-disk
     ```
 
-Isto irá restaurar os discos geridos como discos não geridos para a conta de armazenamento dada e não será aproveitando a funcionalidade de restauro 'instantâneo'. Em futuras versões do CLI, será obrigatório fornecer o parâmetro do grupo de recursos-alvo ou o parâmetro "restaurar-como-não gerido-disco".
+Isto irá restaurar os discos geridos como discos não geridos para a conta de armazenamento dada e não estará aproveitando a funcionalidade de restauro 'instantâneo'. Em futuras versões do CLI, será obrigatório fornecer o parâmetro do grupo de recursos-alvo ou o parâmetro "restaurar-como-não gerido-disco".
 
 ### <a name="unmanaged-disks-restore"></a>Discos não geridos restauram
 
-Se o VM de back up tiver discos não geridos e se a intenção for restaurar os discos do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Por predefinição, os discos não geridos serão restaurados nas suas contas de armazenamento originais. Se o utilizador pretender restaurar todos os discos não geridos num único local, então a conta de armazenamento dada também pode ser usada como um local de preparação para esses discos.
+Se o VM de back-up tiver discos não geridos e se a intenção for restaurar os discos do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Por predefinição, os discos não geridos serão restaurados nas suas contas de armazenamento originais. Se o utilizador pretender restaurar todos os discos não geridos num único local, então a conta de armazenamento dada também pode ser usada como um local de preparação para esses discos.
 
 Nos passos adicionais, o disco restaurado é utilizado para criar uma VM.
 
@@ -204,7 +204,7 @@ az backup job show \
 
 ### <a name="fetch-the-deployment-template"></a>Pegue o modelo de implementação
 
-O modelo não está diretamente acessível, uma vez que se encontra sob a conta de armazenamento de um cliente e o recipiente dado. Precisamos do URL completo (juntamente com um token SAS temporário) para aceder a este modelo.
+O modelo não é diretamente acessível, uma vez que está sob a conta de armazenamento de um cliente e o recipiente dado. Precisamos do URL completo (juntamente com um token SAS temporário) para aceder a este modelo.
 
 Primeiro, extraia o modelo blob Uri dos detalhes do trabalho
 
@@ -264,7 +264,7 @@ Para confirmar que a VM foi criada a partir do disco recuperado, liste as VMs no
 az vm list --resource-group myResourceGroup --output table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, restaurou um disco a partir de um ponto de recuperação e, em seguida, criou uma VM a partir do disco. Aprendeu a:
 

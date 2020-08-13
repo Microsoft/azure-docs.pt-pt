@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845804"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142116"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Caixa de Dados do Azure (Pré-visualização)
 
@@ -176,7 +176,7 @@ Caso encontre algum problema, envie um e-mail para a Data Box Operations Asia [a
 
 ## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções.
+Se estiver a utilizar a Data Box no Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental e tiver selecionado a opção de envio auto-gerida durante a criação da encomenda, siga estas instruções.
 
 1. Tome nota do Código de autorização apresentado na página Preparação para envio da IU da Web local do Data Box após este passo ser concluído com êxito.
 2. Desligue o dispositivo e remova os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo na parte de trás do mesmo.
@@ -197,7 +197,7 @@ Se estiver a utilizar o Data Box no Japão, Singapura, Coreia e Europa Ocidental
  
 Assim que o dispositivo chegar ao centro de dados Azure, a Caixa de Dados apaga os dados dos seus discos de acordo com as [diretrizes da Revisão 1 do NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu sobre temas como:
 

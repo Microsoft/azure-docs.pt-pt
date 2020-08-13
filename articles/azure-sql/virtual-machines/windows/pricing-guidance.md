@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342600"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141963"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,7 +59,7 @@ Se tiver uma carga de trabalho de produção não leve, utilize uma das seguinte
 |-----|-----|
 | Web | Pequenos sites |
 | Standard | Cargas de trabalho pequenas a médias |
-| Enterprise | Cargas de trabalho grandes ou críticas de missão|
+| Grandes Empresas | Cargas de trabalho grandes ou críticas de missão|
 
 Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)*.
 
@@ -67,7 +67,7 @@ Você tem duas opções para pagar o licenciamento SQL Server para estas ediçõ
 
 **Pagar a licença SQL Server por utilização** (também conhecida como pagamento à **medida que vai)** significa que o custo por segundo de execução do VM Azure inclui o custo da licença SQL Server. Pode ver os preços das diferentes edições SQL Server (Web, Standard, Enterprise) na página de preços das Máquinas Virtuais Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). O custo de licenciamento por segundo depende do número de VM vCPUs.
+O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2019). O custo de licenciamento por segundo depende do número de VM vCPUs.
 
 Recomenda-se o pagamento do licenciamento do SQL Server por utilização para:
 

@@ -2,18 +2,18 @@
 title: Envio auto-gerido da Microsoft Azure Data Box Microsoft Docs em dados
 description: Descreve fluxo de trabalho de envio auto-gerido para dispositivos Azure Data Box
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608592"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142541"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilize o envio auto-gerido para a Caixa de Dados Azure no portal Azure
 
@@ -28,18 +28,20 @@ O envio auto-gerido está disponível como opção quando [encomenda a Caixa de 
 * Japão
 * Singapura
 * Coreia do Sul
+* Índia
+* África do Sul
 
 ## <a name="use-self-managed-shipping"></a>Utilizar o envio gerido automaticamente
 
 Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envio auto-gerida.
 
 1. Na sua encomenda Azure Data Box, nos **dados**de Contacto , selecione **+ Adicionar Endereço de Envio**.
-   ![Envio auto-gerido](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Envio gerido automaticamente](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Ao escolher o tipo de envio, selecione a opção **de envio auto-gerida.** Esta opção só está disponível se estiver numa região apoiada, conforme descrito nos pré-requisitos.
 
 3. Depois de ter fornecido o seu endereço de envio, terá de o validar e completar a sua encomenda.
-   ![Envio auto-gerido](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Envio gerido automaticamente](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Uma vez preparado o dispositivo e receber uma notificação por e-mail, pode agendar uma recolha.
 

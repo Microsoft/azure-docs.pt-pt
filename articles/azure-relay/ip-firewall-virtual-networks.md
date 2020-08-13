@@ -1,14 +1,14 @@
 ---
-title: Firewall IP congigure para espaço de nome do Azure Relay
+title: Configure firewall IP para espaço de nome do Azure Relay
 description: Este artigo descreve como utilizar regras de firewall para permitir ligações de endereços IP específicos a espaços de nomes Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b8d1adef30eea0af9efdb51c31390c33a14b62e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009023"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141861"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configure firewall IP para um espaço de nome Azure Relay
 Por predefinição, os espaços de nome retransmissores estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -122,7 +122,7 @@ Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre outras funcionalidades relacionadas com a segurança da rede, consulte [a segurança da rede](network-security.md).
 
 

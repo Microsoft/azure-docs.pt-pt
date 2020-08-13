@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289972"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141725"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série de tempo em Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Estes componentes são combinados para especificar um modelo de série sonora e 
 
 [![Gráfico de visão geral do modelo de série de tempo](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). As definições do modelo série de tempo podem ser geridas através da [API de Definições](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)de Modelos .
+Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). As definições do modelo série de tempo podem ser geridas através da [API de Definições](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)de Modelos .
 
 ## <a name="time-series-model-instances"></a>Exemplos de modelos de séries de tempo
 
@@ -129,7 +129,7 @@ As instâncias têm a seguinte representação JSON:
 ```
 
 > [!TIP]
-> Por exemplo, a API cria, lê, atualiza e elimina o suporte (CRUD), lê-se o artigo [de consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a documentação relativa à [API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Por exemplo, a API cria, lê, atualiza e elimina o suporte (CRUD), lê-se o artigo [de consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a documentação relativa à [API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarquias modelo séries de tempo
 
@@ -182,11 +182,11 @@ As hierarquias estão representadas no JSON como:
 
 No exemplo JSON anterior:
 
-* `Location`define uma hierarquia com pai `states` e `cities` filho. Cada um `location` pode ter `states` vários, que por sua vez pode ter múltiplos `cities` .
-* `ManufactureDate`define uma hierarquia com pai `year` e `month` filho. Cada um `ManufactureDate` pode ter `years` vários, que por sua vez pode ter múltiplos `months` .
+* `Location` define uma hierarquia com pai `states` e `cities` filho. Cada um `location` pode ter `states` vários, que por sua vez pode ter múltiplos `cities` .
+* `ManufactureDate` define uma hierarquia com pai `year` e `month` filho. Cada um `ManufactureDate` pode ter `years` vários, que por sua vez pode ter múltiplos `months` .
 
 > [!TIP]
-> Para a API hierárquica criar, ler, atualizar e eliminar (CRUD), leia o artigo [de consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a documentação da [API REST da Hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Para a API hierárquica criar, ler, atualizar e eliminar (CRUD), leia o artigo [de consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a documentação da [API REST da Hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemplo de hierarquia
 
@@ -231,7 +231,7 @@ A [demonstração do Parque Eólico Contoso](https://insights.timeseries.azure.c
 [![Exemplo de modelo de série de tempo](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para os tipos API criar, ler, atualizar e eliminar (CRUD), leia o artigo [de consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação do Tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para os tipos API criar, ler, atualizar e eliminar (CRUD), leia o artigo [de consulta de dados](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e a [documentação do Tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Tipo de propriedades
 
@@ -286,9 +286,9 @@ Os tipos estão em conformidade com o seguinte exemplo JSON:
 
 Os tipos de modelos de séries de tempo podem ter muitas variáveis que especificam regras de fórmula e computação em eventos. Leia mais sobre [como definir variáveis de modelo de séries de tempo](./concepts-variables.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Leia a documentação de referência do [Modelo série](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) de tempo para obter mais informações sobre como editar o modelo através de APIs.
+* Leia a documentação de referência do [Modelo série](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) de tempo para obter mais informações sobre como editar o modelo através de APIs.
 
 * Explore as fórmulas e computações que pode criar com [variáveis modelo de séries de tempo](./concepts-variables.md)
 

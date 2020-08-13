@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121090"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141283"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -207,9 +207,9 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Parâmetros obrigatórios em MSAL.NET
 
-`AcquireTokenInteractive`tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera as cordas que definem os âmbitos para os quais é necessário um símbolo. Se o token for Microsoft Graph, pode encontrar os âmbitos necessários na referência API de cada API do Microsoft Graph. Na referência, aceda à secção "Permissões".
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera as cordas que definem os âmbitos para os quais é necessário um símbolo. Se o token for Microsoft Graph, pode encontrar os âmbitos necessários na referência API de cada API do Microsoft Graph. Na referência, aceda à secção "Permissões".
 
-Por exemplo, para [listar os contactos do utilizador,](/graph/api/user-list-contacts)utilize o âmbito "Utilizador.Ler", "Contactos.Ler". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por exemplo, para [listar os contactos do utilizador,](/graph/api/user-list-contacts)utilize o âmbito "Utilizador.Ler", "Contactos.Ler". Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
 No Android, pode especificar a atividade dos pais quando criar a aplicação `PublicClientApplicationBuilder` utilizando. Se não especificar a atividade dos pais nessa altura, poderá especicioná-la utilizando `.WithParentActivityOrWindow` como na secção seguinte. Se especificar a atividade dos pais, então o símbolo volta à atividade dos pais após a interação. Se não o especificar, a `.ExecuteAsync()` chamada abre uma exceção.
 
@@ -225,19 +225,19 @@ O `WithPrompt()` parâmetro controla a interatividade com o utilizador especific
 
 A classe define as seguintes constantes:
 
-- `SelectAccount`força o serviço de símbolo de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o utilizador tem uma sessão. Pode utilizar esta opção quando pretender deixar o utilizador escolher entre diferentes identidades. Esta opção leva a MSAL a enviar `prompt=select_account` ao fornecedor de identidade.
+- `SelectAccount` força o serviço de símbolo de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o utilizador tem uma sessão. Pode utilizar esta opção quando pretender deixar o utilizador escolher entre diferentes identidades. Esta opção leva a MSAL a enviar `prompt=select_account` ao fornecedor de identidade.
 
     A `SelectAccount` constante é o padrão, e fornece efetivamente a melhor experiência possível com base na informação disponível. A informação disponível pode incluir conta, presença de uma sessão para o utilizador, e assim por diante. Não mude este incumprimento a menos que tenha uma boa razão para fazê-lo.
-- `Consent`permite-lhe solicitar o consentimento do utilizador mesmo que o consentimento tenha sido concedido antes. Neste caso, a MSAL envia `prompt=consent` ao fornecedor de identidade.
+- `Consent` permite-lhe solicitar o consentimento do utilizador mesmo que o consentimento tenha sido concedido antes. Neste caso, a MSAL envia `prompt=consent` ao fornecedor de identidade.
 
     É possível que queira utilizar a `Consent` constante em aplicações focadas na segurança, onde a governação da organização exige que os utilizadores vejam a caixa de diálogo de consentimento sempre que utilizam a aplicação.
-- `ForceLogin`permite que o serviço indique o utilizador para obter credenciais mesmo que a solicitação não seja necessária.
+- `ForceLogin` permite que o serviço indique o utilizador para obter credenciais mesmo que a solicitação não seja necessária.
 
     Esta opção pode ser útil se a aquisição do token falhar e pretender que o utilizador volte a entrar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. É possível que queira utilizar esta opção em aplicações focadas na segurança, onde a governação da organização exige que o utilizador assine cada vez que acede a partes específicas da aplicação.
-- `Never`é apenas .NET 4.5 e Windows Runtime (WinRT). Esta constante não irá incitar o utilizador, mas tentará usar o cookie que está armazenado na vista web incorporada escondida. Para obter mais informações, consulte [utilizar os navegadores web com MSAL.NET.](./msal-net-web-browsers.md)
+- `Never` é apenas .NET 4.5 e Windows Runtime (WinRT). Esta constante não irá incitar o utilizador, mas tentará usar o cookie que está armazenado na vista web incorporada escondida. Para obter mais informações, consulte [utilizar os navegadores web com MSAL.NET.](./msal-net-web-browsers.md)
 
     Se esta opção falhar, então `AcquireTokenInteractive` lança uma exceção para notificá-lo de que é necessária uma interação de UI. Então tens de usar outro `Prompt` parâmetro.
-- `NoPrompt`não envia um pedido para o fornecedor de identidade.
+- `NoPrompt` não envia um pedido para o fornecedor de identidade.
 
     Esta opção é útil apenas para políticas de perfil de edição no Azure Ative Directory B2C. Para mais informações, consulte [as especificidades do B2C.](https://aka.ms/msal-net-b2c-specificities)
 
@@ -292,7 +292,7 @@ client_id=<CLIENT_ID>
 &grant_type=authorization_code
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Chamar uma API web](scenario-mobile-call-api.md)
