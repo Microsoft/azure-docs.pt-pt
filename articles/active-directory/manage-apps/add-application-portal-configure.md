@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808410"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135492"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -48,37 +48,24 @@ Para editar as propriedades da aplicação:
     - **Habilitado para os utilizadores fazerem o s.a.?** determina se os utilizadores designados para a aplicação podem iniciar sessão.
     - **Atribuição de utilizadores necessária?** determina se os utilizadores que não estão atribuídos à aplicação podem iniciar sessão.
     - **Visível para os utilizadores?** determina se os utilizadores atribuídos a uma aplicação podem vê-la no painel de [acesso](https://myapps.microsoft.com) e no lançador de aplicações office 365. (Consulte o menu de waffles no canto superior esquerdo de um site do Office 365 ou microsoft 365.)
-4. Use as seguintes tabelas para ajudá-lo a escolher as melhores opções para as suas necessidades.
+    
+    > [!TIP]
+    > A atribuição de utilizadores acontece na secção de Navegação dos **Utilizadores e grupos.**
 
-   - Comportamento para utilizadores *atribuídos*:
+    As três opções podem ser alternadas independentemente uma da outra e o comportamento resultante nem sempre é óbvio. Aqui está uma mesa que pode ajudar:
+    
+    | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Comportamento para utilizadores que tenham sido ou não designados para a app. |
+    |---|---|---|---|
+    | Sim | Sim | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Sim | Não  | As utilizações atribuídas não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Não  | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Sim | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Não  | Sim | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Sim | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Não  | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Não  | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
 
-       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores atribuídos | Experiência para utilizadores atribuídos |
-       |---|---|---|---|---|
-       | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
-       | Sim | Sim | Sim | Sim | Sim  |
-       | Sim | Sim | Não  | Sim | Não   |
-       | Sim | Não  | Sim | Sim | Sim  |
-       | Sim | Não  | Não  | Sim | Não   |
-       | Não  | Sim | Sim | Não  | Não   |
-       | Não  | Sim | Não  | Não  | Não   |
-       | Não  | Não  | Sim | Não  | Não   |
-       | Não  | Não  | Não  | Não  | Não   |
-
-   - Comportamento para utilizadores *não atribuídos*:
-
-       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores não atribuídos | Experiência para utilizadores não atribuídos |
-       |---|---|---|---|---|
-       | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
-       | Sim | Sim | Sim | Não  | Não   |
-       | Sim | Sim | Não  | Não  | Não   |
-       | Sim | Não  | Sim | Sim | Não   |
-       | Sim | Não  | Não  | Sim | Não   |
-       | Não  | Sim | Sim | Não  | Não   |
-       | Não  | Sim | Não  | Não  | Não   |
-       | Não  | Não  | Sim | Não  | Não   |
-       | Não  | Não  | Não  | Não  | Não   |
-
-     *O utilizador pode ver a aplicação no painel de acesso e no iniciador de aplicações do Office 365?
+4. Quando terminar, **selecione Save**.
 
 ## <a name="use-a-custom-logo"></a>Utilizar um logótipo personalizado
 
@@ -104,7 +91,7 @@ Para utilizar um logótipo personalizado:
 
 Se não vai continuar com a série quickstart, então considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
 > [!div class="nextstepaction"]

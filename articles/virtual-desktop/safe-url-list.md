@@ -3,15 +3,15 @@ title: Lista de URL seguro do Windows Virtual Desktop - Azure
 description: Uma lista de URLs que deve desbloquear para garantir que a sua implementação virtual do Windows funciona como pretendido.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067210"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135866"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -27,11 +27,12 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
 |*.core.windows.net|443|Tráfego de agentes|AzureCloud|
 |*.servicebus.windows.net|443|Tráfego de agentes|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Tráfego de agentes|AzureCloud|
+|gcs.prod.monitoring.core.windows.net|443|Tráfego de agentes|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte ao portal Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
+| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >O Windows Virtual Desktop suporta agora a tag FQDN. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](../firewall/protect-windows-virtual-desktop.md).

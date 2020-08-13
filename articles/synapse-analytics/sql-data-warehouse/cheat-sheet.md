@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 74ffb54b13783b4945376e1717777fa1da39ab44
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543321"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136104"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -37,7 +37,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design das ta
 
 ## <a name="data-migration"></a>Migração de dados
 
-Em primeiro lugar, carregue os seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Azure Blob Storage. Em seguida, utilize o PolyBase para carregar os seus dados em tabelas de preparação. Utilize a seguinte configuração:
+Em primeiro lugar, carregue os seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Azure Blob Storage. Em seguida, utilize a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (pré-visualização) para carregar os seus dados em tabelas de preparação. Utilize a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -109,7 +109,7 @@ Para um grande lote de atualizações nos seus dados históricos, considere util
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
 
- Até que as estatísticas automáticas estejam geralmente disponíveis, é necessária a manutenção manual das estatísticas. É importante atualizar as estatísticas à medida que ocorrem alterações *significativas* nos seus dados. As atualizações ajudam a otimizar os planos de consultas. Se achar que manter todas as estatísticas demora muito tempo, seja mais seletivo quanto às colunas que as têm.
+É importante atualizar as estatísticas à medida que ocorrem alterações *significativas* nos seus dados. Consulte [as estatísticas de atualização](sql-data-warehouse-tables-statistics.md#update-statistics) para determinar se ocorreram alterações *significativas.* As estatísticas atualizadas otimizam os seus planos de consulta. Se achar que manter todas as estatísticas demora muito tempo, seja mais seletivo quanto às colunas que as têm.
 
 Também pode definir a frequência das atualizações. Por exemplo, poderá querer atualizar as colunas de data, onde podem ser adicionados novos valores diariamente. Vai beneficiar mais com estatísticas em colunas envolvidas em associações, colunas utilizadas na cláusula WHERE e colunas que se encontram em GROUP BY.
 

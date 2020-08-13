@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921133"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136002"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
@@ -72,7 +72,7 @@ Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosm
 
 Dado o documento familiar da amostra acima, a consulta SQL retorna os documentos onde o campo de identificação corresponde `WakefieldFamily` . Uma vez que é uma declaração `SELECT *`, o resultado da consulta é o documento JSON completo:
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT * 
@@ -113,9 +113,9 @@ Dado o documento familiar da amostra acima, a consulta SQL retorna os documentos
 
 ## <a name="example-query-2"></a>Consulta de exemplo 2
 
-A próxima consulta devolve todos os nomes de crianças da família cuja identificação é `WakefieldFamily` ordenada pela sua nota.
+A próxima consulta devolve todos os nomes de crianças da família cuja identificação corresponde `WakefieldFamily` .
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT c.givenName 
@@ -138,7 +138,7 @@ A próxima consulta devolve todos os nomes de crianças da família cuja identif
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, fez as seguintes tarefas:
 

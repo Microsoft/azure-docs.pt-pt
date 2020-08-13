@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Criar serviço CloudSimple
-description: Descreve como criar o serviço CloudSimple no portal Azure
+description: Saiba como criar o serviço CloudSimple no portal Azure. Reveja a configuração necessária antes de começar.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8648f2c9cc0175050d4b7642f5235d47159ecfaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a196e717dd6e02570e4bdf830a24ce342b47ece
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024828"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140552"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Crie a Solução Azure VMware by CloudSimple
 

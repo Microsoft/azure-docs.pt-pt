@@ -1,23 +1,15 @@
 ---
 title: PowerShell - Adicione um utilizador externo a um laboratório em Azure DevTest Labs
 description: Este artigo fornece um script Azure PowerShell que adiciona um utilizador externo a um laboratório em Azure DevTest Labs.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 03a338efe11eddc00217e8e1946824fda27896ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+ms.openlocfilehash: 76fbb5e4d7f5db39a0aadba9098ebf1064b3cda5
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286024"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136225"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para adicionar um utilizador externo a um laboratório em Azure DevTest Labs
 
@@ -43,7 +35,7 @@ Este script utiliza os seguintes comandos:
 | [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retira o objeto do utilizador do diretório ativo Azure. |
 | [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Atribui a função especificada ao principal especificado, no âmbito especificado. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 

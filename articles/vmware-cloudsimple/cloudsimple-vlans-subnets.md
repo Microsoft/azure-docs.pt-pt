@@ -1,6 +1,6 @@
 ---
 title: VLANs e sub-redes em Azure VMware Solution by CloudSimple
-description: Saiba mais sobre VLANs e sub-redes em CloudSimple Private Cloud
+description: Saiba mais sobre VLANs e sub-redes em CloudSimple Private Cloud e sobre a rede que o CloudSimple fornece onde o seu serviço CloudSimple está implantado.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3235b394f739e8af846f30dfe51705d0926c843
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024896"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140671"
 ---
 # <a name="vlans-and-subnets-overview"></a>VLANs e sub-redes visão geral
 

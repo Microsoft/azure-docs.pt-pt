@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Nuvens Privadas
-description: Saiba mais sobre nuvens e conceitos privados CloudSimple.
+description: Conheça os conceitos e vantagens da CloudSimple, incluindo a continuidade operacional completa da VMware, a compatibilidade com as ferramentas, competências e processos existentes.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024959"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140722"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada CloudSimple
 
@@ -22,7 +22,7 @@ CloudSimple transforma e estende cargas de trabalho VMware a nuvens públicas em
 A solução CloudSimple proporciona uma continuidade operacional completa da VMware. Esta solução dá-lhe os benefícios da nuvem pública de:
 
 * Elasticidade
-* Innovation
+* Inovação
 * Eficiência
 
 Com o CloudSimple, você beneficia de um modelo de consumo em nuvem que reduz o seu custo total de propriedade. Também oferece provisão a pedido, pagamento à medida que cresce e otimização da capacidade.

@@ -1,25 +1,15 @@
 ---
 title: Azure CLI - Criar e verificar uma máquina virtual em um laboratório
 description: Este script da CLI do Azure cria uma máquina virtual num laboratório e verifica se está disponível.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.custom: mvc
-ms.openlocfilehash: ab09d2cf0f43d0858fb9a281f39385bff244cc99
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/11/2020
+ms.openlocfilehash: b64b6fa13bd0d320707dc279cb554d5c23f1d80d
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290391"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136172"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utilizar a CLI do Azure para criar e verificar a disponibilidade de uma máquina virtual num laboratório do Azure DevTest Labs
 
@@ -51,7 +41,7 @@ Este script utiliza os seguintes comandos:
 | [az laboratório vm criar](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Cria uma máquina virtual (VM) num laboratório. |
 | [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Apresenta o estado da VM num laboratório. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

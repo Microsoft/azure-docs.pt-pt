@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424073"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135832"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
@@ -237,7 +237,7 @@ Cada gateway NAT pode suportar 64.000 ligações por endereço IP de saída atri
 
 A tradução de endereços de rede de origem (SNAT) reescreve a origem de um fluxo originário de um endereço IP diferente.  Os recursos de gateway NAT utilizam uma variante do SNAT comumente referida à tradução de endereços portuários (PAT). Pat reescreve o endereço de origem e a porta de origem. Com o SNAT, não há uma relação fixa entre o número de endereços privados e as suas moradas públicas traduzidas.  
 
-### <a name="fundamentals"></a>Noções Básicas
+### <a name="fundamentals"></a>Fundamentos
 
 Vejamos um exemplo de quatro fluxos para explicar o conceito básico.  O gateway NAT está a utilizar o recurso de endereço IP público 65.52.0.2.
 
@@ -322,7 +322,6 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 - O NAT é compatível com o IP público SKU padrão, prefixo IP público e recursos do balançador de carga.   Os recursos básicos (por exemplo, o balanceador de carga básica) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com o NAT.
 - A família iPv4 é apoiada.  A NAT não interage com a família IPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
-- A exploração de fluxo NSG não é suportada quando se utiliza o NAT.
 - A NAT não pode abranger várias redes virtuais.
 
 ## <a name="suggestions"></a>Sugestões

@@ -4,17 +4,17 @@ description: Conecte-se privadamente a uma Aplicação Web usando o Azure Privat
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068291"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135390"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -122,12 +122,14 @@ Durante a pré-visualização, apenas a ranhura de produção é exposta por tr�
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
 - Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]
 - Para implementar o Ponto Final Privado para a sua Aplicação Web utilizando o PowerShell, consulte [como ligar-se privadamente a uma Aplicação Web com o PowerShell][howtoguide3]
 - Para implementar o Ponto Final Privado para a sua Aplicação Web utilizando o modelo Azure, consulte [como ligar-se privadamente a uma Aplicação Web com o modelo Azure][howtoguide4]
+- Exemplo de ponta a ponta, como ligar uma aplicação web frontend a uma aplicação web de backend segura com a injeção de VNet e ponto final privado com o modelo ARM, consulte este [arranque rápido][howtoguide5]
+- Exemplo de ponta a ponta, como ligar uma aplicação web frontend a uma aplicação web de backend segura com injeção VNet e ponto final privado com terraforme, consulte esta [amostra][howtoguide6]
 
 
 <!--Links-->
@@ -144,3 +146,5 @@ Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, con
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

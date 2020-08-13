@@ -6,19 +6,39 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 3/16/2020
-ms.openlocfilehash: 1173defa8bbe66cbeaaf6bd5264b0730160a197b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 8/10/2020
+ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116833"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134530"
 ---
-# <a name="scale-a-hyperscale-citus-server-group"></a>Escalar um grupo de servidores de hiperescala (Citus)
+# <a name="server-group-size"></a>Tamanho do grupo do servidor
 
-A Azure Database for PostgreSQL - Hyperscale (Citus) fornece escala de autosserviço para lidar com o aumento da carga. O portal Azure facilita a adição de novos nós de trabalhadores e o aumento dos vCores dos nós existentes.
+A opção de implementação hyperscale (Citus) utiliza servidores de base de dados cooperantes para paralelizar a execução de consultas e armazenar mais dados. O "tamanho" do grupo do servidor refere-se tanto ao número de servidores como aos recursos de hardware de cada um.
 
-## <a name="add-worker-nodes"></a>Adicione os nó de trabalhador
+## <a name="picking-initial-size"></a>Escolher o tamanho inicial
+
+O tamanho de um grupo de servidores, em termos de número de nós e da sua capacidade de hardware, é fácil de alterar[(ver abaixo).](#scale-a-hyperscale-citus-server-group) No entanto, ainda precisa de escolher um tamanho inicial para um novo grupo de servidores. Aqui estão algumas dicas para uma escolha razoável.
+
+### <a name="multi-tenant-saas-use-case"></a>Caso de uso de SaaS multi-inquilino
+
+Para aqueles que migram para Hyperscale (Citus) a partir de uma instância de base de dados postgresQL existente, recomendamos a escolha de um cluster onde o número de vCores e RAM de trabalhadores no total é igual ao da instância original. Nestes cenários, temos visto melhorias no desempenho de 2-3x porque o fragmento melhora a utilização dos recursos, permitindo índices menores, etc.
+
+O número de vCores necessários para o nó coordenador depende da carga de trabalho existente (produção escrita/leitura). O nó coordenador não requer tanto RAM como nós de trabalhadores, mas a atribuição de RAM é determinada com base na contagem de vCore (como descrito nas opções de [configuração de Hiperescala),](concepts-hyperscale-configuration-options.md)pelo que a contagem vCore é essencialmente a decisão real.
+
+### <a name="real-time-analytics-use-case"></a>Caso de utilização de análise em tempo real
+
+Total de vCores: quando os dados de trabalho se enquadram na RAM, pode esperar uma melhoria linear do desempenho em Hyperscale (Citus) proporcional ao número de núcleos de trabalhadores. Para determinar o número certo de vCores para as suas necessidades, considere a latência atual para consultas na sua base de dados de nó único e a latência necessária em Hyperscale (Citus). Divida a latência atual pela latência desejada e arredonde o resultado.
+
+RAM de trabalho: o melhor caso seria proporcionar memória suficiente para que a maioria do conjunto de trabalho se encaixe na memória. O tipo de consultas que a sua aplicação utiliza afeta os requisitos de memória. Pode executar EXPLAIN ANALYZE numa consulta para determinar a quantidade de memória necessária. Lembre-se que vCores e RAM são dimensionados em conjunto como descrito no artigo de opções de [configuração de Hiperescala.](concepts-hyperscale-configuration-options.md)
+
+## <a name="scale-a-hyperscale-citus-server-group"></a>Escalar um grupo de servidores de hiperescala (Citus)
+
+A Azure Database for PostgreSQL - Hyperscale (Citus) fornece escala de autosserviço para lidar com o aumento da carga. O portal Azure facilita a adição de novos nós de trabalhadores e o aumento dos vCores dos nós existentes. A adição de nós não provoca tempo de inatividade, e mesmo mover fragmentos para os novos nós (chamado [reequilíbrio de fragmentos](#rebalance-shards)) acontece sem interromper consultas.
+
+### <a name="add-worker-nodes"></a>Adicione os nó de trabalhador
 
 Para adicionar nós, vá ao **separador Configurar** no seu grupo de servidor Hyperscale (Citus).  Arrastar o slider para **a contagem de nóiros** altera o valor.
 
@@ -29,7 +49,7 @@ Clique no botão **Guardar** para fazer com que o valor alterado faça efeito.
 > [!NOTE]
 > Uma vez aumentado e guardado, o número de nós de trabalhador não pode ser diminuído usando o slider.
 
-### <a name="rebalance-shards"></a>Fragmentos de reequilíbrio
+#### <a name="rebalance-shards"></a>Fragmentos de reequilíbrio
 
 Para tirar partido dos nós recém-adicionados, é necessário reequilibrar os fragmentos de mesa [distribuídos,](concepts-hyperscale-distributed-data.md#shards)o que significa mover alguns fragmentos dos nós existentes para os novos. Verifique primeiro se os novos trabalhadores terminaram com êxito o fornecimento. Em seguida, inicie o reequilíbrio de fragmentos, ligando-o ao nó coordenador do cluster com o psql e a correr:
 
@@ -39,15 +59,15 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 A `rebalance_table_shards` função reequilibra todas as tabelas do grupo de [colocação](concepts-hyperscale-colocation.md) da tabela nomeada no seu argumento. Assim, não é preciso chamar a função para cada mesa distribuída, basta chamá-la numa mesa representativa de cada grupo de colocação.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir vCores nos nos nos acenos
+### <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir vCores nos nos nos acenos
 
 > [!NOTE]
 > Esta funcionalidade encontra-se em pré-visualização. Para solicitar uma alteração em vCores para nós no seu grupo de servidores, [contacte o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para experiências de desempenho, bem como alterações a curto ou longo prazo nas exigências de tráfego.
 
-Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Clique no link **de configuração Change** sob **o nó do coordenador**. Aparecerá um diálogo com sliders para a capacidade de vCores e armazenamento do coordenador. Mude os sliders conforme desejado e selecione **OK**.
+Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Ajuste o slider **vCores** na **Configuração (nó coordenador)**.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .
+- Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .

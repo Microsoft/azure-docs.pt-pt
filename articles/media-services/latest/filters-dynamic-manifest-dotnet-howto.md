@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/11/2020
 ms.author: juliako
-ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d8a60d6c4b3fb66b46742fbd99e3a73a63fff45
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023131"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136087"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com Serviços de Mídia .NET SDK
 
@@ -36,7 +36,7 @@ Este tópico mostra como utilizar os Serviços de Comunicação Social .NET SDK 
 - Rever [filtros e manifestos dinâmicos.](filters-dynamic-manifest-overview.md)
 - [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
 - Obtenha informações necessárias para aceder a [APIs](./access-api-howto.md)
-- [Reveja upload, codificação e stream usando Azure Media Services](stream-files-tutorial-with-api.md) para ver como começar a usar [.NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
+- [Reveja upload, codificação e stream usando Azure Media Services](stream-files-tutorial-with-api.md) para ver como começar a usar [.NET SDK](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 
@@ -116,6 +116,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Transmissão em Fluxo Uniforme|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Stream vídeos](stream-files-tutorial-with-api.md) 

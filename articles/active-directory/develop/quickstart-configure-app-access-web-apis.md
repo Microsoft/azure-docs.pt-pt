@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120869"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140807"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
 
@@ -148,7 +148,7 @@ Para adicionar um segredo de cliente:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Adicionar permissões para aceder a APIs Web
 
-A [permissão de inscrição e leitura do perfil do utilizador](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) da API é selecionada por predefinição. Pode selecionar entre [dois tipos de permissões](developer-glossary.md#permissions) para cada API web:
+A [permissão de inscrição e leitura do perfil do utilizador](/graph/permissions-reference#user-permissions) da API é selecionada por predefinição. Pode selecionar entre [dois tipos de permissões](developer-glossary.md#permissions) para cada API web:
 
 * **Permissões de inscrição**. A aplicação do seu cliente precisa de aceder diretamente à API web como ele próprio, sem contexto de utilizador. Este tipo de permissão requer o consentimento do administrador. Esta permissão não está disponível para aplicações de desktop e clientes móveis.
 * **Permissões delegadas.** A sua aplicação ao cliente precisa de aceder à API web como utilizador inscrito, mas com acesso limitado pela permissão selecionada. Este tipo de permissão pode ser concedido por um utilizador, a não ser que exija consentimento do administrador.
@@ -198,7 +198,7 @@ O pedido de consentimento fornece a opção de **Aceitar** ou **Cancelar**. Sele
 > [!NOTE]
 > Existe um atraso entre a concessão do consentimento administrativo, selecionando **Aceitar** na pronta de consentimento e o estado do consentimento administrativo ser refletido no portal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo quickstart da série para aprender a configurar quais os tipos de conta que podem aceder à sua aplicação. Por exemplo, você pode querer limitar o acesso apenas aos utilizadores da sua organização (inquilino único) ou permitir utilizadores em outros inquilinos AZure AD (multi-inquilino) e aqueles com contas pessoais da Microsoft (MSA).
 

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.openlocfilehash: e52fe8e738f2a35204078b27019ea3742c608560
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f775a0e1dcb82afc9a458ce4ee608a52ec06dc4c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122175"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135917"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -36,6 +36,9 @@ Se estiver a criar uma aplicação on-prem, a fazer desenvolvimento local ou de 
 Dê permissões ao grupo AD para o seu cofre de chaves utilizando o comando de definição de chave Azure CLI az, ou o cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Por exemplo, reveja [dar à aplicação, ao grupo AZure AD ou ao acesso do utilizador ao cofre da chave.](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps#give-the-principal-access-to-your-key-vault)
 
 A aplicação também precisa de pelo menos uma função de Gestão de Identidade e Acesso (IAM) atribuída ao cofre-chave. Caso contrário, não poderá iniciar sessão e falhará com direitos insuficientes de acesso à subscrição. Os grupos AD Azure com Identidades Geridas podem exigir até 8 horas para refrescar o token e tornar-se eficazes.
+
+### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Como posso recolocar o Key Vault com o modelo ARM sem eliminar as políticas de acesso existentes?
+Atualmente, a redopleyment Key Vault ARM eliminará qualquer política de acesso no Key Vault e substituirá-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar eventuais interrupções de acesso.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas recomendadas de resolução de problemas para seguir tipos de erro
 * HTTP 401: Pedido não autenticado - [Etapas de resolução de problemas](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)

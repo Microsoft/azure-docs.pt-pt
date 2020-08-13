@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Gateways VPN
-description: Saiba mais sobre cloudSimple Site-to-Site VPN e conceitos de VPN ponto-a-local
+description: Saiba mais sobre as portas VPN do site cloudSimple e ponto a local, que são usadas para enviar tráfego encriptado entre uma região CloudSimple e outros recursos.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e013bb96990a8f3a0ef7d3a58529b200919e276
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024862"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140637"
 ---
 # <a name="vpn-gateways-overview"></a>Visão geral das portas da VPN
 
@@ -60,7 +60,7 @@ Uma ligação VPN local-a-local utiliza os seguintes parâmetros criptográficos
 |-----------|------------|------------|------------|
 | Encriptação | AES 128 | AES 256 | AES 256 |
 | Algoritmo de haxixe| SHA 256 | SHA 256 | SHA 1 |
-| Grupo perfeito de sigilo para a frente (Grupo PFS) | Nenhuma | Nenhuma | Nenhuma |
+| Grupo perfeito de sigilo para a frente (Grupo PFS) | Nenhum | Nenhum | Nenhum |
 | Tempo de Vida | 1.800 segundos | 1.800 segundos | 1.800 segundos |
 | Tamanho dos dados | 4GB | 4GB | 4GB |
 

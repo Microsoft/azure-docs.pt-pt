@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533143"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134501"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -177,6 +177,11 @@ Um volume de duplo protocolo suporta os protocolos NFS e SMB.  Quando tenta aced
 
 Para evitar o problema "Permissão negada", certifique-se de que o Windows Ative Directory inclui `pcuser` antes de aceder ao ponto de montagem. Se adicionar `pcuser` depois de encontrar o problema "Permissão negada", aguarde 24 horas para que a entrada do cache fique limpa antes de tentar novamente o acesso.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de duplo protocolo, porque é que o processo de criação falha com o erro "Falhou na validação da configuração LDAP, tente novamente depois de corrigir a configuração do LDAP"?  
+
+O registo do ponteiro (PTR) da máquina hospedeira de AD pode estar em falta no servidor DNS. É necessário criar uma zona de procura inversa no servidor DNS e, em seguida, adicionar um registo PTR da máquina hospedeira de AD nessa zona de procura inversa.
+
+Por exemplo, assuma que o endereço IP da máquina AD `1.1.1.1` é, o nome de hospedeiro da máquina AD (como se encontra através do `hostname` comando) é `AD1` , e o nome de domínio é `myDomain.com` .  O registo PTR adicionado à zona de procuração inversa deve ser `1.1.1.1`  ->  `AD1.myDomain.com` .
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes de gestão da capacidade
 
@@ -249,7 +254,7 @@ Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 
 Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

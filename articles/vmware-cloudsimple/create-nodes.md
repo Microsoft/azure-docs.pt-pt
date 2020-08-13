@@ -1,6 +1,6 @@
 ---
 title: Nos acenos de provisão para Solução VMware por CloudSimple - Azure
-description: Saiba como adicionar os nossos aos seus VMWare com implementação CloudSimple
+description: Saiba como adicionar nós ao seu VMWare com implementação CloudSimple no portal Azure. Você pode configurar a capacidade pay-as-you go para o seu ambiente de nuvem privada.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccff5b4dc6ed5a571e25ab0569b9fa92674e1340
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024811"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140739"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Nóduras de provisão para Azure VMware Solution by CloudSimple
 

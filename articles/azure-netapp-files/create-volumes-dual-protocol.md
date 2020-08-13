@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 61e8c56e75e82bc28ddb2abf231d9a5e919691b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535488"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134586"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -36,9 +36,10 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 ## <a name="considerations"></a>Considerações
 
 * Certifique-se de que cumpre os [requisitos para ligações de Diretório Ativo](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Crie uma zona de procura inversa no servidor DNS e, em seguida, adicione um registo de ponteiro (PTR) da máquina hospedeira de AD nessa zona de procura inversa. Caso contrário, a criação de volume de duplo protocolo falhará.
 * Certifique-se de que o cliente NFS está atualizado e executa as últimas atualizações para o sistema operativo.
 
-## <a name="create-a-dual-protocol-volume"></a>Criar um volume de duplo protocolo
+## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
 
 1.  Clique na lâmina **volumes** da lâmina Pools de Capacidade. Clique em **+ Adicionar volume** para criar um volume. 
 
@@ -135,7 +136,7 @@ Pode gerir atributos POSIX como UID, Home Directory e outros valores utilizando 
 
 Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](configure-nfs-clients.md) para configurar o cliente NFS.  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Perguntas frequentes de dois protocolos](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Configure um cliente NFS para ficheiros Azure NetApp](configure-nfs-clients.md) 
+* [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

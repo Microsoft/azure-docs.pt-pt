@@ -3,15 +3,15 @@ title: Resolução de problemas cliente remoto de desktop Windows Virtual Deskto
 description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac2eb2632ad96538e965e4d1057d7e4a116c05d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009397"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134484"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
 
@@ -41,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Tente ligar-se a outro cliente, como o Remote Desktop para Windows 7 ou Windows 10, e verifique se consegue abrir o cliente web.
 
-### <a name="opening-another-site-fails"></a>Abrir outro site falha
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Não é possível abrir outros websites enquanto está ligado ao cliente web
 
-Isto é geralmente causado por problemas de ligação à rede ou por uma falha de rede. Recomendamos que contacte o suporte da rede.
+Se não conseguir abrir outros websites enquanto estiver ligado ao cliente web, pode haver problemas de ligação à rede ou uma falha de rede. Recomendamos que contacte o suporte da rede.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup não pode resolver o nome
+### <a name="nslookup-cant-resolve-the-name"></a>Nslookup não pode resolver o nome
 
-Isto é geralmente causado por problemas de ligação à rede ou por uma falha de rede. Recomendamos que contacte o suporte da rede.
+Se o nslookup não conseguir resolver o nome, então pode haver problemas de ligação à rede ou uma falha de rede. Recomendamos que contacte o suporte da rede.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>O seu cliente não consegue ligar-se, mas outros clientes da sua rede podem ligar-se
 
@@ -58,11 +58,13 @@ Se o seu navegador começar a agir ou deixar de funcionar enquanto estiver a uti
 3. Limpe a cache do browser. Consulte [cache de navegador claro para o seu navegador.](https://binged.it/2RKyfdU)
 4. Abrir o navegador em modo Privado.
 
-## <a name="web-client-does-not-show-my-resources"></a>O cliente web não mostra os meus recursos
+## <a name="client-doesnt-show-my-resources"></a>O cliente não mostra os meus recursos.
 
-Primeiro, verifique a conta Azure Ative Directory que está a usar. Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar a nossa ou utilizar uma janela de navegador privada.
+Primeiro, verifique a conta do Diretório Ativo Azure que está a usar. Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.
 
 Se estiver a utilizar o Windows Virtual Desktop (clássico), utilize o link do cliente web [neste artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se ligar aos seus recursos.
+
+Se isso não funcionar, certifique-se de que o seu grupo de aplicações está associado a um espaço de trabalho.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Cliente web deixa de responder ou desconecta
 
@@ -78,11 +80,11 @@ Se o cliente web continuar a pedir credenciais, siga estas instruções:
 
 1. Confirme que o URL do cliente web está correto.
 2. Confirme que as credenciais que está a usar são para o ambiente de ambiente de trabalho virtual do Windows ligado ao URL.
-3. Limpe os cookies do navegador. Para obter mais detalhes, consulte [Como eliminar ficheiros de cookies no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Limpe a cache do browser. Para mais detalhes, consulte [Limpar a cache do navegador para o seu navegador.](https://binged.it/2RKyfdU)
+3. Limpe os cookies do navegador. Para obter mais informações, consulte [Como eliminar ficheiros de cookies no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Limpe a cache do browser. Para mais informações, consulte [Cache de navegador Limpo para o seu navegador.](https://binged.it/2RKyfdU)
 5. Abra o seu navegador em modo Privado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto cria um ambiente de ambiente de trabalho virtual do Windows e uma piscina de anfitrião num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)

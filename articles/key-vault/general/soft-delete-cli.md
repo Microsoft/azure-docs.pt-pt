@@ -2,19 +2,19 @@
 title: Cofre de chaves Azure - Como usar soft-delete com CLI
 description: Use exemplos de casos de eliminação suave com cortes de código CLI
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385743"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135934"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -58,11 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Novo cofre-chave
 
-Ativar a eliminação suave de um novo cofre de chave é feito no momento da criação, adicionando a bandeira de exclusão suave ao seu comando de criação.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+A eliminação suave é automaticamente ativada em todos os cofres-chave por defeito. Até 31 de dezembro de 2020 deixará de ser possível criar um novo cofre-chave sem apagação suave.
 
 ### <a name="verify-soft-delete-enablement"></a>Verifique o habilitação para eliminar o soft-delete
 

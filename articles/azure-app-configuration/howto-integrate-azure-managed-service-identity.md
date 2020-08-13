@@ -1,22 +1,22 @@
 ---
-title: Autenticar usando identidades geridas pela Azure
+title: Utilize identidades geridas para aceder à Configuração de Aplicações
 titleSuffix: Azure App Configuration
-description: Autenticar para a configuração de aplicativos Azure usando identidades geridas aZure
+description: Autenticar para a configuração de aplicativos Azure usando identidades geridas
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80056828"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135475"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integre com identidades geridas azure
+# <a name="use-managed-identities-to-access-app-configuration"></a>Utilize identidades geridas para aceder à Configuração de Aplicações
 
-O Azure Ative Directory [geriu identidades](../active-directory/managed-identities-azure-resources/overview.md) que simplificam a gestão de segredos para a sua aplicação em nuvem. Com uma identidade gerida, o seu código pode utilizar o principal serviço criado para o serviço Azure em que funciona. Utiliza uma identidade gerida em vez de uma credencial separada armazenada no Cofre da Chave Azure ou numa cadeia de ligação local. 
+O Azure Ative Directory [geriu identidades](../active-directory/managed-identities-azure-resources/overview.md) que simplificam a gestão de segredos para a sua aplicação em nuvem. Com uma identidade gerida, o seu código pode utilizar o principal serviço criado para o serviço Azure em que funciona. Utiliza uma identidade gerida em vez de uma credencial separada armazenada no Cofre da Chave Azure ou numa cadeia de ligação local.
 
 A Azure App Configuration e as suas bibliotecas de clientes .NET Core, .NET e Java Spring geriram o suporte de identidade incorporado nelas. Embora não seja obrigado a usá-lo, a identidade gerida elimina a necessidade de um token de acesso que contenha segredos. O seu código pode aceder à loja de Configuração de Aplicações utilizando apenas o ponto final do serviço. Pode incorporar este URL no seu código diretamente sem expor qualquer segredo.
 
@@ -84,7 +84,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. Encontre o ponto final na sua loja de Configuração de Aplicações. Este URL está listado no separador **chaves de acesso** para a loja no portal Azure.
 
-1. Abra *appsettings.jsligado*e adicione o seguinte script. Substitua *\<service_endpoint>* , incluindo os suportes, com o URL na sua loja de Configuração de Aplicações. 
+1. Abra *appsettings.jsligado*e adicione o seguinte script. Substitua *\<service_endpoint>* , incluindo os suportes, com o URL na sua loja de Configuração de Aplicações.
 
     ```json
     "AppConfig": {
@@ -183,6 +183,9 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
     Agora pode aceder a referências do Key Vault como qualquer outra chave de Configuração de Aplicações. O provedor de config utilizará o `KeyVaultClient` que configura para autenticar no Key Vault e recuperar o valor.
 
+> [!NOTE]
+> `ManagedIdentityCredential`apenas suporta a autenticação de identidade gerida. Não funciona em ambientes locais. Se pretender executar o código localmente, considere usar `DefaultAzureCredential` , que também suporta a autenticação principal do serviço. Verifique se o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) é mais detalhes.
+
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>Implementar a partir do Git local
@@ -242,7 +245,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Utilizar identidade gerida noutras línguas
 
-Os fornecedores de Configuração de Aplicativos para .NET Framework e Java Spring também têm suporte incorporado para identidade gerida. Pode utilizar o ponto final URL da sua loja em vez da cadeia de ligação completa quando configurar um destes fornecedores. 
+Os fornecedores de Configuração de Aplicativos para .NET Framework e Java Spring também têm suporte incorporado para identidade gerida. Pode utilizar o ponto final URL da sua loja em vez da cadeia de ligação completa quando configurar um destes fornecedores.
 
 Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no arranque rápido para especificar as seguintes definições no ficheiro *App.config:*
 
@@ -264,11 +267,11 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no ar
     </appSettings>
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, adicionou uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações e melhorar a gestão credencial da sua app. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]

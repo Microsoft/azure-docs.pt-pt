@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824788"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135539"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
 
-As soluções de monitorização alavancam os serviços em Azure para fornecer uma análise adicional do funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve visão geral das soluções de monitorização em Azure e detalhes sobre a sua utilização e instalação. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização.
+As soluções de monitorização no Azure Monitor fornecem uma análise do funcionamento de uma determinada aplicação ou serviço Azure. Este artigo fornece uma breve visão geral das soluções de monitorização em Azure e detalhes sobre a sua utilização e instalação. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização.
 
 ## <a name="use-monitoring-solutions"></a>Utilizar soluções de monitorização
 
-Abra a página **'Vista Geral'** no Monitor Azure para apresentar um azulejo para cada solução instalada no espaço de trabalho.
+A página **de visão geral das** soluções no Azure Monitor exibe um azulejo para cada solução instalada num espaço de trabalho log analytics. Para abrir esta página, aceda ao **Monitor Azure** no [portal Azure](https://ms.portal.azure.com). No menu **Insights,** selecione **Mais** para abrir o **Insights Hub**e, em seguida, clique em **espaços de trabalho Log Analytics**.
 
-1. Aceda ao [portal do Azure](https://ms.portal.azure.com). Procure e selecione **Monitor.**
-1. No menu **Insights,** selecione **Mais**.
-1. Utilize as caixas de dropdown na parte superior do ecrã para alterar o espaço de trabalho ou o intervalo de tempo utilizado para os azulejos.
-1. Clique no azulejo para obter uma solução para abrir a sua visão que inclui uma análise mais detalhada dos seus dados recolhidos.
+[![Centro de Insights](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Descrição geral](media/solutions/overview.png)
+
+Utilize as caixas de dropdown na parte superior do ecrã para alterar o espaço de trabalho ou o intervalo de tempo utilizado para os azulejos. Clique no azulejo para obter uma solução para abrir a sua visão que inclui uma análise mais detalhada dos seus dados recolhidos.
+
+[![Descrição geral](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 As soluções de monitorização podem conter vários tipos de recursos Azure, e você pode ver quaisquer recursos incluídos com uma solução como qualquer outro recurso. Por exemplo, quaisquer consultas de registo incluídas na solução estão listadas em **Consultas de Solução** no [explorador de consultas](../log-query/get-started-portal.md#load-queries) Pode utilizar essas consultas ao realizar análises ad hoc com consultas [de registo](../log-query/log-query-overview.md).
 
@@ -91,7 +91,7 @@ Os membros da comunidade podem submeter soluções de gestão aos modelos Azure 
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-### <a name="prepare-your-environment"></a>Preparar o seu ambiente
+### <a name="prepare-your-environment"></a>Preparar o ambiente
 
 1. Instalar a CLI do Azure
 
@@ -101,9 +101,9 @@ Os membros da comunidade podem submeter soluções de gestão aos modelos Azure 
 
    - Selecione o botão **Cloud Shell** na barra de menu no canto superior direito no [portal Azure](https://portal.azure.com)
 
-1. Inicia sessão.
+1. Inicie sessão.
 
-   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para completar o processo de autenticação.
+   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
     ```azurecli
     az login
@@ -190,7 +190,7 @@ az monitor log-analytics solution delete --name
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha uma [lista de soluções de monitorização da Microsoft.](../monitor-reference.md)
 * Saiba como criar consultas para analisar [dados](../log-query/log-query-overview.md) recolhidos através da monitorização de soluções.

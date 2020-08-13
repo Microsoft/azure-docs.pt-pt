@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799961"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135441"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -41,34 +41,24 @@ O vídeo que se segue acompanha-o através de registos de plataformas de encamin
 
 
 ## <a name="destinations"></a>Destinos
-
-Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. Siga cada link na tabela seguinte para obter detalhes sobre o envio de dados para esse destino.
+Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. 
 
 | Destino | Descrição |
 |:---|:---|
-| [Log Analytics espaço de trabalho](#log-analytics-workspace) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
-| [Hubs de eventos](#event-hub) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
-| [Conta de armazenamento Azure](#azure-storage) | Arquivar registos e métricas para uma conta de armazenamento Azure é útil para auditoria, análise estática ou backup. Em comparação com os Registos do Monitor Azure e um espaço de trabalho log Analytics, o armazenamento do Azure é mais barato e os registos podem ser mantidos lá indefinidamente. |
+| [Log Analytics espaço de trabalho](design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
+| [Hubs de eventos](/azure/event-hubs/) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.  |
+| [Conta de armazenamento Azure](/azure/storage/blobs/) | Arquivar registos e métricas para uma conta de armazenamento Azure é útil para auditoria, análise estática ou backup. Em comparação com os Registos do Monitor Azure e um espaço de trabalho log Analytics, o armazenamento do Azure é mais barato e os registos podem ser mantidos lá indefinidamente.  |
 
 
-## <a name="prerequisites"></a>Pré-requisitos
-Quaisquer destinos para a definição de diagnóstico devem ser criados com as permissões necessárias. Consulte as secções abaixo para obter os requisitos necessários para cada destino.
+### <a name="destination-requirements"></a>Requisitos de destino
 
-### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
-[Crie um novo espaço de trabalho](../learn/quick-create-workspace.md) se ainda não tiver um. O espaço de trabalho não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
+Quaisquer destinos para a definição de diagnóstico devem ser criados antes de criar as definições de diagnóstico. O destino não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições. O quadro seguinte fornece requisitos únicos para cada destino, incluindo quaisquer restrições regionais.
 
-### <a name="event-hub"></a>Hub de eventos
-[Crie um centro de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. O espaço de nomes do Event Hubs não tem de estar na mesma subscrição que a subscrição que está a emitir registos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições e ambas as subscrições estejam no mesmo inquilino.
-
-A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado no portal Azure no separador Configurar para o seu espaço de nomes Desempaços de Evento. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs. 
-
-
-### <a name="azure-storage"></a>Storage do Azure
-[Crie uma conta de armazenamento Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
-
-Não deve utilizar uma conta de armazenamento existente que tenha outros dados de não monitorização armazenados nele para que possa controlar melhor o acesso aos dados. No entanto, se estiver a arquivar os registos de Atividade e os registos de recursos em conjunto, poderá optar por utilizar a mesma conta de armazenamento para manter todos os dados de monitorização num local central.
-
-Para enviar os dados para armazenamento imutável, descreva a política imutável para a conta de armazenamento, tal como descrito no [Conjunto e gere as políticas de imutabilidade para o armazenamento blob](../../storage/blobs/storage-blob-immutability-policies-manage.md). Deve seguir todas as etapas deste artigo, incluindo permitir a colocação de bolhas de apêndice protegido.
+| Destino | Requisitos |
+|:---|:---|
+| Área de trabalho do Log Analytics | O espaço de trabalho não precisa de estar na mesma região que o recurso que está a ser monitorizado.|
+| Hubs de Eventos | A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs.<br><br>O espaço de nome do centro de eventos tem de estar na mesma região que o recurso que está a ser monitorizado se o recurso for regional. |
+| Conta de armazenamento do Azure | Não deve utilizar uma conta de armazenamento existente que tenha outros dados de não monitorização armazenados nele para que possa controlar melhor o acesso aos dados. No entanto, se estiver a arquivar os registos de Atividade e os registos de recursos em conjunto, poderá optar por utilizar a mesma conta de armazenamento para manter todos os dados de monitorização num local central.<br><br>Para enviar os dados para armazenamento imutável, descreva a política imutável para a conta de armazenamento, tal como descrito no [Conjunto e gere as políticas de imutabilidade para o armazenamento blob](../../storage/blobs/storage-blob-immutability-policies-manage.md). Deve seguir todas as etapas deste artigo, incluindo permitir a colocação de bolhas de apêndice protegido.<br><br>A conta de armazenamento tem de estar na mesma região que o recurso que está a ser monitorizado se o recurso for regional. |
 
 > [!NOTE]
 > As contas do Azure Data Lake Storage Gen2 não são atualmente suportadas como um destino para as definições de diagnóstico, mesmo que estas possam ser listadas como uma opção válida no portal do Azure.
@@ -185,6 +175,6 @@ Consulte [Definições de diagnóstico](/rest/api/monitor/diagnosticsettings) pa
 Uma vez que é necessário criar uma definição de diagnóstico para cada recurso Azure, a Política Azure pode ser usada para criar automaticamente uma definição de diagnóstico à medida que cada recurso é criado. Consulte [o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ler mais sobre Logs da plataforma Azure](platform-logs-overview.md)

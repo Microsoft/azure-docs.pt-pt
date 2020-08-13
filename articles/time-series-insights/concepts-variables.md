@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 73d5c3abb2edc940bee9727ce1f3b0c4e8e0a62e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/12/2020
+ms.openlocfilehash: d0a5b48e93e839b0a0adaf185700d7f60fec7948
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289950"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140688"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo
 
@@ -27,14 +27,14 @@ Os seguintes visores de tabela que propriedades são relevantes para cada tipo v
 
 [![Tabela variável modelo série de tempo](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
-#### <a name="numeric-variables"></a>Variáveis numéricas
+## <a name="numeric-variables"></a>Variáveis numéricas
 
 | Propriedade variável | Descrição |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
 | Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou sensores ou transformados através de Expressões de Séries Tempotacurtas. As variáveis do tipo numérico devem ser do tipo *Double.*|
 | Interpolação variável | A interpolação especifica como reconstruir um sinal utilizando dados existentes. As opções de interpolação *passo* e *linear* estão disponíveis para variáveis numéricas. |
-| Agregação variável | Execute computações através das funções de agregação suportadas [para tipos de variáveis numéricas](https://docs.microsoft.com/rest/api/time-series-insights/preview#numeric-variable-kind-1). |
+| Agregação variável | Execute computações através das funções de agregação suportadas [para tipos de variáveis numéricas](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 As variáveis estão em conformidade com o seguinte exemplo JSON:
 
@@ -57,7 +57,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 }
 ```
 
-#### <a name="categorical-variables"></a>Variáveis categóricas
+## <a name="categorical-variables"></a>Variáveis categóricas
 
 | Propriedade variável | Descrição |
 | --- | ---|
@@ -73,7 +73,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "$event.Status.Long" 
+     "tsx": "$event.Status.Long"
 },
   "interpolation": {
     "kind": "step",
@@ -97,12 +97,12 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 }
 ```
 
-#### <a name="aggregate-variables"></a>Variáveis agregadas
+## <a name="aggregate-variables"></a>Variáveis agregadas
 
 | Propriedade variável | Descrição |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
-| Agregação variável | Execute computações através das funções de agregação suportadas [para tipos variáveis agregados](https://docs.microsoft.com/rest/api/time-series-insights/preview#aggregate-variable-kind-1). |
+| Agregação variável | Execute computações através das funções de agregação suportadas [para tipos variáveis agregados](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 As variáveis estão em conformidade com o seguinte exemplo JSON:
 
@@ -118,9 +118,8 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 
 As variáveis são armazenadas na definição tipo de modelo de série sonora e podem ser fornecidas em linha através de APIs para substituir ou complementar a definição armazenada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o Modelo série de tempo.](./concepts-model-overview.md)
 
 * Leia mais sobre como definir variáveis inline usando [APIs de consulta](./concepts-query-overview.md).
-
