@@ -7,14 +7,15 @@ manager: gwallace
 keywords: funções, funções, processamento de eventos, aquecimento, arranque a frio, premium, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383720"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206573"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Gatilho de aquecimento de funções Azure Functions
 
@@ -107,7 +108,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra um gatilho de aquecimento numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando for adicionada à sua aplicação.
+O exemplo a seguir mostra um gatilho de aquecimento numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md)  que será executada em cada nova instância quando for adicionada à sua aplicação.
 
 A sua função deve ser nomeada ```warmup``` (caso-insensível) e só pode haver uma função de aquecimento por aplicação.
 
@@ -243,6 +244,6 @@ Não são fornecidas informações adicionais a uma função ativada de aquecime
 * O gatilho de aquecimento não pode ser invocado uma vez que um caso já esteja em execução.
 * Só pode haver uma função de gatilho de aquecimento por aplicação de função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

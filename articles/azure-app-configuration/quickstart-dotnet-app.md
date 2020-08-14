@@ -1,55 +1,56 @@
 ---
-title: Quickstart para Configuração de Aplicações Azure com .NET Framework [ Microsoft Docs
-description: Um arranque rápido para usar a configuração da app Azure com aplicações .NET Framework
+title: Quickstart para Configuração de Aplicativos Azure com .NET Framework / Microsoft Docs
+description: Um quickstart para usar a configuração de aplicativos Azure com aplicações .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: cfa89a7921751541d1044d697237946cd63cbfd8
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 63b7f8b28e339abde326bf3dca34d9ee6d816a31
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732058"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209910"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma app .NET Framework com configuração de app Azure
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação .NET Framework com Configuração de Aplicações Azure
 
-Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação de consola baseada em .NET para centralizar o armazenamento e a gestão das definições de aplicações separadas do seu código.
+Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação de consola baseada em .NET Framework para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.Quadro líquido 4.7.2](https://dotnet.microsoft.com/download)
+- [.Net Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Select Configuration Explorer** > **Create** > **Key-value** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Configuration Explorer**  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
+    | TestApp:Definições:Mensagem | Dados da Configuração da Aplicação Azure |
 
-    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
+    Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
 7. Selecione **Aplicar**.
 
 ## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
-1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
+1. Inicie o Estúdio Visual e selecione **File**  >  **New**  >  **Project**.
 
-1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Selecione **Seguinte**.
+1. In **Create a new project**, filter on the **Console** project type and click on Console **App (.NET Framework)**. Selecione **Seguinte**.
 
-1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.7.1** ou superior. Selecione **Criar**.
+1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** selecione **o quadro .NET 4.7.1** ou superior. Selecione **Criar**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
+## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
-1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione os seguintes pacotes NuGet ao seu projeto.
+1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador Procurar, procure e adicione os **seguintes** pacotes NuGet ao seu projeto.
 
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 or later
@@ -77,9 +78,9 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
     </appSettings>
     ```
 
-   A cadeia de ligação da sua loja `ConnectionString`de configuração de aplicações é lida a partir da variável ambiente . Adicione `Environment` o construtor `MyConfigStore` de `configBuilders` configuração `appSettings` antes da propriedade da secção.
+   A cadeia de ligação da sua loja de configuração de aplicações é lida a partir da variável `ConnectionString` ambiente. Adicione o `Environment` construtor de configuração antes `MyConfigStore` da propriedade da `configBuilders` `appSettings` secção.
 
-1. Abra *Program.cs*e `Main` atualize o método `ConfigurationManager`para utilizar a Configuração da Aplicação através da chamada .
+1. Abra *Program.cs*, e atualize o `Main` método para utilizar a Configuração da Aplicação chamando `ConfigurationManager` .
 
     ```csharp
     static void Main(string[] args)
@@ -90,28 +91,28 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
     }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
+## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Detete uma variável ambiental chamada **ConnectionString** para a cadeia de ligação da sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando:
+1. Desaprova uma variável ambiental chamada **ConnectionString** para a cadeia de ligação da sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando:
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Se utilizar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, executar o seguinte comando:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
-1. Reiniciar o Estúdio Visual para permitir que a alteração faça efeito. Prima Ctrl + F5 para construir e executar a aplicação de consola.
+1. Reinicie o Estúdio Visual para permitir que a alteração entre em vigor. Prima Ctrl + F5 para construir e executar a aplicação da consola.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação de consola .NET Framework. O `AppSettings` valor `ConfigurationManager` não mudará após o início da aplicação. A biblioteca de fornecedores de configuração .NET Standard configuração da App Configuração, no entanto, também pode ser usada numa aplicação .NET Framework. Para aprender como permitir que a sua aplicação .NET Framework aprenda dinamicamente as definições de configuração, continue para o próximo tutorial.
+Neste arranque rápido, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Framework. O valor `AppSettings` do não vai mudar depois do início da `ConfigurationManager` candidatura. A biblioteca de fornecedores de configuração padrão de configuração da aplicação .NET, no entanto, também pode ser usada numa aplicação .NET Framework. Para aprender a permitir que a sua aplicação .NET Framework atualização dinâmica das definições de configuração, continue até ao próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-dotnet.md)

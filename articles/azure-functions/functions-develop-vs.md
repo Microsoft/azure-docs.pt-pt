@@ -1,15 +1,15 @@
 ---
 title: Desenvolver as Funções do Azure com o Visual Studio
 description: Aprenda a desenvolver e testar funções Azure utilizando ferramentas de funções Azure para o Estúdio Visual 2019.
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0df65c4cdbf40b49bc265f4accafde67f41dafb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731074"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209977"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as Funções do Azure com o Visual Studio  
 
@@ -235,7 +235,7 @@ A forma recomendada de monitorizar a execução das suas funções é integrando
 
 Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as ferramentas principais do Azure Functions, consulte [Ferramentas Principais de Trabalho com Funções Azure](functions-run-local.md).
 

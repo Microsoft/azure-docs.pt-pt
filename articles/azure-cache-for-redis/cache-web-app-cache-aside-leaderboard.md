@@ -5,14 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082782"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209196"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação cache-aside no ASP.NET
 
@@ -657,14 +657,14 @@ Nesta secção, irá providenciar uma nova base de dados na Base de Dados SQL pa
    | **Nome da base de dados** | *ContosoTeamsDatabase* | Para nomes de bases de dados válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). |
    | **Subscrição** | *A sua subscrição*  | Selecione a mesma subscrição que utilizou para criar a cache e alojar o Serviço de Aplicações. |
    | **Grupo de recursos**  | *TestResourceGroup* | Clique em **Utilizar existente** e utilize o mesmo grupo de recursos onde colocou a cache e o Serviço de Aplicações. |
-   | **Selecione fonte** | **Base de dados vazia** | Começar com uma base de dados vazia. |
+   | **Selecionar origem** | **Base de dados vazia** | Começar com uma base de dados vazia. |
 
 1. Em **Servidor**, clique em **Configurar definições necessárias** > **Criar um novo servidor**, forneça as seguintes informações e clique no botão **Selecionar**:
 
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   | **Início de administração do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). |
+   | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). |
    | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
    | **Localização** | *E.U.A. Leste* | Selecione a mesma região onde criou a cache e o Serviço de Aplicações. |
 
@@ -715,7 +715,7 @@ Neste passo do tutorial, vai publicar as atualizações da aplicação no Azure 
 
 Clique em algumas das ações e experimente obter os dados a partir de diferentes fontes. Repare nas diferenças existentes no tempo de obtenção dos dados a partir da base de dados e da cache.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os recursos do Azure utilizados para conservar os custos e os recursos. Todos os recursos devem estar presentes no mesmo grupo de recursos para poder eliminá-los numa única operação ao eliminar o grupo de recursos. As instruções neste tópico utilizaram um grupo de recursos denominado *TestResources*.
 
@@ -733,7 +733,7 @@ Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os
 
     Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como escalar cache Azure para Redis](./cache-how-to-scale.md)

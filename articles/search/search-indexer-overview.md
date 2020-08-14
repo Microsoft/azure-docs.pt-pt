@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038414"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208771"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -38,23 +38,60 @@ Inicialmente, um indexador novo é anunciado como uma funcionalidade de pré-vis
 
 ## <a name="permissions"></a>Permissões
 
-Todas as operações relacionadas com indexantes, incluindo pedidos get para o estado ou definições, requerem [uma api-chave de administração](search-security-api-keys.md). 
+Todas as operações relacionadas com indexantes, incluindo pedidos get para o estado ou definições, requerem [uma api-chave de administração](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
-## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
+## <a name="supported-data-sources"></a>Origens de dados suportadas
 
 Indexantes rastejam lojas de dados em Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database e SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## <a name="indexer-stages"></a>Estágios indexantes
+
+Numa execução inicial, quando o índice estiver vazio, um indexante lerá todos os dados fornecidos na tabela ou no recipiente. Nas execuções subsequentes, o indexante pode geralmente detetar e recuperar apenas os dados que mudaram. Para os dados blob, a deteção de alterações é automática. Para outras fontes de dados como Azure SQL ou Cosmos DB, a deteção de alterações deve ser ativada.
+
+Para cada um dos documentos que ingere, um indexante implementa ou coordena vários passos, desde a recuperação de documentos até um motor de busca final "handoff" para indexação. Opcionalmente, um indexante também é fundamental na execução e saídas de skillset de condução, assumindo que um skillset é definido.
+
+![Estágios indexantes](./media/search-indexer-overview/indexer-stages.png "estágios indexantes")
+
+### <a name="stage-1-document-cracking"></a>Fase 1: Rachadura de documento
+
+A quebra de documentos é o processo de abertura de ficheiros e de extração de conteúdos. Dependendo do tipo de fonte de dados, o indexante tentará realizar diferentes operações para extrair conteúdo potencialmente indexável.  
+
+Exemplos:  
+
+* Quando o documento é um registo numa fonte de [dados Azure SQL,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)o indexante extrairá cada um dos campos para o registo.
+* Quando o documento é um ficheiro PDF numa fonte de [dados de armazenamento Azure Blob,](search-howto-indexing-azure-blob-storage.md)o indexante extrairá o texto, imagens e metadados para o ficheiro.
+* Quando o documento é um registo numa fonte de [dados da Cosmos DB,](search-howto-index-cosmosdb.md)o indexante extrairá os campos e subcampos do documento do Cosmos DB.
+
+### <a name="stage-2-field-mappings"></a>Fase 2: Mapeamentos de campo 
+
+Um indexante extrai texto de um campo de origem e envia-o para um campo de destino numa loja de índices ou conhecimentos. Quando os nomes e tipos de campo coincidem, o caminho é claro. No entanto, pode querer nomes ou tipos diferentes na saída, caso em que precisa de dizer ao indexante como mapear o campo. Este passo ocorre após a quebra do documento, mas antes das transformações, quando o indexante está a ler a partir dos documentos de origem. Quando se define um mapeamento de [campo,](search-indexer-field-mappings.md)o valor do campo de origem é enviado como-é para o campo de destino sem modificações. Os mapeamentos de campo são opcionais.
+
+### <a name="stage-3-skillset-execution"></a>Fase 3: Execução de Skillset
+
+A execução de Skillset é um passo opcional que invoca o processamento de IA incorporado ou personalizado. Pode precisar dele para reconhecimento de caracteres óticos (OCR) sob a forma de análise de imagem, ou pode precisar de tradução linguística. Qualquer que seja a transformação, a execução skillset é onde o enriquecimento ocorre. Se um indexante é um oleoduto, pode pensar num [skillset](cognitive-search-defining-skillset.md) como um "pipeline dentro do oleoduto". Um skillset tem a sua própria sequência de passos chamados habilidades.
+
+### <a name="stage-4-output-field-mappings"></a>Fase 4: Mapeamentos de campo de saída
+
+A produção de um skillset é realmente uma árvore de informação chamada documento enriquecido. Os mapeamentos de campo de saída permitem-lhe selecionar quais as partes desta árvore para mapear em campos no seu índice. Saiba como [definir mapeamentos de campo de saída.](cognitive-search-output-field-mapping.md)
+
+Tal como os mapeamentos de campo que associam valores verbatim de origem a campos de destino, os mapeamentos de campo de saída dizem ao indexante como associar os valores transformados no documento enriquecido aos campos de destino no índice. Ao contrário dos mapeamentos de campo, que são considerados opcionais, você sempre precisa definir um mapeamento de campo de saída para qualquer conteúdo transformado que precise residir em um índice.
+
+A imagem seguinte mostra uma representação [da sessão de depuração do](cognitive-search-debug-session.md) indexante da amostra das fases indexantes: rachaduras de documentos, mapeamentos de campo, execução de skillset e mapeamentos de campo de saída.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessão de depurar amostra" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## <a name="basic-configuration-steps"></a>Passos de configuração básica
+
 Os indexadores podem oferecer funcionalidades que são exclusivas da origem de dados. Relativamente a isto, alguns aspetos de configuração do indexador ou da origem de dados irão variar consoante o tipo de indexador. No entanto, todos os indexadores partilham da mesma composição e requisitos básicos. Os passos que são comuns a todos os indexadores são abordados abaixo.
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
@@ -136,6 +173,6 @@ Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as 
 * [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
 * [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

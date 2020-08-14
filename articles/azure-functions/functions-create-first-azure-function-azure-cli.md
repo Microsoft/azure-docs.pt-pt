@@ -3,14 +3,14 @@ title: Criar uma função no Azure que responda a pedidos HTTP
 description: Aprenda a criar uma função a partir da linha de comando e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: bfe816a6e9f7cba49e13186d7b78403163b13a8f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847691"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209011"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -174,7 +174,7 @@ O arquétipo também gera um teste de unidade para a sua função. Quando altera
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. `req`é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=python).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js* em*. `req` é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -184,7 +184,7 @@ Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal c
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js* em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
@@ -260,7 +260,7 @@ az group create --name AzureFunctionsQuickstart-rg --location westeurope
 > Não é possível hospedar aplicações Linux e Windows no mesmo grupo de recursos. Se tiver um grupo de recursos existente nomeado `AzureFunctionsQuickstart-rg` com uma aplicação de função Windows ou uma aplicação web, deve utilizar um grupo de recursos diferente.
  
     
-Crie uma conta de armazenamento para fins gerais no seu grupo de recursos e região utilizando a [conta de armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, `<STORAGE_NAME>` substitua-o por um nome globalmente único, adequado a si. Os nomes devem conter apenas três a 24 caracteres e letras minúsculas. `Standard_LRS`especifica uma conta de finalidade geral, que é [suportada por Funções](storage-considerations.md#storage-account-requirements).
+Crie uma conta de armazenamento para fins gerais no seu grupo de recursos e região utilizando a [conta de armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, `<STORAGE_NAME>` substitua-o por um nome globalmente único, adequado a si. Os nomes devem conter apenas três a 24 caracteres e letras minúsculas. `Standard_LRS` especifica uma conta de finalidade geral, que é [suportada por Funções](storage-considerations.md#storage-account-requirements).
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS

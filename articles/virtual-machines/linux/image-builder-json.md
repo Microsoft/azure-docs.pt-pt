@@ -3,17 +3,17 @@ title: Criar um modelo de construtor de imagem Azure (pré-visualização)
 description: Aprenda a criar um modelo para usar com O Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830347"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205544"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -306,7 +306,7 @@ Personalize propriedades:
 - **scriptUri** - URI para a localização do ficheiro 
 - **inline** - conjunto de comandos de concha, separados por vírgulas.
 - **sha256Checksum** - Valor da obra de verificação sha256 do ficheiro, gere-o localmente e, em seguida, o Image Builder verificará e validará.
-    * Para gerar o sha256Checksum, utilizando um terminal na execução Mac/Linux:`sha256sum <fileName>`
+    * Para gerar o sha256Checksum, utilizando um terminal na execução Mac/Linux: `sha256sum <fileName>`
 
 
 Para que os comandos sejam executados com privilégios super-utilizadores, devem ser pré-fixados com `sudo` .
@@ -430,12 +430,13 @@ OS support: Windows
 ```
 
 Personalize propriedades:
-- **tipo** – WindowsUpdate.
+- **tipo**  – WindowsUpdate.
 - **searchCriteria** - Opcional, define que tipo de atualizações são instaladas (Recomendado, Importante etc.), BrowseOnly=0 e IsInstalled=0 (Recomendado) é o padrão.
 - **filtros** – Opcional, permite especificar um filtro para incluir ou excluir atualizações.
 - **updateLimit** – Opcional, define quantas atualizações podem ser instaladas, padrão 1000.
  
- 
+> [!NOTE]
+> O personalizador do Windows Update pode falhar se houver algum reinício pendente do Windows, ou instalações de aplicações ainda em execução, normalmente pode ver este erro no customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos vivamente que considere adicionar um Windows Restart e/ou permitir às aplicações tempo suficiente para completar as suas instalações utilizando comandos [de sono] ou de espera( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nos comandos ou scripts inline antes de executar o Windows Update.
 
 ### <a name="generalize"></a>Generalizar 
 Por predefinição, o Azure Image Builder também executará o código 'deprovisionamento' no final de cada fase de personalização de imagem, para 'generalizar' a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar vários VMs. Para o Windows VMs, o Azure Image Builder utiliza o Sysprep. Para o Linux, o Azure Image Builder corre 'waagent -deprovision". 
@@ -590,7 +591,7 @@ Distribuir propriedades para galerias de imagem partilhadas:
 - **tipo** - sharedImage  
 - **galeriaImageId** – ID da galeria de imagens partilhada, esta pode especificar em dois formatos:
     * Versão automática - O Image Builder gerará um número de versão monótona para si, isto é útil para quando pretender manter a reconstrução de imagens a partir do mesmo modelo: O formato é: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Versão explícita - Pode passar no número de versão que pretende que o construtor de imagens utilize. O formato é:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    * Versão explícita - Pode passar no número de versão que pretende que o construtor de imagens utilize. O formato é: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** – nome único para identificar a distribuição.  
 - **artifactTags** - Etiquetas de par de valores de chave específicas do utilizador opcionais.

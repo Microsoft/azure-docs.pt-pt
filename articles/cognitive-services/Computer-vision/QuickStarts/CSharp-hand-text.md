@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: OCR para texto impresso e manuscrito utilizando a operação de leitura da API de Visão de Computador 3.0 REST e C #'
+title: 'Quickstart: Extrair texto utilizando a operação de leitura da API de Visão De Computador 3.0 REST e C #'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, aplique OCR a uma imagem utilizando as operações de API de Visão De Computador 3.0 REST e C#.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 36f149019e37949445189045a8a71489f0f26418
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ac924d6cccbc6f36afc00154c230cac118bd9257
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167832"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210156"
 ---
-# <a name="quickstart-ocr-for-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Quickstart: OCR para texto impresso e manuscrito utilizando a operação de leitura da API de Visão de Computador 3.0 REST e C #
+# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Quickstart: Extrair texto utilizando a operação de leitura da API de Visão De Computador 3.0 REST e C #
 
 Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a nova tecnologia OCR disponível como parte da API de Visão Computacional 3.0 REST. Com os novos métodos [De Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina. 
 
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";

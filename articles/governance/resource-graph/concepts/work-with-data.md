@@ -3,12 +3,12 @@ title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 2de62af5f7a59837876ed3348bc14de232fdee38
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056411"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206354"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
@@ -33,7 +33,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)o controlo é **$top** e faz parte das **Opções DeryRequestOptions**.
+Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)o controlo é **$top** e faz parte das **Opções DeryRequestOptions**.
 
 O controlo _mais restritivo_ vencerá. Por exemplo, se a sua consulta utilizar os operadores **superiores** ou **limitos** e resultar em mais registos do que **o First,** os registos máximos devolvidos seriam iguais ao **First**. Da mesma forma, se **o topo** ou **o limite** for menor do que **o Primeiro,** o recorde devolvido seria o valor mais pequeno configurado por **cima** ou **por limite**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)o controlo é **$skip** e faz parte das **Opções DeryRequestOptions**.
+Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)o controlo é **$skip** e faz parte das **Opções DeryRequestOptions**.
 
 ## <a name="paging-results"></a>Resultados de paginação
 
-Quando for necessário quebrar um resultado definido em conjuntos menores de registos para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. A [PER API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+Quando for necessário quebrar um resultado definido em conjuntos menores de registos para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. A [PER API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
  **QueryResponse** fornece valores que indicam que um conjunto de resultados foi quebrado: **resultados $skipToken** e **$skipToken**. **resultadoTruncado** é um valor booleano que informa o consumidor se houver registos adicionais não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **de contagem** é inferior à propriedade **TotalRecords.** **totalRecords** define quantos registos correspondem à consulta.
 
  **resultadoSTruncado** é **verdadeiro** quando ou a paging é desativada ou não é possível porque nenhuma `id` coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **o resultado É** **verdade,** a **propriedade $skipToken** não está definida.
@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > A consulta deve **projetar** o campo **de identificação** para que a paginação funcione. Se faltar da consulta, a resposta não incluirá o **$skipToken.**
 
-Por exemplo, consulte [a consulta de página seguinte](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) nos docs REST API.
+Por exemplo, consulte [a consulta de página seguinte](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query) nos docs REST API.
 
 ## <a name="formatting-results"></a>Resultados de formatação
 

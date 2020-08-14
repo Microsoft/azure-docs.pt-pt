@@ -3,13 +3,14 @@ title: Utilize funções Azure para executar uma tarefa de limpeza de bases de d
 description: Utilize funções Azure para agendar uma tarefa que se conecta à Base de Dados Azure SQL para limpar periodicamente as linhas.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/02/2019
-ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506082"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207259"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma Base de Dados Azure SQL
 
@@ -122,7 +123,7 @@ Agora, pode adicionar o código de função C# que se conecta à sua Base de Dad
 
 Se pretender [publicar esta função,](functions-develop-vs.md#publish-to-azure)lembre-se de alterar o `TimerTrigger` atributo para um cron [mais](functions-bindings-timer.md#ncrontab-expressions) razoável do que a cada 15 segundos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, aprenda a usar. Funções com Aplicações Lógicas para integrar com outros serviços.
 

@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Saiba como o Visual Studio Code e o Azure Dev Spaces o ajudam a depurar e a iterar rapidamente as suas aplicações Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307355"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209885"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como o Código do Estúdio Visual funciona com a Azure Dev Spaces
 
@@ -43,19 +43,15 @@ Para projetos .NET Core, tem de ter a [extensão C#][csharp-extension] instalada
 
 Depois de lançar o seu projeto, pode desordiá-lo aos seus serviços Java, Node.js e .NET Core em execução num espaço dev diretamente do Código do Estúdio Visual. A configuração de lançamento no `.vscode` diretório fornece a informação adicional de depuragem para executar um serviço com depuragem ativada num espaço dev. O Código do Estúdio Visual também se liga ao processo de depuração no recipiente de funcionamento nos seus espaços de dev, permitindo-lhe definir pontos de rutura, inspecionar variáveis e realizar outras operações de depuração.
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Use código de estúdio visual com espaços Azure Dev
+## <a name="next-steps"></a>Passos seguintes
 
-Pode ver o Código do Estúdio Visual e a extensão Azure Dev Spaces trabalhando com Azure Dev Spaces nos seguintes quickstarts:
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
-* [Iterada e depurada rapidamente com Visual Studio Code e Java][quickstart-java]
-* [Iterada e depurada rapidamente com Visual Studio Code e .NET][quickstart-netcore]
-* [Iterada e depurada rapidamente com Código de Estúdio Visual e Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [Como funciona o Azure Dev Spaces](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

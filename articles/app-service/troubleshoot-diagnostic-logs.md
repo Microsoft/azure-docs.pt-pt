@@ -4,13 +4,13 @@ description: Saiba como ativar a registo de diagnóstico e adicionar instrumenta
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261346"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207525"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -62,7 +62,7 @@ Selecione o **Nível**, ou o nível de detalhes para registar. A tabela a seguir
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhuma |
+|**Desativado** | Nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informação, Aviso, Erro, Crítico|
@@ -159,8 +159,8 @@ Se configurar a opção Azure Storage blobs para um tipo de registo, precisa de 
 
 Para registos armazenados no sistema de ficheiros Do Serviço de Aplicações, a forma mais fácil é descarregar o ficheiro ZIP no navegador em:
 
-- Aplicativos Linux/contentor:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Aplicativos windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Aplicativos Linux/contentor: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplicativos windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída da consola tanto para o anfitrião do estivador como para o recipiente do estivador. Para uma aplicação de escala, o ficheiro ZIP contém um conjunto de registos para cada instância. No sistema de ficheiros Do Serviço de Aplicações, estes ficheiros de registo são o conteúdo do diretório */home/LogFiles.*
 
@@ -196,7 +196,7 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 | AppServiceIPSecAuditLogs  | Sim | Sim | Pedidos de Regras de IP |
 | AppServicePlatformLogs  | TBA | Sim | Troncos de contentores |
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
 * [Como monitorizar o Serviço de Aplicações Azure](web-sites-monitor.md)
 * [Serviço de aplicações Azure em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)

@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078398"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208021"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -247,7 +247,7 @@ Embora o Serviço de Aplicações cuide do caso de autorização mais simples (o
 
 ### <a name="server-level-windows-apps-only"></a>Nível de servidor (apenas aplicações do Windows)
 
-Para qualquer aplicação do Windows, pode definir o comportamento de autorização do servidor web IIS, editando o ficheiro *Web.config.* As aplicações Linux não usam IIS e não podem ser configuradas através *deWeb.config*.
+Para qualquer aplicação do Windows, pode definir o comportamento de autorização do servidor web IIS, editando o ficheiro *Web.config.* As aplicações Linux não usam IIS e não podem ser configuradas através * deWeb.config*.
 
 1. Navegue para `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
@@ -297,6 +297,9 @@ As definições de auth podem ser configuradas opcionalmente através de um fich
     1.  Definido `enabled` para "verdadeiro"
     2.  Definido `isAuthFromFile` para "verdadeiro"
     3.  Definir `authFilePath` o nome do ficheiro (por exemplo, "auth.jsligado")
+
+> [!NOTE]
+> O formato para `authFilePath` varia entre plataformas. No Windows, os caminhos relativos e absolutos são suportados. O parente é recomendado. Para o Linux, apenas os caminhos absolutos são suportados atualmente, pelo que o valor da definição deve ser "/home/site/wwwroot/auth.json" ou similar.
 
 Uma vez então então então a atualização de configuração, o conteúdo do ficheiro será utilizado para definir o comportamento da Autenticação/Autorização do Serviço de Aplicações para esse site. Se alguma vez desejar voltar à configuração do Gestor de Recursos Azure, pode fazê-lo `isAuthFromFile` definindo de volta para "falso".
 

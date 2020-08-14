@@ -1,18 +1,18 @@
 ---
 title: Ligue as máquinas híbridas ao Azure à escala
-description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando o Azure Arc para servidores (pré-visualização) utilizando um principal de serviço.
+description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados (pré-visualização) do Azure Arc utilizando um principal de serviço.
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f599ae6bab8a2b1ce442df677ba5de206d11ab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121821"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211400"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ligue as máquinas híbridas ao Azure à escala
 
-Pode ativar o Azure Arc para servidores (pré-visualização) para várias máquinas Windows ou Linux no seu ambiente com várias opções flexíveis dependendo dos seus requisitos. Utilizando o script do modelo que fornecemos, pode automatizar cada passo da instalação, incluindo estabelecer a ligação ao Arco Azure. No entanto, é-lhe exigido que execute interativamente este script com uma conta que tenha permissões elevadas na máquina-alvo e no Azure. Para ligar as máquinas ao Azure Arc para servidores, pode utilizar um diretor de [serviço](../../active-directory/develop/app-objects-and-service-principals.md) Azure Ative Directory em vez de utilizar a sua identidade privilegiada para [ligar interativamente a máquina](onboard-portal.md). Um diretor de serviço é uma identidade de gestão limitada especial que só é concedida a permissão mínima necessária para ligar máquinas a Azure usando o `azcmagent` comando. Isto é mais seguro do que usar uma conta privilegiada mais alta como um Administrador de Inquilino, e segue as nossas melhores práticas de segurança de controlo de acesso. O principal de serviço é utilizado apenas durante o embarque, não é utilizado para qualquer outro fim.  
+Pode ativar servidores ativados (pré-visualização) do Azure Arc para várias máquinas Windows ou Linux no seu ambiente com várias opções flexíveis dependendo dos seus requisitos. Utilizando o script do modelo que fornecemos, pode automatizar cada passo da instalação, incluindo estabelecer a ligação ao Arco Azure. No entanto, é-lhe exigido que execute interativamente este script com uma conta que tenha permissões elevadas na máquina-alvo e no Azure. Para ligar as máquinas aos servidores ativados do Azure Arc (pré-visualização), pode utilizar um diretor de [serviço](../../active-directory/develop/app-objects-and-service-principals.md) Azure Ative Directory em vez de utilizar a sua identidade privilegiada para [ligar interativamente a máquina](onboard-portal.md). Um diretor de serviço é uma identidade de gestão limitada especial que só é concedida a permissão mínima necessária para ligar máquinas a Azure usando o `azcmagent` comando. Isto é mais seguro do que usar uma conta privilegiada mais alta como um Administrador de Inquilino, e segue as nossas melhores práticas de segurança de controlo de acesso. O principal de serviço é utilizado apenas durante o embarque, não é utilizado para qualquer outro fim.  
 
 Os métodos de instalação para instalar e configurar o agente máquina conectado requer que o método automatizado que utiliza tenha permissões de administrador nas máquinas. No Linux, utilizando a conta raiz e no Windows, como membro do grupo de Administradores Locais.
 
@@ -20,7 +20,7 @@ Antes de começar, certifique-se de rever os [pré-requisitos](agent-overview.md
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-No final deste processo, terá ligado com sucesso as suas máquinas híbridas ao Azure Arc para servidores.
+No final deste processo, terá ligado com sucesso as suas máquinas híbridas aos servidores ativados do Azure Arc (pré-visualização).
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Criar um diretor de serviço para o embarque à escala
 
@@ -61,7 +61,7 @@ Para criar o principal de serviço utilizando o PowerShell, execute o seguinte.
 Os valores das seguintes propriedades são utilizados com parâmetros passados `azcmagent` para:
 
 * O valor da propriedade **ApplicationId** é usado para o valor do `--service-principal-id` parâmetro
-* O valor da propriedade da **palavra-passe** é usado para o `--service-principal-secret` parâmetro utilizado para ligar o agente.
+* O valor da propriedade da **palavra-passe** é usado para o  `--service-principal-secret` parâmetro utilizado para ligar o agente.
 
 > [!NOTE]
 > Certifique-se de usar a propriedade principal do **serviço ApplicationId,** não a propriedade **ID.**
@@ -75,11 +75,11 @@ Os passos seguintes instalam e configuram o agente da Máquina Conectada nas sua
 
 Seguem-se as definições que configura o `azcmagent` comando a utilizar para o principal de serviço.
 
-* `tenant-id`: O identificador único (GUID) que representa o seu exemplo dedicado de Azure AD.
-* `subscription-id`: O ID de subscrição (GUID) da sua assinatura Azure em que pretende que as máquinas entrem.
-* `resource-group`: O nome do grupo de recursos onde pretende que as suas máquinas ligadas pertençam.
+* `tenant-id` : O identificador único (GUID) que representa o seu exemplo dedicado de Azure AD.
+* `subscription-id` : O ID de subscrição (GUID) da sua assinatura Azure em que pretende que as máquinas entrem.
+* `resource-group` : O nome do grupo de recursos onde pretende que as suas máquinas ligadas pertençam.
 * `location`: Ver [regiões de Azure apoiadas.](overview.md#supported-regions) Esta localização pode ser a mesma ou diferente, como a localização do grupo de recursos.
-* `resource-name`: (*Opcional*) Utilizado para a representação de recursos Azure da sua máquina no local. Se não especificar este valor, utiliza-se o nome de anfitrião da máquina.
+* `resource-name` : (*Opcional*) Utilizado para a representação de recursos Azure da sua máquina no local. Se não especificar este valor, utiliza-se o nome de anfitrião da máquina.
 
 Pode saber mais sobre a `azcmagent` ferramenta da linha de comando, revendo a Referência [Azcmagent](./manage-agent.md).
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
-Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc (pré-visualização), vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

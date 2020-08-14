@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727675"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209466"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory
 
@@ -130,7 +130,7 @@ Pode utilizar um script PowerShell para verificar se os utilizadores têm uma li
 
 1. Passe o `connect-msolservice` cmdlet para autenticar e conecte-se à sua organização.
 
-2. `Get-MsolAccountSku`pode ser usado para descobrir todas as licenças de produtos aprovisionadas na organização AZure AD.
+2. `Get-MsolAccountSku` pode ser usado para descobrir todas as licenças de produtos aprovisionadas na organização AZure AD.
 
    ![Screenshot do cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -205,7 +205,7 @@ Se você usar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se
 
 - O licenciamento baseado em grupo não suporta, atualmente, grupos que contêm outros grupos (grupos aninhados). Se aplicar uma licença a um grupo aninhado, apenas os membros utilizadores de primeiro nível do grupo têm as licenças aplicadas.
 
-- A funcionalidade só pode ser utilizada com grupos de segurança e grupos do Office 365 que têm securityEnabled=TRUE.
+- A funcionalidade só pode ser utilizada com grupos de segurança e grupos Microsoft 365 que possuem securityEnabled=TRUE.
 
 - O [centro de administração Microsoft 365](https://admin.microsoft.com) não suporta atualmente o licenciamento baseado em grupo. Se um utilizador herdar uma licença de um grupo, esta licença aparece no portal de administração do Office como uma licença de utilizador regular. Se tentar modificar essa licença ou tentar remover a licença, o portal devolve uma mensagem de erro. As licenças de grupo herdadas não podem ser modificadas diretamente num utilizador.
 
@@ -219,7 +219,7 @@ Se você usar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se
 
   Como uma solução alternativa a este tipo de limitações, pode ir à lâmina do **Grupo** em Ad AZure e clicar em **Reprocessamento**. Este comando processa todos os utilizadores desse grupo e resolve os estados de erro, se possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 

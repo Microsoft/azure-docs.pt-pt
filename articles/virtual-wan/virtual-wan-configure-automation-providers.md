@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual WAN parceiros de automação diretrizes de automação / Microsoft Docs
-description: Este artigo ajuda os parceiros a criar a automação Azure Virtual WAN.
+description: Crie um ambiente de automatização para ligar e configurar um VPN ou SD-WAN CPE, ou dispositivo de ramificação, para a Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565962"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208350"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros Virtuais WAN
 
@@ -223,7 +223,7 @@ O seu dispositivo SDWAN/VPN no local ou a configuração SD-WAN devem coincidir 
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o WAN Virtual, consulte [About Azure Virtual WAN](virtual-wan-about.md) e o [Azure Virtual WAN FAQ](virtual-wan-faq.md).
 

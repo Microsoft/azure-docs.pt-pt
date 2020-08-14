@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836620"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210395"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 O Armazenamento do Microsoft Azure implementou a mesma funcionalidade que lhe permite limitar a conectividade à conta do Armazenamento do Microsoft Azure. Se optar por utilizar esta funcionalidade com uma conta do Armazenamento do Microsoft Azure que está a ser utilizada pela Base de Dados SQL do Azure, poderão ocorrer problemas. Segue-se uma lista e discussão das funcionalidades Azure SQL Data Warehouse e Azure SQL Data Warehouse que são impactadas por isso.
 
-### <a name="azure-synapse-polybase"></a>Azure Synapse PolyBase
+### <a name="azure-synapse-polybase-and-copy-statement"></a>Declaração de Azure Synapse PolyBase e COPY
 
-PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados de limites de acesso apenas a um conjunto de sub-redes VNet, a conectividade da PolyBase para a Conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com a Azure Synapse Analytics conectando-se ao Azure Storage que está seguro à VNet, siga os passos indicados abaixo:
+A PolyBase e a declaração COPY são comumente usadas para carregar dados em Azure Synapse Analytics a partir de Azure Storage contas para ingestão de dados de produção elevada. Se a conta de Armazenamento Azure que está a carregar dados de limites de acesso apenas a um conjunto de sub-redes VNet, a conectividade ao utilizar o PolyBase e a declaração COPY para a conta de armazenamento quebrará. Para permitir cenários de importação e exportação utilizando COPY e PolyBase com Azure Synapse Analytics conectando-se ao Azure Storage que está seguro ao VNet, siga os passos indicados abaixo:
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
 - Siga este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps) para instalar o Azure PowerShell.
 - Se tiver uma conta de armazenamento de blobs ou fins gerais v1, terá primeiro de atualizar para a conta fins gerais v2. Para tal, siga este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Para obter mais informações, veja este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Ativar esta configuração permitirá que a PolyBase e a declaração COPY se conectem à conta de armazenamento utilizando uma autenticação forte onde o tráfego de rede permanece na espinha dorsal do Azure. Para obter mais informações, veja este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 436b3d7005750c4f80e7bdd50449e36e11cee882
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799858"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Diretório Ativo Azure com Insignia SAML SSO
 
@@ -113,10 +113,10 @@ Para configurar o Azure AD com insignia SAML SSO, execute os seguintes passos:
     https://<customername>.insigniailsusa.com/
     ```
     
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<customername>.insigniailsusa.com/<uniqueid>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD com insignia SAML SSO, execute os seguintes passos:
 
 ### <a name="configure-insignia-saml-sso-single-sign-on"></a>Configurar Insignia SAML SSO Single Sign-On
 
-Para configurar um único sign-on no lado **SSO da Insignia SAML,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **SSO da Insignia SAML,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -189,7 +189,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, p
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Criar insignia SAML SSO utilizador de teste
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Insignia SAML SSO. Trabalhe com a [equipa de suporte da Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os utilizadores na plataforma Insignia SAML SSO. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Insignia SAML SSO. Trabalhe com a [equipa de suporte da Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os utilizadores na plataforma Insignia SAML SSO. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

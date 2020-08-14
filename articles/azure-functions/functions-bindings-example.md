@@ -3,14 +3,15 @@ title: Exemplo de acionadores e de enlaces das Funções do Azure
 description: Aprenda a configurar encadernações de funções Azure
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74227247"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205973"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de acionadores e de enlaces das Funções do Azure
 
@@ -52,7 +53,7 @@ Para visualizar e editar os conteúdos de *function.jsno* portal Azure, clique n
 
 ## <a name="c-script-example"></a>Exemplo de script C#
 
-Aqui está o código de script C# que funciona com este gatilho e ligação. Note que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order` ; este nome é necessário porque o valor da propriedade emfunction.js`name` *em* é`order` 
+Aqui está o código de script C# que funciona com este gatilho e ligação. Note que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order` ; este nome é necessário porque o valor da propriedade emfunction.js`name` * em* é `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -132,7 +133,7 @@ public class Person
 
 Tem agora uma função de funcionamento que é desencadeada por uma Fila Azure e produz dados para o armazenamento da Tabela Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Padrões de expressão de ligação Azure Functions](./functions-bindings-expressions-patterns.md)

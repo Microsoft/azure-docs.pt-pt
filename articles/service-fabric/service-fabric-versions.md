@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 728d7403ee8e0ac9ccbd69260a718c65389adc43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9a2278769d75de19a3006e3a9f39b424dbc02b1f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433193"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205902"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado
 
@@ -39,13 +39,14 @@ A tabela que se segue lista as versões do Service Fabric e as datas finais de s
 | 6.3.* | 6.1.480.* |Menos ou igual à versão 3.2 |31 de março de 2019  |
 | 6.4.* | 6.2.301.* |Menos ou igual à versão 3.3 |15 de setembro de 2019 |
 | 6.5.* | 6.4.617.* |Menos ou igual à versão 3.4 |1 de agosto de 2020 |
-| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|1 de agosto de 2020  |
-| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de agosto de 2020 |
-| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
-| 7.0.472.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
+| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|1 de novembro de 2020  |
+| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de novembro de 2020 |
+| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de novembro de 2020  |
+| 7.0.472.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de novembro de 2020  |
 | 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 | 7.1.417.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 | 7.1.428.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
+| 7.1.456.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -117,4 +118,5 @@ A tabela que se segue lista os nomes da versão do Service Fabric e os respetivo
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+| 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 

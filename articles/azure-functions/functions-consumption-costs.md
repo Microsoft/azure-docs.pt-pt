@@ -3,12 +3,12 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083043"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207763"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
@@ -36,6 +36,8 @@ Uma vez que o uso da memória muda ao longo do tempo, o cálculo é essencialmen
 
 > [!NOTE]
 > Embora o uso do CPU não seja considerado diretamente no custo de execução, pode ter um impacto no custo quando afeta o tempo de execução da função.
+
+Para uma função desencadeada por HTTP, quando ocorre um erro antes do seu código de função começar a executar, não é cobrado para uma execução. Isto significa que 401 respostas da plataforma devido à validação da chave API ou à funcionalidade de Autenticação/Autorização do Serviço de Aplicações não contam com o custo de execução. Da mesma forma, as respostas do código de estado 5xx não são contadas quando ocorrem na plataforma antes de uma função de processamento do pedido. Uma resposta de 5xx gerada pela plataforma após o início do seu código de função ainda é contada como uma execução, mesmo que o erro não seja levantado pelo seu código de função.
 
 ## <a name="other-related-costs"></a>Outros custos relacionados
 
@@ -69,7 +71,7 @@ Para entender melhor o impacto de custos das suas funções, pode utilizar o Azu
 
 Utilize [o explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) para visualizar dados relacionados com o custo para as aplicações de função do seu plano de consumo num formato gráfico. 
 
-1. No topo do [portal Azure] em **serviços de pesquisa, recursos e docs** procure `monitor` e selecione **Monitor** em **Serviços**.
+1. No topo do [portal Azure] em **serviços de pesquisa, recursos e docs**  procure `monitor` e selecione **Monitor** em **Serviços**.
 
 1. À esquerda, selecione **Métricas**  >  **Selecione um recurso**e, em seguida, use as definições abaixo da imagem para escolher a sua aplicação de função.
 

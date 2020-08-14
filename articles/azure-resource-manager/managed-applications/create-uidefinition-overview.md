@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 4ee489e8b596adf0767856e3358c9bdcb17fbb6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004375"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210970"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para experiência de criação de aplicação gerida do Azure
 
@@ -77,49 +77,56 @@ O exemplo a seguir mostra uma caixa de texto que foi adicionada aos elementos pr
 Especifica o elemento config quando precisa de anular o comportamento predefinido para os passos básicos. O exemplo a seguir mostra as propriedades disponíveis.
 
 ```json
-"config": {  
-    "basics": {  
-        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
-        "subscription": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
-                    },
+"config": {
+    "basics": {
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
-                    }
-                ]
-            },
-            "resourceProviders": [ "<Resource Provider>" ]
-        },
-        "resourceGroup": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
-                    }
-                ]
-            },
-            "allowExisting": true
-        },
-        "location": {  
-            "label": "Custom label for location",  
-            "toolTip": "provide a useful tooltip",  
-            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
-            "allowedValues": [ "eastus", "westus2" ],  
-            "visible": true  
-        }  
-    }  
-},  
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [
+                "<Resource Provider>"
+            ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {
+            "label": "Custom label for location",
+            "toolTip": "provide a useful tooltip",
+            "resourceTypes": [
+                "Microsoft.Compute/virtualMachines"
+            ],
+            "allowedValues": [
+                "eastus",
+                "westus2"
+            ],
+            "visible": true
+        }
+    }
+},
 ```
 
 Para `description` , forneça uma cadeia ativada por marcação que descreva o seu recurso. O formato multi-linha e as ligações são suportadas.
 
-Para `location` , especificar as propriedades para o controlo de localização que deseja anular. Quaisquer propriedades não ultrapassadas são definidas para os seus valores padrão. `resourceTypes`aceita uma série de cordas que contenham nomes de tipo de recurso totalmente qualificados. As opções de localização são restritas apenas a regiões que suportam os tipos de recursos.  `allowedValues`   aceita uma variedade de cordas da região. Apenas essas regiões aparecem no recuo.Pode definir os dois `allowedValues`    `resourceTypes` e. O resultado é a intersecção de ambas as listas. Por último, a `visible` propriedade pode ser usada para desativar condicional ou completamente a localização.  
+Para `location` , especificar as propriedades para o controlo de localização que deseja anular. Quaisquer propriedades não ultrapassadas são definidas para os seus valores padrão. `resourceTypes` aceita uma série de cordas que contenham nomes de tipo de recurso totalmente qualificados. As opções de localização são restritas apenas a regiões que suportam os tipos de recursos.  `allowedValues`   aceita uma variedade de cordas da região. Apenas essas regiões aparecem no recuo.Pode definir os dois `allowedValues`    `resourceTypes` e. O resultado é a intersecção de ambas as listas. Por último, a `visible` propriedade pode ser usada para desativar condicional ou completamente a localização.  
 
 Os `subscription` `resourceGroup` elementos e elementos permitem especificar validações adicionais. A sintaxe para especificar validações é idêntica à validação personalizada para [caixa de texto](microsoft-common-textbox.md). Também pode especificar `permission` validações no grupo de subscrição ou recursos.  
 

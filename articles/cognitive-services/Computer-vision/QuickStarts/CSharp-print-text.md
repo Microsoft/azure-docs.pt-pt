@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Extrair texto com o OCR DE Visão Computacional REST API e C #'
+title: 'Quickstart: Extrair texto utilizando a operação OCR API 2.0 REST E C #'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, extrai texto de uma imagem utilizando a operação OCR API API de Visão de Computador com C#.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ecc0ddbfa48669cad7f486e181fcdb6dbc80851e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4306b82793dd62765c07dfa808add4e16dc06be5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167798"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209181"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-ocr-rest-api-and-c"></a>Quickstart: Extrair texto utilizando a API E C de OCR de Visão Computacional #
+# <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Quickstart: Extrair texto utilizando a operação OCR API 2.0 REST E C #
 
 > [!IMPORTANT]
 > Se estiver a extrair texto em inglês, holandês, francês, alemão, italiano, português, espanhol ou chinês simplificado (pré-visualização), recomendamos que utilize a [nova operação Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Está disponível um [arranque rápido C#.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) 

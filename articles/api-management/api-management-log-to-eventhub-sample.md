@@ -12,15 +12,16 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254593"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205505"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorize as suas APIs com Azure API Management, Event Hubs e Moesif
 O [serviço de Gestão API](api-management-key-concepts.md) oferece muitas capacidades para melhorar o processamento de pedidos HTTP enviados para a sua API HTTP. No entanto, a existência dos pedidos e respostas é transitória. O pedido é feito e flui através do serviço de Gestão da API para a sua API backend. A sua API processa o pedido e uma resposta flui para o consumidor da API. O serviço de Gestão da API mantém algumas estatísticas importantes sobre as APIs para exibição no painel do portal Azure, mas além disso, os detalhes desapareceram.
@@ -163,7 +164,7 @@ A `set-variable` política cria um valor acessível tanto pela política na sec�
 Os eventos do Azure Event Hub são recebidos usando o [protocolo AMQP](https://www.amqp.org/). A equipa da Microsoft Service Bus disponibilizou bibliotecas de clientes para facilitar os eventos de consumo. Há duas abordagens diferentes apoiadas, uma é ser *um Consumidor Direto* e a outra está a usar a `EventProcessorHost` classe. Exemplos destas duas abordagens podem ser encontrados no Guia de Programação de [Centros de Eventos.](../event-hubs/event-hubs-programming-guide.md) A versão curta das diferenças é, `Direct Consumer` dá-lhe controlo total e `EventProcessorHost` faz alguns dos trabalhos de canalização para si, mas faz certos pressupostos sobre como processa esses eventos.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-Nesta amostra, usamos a `EventProcessorHost` simplicidade, no entanto pode não ser a melhor escolha para este cenário em particular. `EventProcessorHost`faz o trabalho árduo de garantir que não tem que se preocupar com problemas de roscar dentro de uma determinada classe de processador de eventos. No entanto, no nosso cenário, estamos simplesmente a converter a mensagem para outro formato e a passá-la para outro serviço usando um método async. Não há necessidade de atualizar o estado partilhado e, por conseguinte, não existe qualquer risco de problemas de rosca. Para a maioria dos cenários, `EventProcessorHost` é provavelmente a melhor escolha e é certamente a opção mais fácil.
+Nesta amostra, usamos a `EventProcessorHost` simplicidade, no entanto pode não ser a melhor escolha para este cenário em particular. `EventProcessorHost` faz o trabalho árduo de garantir que não tem que se preocupar com problemas de roscar dentro de uma determinada classe de processador de eventos. No entanto, no nosso cenário, estamos simplesmente a converter a mensagem para outro formato e a passá-la para outro serviço usando um método async. Não há necessidade de atualizar o estado partilhado e, por conseguinte, não existe qualquer risco de problemas de rosca. Para a maioria dos cenários, `EventProcessorHost` é provavelmente a melhor escolha e é certamente a opção mais fácil.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
 O conceito central ao utilizar `EventProcessorHost` é criar uma implementação da `IEventProcessor` interface, que contém o `ProcessEventAsync` método. A essência deste método é mostrada aqui:

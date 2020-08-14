@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes (FAQ)
+title: Perguntas Mais Frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498462"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210509"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -192,7 +192,7 @@ Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
-Yes. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
+Sim. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
 
 **Posso criar alertas métricos numa base de dados em casos geridos?**
 
@@ -214,7 +214,7 @@ Sim, pode comprar armazenamento de complemento, independentemente do cálculo, a
 
 **Como posso otimizar o meu desempenho de armazenamento no nível de serviço de Finalidade Geral?**
 
-Para otimizar o desempenho do armazenamento, consulte [as melhores práticas de armazenamento em Finalidade Geral](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+Para otimizar o desempenho do armazenamento, consulte [as melhores práticas de armazenamento em Finalidade Geral](https://techcommunity.microsoft.com).
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -251,11 +251,11 @@ Isto é para garantir um fluxo ininterrupto do tráfego de gestão, a fim de cum
 
 **Posso obter os intervalos ip de origem que são usados para o tráfego de gestão de entrada?**
 
-Yes. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir o NSG para controlar o acesso ao ponto final de dados (porta 1433)?**
 
-Yes. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
+Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
@@ -266,7 +266,7 @@ Não. Isto não é apoiado por várias razões:
 
 **Posso definir o NVA ou firewall para o tráfego de não gestão de saída?**
 
-Yes. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
+Sim. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
  
 **Quantos endereços IP preciso para uma Instância Gerida?**
 
@@ -313,7 +313,7 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Yes. A Managed Instance tem um ponto final público que é por padrão usado apenas para a gestão de serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para a gestão de serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
@@ -323,7 +323,7 @@ Os serviços de gestão e implantação conectam-se a uma instância gerida util
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
-Yes. O cliente terá de permitir o acesso de dados de ponto final público a partir do [Portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [Portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para o ponto final de dados SQL?**
 
@@ -353,7 +353,7 @@ Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos client
 
 **Posso configurar um DNS personalizado para sql Managed Instance?**
 
-Yes. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Posso refrescar o DNS?**
 

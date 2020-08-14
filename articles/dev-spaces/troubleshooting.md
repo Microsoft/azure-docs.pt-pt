@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077038"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210831"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -55,8 +55,6 @@ Se não tiver o CLI dos Espaços Azure Dev instalado, pode primeiro instalá-lo 
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Recriar o controlador pode ser feito a partir do CLI ou do Visual Studio. Consulte o desenvolvimento da [Equipa](quickstart-team-development.md) ou [desenvolva com .NET Core](quickstart-netcore-visualstudio.md) quickstarts por exemplo.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Controlador criar falha por causa do comprimento do nome do controlador
 
@@ -432,9 +430,9 @@ Para corrigir este problema, feche e reabra o Código do Estúdio Visual. Reinic
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro "Relógio interno falhou: assista ENOSPC" ao anexar a depuragem a uma aplicação Node.js
 
-Este erro ocorre quando o nó que executa o pod com a aplicação Node.js a que está a tentar anexar com um depurador excedeu o valor *fs.inotify.max_user_watches.* Em alguns casos, [o valor predefinido de *fs.inotify.max_user_watches* pode ser demasiado pequeno para manusear fixando um depurador diretamente a uma cápsula](https://github.com/Azure/AKS/issues/772).
+Este erro ocorre quando o nó que executa o pod com a aplicação Node.js a que está a tentar anexar com um depurado excedeu o valor *fs.inotify.max_user_watches.* Em alguns casos, [o valor predefinido de *fs.inotify.max_user_watches* pode ser demasiado pequeno para manusear a fixação de um depurante diretamente a uma cápsula](https://github.com/Azure/AKS/issues/772).
 
-Uma solução temporária para esta edição é aumentar o valor de *fs.inotify.max_user_watches* em cada nó no cluster e reiniciar esse nó para que as alterações produzam efeitos.
+Uma solução temporária para esta questão consiste em aumentar o valor de *fs.inotify.max_user_watches* em cada nó do cluster e reiniciar esse nó para que as alterações entrem em vigor.
 
 ## <a name="other-common-issues"></a>Outros problemas comuns
 
@@ -545,7 +543,7 @@ Para resolver este problema:
 1. Se o recipiente estiver em fase de construção/implantação, pode esperar 2-3 segundos e tentar aceder novamente ao serviço. 
 1. Verifique a configuração da porta nos seguintes ativos:
     * ** [Gráfico de leme](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em valores.yaml andaimes por `azds prep` comando.
-    * Quaisquer portas abertas no código de aplicação, por exemplo em Node.js:`var server = app.listen(80, function () {...}`
+    * Quaisquer portas abertas no código de aplicação, por exemplo em Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>O nome ou nome "MyLibrary" não foi encontrado
 

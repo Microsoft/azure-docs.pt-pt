@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: e28ca06c5d1f1a71daa9b64c9d7dc2bee37fd7c6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010881"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205383"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Cache Azure para redis gestão FAQs
 Este artigo fornece respostas a perguntas comuns sobre como gerir a Cache Azure para Redis.

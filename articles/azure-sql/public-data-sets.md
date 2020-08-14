@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 6e38be4a97678ce749e32ca31c0703ed9d786d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046769"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209539"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para testes e prototipagem
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -33,7 +33,7 @@ Consulte esta lista de conjuntos de dados públicos para obter dados que pode ut
 | [Atrasos nos voos das companhias aéreas e outros dados de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "O Departamento de Estatísticas dos Transportes (DOT) do Departamento de Transportes dos Estados Unidos (BTS) acompanha o desempenho atemal dos voos domésticos operados por grandes transportadoras aéreas. Informações sumárias sobre o número de voos on-time, atrasados, cancelados e desviados aparecem... em tabelas sumárias publicadas neste site." | Os ficheiros estão no formato CSV. |
 | [Mortes no tráfego - Sistema de Reporte de Análise de Fatalidade dos EUA (FARS)](https://www.nhtsa.gov/FARS) | "Fars é um recenseamento nacional que fornece nhTSA, Congresso, e o público americano dados anual sobre ferimentos fatais sofridos em acidentes de tráfego de veículos automóveis." | "Crie os seus próprios dados de fatalidade executados online utilizando o Sistema de Consulta FARS. Ou descarregue todos os dados fars de 1975 para apresentar a partir do Site FTP." |
 | [Dados químicos tóxicos - EPA Toxicity ForeCaster (ToxCast) &trade;](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "Os dados de toxicidade de alta produção mais atualizados e publicamente disponíveis da EPA sobre milhares de produtos químicos. Estes dados são gerados através do esforço de pesquisa toxCast da EPA." | Os conjuntos de dados estão disponíveis em vários formatos, incluindo folhas de cálculo, pacotes R e ficheiros de base de dados MySQL. |
-| [Dados químicos tóxicos - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "O desafio de dados tox21 de 2014 foi concebido para ajudar os cientistas a compreender o potencial dos químicos e compostos que estão a ser testados através da toxicologia na iniciativa do século XXI para interromper as vias biológicas de formas que possam resultar em efeitos tóxicos." | Os conjuntos de dados estão disponíveis nos formatos SMILES e SDF. Os dados fornecem "dados de atividade de ensaio e estruturas químicas na recolha tox21 de ~10.000 compostos (Tox21 10K)". |
+| [Dados químicos tóxicos - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21) | "O desafio de dados tox21 de 2014 foi concebido para ajudar os cientistas a compreender o potencial dos químicos e compostos que estão a ser testados através da toxicologia na iniciativa do século XXI para interromper as vias biológicas de formas que possam resultar em efeitos tóxicos." | Os conjuntos de dados estão disponíveis nos formatos SMILES e SDF. Os dados fornecem "dados de atividade de ensaio e estruturas químicas na recolha tox21 de ~10.000 compostos (Tox21 10K)". |
 | [Dados biotecnológicos e do genoma do NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Vários conjuntos de dados que cobrem genes, genomas e proteínas. | Os conjuntos de dados estão em texto, XML, BLAST e outros formatos. Está disponível um aplicativo BLAST. |
 
 ## <a name="other-statistical-and-scientific-data"></a>Outros dados estatísticos e científicos

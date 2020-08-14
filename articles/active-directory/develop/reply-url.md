@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033341"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205934"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -34,8 +34,8 @@ Esta tabela mostra o número máximo de URIs de redirecionamento que pode adicio
 
 | Contas a serem assinadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização | 256 | `signInAudience`campo no manifesto de aplicação é definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
-| Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience`campo no manifesto de aplicação é definido para *AzureADandPersonalMicrosoftAccount* |
+| Trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
+| Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Comprimento máximo de URI
 
@@ -51,7 +51,7 @@ Para adicionar URIs redirecionando com um esquema HTTP para registos de aplicaç
 
 Por [RFC 8252 secções 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" ou "localhost" redireccionamento URIs vêm com duas considerações especiais:
 
-1. `http`Os esquemas URI são aceitáveis porque o redirecionamento nunca sai do dispositivo. Como tal, ambas são aceitáveis:
+1. `http` Os esquemas URI são aceitáveis porque o redirecionamento nunca sai do dispositivo. Como tal, ambas são aceitáveis:
     - `http://127.0.0.1/myApp`
     - `https://127.0.0.1/myApp`
 1. Devido às gamas de portas efémeras frequentemente exigidas por aplicações nativas, o componente portuário (por exemplo, `:5001` ou ) é ignorado para efeitos de correspondência de um `:443` URI de redirecionamento. Como resultado, todos estes são considerados equivalentes:
@@ -62,9 +62,9 @@ Por [RFC 8252 secções 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) e 
 
 Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 
-1. Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja `web` -, `native` ou `spa` -type redirect).
-1. Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
-1. Por orientação RFC, não deve ser utilizado `localhost` no URI de redirecionamento. Em vez disso, utilize o endereço IP de retorno real, `127.0.0.1` . Isto impede que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas.
+* Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja `web` -, `native` ou `spa` -type redirect).
+* Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
+* Por orientação RFC, não deve ser utilizado `localhost` no URI de redirecionamento. Em vez disso, utilize o endereço IP de retorno real, `127.0.0.1` . Isto impede que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas.
 
     O endereço de backback IPv6 `[::1]` não está atualmente suportado.
 

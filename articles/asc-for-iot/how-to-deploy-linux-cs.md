@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 460e3f3955778945600bb3a1f9762a0ac50f5805
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311134"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205916"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar um agente de segurança baseado em C# do Centro de Segurança do Azure para IoT para o Linux
 
@@ -50,7 +51,7 @@ Para implantar o agente de segurança, utilize os seguintes passos:
 
 1. Extrair o conteúdo da embalagem e navegar para a pasta _/Instalar._
 
-1. Adicione permissões de execução ao **script InstallSecurityAgent** executando`chmod +x InstallSecurityAgent.sh`
+1. Adicione permissões de execução ao **script InstallSecurityAgent** executando `chmod +x InstallSecurityAgent.sh`
 
 1. Em seguida, executar o seguinte comando com **privilégios de raiz**:
 
@@ -72,7 +73,7 @@ Este script executa as seguintes ações:
 
 - Configura o agente com os parâmetros de autenticação fornecidos.
 
-Para obter ajuda adicional, execute o script com o parâmetro de ajuda:`./InstallSecurityAgent.sh --help`
+Para obter ajuda adicional, execute o script com o parâmetro de ajuda: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Desinstalar o agente
 
@@ -116,11 +117,11 @@ Para desinstalar o agente, execute o script com o parâmetro -u: `./InstallSecur
 
    1. Consulte o ficheiro de registo para obter mais informações sobre a falha.
 
-       A localização do ficheiro de registo é:`/var/ASCIoTAgent/IotAgentLog.log`
+       A localização do ficheiro de registo é: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Altere o caminho de localização do ficheiro de acordo com o nome que escolheu para o **logFilePath** no passo 2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia o Centro de Segurança Azure para o serviço IoT [Visão geral](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)

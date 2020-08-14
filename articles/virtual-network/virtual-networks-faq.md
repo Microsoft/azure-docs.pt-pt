@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924126"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205475"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -258,7 +258,7 @@ Os seguintes recursos podem utilizar balanceadores de carga básicos, o que sign
 - SQL MI
 - Gestão de API
 - Serviço de Domínio do Diretório Ativo (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -356,7 +356,7 @@ Não, não há custo adicional para a utilização de pontos finais de serviço 
 Sim, é possível. As redes virtuais e os recursos de serviço Azure podem estar nas mesmas subscrições ou diferentes. A única exigência é que tanto a rede virtual como os recursos de serviço da Azure devem estar sob o mesmo inquilino ative directory (AD).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Posso ligar os pontos finais de serviço VNet e configurar os VNet ACLs se a rede virtual e os recursos de serviço Azure pertencerem a diferentes inquilinos da AD?
-Não, os pontos finais de serviço VNet e VNet ACLs não são suportados em inquilinos AD.
+Sim, é possível quando se utilizam pontos finais de serviço para o Azure Storage e para o Azure Key Vault. Para o resto dos serviços, os pontos finais de serviço VNet e VNet ACLs não são suportados em inquilinos AD.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>O endereço IP de um dispositivo no local que está ligado através do Gateway da Rede Virtual Azure (VPN) ou do Gateway ExpressRoute pode aceder ao Serviço Azure PaaS através dos pontos finais do serviço VNet?
 Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais não são acessíveis a partir de redes no local. Se pretender permitir o tráfego a partir do local, também deve permitir endereços IP públicos (tipicamente, NAT) a partir das suas instalações ou ExpressRoute. Estes endereços IP podem ser adicionados através da configuração de firewall IP para os recursos de serviço Azure.

@@ -4,15 +4,16 @@ description: Saiba como migrar aplicações de Cache Geridas e Cache in-Role par
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/23/2020
 ms.author: yegu
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: beb6014a9b6d90d1bc9a3c3236877a720a44a0c4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008564"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211120"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Migrar do Serviço de Cache Gerido para Azure Cache para Redis (depreciado)
 A migração das suas aplicações que utilizam o Serviço de Cache Gerido Azure para Azure Cache para Redis pode ser realizada com alterações mínimas na sua aplicação, dependendo das funcionalidades do Serviço cache gerido utilizado pela sua aplicação de cache. Embora as APIs não sejam exatamente as mesmas, são semelhantes, e grande parte do seu código existente que utiliza o Serviço de Cache Gerido para aceder a uma cache pode ser reutilizado com alterações mínimas. Este artigo mostra como fazer as alterações de configuração e aplicação necessárias para migrar as suas aplicações do Serviço cache gerido para usar a Cache Azure para Redis, e mostra como algumas das funcionalidades do Azure Cache para Redis podem ser usadas para implementar a funcionalidade de uma cache do Serviço cache gerido.
@@ -166,7 +167,7 @@ int key2 = (int)cache.StringGet("key2");
 
 O cliente StackExchange.Redis utiliza os `RedisKey` e tipos para aceder e armazenar `RedisValue` itens na cache. Estes tipos mapeiam para a maioria dos tipos de linguagem primitiva, incluindo cordas, e muitas vezes não são usados diretamente. As Cordas Redis são o tipo mais básico de valor Redis, e podem conter muitos tipos de dados, incluindo fluxos binários serializados, e embora não possa utilizar o tipo diretamente, você usará métodos que contenham `String` o nome. Para a maioria dos tipos de dados primitivos, armazena e recupera itens da cache utilizando os `StringSet` métodos e `StringGet` métodos, a menos que esteja a armazenar coleções ou outros tipos de dados Redis na cache. 
 
-`StringSet`e `StringGet` são semelhantes ao Serviço de Cache Gerido `Put` e `Get` métodos, com uma grande diferença é que antes de definir e colocar um objeto .NET na cache deve serializá-lo primeiro. 
+`StringSet` e `StringGet` são semelhantes ao Serviço de Cache Gerido `Put` e `Get` métodos, com uma grande diferença é que antes de definir e colocar um objeto .NET na cache deve serializá-lo primeiro. 
 
 Ao `StringGet` ligar, se o objeto existir, é devolvido e, se não o fizer, o nulo é devolvido. Neste caso, pode recuperar o valor da fonte de dados desejada e armazená-lo na cache para posterior utilização. Este padrão é conhecido como o padrão de cache-aside.
 
