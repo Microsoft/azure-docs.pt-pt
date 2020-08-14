@@ -5,24 +5,6 @@
       items:
         - name: O que é o Azure Dev Spaces?
           href: about.md
-    - name: Guias de Início Rápido
-      items:
-        - name: Desenvolvimento em equipa
-          href: quickstart-team-development.md
-        - name: Depurar e iterar
-          items:
-            - name: Utilize o Visual Studio Code e Java
-              href: quickstart-java.md
-            - name: Utilize o Visual Studio Code e .NET Core
-              href: quickstart-netcore.md
-            - name: Utilize o Visual Studio Code e Node.js
-              href: quickstart-nodejs.md
-            - name: Utilize o Visual Studio e .NET Core
-              href: quickstart-netcore-visualstudio.md
-        - name: Desenvolver com a CLI
-          href: quickstart-cli.md
-        - name: Desenvolver com o gráfico existente do Helm
-          href: quickstart-existing-helm-chart.md
     - name: Tutoriais
       items:
         - name: Introdução ao Visual Studio

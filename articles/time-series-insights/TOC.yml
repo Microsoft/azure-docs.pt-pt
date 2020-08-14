@@ -6,7 +6,7 @@
       href: overview-what-is-tsi.md
     - name: Casos de utilização
       href: overview-use-cases.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Explorar o Time Series Insights Gen2
@@ -156,7 +156,7 @@
         - name: Data Access Gen1
           items:
             - name: Descrição geral
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1'
             - name: Consulta
               items:
                 - name: Consulta
