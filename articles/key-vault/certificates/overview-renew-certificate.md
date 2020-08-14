@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056283"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224565"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Sobre a renovação do certificado Azure Key Vault
 
@@ -59,9 +59,12 @@ Boas notícias de novo! A Azure Key Vaults também cuidará da renovação autom
 ### <a name="troubleshoot"></a>Resolução de problemas
 Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, consulte a Operação certificado para visualizar a mensagem de erro desse certificado.
 
-### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-As etiquetas serão replicadas após a renovação automática do certificado?
-Não, as etiquetas não se replicariam a menos que o utilizador copiasse manualmente as próprias etiquetas.
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
+* Como posso testar a característica de autorotação do certificado?
+  Crie um certificado com validade de 1 mês e, em seguida, desemalte a ação de tempo de vida para rotação em 1%. Esta definição rodará o certificado em 7,2 horas.
+  
+* As etiquetas serão replicadas após a renovação automática do certificado?
+  Não, as etiquetas não se replicariam a menos que o utilizador copiasse manualmente as próprias etiquetas.
 
 ### <a name="see-also"></a>Consulte também
 *   [Integrar o Key Vault com a Autoridade de Certificação DigiCert](how-to-integrate-certificate-authority.md)

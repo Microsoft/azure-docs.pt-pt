@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: fee1285cfb5faefbcb8f7151186d42725d34af0a
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80369228"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224514"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 
@@ -25,7 +25,24 @@ Estes ficheiros de cópia de segurança não são expostos ao utilizador e não 
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
-Normalmente, as cópias de segurança completas ocorrem semanalmente, as cópias de segurança diferenciais ocorrem duas vezes por dia e as cópias de segurança de registo de transações ocorrem a cada cinco minutos. A primeira cópia de segurança completa é programada imediatamente após a criação de um servidor. A cópia de segurança inicial pode demorar mais tempo num grande servidor restaurado. O ponto mais antigo no tempo para que um novo servidor possa ser restaurado é o momento em que a cópia de segurança inicial está completa.
+#### <a name="servers-with-up-to-4-tb-storage"></a>Servidores com armazenamento até 4-TB
+
+Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos.
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento até 16-TB
+Num subconjunto de [regiões Azure,](concepts-pricing-tiers.md#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança total do instantâneo é programada imediatamente após a criação de um servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança instantâneas subsequentes são apenas cópias de segurança diferenciais. 
+
+As cópias de segurança instantâneas diferenciais ocorrem pelo menos uma vez por dia. As cópias de segurança instantânea diferenciais não ocorrem num horário fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog in MariaDB) exceda 50-GB desde a última cópia de segurança diferencial. Em um dia, um máximo de seis instantâneos diferenciais são permitidos. 
+
+As cópias de segurança do registo de transações ocorrem a cada cinco minutos. 
+
+### <a name="backup-retention"></a>Retenção da cópia de segurança
+
+As cópias de segurança são mantidas com base na definição do período de retenção de cópias de segurança no servidor. Pode selecionar um período de retenção de 7 a 35 dias. O período de retenção por defeito é de 7 dias. Pode definir o período de retenção durante a criação do servidor ou posteriormente atualizando a configuração de backup utilizando o [portal Azure](howto-restore-server-portal.md#set-backup-configuration) ou [O Azure CLI](howto-restore-server-cli.md#set-backup-configuration). 
+
+O período de retenção de backups regula o quão longe no tempo um restauro de ponto no tempo pode ser recuperado, uma vez que é baseado em backups disponíveis. O período de retenção de backup também pode ser tratado como uma janela de recuperação de uma perspetiva de restauro. Todas as cópias de segurança necessárias para a restauração pontual dentro do período de retenção de backup são mantidas no armazenamento de backup. Por exemplo, se o período de retenção de backup estiver definido para 7 dias, a janela de recuperação é considerada dura 7 dias. Neste cenário, todas as cópias de segurança necessárias para restaurar o servidor nos últimos 7 dias são mantidas. Com uma janela de retenção de reserva de sete dias:
+- Os servidores com armazenamento até 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
+-   Os servidores com armazenamento até 16-TB conservarão o instantâneo completo da base de dados, todas as imagens diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
@@ -36,11 +53,11 @@ A Base de Dados Azure para MariaDB proporciona a flexibilidade para escolher ent
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
-A Azure Database for MariaDB fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Normalmente, isto é adequado para uma retenção de reserva de sete dias. Qualquer armazenamento adicional de backup utilizado é cobrado no mês gB.
+A Azure Database for MariaDB fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento adicional de backup utilizado é cobrado em GB por mês. Por exemplo, se tiver provisionado um servidor com 250 GB de armazenamento, tem 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custo adicional. O armazenamento consumido para cópias de segurança superiores a 250 GB é cobrado de acordo com o [modelo de preços.](https://azure.microsoft.com/pricing/details/mariadb/) 
 
-Por exemplo, se tiver provisionado um servidor com 250 GB, tem 250 GB de armazenamento de backup sem custos adicionais. É cobrado um armazenamento superior a 250 GB.
+Pode utilizar a métrica [de armazenamento de backup utilizada](concepts-monitoring.md) no Azure Monitor disponível através do portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no Backup Storage representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada anteriormente. A atividade transacional pesada no servidor pode fazer com que o uso de armazenamento de cópias de segurança aumente independentemente do tamanho total da base de dados. Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante. 
 
-Para obter mais informações sobre o custo de armazenamento de backup, visite a [página de preços mariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
+O principal meio de controlar o custo de armazenamento de backup é definindo o período de retenção de backup adequado e escolhendo as opções de redundância de backup certas para cumprir os objetivos de recuperação pretendidos. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança.
 
 ## <a name="restore"></a>Restauro
 
@@ -66,7 +83,9 @@ Poderá ter de esperar que a próxima cópia de segurança do registo de transa�
 
 ### <a name="geo-restore"></a>Georrestauro
 
-Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança geo-redundantes. O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
+Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança geo-redundantes. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados na região geo emparelhada, ou em qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportam até 16 TB de armazenamento, as geo-cópias podem ser restauradas em qualquer região que suporte também 16 servidores TB. Rever [a base de dados Azure para os níveis de preços da MariaDB](concepts-pricing-tiers.md) para a lista das regiões apoiadas.
+
+O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento durante a geo-restauração não é suportado.
 
@@ -79,7 +98,7 @@ Após uma restauração de qualquer mecanismo de recuperação, deve executar as
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a continuidade do negócio, consulte a [visão geral](concepts-business-continuity.md)da continuidade do negócio.
 - Para restaurar um ponto no tempo usando o portal Azure, consulte restaurar o [servidor a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).

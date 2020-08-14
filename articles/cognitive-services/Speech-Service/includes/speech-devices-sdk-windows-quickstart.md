@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 259fc503b0de6c05196a7cb8096f828080705be8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375656"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226581"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Windows para construir um produto ativado por discurso ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription-service.md) Para a Transcrição de Conversação apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros suportes de microfone linear de uso de fala que fornecem uma geometria da matriz do microfone são suportados.
 
 A aplicação é construída com o pacote Speech SDK e o Eclipse Java IDE (v4) em Windows de 64 bits. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
-Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala.
 
 O código-fonte da [aplicação](https://aka.ms/sdsdk-download-JRE) da amostra está incluído no SDK dos Dispositivos de Fala. Também está [disponível no GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 

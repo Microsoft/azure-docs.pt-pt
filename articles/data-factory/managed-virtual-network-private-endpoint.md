@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135968"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225687"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -82,15 +82,11 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Serviço de Ligação Privada Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída através de ponto final público da ADF Managed Virtual Network
 - Apenas a porta 443 está aberta para comunicações de saída.
 - O Azure Storage e o Azure Data Lake Gen2 não são suportados para serem conectados através do ponto final público da ADF Managed Virtual Network.
-
-### <a name="other-known-issues"></a>Outras questões conhecidas
-A depurada para a conectividade CosmosDB não funciona, incluindo o depurg dataFlow e o pipeline depurg.
-
 
 ## <a name="next-steps"></a>Próximos passos
 

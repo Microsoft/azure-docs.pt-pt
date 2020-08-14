@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração de Diretório Ativo Azure com Keeper Password Manager & Cofre Digital [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Keeper Password Manager & Digital Vault.
+title: 'Tutorial: Integração do Azure Ative Directory com Keeper Password Manager & Digital Vault [ Microsoft Docs'
+description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o Keeper Password Manager & Digital Vault.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,196 +11,160 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71fecbe924c1511c247ff846d3b2a39d309ecf0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27c9f79e70ef54c1a9e67e181cd57a5fe9457e52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159893"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225228"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração de Diretório Ativo Azure com Keeper Password Manager & Cofre Digital
+# <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Diretório Ativo Azure com Keeper Password Manager & Digital Vault
 
 Neste tutorial, aprende-se a integrar o Keeper Password Manager & Digital Vault com o Azure Ative Directory (Azure AD).
-Integrar o Gestor de Passwords do Guardião & Cofre Digital com AD Azure fornece-lhe os seguintes benefícios:
+Integrar o Keeper Password Manager & Digital Vault com Azure AD fornece-lhe os seguintes benefícios:
 
-* Você pode controlar em Azure AD que tem acesso a Keeper Password Manager & Cofre Digital.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Keeper Password Manager & Digital Vault (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Você pode controlar em Azure AD que tem acesso ao Keeper Password Manager & Digital Vault.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Keeper Password Manager & Digital Vault (Single Sign-On) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Anúncio Azure com o Keeper Password Manager & Digital Vault, precisa dos seguintes itens:
+Para configurar a integração AZure AD com o Keeper Password Manager & Digital Vault, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Keeper Password Manager & assinatura de um único sinal do Cofre Digital
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Keeper Password Manager & assinatura ativada do Cofre Digital
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Keeper Password Manager & Digital Vault suporta **SP** iniciado SSO
+* Keeper Password Manager & Digital Vault suporta **SSO** iniciado SP
 
-* Keeper Password Manager & Digital Vault suporta o fornecimento de utilizadores **justo no tempo**
+* Keeper Password Manager & Digital Vault suporta o fornecimento do utilizador **just in time**
 
-## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Adicionar gestor de passwords do Guardião & Cofre Digital da galeria
+* Assim que configurar o Keeper Password Manager & Digital Vault, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-Para configurar a integração do Keeper Password Manager & Digital Vault em Azure AD, você precisa adicionar Keeper Password Manager & Digital Vault da galeria para a sua lista de aplicações geridas saaS.
+## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Adicionar Keeper Password Manager & Cofre Digital da galeria
 
-**Para adicionar Keeper Password Manager & Digital Vault da galeria, execute os seguintes passos:**
+Para configurar a integração do Keeper Password Manager & Digital Vault em AZure AD, é necessário adicionar o Keeper Password Manager & Digital Vault da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite Keeper Password Manager & Digital Vault** na caixa de pesquisa.
+1. Selecione **Keeper Password Manager & Digital Vault** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-keeper-password-manager--digital-vault"></a>Configure e teste Azure AD SSO para Keeper Password Manager & Cofre Digital
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Configure e teste Azure AD SSO com Keeper Password Manager & Digital Vault usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Keeper Password Manager & Digital Vault.
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+Para configurar e testar o Azure AD SSO com o Keeper Password Manager & Digital Vault, complete os seguintes blocos de construção::
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 
-4. Na caixa de pesquisa, digite o **Gestor de Passwords do Guardião & Cofre Digital,** selecione **Keeper Password Manager & Digital Vault** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+1. **[Configure o Gestor de Passwords do Guardião & SSO de Cofre Digital](#configure-keeper-password-manager--digital-vault-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+    * **[Create Keeper Password Manager & utilizador](#create-keeper-password-manager--digital-vault-test-user)** de teste digital Vault - para ter uma contrapartida de Britta Simon no Keeper Password Manager & Digital Vault que está ligada à representação AD AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-     ![Gestor de passwords do Guardião & Cofre Digital na lista de resultados](common/search-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-Nesta secção, configura e testa o single sign-on do Azure AD com o Keeper Password Manager & Digital Vault com base num utilizador de teste chamado **Britta Simon**.
-Para um único início de sessão funcionar, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Keeper Password Manager & Digital Vault.
+1. No [portal Azure](https://portal.azure.com/), no Keeper Password Manager & página de integração de aplicações **digital Vault,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-Para configurar e testar o único sinal do Azure AD com o Keeper Password Manager & Digital Vault, é necessário completar os seguintes blocos de construção:
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **Configure Keeper Password Manager & Digital Vault Single Sign-On** - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create Keeper Password Manager & utilizador](#create-keeper-password-manager--digital-vault-test-user)** de teste Digital Vault - para ter uma contrapartida de Britta Simon no Keeper Password Manager & Digital Vault que está ligado à representação do utilizador da AD Azure.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:
+    * Para **cloud SSO** : `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * Para **sSO on-prem:**`https://<KEEPER_FQDN>/sso-connect/saml/login`
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
+    * Para **cloud SSO** : `https://keepersecurity.com/api/rest/sso/saml/<CLOUD_INSTANCE_ID>`
+    * Para **sSO on-prem:**`https://<KEEPER_FQDN>/sso-connect`
 
-Para configurar o single sign-on do Azure AD com o Keeper Password Manager & Digital Vault, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), no Gestor de **Passwords do Guardião &** página de integração de aplicações do Cofre Digital, selecione **single sign-on**.
-
-    ![Configurar um único link de sinalização](common/select-sso.png)
-
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
-
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
-
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
-
-4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
-
-    ![Gestor de passwords do Guardião & domínio digital do cofre e informações de inscrição única dos URLs](common/sp-identifier-reply.png)
-
-    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://{SSO CONNECT SERVER}/sso-connect/saml/login`
-
-    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://{SSO CONNECT SERVER}/sso-connect`
-
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
+    * Para **cloud SSO** : `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * Para **sSO on-prem:**`https://<KEEPER_FQDN>/sso-connect/saml/sso`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL, Identifier e URL de Resposta real. Contacte [o Gestor de Passwords keeper & equipa](https://keepersecurity.com/contact.html) de suporte ao Cliente digital Vault para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [o Keeper Password Manager & equipa de suporte](https://keepersecurity.com/contact.html) ao Cliente Do Cofre Digital para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-6. No **'Gestor de passwords' de & Digital Vault,** copie os URL(s) apropriados de acordo com o seu requisito.
+6. Na secção set up Keeper Password Manager & Secção **De Cofre Digital,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
-    b. Identificador de anúncio sinuoso
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
-### <a name="configure-keeper-password-manager--digital-vault-single-sign-on"></a>Configure Keeper Password Manager & Digital Vault Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Para configurar um único sinal no Gestor de Passwords do Guardião & lado de **configuração do cofre digital,** siga as diretrizes dadas no Guia de Suporte do [Guardião](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
+Nesta secção, você permitirá que B.Simon use o Azure single sign-on, concedendo acesso ao Keeper Password Manager & Digital Vault.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Keeper Password Manager & Digital Vault**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
-2. Selecione **Novo utilizador** na parte superior do ecrã.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do Utilizador, execute os seguintes passos.
+## <a name="configure-keeper-password-manager--digital-vault-sso"></a>Configure Keeper Password Manager & Digital Vault SSO
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+Para configurar um único sign-on no Keeper Password Manager & lado **da configuração do cofre digital,** siga as diretrizes indicativas no [Guia de Suporte do Guardião](https://docs.keeper.io/sso-connect-guide/).
 
-    a. No campo **Nome** entrar **BrittaSimon.**
-  
-    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+### <a name="create-keeper-password-manager--digital-vault-test-user"></a>Criar Gestor de Passwords do Guardião & utilizador de teste de cofre digital
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+Para permitir que os utilizadores de Azure AD iniciem sessão no Keeper Password Manager & Digital Vault, devem ser abastados no Keeper Password Manager & Digital Vault. A aplicação suporta o fornecimento do utilizador a tempo e após a autenticação os utilizadores serão criados automaticamente na aplicação. Pode contactar [o Suporte do Guardião,](https://keepersecurity.com/contact.html)se pretender configurar os utilizadores manualmente.
 
-    d. Clique em **Criar**.
+## <a name="test-sso"></a>Teste SSO
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Nesta secção, permite que britta Simon utilize um único sign-on Azure, concedendo acesso ao Keeper Password Manager & Digital Vault.
-
-1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Keeper Password Manager & Digital Vault**.
-
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **Keeper Password Manager & Digital Vault**.
-
-    ![O Gestor de Passwords keeper & ligação digital vault na lista de aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
-
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
-
-### <a name="create-keeper-password-manager--digital-vault-test-user"></a>Criar gestor de passwords do Guardião & utilizador de teste digital Vault
-
-Para permitir que os utilizadores de Anúncios Azure entrem no Keeper Password Manager & Digital Vault, devem ser aprovisionados no Keeper Password Manager & Digital Vault. Suportes de aplicação Apenas a tempo o fornecimento do utilizador e após a autenticação os utilizadores serão criados automaticamente na aplicação. Pode contactar o [Suporte do Guardião,](https://keepersecurity.com/contact.html)se pretender configurar os utilizadores manualmente.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
-
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
-
-Quando clicar no Gestor de Passwords do Guardião & azulejo digital vault no Painel de Acesso, deve ser automaticamente inscrito no Gestor de Passwords do Guardião & Cofre Digital para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no Gestor de Passwords do Guardião & o azulejo digital do Cofre no Painel de Acesso, deverá ser automaticamente inscrito no Gestor de Passwords do Guardião & Cofre Digital para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Experimente o Gestor de Passwords do Guardião & Cofre Digital com Azure AD](https://aad.portal.azure.com/)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

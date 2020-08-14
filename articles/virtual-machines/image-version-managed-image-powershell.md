@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c119ebc8d87c00608fc515099711463f47b8ed1a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901815"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225550"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerida para uma imagem da Galeria de Imagens Partilhada
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > É necessário esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem. 
 >
-> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `-StorageAccountType Premium_LRS` , ou [Armazenamento Redundante zona,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento Premium `-StorageAccountType Premium_LRS` adicionando, ou Zone Redundant [Storage,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
 >
 
 ## <a name="delete-the-managed-image"></a>Eliminar a imagem gerida
@@ -130,7 +130,7 @@ Remove-AzImage `
    -ResourceGroupName $managedImage.ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez verificada a replicação, pode criar um VM a partir da [imagem generalizada](vm-generalized-image-version-powershell.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso-a-falar, Java (Windows, Linux) - Serviço de fala'
+title: 'Quickstart: Traduzir discurso-a-discurso, Java (Windows, Linux) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 8208f6bd4e41063f514d6008166bd64ce7b1cfca
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e13d6c45c57eeb641f79ad50f4c7bcf6ffd1a685
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924788"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226357"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Criar um recurso de fala azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File** > **New** > **Class**.
+1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File**  >  **New**  >  **Class**.
 
 1. Na janela **Nova Classe Java**, introduza **speechsdk.quickstart** no campo **Pacote**, e **Principal** no campo **Nome**.
 
@@ -134,15 +134,15 @@ Antes de começar, certifique-se de:
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
 1. Guarde as alterações ao projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Prima F11 ou selecione **Executar** > **Debug**.
+Prima F11 ou selecione **Run**  >  **Debug**.
 
-1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para alemão). O serviço de Fala envia então o áudio sintetizado e o texto de volta para a aplicação para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso para o serviço Desío, que se traduz e transcreve para texto (neste caso, para alemão). Em seguida, o serviço Desemisso envia o áudio sintetizado e o texto de volta à aplicação para visualização.
 
 ````
 Say something...
@@ -152,6 +152,6 @@ RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

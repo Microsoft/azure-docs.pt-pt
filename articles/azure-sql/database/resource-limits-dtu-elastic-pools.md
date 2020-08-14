@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: f3c7420e1f33a7c25e7d3bfdffff14019d0b606a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 48d8b0519ca1b312909f8b48a7fd8a25d0f8b919
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542675"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225823"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece os limites de recursos detalhados para bases de dados na Base de Dados Azure SQL que estão dentro de uma piscina elástica usando o modelo de compra DTU.
 
-* Para os limites de recursos do modelo de compra da DTU para a Base de Dados Azure SQL, consulte [os limites de recursos da DTU - Base de Dados Azure SQL](resource-limits-vcore-elastic-pools.md).
+* Para os limites de recursos do modelo de compra da DTU para a Base de Dados Azure SQL, consulte [os limites de recursos da DTU - Base de Dados Azure SQL](resource-limits-dtu-single-databases.md).
 * Para limites de recursos vCore, consulte [os limites de recursos vCore - Base de Dados Azure SQL](resource-limits-vcore-single-databases.md) e [limites de recursos vCore - piscinas elásticas](resource-limits-vcore-elastic-pools.md).
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Piscina elástica: Tamanhos de armazenamento e tamanhos de cálculo
@@ -167,7 +167,7 @@ A tabela seguinte descreve as propriedades para bases de dados aginhadas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. No entanto, as bases de dados partilhadas partilham o armazenamento de piscinas atribuído. Mesmo que o armazenamento máximo total *por base de dados* seja superior ao espaço total disponível de armazenamento *disponível da piscina,* o espaço total realmente utilizado por todas as bases de dados não poderá exceder o limite de piscina disponível. O tamanho máximo da base de dados refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para limites de recursos vCore para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra vCore](resource-limits-vcore-single-databases.md)
 * Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)

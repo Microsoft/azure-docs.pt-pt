@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119526"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225976"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
@@ -114,12 +114,13 @@ Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o e
 
 ### <a name="sql-api"></a>API SQL
 
-Assim que tiver o Emulador Azure Cosmos a funcionar no seu ambiente de trabalho, pode utilizar qualquer [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) suportado ou a [API API AZure Cosmos DB REST](/rest/api/cosmos-db/) para interagir com o emulador. O Emulador Azure Cosmos também inclui um Data Explorer incorporado que permite criar recipientes para API SQL ou Cosmos DB para Mongo DB API, e ver e editar itens sem escrever nenhum código.
+Assim que tiver o Emulador Azure Cosmos a funcionar no seu ambiente de trabalho, pode utilizar qualquer [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) suportado ou a [API API AZure Cosmos DB REST](/rest/api/cosmos-db/) para interagir com o emulador. O Emulador Azure Cosmos também inclui um Data Explorer incorporado que permite criar recipientes para API SQL ou Cosmos DB para Mongo DB API, e ver e editar itens sem escrever nenhum código.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -182,7 +183,7 @@ Inicie o emulador a partir de um pedido de comando do administrador com "/Enable
 
 ### <a name="gremlin-api"></a>API do Gremlin
 
-Inicie o emulador a partir de um pedido de comando do administrador com "/EnableGremlinEndpoint". Em alternativa, também pode definir a variável ambiental`AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Inicie o emulador a partir de um pedido de comando do administrador com "/EnableGremlinEndpoint". Em alternativa, também pode definir a variável ambiental `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Instale apache-tinkerpop-gremlin-consola-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
@@ -274,7 +275,7 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | NoUI | Não mostrar a interface de utilizador do emulador. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
 | NoExplorer | Não mostrar o explorador de dados no arranque. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
 | PartitionCount | Especifica o número máximo de recipientes divididos. Consulte [alterar o número de recipientes](#set-partitioncount) para obter mais informações. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Número máximo de recipientes de partição simples permitidos. O valor predefinido é 25. O máximo permitido é 250.|
-| DefaultPartitionCount| Especifica o número predefinido de divisórias para um recipiente dividido. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\>O valor predefinido é de 25.|
+| DefaultPartitionCount| Especifica o número predefinido de divisórias para um recipiente dividido. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> O valor predefinido é de 25.|
 | AllowNetworkAccess | Permite o acesso ao emulador através de uma rede. Também tem de passar /Key= \<key_string\> ou /KeyFile= \<file_name\> para permitir o acesso à rede. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key= \<key_string\> ou Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Não ajuste as regras de firewall quando /Permitir a opção Desajuste de Internet. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
 | GenKeyFile | Gerar uma nova chave de autorização e guardá-la no ficheiro especificado. A chave gerada pode ser utilizada com as opções /Key ou /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe /GenKeyFile=\<path to key file\> | |
@@ -317,7 +318,7 @@ Eis um resumo dos comandos para controlar o emulador a partir do PowerShell:
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Syntax**
+**Sintaxe**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -327,7 +328,7 @@ Devolve um dos seguintes valores de ServiceControllerStatus: ServiceControllerSt
 
 ### `Start-CosmosDbEmulator`
 
-**Syntax**
+**Sintaxe**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -337,7 +338,7 @@ Inicia o emulador. Por predefinição, o comando aguarda até que o emulador est
 
 ### `Stop-CosmosDbEmulator`
 
-**Syntax**
+**Sintaxe**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -347,7 +348,7 @@ Para o emulador. Por predefinição, este comando aguarda até que o emulador se
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Syntax**
+**Sintaxe**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
@@ -428,7 +429,7 @@ Se tiver uma aplicação de cliente .NET a funcionar num recipiente de estival L
 
 ## <a name="running-on-mac-or-linux"></a>Correndo em Mac ou Linux<a id="mac"></a>
 
-Atualmente, o emulador Cosmos só pode ser executado no Windows. Os utilizadores que executam Mac ou Linux podem executar o emulador numa máquina virtual windows hospedado um hipervisor, como Paralelos ou VirtualBox. Abaixo estão os passos para permitir isto.
+Atualmente, o emulador Cosmos só pode ser executado no Windows. Os utilizadores que executam Mac ou Linux podem executar o emulador numa máquina virtual Windows hospedada num hipervisor, como Paralelos ou VirtualBox. Abaixo estão os passos para permitir isto.
 
 Dentro do Windows VM execute o comando abaixo e tome nota do endereço IPv4.
 
@@ -444,7 +445,36 @@ O passo seguinte, a partir do interior do Windows VM, lança o emulador Cosmos a
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Por último, temos de importar o certificado emulador CA para o ambiente Linux ou Mac.
+Por último, precisamos de resolver o processo de confiança dos certificados entre a aplicação em execução no ambiente Linux ou Mac e o Emulator. Temos duas opções:
+
+1. Desativar a validação SSL na aplicação:
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+   Para qualquer aplicação em execução num quadro compatível com .NET Standard 2.1 ou posterior, podemos aproveitar o `CosmosClientOptions.HttpClientFactory` seguinte:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   Para qualquer aplicação em execução num quadro compatível com .NET Standard 2.0, podemos alavancar o `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   Para Node.js aplicações, pode modificar o seu `package.json` ficheiro para definir o `NODE_TLS_REJECT_UNAUTHORIZED` enquanto inicia a aplicação:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> A desativação da validação SSL só é recomendada para fins de desenvolvimento e não deve ser feita quando funciona num ambiente de produção.
+
+2. Importar o certificado emulador CA para o ambiente Linux ou Mac:
 
 ### <a name="linux"></a>Linux
 
@@ -532,7 +562,7 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a utilizar o emulador local para desenvolvimento local gratuito. Pode agora avançar para o próximo tutorial e aprender a exportar certificados emuladores TLS/SSL.
 

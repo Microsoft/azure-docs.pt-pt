@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530385"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225738"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -118,7 +118,7 @@ Pode utilizar os passos na [Base de Dados Copy a SQL para uma](#copy-to-a-differ
 > O [portal Azure,](https://portal.azure.com)o PowerShell e o Azure CLI não suportam cópia de base de dados para uma subscrição diferente.
 
 > [!TIP]
-> A cópia da base de dados utilizando o T-SQL suporta a cópia de uma base de dados de uma subscrição num inquilino Azure diferente.
+> A cópia da base de dados utilizando o T-SQL suporta a cópia de uma base de dados de uma subscrição num inquilino Azure diferente. Isto só é suportado quando se utiliza um login de autenticação SQL para iniciar sessão no servidor alvo.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorizar o progresso da operação de cópia
 
@@ -187,7 +187,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

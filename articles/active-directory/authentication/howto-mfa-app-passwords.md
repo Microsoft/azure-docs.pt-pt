@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489797"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224922"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar a autenticação multi-factor Azure com aplicações antigas usando senhas de aplicação
 
@@ -41,6 +41,8 @@ Quando utiliza palavras-passe de aplicações, aplicam-se as seguintes considera
 * As aplicações que cache palavras-passe e as usam em cenários no local podem falhar porque a palavra-passe da aplicação não é conhecida fora do trabalho ou da conta escolar. Um exemplo deste cenário são os e-mails da Exchange que estão no local, mas o correio arquivado está na nuvem. Neste cenário, a mesma palavra-passe não funciona.
 * Depois de a Azure Multi-Factor Authentication ser ativada na conta de um utilizador, as palavras-passe da aplicação podem ser utilizadas com a maioria dos clientes não-navegador, como o Outlook e o Microsoft Skype para negócios. No entanto, as ações administrativas não podem ser realizadas utilizando senhas de aplicação através de aplicações não-navegador, como o Windows PowerShell. As ações não podem ser executadas mesmo quando o utilizador tem uma conta administrativa.
     * Para executar scripts PowerShell, crie uma conta de serviço com uma senha forte e não ative a conta para verificação em duas etapas.
+* Se suspeitar que uma conta de utilizador está comprometida e revogar/redefinir a palavra-passe da conta, as palavras-passe da aplicação também devem ser atualizadas. As palavras-passe da aplicação não são revogadas automaticamente quando uma palavra-passe da conta de utilizador é revogada/reiniciada. O utilizador deve eliminar as palavras-passe de aplicações existentes e criar novas.
+   * Para obter mais informações, consulte [Criar e eliminar palavras-passe de aplicações da página adicional de verificação de segurança.](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)
 
 >[!WARNING]
 > As palavras-passe das aplicações não funcionam em ambientes híbridos onde os clientes comunicam tanto no local como com pontos finais de descoberta automática em nuvem. As palavras-passe de domínio são necessárias para autenticar no local. As palavras-passe da aplicação são necessárias para autenticar com a nuvem.
@@ -101,6 +103,6 @@ Quando os utilizadores completam o seu registo inicial de Autenticação Multi-F
 
 Os utilizadores também podem criar senhas de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, veja [o que são palavras-passe da aplicação na Autenticação Multi-Factor Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como permitir que os utilizadores se registem rapidamente para autenticação multi-factor Azure, consulte [a visão geral do registo de informações](concept-registration-mfa-sspr-combined.md)de segurança combinadas .

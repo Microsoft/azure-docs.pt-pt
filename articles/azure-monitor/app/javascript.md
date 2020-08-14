@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905830"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224858"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -115,7 +115,7 @@ As opções de configuração disponíveis são
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envio de telemetria para o portal Azure
 
-Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Estas incluem:
+Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Incluem-se:
 
 - **Exceções não conseguiu** na sua aplicação, incluindo informações sobre
     - Traço de pilha
@@ -153,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Nome | Predefinição | Descrição |
+| Name | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -217,8 +217,8 @@ Ao `autoTrackPageVisitTime: true` configurar, o tempo que um utilizador passa em
 
 | Extensões |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
 
 ## <a name="correlation"></a>Correlação
 
@@ -235,7 +235,7 @@ Para permitir `CORS` a correlação, o cliente precisa enviar dois cabeçalhos d
 
 Dependendo da `Access-Control-Allow-Headers` configuração do lado do servidor, é frequentemente necessário alargar a lista do lado do servidor adicionando manualmente `Request-Id` e `Request-Context` .
 
-Acesso-Controlo-Permitir-Cabeçalhos: `Request-Id` `Request-Context` ,`<your header>`
+Acesso-Controlo-Permitir-Cabeçalhos: `Request-Id` `Request-Context` , `<your header>`
 
 Se algum dos seus servidores de terceiros com os quais o cliente comunica não puder aceitar os `Request-Id` `Request-Context` cabeçalhos e os cabeçalhos, e não conseguir atualizar a sua configuração, então terá de os colocar numa lista de exclusão através da `correlationHeaderExcludeDomains` propriedade de configuração. Esta propriedade suporta wildcards.
 
@@ -302,7 +302,7 @@ Pode ligar o seu recurso Application Insights ao seu próprio recipiente de arma
 ### <a name="drag-and-drop"></a>Arrastar e largar
 
 1. Selecione um item de telemetria de exceção no portal Azure para ver os seus "detalhes de transações de ponta a ponta"
-2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao ficheiro de origem de uma pilha, mas sufixado com`.map`
+2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao ficheiro de origem de uma pilha, mas sufixado com `.map`
 3. Arraste e deixe cair os mapas de origem na pilha de chamadas no portal Azure ![ Uma imagem animada mostrando como arrastar e largar ficheiros de mapas de origem de uma pasta de construção na janela Call Stack no portal Azure.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Insights de Aplicação Web Basic
@@ -377,7 +377,7 @@ O App Insights JavaScript SDK é de código aberto para visualizar o código fon
 
 Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./release-notes.md).
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a> Próximos passos
 * [Controlar a utilização](usage-overview.md)
 * [Métricas e eventos personalizados](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)

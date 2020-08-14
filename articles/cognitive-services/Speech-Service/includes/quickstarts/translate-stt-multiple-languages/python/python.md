@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: chlandsi
-ms.openlocfilehash: 3758b035e7840c63c895417d0ed3d8dca0ab618f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2222f19ef4459d5ad3ccfa8a39fac6ab804b62e4
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671799"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226418"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=python&pivots=programming-language-python)
+> * [Criar um recurso de fala azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=python&pivots=programming-language-python)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -78,19 +78,19 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](../../../../regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](../../../../regions.md) associada à sua subscrição.
 
-1. Guarde as alterações `quickstart.py`que fez para.
+1. Guarde as alterações a que `quickstart.py` fez.
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-1. Executar a amostra a partir da consola ou no seu IDE:
+1. Execute a amostra da consola ou do seu IDE:
 
    ```
    python quickstart.py
    ```
 
-1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para francês e alemão). O serviço de Fala envia então o texto de volta para a aplicação para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso para o serviço Desematado, que se traduz e transcreve para texto (neste caso, para francês e alemão). Em seguida, o serviço Desemação envia o texto de volta para o pedido de visualização.
 
    ```
    Say something...
@@ -99,6 +99,6 @@ Antes de começar, certifique-se de:
    TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

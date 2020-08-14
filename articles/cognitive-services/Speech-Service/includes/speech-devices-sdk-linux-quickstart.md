@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc44b587bfa3b65b551df46bef025b461c8f6849
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375276"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226289"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Linux para construir um produto ativado pela fala ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription-service.md) Atualmente apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado.
 
 A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) em Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
-Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala. 
 
 O código-fonte da [aplicação](https://aka.ms/sdsdk-download-JRE) da amostra está incluído no SDK dos Dispositivos de Fala. Também está [disponível no GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 

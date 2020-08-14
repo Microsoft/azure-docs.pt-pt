@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375424"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226382"
 ---
 Neste arranque rápido, você vai aprender a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado por discurso ou usá-lo como um dispositivo [de transcrição de conversação.](../conversation-transcription-service.md)
 
-Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala.
 
 O código-fonte da aplicação da amostra está incluído no SDK dos Dispositivos de Fala. Também está [disponível no GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
@@ -126,7 +126,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 
    Para utilizar uma nova palavra-chave, atualize as duas linhas seguintes e `MainActivity.java` copie o pacote de palavras-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' a partir do pacote de palavras-chave kws-machine.zip:
 
-   - Copie o pacote de palavras-chave na pasta "C:\SDSDK\Android-Sample-Release\exemplo\app\src\main\assets\".
+   - Copie o pacote de palavras-chave na pasta "C:\SDSDK\Android-Sample-Release\exemplo\app\src\main\assets \" .
    - Atualize a `MainActivity.java` palavra-chave e o nome do pacote:
 
      ```java
@@ -145,12 +145,12 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 
    | Variável | Significado | Valores disponíveis |
    | -------- | ------- | ---------------- |
-   | `DeviceGeometry` | Configuração do microfone físico | Para um kit circular dev:`Circular6+1` |
-   |          |         | Para um kit linear dev:`Linear4` |
-   | `SelectedGeometry` | Configuração do microfone de software | Para um kit circular dev que usa todos os microfones:`Circular6+1` |
-   |          |         | Para um kit circular dev que usa quatro microfones:`Circular3+1` |
-   |          |         | Para um kit linear dev que usa todos os microfones:`Linear4` |
-   |          |         | Para um kit linear dev que usa dois microfones:`Linear2` |
+   | `DeviceGeometry` | Configuração do microfone físico | Para um kit circular dev: `Circular6+1` |
+   |          |         | Para um kit linear dev: `Linear4` |
+   | `SelectedGeometry` | Configuração do microfone de software | Para um kit circular dev que usa todos os microfones: `Circular6+1` |
+   |          |         | Para um kit circular dev que usa quatro microfones: `Circular3+1` |
+   |          |         | Para um kit linear dev que usa todos os microfones: `Linear4` |
+   |          |         | Para um kit linear dev que usa dois microfones: `Linear2` |
 
 1. Para construir a aplicação, no menu **Executar,** selecione **Executar 'app'.** Aparece a caixa de diálogo **'Destino de implementação' Select.**
 

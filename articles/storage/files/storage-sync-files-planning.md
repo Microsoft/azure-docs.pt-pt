@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 17274c2b5308b1e5069370400895c001dc03e5bb
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030678"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224446"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -376,12 +376,12 @@ Se preferir utilizar uma solução de backup no local, as cópias de segurança 
 > A restauração de metal nu (BMR) pode causar resultados inesperados e não está atualmente suportada.
 
 > [!Note]  
-> Com a versão 9 do agente Azure File Sync, as imagens VSS (incluindo o separador Versões Anteriores) são agora suportadas em volumes que tenham o tiering de nuvem ativado. No entanto, deve ativar a compatibilidade da versão anterior através do PowerShell. [Saiba como.](storage-files-deployment-guide.md)
+> Com a versão 9 do agente Azure File Sync, as imagens VSS (incluindo o separador Versões Anteriores) são agora suportadas em volumes que tenham o tiering de nuvem ativado. No entanto, deve ativar a compatibilidade da versão anterior através do PowerShell. [Saiba como.](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service)
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)

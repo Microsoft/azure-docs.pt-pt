@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 2af0d0eb2411c5ffe9f80498a3e93d48fe0a769b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0434ddb1e90789628d14d4782eccb6514fccf8d8
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057705"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226331"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Agora adicione o código XAML que define a interface do utilizador da aplicaçã
 
 1. No `SpeechTranslationFromMicrophone_ButtonClicked` manipulador deste ficheiro, encontre a cadeia `YourSubscriptionKey` e substitua-a pela sua chave de subscrição.
 
-1. No `SpeechTranslationFromMicrophone_ButtonClicked` manipulador, encontre a corda `YourServiceRegion` e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição. (Por exemplo, utilize `westus` para a subscrição experimental gratuita.)
+1. No `SpeechTranslationFromMicrophone_ButtonClicked` manipulador, encontre a corda `YourServiceRegion` e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
 1. A partir da barra de menu, escolha **'Guardar**  >  **tudo'** para guardar as alterações.
 
@@ -65,6 +65,6 @@ Agora está pronto para construir e testar a sua aplicação.
 
    ![Interface de utilizador de tradução de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

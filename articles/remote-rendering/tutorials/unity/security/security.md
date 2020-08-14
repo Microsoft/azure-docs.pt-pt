@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 36d8d6afde8b1178963b33b9514e53ce0ffccf6f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445902"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224463"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
@@ -116,9 +116,27 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
 
     ```csharp
     private bool loadingLinkedCustomModel = false;
-    public string StorageAccountName;
-    public string BlobContainerName;
-    public string ModelPath;
+
+    [SerializeField]
+    private string storageAccountName;
+    public string StorageAccountName {
+        get => storageAccountName.Trim();
+        set => storageAccountName = value;
+    }
+
+    [SerializeField]
+    private string blobContainerName;
+    public string BlobContainerName {
+        get => blobContainerName.Trim();
+        set => blobContainerName = value;
+    }
+
+    [SerializeField]
+    private string modelPath;
+    public string ModelPath {
+        get => modelPath.Trim();
+        set => modelPath = value;
+    }
 
     [ContextMenu("Load Linked Custom Model")]
     public async void LoadLinkedCustomModel()
@@ -205,17 +223,41 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
     public class AADAuthentication : BaseARRAuthentication
     {
-        public string accountDomain;
+        [SerializeField]
+        private string accountDomain;
+        public string AccountDomain
+        {
+            get => accountDomain.Trim();
+            set => accountDomain = value;
+        }
 
-        public string activeDirectoryApplicationClientID;
+        [SerializeField]
+        private string activeDirectoryApplicationClientID;
+        public string ActiveDirectoryApplicationClientID
+        {
+            get => activeDirectoryApplicationClientID.Trim();
+            set => activeDirectoryApplicationClientID = value;
+        }
 
-        public string azureTenantID;
+        [SerializeField]
+        private string azureTenantID;
+        public string AzureTenantID
+        {
+            get => azureTenantID.Trim();
+            set => azureTenantID = value;
+        }
 
-        public string azureRemoteRenderingAccountID;
+        [SerializeField]
+        private string azureRemoteRenderingAccountID;
+        public string AzureRemoteRenderingAccountID
+        {
+            get => azureRemoteRenderingAccountID.Trim();
+            set => azureRemoteRenderingAccountID = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
-        string authority => "https://login.microsoftonline.com/" + azureTenantID;
+        string authority => "https://login.microsoftonline.com/" + AzureTenantID;
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
@@ -236,7 +278,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(accountDomain, azureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -260,7 +302,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
         public override async Task<AuthenticationResult> TryLogin()
         {
-            var clientApplication = PublicClientApplicationBuilder.Create(activeDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
+            var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
             AuthenticationResult result = null;
             try
             {
@@ -323,7 +365,7 @@ Para este código, estamos a usar o fluxo de código do [dispositivo](https://do
 A parte mais importante desta classe do ponto de vista ARR é esta linha:
 
 ```csharp
-return await Task.FromResult(new AzureFrontendAccountInfo(accountDomain, azureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
 Aqui, criamos um novo objeto **AzureFrontendAccountInfo** usando o domínio da conta, iD de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
@@ -361,7 +403,7 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
 
 Se estiver a construir uma aplicação utilizando o MSAL para o dispositivo, terá de incluir um ficheiro na pasta **Ativos** do seu projeto. Isto ajudará o compilador a construir a aplicação corretamente utilizando o *Microsoft.Identity.Client.dll* incluído nos **Ativos Tutoriais**.
 
-1. Adicione um novo ficheiro em **Ativos** **nomeadoslink.xml**
+1. Adicione um novo ficheiro em **Ativos** ** nomeadoslink.xml**
 1. Adicione o seguinte para o ficheiro:
 
     ```xml
@@ -378,7 +420,7 @@ Se estiver a construir uma aplicação utilizando o MSAL para o dispositivo, ter
 
 Siga os passos encontrados em [Quickstart: Deploy Unitity sample to HoloLens - Build the sample Project](../../../quickstarts/deploy-to-hololens.md#build-the-sample-project), to build to HoloLens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O restante deste conjunto tutorial contém tópicos conceptuais para a criação de uma aplicação pronta à produção que utiliza renderização remota do Azure.
 

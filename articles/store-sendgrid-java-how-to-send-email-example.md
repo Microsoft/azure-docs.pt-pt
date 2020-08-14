@@ -1,6 +1,6 @@
 ---
 title: loja-sendgrid-java-how-to-send-mail-exemplo
-description: Como enviar e-mail usando SendGrid de Java em uma implementação de Azure
+description: Envie e-mail usando SendGrid de Java em uma Implementação Azure. A aplicação resultante solicita ao utilizador valores de e-mail.
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d35937f813fb10a0c39b724b97014c02fee99f1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3957d7501634be01a978481787885ae13ad3273b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304161"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225959"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar e-mail usando SendGrid de Java em uma implementação de Azure
 O exemplo que se segue mostra como pode usar o SendGrid para enviar e-mails a partir de uma página web hospedada no Azure. A aplicação resultante irá solicitar ao utilizador valores de e-mail, como mostrado na imagem seguinte.
@@ -214,7 +214,7 @@ Além do envio do e-mail, emailform.jsp fornece um resultado para o utilizador; 
 
 ![Enviar resultado de correio][emailresult]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Implementar a sua aplicação no emulador computacional e dentro de um navegador executado emailform.jsp, introduzir valores no formulário, clicar **Enviar este e-mail**, e depois ver resultados em sendemail.jsp.
 
 Este código foi fornecido para lhe mostrar como usar SendGrid em Java em Azure. Antes de ser implantado no Azure em produção, é melhor adicionar mais manipulação de erros ou outras funcionalidades. Por exemplo: 

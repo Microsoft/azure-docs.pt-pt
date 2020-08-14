@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319903"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225389"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
 
@@ -294,7 +294,7 @@ Se todas as imagens que são tiradas do Azure Marketplace forem reutilizadas, o 
 
 * Para **o Linux,** o processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado.
 
-  Na janela SSH, insira o seguinte comando:`sudo waagent -deprovision+user`
+  Na janela SSH, insira o seguinte comando: `sudo waagent -deprovision+user`
 
 * Para **o Windows,** generalize as imagens do Windows utilizando `sysreptool` .
 
@@ -315,6 +315,57 @@ Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem 
 
 Ativar o acesso rdp às imagens do Windows antes de as submeter.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="bash-history-failed"></a>A história da bash falhou
+
+Verá este erro se o tamanho do histórico de bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente sensível não seja capturada no seu ficheiro histórico de bash.
+
+Abaixo estão os passos para apagar a "História da Bash".
+
+Passo 1. Implemente o VM e clique na opção "Executar comando" no portal Azure.
+![Executar comando no portal Azure](./media/vm-certification-issues-solutions-3.png)
+
+Passo 2. Selecione a primeira opção "RunShellScript" e execute o comando abaixo.
+
+Comando: "cat /dev/null > ~/.bash_history && history -c" ![ Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
+
+Passo 3. Após a execução bem sucedida do comando, reinicie o VM.
+
+Passo 4: Generalize o VM, pegue o VHD de imagem e pare o VM.
+
+Passo 5.     Re-Submeter a imagem generalizada.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens VM para testes seletivos
+
+Os editores podem solicitar exceções para poucos testes realizados durante a certificação VM. As exceções são fornecidas em casos extremamente raros quando o editor fornece provas que corroboram o pedido.
+A equipa de certificação reserva-se o direito de negar ou aprovar exceções em qualquer momento.
+
+Nas secções abaixo, falaremos sobre os principais cenários em que são pedidas exceções e como solicitar exceção.
+
+Cenários de exceção
+
+Existem três cenários/casos em que os editores geralmente solicitam estas exceções. 
+
+* **Exceção para um ou mais casos de teste:** Os editores podem contactar o [Marketplace Publisher Support pedir](https://aka.ms/marketplacepublishersupport) exceções para casos de teste. 
+
+* **VMs bloqueados/Sem acesso à raiz:** Poucas editoras têm cenários em que os VM precisam de ser bloqueados, uma vez que têm software como firewalls instalados no VM. 
+       Neste caso, os editores podem descarregar a [Ferramenta de Teste Certificada](https://aka.ms/AzureCertificationTestTool) aqui, e fornecer o relatório no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+
+
+* **Modelos personalizados:** Alguns editores publicam imagens VM que requerem um modelo ARM personalizado para implementar os VMs. Neste caso, solicita-se aos Editores que forneçam os modelos personalizados no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser utilizado pela equipa de Certificação para validação. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Informações para prever cenários de exceção
+
+Os editores devem contactar o suporte no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) para solicitar exceções para o cenário acima referido com as seguintes informações adicionais:
+
+   1.   Editor ID – O ID da editora no portal Partner Center
+   2.   ID/nome da oferta – O ID/nome da oferta para o qual é solicitada a exceção 
+   3.   SKU/Plan ID – O plano ID/sku da oferta VM para a qual é solicitada exceção
+   4.    Versão – A versão da oferta VM para a qual é pedida exceção
+   5.   Tipo de exceção (Testes, VM bloqueados, modelos personalizados
+   6.   Razão de pedido – Razão para esta exceção e informação sobre testes a isentar 
+   7.   Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
+
+
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dúvidas ou feedback para melhorar, contacte [o Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).

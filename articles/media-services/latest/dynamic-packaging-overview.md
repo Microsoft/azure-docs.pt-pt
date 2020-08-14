@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
+ms.date: 08/13/2020
 ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4f0e8822d734d3c1147eb6d5cbbc8f26a7410a01
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489780"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224072"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -80,8 +80,10 @@ O seu cliente de streaming pode especificar os seguintes formatos de Streaming S
 
 Os passos seguintes mostram um fluxo de trabalho comum de streaming de Serviços de Media onde a embalagem dinâmica é utilizada juntamente com o Standard Encoder em Azure Media Services.
 
-1. Faça upload de um ficheiro de entrada como um ficheiro QuickTime/MOV ou MXF. Este ficheiro também é referido como o mezanino ou o ficheiro de origem. Para a lista de formatos suportados, consulte [Formatos Suportados pelo Codificadores Standard](media-encoder-standard-formats.md).
+1. [Faça o upload de um ficheiro](manage-asset-concept.md) de entrada como um MP4, QuickTime/MOV ou outro formato de ficheiro suportado. Este ficheiro também é referido como o mezanino ou o ficheiro de origem. Para a lista de formatos suportados, consulte [Formatos Suportados pelo Codificadores Standard](media-encoder-standard-formats.md).
 1. [Codificar](#encode-to-adaptive-bitrate-mp4s) o seu ficheiro mezanino num conjunto de bitrate adaptativo H.264/AAC MP4.
+
+    Se já tiver ficheiros codificados e apenas quiser copiar e transmitir os ficheiros, utilize: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) APIs. Um novo ficheiro MP4 com um manifesto de streaming (.ficheiro ism) será criado como resultado.
 1. Publique o ativo de saída que contém o conjunto de BITRATE adaptativo MP4. Publica criando um [localizador de streaming.](streaming-locators-concept.md)
 1. Construa URLs que visam diferentes formatos (HLS, MPEG-DASH e Smooth Streaming). O *ponto final de streaming* cuidaria de servir o manifesto correto e os pedidos para todos estes formatos diferentes.
     
@@ -322,6 +324,6 @@ Consulte a [comunidade Azure Media Services](media-services-community.md) para v
 
 Você pode abrir um bilhete de apoio navegando para [novo pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Carregar, codificar e transmitir vídeos](stream-files-tutorial-with-api.md)

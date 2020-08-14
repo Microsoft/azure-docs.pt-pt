@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038550"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226022"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Carregar uma subscrição do Azure para o Centro de Segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o nível Free oferece uma segurança limitada apenas para os seus recursos Azure, o nível padrão alarga essas capacidades a instalações e outras nuvens. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode tentar o Security Center Standard sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -33,8 +33,9 @@ Para atualizar uma subscrição do nível padrão, deve ser-lhe atribuída a fun
 
 ## <a name="enable-your-azure-subscription"></a>Ativar a subscrição do Azure
 
-1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
-2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
+1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+
+1. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
 
    ![Descrição geral do Centro de Segurança][2]
 
@@ -49,21 +50,25 @@ Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poder
 
 Para tirar o máximo partido do Security Center, é necessário completar os passos abaixo para atualizar para o nível padrão e instalar o agente Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Upgrade para o nível de preços padrão
-Para efeitos do início rápido e tutoriais do Security Center, tem de fazer upgrade para o nível padrão. Há um julgamento gratuito do Security Center Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. No menu principal do Centro de Segurança, selecione **Introdução**.
+## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
+
+Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Há um julgamento gratuito do Security Center Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. A partir da barra lateral do Security Center, **selecione Começar a trabalhar**.
  
-   ![Introdução][4]
+   ![Introdução](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. Em **Atualização**, o Centro de Segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
-   - Pode clicar em **Aplicar a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de elegibilidade de avaliação.
-   -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
-   -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
-3. Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
+    O separador **Upgrade** lista subscrições e espaços de trabalho elegíveis para embarque.
+
+1. A partir dos **espaços de trabalho Select para permitir o nível padrão na** lista, selecione os espaços de trabalho para atualizar.
 
 
-  ![Alertas de segurança][9]
+    > [!TIP]
+    > Se escolher um espaço de trabalho elegível para um teste gratuito, o próximo passo começará um julgamento. Se os espaços de trabalho não forem elegíveis para julgamento, será atualizado e as taxas começarão.
+
+1. Selecione **Upgrade** para atualizar os espaços de trabalho selecionados para o nível padrão.
+
 
 ## <a name="automate-data-collection"></a>Automatizar a recolha de dados
 O Centro de Segurança recolhe dados de VMs do Azure e de computadores que não pertencem ao Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
@@ -73,9 +78,9 @@ Quando o provisionamento automático está ativado, o Security Center instala o 
 Para permitir o provisionamento automático do agente Log Analytics:
 
 1. No menu principal do Centro de Segurança, selecione **definições de preços &**.
-2. Na linha da subscrição, clique na subscrição na qual pretende alterar as definições.
-3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
-4. Selecione **Guardar**.
+1. Na linha da subscrição, clique na subscrição na qual pretende alterar as definições.
+1. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
+1. Selecione **Guardar**.
 ---
   ![Ativar o aprovisionamento automático][6]
 
@@ -102,7 +107,7 @@ Se pretender desativar aprovisionamento automático:
 > A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste quickstart, atualizou-se para o nível padrão e forneiu o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]

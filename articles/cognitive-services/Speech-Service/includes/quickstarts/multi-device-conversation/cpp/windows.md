@@ -7,24 +7,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 015986ffa687142cf20ca18cff175ac6c5952a11
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1999100be3dd65518db7b5496ad5aaa1a407ee9e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671896"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226562"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
+> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Do Visual Studio, abra o ficheiro de origem **helloworld.cpp**.
+1. A partir do Visual Studio, abra o ficheiro fonte **helloworld.cpp**.
 
 1. Substitua todo o código pelo seguinte corte:
 
@@ -199,29 +199,29 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
-1. A partir da barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menu, escolha **File**  >  **Save All**.
 
-## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construir e executar a aplicação para criar uma nova conversa
+## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construa e execute a aplicação para criar uma nova conversa
 
-1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menu, selecione **Build**  >  **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **Debug** > **Start Debugging** (ou prima <kbd>F5)</kbd>para iniciar a aplicação **Helloworld.**
+1. Escolha **Debug**  >  **Start Debugging** (ou prima <kbd>F5</kbd>) para iniciar a aplicação **Helloworld.**
 
-1. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá as transcrições aparecerem enquanto fala.
-    - Se partilhares o código de conversação com os outros e eles se juntarem à conversa, também verás as transcrições deles.
+1. Assim que vires a `Started transcribing` mensagem aparecer, podes começar a falar. Verá as transcrições aparecerem enquanto fala.
+    - Se partilhares o código de conversa com os outros e eles se juntarem à conversa, também verás as transcrições deles.
 
-1. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> no teclado para impedir a captura de áudio.
+1. Depois de terminar de falar, prima <kbd>Ctrl+C</kbd> no seu teclado para parar a captura de áudio.
 
     > [!NOTE]
-    > Pode ver uma mensagem do Visual Studio `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` sobre uma exceção semelhante a: Pode ignorar com segurança isto.
+    > Pode ver uma mensagem do Visual Studio sobre uma exceção semelhante a: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` Pode ignorar com segurança esta mensagem.
     > <br/> <br/>
     > Prima <kbd>F5</kbd> para continuar.
 
 ## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Construa e execute a aplicação para se juntar a uma conversa existente
 
-1. Copie e cole a seguinte função no seu `int main()` **helloworld.cpp** pouco antes da função:
+1. Copie e cole a seguinte função no seu **helloworld.cpp** pouco antes da `int main()` função:
 
     ```cpp
     void JoinExistingConversation(const std::string& conversationId)
@@ -274,7 +274,7 @@ Antes de começar, certifique-se de:
     }
     ```
 
-2. Substitua `StartNewConversation();` `int main()` na sua função:
+2. Substitua `StartNewConversation();` na sua `int main()` função por:
 
     ```cpp
     // Set this to the conversation you want to join
@@ -283,24 +283,24 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Volte para o Estúdio `YourConversationId` Visual `int main()` e substitua na sua função o ID de conversação do passo anterior.
+4. Volte ao Visual Studio e substitua `YourConversationId` na sua `int main()` função o ID de conversação do passo anterior.
 
-5. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. O código deve ser compilado sem erros.
+5. A partir da barra de menu, selecione **Build**  >  **Build Solution** para construir a aplicação. O código deve ser compilado sem erros.
 
-6. Escolha **Debug** > **Start Debugging** (ou prima <kbd>F5)</kbd>para iniciar a aplicação **Helloworld.**
+6. Escolha **Debug**  >  **Start Debugging** (ou prima <kbd>F5</kbd>) para iniciar a aplicação **Helloworld.**
 
-7. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá que as transcrições aparecem enquanto fala.
-    - Se voltar ao seu navegador, deve ver que as suas transcrições aparecem lá enquanto fala.
+7. Assim que vires a `Started transcribing` mensagem aparecer, podes começar a falar. Verá as transcrições aparecerem enquanto fala.
+    - Se voltar ao seu navegador, deve ver as suas transcrições aparecerem lá enquanto fala.
 
-8.  Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
+8.  Assim que terminar de falar, prima <kbd>Ctrl+C</kbd> para parar a captura de áudio e termine a conversação.
 
     > [!NOTE]
-    > Pode ver uma mensagem do Visual Studio `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` sobre uma exceção semelhante a: Pode ignorar com segurança isto.
+    > Pode ver uma mensagem do Visual Studio sobre uma exceção semelhante a: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` Pode ignorar com segurança esta mensagem.
     > <br/> <br/>
     > Prima <kbd>F5</kbd> para continuar.
 
 9. Volte para o seu navegador e saia da conversa usando o botão de saída no canto superior direito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

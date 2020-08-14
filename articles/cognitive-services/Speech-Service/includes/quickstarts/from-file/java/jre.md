@@ -4,24 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 85124a51b986b6e3d6444b35aa264e136abcdb76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a1cf8bbda448dd991e805456ce8fb942077e8553
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400429"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226272"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File** > **New** > **Class**.
+1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File**  >  **New**  >  **Class**.
 
 1. Na janela **Nova Classe Java**, introduza **speechsdk.quickstart** no campo **Pacote**, e **Principal** no campo **Nome**.
 
@@ -109,18 +109,18 @@ ms.locfileid: "81400429"
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
-1. Substitua `whatstheweatherlike.wav` a cadeia pelo seu próprio nome de ficheiro.
+1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
 
 1. Guarde as alterações ao projeto.
 
 > [!NOTE]
-> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+> O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Prima F11 ou selecione **Executar** > **Debug**.
+Prima F11 ou selecione **Run**  >  **Debug**.
 Os primeiros 15 segundos de entrada de fala do seu ficheiro áudio serão reconhecidos e registados na janela da consola.
 
    ```text
@@ -128,6 +128,6 @@ Os primeiros 15 segundos de entrada de fala do seu ficheiro áudio serão reconh
    We recognized: What's the weather like?
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

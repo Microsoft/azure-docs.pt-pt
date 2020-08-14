@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: cee0f5c1cdb71f182399356cc7e1dce8d738fd4e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: be20a6e4b6c89bf9d371cdc8620441f066249b94
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671366"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226559"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
+> * [Criar um recurso de fala azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra **Program.cs**e substitua todo o código nele pelo seguinte.
+1. Abra **Program.cs**, e substitua todo o código nele pelo seguinte.
 
    ```csharp
    using System;
@@ -116,17 +116,17 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
-1. A partir da barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menu, escolha **File**  >  **Save All**.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menu, selecione **Build**  >  **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
+1. Escolha **Debug**  >  **Start Debugging** (ou prima **F5**) para iniciar a aplicação **Helloworld.**
 
-1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para alemão). O serviço de Fala envia então o áudio sintetizado e o texto de volta para a aplicação para exibição.
+1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso para o serviço Desío, que se traduz e transcreve para texto (neste caso, para alemão). Em seguida, o serviço Desemisso envia o áudio sintetizado e o texto de volta à aplicação para visualização.
 
 ````
 Say something...
@@ -136,6 +136,6 @@ RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

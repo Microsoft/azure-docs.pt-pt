@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: a7fddffd3809dc2fc9814b0c01c12f335110aad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206947"
+ms.locfileid: "88225670"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -496,7 +496,7 @@ Com a ligação da fila definida, pode agora atualizar a sua função para receb
 1. Na pasta raiz, volte a correr `docker build` e desta vez atualize a versão na etiqueta para `v1.0.1` . Como antes, `<docker_id>` substitua-o pela sua conta Docker Hub:
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Empurre a imagem atualizada de volta para o repositório `docker push` com:
@@ -513,7 +513,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 
@@ -523,7 +523,7 @@ Para evitar custos contínuos, elimine o `AzureFunctionsContainer-rg` grupo de r
 az group delete --name AzureFunctionsContainer-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Funções de monitorização](functions-monitoring.md)
 + [Opções de escala e hospedagem](functions-scale.md)

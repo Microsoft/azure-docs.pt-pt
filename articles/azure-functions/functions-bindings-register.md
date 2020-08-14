@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031132"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224786"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação funções Azure Funções
 
@@ -31,7 +31,7 @@ A tabela seguinte indica quando e como regista as encadernações.
 |Biblioteca de classe C# usando Visual Studio|[Use ferramentas NuGet](#vs)|[Use ferramentas NuGet](#vs)|
 |Biblioteca de classe C# usando Código de Estúdio Visual|N/D|[Use .NET Core CLI](#vs-code)|
 
-<sup>*</sup>Portal usa pacotes de extensão.
+<sup>*</sup> Portal usa pacotes de extensão.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pacotes de extensão
 
@@ -53,9 +53,9 @@ Para utilizar pacotes de extensão, atualize o *host.jsno* ficheiro para incluir
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>Pacotes NuGet
 
-Para um projeto de funções baseadas em bibliotecas C#, você deve instalar pacotes de extensão projetados especificamente para projetos que não são de classe 
+Para um projeto de funções baseadas em bibliotecas C#, deve instalar as extensões diretamente. Os pacotes de extensão são projetados especificamente para projetos que não são baseados em bibliotecas de classe C.
 
-### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Biblioteca de classe C \# com Estúdio Visual
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Biblioteca de classe C \# com Estúdio Visual
 
 No **Visual Studio,** pode instalar pacotes a partir da consola Package Manager utilizando o comando [Install-Package,](/nuget/tools/ps-ref-install-package) como mostra o seguinte exemplo:
 
@@ -69,7 +69,7 @@ Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, t
 
 Se utilizar `Install-Package` para fazer referência a uma ligação, não precisa de utilizar [pacotes de extensão](#extension-bundles). Esta abordagem é específica para bibliotecas de classes construídas no Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Biblioteca de classe C# com Código de Estúdio Visual
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteca de classe C# com Código de Estúdio Visual
 
 No **Código do Estúdio Visual,** instale pacotes para um projeto de biblioteca de classe C# a partir do pedido de comando utilizando o comando do pacote de adicionar [dotnet](/dotnet/core/tools/dotnet-add-package) no .NET Core CLI. O exemplo a seguir demonstra como se adiciona uma ligação:
 
@@ -83,6 +83,6 @@ O CLI do núcleo .NET só pode ser utilizado para o desenvolvimento de Funções
 
 Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, tal como `3.0.0-beta5` . As versões válidas estão listadas nas páginas de pacote individuais [NuGet.org](https://nuget.org). As principais versões que correspondem ao tempo de execução das funções 1.x ou 2.x estão especificadas no artigo de referência para a encadernação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Gatilho da função Azure e exemplo de ligação](./functions-bindings-example.md)

@@ -7,24 +7,24 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 92fc7aeec87015a9ddbe4e52f870334582e28c14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 11f80a000f386e661f3eb3f0ffb4969701704c90
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671520"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226420"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
+> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra **Program.cs**e substitua todo o código com o seguinte código:
+1. Abra **Program.cs**, e substitua todo o código nele pelo seguinte código:
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -199,22 +199,22 @@ Antes de começar, certifique-se de:
     }
     ```
 
-1. No mesmo ficheiro, substitua a cadeia `YourSubscriptionKey` pela chave de subscrição da Fala Cognitiva.
+1. No mesmo ficheiro, substitua a cadeia `YourSubscriptionKey` pela tecla de subscrição do Discurso Cognitivo.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição.
 
-1. A partir da barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menu, escolha **File**  >  **Save All**.
 
-## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construir e executar a aplicação para criar uma nova conversa
+## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construa e execute a aplicação para criar uma nova conversa
 
-1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menu, selecione **Build**  >  **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
+1. Escolha **Debug**  >  **Start Debugging** (ou prima **F5**) para iniciar a aplicação **Helloworld.**
 
-1. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá que as transcrições aparecem enquanto fala.
-    - Se partilhares o código de conversação com os outros e eles se juntarem à conversa, também verás as transcrições deles.
+1. Assim que vires a `Started transcribing` mensagem aparecer, podes começar a falar. Verá as transcrições aparecerem enquanto fala.
+    - Se partilhares o código de conversa com os outros e eles se juntarem à conversa, também verás as transcrições deles.
 
-1. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
+1. Assim que terminar de falar, prima <kbd>Ctrl+C</kbd> para parar a captura de áudio e termine a conversação.
 
 ## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Construa e execute a aplicação para se juntar a uma conversa existente
 
@@ -294,7 +294,7 @@ Antes de começar, certifique-se de:
     }
     ```
 
-2. Substitua `CreateConversationAsync();` `public static async Task Main(string[] args)` na sua função:
+2. Substitua `CreateConversationAsync();` na sua `public static async Task Main(string[] args)` função por:
 
     ```csharp
     // Set this to the conversation you want to join
@@ -303,16 +303,16 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Volte para o Estúdio Visual `YourConversationId` e substitua a cadeia pelo ID de conversação que criou no passo anterior.
+4. Volte para o Visual Studio e substitua a corda `YourConversationId` pelo ID de conversação que criou no passo anterior.
 
-5. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+5. A partir da barra de menu, selecione **Build**  >  **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-6. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
+6. Escolha **Debug**  >  **Start Debugging** (ou prima **F5**) para iniciar a aplicação **Helloworld.**
 
-7. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá que as transcrições aparecem enquanto fala.
-    - Se voltar ao seu navegador, deve ver que as suas transcrições aparecem lá enquanto fala.
+7. Assim que vires a `Started transcribing` mensagem aparecer, podes começar a falar. Verá as transcrições aparecerem enquanto fala.
+    - Se voltar ao seu navegador, deve ver as suas transcrições aparecerem lá enquanto fala.
 
-8. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
+8. Assim que terminar de falar, prima <kbd>Ctrl+C</kbd> para parar a captura de áudio e termine a conversação.
 
 9. Volte para o seu navegador e saia da conversa usando o botão de saída no canto superior direito.
 

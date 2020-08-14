@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010772"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225653"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Pré-visualização: Criar uma imagem a partir de um VM
 
@@ -133,10 +133,10 @@ $job.State
 > [!NOTE]
 > É necessário esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `-StorageAccountType Premium_LRS` , ou [Armazenamento Redundante zona,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento Premium `-StorageAccountType Premium_LRS` adicionando, ou Zone Redundant [Storage,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez verificada que a nova versão da imagem está a funcionar corretamente, pode criar um VM. Crie um VM a partir de uma [versão de imagem especializada](vm-specialized-image-version-powershell.md) ou de uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md).
 

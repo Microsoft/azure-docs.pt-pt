@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419721"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225942"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,11 +113,11 @@ Os seguintes passos podem ajudá-lo a estimar se uma piscina é mais rentável d
 
 Para o modelo de compra baseado em DTU:
 
-MAX (<*Número total de DTU* média de *DTU por DB*>, <Número de utilização *DBs* X *Peak DTU simultaneamente*por DB )
+MAX (<Número total de DTU média *de DBs* X *por DB*>, <Número de utilização *DBs* X *Peak DTU simultaneamente* por DB>)
 
 Para o modelo de compra baseado em vCore:
 
-MAX (<*Número total de* *utilização média vCore* por DB>, <Número de utilização *simultânea de DBs* X *Peak vCore por DB*)
+MAX (<Número total de utilização média vCore *de DBs* X *por> DB,* <Número de utilização *simultânea de DBs* X *Peak vCore por DB*>)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, pegue o maior das estimativas do eDTU do Passo 1 e Passo 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore do Passo 1.
@@ -143,7 +143,7 @@ As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de 
 
   A restauração pontual utiliza cópias de dados automáticas para recuperar uma base de dados numa piscina a um ponto específico no tempo. Veja [Restauro para um ponto anterior no tempo](recovery-using-backups.md#point-in-time-restore)
 
-- **Geo-restauro**
+- **Georrestauro**
 
   O geo-restauro fornece a opção de recuperação padrão quando uma base de dados não está disponível devido a um incidente na região onde a base de dados está hospedada. Consulte [restaurar uma base de dados Azure SQL ou falhar para um secundário](disaster-recovery-guidance.md)
 

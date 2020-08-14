@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2f8e95826a7da3caa3edfe8ec23a6e0725b6bcba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213226"
+ms.locfileid: "88224718"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -37,7 +37,7 @@ Neste tutorial, vai aprender a:
 
 ## <a name="set-up-feature-management"></a>Configurar gestão de recursos
 
-Adicione uma referência ao `Microsoft.FeatureManagement` pacote NuGet para utilizar o gestor de funcionalidades .NET Core.
+Adicione uma referência aos `Microsoft.FeatureManagement.AspNetCore` pacotes e `Microsoft.FeatureManagement` NuGet para utilizar o gestor de funcionalidades .NET Core.
     
 O gestor de funcionalidades .NET Core `IFeatureManager` obtém bandeiras de funcionalidades do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que .NET Core suporte, incluindo aappsettings.jslocal * em* variáveis de ficheiros ou ambiente. `IFeatureManager` baseia-se na injeção de dependência do núcleo .NET. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
 
@@ -206,6 +206,8 @@ public class HomeController : Controller
 Nos controladores MVC, utiliza-se o `FeatureGate` atributo para controlar se uma classe de controlador inteiro ou uma ação específica está ativada. O seguinte controlador requer estar ligado antes de `HomeController` qualquer ação que a classe do controlador `FeatureA` contenha possa ser executada: *on*
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 A seguinte `Index` ação deve ser `FeatureA` *iniciada* antes de poder ser executada:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
@@ -287,7 +291,7 @@ app.UseForFeature(featureName, appBuilder => {
 });
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a implementar bandeiras de funcionalidades na sua aplicação Core ASP.NET utilizando as `Microsoft.FeatureManagement` bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na configuração ASP.NET Core e App, consulte os seguintes recursos:
 
