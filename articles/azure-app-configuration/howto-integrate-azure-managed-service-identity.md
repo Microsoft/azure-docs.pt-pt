@@ -1,20 +1,21 @@
 ---
-title: Utilize identidades geridas para aceder à Configuração de Aplicações
+title: Utilizar identidades geridas para aceder ao App Configuration
 titleSuffix: Azure App Configuration
 description: Autenticar para a configuração de aplicativos Azure usando identidades geridas
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135475"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206828"
 ---
-# <a name="use-managed-identities-to-access-app-configuration"></a>Utilize identidades geridas para aceder à Configuração de Aplicações
+# <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
 O Azure Ative Directory [geriu identidades](../active-directory/managed-identities-azure-resources/overview.md) que simplificam a gestão de segredos para a sua aplicação em nuvem. Com uma identidade gerida, o seu código pode utilizar o principal serviço criado para o serviço Azure em que funciona. Utiliza uma identidade gerida em vez de uma credencial separada armazenada no Cofre da Chave Azure ou numa cadeia de ligação local.
 
@@ -101,7 +102,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 1. Se pretender aceder apenas aos valores armazenados diretamente na Configuração da Aplicação, atualize o `CreateWebHostBuilder` método substituindo o `config.AddAzureAppConfiguration()` método.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -184,7 +185,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     Agora pode aceder a referências do Key Vault como qualquer outra chave de Configuração de Aplicações. O provedor de config utilizará o `KeyVaultClient` que configura para autenticar no Key Vault e recuperar o valor.
 
 > [!NOTE]
-> `ManagedIdentityCredential`apenas suporta a autenticação de identidade gerida. Não funciona em ambientes locais. Se pretender executar o código localmente, considere usar `DefaultAzureCredential` , que também suporta a autenticação principal do serviço. Verifique se o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) é mais detalhes.
+> `ManagedIdentityCredential` apenas suporta a autenticação de identidade gerida. Não funciona em ambientes locais. Se pretender executar o código localmente, considere usar `DefaultAzureCredential` , que também suporta a autenticação principal do serviço. Verifique se o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) é mais detalhes.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -271,7 +272,7 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no ar
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, adicionou uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações e melhorar a gestão credencial da sua app. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]

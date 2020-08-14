@@ -3,15 +3,16 @@ title: Como utilizar o WebJobs SDK
 description: Saiba mais sobre como escrever código para o WebJobs SDK. Criar trabalhos de processamento de fundo orientados para eventos que acedam a dados em Azure e serviços de terceiros.
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807983"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208644"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -73,7 +74,7 @@ Você pode executar o anfitrião em modo de desenvolvimento para tornar o desenv
 
 | Propriedade | Definição de desenvolvimento |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose`para maximizar a saída de log. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` para maximizar a saída de log. |
 | `Queues.MaxPollingInterval`  | Um baixo valor para garantir que os métodos de fila são desencadeados imediatamente.  |
 | `Singleton.ListenerLockPeriod` | 15 segundos para ajudar no rápido desenvolvimento iterativo. |
 
@@ -620,7 +621,7 @@ Configura o resolver utilizando a injeção de dependência. Estas amostras requ
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-Adicione o resolver chamando o método de [`ConfigureServices`] [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) extensão, como neste exemplo:
+Adicione o resolver chamando o método de [`ConfigureServices`]  [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) extensão, como neste exemplo:
 
 ```cs
 static async Task Main(string[] args)
@@ -822,7 +823,7 @@ Recomendamos o quadro de exploração madeireira que foi desenvolvido para ASP.N
 
 ### <a name="log-filtering"></a>Filtragem de registos
 
-Cada registo criado por um `ILogger` caso tem um associado e `Category` `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)é uma enumeração, e o código inteiro indica importância relativa:
+Cada registo criado por um `ILogger` caso tem um associado e `Category` `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração, e o código inteiro indica importância relativa:
 
 |Nível de Registo    |Código|
 |------------|---|
@@ -832,7 +833,7 @@ Cada registo criado por um `ILogger` caso tem um associado e `Category` `Level` 
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhuma        | 6 |
+|Nenhum        | 6 |
 
 Pode filtrar independentemente cada categoria para um determinado [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Por exemplo, é melhor ver todos os registos para processamento de gatilhos blob, mas apenas `Error` e mais alto para tudo o resto.
 
@@ -840,7 +841,7 @@ Pode filtrar independentemente cada categoria para um determinado [`LogLevel`](/
 
 Versão 3. *x* do SDK depende da filtragem incorporada em .NET Core. A `LogCategories` classe permite definir categorias para funções específicas, gatilhos ou utilizadores. Também define filtros para estados de acolhimento específicos, como `Startup` e `Results` . Isto permite-lhe afinar a saída de registo. Se não for encontrada correspondência nas categorias definidas, o filtro volta ao valor ao `Default` decidir filtrar a mensagem.
 
-`LogCategories`requer a seguinte declaração:
+`LogCategories` requer a seguinte declaração:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 
@@ -879,7 +880,7 @@ Na versão 2. *x* do SDK, usa-se a `LogCategoryFilter` classe para controlar a f
 
 Como `LogCategories` na versão 3.* x*, a `CategoryLevels` propriedade permite especificar níveis de registo para categorias específicas para que possa afinar a saída de registo. Se não for encontrada correspondência dentro do `CategoryLevels` dicionário, o filtro volta ao valor ao `Default` decidir se filtra a mensagem.
 
-O exemplo a seguir constrói um filtro que por predefinição filtra todos os registos ao `Warning` nível. As `Function` `Host.Results` categorias e categorias são filtradas ao `Error` nível. `LogCategoryFilter`O compara a categoria atual a todos os `CategoryLevels` inscritos e escolhe o jogo mais longo. Assim, o `Debug` nível registado `Host.Triggers` para irá corresponder `Host.Triggers.Queue` ou `Host.Triggers.Blob` . Isto permite-lhe controlar categorias mais amplas sem precisar de adicionar cada uma delas.
+O exemplo a seguir constrói um filtro que por predefinição filtra todos os registos ao `Warning` nível. As  `Function` `Host.Results` categorias e categorias são filtradas ao `Error` nível. `LogCategoryFilter`O compara a categoria atual a todos os `CategoryLevels` inscritos e escolhe o jogo mais longo. Assim, o `Debug` nível registado `Host.Triggers` para irá corresponder `Host.Triggers.Queue` ou `Host.Triggers.Blob` . Isto permite-lhe controlar categorias mais amplas sem precisar de adicionar cada uma delas.
 
 ```csharp
 var filter = new LogCategoryFilter();
@@ -996,7 +997,7 @@ config.LoggerFactory = new LoggerFactory()
     .AddApplicationInsights(clientFactory);
 ```
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a id="nextsteps"></a> Próximos passos
 
 Este artigo forneceu código snippets que mostram como lidar com cenários comuns para trabalhar com o WebJobs SDK. Para obter amostras completas, consulte [amostras azure-webjobs-sdk.](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost)
 

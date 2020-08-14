@@ -3,14 +3,15 @@ title: Referência do desenvolvedor de scripts Azure Functions C#
 description: Entenda como desenvolver funções Azure usando o script C#.
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506152"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205436"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador Azure Functions C# (.csx)
 
@@ -49,13 +50,13 @@ FunctionsProject
  | - bin
 ```
 
-Há umhost.jspartilhado [no](functions-host-json.md) ficheiro que pode ser usado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.csx) e ficheiro de configuração de ligação (function.js).
+Há umhost.jspartilhado [ no](functions-host-json.md) ficheiro que pode ser usado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.csx) e ficheiro de configuração de ligação (function.js).
 
 As extensões de ligação necessárias na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros reais da biblioteca na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
 
 ## <a name="binding-to-arguments"></a>Vinculativo aos argumentos
 
-Os dados de entrada ou saída estão ligados a um parâmetro de função de script C# através da `name` propriedade nofunction.js*no* ficheiro de configuração. O exemplo a seguir mostra uma *function.jsno* ficheiro e no ficheiro *run.csx* para uma função desencadeada pela fila. O parâmetro que recebe dados da mensagem de fila é nomeado `myQueueItem` porque é o valor da `name` propriedade.
+Os dados de entrada ou saída estão ligados a um parâmetro de função de script C# através da `name` propriedade nofunction.js* no* ficheiro de configuração. O exemplo a seguir mostra uma *function.jsno* ficheiro e no ficheiro *run.csx* para uma função desencadeada pela fila. O parâmetro que recebe dados da mensagem de fila é nomeado `myQueueItem` porque é o valor da `name` propriedade.
 
 ```json
 {
@@ -210,9 +211,9 @@ public class Order
 
 Pode utilizar um caminho relativo com a `#load` diretiva:
 
-* `#load "mylogger.csx"`carrega um ficheiro localizado na pasta de funções.
-* `#load "loadedfiles\mylogger.csx"`carrega um ficheiro localizado numa pasta na pasta de funções.
-* `#load "..\shared\mylogger.csx"`carrega um ficheiro situado numa pasta ao mesmo nível da pasta de funções, ou seja, diretamente em *wwwroot*.
+* `#load "mylogger.csx"` carrega um ficheiro localizado na pasta de funções.
+* `#load "loadedfiles\mylogger.csx"` carrega um ficheiro localizado numa pasta na pasta de funções.
+* `#load "..\shared\mylogger.csx"` carrega um ficheiro situado numa pasta ao mesmo nível da pasta de funções, ou seja, diretamente em *wwwroot*.
 
 A `#load` diretiva funciona apenas com *ficheiros .csx,* não com *ficheiros .cs.*
 
@@ -367,7 +368,7 @@ Para obter informações sobre como enviar ficheiros para a sua pasta de funçõ
 
 ### <a name="watched-directories"></a>Diretórios assistidos
 
-O diretório que contém o ficheiro de script de função é automaticamente observado para alterações nos conjuntos. Para observar as alterações de montagem em outros diretórios, adicione-os à `watchDirectories` lista emhost.js[em](functions-host-json.md).
+O diretório que contém o ficheiro de script de função é automaticamente observado para alterações nos conjuntos. Para observar as alterações de montagem em outros diretórios, adicione-os à `watchDirectories` lista emhost.js[ em](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
 Para utilizar pacotes NuGet numa função 2.x e mais tarde C#, carrece um ficheiro *function.proj* para a pasta da função no sistema de ficheiros da aplicação de funções. Aqui está um ficheiro *de exemplo.proj* que adiciona uma referência à versão *1.1.0*do *Microsoft.ProjectOxford.Face* :
@@ -459,7 +460,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`é o atributo .NET que define a sua ligação e `T` é um tipo de entrada ou saída que é suportado por esse tipo de encadernação. `T`não pode ser um `out` tipo de parâmetro `out JObject` (como). Por exemplo, a ligação de saída da tabela mobile Apps suporta [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas só pode utilizar o [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou para [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T` .
+`BindingTypeAttribute` é o atributo .NET que define a sua ligação e `T` é um tipo de entrada ou saída que é suportado por esse tipo de encadernação. `T` não pode ser um `out` tipo de parâmetro `out JObject` (como). Por exemplo, a ligação de saída da tabela mobile Apps suporta [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas só pode utilizar o [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou para [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T` .
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
@@ -518,7 +519,7 @@ A tabela que se segue lista os atributos .NET para cada tipo de encadernação e
 > | Mesa de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

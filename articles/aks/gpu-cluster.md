@@ -4,12 +4,12 @@ description: Saiba como utilizar GPUs para cargas de trabalho de alto desempenho
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244298"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213177"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
 
@@ -26,7 +26,7 @@ Este artigo pressupõe que você tem um cluster AKS existente com nós que supor
 
 Também precisa da versão Azure CLI 2.0.64 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Se precisar de um cluster AKS que satisfaça os requisitos mínimos (nó ativado por GPU e versão 1.10 ou mais tarde), complete os seguintes passos. Se já tem um cluster AKS que satisfaça estes requisitos, [salte para a secção seguinte](#confirm-that-gpus-are-schedulable).
 
@@ -52,7 +52,7 @@ Obtenha as credenciais para o seu cluster AKS usando o comando [az aks get-crede
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instalar controladores NVIDIA
+## <a name="install-nvidia-device-plugin"></a>Instalar plugin de dispositivo NVIDIA
 
 Antes de as GPUs nos nós poderem ser utilizadas, tem de implantar um DaemonSet para o plugin do dispositivo NVIDIA. Este DaemonSet executa uma cápsula em cada nó para fornecer os controladores necessários para as GPUs.
 
@@ -188,7 +188,7 @@ Para ver a GPU em ação, agende uma carga de trabalho ativada pela GPU com o pe
 Crie um ficheiro chamado *samples-tf-mnist-demo.yaml* e cole o seguinte manifesto YAML. O seguinte manifesto de trabalho inclui um limite de recursos `nvidia.com/gpu: 1` de:
 
 > [!NOTE]
-> Se receber um erro de incompatibilidade da versão ao ligar para os condutores, como, por exemplo, a versão do condutor CUDA é insuficiente para a versão de tempo de execução cuda, reveja o gráfico de compatibilidade da matriz do condutor NVIDIA -[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Se receber um erro de incompatibilidade da versão ao ligar para os condutores, como, por exemplo, a versão do condutor CUDA é insuficiente para a versão de tempo de execução cuda, reveja o gráfico de compatibilidade da matriz do condutor NVIDIA - [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

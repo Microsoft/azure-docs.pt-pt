@@ -2,13 +2,14 @@
 title: Gerir ligações em Funções Azure
 description: Saiba como evitar problemas de desempenho em Funções Azure utilizando clientes de ligação estática.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 5ab59d82ad4b11e4ac5179ef727392a83bb263e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505997"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213966"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
 
@@ -127,9 +128,9 @@ module.exports = async function (context) {
 O seu código de função pode utilizar o Fornecedor de Dados De Quadro .NET para o SQL Server[(SqlClient)](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1)para fazer ligações a uma base de dados relacional SQL. Este é também o fornecedor subjacente aos quadros de dados que dependem de ADO.NET, como [o Quadro de Entidades.](/ef/ef6/) Ao contrário das ligações [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) e [DocumentClient,](/dotnet/api/microsoft.azure.documents.client.documentclient) ADO.NET implementa a ligação por padrão. Mas como ainda pode ficar sem ligações, deve otimizar as ligações à base de dados. Para obter mais informações, consulte [o SqL Server Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Alguns quadros de dados, tais como o Entity Framework, obtêm tipicamente cadeias de ligação a partir da secção **ConnectionStrings** de um ficheiro de configuração. Neste caso, deve adicionar explicitamente as cadeias de ligação à base de dados SQL à recolha de **cordas de ligação** das definições da aplicação de funções e [nolocal.settings.jsem ficheiro](functions-run-local.md#local-settings-file) no seu projeto local. Se estiver a criar uma instância de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) no seu código de função, deverá armazenar o valor da cadeia de ligação nas **definições de Aplicação** com as suas outras ligações.
+> Alguns quadros de dados, tais como o Entity Framework, obtêm tipicamente cadeias de ligação a partir da secção **ConnectionStrings** de um ficheiro de configuração. Neste caso, deve adicionar explicitamente as cadeias de ligação à base de dados SQL à recolha de **cordas de ligação** das definições da aplicação de funções e [ nolocal.settings.jsem ficheiro](functions-run-local.md#local-settings-file) no seu projeto local. Se estiver a criar uma instância de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) no seu código de função, deverá armazenar o valor da cadeia de ligação nas **definições de Aplicação** com as suas outras ligações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o porquê de recomendarmos clientes estáticos, consulte [anti-artigo de instantâneo impróprio.](/azure/architecture/antipatterns/improper-instantiation/)
 

@@ -3,14 +3,15 @@ title: Ligações de Hubs de Notificação para Funções Azure
 description: Entenda como utilizar a ligação do Hub de Notificação Azure em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 97e43d2348ccbe9bf0aebfd7647f6cc34906948c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c4198a1b73f76d61e39324befc85b55bd260e363
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540371"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212229"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação de saída de Hubs de Notificação para Funções Azure
 
@@ -288,7 +289,7 @@ Para configurar a cadeia de ligação a um centro de notificação existente:
 
 1. Navegue para o seu centro de notificação no [portal Azure,](https://portal.azure.com)escolha **as políticas de Acesso**e selecione o botão de cópia ao lado da política de **assinaturas DefaultFulFuldAccess.** Isto copia a cadeia de ligação para a política *defaultFulFullSharedAccessSignature* para o seu centro de notificação. Esta cadeia de ligação permite que a sua função envie mensagens de notificação para o centro.
     ![Copie a cadeia de ligação do hub de notificação](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Navegue para a sua aplicação de função no portal Azure, escolha **configurações de aplicação**, adicione uma chave como **MyHubConnectionString**, cole a *assinatura defaultFulFuldAccessss* para o seu centro de notificação como valor e, em seguida, clique em **Guardar**.
+1. Navegue para a sua aplicação de função no portal Azure, escolha **configurações de aplicação**, adicione uma chave como **MyHubConnectionString**, cole a *assinatura defaultFulFuldAccessss*  para o seu centro de notificação como valor e, em seguida, clique em **Guardar**.
 
 O nome desta definição de aplicação é o que vai na definição de ligação de ligação de saída em *function.jsou* no atributo .NET. Consulte a [secção configuração](#configuration) mais cedo neste artigo.
 
@@ -300,7 +301,7 @@ O nome desta definição de aplicação é o que vai na definição de ligação
 |---|---|
 | Centro de Notificação | [Guia de Operações](/rest/api/notificationhubs/) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

@@ -6,13 +6,13 @@ ms.service: cache
 ms.topic: quickstart
 ms.date: 06/18/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: c9dfc7c9b396ec6ecd27891298ba0b0f1fc3e186
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 8bf301413abaa090682f14d1e7a6f9fa7096bd66
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117850"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209209"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação web ASP.NET 
 
@@ -101,7 +101,7 @@ Uma vez que o ficheiro *CacheSecrets.config* não está implementado no Azure co
 2. No ficheiro *web.config*, encontre o elemento `<appSetting>`. Em seguida, adicione o atributo `file` seguinte. Se utilizou um nome de ficheiro ou localização diferentes, substitua estes valores pelos valores que são mostrados no exemplo.
 
 * Antes: `<appSettings>`
-* Depois:`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Depois:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando implementa a sua aplicação web para o Azure, o ficheiro *CacheSecrets.config* não é implementado.
 
@@ -287,7 +287,7 @@ Depois de ter testado com êxito a aplicação localmente, pode implementar a ap
 
 3. Na caixa de diálogo **Criar Serviço de Aplicações**, faça as seguintes alterações:
 
-    | Definição | Valor recomendado | Description |
+    | Definição | Valor recomendado | Descrição |
     | ------- | :---------------: | ----------- |
     | **Nome da aplicação** | Utilize a predefinição. | O nome da aplicação é o nome do anfitrião da aplicação quando é implementada no Azure. O nome pode ter um sufixo de carimbo de data/hora adicionado ao mesmo para torná-lo exclusivo, caso seja necessário. |
     | **Subscrição** | Escolha a sua subscrição do Azure. | Esta subscrição é debitada relativamente a quaisquer custos de alojamento relacionados. Se tiver várias subscrições do Azure, verifique se a subscrição pretendida está selecionada.|
@@ -324,7 +324,7 @@ Selecione **Azure Cache para teste redis** na barra de navegação para testar o
 
 ![Teste simples concluído do Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 

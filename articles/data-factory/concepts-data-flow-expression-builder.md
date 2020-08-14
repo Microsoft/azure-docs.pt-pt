@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/20/2020
-ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: f522812f762b55ec61794101e6cd1ec15fb171ca
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126166"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212098"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no fluxo de dados de mapeamento
 
@@ -58,7 +58,7 @@ Se [o modo de depuração](concepts-data-flow-debug-mode.md) estiver ligado, pod
 
 Selecione **Refresh** para atualizar os resultados da sua expressão contra uma amostra ao vivo da sua fonte.
 
-![Botão de atualização](media/data-flow/exp5.png "Visualização de dados de expressão")
+![Botão Atualizar](media/data-flow/exp5.png "Visualização de dados de expressão")
 
 ## <a name="string-interpolation"></a>Interpolação de cordas
 
@@ -134,6 +134,6 @@ O "l" de fuga no final da expressão anterior significa conversão para um tipo 
 
 toLong( actualTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:mm:ss. SSS') ) * 1000l
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Começar a construir expressões de transformação de dados](data-flow-expression-functions.md)

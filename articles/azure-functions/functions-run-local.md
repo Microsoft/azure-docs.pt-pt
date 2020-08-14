@@ -4,13 +4,13 @@ description: Aprenda a codificar e a testar as funções Azure a partir da solic
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037036"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207441"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -189,7 +189,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`suporta as seguintes opções, que são apenas a versão 3.x/2.x, salvo indicação em contrário:
+`func init` suporta as seguintes opções, que são apenas a versão 3.x/2.x, salvo indicação em contrário:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
@@ -363,7 +363,7 @@ npm start
 > func host start
 > ```
 
-`func start`suporta as seguintes opções:
+`func start` suporta as seguintes opções:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
@@ -472,7 +472,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 Na versão 1.x, também pode invocar uma função diretamente utilizando `func run <FunctionName>` e fornecendo dados de entrada para a função. Este comando é semelhante ao funcionamento de uma função utilizando o **separador Teste** no portal Azure.
 
-`func run`suporta as seguintes opções:
+`func run` suporta as seguintes opções:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
@@ -547,7 +547,7 @@ Estão disponíveis as seguintes opções de implantação de contentores person
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registo Docker que o atual utilizador inscreveu. |
-| **`--platform`** | Plataforma de hospedagem para a aplicação de função. As opções válidas são`kubernetes` |
+| **`--platform`** | Plataforma de hospedagem para a aplicação de função. As opções válidas são `kubernetes` |
 | **`--name`** | Nome de aplicativo de função. |
 | **`--max`**  | Opcionalmente, define o número máximo de instâncias de aplicação de função para implementar. |
 | **`--min`**  | Opcionalmente, define o número mínimo de instâncias de aplicação de função para implementar. |

@@ -4,13 +4,13 @@ description: Saiba como o App Service do Azure o ajuda a desenvolver e alojar We
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 56bba25cea909ac6455462b41c9eeae997c25bc1
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-dotnet, mvc, seodec18
+ms.openlocfilehash: b6d8a73dd4f4e7c1a1e430b6f5ea494ed51d20c0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079625"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211689"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 

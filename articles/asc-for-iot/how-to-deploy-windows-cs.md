@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64b9176a16f4d8d2b7ee7f33e00714d811c5f070
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537615"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209083"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implementar um agente de segurança baseado em C# do Centro de Segurança do Azure para IoT para o Windows
 
@@ -80,7 +81,7 @@ Este script faz as seguintes ações:
 
 Para obter ajuda adicional, utilize o comando Get-Help em PowerShell.
 
-Exemplo de ajuda:```Get-Help .\InstallSecurityAgent.ps1```
+Exemplo de ajuda:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Verificar o estado de implantação
 
@@ -137,9 +138,9 @@ Para ligar o registo:
 
 1. Reveja o ficheiro de registo para obter mais informações sobre a falha. O ficheiro de registo estaria presente no diretório de trabalho onde executamos o guião. 
 
-   Localização do ficheiro de registo:`.\IoTAgentLog.log`
+   Localização do ficheiro de registo: `.\IoTAgentLog.log`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia o Centro de Segurança Azure para o serviço IoT [Visão geral](overview.md)
 * Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)

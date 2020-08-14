@@ -3,15 +3,16 @@ title: Quickstart para adicionar bandeiras de recurso ao ASP.NET Core
 description: Adicione bandeiras de funcionalidades para ASP.NET aplicações Core e geri-las usando a Configuração de Aplicações Azure
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760146"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214207"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -56,7 +57,7 @@ Para utilizar o Gestor Secreto, adicione um `UserSecretsId` elemento ao seu fich
 1.  Adicione um `UserSecretsId` elemento como mostrado aqui. Pode usar o mesmo GUID, ou pode substituir este valor pelo seu.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -129,7 +130,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 1. Em *Program.cs,* atualize o `CreateWebHostBuilder` método para utilizar a Configuração da Aplicação, chamando o `config.AddAzureAppConfiguration()` método.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -186,7 +187,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---

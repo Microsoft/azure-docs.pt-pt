@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Descreve os requisitos de networking para executar Azure Dev Spaces em Serviços Azure Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, CNI, kubenet, SDN, rede
-ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300696"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214164"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para espaços Azure Dev em diferentes topologias de rede
 
@@ -28,7 +28,7 @@ A Azure Dev Spaces tem certos requisitos para o tráfego da rede *Ingress e Egre
 
 A Azure Dev Spaces necessita de tráfego de entrada e saída para os seguintes FQDNs:
 
-| FQDN                       | Porta       | Utilizar      |
+| FQDN                       | Porta       | Utilização      |
 |----------------------------|------------|----------|
 | cloudflare.docker.com      | HTTPS: 443 | Para tirar imagens de estivadores para Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Para puxar imagens de leme para Azure Dev Spaces |
@@ -85,12 +85,12 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 O Azure Dev Spaces utiliza ferramentas do lado do cliente, como a extensão CLI do Azure Dev Spaces, a extensão do Código do Estúdio Visual e a extensão do Visual Studio, para comunicar com o seu cluster AKS para depuração. Para utilizar a ferramenta do lado do cliente da Azure Dev Spaces, permita o tráfego das máquinas de desenvolvimento até à [infraestrutura Azure Dev Spaces][dev-spaces-allow-infrastructure]. Se utilizar [os intervalos IP autorizados pelo servidor API,][auth-range-section]também precisa de permitir o endereço IP de quaisquer máquinas de desenvolvimento que se conectem ao seu cluster AKS para depurar para se ligar ao seu servidor API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento de equipas em Espaços Azure Dev][team-quickstart]
+> [Como funciona o Azure Dev Spaces](how-dev-spaces-works.md)
 
 [aks-cni]: ../aks/configure-azure-cni.md
 [aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster
@@ -111,4 +111,3 @@ Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas 
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
-[team-quickstart]: quickstart-team-development.md

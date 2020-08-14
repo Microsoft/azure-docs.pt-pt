@@ -3,14 +3,15 @@ title: Ligações de Aplicativos Móveis para Funções Azure
 description: Entenda como utilizar as ligações Azure Mobile Apps em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ea58cc3d9f3615a74249b36f3f9ffb79caddda1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506337"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212241"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de Aplicativos Móveis para Funções Azure 
 
@@ -310,13 +311,13 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 Nas funções de script C# utilize um parâmetro de saída nomeado `out object` para aceder ao registo de saída. Nas bibliotecas de classe C#, o `MobileTable` atributo pode ser utilizado com qualquer um dos seguintes tipos:
 
-* `ICollector<T>`ou `IAsyncCollector<T>` , onde está ou qualquer tipo com uma `T` `JObject` `public string Id` propriedade.
+* `ICollector<T>` ou `IAsyncCollector<T>` , onde está ou qualquer tipo com uma `T` `JObject` `public string Id` propriedade.
 * `out JObject`
-* `out T`ou `out T[]` , onde está qualquer Tipo com uma `T` `public string Id` propriedade.
+* `out T` ou `out T[]` , onde está qualquer Tipo com uma `T` `public string Id` propriedade.
 
 Em Node.js funções, utilize `context.bindings.<name>` para aceder ao registo de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

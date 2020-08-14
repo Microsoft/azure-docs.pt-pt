@@ -3,14 +3,15 @@ title: Ligação de saída do serviço signalr funções Azure Functions
 description: Aprenda a enviar mensagens de Serviço SignalR a partir de Funções Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77530253"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212574"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Ligação de saída do Serviço SignalR para funções Azure
 
@@ -750,6 +751,6 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Devolva o URL do ponto final de serviço e o token de acesso (Ligação de entrada)](./functions-bindings-signalr-service-input.md)

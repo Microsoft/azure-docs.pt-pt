@@ -4,13 +4,13 @@ description: Aprenda a utilizar insights de aplicação Azure com funções Azur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp, fasttrack-edit
+ms.openlocfilehash: 239d1da028a06d4272ed9b22b624413394aa142f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273378"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213000"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -69,7 +69,7 @@ As seguintes áreas de Insights de Aplicação podem ser úteis na avaliação d
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções ao servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas a menos que implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise os problemas de desempenho visualizando a utilização de recursos e a produção por **instâncias de função cloud**. Estes dados podem ser úteis para depurar cenários onde as funções estão a atrapalhar os seus recursos subjacentes. |
 | **[Métricas](../azure-monitor/platform/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de funções, tempo de execução e taxas de sucesso. |
-| **[Métricas Vivas](../azure-monitor/app/live-stream.md)** | Veja os dados das métricas como são criados em quase tempo real. |
+| **[Métricas Vivas    ](../azure-monitor/app/live-stream.md)** | Veja os dados das métricas como são criados em quase tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria de consulta
 
@@ -189,10 +189,10 @@ Versão v2.x e versões posteriores do tempo de execução das Funções utilize
 Este exemplo estabelece as seguintes regras:
 
 * Para registos com categoria `Host.Results` ou `Function` , envie apenas `Error` nível e acima para Insights de Aplicação. Os registos para `Warning` o nível e abaixo são ignorados.
-* Para registos com `Host.Aggregator` categoria, envie todos os registos para Application Insights. O `Trace` nível de registo é o mesmo que alguns madeireiros `Verbose` chamam, mas usar `Trace` nohost.js[no] ficheiro.
+* Para registos com `Host.Aggregator` categoria, envie todos os registos para Application Insights. O `Trace` nível de registo é o mesmo que alguns madeireiros `Verbose` chamam, mas usar `Trace` nohost.js[ no] ficheiro.
 * Para todos os outros registos, envie apenas `Information` nível e acima para Application Insights.
 
-O valor da categoria em [host.jsnos] controlos de registo de todas as categorias que começam com o mesmo valor. `Host`em [host.jssobre] os controlos de registo de , e assim por `Host.General` `Host.Executor` `Host.Results` diante.
+O valor da categoria em [host.jsnos] controlos de registo de todas as categorias que começam com o mesmo valor. `Host` em [host.jssobre] os controlos de registo de , e assim por `Host.General` `Host.Executor` `Host.Results` diante.
 
 Se [host.js] inclui várias categorias que começam com a mesma corda, as mais compridas são as primeiras. Suponha que queira tudo a partir do tempo de execução, exceto `Host.Aggregator` para registar-se ao `Error` nível, mas deseja `Host.Aggregator` registar-se ao `Information` nível:
 

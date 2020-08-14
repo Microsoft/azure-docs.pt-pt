@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505351"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207803"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf
 
@@ -127,13 +127,13 @@ Agora, o agente recolherá métricas de cada um dos plug-ins de entrada especifi
 
 ## <a name="additional-configuration"></a>Configuração adicional 
 
-O walkthrough anterior fornece informações sobre como configurar o agente Telegraf para recolher métricas de alguns plug-ins básicos de entrada. O agente Telegraf tem suporte para mais de 150 plug-ins de entrada, com algumas opções de configuração adicionais de suporte. O InfluxData publicou uma [lista de plugins suportados](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e instruções sobre [como configurá-los](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+O walkthrough anterior fornece informações sobre como configurar o agente Telegraf para recolher métricas de alguns plug-ins básicos de entrada. O agente Telegraf tem suporte para mais de 150 plug-ins de entrada, com algumas opções de configuração adicionais de suporte. O InfluxData publicou uma [lista de plugins suportados](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) e instruções sobre [como configurá-los](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 Além disso, nesta passagem, usou o agente Telegraf para emitir métricas sobre o VM em que o agente é implantado. O agente Telegraf também pode ser usado como colecionador e reencaminhador de métricas para outros recursos. Para aprender a configurar o agente para emitir métricas para outros recursos Azure, consulte [a Produção Métrica Personalizada do Monitor Azure para a Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Quando já não são necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual e selecione **Delete**. Em seguida, confirme o nome do grupo de recursos para apagar. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8116abda71ae78b05786ede03256eb9e9bb59345
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp, H1Hack27Feb2017
+ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540269"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206631"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação twilio para funções Azure
 
@@ -340,7 +340,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

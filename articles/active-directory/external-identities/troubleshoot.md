@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 824520e04bd4a98b1a00c8369848163a38bcf54b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909105"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206290"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -72,7 +72,7 @@ Os utilizadores externos só podem ser adicionados a grupos "atribuídos" ou "de
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>O meu utilizador externo não recebeu um e-mail para resgatar
 
-O convidado deve verificar com o seu ISP ou filtro de spam para garantir que o seguinte endereço é permitido:Invites@microsoft.com
+O convidado deve verificar com o seu ISP ou filtro de spam para garantir que o seguinte endereço é permitido: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Noto que a mensagem personalizada não é incluída com mensagens de convite às vezes
 
@@ -93,7 +93,7 @@ Um utilizador que tenha uma conta de hóspedes não pode iniciar sessão e está
 
 O utilizador tem uma conta de utilizador Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, não existem administradores globais ou de empresas no arrendatário.
 
-Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
+Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" é incapaz de redefinir a sua palavra-passe
 
@@ -109,4 +109,4 @@ Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apenas apo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Obtenha apoio para a colaboração B2B](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Obtenha apoio para a colaboração B2B](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)

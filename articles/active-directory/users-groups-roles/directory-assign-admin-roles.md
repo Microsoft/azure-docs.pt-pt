@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 03a51cc8aa86f40b5333bd79e95e6d02be1adfc4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066071"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213845"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -89,11 +89,11 @@ A [função de administrador de autenticação privilegiada](#privileged-authent
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
 >
->- Os proprietários de Registo de Aplicações e Aplicações Empresariais, que podem gerir credenciais de apps que possuam. Essas aplicações podem ter permissões privilegiadas em Azure AD e em outros lugares não concedidos a Administradores de Autenticação. Por este caminho um Administrador de Autenticação poderá assumir a identidade de titular da candidatura e, em seguida, assumir a identidade de uma aplicação privilegiada atualizando as credenciais para a aplicação.
->- Proprietários de subscrições Azure, que podem ter acesso a informações sensíveis ou privadas ou configuração crítica em Azure.
->- Proprietários do Grupo de Segurança e do Office 365, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
->- Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
->- Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
+>* Os proprietários de Registo de Aplicações e Aplicações Empresariais, que podem gerir credenciais de apps que possuam. Essas aplicações podem ter permissões privilegiadas em Azure AD e em outros lugares não concedidos a Administradores de Autenticação. Por este caminho um Administrador de Autenticação poderá assumir a identidade de titular da candidatura e, em seguida, assumir a identidade de uma aplicação privilegiada atualizando as credenciais para a aplicação.
+>* Proprietários de subscrições Azure, que podem ter acesso a informações sensíveis ou privadas ou configuração crítica em Azure.
+>* Security Group e Microsoft 365 proprietários do grupo, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
+>* Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
+>* Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
 ### <a name="azure-devops-administrator"></a>[Administrador da Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -206,7 +206,7 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft D
 
 ### <a name="exchange-administrator"></a>[Administrador de Intercâmbio](#exchange-service-administrator-permissions)
 
-Os utilizadores com esta função têm permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. Tem também a capacidade de criar e gerir todos os Grupos Office 365, gerir bilhetes de apoio e monitorizar a saúde do serviço. Mais informações sobre as [funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Os utilizadores com esta função têm permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. Também tem a capacidade de criar e gerir todos os grupos Microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço. Mais informações sobre as [funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Na Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador de Serviço de Câmbio". É "Exchange Administrator" no [portal Azure](https://portal.azure.com). É "Exchange Online administrator" no [Centro de Administração Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -277,7 +277,7 @@ Os utilizadores com esta função podem alterar palavras-passe, invalidar fichas
 >
 >- Os proprietários de Registo de Aplicações e Aplicações Empresariais, que podem gerir credenciais de apps que possuam. Essas aplicações podem ter permissões privilegiadas em Azure AD e em outros lugares não concedidos a Administradores helpdesk. Por este caminho, um Administrador helpdesk poderá assumir a identidade de um titular da aplicação e, em seguida, assumir a identidade de um pedido privilegiado atualizando as credenciais para o pedido.
 >- Proprietários de subscrições Azure, que podem ter acesso a informações confidenciais ou privadas ou configuração crítica em Azure.
->- Proprietários do Grupo de Segurança e do Office 365, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
+>- Security Group e Microsoft 365 proprietários do grupo, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
 >- Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
 >- Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
@@ -331,8 +331,8 @@ Os utilizadores com a função de Utilizador de Comércio Moderno normalmente t�
 **Quando é atribuída a função de Utilizador do Comércio Moderno?**
 
 * **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, veja [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide) (FAQ da compra personalizada).  
-* **Compras no mercado comercial da Microsoft** – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)
-* **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
+* **Compras no mercado comercial da Microsoft**  – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)
+* **Propostas da Microsoft**  – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
 * **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.  
 
 Se a função de Utilizador do Comércio Moderno não for atribuído a um utilizador, perde o acesso ao centro de administração microsoft 365. Se eles estavam a gerir quaisquer produtos, para si ou para a sua organização, eles não serão capazes de geri-los. Isto pode incluir a atribuição de licenças, alteração de métodos de pagamento, pagamento de contas ou outras tarefas para a gestão de subscrições.
@@ -467,7 +467,7 @@ Os utilizadores com esta função podem abrir pedidos de suporte com a Microsoft
 
 ### <a name="sharepoint-administrator"></a>[Administrador do SharePoint](#sharepoint-service-administrator-permissions)
 
-Os utilizadores com esta função têm permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade de criar e gerir todos os Grupos Office 365, gerir bilhetes de suporte e monitorizar a saúde do serviço. Mais informações sobre [funções de administração.](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+Os utilizadores com esta função têm permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade de criar e gerir todos os grupos microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço. Mais informações sobre [funções de administração.](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador de Serviço SharePoint". É "SharePoint Administrator" no [portal Azure](https://portal.azure.com).
@@ -496,7 +496,7 @@ Os utilizadores desta função podem resolver problemas de comunicação dentro 
 
 ### <a name="teams-service-administrator"></a>[Administrador de Serviço de Equipas](#teams-service-administrator-permissions)
 
-Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho das Equipas Microsoft através das Equipas microsoft & Skype para centro de administração de negócios e os respetivos módulos PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionadas com a telefonia, mensagens, reuniões e as próprias equipas. Esta função garante ainda a capacidade de criar e gerir todos os Grupos Office 365, gerir bilhetes de apoio e monitorizar a saúde do serviço.
+Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho das Equipas Microsoft através das Equipas microsoft & Skype para centro de administração de negócios e os respetivos módulos PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionadas com a telefonia, mensagens, reuniões e as próprias equipas. Esta função também oferece a capacidade de criar e gerir todos os grupos Microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço.
 
 ### <a name="user-administrator"></a>[Administrador do Utilizador](#user-administrator-permissions)
 
@@ -513,7 +513,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 >
 >- Os proprietários de Registo de Aplicações e Aplicações Empresariais, que podem gerir credenciais de apps que possuam. Essas aplicações podem ter permissões privilegiadas em Azure AD e em outros lugares não concedidos aos Administradores de Utilizadores. Por este caminho, um Administrador de Utilizador poderá assumir a identidade de um titular da aplicação e, em seguida, assumir a identidade de uma aplicação privilegiada atualizando as credenciais para a aplicação.
 >- Proprietários de subscrições Azure, que podem ter acesso a informações sensíveis ou privadas ou configuração crítica em Azure.
->- Proprietários do Grupo de Segurança e do Office 365, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
+>- Security Group e Microsoft 365 proprietários do grupo, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
 >- Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
 >- Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
@@ -1030,7 +1030,6 @@ Pode ler & escrever informações básicas de diretório. Para a concessão de a
 | microsoft.diretório/utilizadores/reprocessLicenseAssignment | Reprocesse as atribuições de licença para um utilizador no Azure Ative Directory. |
 | microsoft.diretório/utilizadores/userPrincipalName /update | Atualize a propriedade users.userPrincipalName em Azure Ative Directory. |
 
-
 ### <a name="exchange-service-administrator-permissions"></a>Permissões de Administrador de Serviço de Intercâmbio
 
 Pode gerir todos os aspetos do produto Exchange.
@@ -1045,11 +1044,11 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.diretório/grupos/uned/appRoleAssignments/update | Atualizar grupos.propriedade unificada em Azure Ative Directory. |
-| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas do Office 365 Groups. |
-| microsoft.diretório/grupos/unificado/criar | Criar Grupos 365 do Escritório. |
-| microsoft.diretório/grupos/unificado/delete | Excluir Grupos do Office 365. |
-| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos Grupos Office 365. |
-| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos Grupos Office 365. |
+| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas dos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/criar | Crie grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/delete | Elimine os grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos grupos Microsoft 365. |
 | microsoft.office365.exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
 | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
@@ -1759,11 +1758,11 @@ Pode gerir todos os aspetos do serviço SharePoint.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.diretório/grupos/uned/appRoleAssignments/update | Atualizar grupos.propriedade unificada em Azure Ative Directory. |
-| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas do Office 365 Groups. |
-| microsoft.diretório/grupos/unificado/criar | Criar Grupos 365 do Escritório. |
-| microsoft.diretório/grupos/unificado/delete | Excluir Grupos do Office 365. |
-| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos Grupos Office 365. |
-| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos Grupos Office 365. |
+| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas dos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/criar | Crie grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/delete | Elimine os grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos grupos Microsoft 365. |
 | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão em microsoft.office365.sharepoint. |
@@ -1834,11 +1833,11 @@ Pode gerir o serviço Microsoft Teams.
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.diretório/grupos/hiddenMembers/read | Ler propriedade de grupos.hiddenMembers em Azure Ative Directory. |
 | microsoft.diretório/grupos/uned/appRoleAssignments/update | Atualizar grupos.propriedade unificada em Azure Ative Directory. |
-| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas do Office 365 Groups. |
-| microsoft.diretório/grupos/unificado/criar | Criar Grupos 365 do Escritório. |
-| microsoft.diretório/grupos/unificado/delete | Excluir Grupos do Office 365. |
-| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos Grupos Office 365. |
-| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos Grupos Office 365. |
+| microsoft.diretório/grupos/unificado/básico/atualização | Atualizar propriedades básicas dos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/criar | Crie grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/delete | Elimine os grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/membros/atualização | Atualizar a adesão aos grupos Microsoft 365. |
+| microsoft.diretório/grupos/unificado/proprietários/atualização | Atualizar a propriedade dos grupos Microsoft 365. |
 | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |

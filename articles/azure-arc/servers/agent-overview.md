@@ -1,18 +1,18 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
-description: Este artigo fornece uma visão detalhada do Arco Azure para servidores (pré-visualização) disponíveis, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
+description: Este artigo fornece uma visão geral detalhada do agente ativo do Arco Azure (pré-visualização) disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121838"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212988"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Visão geral do Azure Arc para servidores (pré-visualização) agente
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Visão geral do agente ativado por servidores (pré-visualização) do Azure Arc
 
-O Azure Arc para servidores (pré-visualização) O agente de máquinas conectadas permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem. Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede, bem como dos diferentes métodos de implantação.
+O agente de máquinas conectadas Azure Arc (pré-visualização) permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem. Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede, bem como dos diferentes métodos de implantação.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -65,7 +65,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço azure
 
-Antes de configurar as suas máquinas com o Azure Arc para servidores (pré-visualização), reveja os [limites de subscrição](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) do Gestor de Recursos Azure e [os limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do grupo de recursos para planear o número de máquinas a serem ligadas.
+Antes de configurar as suas máquinas com servidores ativados a Azure Arc (pré-visualização), reveja os [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) de subscrição do Gestor de Recursos Azure e [os limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do grupo de recursos para planear o número de máquinas a serem ligadas.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo de Segurança da Camada de Transporte 1.2
 
@@ -105,7 +105,7 @@ Os URLs na tabela anterior são necessários para além das informações do int
 
 ### <a name="register-azure-resource-providers"></a>Registar fornecedores de recursos Azure
 
-O Azure Arc para servidores (pré-visualização) depende dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
+Os servidores ativados Azure Arc (pré-visualização) dependem dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -248,4 +248,4 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a avaliar o Arco azul para servidores (pré-visualização), siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).
+Para começar a avaliar os servidores ativados do Azure Arc (pré-visualização), siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).

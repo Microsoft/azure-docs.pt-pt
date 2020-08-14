@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 28b608446c543fc568a5c322ffce1df6100d4a73
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852468"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213943"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -297,7 +297,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
+Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` * em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +311,7 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 
 ## <a name="blob-name-patterns"></a>Padrões de nome de blob
 
-Pode especificar um padrão de nome blob na `path` propriedade emfunction.js*sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
+Pode especificar um padrão de nome blob na `path` propriedade emfunction.js* sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha nome e extensão de ficheiros
 

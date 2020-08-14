@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372034"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206147"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
@@ -25,7 +25,7 @@ Este artigo inclui os seguintes tutoriais:
 
 - Gerar um pacote de Suporte
 - Encerrar ou reiniciar o dispositivo
-- Descarregue ficheiros BOM ou manifesto
+- Fatura de descarregamento de material (BOM) ou ficheiros manifestos
 - Ver a capacidade disponível do dispositivo
 - Ignorar a validação da soma de verificação
 
@@ -53,7 +53,7 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
 ## <a name="shut-down-or-restart-your-device"></a>Encerrar ou reiniciar o dispositivo
 
-Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
+Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Ao fazê-lo, minimiza qualquer possibilidade de corrupção de dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
 
 Para desligar o seu dispositivo, tome os seguintes passos.
 
@@ -62,7 +62,7 @@ Para desligar o seu dispositivo, tome os seguintes passos.
 
     ![Encerrar Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
+3. Quando solicitado para confirmação, selecione **OK** para prosseguir.
 
     ![Encerrar o Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -81,33 +81,32 @@ Para reiniciar o Data Box, execute os passos seguintes.
 
 ## <a name="download-bom-or-manifest-files"></a>Descarregue ficheiros BOM ou manifesto
 
-A Fatura de Material (BOM) ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados para uma ordem de importação quando se prepara o dispositivo para o envio.
+O BOM ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados para uma ordem de importação quando se prepara o dispositivo para o envio.
 
-Antes de começar, certifique-se de que o seu dispositivo está concluído **Prepare-se para o envio.** Siga estes passos para descarregar ficheiros BOM ou manifestos para a sua encomenda de importação:
+Antes de começar, siga estes passos para descarregar ficheiros BOM ou manifestos para a sua encomenda de importação:
 
-1. Vá à uI local para o seu dispositivo. Verá que o dispositivo completou a preparação para o navio. Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **Pronto para enviar**.
+1. Vá à uI local para o seu dispositivo. Verifique se o seu dispositivo completou o **passo de preparação para o envio.** Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **Pronto para enviar**.
 
-    ![Dispositivo pronto para enviar](media/data-box-portal-admin/ready-to-ship.png)
+    ![Dispositivo pronto para enviar](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Selecione Baixar a **lista de ficheiros** para descarregar a lista de ficheiros que foram copiados na sua Caixa de Dados.
 
-    ![Selecione Lista de descarregamento de ficheiros](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. No File Explorer, verá que a lista separada de ficheiros é gerada dependendo do protocolo utilizado para ligar ao dispositivo e ao tipo de Armazenamento Azure utilizado.
 
-    ![Ficheiros para tipo de armazenamento e protocolo de ligação](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Ficheiros para tipo de armazenamento e protocolo de ligação](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    A tabela que se segue mapeia os nomes dos ficheiros para o tipo de Armazenamento Azure e para o protocolo de ligação utilizado.
 
     |Nome de ficheiro  |Tipo de armazenamento Azure  |Protocolo de ligação utilizado |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blobs de blocos         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Ficheiros do Azure         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de blocos         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Disco Gerido         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Disco Gerido         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Blobs de blocos         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Blobs de páginas         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Ficheiros do Azure         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Blobs de blocos         |REST         |
 
 Utilize esta lista para verificar os ficheiros enviados para a conta de Armazenamento Azure após a retorna da Caixa de Dados ao centro de dados Azure. Um ficheiro manifesto de amostra é mostrado abaixo.
 

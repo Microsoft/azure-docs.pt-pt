@@ -1,23 +1,23 @@
 ---
-title: Definições de política incorporadas para Azure Arc para servidores
-description: Lista definições de política incorporadas para Azure Arc para servidores. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+title: Definições de política incorporadas para servidores ativados do Azure Arc
+description: Lista definições de política incorporadas para servidores ativados Azure Arc (pré-visualização). Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
 ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 988a383d5b7f7e9dac411205d530a7caf7b8f3dd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8d430e741e2cdf2ed562f4a2b2a14cc64d4e5d99
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121787"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211275"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>Definições incorporadas da Política Azure para O Arco Azure para servidores
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers-preview"></a>Definições incorporadas da Política Azure para servidores ativados do Azure Arc (pré-visualização)
 
-Esta página é um índice de definições de política incorporadas da [Azure Policy](../../governance/policy/overview.md) para Azure Arc para servidores. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../../governance/policy/overview.md) para servidores ativados Azure Arc (pré-visualização). Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
 
 O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-arc-for-servers"></a>Azure Arc para servidores
+## <a name="azure-arc-enabled-servers-preview"></a>Servidores preparados para o Azure Arc (pré-visualização)
 
 [!INCLUDE [azure-policy-samples-rp-arcserver](../../../includes/policy/samples/byrp/microsoft.hybridcompute.md)]
 

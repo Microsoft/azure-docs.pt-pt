@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit, devx-track-python
-ms.openlocfilehash: 78b15e0ba73743f6d88d28b03c99ca64d73dfae1
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
+ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848439"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214132"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -526,7 +526,7 @@ Vê o site, mas ainda não foram publicados eventos no mesmo.
 
 ### <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
-Crie uma subscrição de Grade de Eventos do tipo que pretende testar e dê-lhe o URL da sua aplicação web como ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Então, a URL completa é`https://<your-site-name>.azurewebsites.net/api/updates`
+Crie uma subscrição de Grade de Eventos do tipo que pretende testar e dê-lhe o URL da sua aplicação web como ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Então, a URL completa é `https://<your-site-name>.azurewebsites.net/api/updates`
 
 Para obter informações sobre como criar subscrições utilizando o portal Azure, consulte [Criar evento personalizado - Portal Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 

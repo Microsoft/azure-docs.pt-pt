@@ -5,13 +5,13 @@ keywords: serviço de aplicativos azure, aplicativo web, configurações de apli
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077378"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213577"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -29,7 +29,7 @@ No menu esquerdo da aplicação, selecione **Configuration**  >  **configuraçõ
 
 ![Definições de Aplicação](./media/configure-common/open-ui.png)
 
-Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os *deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ou *appsettings.js,* mas os segredos de produção (por exemplo, palavra-passe da base de dados Azure MySQL) são seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
+Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os * deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ou *appsettings.js,* mas os segredos de produção (por exemplo, palavra-passe da base de dados Azure MySQL) são seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
 
 Outras pilhas linguísticas, igualmente, obtêm as configurações da aplicação como variáveis ambientais no tempo de execução. Para etapas específicas de pilha de linguagem, consulte:
 
@@ -90,17 +90,17 @@ No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida
 
 ![Definições de Aplicação](./media/configure-common/open-ui.png)
 
-Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as cadeias de ligação no Serviço de Aplicações é como defini-las `<connectionStrings>` em *Web.config*, mas os valores que definiu no Serviço de Aplicações substituem os *Web.config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) em *segredos deWeb.config* e de produção (por exemplo, credenciais de base de dados SQL) em segurança no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
+Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as cadeias de ligação no Serviço de Aplicações é como defini-las `<connectionStrings>` em *Web.config*, mas os valores que definiu no Serviço de Aplicações substituem os *Web.config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) em * segredos deWeb.config* e de produção (por exemplo, credenciais de base de dados SQL) em segurança no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
 
 Para outras pilhas de idiomas, é melhor usar [as definições](#configure-app-settings) de aplicações em vez disso, porque as cordas de conexão requerem formatação especial nas teclas variáveis para aceder aos valores. No entanto, há uma exceção: certos tipos de bases de dados Azure são apoiados juntamente com a aplicação se configurar as suas cadeias de ligação na sua aplicação. Para mais informações, veja [o que é ressoou.](manage-backup.md#what-gets-backed-up) Se não precisar desta cópia de segurança automatizada, use as definições de aplicações.
 
 No tempo de funcionação, as cadeias de ligação estão disponíveis como variáveis ambientais, prefixadas com os seguintes tipos de ligação:
 
-* SQLServer:`SQLCONNSTR_`  
-* MySQl:`MYSQLCONNSTR_` 
-* SQLAzure:`SQLAZURECONNSTR_` 
-* Personalizado:`CUSTOMCONNSTR_`
-* PostgresqL:`POSTGRESQLCONNSTR_`  
+* SQLServer: `SQLCONNSTR_`  
+* MySQl: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
+* Personalizado: `CUSTOMCONNSTR_`
+* PostgresqL: `POSTGRESQLCONNSTR_`  
 
 Por exemplo, uma cadeia de ligação MySql chamada *connectionstring1* pode ser acedida como variável ambiental `MYSQLCONNSTR_connectionString1` . Para etapas específicas de pilha de linguagem, consulte:
 

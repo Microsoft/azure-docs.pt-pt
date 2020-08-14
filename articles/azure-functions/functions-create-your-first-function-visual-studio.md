@@ -4,13 +4,13 @@ description: Neste arranque rápido, aprende-se a criar e a publicar um Azure Fu
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
-ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676459"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213987"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
 
@@ -44,7 +44,7 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
 
 Agora que renomeou a função, pode testá-la no computador local.
 
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
 O Visual Studio integra-se com as Ferramentas Core de Funções Azure para que possa testar as suas funções localmente utilizando o tempo completo de funcionamento das Funções Azure.  
 
@@ -76,7 +76,7 @@ Antes de poder publicar o seu projeto, tem de ter uma aplicação de função na
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Resposta de função no navegador":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se planeia trabalhar com quickstarts subsequentes, tutoriais ou com qualquer um dos serviços que criou neste arranque rápido, não limpe os recursos.
 
@@ -96,7 +96,7 @@ Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrad
 
    A eliminação pode demorar alguns minutos. Quando terminar, é apresentada uma notificação durante alguns segundos. Também pode selecionar o ícone de sino na parte superior da página para ver a notificação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, utilizou o Visual Studio para criar e publicar uma aplicação de função C# em Azure com uma função de gatilho HTTP simples. 
 

@@ -3,16 +3,16 @@ title: Tutorial - Monitorize uma máquina híbrida com Monitor Azure para VMs
 description: Saiba como recolher e analisar dados a partir de uma máquina híbrida no Azure Monitor.
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.openlocfilehash: 9747a3facb25e90b788f5ee5c3dd6c71353f04e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 76df7d403fdce6fc3ac77c0b24849aedffb57ce0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88172967"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213167"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Monitorize uma máquina híbrida com Monitor Azure para VMs
 
-[O Azure Monitor](../overview.md) pode recolher dados diretamente das suas máquinas virtuais híbridas num espaço de trabalho log Analytics para análise e correlação detalhadas. Normalmente, isto implicaria instalar o [agente Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) na máquina utilizando um método de script, manual ou automatizado seguindo os seus padrões de gestão de configuração. Arc for servers (pré-visualização) introduziu recentemente o suporte para instalar as [extensões VM](../manage-vm-extensions.md) do agente de Log Analytics e Dependency para Windows e Linux, permitindo ao Azure Monitor recolher dados dos seus VMs não-Azure.
+[O Azure Monitor](../overview.md) pode recolher dados diretamente das suas máquinas virtuais híbridas num espaço de trabalho log Analytics para análise e correlação detalhadas. Normalmente, isto implicaria instalar o [agente Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) na máquina utilizando um método de script, manual ou automatizado seguindo os seus padrões de gestão de configuração. Os servidores ativados pelo Arc (pré-visualização) introduziram recentemente suporte para instalar as [extensões VM](../manage-vm-extensions.md) do agente de Log Analytics e Dependency para Windows e Linux, permitindo ao Azure Monitor recolher dados dos seus VMs não-Azure.
 
 Este tutorial mostra-lhe como configurar e recolher dados dos seus VMs Linux ou Windows, permitindo ao Azure Monitor para VMs seguindo um conjunto simplificado de passos, que simplifica a experiência e demora um período de tempo mais curto.  
 
@@ -34,7 +34,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Lançar o serviço Azure Arc no portal Azure clicando em **todos os serviços,** procurando e selecionando **máquinas - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Procurar por Arc por servidores em Todos os Serviços" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
 1. Na página **Machines - Azure Arc,** selecione a máquina conectada que criou no artigo [de arranque rápido.](quick-enable-hybrid-vm.md)
 

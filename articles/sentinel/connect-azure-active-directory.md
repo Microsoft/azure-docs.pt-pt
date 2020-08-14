@@ -10,47 +10,47 @@ ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 279f54c3de964580cc37d1288a6e1b7726348e10
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185694"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208627"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Ligar dados do Azure Ative Directory (Azure AD)
 
 
 
-O Azure Sentinel permite-lhe recolher dados do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-lo para o Azure Sentinel. Pode optar por transmitir  [registos de inscrição](../active-directory/reports-monitoring/concept-sign-ins.md) e [registos](../active-directory/reports-monitoring/concept-audit-logs.md) de auditoria .
+Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-lo para o Azure Sentinel. O conector permite-lhe transmitir [registos de login](../active-directory/reports-monitoring/concept-sign-ins.md) e [registos](../active-directory/reports-monitoring/concept-audit-logs.md)de auditoria .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer licença AD AZure (Free/O365/P1/P2) pode integrar-se com o Azure Monitor e ingerir registos de entrada no Azure Sentinel. Taxas adicionais por gigabyte serão aplicadas para Azure Monitor ou Azure Sentinel.
 
-- Utilizador com permissões de administração ou de administração de segurança globais no inquilino a partir do seguinte.
+- Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir registos de entrada no Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
 
-- Para poder ver o estado da ligação, tem de ter permissão para aceder aos registos de diagnóstico Azure AD. 
+- O seu utilizador deve ser atribuído ao contributo do Azure Sentinel no espaço de trabalho.
+
+- O seu utilizador deve ser atribuído às funções de Administrador Global ou Administrador de Segurança no inquilino a partir do quais pretende transmitir os registos.
+
+- O seu utilizador deve ter lido e escrito permissões para as definições de diagnóstico AZure AD para poder ver o estado da ligação. 
 
 
 ## <a name="connect-to-azure-active-directory"></a>Ligue-se ao Diretório Ativo Azure
 
 1. Em Azure Sentinel, selecione **Conectores** de dados do menu de navegação.
 
-1. Na galeria de conectores de dados, selecione **O Diretório Ativo Azure** e, em seguida, clique no botão de página do **conector Open.**
+1. Na galeria de conectores de dados, selecione **Azure Ative Directory** e, em seguida, selecione **Abrir a página do conector**.
 
 1. Marque as caixas de verificação ao lado dos registos que pretende transmitir para Azure Sentinel e clique em **Connect**.
 
-1. Pode selecionar se deseja que os alertas do Azure AD gerem automaticamente incidentes em Azure Sentinel. No **âmbito do Create incidents** select **Enable** to enable the pred pred alytic rule that creates incidents automaticly from alerts gerados no serviço de segurança conectado. Em seguida, pode editar esta regra sob **a análise** e, em seguida, **as regras Ative**.
+1. Pode selecionar se deseja que os alertas do Azure AD gerem automaticamente incidentes em Azure Sentinel. Em **Configurar incidentes** selecione Ativar para **ativar** a regra de análise padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Em seguida, pode editar esta regra sob **a análise** e, em seguida, **as regras Ative**.
 
 1. Para utilizar o esquema relevante no Log Analytics para consulta de alertas Azure AD, tipo `SigninLogs` ou na janela de `AuditLogs` consulta.
-
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Azure Ative Directory ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:

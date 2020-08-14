@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: 94cec26d883c29eb4d43d2f244a9a2b8f7aea9dd
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: c415ffdaa2eb3ad6a76cd48c3a895b6618dd3986
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183178"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208052"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>IoT Plug e Play atualização de pré-visualização
 
@@ -45,7 +45,7 @@ Dispositivos mais complexos podem agrupar telemetria, comandos e propriedades em
 
 ## <a name="registration-and-discovery"></a>Registo e descoberta
 
-Nesta versão, os dispositivos anunciam o seu **Model ID** com ioT Hub em todas as ligações. O IoT Hub caches o **Model ID** permitindo soluções de backend para recuperar o **Model ID** usando a propriedade twin do `modelId` dispositivo. O **Model ID** também pode ser recuperado `$metadata.$model` no twin digital.
+Nesta versão, os dispositivos anunciam o seu **Model ID** com ioT Hub em todas as ligações. O IoT Hub caches o **Model ID** permitindo soluções de backend para recuperar o **Model ID** usando a propriedade twin do `modelId` dispositivo. O **Model ID** também pode ser recuperado  `$metadata.$model` no twin digital.
 
 ## <a name="microsoft-defined-interfaces"></a>Interfaces definidas pela Microsoft
 
@@ -80,7 +80,7 @@ Os dispositivos que não utilizam componentes requerem alterações mínimas de 
 
 ### <a name="service-sdks"></a>SDKs de Serviço
 
-O serviço SDK está disponível em [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/pnp-preview-refresh/digitaltwins/service/readme.md) e [Python.](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md)
+O serviço SDK está disponível em [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) e [Python.](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/README.md)
 
 ## <a name="vs-code-extension"></a>Extensão do Código VS
 

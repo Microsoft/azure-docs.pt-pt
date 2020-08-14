@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos de execução do seu código no Serviço Azure Kubernetes com Espaços Azure Dev
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072963"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208693"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Como funciona o seu código com a Azure Dev Spaces
 
@@ -130,7 +130,7 @@ A propriedade *install.set* permite-lhe configurar um ou mais valores que preten
 
 No exemplo acima, a propriedade *install.set.replicaCount* diz ao controlador quantas instâncias da sua aplicação devem ser executadas no seu espaço dev. Dependendo do seu cenário, pode aumentar este valor, mas terá um impacto na anexação de um depurante à cápsula da sua aplicação. Para mais informações, consulte o [artigo de resolução de problemas.][troubleshooting]
 
-Na tabela Helm gerada, a imagem do contentor é definida para *{{{. . Values.image.repositório }}:{{{ . Values.image.tag }}*. O `azds.yaml` ficheiro define *instalar.set.image.tag* propriedade como *$(tag)* por padrão, que é usado como o valor para *{{ . Values.image.tag }}*. Ao definir a propriedade *install.set.image.tag* desta forma, permite que a imagem do recipiente para a sua aplicação seja marcada de forma distinta ao executar espaços Azure Dev. Neste caso específico, a imagem é marcada como * \<value from image.repository> :$(tag)*. Deve utilizar a variável *$(tag)* como o valor da *instalação.set.image.tag* para que os Espaços Dev reconheçam e localizem o recipiente no cluster AKS.
+Na tabela Helm gerada, a imagem do contentor é definida para *{{{. . Values.image.repositório }}:{{{ . Values.image.tag }}*. O `azds.yaml` ficheiro define *instalar.set.image.tag* propriedade como *$(tag)* por padrão, que é usado como o valor para *{{ . Values.image.tag }}*. Ao definir a propriedade *install.set.image.tag* desta forma, permite que a imagem do recipiente para a sua aplicação seja marcada de forma distinta ao executar espaços Azure Dev. Neste caso específico, a imagem é marcada como * \<value from image.repository> :$(tag)*. Deve utilizar a variável *$(tag)* como o valor da   *instalação.set.image.tag* para que os Espaços Dev reconheçam e localizem o recipiente no cluster AKS.
 
 No exemplo acima, `azds.yaml` define *instalar.set.ingress.hosts*. A *propriedade install.set.ingress.hosts* define um formato de nome anfitrião para pontos finais públicos. Esta propriedade também usa *$(spacePrefix)*, *$(rootSpacePrefix)* e *$(hostSuffix)*, que são valores fornecidos pelo controlador.
 
@@ -157,7 +157,7 @@ configurations:
 
 O controlador usa um Dockerfile para construir e executar a sua aplicação.
 
-A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A *propriedadebuild.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. A *propriedadeconfigurations.develop.build.dockerfile* configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
+A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A * propriedadebuild.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. A * propriedadeconfigurations.develop.build.dockerfile* configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
 
 Ter diferentes Dockerfiles para desenvolvimento e produção permite-lhe permitir certas coisas durante o desenvolvimento e desativar esses itens para implementações de produção. Por exemplo, pode permitir a depuração ou mais registo verboso durante o desenvolvimento e desativar num ambiente de produção. Também pode atualizar estas propriedades se os seus Dockerfiles forem nomeados de forma diferente ou se estiverem num local diferente.
 
@@ -201,14 +201,6 @@ Para saber mais sobre networking e como os pedidos são encaminhados em Azure De
 
 Para saber mais sobre a utilização de Espaços Azure Dev para iterar e desenvolver rapidamente, consulte [como funciona o Processo Local com Kubernetes][how-it-works-local-process-kubernetes] e como funciona a [depuração remota do seu código com a Azure Dev Spaces.][how-it-works-remote-debugging]
 
-Para começar a utilizar a Azure Dev Spaces para executar o seu projeto, consulte os seguintes quickstarts:
-
-* [Iterada e depurada rapidamente com Visual Studio Code e Java][quickstart-java]
-* [Iterada e depurada rapidamente com Visual Studio Code e .NET][quickstart-netcore]
-* [Iterada e depurada rapidamente com Código de Estúdio Visual e Node.js][quickstart-node]
-* [Iterar e depurar rapidamente com Visual Studio e .NET Core][quickstart-vs]
-* [Utilizar o CLI para desenvolver uma aplicação em Kubernetes][quickstart-cli]
-
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
@@ -216,10 +208,5 @@ Para começar a utilizar a Azure Dev Spaces para executar o seu projeto, consult
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

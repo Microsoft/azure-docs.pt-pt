@@ -4,14 +4,14 @@ description: Saiba como colocar uma aplicação .NET Core a funcionar no Serviç
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ed1104293aabdebd0e31c0c6ec0197fe10b64f06
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 10182abb99788e4974e08c9bfc5c9c53df2a201b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191003"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212937"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service
 

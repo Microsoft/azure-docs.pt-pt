@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053921"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214051"
 ---
 # <a name="what-is-batch-transcription"></a>O que é transcrição do lote?
 
@@ -63,7 +63,7 @@ Se pretende personalizar modelos, siga os passos na [personalização acústica]
 
 A API de Transcrição de Lote suporta os seguintes formatos:
 
-| Formatar | Codec | Bitrate | Taxa de amostra                     |
+| Formato | Codec | Bits por amostra | Taxa de amostra             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
 | MP3    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
@@ -333,7 +333,7 @@ O código de amostra define o cliente e submete o pedido de transcrição. Em se
 
 Para obter todos os detalhes sobre as chamadas anteriores, consulte o nosso [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Para a amostra completa mostrada aqui, vá ao [GitHub](https://aka.ms/csspeech/samples) na `samples/batch` subdiretória.
 
-Tome nota da configuração assíncronea para publicar áudio e receber o estado de transcrição. O cliente que cria é um cliente .NET HTTP. Há um `PostTranscriptions` método para enviar os detalhes do ficheiro áudio e um `GetTranscriptions` método para receber os estados. `PostTranscriptions`devolve uma pega, e `GetTranscriptions` usa-a para criar uma pega para obter o estado de transcrição.
+Tome nota da configuração assíncronea para publicar áudio e receber o estado de transcrição. O cliente que cria é um cliente .NET HTTP. Há um `PostTranscriptions` método para enviar os detalhes do ficheiro áudio e um `GetTranscriptions` método para receber os estados. `PostTranscriptions` devolve uma pega, e `GetTranscriptions` usa-a para criar uma pega para obter o estado de transcrição.
 
 O código de amostra atual não especifica um modelo personalizado. O serviço utiliza o modelo de base para transcrever o ficheiro ou ficheiros. Para especificar o modelo, pode passar o mesmo método que a referência do modelo para o modelo personalizado.
 

@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: a1fdc9e37084b1e8064bf642ff84646149c32ee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: fd7f860eb6e18edeb2096c12102e74c7446d050f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050677"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213756"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementar uma app ASP.NET para a Azure com base de dados Azure SQL
 
@@ -145,7 +145,7 @@ Antes de criar uma base de dados, precisa de um [servidor SQL lógico.](../azure
 
     ![Base de dados configure](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Create** (Criar).
+2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Criar**.
 
    ![os recursos que criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -353,7 +353,7 @@ Para alterar os níveis de rastreio para produzir outras mensagens de rastreio, 
 
 Clique com o botão direito na sua aplicação Azure novamente e selecione **Ver Definições**.
 
-No menu pendente **Registo da Aplicação (Sistema de Ficheiros)**, selecione **Verboso**. Clique em **Save** (Guardar).
+No menu pendente **Registo da Aplicação (Sistema de Ficheiros)**, selecione **Verboso**. Clique em **Guardar**.
 
 ![Alterar o nível de rastreio para Verboso](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 

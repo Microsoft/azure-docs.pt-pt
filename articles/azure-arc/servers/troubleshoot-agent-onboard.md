@@ -1,18 +1,18 @@
 ---
-title: Resolução de problemas Azure Arc para problemas de ligação de agentes de servidores
-description: Este artigo diz como resolver problemas e resolver problemas com o agente da Máquina Conectada que surgem com o Azure Arc para servidores (pré-visualização) quando se tenta ligar ao serviço.
+title: Resolução de problemas Azure Arc ativou problemas de ligação de agentes (pré-visualização)
+description: Este artigo diz como resolver problemas e resolver problemas com o agente da Máquina Conectada que surgem com o Azure Arc ativado servidores (pré-visualização) ao tentar ligar-se ao serviço.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118013"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213544"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Resolução de problemas dos problemas de ligação do agente da máquina conectado
 
-Este artigo fornece informações sobre resolução de problemas e resolução de problemas que podem ocorrer enquanto tenta configurar o Arco Azure para servidores (pré-visualização) Agente de máquinas conectadas para Windows ou Linux. Estão incluídos os métodos de instalação interativos e à escala ao configurar a ligação ao serviço. Para obter informações [gerais, consulte o Arc para obter uma visão geral dos servidores.](./overview.md)
+Este artigo fornece informações sobre resolução de problemas e resolução de problemas que podem ocorrer enquanto tenta configurar os servidores ativados do Arco Azure (pré-visualização) Agente de máquinas conectadas para Windows ou Linux. Estão incluídos os métodos de instalação interativos e à escala ao configurar a ligação ao serviço. Para obter informações [gerais, consulte a visão geral dos servidores ativados pelo Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Registo verboso do agente
 
@@ -22,13 +22,13 @@ Antes de seguir as etapas de resolução de problemas descritas mais tarde neste
 
 Segue-se um exemplo do comando para permitir a realização de registos verbosos com o agente máquina conectada para o Windows durante a realização de uma instalação interativa.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Segue-se um exemplo do comando para permitir a realização de registos verbosos com o agente máquina conectada para windows quando efetuar uma instalação à escala utilizando um principal de serviço.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ Segue-se um exemplo do comando para permitir a exploração de verbose com o age
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Segue-se um exemplo do comando para permitir a exploração de verbose com o agente máquina conectada para o Linux quando efetuar uma instalação à escala utilizando um principal de serviço.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

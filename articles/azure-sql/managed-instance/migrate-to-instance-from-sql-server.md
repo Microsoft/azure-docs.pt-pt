@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087578"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209479"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Alguns dos parâmetros que necessitaria de medir na sua instância do SQL Server
 
 - [Monitorize a utilização do CPU na sua instância sql Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registem a utilização média e máxima do CPU.
 - [Monitorize](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) o uso da memória na sua instância do SQL Server e determine a quantidade de memória utilizada por diferentes componentes, tais como piscina tampão, cache de plano, piscina de loja de colunas, [OLTP in-memory,](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)etc. Além disso, deve encontrar valores médios e máximos do contador de desempenho da memória da esperança de vida da página.
-- Monitorize a utilização do IO do disco na origem SQL Server exemplo usando [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) vista ou [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Monitorize a utilização do IO do disco na origem SQL Server, utilizando [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualização ou [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorize o desempenho da carga de trabalho e consulta ou a sua instância sql Server examinando Vistas de Gestão Dinâmica ou Loja de Consultas se estiver a migrar de uma versão SQL Server 2016+. Identifique a duração média e o uso do CPU das consultas mais importantes na sua carga de trabalho para compará-las com as consultas que estão a decorrer no caso gerido.
 
 > [!Note]
@@ -162,7 +162,7 @@ A migração da base de dados para um caso gerido mantém as definições da bas
 Como pré-requisito, certifique-se de que completou as seguintes atividades:
 
 - Alinhar as definições na instância gerida com as definições da origem SQL Server, investigando várias instâncias, base de dados, definições temporárias e configurações. Certifique-se de que não alterou as definições como níveis de compatibilidade ou encriptação antes de executar a primeira comparação de desempenho, ou aceite o risco de que algumas das novas funcionalidades que ativou possam afetar algumas consultas. Para reduzir os riscos de migração, altere o nível de compatibilidade da base de dados apenas após a monitorização do desempenho.
-- Implementar [diretrizes de boas práticas de armazenamento para fins gerais,](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525)tais como pré-alocar o tamanho dos ficheiros para obter um melhor desempenho.
+- Implementar [diretrizes de boas práticas de armazenamento para fins gerais,](https://techcommunity.microsoft.com)tais como pré-alocar o tamanho dos ficheiros para obter um melhor desempenho.
 - Conheça as [principais diferenças ambientais que podem causar as diferenças de desempenho entre um caso gerido e o SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), e identifique os riscos que podem afetar o desempenho.
 - Certifique-se de que mantém a Loja de Consultas ativada e a sintonização automática na sua instância gerida. Estas funcionalidades permitem medir o desempenho da carga de trabalho e corrigir automaticamente os potenciais problemas de desempenho. Aprenda a utilizar a Query Store como uma ferramenta ideal para obter informações sobre o desempenho da carga de trabalho antes e depois da mudança de nível de compatibilidade da base de dados, como explicado na [estabilidade de desempenho durante a atualização para uma versão mais recente do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Uma vez preparado o ambiente que é comparável tanto quanto possível com o seu ambiente no local, pode começar a executar a sua carga de trabalho e medir o desempenho. O processo de medição deve incluir os mesmos parâmetros que mediu [enquanto criou o desempenho de base das suas medidas de carga de trabalho na origem SQL Server .](#create-a-performance-baseline)
@@ -202,7 +202,7 @@ Para reforçar a segurança, considere a utilização da [Autenticação do Dire
 
 Além de funcionalidades avançadas de gestão e segurança, um caso gerido fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorizar e afinar a sua carga de trabalho.](../database/monitor-tune-overview.md) [O Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) permite-lhe monitorizar um grande conjunto de casos geridos e centralizar a monitorização de um grande número de casos e bases de dados. [A sintonização automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) em instâncias geridas monitoriza continuamente o desempenho das estatísticas de execução do seu plano SQL e corrige automaticamente os problemas de desempenho identificados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a Azure SQL Managed Instance, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que inclua uma restauração a partir de cópia de segurança, consulte [Criar uma instância gerida.](instance-create-quickstart.md)

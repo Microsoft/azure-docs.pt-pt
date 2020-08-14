@@ -5,15 +5,16 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fc2b5829b2978253476ad8cca1438b784c6ad10d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373526"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209992"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -63,7 +64,7 @@ Para utilizar o Gestor Secreto, adicione um `UserSecretsId` elemento ao seu fich
 1.  Adicione um `UserSecretsId` elemento como mostrado aqui. Pode usar o mesmo GUID, ou pode substituir este valor pelo seu.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
     
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     
@@ -131,7 +132,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     > [!IMPORTANT]
     > Algumas conchas truncam a cadeia de ligação a menos que esteja fechada em aspas. Certifique-se de que a saída do `dotnet user-secrets` comando mostra toda a cadeia de ligação. Se não o fizer, reexame o comando, encerrando a cadeia de ligação em aspas.
 
-    O Secret Manager é usado apenas para testar a aplicação web localmente. Quando a aplicação é implantada no [Azure App Service](https://azure.microsoft.com/services/app-service/web), por exemplo, utiliza a definição de aplicação **De Cordas de Ligação** no Serviço de Aplicações em vez de Secret Manager para armazenar a cadeia de ligação.
+    O Secret Manager é usado apenas para testar a aplicação web localmente. Quando a aplicação é implantada no [Azure App Service](https://azure.microsoft.com/services/app-service/web), por exemplo, utiliza a definição de aplicação **De Cordas de Ligação**  no Serviço de Aplicações em vez de Secret Manager para armazenar a cadeia de ligação.
 
     Aceda a este segredo usando a configuração API. Um cólon (:) funciona no nome de configuração com a configuração API em todas as plataformas suportadas. Ver [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
@@ -144,7 +145,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 1. Atualize o `CreateWebHostBuilder` método para utilizar a Configuração da Aplicação chamando o `config.AddAzureAppConfiguration()` método.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 

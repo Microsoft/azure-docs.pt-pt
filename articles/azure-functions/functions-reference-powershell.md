@@ -3,13 +3,14 @@ title: Referência do desenvolvedor powerShell para funções Azure
 description: Compreenda como desenvolver funções utilizando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506133"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207414"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -113,7 +114,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding`comporta-se de forma diferente com base no valor especificado `-Name` para:
+`Push-OutputBinding` comporta-se de forma diferente com base no valor especificado `-Name` para:
 
 * Quando o nome especificado não puder ser resolvido para uma ligação de saída válida, então um erro é lançado.
 
@@ -121,13 +122,13 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * Quando a ligação de saída apenas aceita um valor singleton, chamar `Push-OutputBinding` uma segunda vez levanta um erro.
 
-#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding`sintaxe
+#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` sintaxe
 
 Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -175,7 +176,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputQuading exemplo: Ligação de saída de fila
 
-`Push-OutputBinding`é utilizado para enviar dados para encadernações de saída, como uma [ligação de saída de armazenamento da Fila Azure](functions-bindings-storage-queue-output.md). No exemplo seguinte, a mensagem escrita para a fila tem um valor de "output #1":
+`Push-OutputBinding` é utilizado para enviar dados para encadernações de saída, como uma [ligação de saída de armazenamento da Fila Azure](functions-bindings-storage-queue-output.md). No exemplo seguinte, a mensagem escrita para a fila tem um valor de "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -195,7 +196,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 Quando escrita na fila, a mensagem contém estes quatro valores: "output #1", "output #2", "output #3" e "output #4".
 
-#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding`cmdlet
+#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` cmdlet
 
 Pode utilizar o `Get-OutputBinding` cmdlet para recuperar os valores atualmente definidos para as suas ligações de saída. Este cmdlet recupera um haxixe que contém os nomes das ligações de saída com os respetivos valores. 
 
@@ -212,7 +213,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding`contém também um parâmetro chamado `-Name` , que pode ser usado para filtrar a encadernação devolvida, como no exemplo seguinte:
+`Get-OutputBinding` contém também um parâmetro chamado `-Name` , que pode ser usado para filtrar a encadernação devolvida, como no exemplo seguinte:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -296,14 +297,14 @@ O objeto de pedido que é passado para o script é do `HttpRequestContext` tipo,
 
 | Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo do pedido. `Body`é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados são JSON, é passado como um haxixe. Se os dados são uma corda, é passado como uma corda. | objeto |
-| **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Cadeia de<do dicionário,>de cordas<sup>*</sup> |
+| **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados são JSON, é passado como um haxixe. Se os dados são uma corda, é passado como uma corda. | objeto |
+| **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
 | **`Method`** | O método HTTP do pedido.                                | string                    |
-| **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Cadeia de<do dicionário,>de cordas<sup>*</sup> |
-| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Cadeia de<do dicionário,>de cordas<sup>*</sup> |
+| **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
+| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
 | **`Url`** | A URL do pedido.                                        | string                    |
 
-<sup>*</sup>Todas `Dictionary<string,string>` as chaves são insensíveis.
+<sup>*</sup> Todas `Dictionary<string,string>` as chaves são insensíveis.
 
 #### <a name="response-object"></a>Objeto de resposta
 
@@ -394,7 +395,7 @@ Pode ver a versão atual imprimindo `$PSVersionTable` a partir de qualquer funç
 
 ## <a name="dependency-management"></a>Gestão de dependências
 
-As funções permitem-lhe alavancar a [galeria PowerShell](https://www.powershellgallery.com) para gerir as dependências. Com a gestão da dependência ativada, o ficheiro requirements.psd1 é utilizado para descarregar automaticamente os módulos necessários. Você ativa este comportamento colocando a `managedDependency` propriedade na raiz dohost.jsno `true` [arquivo](functions-host-json.md), como no exemplo seguinte:
+As funções permitem-lhe alavancar a [galeria PowerShell](https://www.powershellgallery.com) para gerir as dependências. Com a gestão da dependência ativada, o ficheiro requirements.psd1 é utilizado para descarregar automaticamente os módulos necessários. Você ativa este comportamento colocando a `managedDependency` propriedade na raiz dohost.jsno `true` [ arquivo](functions-host-json.md), como no exemplo seguinte:
 
 ```json
 {
@@ -422,9 +423,9 @@ As seguintes definições de aplicação podem ser usadas para alterar a forma c
 
 | Definição de aplicativo de função              | Valor predefinido             | Descrição                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7 dias)     | Cada processo de trabalhador PowerShell inicia a verificação de atualizações de módulos na PowerShell Gallery no início do processo e em todas as `MDMaxBackgroundUpgradePeriod` seguintes. Quando uma nova versão do módulo está disponível na PowerShell Gallery, é instalada no sistema de ficheiros e disponibilizada aos trabalhadores do PowerShell. Diminuir este valor permite que a sua aplicação de função obtenha versões de módulos mais recentes mais cedo, mas também aumenta o uso de recursos da aplicação (rede I/O, CPU, armazenamento). O aumento deste valor diminui o uso de recursos da app, mas também pode atrasar a entrega de novas versões de módulos à sua app. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1 hora)       | Depois de serem instaladas novas versões de módulos no sistema de ficheiros, todos os processos de trabalhadores powerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade da sua aplicação, uma vez que pode interromper a execução da função atual. Até que todos os processos do trabalhador powerShell sejam reiniciados, as invocações de função podem usar as versões antigas ou novas do módulo. Reiniciar todos os trabalhadores da PowerShell completos dentro `MDNewSnapshotCheckPeriod` de . Aumentar este valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões antigas ou novas do módulo não deterministicamente. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1 dia)     | Para evitar atualizações excessivas de módulos em recomeçamento frequente do Trabalhador, a verificação de atualizações de módulos não é realizada quando qualquer trabalhador já iniciou esse check no último `MDMinBackgroundUpgradePeriod` . |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalhador PowerShell inicia a verificação de atualizações de módulos na PowerShell Gallery no início do processo e em todas as `MDMaxBackgroundUpgradePeriod` seguintes. Quando uma nova versão do módulo está disponível na PowerShell Gallery, é instalada no sistema de ficheiros e disponibilizada aos trabalhadores do PowerShell. Diminuir este valor permite que a sua aplicação de função obtenha versões de módulos mais recentes mais cedo, mas também aumenta o uso de recursos da aplicação (rede I/O, CPU, armazenamento). O aumento deste valor diminui o uso de recursos da app, mas também pode atrasar a entrega de novas versões de módulos à sua app. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois de serem instaladas novas versões de módulos no sistema de ficheiros, todos os processos de trabalhadores powerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade da sua aplicação, uma vez que pode interromper a execução da função atual. Até que todos os processos do trabalhador powerShell sejam reiniciados, as invocações de função podem usar as versões antigas ou novas do módulo. Reiniciar todos os trabalhadores da PowerShell completos dentro `MDNewSnapshotCheckPeriod` de . Aumentar este valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões antigas ou novas do módulo não deterministicamente. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 dia)     | Para evitar atualizações excessivas de módulos em recomeçamento frequente do Trabalhador, a verificação de atualizações de módulos não é realizada quando qualquer trabalhador já iniciou esse check no último `MDMinBackgroundUpgradePeriod` . |
 
 Aproveitar os seus próprios módulos personalizados é um pouco diferente de como o faria normalmente.
 
@@ -517,7 +518,7 @@ O Azure PowerShell utiliza alguns contextos _e estados de nível de processo_ pa
 
 Há um imenso valor em concordância com a Azure PowerShell, uma vez que algumas operações podem demorar um tempo considerável. No entanto, deve proceder com cautela. Se suspeitar que está a sentir uma condição de raça, defina a definição da aplicação PSWorkerInProcConcurrencyUpperBound para `1` e, em vez disso, use [o isolamento do nível de processo do trabalhador linguístico](functions-app-settings.md#functions_worker_process_count) para a conuncy.
 
-## <a name="configure-function-scriptfile"></a>Função de configure`scriptFile`
+## <a name="configure-function-scriptfile"></a>Função de configure `scriptFile`
 
 Por predefinição, uma função PowerShell é executada a partir `run.ps1` de, um ficheiro que partilha o mesmo directório-mãe que o correspondente `function.json` .
 
@@ -595,11 +596,11 @@ Quando trabalhar com funções PowerShell, esteja ciente das considerações nas
 
 Ao desenvolver Funções Azure no [modelo de hospedagem sem servidor,](functions-scale.md#consumption-plan)o frio é uma realidade. *Início a frio* refere-se ao período de tempo que a sua aplicação de função leva a começar a funcionar para processar um pedido. O arranque a frio acontece com mais frequência no plano de Consumo porque a sua aplicação de função é desligada durante períodos de inatividade.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Módulos de pacote em vez de usar`Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Módulos de pacote em vez de usar `Install-Module`
 
 O teu guião é executado em todas as invocações. Evite usar `Install-Module` no seu script. Em vez disso, utilize `Save-Module` antes de publicar para que a sua função não tenha de perder tempo a descarregar o módulo. Se os arranques frios estiverem a afetar as suas funções, considere implementar a sua aplicação de função num [plano de Serviço de Aplicações](functions-scale.md#app-service-plan) definido para sempre *num* [plano Premium.](functions-scale.md#premium-plan)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os seguintes recursos:
 

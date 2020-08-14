@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844087"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212156"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
@@ -300,12 +300,12 @@ Nas Funções Azure 1.x, o tempo de execução cria a fila se não existir e tiv
 
 Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
-* `out T paramName` - `T`pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções criam a mensagem com um objeto nulo.
-* `out string`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
-* `out byte[]`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
-* `out BrokeredMessage`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 1.x)
-* `out Message`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 2.x e superior)
-* `ICollector<T>`ou `IAsyncCollector<T>` (para métodos async) - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
+* `out T paramName` - `T` pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções criam a mensagem com um objeto nulo.
+* `out string` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
+* `out byte[]` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
+* `out BrokeredMessage` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 1.x)
+* `out Message` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 2.x e superior)
+* `ICollector<T>` ou `IAsyncCollector<T>` (para métodos async) - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
 
 Ao trabalhar com funções C#:
 
@@ -317,12 +317,12 @@ Ao trabalhar com funções C#:
 
 Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
-* `out T paramName` - `T`pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções criam a mensagem com um objeto nulo.
-* `out string`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
-* `out byte[]`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
-* `out BrokeredMessage`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 1.x)
-* `out Message`- Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 2.x e superior)
-* `ICollector<T>`ou `IAsyncCollector<T>` - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
+* `out T paramName` - `T` pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções criam a mensagem com um objeto nulo.
+* `out string` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
+* `out byte[]` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
+* `out BrokeredMessage` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 1.x)
+* `out Message` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem (para as funções 2.x e superior)
+* `ICollector<T>` ou `IAsyncCollector<T>` - Para criar várias mensagens. Uma mensagem é criada quando se chama o `Add` método.
 
 Ao trabalhar com funções C#:
 

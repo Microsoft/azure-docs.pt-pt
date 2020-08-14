@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83646302"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210363"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Use um teclado para usar o designer de machine learning Azure (pré-visualização)
 
@@ -77,7 +77,7 @@ Utilize os seguintes atalhos com a chave de acesso. Para obter mais informaçõe
 | Chave de acesso + U | Abra o dropdown "Update inference pipeline" |
 | Chave de acesso + M | Abrir mais(...) dropdown |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar o alto contraste ou a alteração de tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Ativar o alto contraste ou a alteração de tema](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Ferramentas relacionadas com acessibilidade na Microsoft](https://www.microsoft.com/accessibility)

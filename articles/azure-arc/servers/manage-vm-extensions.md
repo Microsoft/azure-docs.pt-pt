@@ -1,24 +1,24 @@
 ---
-title: Gestão de extensão VM com Azure Arc para servidores
-description: O Azure Arc para servidores (pré-visualização) pode gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
+title: Gestão de extensão VM com servidores ativados Azure Arc (pré-visualização)
+description: Os servidores ativados pelo Azure Arc (pré-visualização) podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121311"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213110"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestão de extensão de máquina virtual com Azure Arc para servidores (pré-visualização)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc (pré-visualização)
 
 As extensões de máquinas virtuais (VM) são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM.
 
-O Azure Arc para servidores (pré-visualização) permite-lhe implantar extensões Azure VM para windows não-Azure e VMs Linux, simplificando a gestão da sua máquina híbrida no local, borda e outros ambientes de nuvem através do seu ciclo de vida.
+Os servidores ativados (pré-visualização) do Azure Arc permitem-lhe implantar extensões VM Azure para Windows e Linux VMs não-Azure, simplificando a gestão da sua máquina híbrida no local, borda e outros ambientes de nuvem através do seu ciclo de vida.
 
 ## <a name="key-benefits"></a>Principais vantagens
 
-O suporte de extensão VM do Azure Arc para servidores (pré-visualização) fornece os seguintes benefícios principais:
+O suporte de extensão VM ativado pelo Azure Arc (pré-visualização) proporciona os seguintes benefícios principais:
 
 * Utilize [a Configuração do Estado da Automação Azure](../../automation/automation-dsc-overview.md) para armazenar centralmente as configurações e manter o estado desejado das máquinas híbridas conectadas ativadas através da extensão DSC VM.
 
@@ -47,7 +47,7 @@ Nesta pré-visualização, estamos a apoiar as seguintes extensões VM nas máqu
 |Agente do Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Agente de dependência da Microsoft | Linux |Microsoft.Compute | [Extensão da máquina virtual do agente de dependência para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-As extensões VM podem ser executadas com modelos Azure Resource Manager, a partir do portal Azure, ou Azure PowerShell em servidores híbridos geridos pelo Arc para servidores (pré-visualização).
+As extensões VM podem ser executadas com modelos Azure Resource Manager, a partir do portal Azure, ou Azure PowerShell em servidores híbridos geridos por servidores ativados pelo Arc (pré-visualização).
 
 Para saber mais sobre o pacote do agente Azure Connected Machine e detalhes sobre o componente do agente de extensão, consulte [a visão geral do Agente](agent-overview.md#agent-component-details).
 
@@ -98,7 +98,7 @@ As extensões VM podem ser aplicadas ao seu Arc para o servidor (pré-visualiza�
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Com as extensões VM suportadas pelo Arc para servidores (pré-visualização), pode implementar a extensão VM suportada nas máquinas Linux ou Windows utilizando o Azure PowerShell. Cada amostra abaixo inclui um ficheiro de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
+As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Com as extensões VM suportadas por servidores ativados pelo Arc (pré-visualização), pode implementar a extensão VM suportada nas máquinas Linux ou Windows utilizando o Azure PowerShell. Cada amostra abaixo inclui um ficheiro de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
 
 >[!NOTE]
 >Embora as extensões múltiplas possam ser emgrurentadas e processadas, são instaladas em série. Uma vez concluída a primeira instalação de extensão, tentará-se a instalação da próxima extensão.
@@ -223,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Para utilizar a extensão de script personalizada, a amostra a seguir é fornecida para ser executada no Windows e Linux. Se não estiver familiarizado com a extensão do Script Personalizado, consulte a [extensão do Script Personalizado para Windows](../../virtual-machines/extensions/custom-script-windows.md) ou [extensão de script personalizada para Linux](../../virtual-machines/extensions/custom-script-linux.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
 
-* A lista de sistemas operativos suportados com a extensão Azure VM Custom Script não é aplicável ao Azure Arc para servidores. A lista de OSs suportados para o Arc para servidores pode ser consultada [aqui](agent-overview.md#supported-operating-systems).
+* A lista de sistemas operativos suportados com a extensão Azure VM Custom Script não é aplicável aos servidores ativados do Azure Arc. A lista de OSs suportados para servidores ativados pelo Arco pode ser encontrada [aqui](agent-overview.md#supported-operating-systems).
 
 * Não são aplicáveis detalhes de configuração relativos a conjuntos de balanças de máquinas virtuais Azure ou VMs clássicos.
 
@@ -379,7 +379,7 @@ A configuração de extensão de script personalizado especifica coisas como a l
 
 Para utilizar a extensão DSC powerShell, é fornecida a seguinte amostra para funcionar no Windows e Linux. Se não estiver familiarizado com a extensão DSC powerShell, consulte a [visão geral do controlador de extensão DSC](../../virtual-machines/extensions/dsc-overview.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
 
-* A lista de sistemas operativos suportados com a extensão DSC Azure VM PowerShell não é aplicável ao Azure Arc para servidores. A lista de OSs suportados para o Arc para servidores pode ser consultada [aqui](agent-overview.md#supported-operating-systems).
+* A lista de sistemas operativos suportados com a extensão DSC Azure VM PowerShell não é aplicável aos servidores ativados do Azure Arc. A lista de OSs suportados para servidores ativados pelo Arco pode ser encontrada [aqui](agent-overview.md#supported-operating-systems).
 
 * Se as suas máquinas precisarem de descarregar um script externamente e só puderem comunicar através de um servidor proxy, é necessário [configurar o agente 'Máquina Conectada'](manage-agent.md#update-or-remove-proxy-settings) para definir a variável ambiental do servidor proxy.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/07/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383c5a0d6811b2797ecb4407e73c26752e1a5022
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055994"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213870"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
@@ -35,7 +35,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Governar com mais de cinco expressões
 - A regra dos relatórios diretos
 - Definição [da precedência do operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de mostrar a regra. O construtor de regras não altera a sintaxe, validação ou processamento de regras dinâmicas do grupo de qualquer forma.
@@ -80,7 +80,7 @@ Se a regra que inseriu não for válida, uma explicação do porquê da regra n�
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas
 
-Quando um novo grupo office 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Verifique o estado de processamento de uma regra
 

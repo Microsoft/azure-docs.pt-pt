@@ -2,13 +2,14 @@
 title: Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código do Estúdio Visual.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083128"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206727"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 
@@ -330,7 +331,7 @@ Para saber mais, consulte [Trabalhar com Azure Functions Core Tools][Azure Funct
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Por padrão, estas definições não são migradas automaticamente quando o projeto é publicado para a Azure. Após a publicação de acabamentos, é-lhe dada a opção de publicar definições a partir de local.settings.jspara a sua aplicação de função em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings).
+Por padrão, estas definições não são migradas automaticamente quando o projeto é publicado para a Azure. Após a publicação de acabamentos, é-lhe dada a opção de publicar definições a partir de local.settings.jspara a sua aplicação de função em Azure. Para saber mais, consulte  [as definições de aplicação da Publicação](#publish-application-settings).
 
 Os **valores em ConnectionStrings** nunca são publicados.
 

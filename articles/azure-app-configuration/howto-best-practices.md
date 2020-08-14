@@ -11,13 +11,13 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: d97626d5eed96a3debb41c86f6dab6fbaf1953cd
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500305"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206674"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 
