@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 06/04/2020
 ms.locfileid: "84436169"
 ---
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
 Executar a sua função iniciando o anfitrião local do tempo de execução Azure Functions a partir da pasta *LocalFunctionProj:*
 

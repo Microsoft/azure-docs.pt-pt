@@ -1,4 +1,4 @@
-- name: Documentação do Stream Analytics
+- name: Documentação do Azure Stream Analytics
   href: index.yml
 - name: Descrição geral
   items:
@@ -6,7 +6,7 @@
       href: stream-analytics-introduction.md
     - name: Padrões de soluções de ponto a ponto
       href: stream-analytics-solution-patterns.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma tarefa
@@ -122,7 +122,7 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: Política de erros
       href: stream-analytics-output-error-policy.md
-- name: Guias
+- name: Guias de procedimentos
   items:
     - name: Gerir
       items:

@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema HIPAA HITRUST
 description: Descrição geral do exemplo de esquema HIPAA HITRUST. Este exemplo de esquema ajuda os clientes a avaliar os controlos HIPAA HITRUST específicos.
-ms.date: 12/3/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: ebe907053b37ebe0ff99248aa181a480c045d533
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9f8b304dc04164cd65ea9568afa260aa63af5b8a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75470071"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213352"
 ---
 # <a name="overview-of-the-hipaa-hitrust-blueprint-sample"></a>Descrição geral do exemplo de esquema HIPAA HITRUST
 

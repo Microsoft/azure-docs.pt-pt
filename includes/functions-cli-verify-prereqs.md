@@ -13,12 +13,12 @@ ms.locfileid: "80673174"
 ---
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
-+ Numa janela de terminal `func --version` ou comando, corra para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
++ Numa janela de terminal ou comando, corra `func --version` para verificar se as Ferramentas Centrais de Funções Azure são a versão 2.7.1846 ou posterior.
 
 + Corra `az --version` para verificar se a versão Azure CLI é 2.0.76 ou mais tarde.
 
-+ Corra `az login` para iniciar sessão no Azure e verifique uma subscrição ativa.
++ Corra `az login` para iniciar seduca no Azure e verifique uma subscrição ativa.
 
 ::: zone pivot="programming-language-python"  
-+ Executar `python --version` (Linux/MacOS) `py --version` ou (Windows) para verificar os relatórios da versão Python 3.8.x, 3.7.x ou 3.6.x.
++ Executar `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar os relatórios da sua versão Python 3.8.x, 3.7.x ou 3.6.x.
 ::: zone-end

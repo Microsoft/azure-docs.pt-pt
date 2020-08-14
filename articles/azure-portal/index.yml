@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: mblythe
   ms.author: mblythe
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 277326eb6b120c4cc1b456a17c6f58791c66dd16
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/05/2020
+  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75890782"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212085"
 landingContent:
 - title: Acerca do portal do Azure
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     links:
     - text: Gerir recursos no Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Proteja os seus recursos do Azure com controlo de acesso baseado em funções (RBAC)
+    - text: Proteger os recursos do Azure com controlo de acesso baseado em funções (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Introdução
   linkLists:
@@ -63,9 +63,9 @@ landingContent:
       url: azure-portal-video-series.md
   - linkListType: learn
     links:
-    - text: Fundamentos do Azure
+    - text: Princípios fundamentais do Azure
       url: /learn/paths/azure-fundamentals/
-    - text: Conceitos de cloud - Princípios da computação na cloud
+    - text: Conceitos da Cloud – princípios da computação na cloud
       url: /learn/modules/principles-cloud-computing/
 - title: Utilizar as opções de acessibilidade
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Ativar o contraste elevado
-      url: azure-portal-change-theme-high-contrast.md
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Criar e gerir pedidos de suporte
   linkLists:
   - linkListType: how-to-guide
