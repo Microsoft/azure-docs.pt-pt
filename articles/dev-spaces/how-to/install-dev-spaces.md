@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como ativar os Espaços Azure Dev num cluster AKS e instale as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: ac010a466f7db7b829cc3d6f0687dbdbefdd7b6c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: eb7c9b4d3d03b6f4f1f21e6fb2b2a60aa303b181
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407902"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212441"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ativar os espaços Azure Dev num cluster AKS e instalar as ferramentas do lado do cliente
 
@@ -76,18 +76,16 @@ Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup'
 
 Quaisquer espaços de nome que tenha criado com a Azure Dev Spaces permanecerão juntamente com as suas cargas de trabalho, mas novas cargas de trabalho nesses espaços de nome não serão instrumentadas com Azure Dev Spaces. Além disso, se reiniciar quaisquer cápsulas existentes instrumentadas com espaços Azure Dev, poderá ver erros. Estas cápsulas devem ser redistribuídas sem a ferramenta Azure Dev Spaces. Para remover totalmente os Espaços Azure Dev do seu cluster, elimine todas as cápsulas em todos os espaços de nome onde o Azure Dev Spaces estava ativado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento de equipas em Espaços Azure Dev][team-development-qs]
+> [Como funciona o Azure Dev Spaces](../how-dev-spaces-works.md)
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[team-development-qs]: ../quickstart-team-development.md
-
 [az-portal]: https://portal.azure.com
 [az-portal-create-account]: https://azure.microsoft.com/free
 [cli-linux]: https://aka.ms/get-azds-linux

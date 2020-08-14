@@ -3,15 +3,16 @@ title: Começa com o WebJobs SDK
 description: Introdução ao WebJobs SDK para processamento de fundo orientado por eventos. Saiba como aceder aos dados nos serviços Azure e nos serviços de terceiros.
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078313"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212859"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -139,7 +140,7 @@ Agora, pode adicionar uma função que é desencadeada por mensagens que chegam 
 
 A partir da versão 3.x, deve instalar explicitamente a extensão de ligação de armazenamento exigida pelo WebJobs SDK. Em versões anteriores, as ligações de armazenamento foram incluídas no SDK.
 
-1. Instale a versão mais recente estável do pacote [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet, versão 3.x. 
+1. Instale a versão mais recente estável do pacote  [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet, versão 3.x. 
 
     Aqui está o comando da consola Do Gestor de **Pacotes:**
 

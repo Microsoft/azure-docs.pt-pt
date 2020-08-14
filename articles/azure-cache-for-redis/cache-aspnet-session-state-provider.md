@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316069"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213299"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache do Azure para Redis
 
@@ -92,7 +93,7 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 * **nome de aplicação** – As chaves são armazenadas em redis como `{<Application Name>_<Session ID>}_Data` . Este esquema de nomeação permite que várias aplicações partilhem a mesma instância Redis. Este parâmetro é opcional e se não fornecer um valor predefinido é usado.
 * **conexãoTimeoutInMilliseconds** – Esta definição permite-lhe substituir a definição connectTimeout no cliente StackExchange.Redis. Se não for especificado, utiliza-se a definição padrão de 5000 do connectTimeout. Para obter mais informações, consulte [o modelo de configuração StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** – Esta definição permite-lhe substituir a definição syncTimeout no cliente StackExchange.Redis. Se não for especificado, é utilizada a definição padrão de sincronizaçãotimeout de 1000. Para obter mais informações, consulte [o modelo de configuração StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType** - Esta definição permite especificar a serialização personalizada do conteúdo da sessão que é enviado para o Redis. O tipo especificado deve ser implementado `Microsoft.Web.Redis.ISerializer` e deve declarar o construtor público sem parâmetros. Por defeito `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` é usado.
+* **redisSerializerType** - Esta definição permite especificar a serialização personalizada do conteúdo da sessão que é enviado para o Redis. O tipo especificado deve ser implementado `Microsoft.Web.Redis.ISerializer` e deve declarar o construtor público sem parâmetros. Por defeito  `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` é usado.
 
 Para obter mais informações sobre estas propriedades, consulte o anúncio original do blog post no [Anunciado ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
@@ -131,6 +132,6 @@ Para obter mais informações sobre o estado da sessão e outras boas práticas,
 * [NCache](https://www.alachisoft.com/ncache/session-index.html)
 * [Apache inflamar](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [fornecedor de cache de saída ASP.NET para a cache Azure para redis](cache-aspnet-output-cache-provider.md).

@@ -3,13 +3,13 @@ title: 'Tutorial: envie e-mail com Apps Lógicas'
 description: Saiba como invocar processos de negócio a partir da sua aplicação App Service. Envie e-mails, tweets e posts do Facebook, adicione às listas de correio e muito mais.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080971"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212850"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Enviar e-mail e invocar outros processos de negócio do Serviço de Aplicações
 

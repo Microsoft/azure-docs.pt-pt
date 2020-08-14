@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6933321ad402104fa5529af2b7fdf38e329e0168
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830956"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212740"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -76,7 +76,7 @@ Para saber mais sobre o serviço, consulte a documentação do [serviço de Mobi
 
 ### <a name="render-service"></a>Serviço de composição
 
-O [serviço de renderização V2](https://docs.microsoft.com/est/api/maps/renderv2) que está agora em Preview introduz uma nova versão do [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). A API Get Map Tile V2 permite agora que os clientes solicitem azulejos de estrada Azure Maps, azulejos meteorológicos ou os azulejos de mapas criados com o Azure Maps Creator. Recomenda-se que utilize o novo Get Map Tile V2 API.  
+O [serviço de renderização V2](https://docs.microsoft.com/rest/api/maps/renderv2) que está agora em Preview introduz uma nova versão do [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). A API Get Map Tile V2 permite agora que os clientes solicitem azulejos de estrada Azure Maps, azulejos meteorológicos ou os azulejos de mapas criados com o Azure Maps Creator. Recomenda-se que utilize o novo Get Map Tile V2 API.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemplo de um mapa do serviço render V2":::
 

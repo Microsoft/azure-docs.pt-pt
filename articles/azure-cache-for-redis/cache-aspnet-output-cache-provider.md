@@ -4,14 +4,15 @@ description: Saiba como cache ASP.NET saída de página usando Azure Cache para 
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 9c8f91cee01273aa2ed1cbfe1812130b600a094a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c60eb8618568d01af9ec6ad0e3d00fe1332b766
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456747"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213019"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET fornecedor de cache de saída para cache Azure para Redis
 
@@ -54,7 +55,7 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 | Atributo | Tipo | Predefinição | Descrição |
 | --------- | ---- | ------- | ----------- |
 | *hospedeiro* | string | "Localhost" | O endereço IP do servidor Redis ou o nome de anfitrião |
-| *porta* | inteiro positivo | 6379 (não-TLS/SSL)<br/>6380 (TLS/SSL) | Porta de servidor Redis |
+| *porto* | inteiro positivo | 6379 (não-TLS/SSL)<br/>6380 (TLS/SSL) | Porta de servidor Redis |
 | *acessoKey* | string | "" | Palavra-passe do servidor Redis quando a autorização do Redis estiver ativada. O valor é de cadeia vazia por padrão, o que significa que o fornecedor do estado da sessão não utilizará nenhuma palavra-passe quando ligar ao servidor Redis. **Se o seu servidor Redis estiver numa rede acessível ao público como a Cache Azure Redis, certifique-se de que ativa a autorização do Redis para melhorar a segurança e fornecer uma senha segura.** |
 | *ssl* | boolean | **falso** | Se ligar ao servidor Redis via TLS. Este valor é **falso** por padrão porque o Redis não suporta tLS fora da caixa. **Se estiver a utilizar o Azure Redis Cache, que suporta sSL fora da caixa, certifique-se de que o define para melhorar a segurança.**<br/><br/>A porta não-TLS é desativada por defeito para novos caches. Especifique **a verdade** para esta definição para utilizar a porta TLS. Para obter mais informações sobre a ativação da porta não-TLS, consulte a secção [Portas de Acesso](cache-configure.md#access-ports) no tópico [Configure um](cache-configure.md) tópico de cache. |
 | *databaseIdNumber* | inteiro positivo | 0 | *Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Especifique qual base de dados Redis utilizar. |
@@ -203,6 +204,6 @@ Uma vez realizados estes passos, a sua aplicação está configurada para utiliz
 * [Ignição de Apache](https://apacheignite-net.readme.io/docs/aspnet-output-caching)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [fornecedor de estado de sessão de ASP.NET para a Azure Cache para Redis](cache-aspnet-session-state-provider.md).

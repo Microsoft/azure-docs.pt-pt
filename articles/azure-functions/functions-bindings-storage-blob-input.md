@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7e8cb6dfd2a1983ac4a98f0be0af1fd92c902fc4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: de590af49e39832a52bf733319b86300ecab2a34
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843152"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213286"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Ligação de entrada de armazenamento Azure Blob para funções Azure
 
@@ -325,7 +325,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
+Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` * em*.
 
 # <a name="python"></a>[Python](#tab/python)
 

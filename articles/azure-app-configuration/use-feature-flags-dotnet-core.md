@@ -1,6 +1,6 @@
 ---
-title: Tutorial para usar bandeiras de recurso numa aplicação .NET Core [ Microsoft Docs
-description: Neste tutorial, aprende-se a implementar bandeiras de recurso em aplicações .NET Core.
+title: Tutorial para usar bandeiras de recurso numa aplicação .NET Core ! Microsoft Docs
+description: Neste tutorial, aprende-se a implementar bandeiras de funcionalidades em aplicações .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -13,33 +13,33 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 2f8e95826a7da3caa3edfe8ec23a6e0725b6bcba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79473443"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213226"
 ---
-# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação ASP.NET Core
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
-As bibliotecas .NET Core Feature Management fornecem suporte idiomático para a implementação de bandeiras de recurso numa aplicação .NET ou ASP.NET Core. Estas bibliotecas permitem-lhe adicionar declarativamente bandeiras de recurso ao seu `if` código para que não tenha de escrever todas as declarações para elas manualmente.
+As bibliotecas de Gestão de Recursos Centrais .NET fornecem suporte idiomático para a implementação de bandeiras de características numa aplicação .NET ou ASP.NET Core. Estas bibliotecas permitem-lhe adicionar declarativamente bandeiras de características ao seu código para que não tenha de escrever todas as `if` declarações manualmente.
 
-As bibliotecas de Gestão de Recursos também gerem ciclos de vida de bandeira nos bastidores. Por exemplo, as bibliotecas refrescam e cache bandeira, ou garantem que um estado de bandeira seja imutável durante uma chamada de pedido. Além disso, a biblioteca ASP.NET Core oferece integrações fora da caixa, incluindo ações de controlador MVC, vistas, rotas e middleware.
+As bibliotecas de Gestão de Recursos também gerem ciclos de vida de bandeira de recurso nos bastidores. Por exemplo, as bibliotecas renovam e cache estados de bandeira, ou garantem que um estado de bandeira seja imutável durante uma chamada de pedido. Além disso, a biblioteca core ASP.NET oferece integrações fora da caixa, incluindo ações de controlador MVC, vistas, rotas e middleware.
 
-As bandeiras de [recurso Add para uma aplicação ASP.NET Core O Quickstart](./quickstart-feature-flag-aspnet-core.md) mostra várias formas de adicionar bandeiras de recurso numa aplicação ASP.NET Core. Este tutorial explica estes métodos com mais detalhes. Para obter uma referência completa, consulte a documentação de gestão de [recursos ASP.NET Core.](https://go.microsoft.com/fwlink/?linkid=2091410)
+O [Add feature bandeiras para uma aplicação core ASP.NET Quickstart](./quickstart-feature-flag-aspnet-core.md) mostra várias formas de adicionar bandeiras de funcionalidades numa aplicação core ASP.NET. Este tutorial explica estes métodos com mais detalhes. Para obter uma referência completa, consulte a [documentação de gestão de recursos do núcleo ASP.NET.](https://go.microsoft.com/fwlink/?linkid=2091410)
 
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Adicione bandeiras de características em partes chave da sua aplicação para controlar a disponibilidade da funcionalidade.
-> * Integre com a Configuração de Aplicações quando estiver a usá-la para gerir as bandeiras de recurso.
+> * Adicione bandeiras de funcionalidades em partes chave da sua aplicação para controlar a disponibilidade do recurso.
+> * Integre-se com a Configuração da Aplicação quando estiver a usá-lo para gerir as bandeiras de funcionalidades.
 
-## <a name="set-up-feature-management"></a>Configurar a gestão de recursos
+## <a name="set-up-feature-management"></a>Configurar gestão de recursos
 
-Adicione uma referência `Microsoft.FeatureManagement` ao pacote NuGet para utilizar o gestor de funcionalidades .NET Core.
+Adicione uma referência ao `Microsoft.FeatureManagement` pacote NuGet para utilizar o gestor de funcionalidades .NET Core.
     
-O gestor `IFeatureManager` de funcionalidades .NET Core recebe bandeiras do sistema de configuração nativa do quadro. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que o Núcleo .NET suporte, incluindo as *aplicações locais.json* ficheiro ou variáveis ambientais. `IFeatureManager`depende da injeção de dependência do núcleo .NET. Pode registar os serviços de gestão de funcionalidades utilizando convenções padrão:
+O gestor de funcionalidades .NET Core `IFeatureManager` obtém bandeiras de funcionalidades do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que .NET Core suporte, incluindo aappsettings.jslocal * em* variáveis de ficheiros ou ambiente. `IFeatureManager` baseia-se na injeção de dependência do núcleo .NET. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -53,7 +53,7 @@ public class Startup
 }
 ```
 
-Por predefinição, o gestor de `"FeatureManagement"` funcionalidades recupera as bandeiras da secção dos dados de configuração .NET Core. O exemplo que se segue diz ao `"MyFeatureFlags"` gestor de funcionalidades para ler a partir de uma secção diferente chamada em vez disso:
+Por predefinição, o gestor de recursos recupera bandeiras de características a partir `"FeatureManagement"` da secção dos dados de configuração .NET Core. O exemplo a seguir diz ao gestor de recursos para ler a partir de uma secção diferente `"MyFeatureFlags"` chamada:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -70,7 +70,7 @@ public class Startup
 }
 ```
 
-Se utilizar filtros nas suas bandeiras de características, terá de incluir uma biblioteca adicional e registá-la. O exemplo que se segue mostra como `PercentageFilter`utilizar um filtro de características incorporado chamado:
+Se utilizar filtros nas bandeiras de recurso, tem de incluir uma biblioteca adicional e registá-la. O exemplo a seguir mostra como utilizar um filtro de recurso incorporado chamado `PercentageFilter` :
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -86,9 +86,9 @@ public class Startup
 }
 ```
 
-Recomendamos que mantenha as bandeiras fora da aplicação e as gere separadamente. Ao fazê-lo, permite-lhe modificar os estados de bandeira a qualquer momento e fazer com que essas alterações entrem imediatamente em vigor na aplicação. A Configuração da Aplicação fornece um local centralizado para organizar e controlar todas as suas bandeiras através de um portal dedicado UI. A Configuração da Aplicação também entrega as bandeiras à sua aplicação diretamente através das suas bibliotecas de clientes .NET Core.
+Recomendamos que mantenha as bandeiras de características fora da aplicação e as gere separadamente. Ao fazê-lo, permite-lhe modificar estados de bandeira a qualquer momento e fazer com que essas alterações produzam efeitos imediatamente na aplicação. A Configuração de Aplicações oferece um local centralizado para organizar e controlar todas as suas bandeiras de funcionalidades através de um portal dedicado UI. A Configuração da Aplicação também entrega as bandeiras à sua aplicação diretamente através das suas bibliotecas de clientes .NET Core.
 
-A forma mais fácil de ligar a sua aplicação ASP.NET Core à Configuração de Aplicações é através do fornecedor `Microsoft.Azure.AppConfiguration.AspNetCore`de configuração. Siga estes passos para utilizar este pacote NuGet.
+A forma mais fácil de ligar a aplicação Core ASP.NET à Configuração de Aplicações é através do fornecedor de `Microsoft.Azure.AppConfiguration.AspNetCore` configuração. Siga estes passos para utilizar este pacote NuGet.
 
 1. Abra *Program.cs* ficheiro e adicione o seguinte código.
 
@@ -107,7 +107,7 @@ A forma mais fácil de ligar a sua aplicação ASP.NET Core à Configuração de
               .UseStartup<Startup>();
    ```
 
-2. Abra *Startup.cs* e `Configure` atualize o método para adicionar um middleware para permitir que os valores da bandeira da funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web ASP.NET Core continua a receber pedidos.
+2. Abra *Startup.cs* e atualize o `Configure` método para adicionar um middleware para permitir que os valores da bandeira de funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web Core ASP.NET continua a receber pedidos.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -117,7 +117,7 @@ A forma mais fácil de ligar a sua aplicação ASP.NET Core à Configuração de
    }
    ```
 
-Espera-se que os valores da bandeira de características mudem ao longo do tempo. Por predefinição, os valores da bandeira da funcionalidade são cacheed por um período de 30 segundos, pelo que uma operação de atualização desencadeada quando o middleware recebe um pedido não atualizaria o valor até que o valor em cache expirasse. O código seguinte mostra como alterar o tempo de validade `options.UseFeatureFlags()` da cache ou intervalo de votação para 5 minutos na chamada.
+Espera-se que os valores da bandeira da característica mudem ao longo do tempo. Por predefinição, os valores da bandeira de recurso são em cache por um período de 30 segundos, pelo que uma operação de atualização desencadeada quando o middleware recebe um pedido não atualizaria o valor até que o valor em cache expirasse. O código que se segue mostra como alterar o tempo de validade da cache ou o intervalo de votação para 5 minutos na `options.UseFeatureFlags()` chamada.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
@@ -128,13 +128,13 @@ config.AddAzureAppConfiguration(options => {
 });
 ```
 
-## <a name="feature-flag-declaration"></a>Declaração de bandeira de recurso
+## <a name="feature-flag-declaration"></a>Declaração de bandeira de característica
 
-Cada bandeira de recurso tem duas partes: um nome e uma lista de um ou *on* mais filtros que são `True`usados para avaliar se o estado de uma característica está ligado (isto é, quando o seu valor está). Um filtro define um caso de utilização para quando uma função deve ser ligada.
+Cada bandeira de características tem duas partes: um nome e uma lista de um ou mais filtros que são usados para avaliar se o estado de uma característica está *ligado* (isto é, quando o seu valor `True` é). Um filtro define uma caixa de utilização para quando uma função deve ser ligada.
 
-Quando uma bandeira de características tem vários filtros, a lista de filtros é atravessada para poder até que um dos filtros determine que a funcionalidade deve ser ativada. Nessa altura, a bandeira da característica está *asereda,* e os resultados restantes do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada*.
+Quando uma bandeira de recurso tem vários filtros, a lista de filtros é percorrida até que um dos filtros determine que a função deve ser ativada. Nessa altura, a bandeira da funcionalidade está *acesa*, e os restantes resultados do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada*.
 
-O gestor de funcionalidades suporta *as definições de apps.json* como fonte de configuração para as bandeiras de recurso. O exemplo que se segue mostra como configurar bandeiras de recurso num ficheiro JSON:
+O gestor de funcionalidades suporta *appsettings.js* como fonte de configuração para bandeiras de funcionalidades. O exemplo a seguir mostra como configurar bandeiras de recurso num ficheiro JSON:
 
 ```JSON
 "FeatureManagement": {
@@ -153,15 +153,15 @@ O gestor de funcionalidades suporta *as definições de apps.json* como fonte de
 }
 ```
 
-Por convenção, a `FeatureManagement` secção deste documento JSON é utilizada para configurações de bandeiras de características. O exemplo anterior mostra três bandeiras de `EnabledFor` características com os seus filtros definidos na propriedade:
+Por convenção, a `FeatureManagement` secção deste documento JSON é utilizada para configurações de bandeira de características. O exemplo anterior mostra três bandeiras de características com os seus filtros definidos na `EnabledFor` propriedade:
 
 * `FeatureA`está *ligado.*
 * `FeatureB`está *desligado.*
-* `FeatureC`especifica um filtro `Percentage` nomeado `Parameters` com uma propriedade. `Percentage`é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a `FeatureC` bandeira estar em *.*
+* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em*.
 
-## <a name="feature-flag-references"></a>Referências de bandeira de recurso
+## <a name="feature-flag-references"></a>Referências de bandeira de característica
 
-Para que possa facilmente referir as bandeiras de `enum` recurso em código, deve defini-las como variáveis:
+Para que possa facilmente referenciar as bandeiras de recurso em código, deve defini-las como `enum` variáveis:
 
 ```csharp
 public enum MyFeatureFlags
@@ -172,9 +172,9 @@ public enum MyFeatureFlags
 }
 ```
 
-## <a name="feature-flag-checks"></a>Verificações de bandeiras de características
+## <a name="feature-flag-checks"></a>Verificações de bandeira de recurso
 
-O padrão básico de gestão de recursos é verificar primeiro se uma bandeira de característicaestá definida *.* Em caso afirmativo, o gestor de funcionalidades executa as ações que a funcionalidade contém. Por exemplo:
+O padrão básico de gestão de recursos é verificar primeiro se uma bandeira de recurso está definida para *.* Em caso afirmativo, o gestor de funcionalidades executa então as ações que a funcionalidade contém. Por exemplo:
 
 ```csharp
 IFeatureManager featureManager;
@@ -187,7 +187,7 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 
 ## <a name="dependency-injection"></a>Injeção de dependência
 
-Em ASP.NET Core MVC, pode `IFeatureManager` aceder ao gestor de funcionalidades através de injeção de dependência:
+Em ASP.NET Core MVC, pode aceder ao gestor de recursos `IFeatureManager` através da injeção de dependência:
 
 ```csharp
 public class HomeController : Controller
@@ -201,9 +201,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="controller-actions"></a>Ações do controlador
+## <a name="controller-actions"></a>Ações de controlador
 
-Nos controladores MVC, `FeatureGate` utiliza-se o atributo para controlar se uma classe controladora inteira ou uma ação específica está ativada. O `HomeController` controlador seguinte `FeatureA` requer estar *ligado* antes que qualquer ação que a classe controladorcon possa ser executada:
+Nos controladores MVC, utiliza-se o `FeatureGate` atributo para controlar se uma classe de controlador inteiro ou uma ação específica está ativada. O seguinte controlador requer estar ligado antes de `HomeController` qualquer ação que a classe do controlador `FeatureA` contenha possa ser executada: *on*
 
 ```csharp
 [FeatureGate(MyFeatureFlags.FeatureA)]
@@ -213,7 +213,7 @@ public class HomeController : Controller
 }
 ```
 
-As `Index` seguintes `FeatureA` ações têm de ser *tomadas* antes de poder ser executada:
+A seguinte `Index` ação deve ser `FeatureA` *iniciada* antes de poder ser executada:
 
 ```csharp
 [FeatureGate(MyFeatureFlags.FeatureA)]
@@ -223,11 +223,11 @@ public IActionResult Index()
 }
 ```
 
-Quando um controlador ou ação mvc é bloqueado porque a `IDisabledFeaturesHandler` bandeira da característica de controlo está *desligada,* uma interface registada é chamada. A `IDisabledFeaturesHandler` interface predefinida devolve um código de estado 404 ao cliente sem corpo de resposta.
+Quando um controlador ou ação MVC é bloqueado porque a bandeira da função de controlo está *desligada,* uma interface registada `IDisabledFeaturesHandler` é chamada. A `IDisabledFeaturesHandler` interface predefinida devolve um código de estado 404 ao cliente sem organismo de resposta.
 
-## <a name="mvc-views"></a>Vistas do MVC
+## <a name="mvc-views"></a>Vistas para o MVC
 
-Nas vistas do MVC, `<feature>` pode utilizar uma etiqueta para renderizar conteúdo com base na ativação de uma bandeira de características:
+Nas vistas de MVC, pode utilizar uma `<feature>` etiqueta para renderizar conteúdo com base no facto de uma bandeira de recurso estar ativada:
 
 ```html
 <feature name="FeatureA">
@@ -235,7 +235,7 @@ Nas vistas do MVC, `<feature>` pode utilizar uma etiqueta para renderizar conte�
 </feature>
 ```
 
-Para apresentar conteúdo alternativo quando os `negate` requisitos não são cumpridos, o atributo pode ser utilizado.
+Para apresentar conteúdo alternativo quando os requisitos não estão satisfeitos, o `negate` atributo pode ser utilizado.
 
 ```html
 <feature name="FeatureA" negate="true">
@@ -243,7 +243,7 @@ Para apresentar conteúdo alternativo quando os `negate` requisitos não são cu
 </feature>
 ```
 
-A `<feature>` etiqueta de recurso também pode ser usada para mostrar conteúdo se alguma ou qualquer funcionalidade de uma lista estiver ativada.
+A etiqueta de funcionalidade `<feature>` também pode ser usada para mostrar conteúdo se alguma ou todas as funcionalidades de uma lista estiverem ativadas.
 
 ```html
 <feature name="FeatureA, FeatureB" requirement="All">
@@ -256,7 +256,7 @@ A `<feature>` etiqueta de recurso também pode ser usada para mostrar conteúdo 
 
 ## <a name="mvc-filters"></a>Filtros MVC
 
-Pode configurar filtros MVC para que sejam ativados com base no estado de uma bandeira de recurso. O seguinte código adiciona um `SomeMvcFilter`filtro MVC chamado . Este filtro só é acionado dentro `FeatureA` do gasoduto MVC se estiver ativado. Esta capacidade limita-se a `IAsyncActionFilter`. 
+Pode configurar filtros MVC para que sejam ativados com base no estado de uma bandeira de recurso. O seguinte código adiciona um filtro MVC chamado `SomeMvcFilter` . Este filtro só é acionado dentro do gasoduto MVC se `FeatureA` estiver ativado. Esta capacidade está limitada a `IAsyncActionFilter` . 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -273,7 +273,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="middleware"></a>Middleware
 
-Também pode utilizar bandeiras de recurso para adicionar condicionalmente ramos de aplicação e middleware. O seguinte código insere um componente de `FeatureA` middleware no gasoduto de pedido apenas quando estiver ativado:
+Também pode usar bandeiras de recurso para adicionar balcões de aplicação e middleware de aplicação condicionalmente. O seguinte código insere um componente de middleware no pipeline de pedido apenas quando `FeatureA` estiver ativado:
 
 ```csharp
 app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
@@ -289,8 +289,8 @@ app.UseForFeature(featureName, appBuilder => {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a implementar bandeiras de recurso `Microsoft.FeatureManagement` na sua aplicação ASP.NET Core utilizando as bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na configuração ASP.NET Core e App, consulte os seguintes recursos:
+Neste tutorial, aprendeu a implementar bandeiras de funcionalidades na sua aplicação Core ASP.NET utilizando as `Microsoft.FeatureManagement` bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na configuração ASP.NET Core e App, consulte os seguintes recursos:
 
-* [código de amostra de amostra de característica sinuosa ASP.NET Núcleo](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Microsoft.FuncionalidadeSGe documentação](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET Código de amostra de bandeira de característica do núcleo](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Documentação microsoft.featureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)

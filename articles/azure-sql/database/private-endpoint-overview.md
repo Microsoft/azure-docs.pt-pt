@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063272"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213364"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através d
 > [!IMPORTANT]
 > Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance**.
 
-## <a name="data-exfiltration-prevention"></a>Prevenção de exfiltração de dados
+## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
 
 A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador autorizado, como um administrador de base de dados é capaz de extrair dados de um sistema e movê-lo para fora da organização. Por exemplo, o utilizador desloca os dados para uma conta de armazenamento detida por terceiros.
 
@@ -175,9 +175,9 @@ Para estabelecer conectividade de um ambiente no local até à base de dados na 
 - [Circuito do ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Ligação de Azure Synapse Analytics ao Azure Storage usando a Polybase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Ligação do Azure Synapse Analytics ao Azure Storage utilizando a Base Polibase e a declaração COPY
 
-PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados de limites de acesso apenas a um conjunto de sub-redes de rede virtuais através de Pontos Finais Privados, Endpoints de Serviço ou firewalls baseadas em IP, a conectividade da PolyBase para a conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com a Azure Synapse Analytics conectando-se ao Azure Storage que está seguro a uma rede virtual, siga os passos fornecidos [aqui.](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 
+PolyBase e a declaração COPY são geralmente usados para carregar dados em Azure Synapse Analytics a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados de limites de acesso apenas a um conjunto de sub-redes de rede virtuais através de Pontos Finais Privados, Endpoints de Serviço ou firewalls baseados em IP, a conectividade da PolyBase e a declaração COPY para a conta quebrarão. Para permitir tanto cenários de importação como de exportação com a Azure Synapse Analytics conectando-se ao Azure Storage que está seguro a uma rede virtual, siga os passos fornecidos [aqui.](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

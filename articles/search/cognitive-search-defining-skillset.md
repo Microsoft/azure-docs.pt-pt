@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557462"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214086"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um skillset num oleoduto de enriquecimento de IA em Azure Cognitive Search 
 
-A IA extrai e enriquece dados para torná-lo pescável em Azure Cognitive Search. Chamamos de passos de extração e enriquecimento *habilidades cognitivas,* combinadas em um *skillset* referenciado durante a indexação. Um skillset pode usar [habilidades incorporadas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (ver [Exemplo: Criar uma habilidade personalizada num pipeline de enriquecimento de IA](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+![estágios indexantes](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "estágios indexantes")
+
+Um skillset define as operações que extraem e enriquecem dados para torná-lo pesmável. Um skillset executa após o texto e o conteúdo de imagem serem extraídos de documentos de origem, e depois de quaisquer campos do documento de origem serem (opcionalmente) mapeados para campos de destino em um índice ou loja de conhecimento.
+
+Um skillset contém uma ou mais *habilidades cognitivas* que representam uma operação específica de enriquecimento, como traduzir texto, extrair frases-chave ou realizar reconhecimento de caracteres óticos a partir de um ficheiro de imagem. Para criar um skillset, pode utilizar [habilidades incorporadas](cognitive-search-predefined-skills.md) da Microsoft, ou habilidades personalizadas que contenham modelos ou lógica de processamento que fornece (ver [Exemplo: Criar uma habilidade personalizada num pipeline de enriquecimento de IA](cognitive-search-create-custom-skill-example.md) para obter mais informações).
 
 Neste artigo, aprende-se a criar um oleoduto de enriquecimento para as competências que pretende utilizar. Um skillset é anexado a um [indexante](search-indexer-overview.md)de pesquisa cognitiva Azure . Uma parte do design do gasoduto, abrangida por este artigo, é a construção do próprio skillset. 
 
@@ -177,7 +181,7 @@ Vamos olhar para a primeira habilidade, que é a habilidade de reconhecimento de
   ["Microsoft", "LinkedIn"]
   ```
 
-Algumas situações exigem a referência de cada elemento de uma matriz separadamente. Por exemplo, suponha que pretende passar cada elemento ```"/document/organizations"``` de separadamente para outra habilidade (como o enriquecimento de pesquisa da entidade Bing personalizada). Pode consultar cada elemento da matriz adicionando um asterisco ao caminho:```"/document/organizations/*"``` 
+Algumas situações exigem a referência de cada elemento de uma matriz separadamente. Por exemplo, suponha que pretende passar cada elemento ```"/document/organizations"``` de separadamente para outra habilidade (como o enriquecimento de pesquisa da entidade Bing personalizada). Pode consultar cada elemento da matriz adicionando um asterisco ao caminho: ```"/document/organizations/*"``` 
 
 A segunda habilidade para a extração de sentimentos segue o mesmo padrão que o primeiro enriquente. Toma ```"/document/content"``` como entrada, e devolve uma pontuação de sentimento para cada instância de conteúdo. Uma vez que não definiu o ```"context"``` campo explicitamente, a saída (meuSentiment) é agora uma criança de ```"/document"``` .
 
@@ -275,6 +279,6 @@ Pode optar por guardar os documentos enriquecidos como tabelas com relações hi
 
 <a name="next-step"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com o oleoduto de enriquecimento e habilidades, continue com [como referenciar anotações em um skillset](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 

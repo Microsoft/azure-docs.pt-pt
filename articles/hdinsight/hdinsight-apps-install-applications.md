@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: f9eb573573ef70c8e5336ea6cca5f247e9ec0041
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: fd0d425f00e001071f5c9021068ca2f038371a36
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086522"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212827"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações Apache Hadoop de terceiros no Azure HDInsight
 
@@ -26,7 +26,7 @@ A lista que se segue mostra as aplicações publicadas:
 |Aplicação |Tipo de agrupamento ou tipo de agrupamento | Descrição |
 |---|---|---|
 |[Plataforma de Inteligência AtScale](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |O AtScale transforma o seu cluster HDInsight num servidor OLAP de escala, permitindo-lhe consultar milhares de milhões de linhas de dados interativamente utilizando as ferramentas BI que já conhece, possui e ama – do Microsoft Excel, Power BI, Tableau Software para qlikView. |
-|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |O CDAP é a primeira plataforma de integração unificada para big data que acelera o tempo para valorizar o Hadoop e permite que a TI forneça dados de autosserviço. Fonte aberta e extensível, o CDAP elimina barreiras à inovação. Requisitos: 4 Nós regionais, min D3 v2. |
+|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |O HBase |O CDAP é a primeira plataforma de integração unificada para big data que acelera o tempo para valorizar o Hadoop e permite que a TI forneça dados de autosserviço. Fonte aberta e extensível, o CDAP elimina barreiras à inovação. Requisitos: 4 Nós regionais, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |A plataforma escalável de self-service da Datameer para preparar, explorar e reger os seus dados para análise acelera a transformação de dados complexos de multisource em informações valiosas prontas para o negócio, fornecendo insights mais rápidos e inteligentes à escala da empresa. |
 |[Dataiku DSS em HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop |Dataiku DSS numa plataforma de ciência de dados da empresa que permite que cientistas de dados e analistas de dados colaborem para projetar e executar novos produtos e serviços de dados de forma mais eficiente, transformando dados brutos em previsões impactantes. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Manter os dados consistentes num ambiente distribuído é um enorme desafio de operações de dados. A WANdisco Fusion, uma plataforma de software de classe empresarial, resolve este problema permitindo uma consistência de dados não estruturada em qualquer ambiente. |
@@ -34,9 +34,9 @@ A lista que se segue mostra as aplicações publicadas:
 |[Striim para integração de dados em tempo real para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop,HBase,Tempestade,Faísca, Kafka |Striim (pronuncia-se "stream") é uma plataforma de integração de dados de streaming + plataforma de inteligência, permitindo a ingestão contínua, o processamento e a análise de fluxos de dados diferentes. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop |A um nível elevado, Jumbune ajuda as empresas por 1. Acelerando tez, MapReduce & desempenho de trabalho baseado em motor Spark Hive, Java, Scala. 2. Monitorização proativa do cluster Hadoop, 3. Estabelecer gestão da Qualidade de Dados no sistema de ficheiros distribuídos. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop,HBase,Faísca |Powered by Apache Kylin, Kyligence Enterprise Enables BI on Big Data. Como motor OLAP da empresa em Hadoop, a Kyligence Enterprise capacita o analista de negócios para o arquiteto BI em Hadoop com o armazém de dados padrão da indústria e metodologia bi. |
-|[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto é um motor de consulta SQL distribuído rápido e escalável. Projetado para a separação do armazenamento e cálculo, Presto é perfeito para consulta de dados em Azure Data Lake Storage, Azure Blob Storage, SQL e NoSQL bases de dados, e outras fontes de dados. |
+|[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop |Presto é um motor de consulta SQL distribuído rápido e escalável. Projetado para a separação do armazenamento e cálculo, Presto é perfeito para consulta de dados em Azure Data Lake Storage, Azure Blob Storage, SQL e NoSQL bases de dados, e outras fontes de dados. |
 |[StreamSets Data Collector para HDInsight Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector é um motor leve e poderoso que transmite dados em tempo real. Utilize o Data Collector para encaminhar e processar dados nos seus fluxos de dados. Vem com uma licença de 30 dias de julgamento. |
-|[Empresa Trifacta Wrangler](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |A Trifacta Wrangler Enterprise para a HDInsight suporta a luta de dados em toda a empresa para qualquer escala de dados. O custo de funcionamento da Trifacta em Azure é uma combinação de custos de subscrição da Trifacta mais os custos de infraestrutura Azure para as máquinas virtuais. |
+|[Empresa Trifacta Wrangler](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark,HBase |A Trifacta Wrangler Enterprise para a HDInsight suporta a luta de dados em toda a empresa para qualquer escala de dados. O custo de funcionamento da Trifacta em Azure é uma combinação de custos de subscrição da Trifacta mais os custos de infraestrutura Azure para as máquinas virtuais. |
 |[Plataforma de Dados Unificado](https://unifisoftware.com/platform/) |Hadoop,HBase,Tempestade,Faísca |A Plataforma de Dados Unificado é um conjunto integrado perfeitamente de ferramentas de dados de autosserviço projetadas para capacitar o utilizador do negócio a enfrentar desafios de dados que impulsionam receitas incrementais, reduzem custos ou complexidade operacional. |
 |[Desvendadata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Desvenda a aplicação De dados para o cluster HDInsight Spark. |
 |[Catálogo de dados orientado para a AI da linha de água](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Catálogos de linha de água, organiza e rege dados usando AI para marcar automaticamente dados com termos de negócio. O catálogo de literatos de negócios da Waterline é uma componente crítica e de sucesso para a análise de autosserviço, conformidade e governação, e iniciativas de gestão de TI. |
@@ -98,10 +98,10 @@ Pode ligar ao nó de extremidade com HTTP e SSH. Pode encontrar as informações
 
 As credenciais do ponto final de HTTP são as credenciais de utilizador HTTP que configurou para o cluster HDInsight; as credenciais do ponto final de SSH são as credenciais de SSH que configurou para o cluster HDInsight.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 Veja [Troubleshoot the installation (Resolver problemas de instalação)](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Instale aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar uma aplicação HDInsight não publicada para o HDInsight.
 * [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.

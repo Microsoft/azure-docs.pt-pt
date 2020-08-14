@@ -3,14 +3,15 @@ title: Ligação de entrada de serviço signalr funções Azure
 description: Aprenda a devolver um URL de serviço signalR e aceda a token em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 326115a2a6cf29fcf211cdbd918edd0994fe45ed
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77530266"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212123"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada de serviço SignalR para funções Azure
 
@@ -277,6 +278,6 @@ public SignalRConnectionInfo negotiate(
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Enviar mensagens de serviço SignalR (ligação de saída)](./functions-bindings-signalr-service-output.md) 

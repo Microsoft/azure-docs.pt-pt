@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: fc36211eeb58f18546e4eae24ad003c6b2ae761b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243176"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214001"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
 Ser capaz de acelerar os pedidos de entrada é um papel fundamental da Azure API Management. Quer controlando a taxa de pedidos ou o total de pedidos/dados transferidos, a API Management permite que os fornecedores de API protejam as suas APIs de abusos e criem valor para diferentes níveis de produtos API.

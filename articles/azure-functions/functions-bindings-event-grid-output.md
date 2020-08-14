@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit, devx-track-python
-ms.openlocfilehash: a471d793cc45cc8542aa933ef8ab0a79c42e7e1f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
+ms.openlocfilehash: 6bd4d5d82af213063b2000693e46d22744604480
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848422"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214121"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Ligação de saída da grelha de eventos Azure para funções Azure
 
@@ -278,11 +278,11 @@ Envie mensagens utilizando um parâmetro de método, como `out EventGridEvent pa
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Envie mensagens utilizando um parâmetro de método, como `out EventGridEvent paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
+Envie mensagens utilizando um parâmetro de método, como `out EventGridEvent paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou no lugar de `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` *em*.
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` * em*.
 
 # <a name="python"></a>[Python](#tab/python)
 

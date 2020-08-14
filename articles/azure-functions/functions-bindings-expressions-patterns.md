@@ -3,24 +3,25 @@ title: Funções Azure encaderna expressões e padrões
 description: Aprenda a criar diferentes expressões de ligação de funções Azure Com base em padrões comuns.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261074"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212614"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de ligação Azure Functions
 
 Uma das características mais poderosas dos [gatilhos e encadernações](./functions-triggers-bindings.md) são *expressões vinculativas.* No *function.jsno* ficheiro e nos parâmetros e código de função, pode utilizar expressões que se resolvem a valores de várias fontes.
 
-A maioria das expressões são colocadas entre chavetas para as identificar. Por exemplo, numa função de gatilho de fila, `{queueTrigger}` resolve-se o texto da mensagem de fila. Se a `path` propriedade para uma ligação de saída de bolha é `container/{queueTrigger}` e a função é desencadeada por uma mensagem de fila `HelloWorld` , uma bolha nomeada é `HelloWorld` criada.
+A maioria das expressões são identificadas encapsulando-as em chavetas. Por exemplo, numa função de gatilho de fila, `{queueTrigger}` resolve-se o texto da mensagem de fila. Se a `path` propriedade para uma ligação de saída de bolha é `container/{queueTrigger}` e a função é desencadeada por uma mensagem de fila `HelloWorld` , uma bolha nomeada é `HelloWorld` criada.
 
 Tipos de expressões de enlace
 
-* [Definições de aplicativos](#binding-expressions---app-settings)
+* [Definições da aplicação](#binding-expressions---app-settings)
 * [Nome de ficheiro do acionador](#trigger-file-name)
 * [Metadados do acionador](#trigger-metadata)
 * [Payloads JSON](#json-payloads)
@@ -132,7 +133,7 @@ public static void Run(
 
 ```
 
-Também pode criar expressões para partes do nome do ficheiro. No exemplo seguinte, a função é desencadeada apenas em nomes de ficheiros que correspondam a um padrão:`anyname-anyfile.csv`
+Também pode criar expressões para partes do nome do ficheiro. No exemplo seguinte, a função é desencadeada apenas em nomes de ficheiros que correspondam a um padrão: `anyname-anyfile.csv`
 
 ```json
 {
@@ -318,6 +319,6 @@ A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho d
 
 Em C# e outras línguas .NET, pode utilizar um padrão de ligação imperativo, em oposição às encadernações declarativas em *function.js* e atributos. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados em tempo de execução em vez de tempo de conceção. Para saber mais, consulte a referência do [desenvolvedor C#](functions-dotnet-class-library.md#binding-at-runtime) ou a referência do [desenvolvedor de scripts C#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Utilizando o valor de retorno da função Azure](./functions-bindings-return-value.md)

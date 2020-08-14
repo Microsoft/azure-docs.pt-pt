@@ -1,6 +1,6 @@
 ---
 title: Criar gestão de grupos de self-service - Azure Ative Directory / Microsoft Docs
-description: Criar e gerir grupos de segurança ou grupos do Office 365 no Azure Active Directory e pedir adesões ao grupo de segurança ou ao grupo do Office 365
+description: Criar e gerir grupos de segurança ou grupos Microsoft 365 no Azure Ative Directory e solicitar membros do grupo de segurança ou microsoft 365
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce5d96d3ca65efb69bf322cf4a5f5563b83d8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727879"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213633"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Criar gestão de grupos de self-service no Azure Ative Directory 
 
-Pode permitir aos utilizadores criar e gerir os seus próprios grupos de segurança ou grupos do Office 365 no Azure Ative Directory (Azure AD). O proprietário do grupo pode aprovar ou negar pedidos de adesão, e pode delegar o controlo da adesão ao grupo. As funcionalidades de gestão do grupo self-service não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas por correio.
+Pode permitir aos utilizadores criar e gerir os seus próprios grupos de segurança ou grupos Microsoft 365 no Azure Ative Directory (Azure AD). O proprietário do grupo pode aprovar ou negar pedidos de adesão, e pode delegar o controlo da adesão ao grupo. As funcionalidades de gestão do grupo self-service não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas por correio.
 
 ## <a name="self-service-group-membership-defaults"></a>Incumprimentos de adesão ao grupo de autosserviço
 
-Quando os grupos de segurança são criados no portal Azure ou utilizando o Azure AD PowerShell, apenas os proprietários do grupo podem atualizar a adesão. Grupos de segurança criados por self-service no [painel Access](https://account.activedirectory.windowsazure.com/r#/joinGroups) e todos os grupos office 365 estão disponíveis para se juntarem a todos os utilizadores, aprovados pelo proprietário ou aprovados automaticamente. No painel Access, pode alterar as opções de adesão quando criar o grupo.
+Quando os grupos de segurança são criados no portal Azure ou utilizando o Azure AD PowerShell, apenas os proprietários do grupo podem atualizar a adesão. Grupos de segurança criados por self-service no [painel Access](https://account.activedirectory.windowsazure.com/r#/joinGroups) e todos os grupos Microsoft 365 estão disponíveis para se juntarem a todos os utilizadores, aprovados pelo proprietário ou aprovados automaticamente. No painel Access, pode alterar as opções de adesão quando criar o grupo.
 
-Grupos criados em | Comportamento padrão do grupo de segurança | Office 365 comportamento padrão do grupo
+Grupos criados em | Comportamento padrão do grupo de segurança | Microsoft 365 group default behavior
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Só os proprietários podem adicionar membros<br>Visível mas não disponível para participar no painel Access | Aberto para aderir a todos os utilizadores
 [Portal do Azure](https://portal.azure.com) | Só os proprietários podem adicionar membros<br>Visível mas não disponível para participar no painel Access<br>O proprietário não é atribuído automaticamente na criação de grupo | Aberto para aderir a todos os utilizadores
@@ -47,7 +47,7 @@ Grupos criados em | Comportamento padrão do grupo de segurança | Office 365 co
 1. Selecione **Grupos**e, em seguida, selecione **definições gerais.**
 1. Os **Proprietários de Conjuntos podem gerir os pedidos de membros do grupo no Painel de Acesso** a **Sim**.
 1. Definir **Restringir o acesso a grupos no Painel de Acesso** ao **Nº**.
-1. Se definir **Os Utilizadores podem criar grupos de segurança em portais Azure** ou **os utilizadores podem criar grupos office 365 em portais Azure** para
+1. Se definir **os Utilizadores podem criar grupos de segurança em portais Azure** ou **os utilizadores podem criar grupos Microsoft 365 em portais Azure** para
 
     - **Sim:** Todos os utilizadores da sua organização Azure AD estão autorizados a criar novos grupos de segurança e adicionar membros a estes grupos. Estes novos grupos apareceriam também no Painel de Acesso para todos os outros utilizadores. Se a definição de política no grupo permitir, outros utilizadores podem criar pedidos para se juntarem a estes grupos
     - **Não:** Os utilizadores não podem criar grupos e não podem alterar os grupos existentes para os quais são proprietários. No entanto, podem continuar gerir os membros desses grupos e aprovar pedidos de outros utilizadores para pertencer aos respetivos grupos.
@@ -57,9 +57,9 @@ Também pode utilizar **os Proprietários que podem atribuir membros como propri
 Quando os utilizadores podem criar grupos, todos os utilizadores da sua organização podem criar novos grupos e, em seguida, como proprietário padrão, adicionar membros a estes grupos. Não se pode especificar indivíduos que podem criar os seus próprios grupos. Pode especificar indivíduos apenas para tornar outro membro do grupo um proprietário do grupo.
 
 > [!NOTE]
-> É necessária uma licença Azure Ative Directory Premium (P1 ou P2) para que os utilizadores solicitem a adesão a um grupo de segurança ou ao grupo office 365 e que os proprietários aprovem ou neguem pedidos de adesão. Sem uma licença Azure Ative Directory Premium, os utilizadores ainda podem gerir os seus grupos no Painel de Acesso, mas não podem criar um grupo que exija a aprovação do proprietário no Painel de Acesso, e não podem solicitar a adesão a um grupo. 
+> É necessária uma licença Azure Ative Directory Premium (P1 ou P2) para que os utilizadores solicitem a adesão a um grupo de segurança ou ao grupo Microsoft 365 e que os proprietários aprovem ou neguem pedidos de adesão. Sem uma licença Azure Ative Directory Premium, os utilizadores ainda podem gerir os seus grupos no Painel de Acesso, mas não podem criar um grupo que exija a aprovação do proprietário no Painel de Acesso, e não podem solicitar a adesão a um grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 

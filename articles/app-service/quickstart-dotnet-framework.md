@@ -4,13 +4,13 @@ description: Aprenda a executar aplicações web no Azure App Service implementa
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 08/06/2020
-ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 55b8dabfb2f5b3deff8b8435f0121a41333fb655
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc, devcenter, seodec18
+ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085229"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212550"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
@@ -29,7 +29,7 @@ Se já instalou o Visual Studio 2019:
 - Instale as últimas atualizações no Estúdio Visual selecionando **o Help**Check  >  **for Updates**.
 - Adicione a carga de trabalho selecionando **Ferramentas**  >  **Obter Ferramentas e Funcionalidades**.
 
-## <a name="create-an-aspnet-web-app"></a>Criar uma aplicação web ASP.NET<a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>Criar uma aplicação web ASP.NET <a name="create-and-publish-the-web-app"></a>
 
 Crie uma aplicação web ASP.NET seguindo estes passos:
 
@@ -51,7 +51,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
    ![Executar a aplicação localmente](./media/quickstart-dotnet-framework/local-web-app.png)
 
-## <a name="publish-your-web-app"></a>Publique a sua aplicação web<a name="launch-the-publish-wizard"></a>
+## <a name="publish-your-web-app"></a>Publique a sua aplicação web <a name="launch-the-publish-wizard"></a>
 
 1. No **Solution Explorer,** clique com o botão direito no **projeto myFirstAzureWebApp** e selecione **Publicar**.
 

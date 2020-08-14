@@ -8,23 +8,34 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557275"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214025"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos enriquecidos com IA para um índice pesmável
 
-Neste artigo, você aprende a mapear campos de entrada enriquecidos para campos de produção em um índice pesmável. Uma vez [definido um skillset,](cognitive-search-defining-skillset.md)deve mapear os campos de saída de qualquer habilidade que contribua diretamente para um determinado campo no seu índice de pesquisa. 
+![Estágios indexantes](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "estágios indexantes")
 
-Os Mapeamentos de Campo de Saída são necessários para mover o conteúdo de documentos enriquecidos para o índice.  O documento enriquecido é realmente uma árvore de informação, e mesmo que exista suporte para tipos complexos no índice, por vezes você pode querer transformar a informação da árvore enriquecida em um tipo mais simples (por exemplo, uma variedade de cordas). Os mapeamentos de campo de saída permitem-lhe realizar transformações de formas de dados achatando informações.
+Neste artigo, você aprende a mapear campos de entrada enriquecidos para campos de produção em um índice pesmável. Uma vez [definido um skillset,](cognitive-search-defining-skillset.md)deve mapear os campos de saída de qualquer habilidade que contribua diretamente para um determinado campo no seu índice de pesquisa.
+
+Os Mapeamentos de Campo de Saída são necessários para mover o conteúdo de documentos enriquecidos para o índice.  O documento enriquecido é realmente uma árvore de informação, e mesmo que exista suporte para tipos complexos no índice, por vezes você pode querer transformar a informação da árvore enriquecida em um tipo mais simples (por exemplo, uma variedade de cordas). Os mapeamentos de campo de saída permitem-lhe realizar transformações de formas de dados achatando informações. Os mapeamentos de campo de saída ocorrem sempre após a execução do skillset, embora seja possível que esta fase seja executada mesmo que não seja definida nenhuma habilidade.
+
+Exemplos de mapeamentos de campo de saída:
+
+* Como parte da sua habilidade, extraiu os nomes das organizações mencionadas em cada uma das páginas do seu documento. Agora quer mapear cada um desses nomes de organização num campo no seu índice de tipo Edm.Collection (Edm.String).
+
+* Como parte da sua habilidade, produziu um novo nó chamado "document/translated_text". Você gostaria de mapear a informação deste nó para um campo específico no seu índice.
+
+* Não tens uma habilidade, mas estás a indexar um tipo complexo a partir de uma base de dados do Cosmos DB. Você gostaria de chegar a um nó nesse tipo complexo e mapeá-lo em um campo no seu índice.
 
 > [!NOTE]
 > Recentemente, ativamos a funcionalidade de funções de mapeamento em mapeamentos de campo de saída. Para obter mais detalhes sobre as funções de mapeamento, consulte [as funções de mapeamento de campo](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Utilizar outputFieldMappings
+
 Para mapear os campos, adicione `outputFieldMappings` à definição do indexante como mostrado abaixo:
 
 ```http
@@ -134,7 +145,7 @@ Esta operação irá simplesmente "achatar" cada um dos nomes dos elementos pers
   "diseases" : ["heart failure","morquio"]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Uma vez mapeado os seus campos enriquecidos para campos pescandáveis, pode definir os atributos de campo para cada um dos campos pescandáveis [como parte da definição de índice](search-what-is-an-index.md).
 
 Para obter mais informações sobre o mapeamento de campo, consulte [mapeamentos de campo em indexadores de Pesquisa Cognitiva Azure](search-indexer-field-mappings.md).

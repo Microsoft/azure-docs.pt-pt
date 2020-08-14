@@ -1,7 +1,7 @@
 ---
 title: Upgrade para v3.0 da API de Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Saiba como fazer o upgrade de v2.0 e v2.1 a v3.0 da API de Visão Computacional.
+description: Saiba como fazer upgrade para Visão De Computador v3.0 Leia a API a partir de v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136506"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214181"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Upgrade para v3.0 da API de Visão Computacional de v2.0 e v2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Upgrade para Visão Computacional v3.0 Ler API a partir de v2.0/v2.1
 
-Este guia mostra como modificar o código existente para migrar de V2.0 ou v2.1 da API de Visão Computacional para v3.0 para os utilizadores da API REST. 
+Este guia mostra como atualizar o código API da Visão de Computador v2.0 ou v2.1 REST para as operações de leitura v3.0. 
 
-## <a name="upgrade-batch-read-file-to-read"></a>Upgrade `Batch Read File` para`Read`
+## <a name="upgrade-batch-read-file-to-read"></a>Upgrade `Batch Read File` para `Read`
 
 
 1. Altere o caminho da API para `Batch Read File` 2.x da seguinte forma:
@@ -57,7 +57,7 @@ Este guia mostra como modificar o código existente para migrar de V2.0 ou v2.1 
     - Para obter a raiz para a matriz de página, mude a hierarquia json de `"recognitionResults"` `"analyzeResult"` / `"readResults"` . A linha por página e as palavras json hierarquia permanecem inalteradas, pelo que não são necessárias alterações de código.
     -   O ângulo da página `"clockwiseOrientation"` foi renomeado `"angle"` para e o intervalo foi alterado de 0 - 360 graus para -180 a 180 graus. Dependendo do seu código, pode ou não ter de fazer alterações, uma vez que a maioria das funções matemáticas podem lidar com qualquer um dos intervalos.
     -   A API v3.0 também introduz as seguintes melhorias que pode opcionalmente alavancar: - `"createdDateTime"` e `"lastUpdatedDateTime"` são adicionadas para que possa acompanhar a duração do processamento. Consulte a documentação para mais detalhes. 
-        - `"version"`diz-lhe a versão da API usada para gerar resultados
+        - `"version"` diz-lhe a versão da API usada para gerar resultados
         - Uma palavra por `"confidence"` palavra foi adicionada. Este valor é calibrado de modo que um valor de 0,95 significa que há uma probabilidade de 95% de o reconhecimento estar correto. A pontuação de confiança pode ser usada para selecionar que texto enviar para revisão humana. 
     
     
@@ -158,8 +158,8 @@ Este guia mostra como modificar o código existente para migrar de V2.0 ou v2.1 
     }
     ```
 
-## <a name="upgrade-from-recognize-text-to-read"></a>Upgrade de `Recognize Text` para`Read`
-`Recognize Text`é uma operação *de pré-visualização* que está a ser *depreciada em todas as versões da API de Visão Computacional*. Deve migrar de `Recognize Text` `Read` para (v3.0) ou `Batch Read File` (v2.0, v2.1). v3.0 `Read` inclui modelos mais recentes e melhores para reconhecimento de texto e funcionalidades adicionais, pelo que é recomendado. Para atualizar a partir `Recognize Text` `Read` de:
+## <a name="upgrade-from-recognize-text-to-read"></a>Upgrade de `Recognize Text` para `Read`
+`Recognize Text` é uma operação *de pré-visualização* que está a ser *depreciada em todas as versões da API de Visão Computacional*. Deve migrar de `Recognize Text` `Read` para (v3.0) ou `Batch Read File` (v2.0, v2.1). v3.0 `Read` inclui modelos mais recentes e melhores para reconhecimento de texto e funcionalidades adicionais, pelo que é recomendado. Para atualizar a partir `Recognize Text` `Read` de:
 
 1. Altere o caminho da API para `Recognize Text` v2.x da seguinte forma:
 
@@ -195,12 +195,12 @@ Este guia mostra como modificar o código existente para migrar de V2.0 ou v2.1 
     - Em v2.x, `"Get Read Operation Result"` devolverá o json de reconhecimento de OCR quando o estado estiver `"Succeeded"` . Em v3.0, este campo é `"succeeded"` .
     - Para obter a raiz para a matriz de página, mude a hierarquia json de `"recognitionResult"` `"analyzeResult"` / `"readResults"` . A linha por página e as palavras json hierarquia permanecem inalteradas, pelo que não são necessárias alterações de código.
     -   A API v3.0 também introduz as seguintes melhorias que pode opcionalmente alavancar. Consulte a referência API para obter mais detalhes: - `"createdDateTime"` e `"lastUpdatedDateTime"` são adicionados para que possa acompanhar a duração do processamento. Consulte a documentação para mais detalhes. 
-        - `"version"`diz-lhe a versão da API usada para gerar resultados
+        - `"version"` diz-lhe a versão da API usada para gerar resultados
         - Uma palavra por `"confidence"` palavra foi adicionada. Este valor é calibrado de modo que um valor de 0,95 significa que há uma probabilidade de 95% de o reconhecimento estar correto. A pontuação de confiança pode ser usada para selecionar que texto enviar para revisão humana. 
-        - `"angle"`orientação geral do texto no sentido dos ponteiros do relógio, medido em graus entre (-180, 180].
-        -  `"width"`e `"height"` dar-lhe as dimensões do seu documento, e `"unit"` fornece a unidade dessas dimensões (pixels ou polegadas, dependendo do tipo de documento.)
-        - `"page"`documentos multi-páginas são suportados
-        - `"language"`a linguagem de entrada do documento (a partir do parâmetro _linguístico_ opcional.)
+        - `"angle"` orientação geral do texto no sentido dos ponteiros do relógio, medido em graus entre (-180, 180].
+        -  `"width"` e `"height"` dar-lhe as dimensões do seu documento, e `"unit"` fornece a unidade dessas dimensões (pixels ou polegadas, dependendo do tipo de documento.)
+        - `"page"` documentos multi-páginas são suportados
+        - `"language"` a linguagem de entrada do documento (a partir do parâmetro _linguístico_ opcional.)
 
 
     Em 2.X, o formato de saída é o seguinte: 

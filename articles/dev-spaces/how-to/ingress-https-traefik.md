@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Aprenda a configurar a Azure Dev Spaces para usar um controlador de entrada de traefik personalizado e configuure HTTPS usando esse controlador ingresss
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e6c50dd8d27af8276ddbf47f7a3719ab59d87a7d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3938209e80eb211afc332997b5b241c12a0f6eb9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421591"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212455"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Use um controlador de entrada de traefik personalizado e configuure HTTPS
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como configurar a Azure Dev Spaces para usar um controlad
 
 * Uma subscrição do Azure. Se não tiver uma, pode criar uma [conta gratuita.][azure-account-create]
 * A [CLI do Azure instalada][az-cli].
-* [Cluster Azure Kubernetes Service (AKS) com espaços Azure Dev habilitados][qs-cli].
+* [Agrupamento de Serviços Azure Kubernetes (AKS) com espaços Azure Dev habilitados] [qs-cli].
 * [kubectl][kubectl] instalado.
 * [Leme 3 instalado][helm-installed].
 * [Um domínio personalizado][custom-domain] com uma [Zona DNS][dns-zone]. Este artigo assume que o domínio personalizado e a Zona DNS estão no mesmo grupo de recursos que o seu cluster AKS, mas é possível usar um domínio personalizado e a Zona DNS num grupo de recursos diferente.
@@ -361,12 +361,12 @@ azds up
 
 Navegue para a aplicação da amostra no espaço *infantil dev/azureuser1* e note que é redirecionado para usar HTTPS sem erros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento de equipas em Espaços Azure Dev][team-development-qs]
+> [Como funciona o Azure Dev Spaces](../how-dev-spaces-works.md)
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -375,9 +375,6 @@ Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas 
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
-[qs-cli]: ../quickstart-cli.md
-[team-development-qs]: ../quickstart-team-development.md
-
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
 [cert-manager]: https://cert-manager.io/

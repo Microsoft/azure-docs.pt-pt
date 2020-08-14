@@ -3,14 +3,14 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Solução VMware Azure (AVS)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062835"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214106"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware Solution (AVS) Pré-visualização de conceitos de rede e interconectividade
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da Pré-visualização do Azure VMware Solution (AVS)
 
 A interconectividade da rede entre as suas nuvens privadas Azure VMware Solution (AVS) e ambientes no local ou redes virtuais em Azure permite-lhe aceder e utilizar a sua nuvem privada. Neste artigo, vamos abordar alguns conceitos-chave que estabelecem a base do networking e da interconectividade.
 
@@ -48,7 +48,7 @@ A rede lógica de nuvem privada vem com NSX-T pré-a provisionado. Um portal tie
 
 O encaminhamento é baseado em Border Gateway Protocol (BGP), que é automaticamente a provisionado e habilitado por padrão para cada implementação de nuvem privada. Para as nuvens privadas AVS, é necessário planear espaços de endereço de rede de nuvem privada com um mínimo de /22 blocos de endereços de rede CIDR de comprimento pré-fixo para sub-redes, mostrados na tabela abaixo. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais que se encontram nas suas redes de subscrição e no local. Dentro deste bloco de endereços, as redes de gestão, provisionamento e vMotion são aprovisionadas automaticamente.
 
-Exemplo `/22` do bloco de endereços de rede CIDR:`10.10.0.0/22`
+Exemplo `/22` do bloco de endereços de rede CIDR:  `10.10.0.0/22`
 
 As sub-redes:
 
@@ -77,7 +77,7 @@ Na rede virtual e nas instalações para a plena implementação da nuvem privad
 
 O diagrama abaixo mostra as instalações para a interconectividade da nuvem privada, o que permite os seguintes casos de utilização:
 * Hot/Cold Cross-vCenter vMotion
-* Acesso à gestão privada de nuvem AVS
+* Acesso à gestão privada de nuvem da AVS
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rede virtual e conectividade de nuvem privada completa" border="false":::
 

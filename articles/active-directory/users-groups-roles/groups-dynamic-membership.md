@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd3ede40582e8f2c71c0424df025d06ff7f0f79
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141606"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213804"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
-No Azure Ative Directory (Azure AD), pode criar regras complexas baseadas em atributos para permitir adesões dinâmicas para grupos. A adesão ao grupo dinâmico reduz a sobrecarga administrativa de adicionar e remover os utilizadores. Este artigo detalha as propriedades e sintaxe para criar regras dinâmicas de adesão para utilizadores ou dispositivos. Pode configurar uma regra para a adesão dinâmica em grupos de segurança ou grupos Microsft 365.
+No Azure Ative Directory (Azure AD), pode criar regras complexas baseadas em atributos para permitir adesões dinâmicas para grupos. A adesão ao grupo dinâmico reduz a sobrecarga administrativa de adicionar e remover os utilizadores. Este artigo detalha as propriedades e sintaxe para criar regras dinâmicas de adesão para utilizadores ou dispositivos. Pode configurar uma regra para a adesão dinâmica em grupos de segurança ou grupos Microsoft 365.
 
 Quando quaisquer atributos de um utilizador ou dispositivo mudam, o sistema avalia todas as regras dinâmicas do grupo num diretório para ver se a alteração desencadearia qualquer grupo que adicionasse ou removesse. Se um utilizador ou dispositivo satisfaz uma regra de um grupo, são adicionados como membro desse grupo. Se já não satisfazem a regra, são removidos. Não é possível adicionar ou remover manualmente um membro de um grupo dinâmico.
 
@@ -43,7 +43,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Governar com mais de cinco expressões
 - A regra dos relatórios diretos
 - Definição [da precedência do operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de mostrar a regra. O construtor de regras não altera a sintaxe, validação ou processamento de regras dinâmicas do grupo de qualquer forma.
@@ -127,7 +127,7 @@ Seguem-se as propriedades do utilizador que pode utilizar para criar uma única 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | outras Mensagens |Qualquer valor de corda |(user.otherMails -contém alias@domain " " |
-| proxyAddresses |SMTP: alias@domain smtp:alias@domain |(user.proxyAddresses -contém "SMTP: alias@domain "" |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contém "SMTP: alias@domain "" |
 
 Para as propriedades utilizadas para as regras do dispositivo, consulte [regras para dispositivos](#rules-for-devices).
 
@@ -135,7 +135,7 @@ Para as propriedades utilizadas para as regras do dispositivo, consulte [regras 
 
 A tabela que se segue lista todos os operadores apoiados e a sua sintaxe para uma única expressão. Os operadores podem ser utilizados com ou sem o prefixo hífen (-) prefixo.
 
-| Operador | Syntax |
+| Operador | Sintaxe |
 | --- | --- |
 | Não é igual |-ne |
 | Igual a |-eq |
@@ -252,7 +252,7 @@ Propriedades multi-valor são coleções de objetos do mesmo tipo. Podem ser usa
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
 | planos atribuídos | Cada objeto da coleção expõe as seguintes propriedades de cordas: capabilityStatus, serviço, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -e designado Plano.capabilityStatus -eq "Enabled") |
-| proxyAddresses| SMTP: alias@domain smtp:alias@domain | (user.proxyAddresses -any \_ (-contém "contoso")) |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any \_ (-contém "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Usando os -todos e todos os operadores
 
@@ -395,7 +395,7 @@ Podem ser utilizados os seguintes atributos do dispositivo.
 > [!Note]  
 > Para o dispositivoSaonerar ao criar Grupos Dinâmicos para dispositivos, é necessário definir o valor igual a "Empresa". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte os [Tipos Proprietários](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre grupos no Diretório Ativo Azure.
 

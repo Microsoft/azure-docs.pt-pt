@@ -3,14 +3,15 @@ title: Testar as Funções do Azure
 description: Criar testes automatizados para uma função C# em Estúdio Visual e Função JavaScript em Código VS
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085083"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212891"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 

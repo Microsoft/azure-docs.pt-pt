@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 271787c47b29bc713cc923c7d27852a8e05703ef
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 29ec547a6033b77d92ad7949df286dc94e3243a2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042552"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213925"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -19,8 +19,8 @@ O gatilho HTTP permite-lhe invocar uma função com um pedido HTTP. Pode utiliza
 
 O valor de retorno predefinido para uma função desencadeada por HTTP é:
 
-- `HTTP 204 No Content`com um corpo vazio em Funções 2.x e superior
-- `HTTP 200 OK`com um corpo vazio em Funções 1.x
+- `HTTP 204 No Content` com um corpo vazio em Funções 2.x e superior
+- `HTTP 200 OK` com um corpo vazio em Funções 1.x
 
 Para modificar a resposta HTTP, configurar uma [ligação de saída](./functions-bindings-http-webhook-output.md).
 
@@ -488,7 +488,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que precisam de estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves de autorização.](#authorization-keys) |
 | **métodos** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **rota** | **Rota** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
+| **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade  _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
 
 ## <a name="payload"></a>Carga útil
 
@@ -824,7 +824,7 @@ Em funções não-C#, os pedidos enviados com o tipo de conteúdo `image/jpeg` r
 
 ## <a name="limits"></a>Limites
 
-O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [execução](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
+O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [ execução](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 

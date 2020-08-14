@@ -3,17 +3,17 @@ title: 'Quickstart: Criar filas de armazenamento Azure no portal'
 description: Utilize o portal Azure para criar uma fila. Em seguida, utilize o portal Azure para adicionar uma mensagem, ver as propriedades da mensagem e desaquezar a mensagem.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808975"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213492"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Quickstart: Criar uma fila e adicionar uma mensagem com o portal Azure
 
@@ -40,8 +40,8 @@ Para criar uma fila no portal Azure, siga estes passos:
 Em seguida, adicione uma mensagem à nova fila. Uma mensagem pode ter até 64 KB de tamanho.
 
 1. Selecione a nova fila da lista de filas na conta de armazenamento.
-1. Selecione o botão **+ Adicionar mensagem** para adicionar uma mensagem à fila. Introduza uma mensagem no campo **de texto 'Mensagem'.** 
-1. Especificar quando a mensagem expira. O tempo máximo que uma mensagem pode permanecer na fila é de 7 dias.
+1. Selecione o botão **+ Adicionar mensagem** para adicionar uma mensagem à fila. Introduza uma mensagem no campo **de texto 'Mensagem'.**
+1. Especificar quando a mensagem expira. Os valores válidos que podem ser **introduzidos nos Expirações no** campo são entre 1 segundo e 7 dias. Selecione **A Mensagem nunca expira** para indicar uma mensagem que permanecerá na fila até que seja explicitamente removida.
 1. Indique se deve codificar a mensagem como Base64. Recomenda-se a codificação de dados binários.
 1. Selecione o botão **OK** para adicionar a mensagem.
 

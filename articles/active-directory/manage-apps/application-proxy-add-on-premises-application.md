@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448910453b967fb15d342c22b81dd9733d0dfeb8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165129"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212804"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -32,7 +31,7 @@ Este tutorial permite:
 > * Adiciona um pedido no local ao seu inquilino Azure AD
 > * Verifica que um utilizador de teste pode inscrever-se na aplicação utilizando uma conta AD Azure
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para adicionar uma aplicação no local à Azure AD, você precisa:
 
@@ -234,6 +233,10 @@ Para testar o sinal de inscrição na aplicação:
 3. Certifique-se de lançar primeiro a aplicação para testar a assinatura da aplicação, em seguida, descarregue o relatório de diagnóstico para rever a orientação de resolução para quaisquer problemas detetados.
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando já não for necessário, elimine os recursos que criou neste tutorial.
 
 ## <a name="next-steps"></a>Passos seguintes
 

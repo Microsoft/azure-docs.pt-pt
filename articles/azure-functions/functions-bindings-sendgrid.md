@@ -3,14 +3,15 @@ title: Funções Azure SendGrid
 description: Referência de ligações Azure Functions SendGrid.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697362"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212194"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Funções Azure SendGrid
 
@@ -36,7 +37,7 @@ As ligações SendGrid são fornecidas no pacote [Microsoft.Azure.WebJobs.Extens
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que utiliza um gatilho de fila de ônibus de serviço e uma ligação de saída SendGrid.
 
-### <a name="synchronous"></a>Síncrono
+### <a name="synchronous"></a>Synchronous (Síncrono)
 
 ```cs
 using SendGrid.Helpers.Mail;
@@ -352,7 +353,7 @@ A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-libr
 
 ## <a name="configuration"></a>Configuração
 
-A tabela que se segue lista as propriedades de configuração de encadernação disponíveis no *function.jsno* ficheiro e o `SendGrid` atributo/anotação.
+A tabela que se segue lista as propriedades de configuração de encadernação disponíveis no  *function.jsno* ficheiro e o `SendGrid` atributo/anotação.
 
 | *function.jsna* propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
@@ -362,7 +363,7 @@ A tabela que se segue lista as propriedades de configuração de encadernação 
 | apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| Não |
 | para| Para | O endereço de e-mail do destinatário. | Sim |
 | De| De | O endereço de e-mail do remetente. |  Sim |
-| Assunto| Assunto | O assunto do e-mail. | Sim |
+| subject| Assunto | O assunto do e-mail. | Sim |
 | texto| Texto | O conteúdo do e-mail. | Sim |
 
 As propriedades opcionais podem ter valores predefinidos definidos na ligação e adicionados ou ultrapassados programáticamente.
@@ -394,7 +395,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |De|n/a|O endereço de e-mail do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

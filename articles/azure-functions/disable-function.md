@@ -3,13 +3,13 @@ title: Como desativar funções em Funções Azure
 description: Saiba como desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497703"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213145"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções em Funções Azure
 
@@ -46,6 +46,21 @@ Também pode utilizar os botões **Ativar** e **Desativar** na página **'Visão
 
 > [!NOTE]  
 > A funcionalidade de teste integrada no portal ignora a `Disabled` definição. Isto significa que uma função desativada ainda funciona quando iniciada a partir da janela **de Teste** no portal. 
+
+## <a name="localsettingsjson"></a>local.settings.json
+
+As funções podem ser desativadas da mesma forma quando funcionam localmente. Para desativar uma função denominada `HttpExample` , adicione uma entrada à coleção Valores no local.settings.jsficheiro, da seguinte forma:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## <a name="other-methods"></a>Outros métodos
 
@@ -88,7 +103,7 @@ public static class QueueFunctions
 Este método permite ativar e desativar a função alterando a definição da aplicação, sem recompensá-la ou redistribuir. A alteração da definição de uma aplicação faz com que a aplicação de função reinicie, pelo que a alteração do estado desativada é imediatamente reconhecida.
 
 > [!IMPORTANT]
-> O `Disabled` atributo é a única forma de desativar uma função de biblioteca de classes. Ofunction.jsgerado *em* ficheiro para uma função de biblioteca de classes não deve ser editado diretamente. Se editar esse ficheiro, o que fizer à `disabled` propriedade não terá qualquer efeito.
+> O `Disabled` atributo é a única forma de desativar uma função de biblioteca de classes. Ofunction.jsgerado * em* ficheiro para uma função de biblioteca de classes não deve ser editado diretamente. Se editar esse ficheiro, o que fizer à `disabled` propriedade não terá qualquer efeito.
 >
 > O mesmo se aplica ao interruptor **de estado de função** no **separador 'Gerir',** uma vez que funciona alterando a *function.jsno* ficheiro.
 >
@@ -96,7 +111,7 @@ Este método permite ativar e desativar a função alterando a definição da ap
 
 ### <a name="functions-1x---scripting-languages"></a>Funções 1.x - Scripting languages
 
-Na versão 1.x, também pode utilizar a `disabled` propriedade dofunction.js*no* ficheiro para dizer ao tempo de execução para não desencadear uma função. Este método funciona apenas para scripting linguagens como o script C# e o JavaScript. A `disabled` propriedade pode ser configurada para ou para o nome de uma `true` configuração de aplicação:
+Na versão 1.x, também pode utilizar a `disabled` propriedade dofunction.js* no* ficheiro para dizer ao tempo de execução para não desencadear uma função. Este método funciona apenas para scripting linguagens como o script C# e o JavaScript. A `disabled` propriedade pode ser configurada para ou para o nome de uma `true` configuração de aplicação:
 
 ```json
 {

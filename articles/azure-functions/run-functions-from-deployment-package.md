@@ -3,21 +3,18 @@ title: Executar as suas Funções Azure a partir de um pacote
 description: Faça com que o tempo de execução das Funções Azure execute as suas funções montando um ficheiro pacote de implementação que contenha os ficheiros de projetos de aplicações de função.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365276"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214234"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar as suas Funções Azure a partir de um ficheiro de pacote
 
 No Azure, pode executar as suas funções diretamente a partir de um ficheiro pacote de implementação na sua aplicação de função. A outra opção é implementar os seus ficheiros no `d:\home\site\wwwroot` diretório da sua aplicação de funções.
 
 Este artigo descreve os benefícios de executar as suas funções a partir de um pacote. Também mostra como ativar esta funcionalidade na sua aplicação de função.
-
-> [!IMPORTANT]
-> Ao implementar as suas funções numa aplicação de função Linux num [plano Premium,](functions-scale.md#premium-plan)deve sempre correr a partir do ficheiro do pacote e [publicar a sua aplicação utilizando as Ferramentas Principais de Funções Azure.](functions-run-local.md#project-file-deployment)
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Benefícios de correr a partir de um ficheiro de pacote
   
@@ -67,7 +64,7 @@ O seguinte mostra uma aplicação de função configurada para ser executada a p
 - Para melhorar o desempenho do arranque a frio, utilize a opção Zip local `WEBSITE_RUN_FROM_PACKAGE` (=1).
 - O Run From Package é incompatível com a opção de personalização de implementação `SCM_DO_BUILD_DURING_DEPLOYMENT=true` (), o passo de construção será ignorado durante a implementação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

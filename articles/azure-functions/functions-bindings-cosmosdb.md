@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
-ms.openlocfilehash: 37c98ca2fbffddd064b55192e9b5d83c948d88e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041973"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214148"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Ligações DB Azure Cosmos para Funções Azure 1.x
 
@@ -33,7 +33,7 @@ Este artigo explica como trabalhar com as ligações [DB da Azure Cosmos](../cos
 
 ## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
 
-As ligações DB do Azure Cosmos para funções versão 1.x são fornecidas no [pacoteMicrosoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet, versão 1.x. O código-fonte para as ligações está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB)
+As ligações DB do Azure Cosmos para funções versão 1.x são fornecidas no [ pacoteMicrosoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet, versão 1.x. O código-fonte para as ligações está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB)
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -1152,7 +1152,7 @@ A ligação de saída DB da Azure Cosmos permite-lhe escrever um novo documento 
 Esta secção contém os seguintes exemplos:
 
 * Gatilho de fila, escreva um doc
-* Gatilho de fila, escrever docs usando`IAsyncCollector`
+* Gatilho de fila, escrever docs usando `IAsyncCollector`
 
 Os exemplos referem-se a um `ToDoItem` tipo simples:
 
@@ -1238,7 +1238,7 @@ namespace CosmosDBSamplesV1
 Esta secção contém os seguintes exemplos:
 
 * Gatilho de fila, escreva um doc
-* Gatilho de fila, escrever docs usando`IAsyncCollector`
+* Gatilho de fila, escrever docs usando `IAsyncCollector`
 
 ### <a name="queue-trigger-write-one-doc"></a>Gatilho de fila, escreva um doc
 

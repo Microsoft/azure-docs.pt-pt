@@ -3,14 +3,15 @@ title: Azure Functions SignalR Service binding
 description: Aprenda a enviar mensagens de Serviço SignalR a partir de Funções Azure.
 author: chenyl
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540235"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212590"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Serviço SignalR aciona a ligação para funções Azure
 
@@ -53,7 +54,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Use o atributo `[SignalRParameter]` para simplificar`ParameterNames`
+#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Use o atributo `[SignalRParameter]` para simplificar `ParameterNames`
 
 Como é um pouco complicado de `ParameterNames` usar, `SignalRParameter` é fornecido para alcançar o mesmo propósito.
 
@@ -216,7 +217,7 @@ Pode aceder a estes dois argumentos a partir de parâmetros, bem como atribuir-l
 
 Para a ligação do parâmetro, a ordem importa. Se estiver `ParameterNames` a utilizar, a encomenda corresponde `ParameterNames` à ordem dos argumentos invocados no cliente. Se estiver a utilizar o atributo `[SignalRParameter]` em C#, a ordem dos argumentos nos métodos Azure Function corresponde à ordem dos argumentos dos clientes.
 
-`ParameterNames`e atributo `[SignalRParameter]` **não pode** ser usado ao mesmo tempo, ou você receberá uma exceção.
+`ParameterNames` e atributo `[SignalRParameter]` **não pode** ser usado ao mesmo tempo, ou você receberá uma exceção.
 
 ## <a name="send-messages-to-signalr-service-trigger-binding"></a>Enviar mensagens para o serviço SignalR acionar a ligação
 
@@ -231,7 +232,7 @@ O `API_KEY` é gerado pela Função Azure. Pode obter o `API_KEY` portal Azure e
 
 Deverá configurar este URL `UrlTemplate` nas definições a montante do Serviço SignalR.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
 * [Amostra de ligação do gatilho do sinalr](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-python
-ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850275"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211885"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -137,7 +137,7 @@ Qualquer recurso de tipo `Microsoft.Web/sites` pode ser criado com uma identidad
 ```
 
 > [!NOTE]
-> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
+> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
 
 A adição do tipo atribuído ao sistema diz ao Azure para criar e gerir a identidade para a sua aplicação.
 
@@ -253,7 +253,7 @@ Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidad
 ```
 
 > [!NOTE]
-> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
+> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
 
 A adição do tipo atribuído ao utilizador diz ao Azure para utilizar a identidade atribuída ao utilizador especificada para a sua aplicação.
 
@@ -330,7 +330,7 @@ O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode 
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Utilize "2019-08-01" ou mais tarde (a menos que utilize o Linux Consumption, que atualmente apenas oferece "2017-09-01" - ver nota acima).                                                                                                                                                                                                                                                                 |
 > | CABEÇALHO DE IDENTIDADE X | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Este cabeçalho é usado para ajudar a atenuar os ataques de falsificação de pedidos do servidor (SSRF).                                                                                                                                                                                                    |
 > | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                             |
-> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id`é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
+> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id` é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
 > | mi_res_id         | Consulta  | (Opcional) O ID de recurso Azure da identidade atribuída ao utilizador a ser utilizado. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                      |
 
 > [!IMPORTANT]

@@ -4,13 +4,13 @@ description: Saiba como criar a sua primeira Função do Azure para execução s
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: cd4ddc5b6b685813740aed63cc6f446bc66e8169
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 770b1076f1a711cd863c5d3d468a3ec87ea54e7b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170089"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212729"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -77,7 +77,7 @@ Em seguida, crie uma função na nova aplicação de função.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761013"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212302"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -629,8 +629,8 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Armazenar de forma segura a configuração dos recursos Azure
 **Orientação:** Utilize devOps Azure para armazenar e gerir de forma segura o seu código como políticas Azure personalizadas, modelos de Gestor de Recursos Azure e scripts de Configuração do Estado Desejado. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps.
 
-- [Tutorial de Azure Repos Git](/devops/repos/git/gitworkflow?view=azure-devops)
-- [Sobre permissões e grupos](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Tutorial de Azure Repos Git](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [Sobre permissões e grupos](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
 - [Integração entre Azure DevTest Labs e fluxo de trabalho Azure DevOps](devtest-lab-dev-ops.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável

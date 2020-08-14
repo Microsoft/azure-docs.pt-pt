@@ -1,6 +1,6 @@
 ---
 title: Impor política de nomeação de grupos no Azure Ative Directory Microsoft Docs
-description: Como estabelecer a política de nomeação para grupos do Office 365 no Azure Ative Directory
+description: Como estabelecer uma política de nomeação para os grupos Microsoft 365 no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497091"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213741"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação sobre o Office 365 grupos no Azure Ative Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
-Para impor convenções de nomeação consistentes para grupos do Office 365 criados ou editados pelos seus utilizadores, crie uma política de nomeação de grupo para as suas organizações no Azure Ative Directory (Azure AD). Por exemplo, você poderia usar a política de nomeação para comunicar a função de um grupo, membro, região geográfica, ou que criou o grupo. Você também pode usar a política de nomeação para ajudar a categorizar grupos no livro de endereços. Pode utilizar a política para impedir que palavras específicas sejam usadas em nomes de grupo e pseudónimos.
+Para impor convenções de nomeação consistentes para grupos Microsoft 365 criados ou editados pelos seus utilizadores, crie uma política de nomeação de grupo para as suas organizações no Azure Ative Directory (Azure AD). Por exemplo, você poderia usar a política de nomeação para comunicar a função de um grupo, membro, região geográfica, ou que criou o grupo. Você também pode usar a política de nomeação para ajudar a categorizar grupos no livro de endereços. Pode utilizar a política para impedir que palavras específicas sejam usadas em nomes de grupo e pseudónimos.
 
 > [!IMPORTANT]
-> A utilização da política de nomeação Azure AD para grupos office 365 requer que possua, mas não necessariamente, uma licença Azure Ative Directory Premium P1 ou uma licença Azure AD Basic EDU para cada utilizador único que seja membro de um ou mais grupos do Office 365.
+> A utilização da política de nomeação Azure AD para grupos Microsoft 365 requer que possua, mas não necessariamente, atribua uma licença Azure Ative Directory Premium P1 ou uma licença Azure AD Basic EDU para cada utilizador único que seja membro de um ou mais grupos Microsoft 365.
 
 A política de nomeação é aplicada à criação ou edição de grupos criados através de cargas de trabalho (por exemplo, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Aplica-se tanto ao nome do grupo como ao pseudónimo do grupo. Se configurar a sua política de nomeação em Azure AD e tiver uma política de nomeação de grupos de intercâmbio existente, a política de nomeação Azure AD é aplicada na sua organização.
 
-Quando a política de nomeação de grupos estiver configurada, a política será aplicada aos novos grupos do Office 365 criados pelos utilizadores finais. A política de nomeação não se aplica a determinadas funções de diretório, tais como Administrador Global ou Administrador de Utilizador (consulte abaixo para a lista completa de funções isentas da política de nomeação de grupos). Para os grupos existentes do Office 365, a política não será imediatamente aplicável no momento da configuração. Uma vez que o proprietário do grupo edite o nome de grupo para estes grupos, a política de nomeação será aplicada.
+Quando a política de nomeação do grupo estiver configurada, a política será aplicada aos novos grupos Microsoft 365 criados pelos utilizadores finais. A política de nomeação não se aplica a determinadas funções de diretório, tais como Administrador Global ou Administrador de Utilizador (consulte abaixo para a lista completa de funções isentas da política de nomeação de grupos). Para os grupos Microsoft 365 existentes, a política não será imediatamente aplicada no momento da configuração. Uma vez que o proprietário do grupo edite o nome de grupo para estes grupos, a política de nomeação será aplicada.
 
 ## <a name="naming-policy-features"></a>Características da política de nomeação
 
@@ -253,7 +253,7 @@ Outlook Customer Manager (OCM) | O Outlook Customer Manager está em conformidad
 Aplicativo de sala de aula | Os grupos criados na aplicação Classroom cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente, e a pré-visualização da política de nomeação não é mostrada aos utilizadores enquanto inserimos um nome de grupo em sala de aula. Os utilizadores devem introduzir o nome de grupo de sala de aula forçado com prefixos e sufixos. Caso contrário, o grupo de aulas cria ou edita a operação falha com erros.
 Power BI | Os espaços de trabalho power BI estão em conformidade com a política de nomeação.    
 Yammer | Quando um utilizador se inscreveu na Yammer com a sua conta Azure Ative Directory cria um grupo ou edita um nome de grupo, o nome do grupo cumprirá a política de nomeação. Isto aplica-se tanto aos grupos ligados ao Office 365 como a todos os outros grupos Yammer.<br>Se um grupo ligado ao Office 365 tiver sido criado antes da política de nomeação estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomeação. Quando um utilizador edita o nome de grupo, será solicitado que adicione o prefixo e o sufixo.
-StaffHub  | As equipas do StaffHub não seguem a política de nomeação, mas o grupo subjacente ao Office 365 segue. O nome da equipa do StaffHub não aplica os prefixos e sufixos e não verifica se há palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove palavras bloqueadas do grupo subjacente ao Office 365.
+StaffHub  | As equipas do StaffHub não seguem a política de nomeação, mas o grupo subjacente à Microsoft 365 segue. O nome da equipa do StaffHub não aplica os prefixos e sufixos e não verifica se há palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove palavras bloqueadas do grupo Microsoft 365 subjacente.
 Bolsa powershell | Os cmdlets De Câmbio PowerShell estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a política de nomeação no nome do grupo e no pseudónimo do grupo (mailNickname).
 Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretório Ativo Azure estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação em nomes de grupo e pseudónimos de grupo.
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
@@ -264,7 +264,7 @@ Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Cent
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 
 - [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Política de expiração para grupos do Office 365](groups-lifecycle.md)
+- [Política de expiração para grupos Microsoft 365](groups-lifecycle.md)
 - [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gerir membros de um grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)

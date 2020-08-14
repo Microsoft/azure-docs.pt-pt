@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507578"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212250"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Criar fontes de identidade vCenter para utilizar o Ative Directory
 
@@ -41,6 +41,9 @@ Antes [de adicionar uma fonte de identidade,](#add-an-identity-source-on-vcenter
 * [Adicione no local Ative Directory como uma única fonte de identidade sign-on](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Configurar novo diretório ativo em uma nuvem privada](#set-up-new-active-directory-on-a-private-cloud)
 * [Configurar diretório ativo em Azure](#set-up-active-directory-on-azure)
+
+> [!IMPORTANT]
+> **O Diretório Ativo (Autenticação Integrada do Windows) não é suportado.** Apenas o Diretório Ativo sobre a opção LDAP é suportado como uma fonte de identidade.
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar diretório ativo nas instalações como uma única fonte de identidade sign-on
 

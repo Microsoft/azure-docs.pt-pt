@@ -3,17 +3,17 @@ title: Tutorial - Nova atribuição de políticas com portal Azure
 description: Neste tutorial, você usa o portal Azure para criar uma atribuição de Política Azure para identificar recursos não conformes.
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.openlocfilehash: cdd682e215648f1f819503ac03e15c58b32c79b5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88172972"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213235"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Criar uma atribuição política para identificar recursos não conformes
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
-Este tutorial passa pelo processo de criação de uma atribuição de políticas para identificar o seu Arco Azure para máquinas de servidores (pré-visualização) e para identificar máquinas que não tenham o agente Log Analytics instalado nas suas máquinas ativadas pelo Arco Azure.
+Este tutorial passa pelo processo de criação de uma atribuição de políticas para identificar as máquinas ativadas pelos servidores (pré-visualização) do Seu Arco Azure e para identificar máquinas que não tenham o agente Log Analytics instalado nas suas máquinas ativadas pelo Arco Azure.
 
 No final deste processo, irá identificar com sucesso máquinas que não tenham o agente Log Analytics para Windows ou Linux instalados. Estão em _não conformidade_ com a atribuição de política.
 
@@ -51,7 +51,7 @@ Neste tutorial, cria-se uma atribuição de políticas e atribui os _VMs de audi
 
    Para obter uma lista parcial das políticas incorporadas disponíveis, consulte [as amostras da Política Azure](../../../governance/policy/samples/index.md).
 
-1. Procure na lista de definições de política para encontrar o _ \[ Preview]: O agente Log Analytics deve ser instalado na definição de máquinas Windows Azure Arc_ se tiver ativado o agente Arc para servidores (pré-visualização) numa máquina baseada no Windows. Para uma máquina baseada em Linux, encontre a _ \[ pré-visualização correspondente]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._ Clique nessa política e clique em **Selecionar**.
+1. Procure na lista de definições de política para encontrar a _ \[ pré-visualização:: O agente Log Analytics deve ser instalado na definição de máquinas Windows Azure Arc_ se tiver ativado o agente ativo do Arco (pré-visualização) numa máquina baseada no Windows. Para uma máquina baseada em Linux, encontre a _ \[ pré-visualização correspondente]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._ Clique nessa política e clique em **Selecionar**.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Encontrar a definição de política correta" border="false":::
 
@@ -97,7 +97,7 @@ Para remover a atribuição criada, siga estes passos:
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, atribuiu uma definição de política a um âmbito e avaliou o seu relatório de conformidade.
-A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são. Agora está pronto para monitorizar o seu Arco Azure para servidores (Pré-visualização) com monitor Azure para VMs.
+A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são. Agora está pronto para monitorizar a sua máquina de servidores ativados Azure Arc (pré-visualização) com monitor Azure para VMs.
 
 Para aprender a monitorizar e ver o desempenho, o processo de execução e as suas dependências da sua máquina, continue ao tutorial:
 

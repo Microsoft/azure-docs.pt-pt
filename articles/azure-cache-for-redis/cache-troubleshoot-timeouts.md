@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: efe175e4086d5273471c1b0451e4cfb28449c236
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008938"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213450"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Resolver problemas de limites de tempo da Cache do Azure para Redis
 
@@ -44,7 +45,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 | mgr |O gestor da tomada está a `socket.select` fazer, o que significa que está a pedir ao SO que indique uma tomada que tem algo a fazer. O leitor não está a ler ativamente da rede porque acha que não há nada a fazer. |
 | fila |Existem 73 operações totais em curso |
 | qu |6 das operações em curso estão na fila não solicitada e ainda não foram escritas para a rede de saída |
-| qs |67 das operações em curso foram enviadas para o servidor, mas ainda não há uma resposta disponível. A resposta pode ser `Not yet sent by the server` ou`sent by the server but not yet processed by the client.` |
+| qs |67 das operações em curso foram enviadas para o servidor, mas ainda não há uma resposta disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
 | qc |0 das operações em curso viram respostas, mas ainda não foram marcadas como completas porque estão à espera do ciclo de conclusão |
 | wr |Há um escritor ativo (o que significa que os 6 pedidos não solicitados não estão a ser ignorados) bytes/activewriters |
 | no |Não há leitores ativos e zero bytes estão disponíveis para serem lidos nos bytes/activereaders do NIC |
@@ -91,7 +92,7 @@ Pode utilizar os seguintes passos para investigar possíveis causas de raiz.
 1. A alta carga do servidor Redis pode causar intervalos de tempo. Pode monitorizar a carga do servidor monitorizando a métrica de desempenho da `Redis Server Load` [cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, sem tempo de marcha lenta, solicitações de processamento. Para ver se determinados pedidos estão a ocupar toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte o uso do CPU alto / Carga do servidor.
 1. Houve algum outro evento do lado do cliente que possa ter causado um blip na rede? Os eventos comuns incluem: aumentar o número de casos de cliente para cima ou para baixo, implementar uma nova versão do cliente, ou autoescala ativada. Nos nossos testes, descobrimos que a escala automática ou a escala para cima/para baixo podem fazer com que a conectividade da rede de saída se perca durante vários segundos. O código StackExchange.Redis é resistente a tais eventos e reconecta-se. Ao reconectar-se, quaisquer pedidos na fila podem ser esgotados.
 1. Houve um grande pedido anterior a vários pequenos pedidos para a cache que esgotaram o tempo? O parâmetro `qs` na mensagem de erro indica-lhe quantos pedidos foram enviados do cliente para o servidor, mas não processou uma resposta. Este valor pode continuar a crescer porque o StackExchange.Redis utiliza uma única ligação TCP e só consegue ler uma resposta de cada vez. Mesmo que a primeira operação tenha sido cronometrada, não impede que mais dados sejam enviados para ou a partir do servidor. Outros pedidos serão bloqueados até que o grande pedido esteja concluído e pode causar intervalos de tempo. Uma solução é minimizar a possibilidade de intervalos, garantindo que o seu cache é suficientemente grande para a sua carga de trabalho e dividindo grandes valores em pedaços menores. Outra solução possível é utilizar uma piscina de `ConnectionMultiplexer` objetos no seu cliente e escolher o menos carregado `ConnectionMultiplexer` ao enviar um novo pedido. O carregamento através de vários objetos de ligação deve evitar que um único intervalo de tempo cause outros pedidos também para esgotar.
-1. Se estiver a `RedisSessionStateProvider` utilizar, certifique-se de que definiu corretamente o tempo de reesma. `retryTimeoutInMilliseconds`deve ser mais alto do `operationTimeoutInMilliseconds` que, caso contrário não ocorrem recaíções. No exemplo a seguir `retryTimeoutInMilliseconds` está definido para 3000. Para obter mais informações, consulte [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) e Como utilizar os [parâmetros de configuração do Fornecedor de Estado de Sessão e do Fornecedor de Cache de Saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+1. Se estiver a `RedisSessionStateProvider` utilizar, certifique-se de que definiu corretamente o tempo de reesma. `retryTimeoutInMilliseconds` deve ser mais alto do `operationTimeoutInMilliseconds` que, caso contrário não ocorrem recaíções. No exemplo a seguir `retryTimeoutInMilliseconds` está definido para 3000. Para obter mais informações, consulte [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) e Como utilizar os [parâmetros de configuração do Fornecedor de Estado de Sessão e do Fornecedor de Cache de Saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     ```xml
     <add

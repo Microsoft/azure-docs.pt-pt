@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145628"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212619"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -34,6 +34,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 
 ## <a name="note-before-you-migrate"></a>Nota antes de migrar
 
+* Deve migrar a sua experiência de autor até **2 de novembro de 2020.** 
 * A migração é um processo unidirecciona. Não pode voltar depois de migrar.
 * As aplicações migrarão automaticamente consigo se for o proprietário da aplicação.
 * O proprietário não pode escolher um subconjunto de apps para migrar, e o processo não é reversível.

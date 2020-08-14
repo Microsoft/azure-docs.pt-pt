@@ -1,19 +1,19 @@
 ---
 title: Ligue máquinas híbridas ao Azure a partir do portal Azure
-description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando o Azure Arc para servidores (pré-visualização) a partir do portal Azure.
+description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando servidores ativados (pré-visualização) do portal Azure.
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120988"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213505"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
-Pode ativar o Azure Arc para servidores (pré-visualização) para um ou um pequeno número de máquinas Windows ou Linux no seu ambiente, realizando manualmente um conjunto de passos. Ou pode usar um método automatizado executando um script de modelo que fornecemos. Este script automatiza o download e instalação de ambos os agentes.
+Pode ativar os servidores ativados (pré-visualização) do Azure Arc para um ou um pequeno número de máquinas Windows ou Linux no seu ambiente, realizando manualmente um conjunto de passos. Ou pode usar um método automatizado executando um script de modelo que fornecemos. Este script automatiza o download e instalação de ambos os agentes.
 
 Este método requer que tenha permissões de administrador na máquina para instalar e configurar o agente. No Linux, utilizando a conta raiz e no Windows, é membro do grupo de Administradores Locais.
 
@@ -34,7 +34,7 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 1. Na página **de script 'Gerar',** selecione o grupo de subscrição e recursos onde pretende que a máquina seja gerida dentro do Azure. Selecione um local Azure onde os metadados da máquina serão armazenados.
 
     >[!NOTE]
-    >O Azure Arc para servidores (pré-visualização) suporta apenas as seguintes regiões:
+    >Os servidores ativados Azure Arc (pré-visualização) suportam apenas as seguintes regiões:
     >- Rio Eastus
     >- Westus2
     >- Europa Ocidental
@@ -147,7 +147,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a ligação com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor está ligado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc (pré-visualização), vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

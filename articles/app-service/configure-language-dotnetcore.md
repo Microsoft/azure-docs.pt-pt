@@ -2,15 +2,16 @@
 title: Configurar aplicativos core ASP.NET
 description: Saiba como configurar uma aplicação Core ASP.NET nas instâncias nativas do Windows, ou num recipiente Linux pré-construído, no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080169"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211920"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação core ASP.NET para o Azure App Service
 
@@ -80,7 +81,7 @@ Se implementar a sua aplicação utilizando pacotes Git ou zip com automatizaç�
 1. Correr `dotnet publish` para construir um binário para a produção.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
 
 O exemplo a seguir especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -127,7 +128,7 @@ namespace SomeNamespace
 Se configurar uma configuração de uma aplicação com o mesmo nome no Serviço de Aplicações e em *appsettings.jsem*, por exemplo, o valor do Serviço de Aplicações tem precedência sobre o *appsettings.jssobre* o valor. O *appsettings.js* local de valor permite depurar a app localmente, mas o valor do Serviço de Aplicações permite que a sua aplicação seja executada em produto com configurações de produção. As cordas de ligação funcionam da mesma forma. Desta forma, pode manter os segredos da sua aplicação fora do seu repositório de código e aceder aos valores apropriados sem alterar o seu código.
 
 > [!NOTE]
-> Note que os [dados de configuração hierárquica](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) *emappsettings.jsé* acedido usando o `:` delimiter que é padrão para .NET Core. Para anular uma configuração hierárquica específica no Serviço de Aplicações, defina o nome de definição da aplicação com o mesmo formato delimitado na tecla. pode executar o seguinte exemplo na [Cloud Shell:](https://shell.azure.com)
+> Note que os [dados de configuração hierárquica](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) * emappsettings.jsé* acedido usando o `:` delimiter que é padrão para .NET Core. Para anular uma configuração hierárquica específica no Serviço de Aplicações, defina o nome de definição da aplicação com o mesmo formato delimitado na tecla. pode executar o seguinte exemplo na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"

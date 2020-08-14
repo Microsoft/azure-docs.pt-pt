@@ -7,25 +7,26 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798125"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213880"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
-Este artigo dá sugestões para criar e envolver ofertas de mercado comercial. As tabelas que se seguem descrevem as melhores práticas para completar a informação da oferta no Partner Center. Para uma análise do desempenho das suas ofertas, vá ao [painel Marketplace Insights](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) no Partner Center. 
+Este artigo dá sugestões para criar e envolver ofertas de mercado comercial da Microsoft. As tabelas que se seguem descrevem as melhores práticas para completar a informação da oferta no Partner Center. Para uma análise do desempenho das suas ofertas, vá ao [painel Marketplace Insights](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) no Partner Center. 
 
 ## <a name="storefront-offer-details"></a>Detalhes da oferta da montra
 
 | Configuração da frente da loja | Melhores práticas |
 |:--- |:--- |  
-| Nome da Oferta | Para aplicações, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir a sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [Nome da Oferta: [Tipo de Oferta] (por exemplo, Contoso: 2 Semanas de Implementação) <br> <br> Adira às diretrizes da marca: siga [as Diretrizes da Marca e da Marca da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes e específicas do produto ao referir-se às marcas da Microsoft e aos nomes de software, produtos e serviços da Microsoft. |
+| Nome da Oferta | Para aplicações, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir a sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [Nome da Oferta: [Tipo de Oferta] (por exemplo, Contoso: 2 Semanas de Implementação) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que estas frases podem ser usadas nos resultados do motor de busca. Os componentes fundamentais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou solução. </li> <li> Persona do utilizador que beneficia do produto ou solução. </li> <li> O cliente precisa ou dor nos endereços do produto ou da solução. </li> </ul> <br> Utilize o vocabulário padrão da indústria ou a redação baseada em benefícios, sempre que possível.  Não confie nas funcionalidades e funcionalidades para vender o seu produto.  Em vez disso, concentre-se no valor que entrega. <br> <br> Para anúncios de Serviços de Consultoria, indicar claramente o serviço profissional que presta. |
 
-As tabelas desta secção fornecem sugestões para criar e envolver ofertas de marketplace. Para escrever e configurar os seus materiais de marketing, vá ao [Centro de Parceiros.](https://partner.microsoft.com/dashboard/commercial-marketplace/) 
+> [!IMPORTANT]
+> Certifique-se de que o nome da sua oferta e a descrição da oferta aderem às **[Diretrizes de Marca e Marca da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** e outras diretrizes relevantes e específicas do produto ao referir-se às marcas comerciais da Microsoft e aos nomes de software, produtos e serviços da Microsoft.
 
 ## <a name="storefront-listing-details"></a>Detalhes da listagem da montra
 
@@ -119,19 +120,19 @@ As palavras-chave podem ajudar os clientes a encontrar a sua oferta quando pesqu
 ## <a name="storefront-marketing-details"></a>Detalhes de marketing à beira da loja
 | Configuração da frente da loja | Melhores práticas |
 |:--- |:--- |  
-| Logotipo da oferta (formato PNG, entre 216 × 216 e 350 x 350 pixels): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
-| Logotipo de oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará este logótipo a partir do logotipo Grande que carregou. Pode substituir opcionalmente isto por uma imagem diferente. |
-| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são:<ul><li>papéis brancos</li><li> brochuras</li><li>listas de verificação, ou</li><li> Apresentações de PowerPoint</li></ul><br>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los.<br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
+| Logotipo da oferta (formato PNG, 48 &nbsp; &times; &nbsp; 48): página de pesquisa | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de pesquisa da sua oferta. |
+| Logotipo da oferta (formato PNG, 216 &nbsp; &times; &nbsp; 216): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. |
+| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são: <ul> <li> papéis brancos, </li> <li> brochuras, </li> <li> listas de verificação, ou </li> <li> Apresentações de PowerPoint.</li> </ul>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los. <br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
 | Vídeos: AppSource, serviços de consultoria e SaaS oferece apenas | Os vídeos mais fortes comunicam o valor da sua oferta em forma narrativa:<ul> <li> Faça do seu cliente, não da sua empresa, o herói da história. </li> <li> O seu vídeo deve abordar os principais desafios e objetivos do seu cliente alvo. </li> <li> Comprimento recomendado: 60-90 segundos.</li> <li> Incorpore palavras de pesquisa chave que usam o nome dos vídeos. </li> <li> Considere adicionar vídeos adicionais, como como fazer, começar ou testemunhos de clientes. </li> </ul> |
 | Screenshots (1280 &nbsp; &times; &nbsp; 720) | Adicione até cinco imagens:<br>Incorpore palavras de pesquisa chave nos nomes dos ficheiros. |
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Link para a sua página de oferta a partir do seu site
 
-Quando liga do crachá appSource ou Azure Marketplace no seu site à sua listagem no mercado, pode suportar análises e relatórios fortes, incluindo os seguintes parâmetros de consulta no final do URL:
+Quando liga do crachá appSource ou Azure Marketplace no seu site à sua listagem no mercado comercial, pode suportar análises e relatórios fortes, incluindo os seguintes parâmetros de consulta no final do URL:
 * **src**: Inclua a fonte a partir da qual o tráfego é encaminhado para AppSource (por exemplo, website, LinkedIn ou Facebook).
 * **mktcmpid**: O seu ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hífenes (por exemplo, *blogpost_12).*
 
-O url de exemplo a seguir contém ambos os parâmetros de consulta anteriores:`https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
+O url de exemplo a seguir contém ambos os parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
 Ao adicionar os parâmetros ao seu URL AppSource, pode rever a eficácia da sua campanha no painel de análise no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/).
 

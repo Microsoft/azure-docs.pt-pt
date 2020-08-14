@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7738582ec2839a6fddaa01ff0f9921c276c9748d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 262a6612c50148232e814befc76707989befb18b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843118"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212133"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
 
@@ -299,7 +299,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**subscriptionName**|**Nome de assinatura**|Nome da subscrição para monitorar. Definir apenas se monitorizar um tópico, não para uma fila.|
 |**conexão**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação Service Bus para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyServiceBus". Se deixar `connection` vazio, o tempo de execução de Funções utiliza a cadeia de ligação padrão do Service Bus na definição da aplicação que é denominada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos indicados na [Get as credenciais de gestão](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação deve ser para um espaço de nomes do Service Bus, não se limitando a uma fila ou tópico específico. |
 |**acessosDes**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` `listen` e. O padrão é `manage` , o que indica que tem a `connection` permissão **'Gerir'.** Se utilizar uma cadeia de ligação que não tenha a permissão **'Gerir',** desemaça `accessRights` "ouvir". Caso contrário, o tempo de execução das Funções pode falhar ao tentar fazer operações que exijam direitos de gestão. Na versão 2.x e superior do Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true`se ligar a uma fila ou subscrição [conscientes da sessão.](../service-bus-messaging/message-sessions.md) `false`caso contrário, que é o valor padrão.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true`se ligar a uma fila ou subscrição [conscientes da sessão.](../service-bus-messaging/message-sessions.md) `false` caso contrário, que é o valor padrão.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -309,11 +309,11 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de tópico:
 
-* `string`- Se a mensagem for sms.
-* `byte[]`- Útil para dados binários.
+* `string` - Se a mensagem for sms.
+* `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
 * `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)- Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) - Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
 
 Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
@@ -321,8 +321,8 @@ Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e sup
 
 Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de tópico:
 
-* `string`- Se a mensagem for sms.
-* `byte[]`- Útil para dados binários.
+* `string` - Se a mensagem for sms.
+* `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
 * `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
 

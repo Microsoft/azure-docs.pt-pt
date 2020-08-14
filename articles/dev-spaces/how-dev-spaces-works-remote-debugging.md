@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos de depuração remota no Serviço Azure Kubernetes com Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: a9f303ea6f954285a319be137a594f7ce127f740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd984ff6a8ebe336f76643406c0957769dbfd3da
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80241403"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213391"
 ---
 # <a name="how-remote-debugging-your-code-with-azure-dev-spaces-works"></a>Como funciona a depuração remota do seu código com a Azure Dev Spaces
 
@@ -30,15 +30,7 @@ A imagem de depurar é automaticamente determinada pela ferramenta do lado do cl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a utilizar a Azure Dev Spaces para depurar remotamente o seu projeto, consulte os seguintes quickstarts:
+Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
-* [Iterada e depurada rapidamente com Visual Studio Code e Java][quickstart-java]
-* [Iterada e depurada rapidamente com Visual Studio Code e .NET][quickstart-netcore]
-* [Iterada e depurada rapidamente com Código de Estúdio Visual e Node.js][quickstart-node]
-* [Iterar e depurar rapidamente com Visual Studio e .NET Core][quickstart-vs]
-
-
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
+> [!div class="nextstepaction"]
+> [Como funciona o Azure Dev Spaces](how-dev-spaces-works.md)

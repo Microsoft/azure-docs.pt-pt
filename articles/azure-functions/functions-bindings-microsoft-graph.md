@@ -3,14 +3,15 @@ title: Ligações do Microsoft Graph para Funções Azure
 description: Compreenda como utilizar os gatilhos e ligações do Microsoft Graph em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506541"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212202"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Ligações do Microsoft Graph para Funções Azure
 
@@ -210,7 +211,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o token auth. Ver [Utilizando uma ligação de entrada simbólica auth a partir do código](#token-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `token` .|
 |**direção**| n/a |Necessário - deve ser definido para `in` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 |**Recurso**|**recurso**|Obrigatório - Um URL de recurso AZure AD para o qual o token está sendo solicitado.|
@@ -345,7 +346,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a tabela Excel. Ver [Utilização de uma ligação de entrada de tabela Excel a partir do código](#excel-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `excel` .|
 |**direção**| n/a |Necessário - deve ser definido para `in` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 |**caminho**|**Caminho**|Obrigatório - o caminho no OneDrive para o livro excel.|
@@ -507,13 +508,13 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o token auth. Ver [Utilização de uma ligação de saída de tabela Excel a partir do código](#excel-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `excel` .|
 |**direção**| n/a |Necessário - deve ser definido para `out` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**UserId** |**userId** |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 |**caminho**|**Caminho**|Obrigatório - o caminho no OneDrive para o livro excel.|
 |**folha de cálculoName**|**Folha de cálculoName**|A folha de cálculo na qual a mesa é encontrada.|
 |**tableName**|**Nome de mesa**|O nome da mesa. Se não for especificado, o conteúdo da folha de cálculo será utilizado.|
-|**atualizaçãoType**|**Atualização DeType**|Obrigatório - O tipo de alteração a fazer à mesa. Pode ser um dos seguintes valores:<ul><li><code>update</code>- Substitui o conteúdo da tabela no OneDrive.</li><li><code>append</code>- Adiciona a carga útil ao fim da tabela no OneDrive criando novas linhas.</li></ul>|
+|**atualizaçãoType**|**Atualização DeType**|Obrigatório - O tipo de alteração a fazer à mesa. Pode ser um dos seguintes valores:<ul><li><code>update</code> - Substitui o conteúdo da tabela no OneDrive.</li><li><code>append</code> - Adiciona a carga útil ao fim da tabela no OneDrive criando novas linhas.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel output - utilização
@@ -653,7 +654,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o ficheiro. Ver [Utilizar uma ligação de entrada de ficheiro OneDrive a partir do código](#onedrive-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `onedrive` .|
 |**direção**| n/a |Necessário - deve ser definido para `in` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 |**caminho**|**Caminho**|Obrigatório - o caminho no OneDrive para o ficheiro.|
@@ -801,7 +802,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para ficheiro. Ver [Utilização de uma saída de ficheiro OneDrive a partir do código](#onedrive-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `onedrive` .|
 |**direção**| n/a |Necessário - deve ser definido para `out` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**UserId** |**userId** |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 |**caminho**|**Caminho**|Obrigatório - o caminho no OneDrive para o ficheiro.|
@@ -952,7 +953,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `outlook` .|
 |**direção**| n/a |Necessário - deve ser definido para `out` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
 
@@ -1095,7 +1096,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhook` .|
 |**direção**| n/a |Necessário - deve ser definido para `trigger` .|
-|**RecursosType**|**Tipo de recursos**|Requerido - o recurso gráfico para o qual esta função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code>- alterações efetuadas às mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>- alterações efetuadas nos itens de raiz OneDrive.</li><li><code>#Microsoft.Graph.Contact</code>- alterações efetuadas aos contactos pessoais no Outlook.</li><li><code>#Microsoft.Graph.Event</code>- alterações efetuadas aos itens do calendário do Outlook.</li></ul>|
+|**RecursosType**|**ResourceType**|Requerido - o recurso gráfico para o qual esta função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> - alterações efetuadas às mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> - alterações efetuadas nos itens de raiz OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> - alterações efetuadas aos contactos pessoais no Outlook.</li><li><code>#Microsoft.Graph.Event</code> - alterações efetuadas aos itens do calendário do Outlook.</li></ul>|
 
 > [!Note]
 > Uma aplicação de função só pode ter uma função que está registada contra um determinado `resourceType` valor.
@@ -1388,10 +1389,10 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhookSubscription` .|
 |**direção**| n/a |Necessário - deve ser definido para `out` .|
-|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>- Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code>- Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code>- Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code>- Utiliza a identidade da aplicação de função.</li></ul>|
+|**identidade**|**Identidade**|Obrigatório - A identidade que será usada para realizar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> - Válido apenas com [gatilho HTTP]. Utiliza a identidade do utilizador chamador.</li><li><code>userFromId</code> - Utiliza a identidade de um utilizador previamente iniciado com o ID especificado. Veja a <code>userId</code> propriedade.</li><li><code>userFromToken</code> - Utiliza a identidade representada pelo símbolo especificado. Veja a <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> - Utiliza a identidade da aplicação de função.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida para `userFromId` . Um ID principal do utilizador associado a um utilizador previamente iniciado.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida para `userFromToken` . Um símbolo válido para a aplicação de função. |
-|**ação**|**Ação**|Requerido - especifica a ação que a encadernação deve realizar. Pode ser um dos seguintes valores:<ul><li><code>create</code>- Regista uma nova subscrição.</li><li><code>delete</code>- Elimina uma subscrição especificada.</li><li><code>refresh</code>- Refreshes uma subscrição especificada para evitar que expire.</li></ul>|
+|**ação**|**Ação**|Requerido - especifica a ação que a encadernação deve realizar. Pode ser um dos seguintes valores:<ul><li><code>create</code> - Regista uma nova subscrição.</li><li><code>delete</code> - Elimina uma subscrição especificada.</li><li><code>refresh</code> - Refreshes uma subscrição especificada para evitar que expire.</li></ul>|
 |**subscriçãoResource**|**SubscriçãoResource**|Necessário se e apenas se a _ação_ estiver definida para `create` . Especifica o recurso Microsoft Graph que será monitorizado para alterações. Ver [Trabalhar com webhooks no Microsoft Graph]. |
 |**alterarType**|**AlterarType**|Necessário se e apenas se a _ação_ estiver definida para `create` . Indica o tipo de alteração no recurso subscrito que irá levantar uma notificação. Os valores suportados são: `created` `updated` . . . `deleted` . Vários valores podem ser combinados usando uma lista separada por vírgula.|
 
@@ -1583,7 +1584,7 @@ public class UserSubscription {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)
