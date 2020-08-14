@@ -1,18 +1,18 @@
 ---
 title: Visão geral da segurança no Azure Data Lake Storage Gen1 Microsoft Docs
-description: Entenda como a Azure Data Lake Storage Gen1 é uma loja de dados mais segura
+description: Conheça as capacidades de segurança da Azure Data Lake Storage Gen1, incluindo autenticação, autorização, isolamento de rede, proteção de dados e auditoria.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926285"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192822"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança em Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Muitas empresas estão a aproveitar-se da análise de big data para obter insigh
 
 * Autenticação
 * Autorização
-* Isolamento de rede
+* Isolamento da rede
 * Proteção de dados
 * Auditoria
 
@@ -53,7 +53,7 @@ Note que, embora as funções sejam atribuídas para a gestão de conta, algumas
 | Funções | Direitos de gestão | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
 | Nenhuma função atribuída |Nenhum |Regido pela ACL |O utilizador não pode utilizar o portal Azure ou os cmdlets Azure PowerShell para navegar no Data Lake Storage Gen1. O utilizador só pode utilizar ferramentas de linha de comando. |
-| Proprietário |Tudo |Tudo |O papel de Proprietário é um super-ador. Esta função pode gerir tudo e tem acesso total aos dados. |
+| Proprietário |Todos |Todos |O papel de Proprietário é um super-ador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de leitura |Regido pela ACL |A função Reader pode ver tudo no que diz respeito à gestão de conta, como qual o utilizador que é atribuído a que papel. O papel de Leitor não pode fazer alterações. |
 | Contribuinte |Todos, exceto adicionar e remover funções |Regido pela ACL |O papel de Contribuinte pode gerir alguns aspetos de uma conta, como implementações e criação e gestão de alertas. A função Contribuinte não pode adicionar ou remover funções. |
 | Administrador de Acesso dos Utilizadores |Adicionar e remover funções |Regido pela ACL |A função de Administrador de Acesso ao Utilizador pode gerir o acesso do utilizador às contas. |
@@ -68,7 +68,7 @@ Recomendamos que defina ACLs para vários utilizadores utilizando [grupos de seg
 
 ![Listar permissões de acesso](./media/data-lake-store-security-overview/adl.acl.2.png "Listar permissões de acesso")
 
-## <a name="network-isolation"></a>Isolamento de rede
+## <a name="network-isolation"></a>Isolamento da rede
 
 Utilize a Data Lake Storage Gen1 para ajudar a controlar o acesso à sua loja de dados ao nível da rede. Pode estabelecer firewalls e definir um intervalo de endereços IP para os seus clientes de confiança. Com uma gama de endereços IP, apenas os clientes que tenham um endereço IP dentro do intervalo definido podem ligar-se à Data Lake Storage Gen1.
 
@@ -117,7 +117,7 @@ Os clientes da empresa exigem uma plataforma de nuvem de análise de dados que s
 
 Se quiser ver novas funcionalidades na Data Lake Storage Gen1, envie-nos o seu feedback no [fórum UserVoice do Data Lake Storage Gen1.](https://feedback.azure.com/forums/327234-data-lake)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Começar com data lake storage gen1](data-lake-store-get-started-portal.md)

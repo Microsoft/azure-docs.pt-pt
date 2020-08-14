@@ -1,17 +1,17 @@
 ---
 title: Analise os dados em Azure Data Lake Storage Gen1 - Power BI
-description: Use power bi para analisar dados armazenados na Azure Data Lake Storage Gen1.
+description: Aprenda a usar o Power BI Desktop para analisar e visualizar dados armazenados na Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a692c5b23eaf23b33eef9bd2baf1e62b4bcca74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282ac6f87d5ecff75e77b075ee1092f79b4923ad
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504938"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192870"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise os dados em Azure Data Lake Storage Gen1 utilizando o Power BI
 Neste artigo, aprende a usar o Power BI Desktop para analisar e visualizar dados armazenados na Azure Data Lake Storage Gen1.
@@ -56,7 +56,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 10. No Editor de Consulta, sob a coluna **Conteúdo,** clique em **Binário**.
     
     ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
-11. Verá um ícone de ficheiro que representa o **ficheiroDrivers.txt** que carregou. Clique com o botão direito no ficheiro e clique em **CSV**.    
+11. Verá um ícone de ficheiro que representa o ** ficheiroDrivers.txt** que carregou. Clique com o botão direito no ficheiro e clique em **CSV**.    
     
     ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
 12. Deve ver uma saída como mostrado abaixo. Os seus dados estão agora disponíveis num formato que pode utilizar para criar visualizações.
@@ -78,7 +78,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
         ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "Criar visualizações")
     3. O gráfico de tartes deve agora assemelhar-se como o mostrado abaixo.
        
-        ![Gráfico de tortas](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
+        ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
 16. Ao selecionar um país/região específico a partir dos filtros de nível de página, pode agora ver o número de condutores em cada cidade do país/região selecionado. Por exemplo, no separador **Visualizações,** nos **filtros de nível page**, selecione **Brasil**.
     
     ![Selecionar país/região](./media/data-lake-store-power-bi/select-country.png "Selecionar país/região")
@@ -90,6 +90,6 @@ Antes de começar este tutorial, tem de ter o seguinte:
 ## <a name="publish-report-to-power-bi-service"></a>Publicar relatório ao serviço Power BI
 Uma vez criadas as visualizações no Power BI Desktop, pode partilhá-la com outras, publicando-as no serviço Power BI. Para obter instruções sobre como fazê-lo, consulte [a Publicação do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Analise os dados em Data Lake Storage Gen1 usando data lake analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

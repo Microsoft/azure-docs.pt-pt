@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388074"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192848"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -106,11 +106,11 @@ Utilizando esta vista, pode identificar os itens de backup que não tiveram uma 
 
 Para visualizar recursos inativos, navegue no separador **Otimize** e clique no azulejo **Recursos Inativos.** Clicar neste azulejo exibe uma grelha que contém detalhes de todos os recursos inativos que existem no âmbito selecionado. Por predefinição, a grelha mostra itens que não têm um ponto de recuperação nos últimos 7 dias. Para encontrar recursos inativos para um intervalo de tempo diferente, pode ajustar o filtro **de intervalo** de tempo na parte superior do separador.
 
-Uma vez identificado um recurso inativo, pode investigar o problema mais adiante navegando no painel de instrumentos de reserva ou na lâmina de recurso Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, pode optar por parar a cópia de segurança da máquina (se já não existir), poupando assim no custo de instâncias protegidas, ou pode corrigir problemas na máquina para garantir que as cópias de segurança são tomadas de forma fiável.
+Uma vez identificado um recurso inativo, pode investigar o problema mais adiante navegando no painel de instrumentos de reserva ou na lâmina de recurso Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, pode optar por parar a cópia de segurança da máquina (se já não existir) e eliminar cópias de segurança desnecessárias, poupando assim os custos, ou pode corrigir problemas na máquina para garantir que as cópias de segurança são tomadas de forma fiável.
 
 ![Separador Otimizar - Recursos Inativos](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
-###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de backup com uma grande duração de retenção
+###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de cópia de segurança com uma grande duração de retenção
 Utilizando esta vista, pode identificar os itens que têm cópias de segurança retidas por uma duração mais longa do que o exigido pela sua organização. 
 
 Clicar no azulejo **de Otimizações de Política** seguido do azulejo de **Otimizações de Retenção** exibe uma grelha contendo todos os itens de backup para os quais a retenção do ponto de retenção diário, semanal, mensal ou anual (RP) é maior do que um valor especificado. Por predefinição, a grelha apresenta todos os itens de cópia de segurança no âmbito selecionado. Pode utilizar os filtros para a retenção diária, semanal, mensal e anual de RP para filtrar ainda mais a grelha e identificar os itens para os quais a retenção poderia potencialmente ser reduzida para economizar nos custos de armazenamento de backup.
@@ -119,7 +119,7 @@ Note que para cargas de trabalho de base de dados como SQL e SAP HANA, os perío
 
 ![Otimizar o separador - Otimizações de Retenção](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>Bases de dados configuradas para cópia de segurança diária
+###### <a name="databases-configured-for-daily-full-backup"></a>Bases de dados configuradas para cópia de segurança completa diária 
 Utilizando esta vista, pode identificar cargas de trabalho de base de dados que foram configuradas para cópias de segurança diárias. Muitas vezes, usar backup diferencial diário juntamente com o backup completo semanal é mais rentável. 
 
 Clicar no azulejo **de Otimizações de Políticas** seguido do azulejo de Backup Schedule **Otimizações** exibe uma grelha contendo todas as bases de dados com uma política diária de backup completa. Pode optar por navegar para um determinado item de backup e modificar a política para utilizar a cópia de segurança diferencial diária com cópia de segurança total semanal.
@@ -168,6 +168,6 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 - Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.md)
