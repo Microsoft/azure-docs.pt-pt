@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317574"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245677"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Transferências na análise de mercados comerciais
 
@@ -25,9 +25,7 @@ Para aceder ao dashboard Downloads, abra o painel **[de instrumentos De analisar
 
 ## <a name="downloads-dashboard"></a>Dashboard de transferências
 
-O painel de **transferências** do menu **Analyze** apresenta pedidos para quaisquer downloads que contenham mais de 1000 linhas de dados de clientes ou encomendas.
-
-Receberá uma notificação pop-up e um e-mail contendo um link para o dashboard **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
+O painel de **transferências** do menu **Analyze** apresenta pedidos para quaisquer downloads que contenham mais de 1000 linhas de dados de clientes ou encomendas. Estes downloads de dados estarão disponíveis durante 30 dias e depois removidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

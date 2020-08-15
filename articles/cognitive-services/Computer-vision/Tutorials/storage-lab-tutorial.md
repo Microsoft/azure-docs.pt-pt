@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834699"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243858"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Visão de Computador para gerar metadados de imagem no Armazenamento Azure
 
@@ -31,7 +31,7 @@ Este tutorial mostrar-lhe como:
 > * Anexar metadados a imagens de armazenamento Azure
 > * Verifique metadados de imagem usando O Explorador de Armazenamento Azure
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -137,7 +137,7 @@ Para visualizar todos os metadados anexados, utilize o Azure Storage Explorer pa
 
 ![Janela de diálogo de propriedades de imagem, com etiquetas de metadados listadas](../Images/blob-metadata.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser continuar a trabalhar na sua aplicação web, consulte a secção [etapas seguintes.](#next-steps) Se não pretender continuar a usar esta aplicação, deverá eliminar todos os recursos específicos da aplicação. Para eliminar recursos, pode eliminar o grupo de recursos que contém a subscrição de Armazenamento Azure e o recurso De Visão De Computador. Isto removerá a conta de armazenamento, as bolhas carregadas na sua e o recurso do Serviço de Aplicações necessário para se conectar com a aplicação web ASP.NET. 
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre networking no Serviço Azure Kubernetes (AKS), inc
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387766"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243909"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -73,6 +73,8 @@ Para obter mais informações, consulte [a rede de kubenet Configure para um clu
 
 Com o Azure CNI, cada pod obtém um endereço IP da sub-rede e pode ser acedido diretamente. Estes endereços IP devem ser únicos em todo o seu espaço de rede, e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de cápsulas que suporta. O número equivalente de endereços IP por nó é então reservado à frente para esse nó. Esta abordagem requer mais planeamento, como pode levar à exaustão do endereço IP ou à necessidade de reconstruir clusters numa sub-rede maior à medida que as suas exigências de aplicação aumentam.
 
+Ao contrário do kubenet, o tráfego para pontos finais na mesma rede virtual não é NAT'd para o IP primário do nó. O endereço de origem para o tráfego dentro da rede virtual é o pod IP. O tráfego externo à rede virtual ainda é DETs para o IP primário do nó.
+
 Os nós utilizam o plugin da [Interface de Rede de Contentores Azure (CNI).][cni-networking]
 
 ![Diagrama mostrando dois nós com pontes conectando cada um a um único Azure VNet][advanced-networking-diagram]
@@ -119,7 +121,7 @@ Embora capacidades como pontos finais de serviço ou UDRs sejam suportadas tanto
 * Se criar manualmente os recursos de rede virtual para um cluster AKS, é apoiado ao configurar as suas próprias UDRs ou pontos finais de serviço.
 * Se a plataforma Azure criar automaticamente os recursos de rede virtual para o seu cluster AKS, não é suportada para alterar manualmente esses recursos geridos pela AKS para configurar os seus próprios UDRs ou pontos finais de serviço.
 
-## <a name="ingress-controllers"></a>Controladores de entrada
+## <a name="ingress-controllers"></a>Controladores ingress
 
 Quando cria um Serviço do tipo LoadBalancer, é criado um recurso de balançador de carga Azure subjacente. O balançador de carga está configurado para distribuir o tráfego para as cápsulas do seu Serviço numa determinada porta. O LoadBalancer só funciona na camada 4 - o Serviço desconhece as aplicações reais, e não pode fazer nenhuma consideração adicional de encaminhamento.
 
@@ -147,7 +149,7 @@ A política de rede é uma funcionalidade kubernetes disponível em AKS que perm
 
 Para obter mais informações, consulte [o tráfego seguro entre cápsulas utilizando as políticas de rede no Serviço Azure Kubernetes (AKS)][use-network-policies].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a rede AKS, crie e configuure um cluster AKS com as suas próprias gamas de endereços IP utilizando [kubenet][aks-configure-kubenet-networking] ou [Azure CNI][aks-configure-advanced-networking].
 

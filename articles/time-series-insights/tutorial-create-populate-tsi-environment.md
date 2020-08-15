@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f74be239bee1d6da3dfdb516c4fc410669e338d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36687f6394ef03a3fceb70c73601680dd262d90c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020656"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245405"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
 
@@ -37,13 +37,13 @@ Este tutorial guia-o através do processo de criação de um ambiente Azure Time
 
 ## <a name="review-video"></a>Rever vídeo
 
-### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-azure-time-series-insights-br"></a>Aprenda a usar um acelerador de solução Azure IoT para gerar dados e começar com a Azure Time Series Insights. </br>
+Aprenda a usar um acelerador de solução Azure IoT para gerar dados e começar com a Azure Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## <a name="overview"></a>Descrição geral
 
-O ambiente Azure Time Series Insights é onde os dados do dispositivo são recolhidos e armazenados. Uma vez armazenados, o [Azure Time Series Insights Explorer](time-series-quickstart.md) e a [Azure Time Series Insights Query API](/rest/api/time-series-insights/ga-query-api) podem ser utilizados para consultar e analisar os dados.
+O ambiente Azure Time Series Insights é onde os dados do dispositivo são recolhidos e armazenados. Uma vez armazenados, o [Azure Time Series Insights Explorer](time-series-quickstart.md) e a [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) podem ser utilizados para consultar e analisar os dados.
 
 O Azure IoT Hub é a fonte de evento que é usada por todos os dispositivos (simulados ou físicos) no tutorial para ligar e transmitir dados de forma segura à sua nuvem Azure.
 
@@ -65,7 +65,7 @@ Em primeiro lugar, crie a solução de simulação do dispositivo, que gera dado
    Parâmetro|Descrição
    ---|---
    **Nome de implantação** | Este valor único é usado para criar um novo grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
-   **Subscrição do Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
+   **Assinatura Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
    **Opções de implementação** | Selecione **Provision novo IoT Hub** para criar um novo hub IoT específico para este tutorial.
    **Local azul** | Especifique a mesma região que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
 
@@ -98,7 +98,7 @@ Em segundo lugar, crie um ambiente Azure Time Series Insights na sua subscriçã
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome único para o ambiente Azure Time Series Insights. Os nomes são utilizados pelo Azure Time Series Insights Explorer e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Nome do ambiente** | Escolha um nome único para o ambiente Azure Time Series Insights. Os nomes são utilizados pelo Azure Time Series Insights Explorer e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
    **Subscrição** | As subscrições são contentores de recursos do Azure. Escolha uma subscrição para criar o ambiente Azure Time Series Insights.
    **Grupo de recursos** | Um grupo de recursos é um contentor de recursos do Azure. Escolha um grupo de recursos existente ou crie um novo para o recurso ambiente Azure Time Series Insights.
    **Localização** | Escolha uma região de data center para o seu ambiente Azure Time Series Insights. Para evitar latência adicional, crie o ambiente Azure Time Series Insights na mesma região que outros recursos IoT.

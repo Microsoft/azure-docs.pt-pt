@@ -4,12 +4,12 @@ description: Este quickstart mostra como começar com a biblioteca de clientes Q
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 4085ec5aaff75f33fc7a87708693084831ff5d8d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404090"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246511"
 ---
 Utilize a biblioteca de clientes QnA Maker para Node.js:
 
@@ -28,7 +28,7 @@ Utilize a biblioteca de clientes QnA Maker para Node.js:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual de [Node.js. ](https://nodejs.org)
 * Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autoria e recurso. Depois de ser implantado, selecione **Ir para o recurso**.
     * Necessitará da chave e nome de recurso do recurso que criar para ligar a sua aplicação à API do Criador de QnA. Você vai colar a sua chave e nome de recurso no código abaixo mais tarde no arranque rápido.
@@ -128,9 +128,9 @@ Uma base de conhecimento armazena pares de perguntas e respostas para o objeto [
 * Para **URLs,** utilize uma lista de cordas para representar URLs disponíveis ao público.
 
 O passo de criação também inclui propriedades para a base de conhecimentos:
-* `defaultAnswerUsedForExtraction`- o que é devolvido quando não se encontra uma resposta
-* `enableHierarchicalExtraction`- criar automaticamente relações rápidas entre pares QnA extraídos
-* `language`- ao criar a primeira base de conhecimentos de um recurso, desaveja o idioma a utilizar no índice de Pesquisa de Azure.
+* `defaultAnswerUsedForExtraction` - o que é devolvido quando não se encontra uma resposta
+* `enableHierarchicalExtraction` - criar automaticamente relações rápidas entre pares QnA extraídos
+* `language` - ao criar a primeira base de conhecimentos de um recurso, desaveja o idioma a utilizar no índice de Pesquisa de Azure.
 
 Ligue para o método [de criação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) com a informação da base de conhecimento. A informação da base de conhecimento é basicamente um objeto JSON.
 

@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985431"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245857"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais Azure
 
 Este artigo abrange informações sobre a implementação de máquinas virtuais de computação confidencial (VMs) que executam processadores Intel apoiados pela [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Tamanhos de VM de computação confidencial do Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>Tamanhos VM de computação confidencial Azure
 
 As máquinas virtuais de computação confidencial da Azure são projetadas para proteger a confidencialidade e a integridade dos seus dados e código enquanto são processadas na nuvem 
 
@@ -32,41 +32,18 @@ Comece a implementar um VM série DCsv2 através do mercado comercial da Microso
 Para obter uma lista de todos os tamanhos de VM confidenciais geralmente disponíveis em regiões disponíveis e zonas de disponibilidade, executar o seguinte comando no [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-A partir de maio de 2020, estes SKUs estão disponíveis nas seguintes regiões e zonas de disponibilidade:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Para uma visão mais detalhada dos tamanhos acima, executar o seguinte comando:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisitos dedicados do anfitrião
@@ -101,17 +78,17 @@ Ao utilizar máquinas virtuais em Azure, é responsável pela implementação de
 
 A azure computação confidencial não suporta redundância de zona através de Zonas de Disponibilidade neste momento. Para obter a maior disponibilidade e redundância para computação confidencial, utilize [Conjuntos de Disponibilidade](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Devido às restrições de hardware, os Conjuntos de Disponibilidade para instâncias confidenciais de computação só podem ter um máximo de 10 domínios de atualização. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Implantação através de um modelo de gestor de recursos Azure 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Implementação com o modelo de gestor de recursos Azure (ARM)
 
 O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Pode utilizar funcionalidades de gestão, como controlo de acessos, fechaduras e tags, para proteger e organizar os seus recursos após a implantação.
 
-Para saber mais sobre os modelos do Gestor de Recursos Azure, consulte [a visão geral da implementação do modelo](../azure-resource-manager/templates/overview.md).
+Para saber mais sobre os modelos ARM, consulte [a visão geral da implementação do modelo](../azure-resource-manager/templates/overview.md).
 
-Para implementar um VM da Série DCsv2 num modelo de Gestor de Recursos Azure, utilizará o [recurso Máquina Virtual](../virtual-machines/windows/template-description.md). Certifique-se de que especifica as propriedades corretas para **o vmSize** e para a sua **imagemReferência**.
+Para implementar um VM da Série DCsv2 num modelo ARM, utilizará o [recurso Máquina Virtual](../virtual-machines/windows/template-description.md). Certifique-se de que especifica as propriedades corretas para **o vmSize** e para a sua **imagemReferência**.
 
 ### <a name="vm-size"></a>Tamanho da VM
 
-Especifique um dos seguintes tamanhos no seu modelo de Gestor de Recursos Azure no recurso Máquina Virtual. Esta corda é colocada como **vmSize** em **propriedades.**
+Especifique um dos seguintes tamanhos no seu modelo ARM no recurso Máquina Virtual. Esta corda é colocada como **vmSize** em **propriedades.**
 
 ```json
   [
@@ -122,7 +99,7 @@ Especifique um dos seguintes tamanhos no seu modelo de Gestor de Recursos Azure 
       ],
 ```
 
-### <a name="gen2-os-image"></a>Imagem gen2 OS
+### <a name="gen2-os-image"></a>Imagem de Gen2 OS
 
 Em **propriedades,** também terá de fazer referência a uma imagem em **armazenamentoProfile.** Utilize *apenas uma das* seguintes imagens para a sua **imagemReferência**.
 
@@ -153,7 +130,7 @@ Em **propriedades,** também terá de fazer referência a uma imagem em **armaze
       }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 Neste artigo, aprendeu sobre as qualificações e configurações necessárias para criar uma máquina virtual de computação confidencial. Agora pode dirigir-se ao Microsoft Azure Marketplace para implementar um DCsv2 Série VM.
 

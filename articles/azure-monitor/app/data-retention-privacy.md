@@ -4,12 +4,12 @@ description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372404"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245949"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -94,9 +94,6 @@ A Microsoft utiliza os dados apenas para lhe fornecer o serviço.
 ## <a name="where-is-the-data-held"></a>Onde estão os dados guardados?
 * Pode selecionar a localização quando criar um novo recurso Application Insights. Saiba mais sobre a disponibilidade de Insights de Aplicação por região [aqui.](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Isso significa que a minha aplicação tem de ser hospedada nos EUA, na Europa ou no Sudeste Asiático?
-* Não. A sua aplicação pode ser executada em qualquer lugar, quer no seu próprio local, ou na nuvem.
-
 ## <a name="how-secure-is-my-data"></a>Quão seguros são os meus dados?
 Application Insights é um Serviço Azure. As políticas de segurança são descritas no [Livro Branco de Segurança, Privacidade e Conformidade do Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
@@ -129,7 +126,7 @@ Se um cliente precisar de configurar este diretório com requisitos de seguranç
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp`é usado para dados persistentes. Esta localização não é configurável a partir do diretório config e as permissões de acesso a esta pasta são restritas ao utilizador específico com credenciais necessárias. (Para mais informações, consulte [a implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
+`C:\Users\username\AppData\Local\Temp` é usado para dados persistentes. Esta localização não é configurável a partir do diretório config e as permissões de acesso a esta pasta são restritas ao utilizador específico com credenciais necessárias. (Para mais informações, consulte [a implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
 ###  <a name="net"></a>.Net
 
@@ -178,7 +175,7 @@ O prefixo da pasta `appInsights-node` pode ser ultrapassado alterando o valor de
 
 Os tampões de telemetria podem ser desativados definindo [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) para `false` . Quando o armazenamento da sessão é desligado, uma matriz local é usada como armazenamento persistente. Como o SDK JavaScript funciona num dispositivo cliente, o utilizador tem acesso a este local de armazenamento através das ferramentas de desenvolvimento do seu navegador.
 
-### <a name="opencensus-python"></a>Pitão OpenCensus
+### <a name="opencensus-python"></a>OpenCensus Python
 
 Por predefinição, o OpenCensus Python SDK utiliza a pasta atual do utilizador `%username%/.opencensus/.azure/` . As permissões de acesso a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os seus dados persistidos será nomeada em homenagem ao ficheiro Python que gerou a telemetria.
 
@@ -277,7 +274,7 @@ Para [SDKs para outras plataformas,][platforms]consulte os seus documentos.
 | Ajax |CHAMADAS HTTP da página web para o servidor |
 | Pedidos |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP, ...), cadeia de ligação, ou URI, sincronização/async, duração, sucesso, declaração SQL (com Status Monitor) |
-| **Exceções** |Tipo, **mensagem,** pilhas de chamadas, ficheiro de origem, número de linha,`thread id` |
+| **Exceções** |Tipo, **mensagem,** pilhas de chamadas, ficheiro de origem, número de linha, `thread id` |
 | Acidentes |`Process id`, `parent process id` `crash thread id` ; patch de aplicação, `id` construção;  tipo de exceção, endereço, razão; símbolos e registos obfuscados, endereços binários de início e fim, nome binário e caminho, tipo CPU |
 | Rastreio |**Mensagem** e nível de gravidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de pedido, taxa de exceção, processo de bytes privados, taxa de IO, duração do pedido, duração da fila de pedido |

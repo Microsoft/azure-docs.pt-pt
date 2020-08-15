@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319920"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245337"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de utilização na análise do mercado comercial da Microsoft
 
@@ -112,10 +112,12 @@ O **separador de utilização da faturação medido** apresenta informações de
 - **Tendência overage by Top 50 Clientes**: As 50 melhores ofertas com as horas de utilização mais altas são exibidas num ***quadro de líderes*** e são classificadas pela utilização mais alta do medidor personalizado. Selecione um cliente na tabela de líderes para ver a tendência de utilização de uma dimensão de contador selecionado.
 - **Tendência de sobreatenção por parte dos principais clientes**: Apresenta percentil de cliente de topo que contribuem para a % do uso geral. O percentil superior do cliente é apresentado ao longo do eixo X e é determinado pela quantidade de utilização do cliente. O eixo Y exibe a quantidade de utilização. Pode apresentar detalhes pairando sobre pontos ao longo da tabela de linha.
 
+Se tiver várias ofertas que usam medidores personalizados, o relatório de utilização da faturação medido mostra informações de utilização para todas as suas ofertas, de acordo com as suas dimensões personalizadas do medidor.
+
 > [!NOTE]
 > Os detalhes de utilização e todos os gráficos desta página são apresentados para qualquer dimensão do medidor selecionada para o filtro de página.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

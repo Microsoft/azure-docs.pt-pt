@@ -3,28 +3,35 @@ title: Pré-visualização - Crie uma versão de imagem encriptada com as suas p
 description: Crie uma versão de imagem numa Galeria de Imagens Partilhadas, utilizando chaves de encriptação geridas pelo cliente.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223589"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245558"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
 As imagens da galeria são armazenadas como discos geridos, pelo que são automaticamente encriptadas utilizando encriptação do lado do servidor. A encriptação do lado do servidor utiliza [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-Pode confiar em chaves geridas pela plataforma para a encriptação das suas imagens, ou pode gerir a encriptação usando as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar todos os discos nas suas imagens. 
+Pode confiar em chaves geridas pela plataforma para a encriptação das suas imagens, usar as suas próprias chaves, ou pode usar as duas em conjunto, para uma dupla encriptação. Se optar por gerir a encriptação com as suas próprias chaves, pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar todos os discos nas suas imagens. 
 
 A encriptação do lado do servidor utilizando teclas geridas pelo cliente utiliza o Cofre da Chave Azure. Pode importar [as chaves RSA](../key-vault/keys/hsm-protected-keys.md) para o cofre de chaves ou gerar novas chaves RSA no Cofre da Chave Azure.
 
-Para utilizar as chaves geridas pelo cliente para imagens, primeiro precisa de um Cofre de Chaves Azure. Em seguida, cria-se um conjunto de encriptação de disco. O conjunto de encriptação do disco é então utilizado ao criar versões de imagem.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter mais informações sobre a criação e utilização de conjuntos de encriptação de discos, consulte [as teclas geridas pelo Cliente](./windows/disk-encryption.md#customer-managed-keys).
+Este artigo requer que já tenha um conjunto de encriptação de disco para usar para a sua imagem.
+
+- Para utilizar apenas uma chave gerida pelo cliente, consulte **Ativar as teclas geridas pelo cliente com encriptação do lado** do servidor utilizando o [portal Azure](./windows/disks-enable-customer-managed-keys-portal.md) ou [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Para utilizar as teclas geridas pela plataforma e geridas pelo cliente (para dupla encriptação), consulte **Ativar a dupla encriptação em repouso** utilizando o [portal Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) ou [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > Tem de utilizar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para aceder ao portal Azure. A dupla encriptação em repouso não é atualmente visível no portal público Azure sem utilizar o link.
 
 ## <a name="limitations"></a>Limitações
 
@@ -72,7 +79,7 @@ Se não `Registered` regressar, utilize o seguinte para registar os fornecedores
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize [a Definição de Imagem New-AzGallery](/powershell/module/az.compute/new-azgalleryimageversion) com o `-TargetRegion` parâmetro. 
+Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize  [a Definição de Imagem New-AzGallery](/powershell/module/az.compute/new-azgalleryimageversion) com o `-TargetRegion` parâmetro. 
 
 ```azurepowershell-interactive
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -142,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize [a az image gallery criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato `--target-region-encryption` é uma lista de chaves separadas pelo espaço para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
+Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize  [a az image gallery criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato `--target-region-encryption` é uma lista de chaves separadas pelo espaço para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
 
 Se a fonte do disco DE for um disco gerido ou um VM, utilize `--managed-image` para especificar a fonte para a versão de imagem. Neste exemplo, a fonte é uma imagem gerida que tem um disco DE, bem como um disco de dados na LUN 0. O disco OS será encriptado com DiskEncryptionSet1 e o disco de dados será encriptado com DiskEncryptionSet2.
 
@@ -150,6 +157,7 @@ Se a fonte do disco DE for um disco gerido ou um VM, utilize `--managed-image` p
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ Neste exemplo, as fontes são imagens de disco. Há um disco de SO, e também um
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ Pode criar um VM a partir de uma galeria de imagens partilhada e utilizar chaves
 
 ## <a name="portal"></a>Portal
 
-Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encriptação** para introduzir as informações sobre os conjuntos de encriptação de armazenamento.
+Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encriptação** para introduzir os seus conjuntos de encriptação de armazenamento.
+
+> [!IMPORTANT]
+> Para utilizar a dupla encriptação, tem de utilizar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para aceder ao portal Azure. A dupla encriptação em repouso não é atualmente visível no portal público Azure sem utilizar o link.
+
 
 1. Na página **'Criar uma versão de imagem',** selecione o **separador Encriptação.**
-2. No **tipo de encriptação,** selecione **Encriptação em repouso com uma chave gerida pelo cliente**. 
+2. No **tipo de encriptação**, selecione **Encriptação em repouso com uma chave gerida pelo cliente** ou **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**. 
 3. Para cada disco na imagem, selecione o conjunto de **encriptação** do disco para utilizar a partir do drop-down. 
 
 ### <a name="create-the-vm"></a>Criar a VM
 
-Pode criar um VM a partir de uma galeria de imagens partilhada e utilizar chaves geridas pelo cliente para encriptar os discos. Quando criar o VM no portal, no separador **Discos,** selecione **Encriptação em repouso com as teclas geridas pelo cliente** para o **tipo de Encriptação**. Em seguida, pode selecionar o conjunto de encriptação a partir do drop-down.
+Pode criar um VM a partir de uma versão de imagem e utilizar chaves geridas pelo cliente para encriptar os discos. Quando criar o VM no portal, no separador **Discos,** selecione **encriptação em repouso com teclas geridas pelo cliente** ou **encriptação dupla com chaves geridas pela plataforma e geridas pelo cliente** para o tipo de **encriptação**. Em seguida, pode selecionar o conjunto de encriptação a partir do drop-down.
 
 ## <a name="next-steps"></a>Passos seguintes
 

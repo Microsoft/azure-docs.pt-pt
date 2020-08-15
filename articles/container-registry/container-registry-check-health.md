@@ -3,18 +3,23 @@ title: Verificar saúde do registo
 description: Aprenda a executar um comando de diagnóstico rápido para identificar problemas comuns ao usar um registo de contentores Azure, incluindo a configuração local do Docker e conectividade com o registo
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456402"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245388"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verifique a saúde de um registo de contentores Azure
 
 Ao utilizar um registo de contentores Azure, poderá ocasionalmente encontrar problemas. Por exemplo, pode não conseguir tirar uma imagem de um contentor devido a um problema com o Docker no seu ambiente local. Ou, um problema de rede pode impedi-lo de se ligar ao registo. 
 
 Como primeiro passo de diagnóstico, executar o comando [de check-health az acr][az-acr-check-health] para obter informações sobre a saúde do ambiente e acesso opcional a um registo alvo. Este comando está disponível na versão Azure CLI 2.0.67 ou posterior. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
+
+Para obter orientações adicionais de resolução de problemas de registo, consulte:
+* [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md)
+* [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
+* [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Executar az acr check-health
 
@@ -72,7 +77,7 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os códigos de erro devolvidos pelo comando [de verificação de saúde az acr,][az-acr-check-health] consulte a referência de erro de [verificação de Saúde](container-registry-health-error-reference.md).
 

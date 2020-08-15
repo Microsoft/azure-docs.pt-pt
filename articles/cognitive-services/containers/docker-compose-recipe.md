@@ -1,7 +1,7 @@
 ---
 title: Utilizar o Docker Compose para implementar vários contentores
 titleSuffix: Azure Cognitive Services
-description: Aprenda a implantar vários recipientes de Serviços Cognitivos. Este artigo mostra-lhe como orquestrar várias imagens de contentores do Docker usando Docker Compose.
+description: Saiba como implantar vários recipientes de Serviços Cognitivos. Este artigo mostra-lhe como orquestrar várias imagens de contentores Docker usando Docker Compose.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878787"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244300"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utilizar o Docker Compose para implementar vários contentores
 
-Este artigo mostra-lhe como implantar vários contentores dos Serviços Cognitivos Azure. Especificamente, aprenderás a usar o Docker Compose para orquestrar várias imagens de contentores do Docker.
+Este artigo mostra-lhe como implantar vários contentores dos Serviços Cognitivos Azure. Especificamente, você vai aprender a usar Docker Compose para orquestrar várias imagens de contentores Docker.
 
-> [Docker Compose](https://docs.docker.com/compose/) é uma ferramenta para definir e executar aplicações Docker multi-contentores. Em Composição, utiliza um ficheiro YAML para configurar os serviços da sua aplicação. Em seguida, cria e inicia todos os serviços a partir da sua configuração executando um único comando.
+> [Docker Compose](https://docs.docker.com/compose/) é uma ferramenta para definir e executar aplicações Docker multi-contentores. Em Compose, utiliza um ficheiro YAML para configurar os serviços da sua aplicação. Em seguida, cria e inicia todos os serviços a partir da sua configuração executando um único comando.
 
-Pode ser útil orquestrar várias imagens de contentores num único computador hospedeiro. Neste artigo, vamos reunir os recipientes de Leitura e Reconhecimento de Formulários.
+Pode ser útil orquestrar várias imagens de contentores num único computador anfitrião. Neste artigo, vamos reunir os recipientes de Leitura e Reconhecimento de Formulários.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente:
 
-* Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Motor Docker.](https://www.docker.com/products/docker-engine) Confirme que o Docker CLI funciona numa janela de consola.
+* Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar.
+* [Motor Docker.](https://www.docker.com/products/docker-engine) Confirme que o Docker CLI funciona numa janela da consola.
 * Um recurso Azure com o nível de preços correto. Apenas os seguintes níveis de preços funcionam com este recipiente:
-  * **Recurso computer Vision** apenas com f0 ou nível de preços Standard.
-  * **Formulário Recurso reconhecível** apenas com f0 ou nível de preços Standard.
-  * **Recursos dos Serviços Cognitivos** com o nível de preços S0.
+  * **Recurso de Visão De Computador** apenas com nível de preços F0 ou Standard.
+  * **Formulário Recurso Recogniser** apenas com nível de preços F0 ou Standard.
+  * **Recurso de Serviços Cognitivos** com o nível de preços S0.
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
-Complete e submeta o formulário de pedido de pedidos de recipientes de discurso de [serviços cognitivos.](https://aka.ms/speechcontainerspreview/) 
+Complete e submeta o [formulário de pedido de pedido de recipientes de discurso de serviços cognitivos.](https://aka.ms/speechcontainerspreview/) 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>Arquivo De composição De Docker
+## <a name="docker-compose-file"></a>Arquivo De Composição Docker
 
-O ficheiro YAML define todos os serviços a serem implantados. Estes serviços baseiam-se numa imagem de `DockerFile` contentor existente. Neste caso, usaremos duas imagens de pré-visualização. Copie e cole o seguinte ficheiro YAML e guarde-o como *docker-compose.yaml*. Forneça os valores adequados de **apiásio,** **faturação**e **EndpointUri** no ficheiro.
+O ficheiro YAML define todos os serviços a serem implementados. Estes serviços dependem de uma `DockerFile` imagem de contentor ou de um recipiente existente. Neste caso, usaremos duas imagens de pré-visualização. Copie e cole o seguinte ficheiro YAML, e guarde-o como *docker-compose.yaml*. Forneça os **valores adequados de apikey,** **faturação**e **EndpointUri** no ficheiro.
 
 ```yaml
 version: '3.7'
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> Crie os diretórios na máquina hospedeira especificadas sob o nó de **volumes.** Esta abordagem é necessária porque os diretórios devem existir antes de tentar montar uma imagem utilizando encadernações de volume.
+> Crie os diretórios na máquina hospedeira que são especificados no nó **de volumes.** Esta abordagem é necessária porque os diretórios devem existir antes de tentar montar uma imagem utilizando encadernações de volume.
 
-## <a name="start-the-configured-docker-compose-services"></a>Inicie os serviços configurados do Docker Compose
+## <a name="start-the-configured-docker-compose-services"></a>Inicie os serviços de composição do Docker Configurado
 
-Um ficheiro Docker Compose permite a gestão de todas as etapas do ciclo de vida de um serviço definido: serviços de arranque, paragem e reconstrução; visualizar o estado do serviço; e streaming de log. Abra uma interface de linha de comando a partir do diretório do projeto (onde está localizado o ficheiro docker-compose.yaml).
+Um ficheiro Docker Compose permite a gestão de todas as etapas do ciclo de vida de um serviço definido: serviços de partida, paragem e reconstrução; visualização do estado de serviço; e streaming de registos. Abra uma interface de linha de comando a partir do diretório do projeto (onde está localizado o ficheiro docker-compose.yaml).
 
 > [!NOTE]
-> Para evitar erros, certifique-se de que a máquina hospedeira partilha corretamente as unidades com o Motor Docker. Por exemplo, se *a e:\visualização pública* for usada como um diretório no ficheiro *docker-compose.yaml,* partilhe a unidade **E** com o Docker.
+> Para evitar erros, certifique-se de que a máquina hospedeira partilha corretamente as unidades com o Motor Docker. Por exemplo, se *e:\publicpreview* for usado como um diretório no ficheiro *docker-compose.yaml,* partilhe a unidade **E** com Docker.
 
-A partir da interface da linha de comando, execute o seguinte comando para iniciar (ou reiniciar) todos os serviços definidos no ficheiro *docker-compose.yaml:*
+A partir da interface de linha de comando, execute o seguinte comando para iniciar (ou reiniciar) todos os serviços definidos no ficheiro *docker-compose.yaml:*
 
 ```console
 docker-compose up
 ```
 
-A primeira vez que o Docker executa o comando de **composição de estivadores** utilizando esta configuração, puxa as imagens configuradas sob o nó de **serviços** e depois descarrega-as e monta-as:
+A primeira vez que Docker executa o comando **de estiva-composição** através desta configuração, puxa as imagens configuradas sob o nó de **serviços** e, em seguida, descarrega e monta:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-Após o download das imagens, os serviços de imagem são iniciados:
+Depois de as imagens serem descarregadas, os serviços de imagem são iniciados:
 
 ```console
 Starting docker_ocr_1   ... done
@@ -162,7 +162,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-Aqui está um exemplo de saída:
+Aqui está uma saída de exemplo:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -172,11 +172,11 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Recipientes de ensaio
 
-Abra um navegador na máquina anfitriã e vá ao **local de acolhimento** utilizando a porta especificada a partir do ficheiro *docker-compose.yaml,* como http://localhost:5021/swagger/index.html. Por exemplo, pode utilizar a função **Try It** na API para testar o ponto final do Reconhecimento de Formulários. Ambas as páginas de swagger de contentores devem estar disponíveis e testááveis.
+Abra um browser na máquina hospedeira e vá para o **local,** utilizando a porta especificada a partir do ficheiro *docker-compose.yaml,* como http://localhost:5021/swagger/index.html . Por exemplo, pode utilizar a função **Try It** na API para testar o ponto final do Reconhecimento de Formulários. Ambas as páginas de swagger de contentores devem estar disponíveis e testáveis.
 
-![Recipiente de reconhecimento de formulário](media/form-recognizer-swagger-page.png)
+![Recipiente de reconhecimento de formulários](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Recipientes de Serviços Cognitivos](../cognitive-services-container-support.md)
+> [Contentores de Serviços Cognitivos](../cognitive-services-container-support.md)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2055730505b360ef8d5bf50cd83532627fb8e08
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051286"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245422"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -28,13 +28,13 @@ Funcionalidades como a autenticação de vários fatores (MFA) são uma ótima f
 
 Cada organização tem necessidades diferentes no que diz respeito à autenticação. A Microsoft oferece as seguintes três opções de autenticação sem palavras-passe que se integram com o Azure Ative Directory (Azure AD):
 
-- Windows Hello para Empresas
+- Windows Hello para empresas
 - Aplicação Microsoft Authenticator
 - Chaves de segurança FIDO2
 
 ![Autenticação: Segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
+## <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
 O Windows Hello for Business é ideal para os trabalhadores da informação que têm o seu próprio PC Windows designado. As credenciais biométricas e PIN estão diretamente ligadas ao PC do utilizador, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de infraestruturas de chaves públicas (PKI) e suporte integrado para um único sign-on (SSO), o Windows Hello for Business fornece um método conveniente para aceder perfeitamente aos recursos corporativos no local e na nuvem.
 
@@ -120,7 +120,7 @@ Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fato
 | Fornecedor | Contacto |
 | --- | --- |
 | Rio Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
-| Feitiano | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
+| Feitiano | [https://shop.ftsafe.us/pages/microsoft](https://shop.ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Garantia | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | Soluções TrustKey | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
@@ -157,7 +157,7 @@ A escolha entre estas três opções sem palavras-passe depende da segurança, p
 
 Aqui ficam alguns fatores a ter em conta na escolha da tecnologia sem palavras-passe da Microsoft:
 
-||**Windows Hello para Empresas**|**Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello para empresas**|**Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android com Android 6.0 ou superior.)|Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|

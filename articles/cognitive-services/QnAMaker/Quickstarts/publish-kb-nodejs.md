@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 447b8a07f6bbda42be4def96ee8f1244fa752526
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406100"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245592"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Quickstart: QnA Maker REST APIs para Node.js
 
@@ -31,7 +31,7 @@ Utilize as APIs REST DO Fabricante QNA para Node.js:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual de [Node.js. ](https://nodejs.org)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave e ponto final (que inclui o nome do recurso), selecione **Quickstart** para o seu recurso no portal Azure.
 
@@ -89,7 +89,7 @@ Crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a vari
 Definir os seguintes valores ambientais:
 
 * `QNAMAKER_RESOURCE_KEY`- A **chave** é uma cadeia de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página **de arranque Quick.** Isto não é o mesmo que a chave final de previsão.
-* `QNAMAKER_AUTHORING_ENDPOINT`- O seu ponto final de autoria, no formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` de, inclui o seu **nome de recurso**. Este não é o mesmo URL usado para consultar o ponto final de previsão.
+* `QNAMAKER_AUTHORING_ENDPOINT` - O seu ponto final de autoria, no formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` de, inclui o seu **nome de recurso**. Este não é o mesmo URL usado para consultar o ponto final de previsão.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
@@ -152,14 +152,14 @@ Execute a aplicação com `node rest-apis.js` o comando do seu diretório de can
 node rest-apis.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Tutorial: Criar e responder a um KB](../tutorials/create-publish-query-in-portal.md)

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/05/2019
+ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852944"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244059"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -24,13 +24,13 @@ ms.locfileid: "87852944"
 
 Neste artigo, aprende-se a criar, publicar, executar e rastrear um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) utilizando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utilize **os oleodutos ML** para criar um fluxo de trabalho que cosa várias fases ML e, em seguida, publique esse pipeline no seu espaço de trabalho Azure Machine Learning para aceder mais tarde ou partilhar com outros.  Os oleodutos ML são ideais para cenários de pontuação de lotes, utilizando vários cálculos, reutilizando passos em vez de os reexame, bem como partilhando fluxos de trabalho ML com outros.
 
-Embora possa utilizar um tipo diferente de oleoduto chamado [Gasoduto Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) para automatização de CI/CD de tarefas ML, esse tipo de gasoduto nunca é armazenado dentro do seu espaço de trabalho. [Compare estes diferentes oleodutos.](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)
+Embora possa utilizar um tipo diferente de oleoduto chamado [Gasoduto Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) para automatização de CI/CD de tarefas ML, esse tipo de gasoduto não é armazenado no seu espaço de trabalho. [Compare estes diferentes oleodutos.](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)
 
 Cada fase de um gasoduto ML, como a preparação de dados e a formação de modelos, pode incluir uma ou mais etapas.
 
 Os gasodutos ML que cria são visíveis para os membros do seu espaço de [trabalho](how-to-manage-workspace.md)Azure Machine Learning . 
 
-Os gasodutos ML utilizam alvos de computação remota para a computação e o armazenamento dos dados intermédios e finais associados a esse gasoduto. Podem ler e escrever dados de e para locais de armazenamento suportados do [Azure.](https://docs.microsoft.com/azure/storage/)
+Os gasodutos ML utilizam alvos de computação remota para computação e dados temporários associados a esse gasoduto. Podem ler e escrever dados de e para locais de armazenamento suportados do [Azure.](https://docs.microsoft.com/azure/storage/)
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -94,7 +94,7 @@ Para saber mais sobre a ligação do seu pipeline aos seus dados, consulte os ar
 
 Acabou de criar uma fonte de dados que pode ser referenciada num oleoduto como uma entrada para um passo. A forma preferida de fornecer dados a um pipeline é um objeto [dataset.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) O `Dataset` objeto aponta para dados que vivem dentro ou estão acessíveis a partir de uma datastore ou em um URL web. A `Dataset` classe é abstrata, por isso irá criar um exemplo de um `FileDataset` (referindo-se a um ou mais ficheiros) ou de um `TabularDataset` que é criado por um ou mais ficheiros com colunas de dados delimitadas.
 
-`Dataset`objetos suportam versões, difusões e estatísticas sumárias. `Dataset`s são preguiçosamente avaliados (como geradores Python) e é eficiente subconsumo-los dividindo ou filtrando. 
+`Dataset` objetos suportam versões, difusões e estatísticas sumárias. `Dataset`s são preguiçosamente avaliados (como geradores Python) e é eficiente subconsumo-los dividindo ou filtrando. 
 
 Cria-se um `Dataset` método de utilização como [from_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) ou [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
@@ -104,7 +104,7 @@ from azureml.core import Dataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
-Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1`é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData`introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
+Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -115,11 +115,11 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-Mais detalhes e código de amostra para trabalhar com conjuntos de dados e dados de gasodutos podem ser encontrados em [dados de mudança para e entre etapas de gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md).
+Mais detalhes e código de amostra para trabalhar com conjuntos de dados e dados do gasoduto estão em [mover dados para dentro e entre etapas de gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="set-up-a-compute-target"></a>Configurar um alvo de computação
 
-No Azure Machine Learning, o termo __compute__ (ou __meta de computação)__ refere-se às máquinas ou clusters que realizam os passos computacionais no seu pipeline de aprendizagem automática.   Consulte [metas de cálculo para formação](how-to-set-up-training-targets.md) de modelos para uma lista completa de alvos de computação e como criá-los e anexá-los ao seu espaço de trabalho.  O processo de criação e ou anexação de um alvo de computação é o mesmo, independentemente de estar a treinar um modelo ou a executar um passo de pipeline. Depois de criar e fixar o seu alvo de cálculo, utilize o `ComputeTarget` objeto no seu passo de [pipeline](#steps).
+No Azure Machine Learning, o termo __compute__ (ou __meta de computação)__ refere-se às máquinas ou clusters que realizam os passos computacionais no seu pipeline de aprendizagem automática. Consulte [metas de cálculo para formação](how-to-set-up-training-targets.md) de modelos para uma lista completa de alvos de computação e como criá-los e anexá-los ao seu espaço de trabalho. O processo de criação e ou fixação de um alvo de computação é o mesmo, quer esteja a treinar um modelo ou a executar um passo de pipeline. Depois de criar e fixar o seu alvo de cálculo, utilize o `ComputeTarget` objeto no seu passo de [pipeline](#steps).
 
 > [!IMPORTANT]
 > A realização de operações de gestão em objetivos de computação não é suportada a partir de trabalhos remotos internos. Uma vez que os gasodutos de aprendizagem automática são submetidos como um trabalho remoto, não utilize operações de gestão em alvos de computação a partir do interior do oleoduto.
@@ -269,27 +269,93 @@ Para um exemplo mais detalhado, consulte um [caderno de exemplo](https://aka.ms/
 > [!TIP]
 > Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes do treino.
 
+## <a name="configure-the-training-runs-environment"></a>Configure o ambiente do treino
+
+O próximo passo é garantir que o treino remoto tenha todas as dependências necessárias pelas etapas de treino. As dependências e o contexto de tempo de execução são definidos através da criação e configuração de um `RunConfiguration` objeto. 
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
+
+aml_run_config = RunConfiguration()
+# `compute_target` as defined in "Azure Machine Learning compute" section above
+aml_run_config.target = compute_target
+
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
+```
+
+O código acima mostra duas opções para lidar com dependências. Como apresentado, `USE_CURATED_ENV = True` com, a configuração baseia-se num ambiente curado. Os ambientes curados são "pré-preparados" com bibliotecas interdependentes comuns e podem ser significativamente mais rápidos de colocar online. Ambientes curados têm imagens estivais pré-construídas no [Registo de Contentores da Microsoft.](https://hub.docker.com/publishers/microsoftowner) O caminho tomado se mudar `USE_CURATED_ENV` para `False` mostrar o padrão para definir explicitamente as suas dependências. Nesse cenário, será criada e registada uma nova imagem personalizada do Docker num Registo de Contentores Azure dentro do seu grupo de recursos (ver [Introdução aos registos privados de contentores Docker em Azure).](https://docs.microsoft.com/azure/container-registry/container-registry-intro) Construir e registar esta imagem pode demorar alguns minutos.
+
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Construa os seus passos de oleoduto
 
-Assim que criar e anexar um alvo de computação ao seu espaço de trabalho, está pronto para definir um passo de pipeline. Existem muitos degraus embutidos disponíveis através do Azure Machine Learning SDK. O mais básico destes passos é um [PythonScriptStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)que executa um script Python num alvo de computação especificado:
+Assim que tiver o recurso compute e o ambiente criados, está pronto para definir os passos do seu pipeline. Existem muitos passos incorporados disponíveis através do Azure Machine Learning SDK, como pode ver na [documentação de referência do `azureml.pipeline.steps` pacote.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) A classe mais flexível é [PythonScriptStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)que executa um script Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
 
+dataprep_source_dir = "./dataprep_src"
+entry_point = "prepare.py"
+
+# `my_dataset` as defined above
 ds_input = my_dataset.as_named_input('input1')
 
-trainStep = PythonScriptStep(
-    script_name="train.py",
+# `output_data1`, `compute_target`, `aml_run_config` as defined above
+data_prep_step = PythonScriptStep(
+    script_name=entry_point,
+    source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
     inputs=[ds_input],
     outputs=[output_data1],
     compute_target=compute_target,
-    source_directory=project_folder,
+    runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-A reutilização dos resultados anteriores `allow_reuse` () é fundamental quando se utilizam gasodutos num ambiente colaborativo, uma vez que eliminar repetições desnecessárias oferece agilidade. A reutilização é o comportamento padrão quando o script_name, as entradas e os parâmetros de um passo permanecem os mesmos. Quando a saída do passo é reutilizada, o trabalho não é submetido ao cálculo, em vez disso, os resultados da execução anterior estão imediatamente disponíveis para a execução do passo seguinte. Se `allow_reuse` for definido como falso, uma nova execução será sempre gerada para este passo durante a execução do gasoduto. 
+O código acima mostra um passo típico do gasoduto inicial. O seu código de preparação de dados está numa subdiretório (neste exemplo, `"prepare.py"` no `"./dataprep.src"` diretório). Como parte do processo de criação do gasoduto, este diretório é fechado e carregado para o `compute_target` e o passo executa o script especificado como o valor para `script_name` .
+
+Os `arguments` `inputs` valores , e `outputs` valores especificam as entradas e saídas do passo. No exemplo acima, os dados de base são o `my_dataset` conjunto de dados. Os dados correspondentes serão descarregados para o recurso computacional uma vez que o código os especifica como `as_download()` . O script `prepare.py` faz quaisquer tarefas de transformação de dados adequadas à tarefa em questão e produz os dados para `output_data1` , de tipo `PipelineData` . Para obter mais informações, consulte [a deslocação de dados para e entre os passos do gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
+
+O passo será executado na máquina definida `compute_target` por, utilizando a configuração `aml_run_config` . 
+
+A reutilização dos resultados anteriores `allow_reuse` () é fundamental quando se utilizam gasodutos num ambiente colaborativo, uma vez que eliminar repetições desnecessárias oferece agilidade. A reutilização é o comportamento padrão quando o script_name, as entradas e os parâmetros de um passo permanecem os mesmos. Quando a reutilização é permitida, os resultados da execução anterior são imediatamente enviados para o passo seguinte. Se `allow_reuse` estiver programado para , uma nova `False` execução será sempre gerada para este passo durante a execução do gasoduto.
+
+É possível criar um oleoduto com um único passo, mas quase sempre escolherá dividir o seu processo global em vários passos. Por exemplo, pode ter passos para a preparação de dados, treino, comparação de modelos e implantação. Por exemplo, podemos imaginar que depois do `data_prep_step` acima especificado, o próximo passo pode ser o treino:
+
+```python
+train_source_dir = "./train_src"
+train_entry_point = "train.py"
+
+training_results = PipelineData(
+    "training_results",
+    datastore=def_blob_store,
+    output_name="training_results")
+
+train_step = PythonScriptStep(
+    script_name=train_entry_point,
+    source_directory=train_source_dir,
+    arguments=["--prepped_data", output_data1, "--training_results", training_results],
+    inputs=[output_data1],
+    outputs=[training_results],
+    compute_target=compute_target,
+    runconfig=aml_run_config,
+    allow_reuse=True
+)
+```
+
+O código acima é muito semelhante ao da etapa de preparação de dados. O código de formação encontra-se num diretório separado do código de preparação de dados. A `PipelineData` saída do passo de preparação de dados, é usada como `output_data1` _entrada_ para o passo de treino. Um novo `PipelineData` objeto é criado para manter os `training_results` resultados para uma comparação subsequente ou passo de implementação. 
 
 Depois de definir os seus passos, constrói o oleoduto utilizando alguns ou todos esses passos.
 
@@ -297,13 +363,13 @@ Depois de definir os seus passos, constrói o oleoduto utilizando alguns ou todo
 > Nenhum ficheiro ou dados é enviado para a Azure Machine Learning quando define os passos ou constrói o pipeline.
 
 ```python
-# list of steps to run
-compareModels = [trainStep, extractStep, compareStep]
+# list of steps to run (`compare_step` definition not shown)
+compare_models = [data_prep_step, train_step, compare_step]
 
 from azureml.pipeline.core import Pipeline
 
 # Build the pipeline
-pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
+pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
 O exemplo a seguir utiliza o alvo computacional Azure Databricks criado anteriormente: 
@@ -535,7 +601,7 @@ Pode voltar a ative-lo com `p.enable()` . Para mais informações, consulte a re
 
 Para otimizar e personalizar o comportamento dos seus oleodutos, pode fazer algumas coisas em torno do caching e reutilização. Por exemplo, pode optar por:
 + **Desligue a reutilização predefinida da saída de marcha** por passo, regulando durante a `allow_reuse=False` [definição do passo](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). A reutilização é fundamental quando se utilizam gasodutos num ambiente colaborativo, uma vez que eliminar corridas desnecessárias oferece agilidade. No entanto, pode optar por não reutilizar.
-+ **Forçar a regeneração da saída para todos os passos em uma corrida** com`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ **Forçar a regeneração da saída para todos os passos em uma corrida** com `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Por predefinição, `allow_reuse` para os passos está ativado e `source_directory` o especificado na definição de passo é hashed. Assim, se o guião para um dado passo permanecer o mesmo ( `script_name` entradas e parâmetros), e nada mais no ` source_directory` mudou, a saída de um passo anterior é reutilizado, o trabalho não é submetido ao cálculo, e os resultados da execução anterior estão imediatamente disponíveis para o passo seguinte.
 

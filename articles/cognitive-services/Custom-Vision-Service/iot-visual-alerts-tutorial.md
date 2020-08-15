@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5016191bb4f647c0bbfa71144bb4b4b554b080f4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834342"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244674"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Use a Visão Personalizada com um dispositivo IoT para reportar estados visuais
 
@@ -31,7 +31,7 @@ Este tutorial irá mostrar-lhe como:
 > * Use a aplicação para treinar o seu projeto De Visão Personalizada.
 > * Utilize a aplicação para marcar novas imagens em tempo real e envie os resultados para o Azure.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,7 +128,7 @@ Em qualquer ponto, pode repetir o passo de carregar imagens de treino clicando n
 
 Se estiver a executar a aplicação num dispositivo e precisar de recuperar novamente o endereço IP (para estabelecer uma ligação remota através do [Cliente Remoto Windows IoT,](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)por exemplo), pode ligar para o método através do `GetIpAddress` IoT Hub.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Elimine o seu projeto De Visão Personalizada se já não quiser mantê-lo. No site da [Visão Personalizada,](https://customvision.ai)navegue para **Projetos** e selecione o caixote do lixo no âmbito do seu novo projeto.
 

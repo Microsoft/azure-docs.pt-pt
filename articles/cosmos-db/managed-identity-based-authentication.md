@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: e1076c7bb480a52c9436e336a49169953d0d8285
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135775"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243722"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 
@@ -75,9 +75,10 @@ Neste cenário, a aplicação de função irá ler a temperatura do aquário e, 
 
 ### <a name="assign-the-role-using-azure-cli"></a>Atribuir o papel usando O Azure CLI
 
-Para atribuir o papel utilizando o Azure CLI, utilize os seguintes comandos:
+Para atribuir o papel utilizando o Azure CLI, abra a Azure Cloud Shell e execute os seguintes comandos:
 
 ```azurecli-interactive
+
 scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
 
 principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)
@@ -212,7 +213,7 @@ namespace Monitor
 
 Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/functions-create-first-function-vs-code.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Autenticação baseada em certificados com Azure Cosmos DB e Azure Ative Directory](certificate-based-authentication.md)
 * [Chaves DB Secure Azure Cosmos usando cofre de chave Azure](access-secrets-from-keyvault.md)

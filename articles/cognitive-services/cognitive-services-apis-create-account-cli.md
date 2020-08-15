@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317132"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245014"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de Serviços Cognitivos utilizando a Interface Azure Command-Line (CLI)
 
-Utilize este quickstart para começar com os Serviços Cognitivos Azure utilizando a [Interface da Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os Serviços Cognitivos são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure que cria na sua subscrição Azure. Depois de criar o recurso, utilize as teclas e o ponto final gerados para autenticar as suas aplicações. 
+Utilize este quickstart para começar com os Serviços Cognitivos Azure utilizando a [Interface da Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os Serviços Cognitivos são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure que cria na sua subscrição Azure. Depois de criar o recurso, utilize as teclas e o ponto final gerados para autenticar as suas aplicações.
 
 
 Neste arranque rápido, você aprenderá a se inscrever para a Azure Cognitive Services e criar uma conta que tenha uma subscrição de serviço único ou multi-serviço, utilizando a [Interface da Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Estes serviços são representados por [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)Azure, que lhe permitem ligar a uma ou mais das APIs dos Serviços Cognitivos Azure.
@@ -27,10 +27,10 @@ Neste arranque rápido, você aprenderá a se inscrever para a Azure Cognitive S
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição válida do Azure - [Crie uma](https://azure.microsoft.com/free/) gratuitamente.
+* Uma subscrição válida do Azure - [Crie uma](https://azure.microsoft.com/free/cognitive-services) gratuitamente.
 * [A Interface da Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Instale o CLI Azure e inscreva-se 
+## <a name="install-the-azure-cli-and-sign-in"></a>Instale o CLI Azure e inscreva-se
 
 Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para iniciar sessão na instalação local do CLI, execute o comando [de login az:](https://docs.microsoft.com/cli/azure/reference-index#az-login)
 
@@ -39,7 +39,7 @@ az login
 ```
 
 Também pode utilizar o botão verde **Try It** para executar estes comandos no seu navegador.
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Criar um novo grupo de recursos Azure Cognitive Services
 
 Antes de criar um recurso de Serviços Cognitivos, deve ter um grupo de recursos Azure para conter o recurso. Quando cria um novo recurso, tem a opção de criar um novo grupo de recursos ou de utilizar um existente. Este artigo mostra como criar um novo grupo de recursos.
@@ -95,7 +95,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 | Serviço            | Tipo                  |
 |--------------------|-----------------------|
@@ -190,7 +190,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser limpar e remover um recurso de Serviços Cognitivos, pode eliminá-lo ou ao grupo de recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos contidos no grupo.
 
@@ -200,7 +200,7 @@ Para remover o grupo de recursos e os seus recursos associados, utilize o comand
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
 * [O que é a Azure Cognitive Services?](Welcome.md)

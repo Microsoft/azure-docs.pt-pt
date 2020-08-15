@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206872"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244776"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como uma cópia de segurança para o espreitamento privado ExpressRoute
 
-No artigo intitulado [Designing for disaster recovery with ExpressRoute private peering][DR-PP], discutimos a necessidade de uma solução de conectividade de backup para uma conectividade de observação privada ExpressRoute e como usar circuitos ExpressRoute geo-redundantes para o efeito. Neste artigo, consideremos como alavancar e manter a VPN site-to-site (S2S) como uma parte traseira para o expressRoute private peering. 
+No artigo intitulado [Designing for disaster recovery with ExpressRoute private peering][DR-PP], discutimos a necessidade de uma solução de conectividade de backup para uma conectividade de observação privada ExpressRoute e como usar circuitos ExpressRoute geo-redundantes para o efeito. Neste artigo, consideremos como alavancar e manter a VPN site-to-site (S2S) como uma cópia de segurança para o expressRoute private peering. 
 
 Ao contrário dos circuitos ExpressRoute geo redundantes, pode utilizar a combinação de recuperação de desastres ExpressRoute-VPN apenas em modo passivo ativo. Um grande desafio de usar qualquer conectividade de rede de backup no modo passivo é que a ligação passiva muitas vezes falharia ao lado da ligação primária. A razão comum para as falhas da ligação passiva é a falta de manutenção ativa. Portanto, neste artigo vamos focar-nos em como verificar e manter ativamente a conectividade VPN S2S que está a apoiar um peering privado ExpressRoute.
 
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Configuração para o fluxo de tráfego simétrico
 
-Notamos que quando uma determinada rota no local é publicitada através do ExpressRoute e da S2S VPN, a Azure preferiria o caminho ExpressRoute. Para forçar o Azure a preferir o caminho VPN S2S sobre o ExpressRoute coexistindo, é necessário anunciar rotas mais específicas (prefixo mais longo com máscara de sub-rede maior) através da ligação VPN. O nosso objetivo aqui é usar as ligações VPN apenas como costas. Assim, o comportamento de seleção de caminhos padrão de Azure está em consonância com o nosso objetivo. 
+Notamos que quando uma determinada rota no local é publicitada através do ExpressRoute e da S2S VPN, a Azure preferiria o caminho ExpressRoute. Para forçar o Azure a preferir o caminho VPN S2S sobre o ExpressRoute coexistindo, é necessário anunciar rotas mais específicas (prefixo mais longo com máscara de sub-rede maior) através da ligação VPN. O nosso objetivo aqui é usar as ligações VPN apenas como backup. Assim, o comportamento de seleção de caminhos padrão de Azure está em consonância com o nosso objetivo. 
 
 É nossa responsabilidade garantir que o tráfego destinado a Azure a partir do local também prefira o caminho ExpressRoute em vez da VPN S2S. A preferência local padrão dos routers ce e firewalls na nossa configuração no local é de 100. Assim, ao configurar a preferência local das rotas recebidas através dos espreitadores privados ExpressRoute superiores a 100 (digamos 150), podemos fazer com que o tráfego destinado a Azure prefira o circuito ExpressRoute no estado estável.
 

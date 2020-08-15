@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506461"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245099"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar e utilizar conjuntos de réplicas para resiliência ou geolocalização em Serviços de Domínio do Diretório Ativo Azure (pré-visualização)
 
@@ -42,11 +42,11 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um inquilino do Azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou um diretório apenas na nuvem.
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
-* Um domínio gerido por Azure Ative Directory Domain Services criado usando conjuntos de réplicas e configurado no seu inquilino AZure AD.
+* Um domínio gerido por Serviços de Domínio do Diretório Ativo Azure criado utilizando o modelo de implementação do Gestor de Recursos Azure e configurado no seu inquilino Azure AD.
     * Se necessário, [crie e configuure um domínio gerido por Azure Ative Directory Domain Services][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Certifique-se de que cria um domínio gerido que utiliza conjuntos de réplicas. Um domínio gerido existente criado antes desta pré-visualização não suporta conjuntos de réplicas. Também precisa de utilizar um mínimo de *Enterprise* SKU para o seu domínio gerido. Se necessário, [mude o SKU para um domínio gerido][howto-change-sku].
+    > Os domínios geridos criados utilizando o modelo de implementação Classic não podem usar conjuntos de réplicas. Também precisa de utilizar um mínimo de *Enterprise* SKU para o seu domínio gerido. Se necessário, [mude o SKU para um domínio gerido][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

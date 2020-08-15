@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290125"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245745"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicações com rescisão de TLS usando o portal Azure
 
@@ -30,9 +30,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
-Inscreva-se no portal Azure em[https://portal.azure.com](https://portal.azure.com)
+Inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
@@ -259,6 +259,10 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
     O site IIS protegido é apresentado como no exemplo seguinte:
 
     ![Testar o URL base no gateway de aplicação](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o grupo de recursos e todos os recursos conexões. Para tal, selecione o grupo de recursos e selecione **Eliminar o grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: daee5a921e25dc74d6e869ca3feb6c66d8c4ce7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 38c2b3cdf40f1924a36ffd84d9dc5f9b2f7f319d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851036"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245711"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Quickstart: Detete anomalias nos dados da sua série de tempo usando o Detetor de Anomalia REST API e Python
 
@@ -31,7 +31,7 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 - Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" crie um recurso de Detetor de "  target="_blank"> Anomalias crie um recurso de Detetor de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Anomalias no portal Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
     - Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Detetor de Anomalias. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
@@ -85,7 +85,7 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detetar o estado de anomalia do último ponto de dados
 
-1. Crie um método chamado `detect_latest()` para determinar se o último ponto de dados da sua série de tempo é uma anomalia. Ligue para o `send_request()` método acima com o seu ponto final, url, chave de subscrição e dados json. 
+1. Crie um método chamado `detect_latest()` para determinar se o último ponto de dados da sua série de tempo é uma anomalia. Ligue para o `send_request()` método acima com o seu ponto final, url, chave de subscrição e dados json.
 
 2. Ligue `json.dumps()` para o resultado para o formatar e imprima-o na consola.
 

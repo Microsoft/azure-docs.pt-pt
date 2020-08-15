@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para .NET'
 description: Este quickstart mostra como começar com a biblioteca cliente do QnA Maker para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507471"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246120"
 ---
 Utilize a biblioteca cliente QnA Maker para .NET para:
 
@@ -27,7 +27,7 @@ Utilize a biblioteca cliente QnA Maker para .NET para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * O [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) ou a versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autoria e nome de recurso. Depois de ser implantado, selecione **Ir para o recurso**.
     * Necessitará da chave e nome de recurso do recurso que criar para ligar a sua aplicação à API do Criador de QnA. Você vai colar a sua chave e nome de recurso no código abaixo mais tarde no arranque rápido.
@@ -144,9 +144,9 @@ Uma base de conhecimento armazena pares de perguntas e respostas para o objeto [
 * Para **URLs,** utilize uma lista de cordas para representar URLs disponíveis ao público.
 
 O passo de criação também inclui propriedades para a base de conhecimentos:
-* `defaultAnswerUsedForExtraction`- o que é devolvido quando não se encontra uma resposta
-* `enableHierarchicalExtraction`- criar automaticamente relações rápidas entre pares QnA extraídos
-* `language`- ao criar a primeira base de conhecimentos de um recurso, desaveja o idioma a utilizar no índice de Pesquisa de Azure.
+* `defaultAnswerUsedForExtraction` - o que é devolvido quando não se encontra uma resposta
+* `enableHierarchicalExtraction` - criar automaticamente relações rápidas entre pares QnA extraídos
+* `language` - ao criar a primeira base de conhecimentos de um recurso, desaveja o idioma a utilizar no índice de Pesquisa de Azure.
 
 Ligue para o método [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) e, em seguida, passe o ID de operação devolvido para o método [MonitorOperation](#get-status-of-an-operation) para sondar o estado.
 

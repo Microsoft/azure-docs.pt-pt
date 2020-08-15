@@ -10,12 +10,12 @@ ms.date: 8/13/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 8651b9a6b77208c87ccb57a9518dbfbc6d6de53b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: d0ae5fa41d039be235ff0c9abb4facf95b1f3b2e
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237409"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246046"
 ---
 Utilize as bibliotecas de clientes de Compreensão linguística (LUIS) para .NET para:
 * Criar uma aplicação
@@ -28,7 +28,7 @@ Utilize as bibliotecas de clientes de Compreensão linguística (LUIS) para .NET
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core) e [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Assim que tiver a sua subscrição Azure, [crie um recurso de autoria de Compreensão de Idiomas](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) no portal Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
     * Necessitará da chave e ponto final do recurso que [criar](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) para ligar a sua aplicação à autoria de Compreensão linguística. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido. Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço.
 

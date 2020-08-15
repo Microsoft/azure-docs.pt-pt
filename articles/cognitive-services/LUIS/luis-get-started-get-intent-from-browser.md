@@ -1,37 +1,37 @@
 ---
-title: 'Quickstart: Consulta para previsão com navegador - LUIS'
-description: Neste arranque rápido, utilize uma aplicação LIVRE pública disponível para determinar a intenção de um utilizador a partir de texto de conversação num browser.
+title: 'Quickstart: Consulta para previsão com browser - LUIS'
+description: Neste quickstart, utilize uma aplicação luis pública disponível para determinar a intenção de um utilizador de texto de conversação num browser.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769975"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246000"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Quickstart: Prazo de execução da previsão de consulta com texto do utilizador
+# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Quickstart: Tempo de previsão de consulta com texto do utilizador
 
 Para compreender o que devolve um ponto final de predição do LUIS, veja um resultado de predição num browser.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para consultar uma aplicação pública, precisa de:
+Para consultar uma aplicação pública, você precisa:
 
-* Informação sobre os recursos da sua compreensão linguística (LUIS):
-    * **Chave de previsão** - que pode ser obtida a partir do [Portal LUIS](https://www.luis.ai/). Se ainda não tiver uma subscrição para criar uma chave, pode inscrever-se para uma [conta gratuita.](https://azure.microsoft.com/free/)
-    * **Subdomínio final de previsão** - o subdomínio é também o **nome** do seu recurso LUIS.
-* Um ID de aplicativo LUIS - use `df67dcdb-c37d-46af-88e1-8b97951ca1c2`o ID da aplicação IoT pública de . A consulta do utilizador utilizada no código de arranque rápido é específica dessa aplicação.
+* A informação de recursos da sua compreensão linguística (LUIS):
+    * **Chave de previsão** - que pode ser obtida a partir do [Portal LUIS](https://www.luis.ai/). Se ainda não tiver uma subscrição para criar uma chave, pode inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/cognitive-services)
+    * **Previsão subdomínio do ponto final** - o subdomínio é também o **nome** do seu recurso LUIS.
+* Um ID de aplicativo LUIS - use o ID da aplicação IoT pública de `df67dcdb-c37d-46af-88e1-8b97951ca1c2` . A consulta do utilizador utilizada no código quickstart é específica para essa aplicação.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Use o navegador para ver previsões
 
 1. Abra um browser.
-1. Utilize os URLs completos `YOUR-KEY` abaixo, substituindo pela sua própria chave de previsão LUIS. Os pedidos são pedidos GET e incluem a autorização, com a sua chave de previsão LUIS, como parâmetro de corda de consulta.
+1. Utilize os URLs completos abaixo, `YOUR-KEY` substituindo-os pela sua própria tecla de previsão LUIS. Os pedidos são pedidos GET e incluem a autorização, com a sua chave de previsão LUIS, como parâmetro de cadeia de consulta.
 
     #### <a name="v3-prediction-request"></a>[Pedido de previsão V3](#tab/V3-1-1)
 
 
-    O formato do URL V3 para **um** pedido de ponto final GET (por ranhuras) é:
+    O formato do URL V3 para um pedido de ponto final **GET** (por slots) é:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY
@@ -39,7 +39,7 @@ Para consultar uma aplicação pública, precisa de:
 
     #### <a name="v2-prediction-request"></a>[Pedido de previsão V2](#tab/V2-1-2)
 
-    O formato do URL V2 para **um** pedido de ponto final get é:
+    O formato do URL V2 para um pedido de ponto final **GET** é:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-LUIS-PREDICTION-KEY&q=turn on all lights
@@ -91,11 +91,11 @@ Para consultar uma aplicação pública, precisa de:
 
     * * *
 
-1. Para ver todas as intenções, adicione o parâmetro de corda de consulta apropriado.
+1. Para ver todas as intenções, adicione o parâmetro de cadeia de consulta apropriado.
 
     #### <a name="v3-prediction-endpoint"></a>[Ponto final de previsão V3](#tab/V3-3-1)
 
-    Adicione `show-all-intents=true` ao fim do fio de consulta para **mostrar todas as intenções:**
+    Adicione `show-all-intents=true` ao final do teste de consulta para mostrar todas as **intenções:**
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
@@ -126,9 +126,9 @@ Para consultar uma aplicação pública, precisa de:
     }
     ```
 
-    #### <a name="v2-prediction-endpoint"></a>[Ponto final da previsão V2](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[Ponto final de previsão V2](#tab/V2)
 
-    Adicione `verbose=true` ao fim do fio de consulta para **mostrar todas as intenções:**
+    Adicione `verbose=true` ao final do teste de consulta para mostrar todas as **intenções:**
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true

@@ -10,12 +10,12 @@ ms.date: 8/13/2020
 ms.topic: include
 ms.custom: include file, devx-track-javascript
 ms.author: diberry
-ms.openlocfilehash: 39e0124bbfac75bcadd42f5caa987409fafd7886
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: e52aba2fe6189c8964fd6525581b0bd6ee6def48
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237415"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246423"
 ---
 Utilize as bibliotecas de clientes de Compreensão linguística (LUIS) para Node.js:
 
@@ -29,7 +29,7 @@ Utilize as bibliotecas de clientes de Compreensão linguística (LUIS) para Node
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org)
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Assim que tiver a sua subscrição Azure, [crie um recurso de autoria de Compreensão de Idiomas](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) no portal Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
     * Necessitará da chave e ponto final do recurso que [criar](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) para ligar a sua aplicação à autoria de Compreensão linguística. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido. Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço.
 

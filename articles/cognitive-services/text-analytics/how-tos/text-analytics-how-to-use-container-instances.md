@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f7dbb79e2d9009b00b21d4c12663d8e6c855a4c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108719"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243756"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Implementar um recipiente de análise de texto para instâncias de contentores de Azure
 
@@ -23,7 +23,7 @@ Saiba como implantar o recipiente de [análise de texto][install-and-run-contain
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Utilize uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Utilize uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -47,7 +47,7 @@ Saiba como implantar o recipiente de [análise de texto][install-and-run-contain
 
 ***
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 * Use mais [recipientes de serviços cognitivos](../../cognitive-services-container-support.md)
 * Utilize o [serviço ligado à análise de texto](../vs-text-connected-service.md)

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212619"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245456"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -52,7 +52,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 
 ## <a name="migration-prerequisites"></a>Pré-requisitos de migração
 
-* Tem de estar associado a uma subscrição válida do Azure. Peça ao seu administrador inquilino para adicioná-lo na subscrição, ou [inscreva-se para um gratuito](https://azure.microsoft.com/free/).
+* Tem de estar associado a uma subscrição válida do Azure. Peça ao seu administrador inquilino para adicioná-lo na subscrição, ou [inscreva-se para um gratuito](https://azure.microsoft.com/free/cognitive-services).
 * É necessário criar um recurso de autoria LUIS Azure a partir do portal LUIS ou do portal Azure. A criação de um recurso de autoria a partir do portal LUIS faz parte do fluxo migratório que é discutido na secção seguinte.
 * Se for colaborador em aplicações, as aplicações não migrarão automaticamente. Recomendamos que apoie estas aplicações exportando-as ou utilizando a [API de exportação.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) Pode importar a app de volta para o LUIS após a migração. O processo de importação cria uma nova app com um novo ID de aplicação, para o qual você é o proprietário.
 * Se for o proprietário da aplicação, não precisará exportar as suas apps porque migrarão automaticamente. Recomendamos que guarde a lista de colaboradores de cada aplicação. Um modelo de e-mail que tem esta lista é fornecido opcionalmente como parte do processo de migração.
@@ -60,7 +60,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 
 |Portal|Objetivo|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Criar recursos de previsão e autoria.<br> Atribuir contribuintes em recursos.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Criar recursos de previsão e autoria.<br> Atribuir contribuintes em recursos.|
 |[LUIS](https://www.luis.ai)| Migrar para novos recursos de autoria.<br> Criar novos recursos de autoria no fluxo migratório.<br> Atribuir ou atribuir recursos de previsão e autoria de recursos para apps a partir da página **de**recursos Manage  >  **Azure.** <br> Mover aplicações de um recurso de autoria para outro.  |
 
 > [!Note]

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128578"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244497"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implementar o recipiente de deteção de linguagem Text Analytics para o Serviço Azure Kubernetes
 
@@ -25,7 +25,7 @@ Saiba como implantar o recipiente de deteção de linguagem. Este procedimento m
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não utilize a casca de Azure Cloud.
 
-* Utilize uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Utilize uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar.
 * [Git](https://git-scm.com/downloads) para o seu sistema operativo para que possa clonar a [amostra](https://github.com/Azure-Samples/cognitive-services-containers-samples) utilizada neste procedimento.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker motor](https://www.docker.com/products/docker-engine) e validar que o Docker CLI funciona numa janela de consola.
@@ -313,17 +313,17 @@ Esta secção utiliza o **CLI kubectl** para falar com o Serviço Azure Kubernet
 
     Definições de implementação de frontend de linguagem|Objetivo|
     |--|--|
-    |Linha 32<br> `image`propriedade|Localização da imagem para a imagem frontal no seu registo de contentores<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Linha 44<br> `name`propriedade|Registo de contentores secreto para a imagem, referido como `<client-secret>` numa secção anterior.|
+    |Linha 32<br> `image` propriedade|Localização da imagem para a imagem frontal no seu registo de contentores<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Linha 44<br> `name` propriedade|Registo de contentores secreto para a imagem, referido como `<client-secret>` numa secção anterior.|
 
 1. Altere as linhas de implementação do `language.yml` idioma com base na tabela seguinte para adicionar os nomes de imagem do registo do seu próprio contentor, o segredo do cliente e as definições de análise de texto.
 
     |Definições de implementação de idiomas|Objetivo|
     |--|--|
-    |Linha 78<br> `image`propriedade|Localização da imagem da imagem do idioma no seu registo de contentores<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Linha 95<br> `name`propriedade|Registo de contentores secreto para a imagem, referido como `<client-secret>` numa secção anterior.|
-    |Linha 91<br> `apiKey`propriedade|A chave de recursos de análise de texto|
-    |Linha 92<br> `billing`propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Linha 78<br> `image` propriedade|Localização da imagem da imagem do idioma no seu registo de contentores<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Linha 95<br> `name` propriedade|Registo de contentores secreto para a imagem, referido como `<client-secret>` numa secção anterior.|
+    |Linha 91<br> `apiKey` propriedade|A chave de recursos de análise de texto|
+    |Linha 92<br> `billing` propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Como o **apiKey** e o ponto final de **faturação** são definidos como parte da definição de orquestração de Kubernetes, o recipiente do site não precisa de saber sobre estes ou passá-los como parte do pedido. O recipiente do site refere-se ao recipiente de deteção de idiomas pelo seu nome de `language` orquestrador.
 
@@ -404,4 +404,4 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Contentores de Serviços Cognitivos](../cognitive-services-container-support.md)
+> [Contentores dos Serviços Cognitivos](../cognitive-services-container-support.md)

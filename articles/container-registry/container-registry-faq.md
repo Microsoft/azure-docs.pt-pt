@@ -5,16 +5,21 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836399"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245371"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
 Este artigo aborda perguntas frequentes e questões conhecidas sobre o Registo de Contentores Azure.
+
+Para orientação de resolução de problemas de registo, consulte:
+* [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md)
+* [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
+* [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Gestão de recursos
 
@@ -28,11 +33,11 @@ Este artigo aborda perguntas frequentes e questões conhecidas sobre o Registo d
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Posso criar um registo de contentores Azure utilizando um modelo de Gestor de Recursos?
 
-Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
+Yes. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe vulnerabilidade de segurança à procura de imagens em ACR?
 
-Sim. Consulte a documentação do [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. Consulte a documentação do [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar Kubernetes com registo de contentores Azure?
 
@@ -261,10 +266,10 @@ A criação de um registo de contentores Azure para acesso anónimo (público) �
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
 
-- [Verifique a saúde com`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Verifique a saúde com `az acr check-health`](#check-health-with-az-acr-check-health)
 - [o estivador falha com erro: net/http: pedido cancelado enquanto aguarda a ligação (Cliente.Timeout excedido enquanto aguarda os cabeçalhos)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [estivador empurra, mas estivador falha com erro: não autorizado: autenticação necessária](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [`az acr login`sucede, mas os comandos de estivador falham com erro: não autorizado: autenticação necessária](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` sucede, mas os comandos de estivador falham com erro: não autorizado: autenticação necessária](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Ativar e obter os registos de depuração do daemon estivador](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [As novas permissões do utilizador podem não ter efeito imediatamente após a atualização](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [As informações de autenticação não são dadas no formato correto nas chamadas diretas da API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
@@ -274,7 +279,7 @@ A criação de um registo de contentores Azure para acesso anónimo (público) �
 - [O formato repositório é inválido ou não suportado](#repository-format-is-invalid-or-unsupported)
 - [Como posso recolher vestígios de http no Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Verifique a saúde com`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Verifique a saúde com `az acr check-health`
 
 Para resolver problemas comuns de ambiente e registo, consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md).
 
@@ -453,8 +458,8 @@ Para obter regras completas de nomeação do repositório, consulte a [Especific
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-- Ativar a desencriptação https no violinista:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Ativar o Docker a usar um representante através do Docker ui:<https://docs.docker.com/docker-for-windows/#proxies>
+- Ativar a desencriptação https no violinista:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Ativar o Docker a usar um representante através do Docker ui: <https://docs.docker.com/docker-for-windows/#proxies>
 - Certifique-se de reverter quando estiver completo.  O Docker não vai trabalhar com isto ativado e o violinista não vai funcionar.
 
 #### <a name="windows-containers"></a>Contentores do Windows
