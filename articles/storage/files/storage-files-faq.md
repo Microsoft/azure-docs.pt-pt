@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037138"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245439"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria. Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -77,13 +77,14 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     > [!NOTE]
     > Não é possível criar ações de ficheiros Azure a partir de contas de armazenamento Blob ou contas de armazenamento *premium* (GPv1 ou GPv2). As ações de ficheiros Standard Azure devem ser criadas apenas em contas de finalidade geral *padrão* e as ações de ficheiros Premium Azure devem ser criadas apenas em contas de armazenamento fileStorage. *As* contas de armazenamento premium (GPv1 e GPv2) são apenas para bolhas de página premium. 
 
+* <a id="file-locking"></a>
+  **O Azure Files suporta o bloqueio de ficheiros?**  
+    Sim, a Azure Files suporta totalmente o bloqueio de ficheiros estilo SMB/Windows, [ver detalhes](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Quero ver uma funcionalidade específica adicionada aos Ficheiros Azure. Pode adicioná-lo?**  
     A equipa da Azure Files está interessada em ouvir qualquer feedback que tenha sobre o nosso serviço. Por favor, vote nos pedidos de funcionalidade no [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Estamos ansiosos para deliciá-lo com muitas novidades.
 
-  **O Azure Files suporta o bloqueio de ficheiros?**  
-    Sim, a Azure Files suporta totalmente o bloqueio de ficheiros estilo SMB/Windows, [ver detalhes](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -92,7 +93,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="cross-domain-sync"></a>
   **Posso ter servidores unidos por domínio e não-domínios no mesmo grupo de sincronização?**  
-    Sim. Um grupo de sincronização pode conter pontos finais do servidor que têm diferentes membros do Ative Directory, mesmo que não estejam unidos pelo domínio. Embora esta configuração funcione tecnicamente, não recomendamos esta configuração como uma configuração típica porque as listas de controlo de acesso (ACLs) que são definidas para ficheiros e pastas num servidor podem não ser aplicadas por outros servidores do grupo de sincronização. Para obter melhores resultados, recomendamos sincronização entre servidores que estão na mesma floresta ative de Diretório, entre servidores que estão em diferentes florestas de Ative Directory mas que estabeleceram relações de confiança, ou entre servidores que não estão em um domínio. Recomendamos que evite utilizar uma mistura destas configurações.
+    Yes. Um grupo de sincronização pode conter pontos finais do servidor que têm diferentes membros do Ative Directory, mesmo que não estejam unidos pelo domínio. Embora esta configuração funcione tecnicamente, não recomendamos esta configuração como uma configuração típica porque as listas de controlo de acesso (ACLs) que são definidas para ficheiros e pastas num servidor podem não ser aplicadas por outros servidores do grupo de sincronização. Para obter melhores resultados, recomendamos sincronização entre servidores que estão na mesma floresta ative de Diretório, entre servidores que estão em diferentes florestas de Ative Directory mas que estabeleceram relações de confiança, ou entre servidores que não estão em um domínio. Recomendamos que evite utilizar uma mistura destas configurações.
 
 * <a id="afs-change-detection"></a>
   **Criei um ficheiro diretamente na minha partilha de ficheiros Azure usando SMB ou no portal. Quanto tempo demora o ficheiro a sincronizar com os servidores do grupo de sincronização?**  
@@ -187,7 +188,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="encryption-at-rest"></a>
 **Como posso garantir que a minha partilha de ficheiros Azure seja encriptada em repouso?**  
 
-    Sim. Para mais informações consulte [a Encriptação do Serviço de Armazenamento Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Yes. Para mais informações consulte [a Encriptação do Serviço de Armazenamento Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Como posso fornecer acesso a um ficheiro específico usando um navegador web?**  
@@ -202,12 +203,19 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ip-restrictions"></a>
 **Posso implementar restrições de IP para uma partilha de ficheiros Azure?**  
 
-    Sim. O acesso à sua parte de ficheiro Azure pode ser restringido ao nível da conta de armazenamento. Para mais informações, consulte [as firewalls de armazenamento Configure Azure e as redes virtuais.](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+    Yes. O acesso à sua parte de ficheiro Azure pode ser restringido ao nível da conta de armazenamento. Para mais informações, consulte [as firewalls de armazenamento Configure Azure e as redes virtuais.](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade com dados suportam os Ficheiros Azure?**  
 
    A Azure Files funciona em cima da mesma arquitetura de armazenamento que é usada em outros serviços de armazenamento em Azure Storage. A Azure Files aplica as mesmas políticas de conformidade de dados que são utilizadas noutros serviços de armazenamento Azure. Para obter mais informações sobre a conformidade com os dados do Azure Storage, pode consultar [as ofertas de conformidade do Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e ir ao [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Como posso auditar o acesso a ficheiros e alterações nos Ficheiros Azure?**
+
+  Existem duas opções que fornecem funcionalidade de auditoria para ficheiros Azure:
+  - Se os utilizadores estiverem a aceder diretamente à partilha de ficheiros Azure, [os registos de armazenamento Azure (pré-visualização)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) podem ser utilizados para rastrear alterações de ficheiros e acesso ao utilizador. Estes registos podem ser utilizados para efeitos de resolução de problemas e os pedidos são registados numa base de melhor esforço.
+  - Se os utilizadores estiverem a aceder à partilha de ficheiros Azure através de um Servidor do Windows que tenha instalado o agente Azure File Sync, utilize uma política de [auditoria](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) ou um produto de terceira parte para rastrear as alterações de ficheiros e o acesso do utilizador no Servidor do Windows. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & Autenticação AD DS
 * <a id="ad-support-devices"></a>
@@ -275,7 +283,6 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Sim, apoiamos AS APIs rest que obtenham, definir ou copiar ACLs NTFS para diretórios ou ficheiros quando utilizar a API REST [2019-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior) REST. Também suportamos ACLs do Windows em ferramentas baseadas em REST: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
 
-
 ## <a name="on-premises-access"></a>Acesso no local
 
 * <a id="port-445-blocked"></a>
@@ -315,7 +322,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="snapshot-limits"></a>
 **Há limites para o número de fotos partilhadas que posso usar?**  
-    Sim. Os Ficheiros Azure podem reter um máximo de 200 instantâneos de partilha. As snapshots de partilha não contam para a quota de ações, pelo que não existe um limite por partilha no espaço total que é usado por todos os instantâneos de partilha. Os limites da conta de armazenamento ainda se aplicam. Depois de 200 fotos partilhadas, deve eliminar instantâneos mais antigos para criar novas fotos de partilha.
+    Yes. Os Ficheiros Azure podem reter um máximo de 200 instantâneos de partilha. As snapshots de partilha não contam para a quota de ações, pelo que não existe um limite por partilha no espaço total que é usado por todos os instantâneos de partilha. Os limites da conta de armazenamento ainda se aplicam. Depois de 200 fotos partilhadas, deve eliminar instantâneos mais antigos para criar novas fotos de partilha.
 
 * <a id="snapshot-cost"></a>
 **Quanto custam as fotos partilhadas?**  
@@ -356,7 +363,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="restore-snapshotted-file-to-other-share"></a>
 **Posso restaurar os dados da minha parte instantânea para uma conta de armazenamento diferente?**  
-    Sim. Os ficheiros de um instantâneo de partilha podem ser copiados para o local original ou para um local alternativo que inclua a mesma conta de armazenamento ou uma conta de armazenamento diferente, quer na mesma região, quer em diferentes regiões. Também pode copiar ficheiros para um local no local ou para qualquer outra nuvem.    
+    Yes. Os ficheiros de um instantâneo de partilha podem ser copiados para o local original ou para um local alternativo que inclua a mesma conta de armazenamento ou uma conta de armazenamento diferente, quer na mesma região, quer em diferentes regiões. Também pode copiar ficheiros para um local no local ou para qualquer outra nuvem.    
   
 ### <a name="clean-up-share-snapshots"></a>Limpe fotos de partilha
 * <a id="delete-share-keep-snapshots"></a>
@@ -425,7 +432,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 **Como uso ficheiros Azure com MQ IBM?**  
     A IBM divulgou um documento que ajuda os clientes da IBM MQ a configurar ficheiros Azure com o serviço IBM. Para obter mais informações, consulte [Como configurar um gestor de fila de vários instâncias IBM MQ com o serviço Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
