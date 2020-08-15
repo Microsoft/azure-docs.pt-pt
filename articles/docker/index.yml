@@ -3,19 +3,19 @@ title: Documentação do Docker no Azure
 summary: O Docker é uma plataforma popular de processamento de imagens e de gestão de contentores que lhe permite trabalhar rapidamente com contentores no Linux e no Windows. Saiba como tirar partido do Docker no Azure.
 metadata:
   title: Documentação do Docker no Azure
-  description: O Docker é uma plataforma popular de processamento de imagens e de gestão de contentores que lhe permite trabalhar rapidamente com contentores no Linux e no Windows. Saiba como tirar partido do Docker no Azure.
+  description: O Docker é uma plataforma popular de processamento de imagens e de gestão de contentores que lhe permite trabalhar rapidamente com contentores no Linux e no Windows.
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 9205a47ee0ba3e6e0b328c8f481b15fe593ec5fb
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080390"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88224582"
 landingContent:
 - title: Implementar o Docker no Azure
   linkLists:

@@ -11,7 +11,7 @@
   items:
     - name: APIs REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Ir
           href: quickstarts/go.md
@@ -88,7 +88,7 @@
 - name: Recursos
   items:
     - name: Obter chave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Ponto final de Pesquisa na Web do Bing
       href: web-search-endpoints.md
     - name: Preços
