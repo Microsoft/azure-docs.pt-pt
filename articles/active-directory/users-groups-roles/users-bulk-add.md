@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423614"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236561"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
 
@@ -33,6 +33,9 @@ Para criar em massa utilizadores no portal da administração, tem de ser inscri
 Faça o download e preencha o modelo de CSV de upload a granel para ajudá-lo a criar utilizadores AZure AD a granel. O modelo CSV que descarrega pode parecer este exemplo:
 
 ![Folha de cálculo para upload e chamadas explicando a finalidade e valores de cada linha e coluna](./media/users-bulk-add/create-template-example.png)
+
+> [!WARNING]
+> Se tentar adicionar apenas uma entrada no modelo CSV, deve preservar a linha 3 e adicionar a sua nova entrada à linha 4. 
 
 ### <a name="csv-template-structure"></a>Estrutura de modelo de CSV
 
@@ -98,7 +101,7 @@ Deve ver se os utilizadores que criou estão listados.
 
 Cada atividade a granel para criar utilizadores pode funcionar até uma hora. Isto permite a criação em massa de pelo menos 50.000 utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de utilizadores](users-bulk-download.md)

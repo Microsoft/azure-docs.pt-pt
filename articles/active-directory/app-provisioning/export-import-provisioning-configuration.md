@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781727"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235822"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como fazer: Configuração de provisionamento de exportação e retrocesso para um bom estado conhecido
 
@@ -39,8 +39,8 @@ Para exportar a sua configuração:
 
 Exportar e guardar a sua configuração permite-lhe reverter para uma versão anterior da sua configuração. Recomendamos exportar a sua configuração de provisionamento e guardá-la para posterior utilização sempre que fizer uma alteração nos mapeamentos ou filtros de deteção de atributos. Tudo o que precisa de fazer é abrir o ficheiro JSON que descarregou nos degraus acima, copiar todo o conteúdo do ficheiro JSON, substituir todo o conteúdo da carga JSON no editor de esquemas e, em seguida, guardar. Se houver um ciclo de provisionamento ativo, ele completa-se e o ciclo seguinte utilizará o esquema atualizado. O próximo ciclo será também um ciclo inicial, que reavalia cada utilizador e grupo com base na nova configuração. Considere o seguinte ao voltar a uma configuração anterior:
 
-- Os utilizadores serão novamente avaliados para determinar se devem estar no âmbito. Se os filtros de deteção tiverem mudado, o utilizador já não está no âmbito, será desativado. Embora este seja o comportamento desejado na maioria dos casos, há momentos em que pode querer evitar isso e pode usar a funcionalidade [de eliminação de âmbito.](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) 
-- Alterar a configuração de provisionamento reinicia o serviço e aciona um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Os utilizadores serão novamente avaliados para determinar se devem estar no âmbito. Se os filtros de deteção tiverem mudado, o utilizador já não está no âmbito, será desativado. Embora este seja o comportamento desejado na maioria dos casos, há momentos em que pode querer evitar isso e pode usar a funcionalidade [de eliminação de âmbito.](./skip-out-of-scope-deletions.md) 
+- Alterar a configuração de provisionamento reinicia o serviço e aciona um [ciclo inicial](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exporte e importe a sua configuração de provisionamento utilizando a API do Microsoft Graph
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203005"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235065"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento do utilizador
 
@@ -30,7 +30,7 @@ Quando configura pela primeira vez o provisionamento automático, a secção **E
 - O tipo de ciclo de provisionamento (inicial ou incremental) que está atualmente em execução ou foi concluído pela última vez.
 - Uma barra de **progresso** que mostra a percentagem do ciclo de provisionamento que terminou. A percentagem reflete a contagem de páginas a provisionadas. Note que cada página pode conter vários utilizadores ou grupos, de modo que a percentagem não está diretamente correlacionada com o número de utilizadores, grupos ou funções a provisionadas.
 - Um botão **Refresh** que pode utilizar para manter a vista atualizada.
-- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisão. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recalculada a primeira sincronização depois do CDS [ser reposto](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisão. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recalculada a primeira sincronização depois do CDS [ser reposto](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta) 
 - Um link **'Registos de auditoria' view,** que abre os registos de provisionamento Azure AD para mais informações sobre todas as operações executadas pelo serviço de fornecimento de utilizadores, incluindo o estado de provisionamento para cada utilizador (consulte a secção de [registos de provisionamento de utilização](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
 
 Após a conclusão de um ciclo de provisionamento, a secção **estatística até à data** mostra o número cumulativo de utilizadores e grupos que foram a provisionados até à data, juntamente com a data de conclusão e duração do último ciclo. O **ID de atividade** identifica exclusivamente o ciclo de provisionamento mais recente. O **Job ID** é um identificador único para o trabalho de provisionamento, e é específico para a app no seu inquilino.
@@ -99,4 +99,4 @@ Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo in
 - Se o desempenho se tornar um problema e estiver a tentar provisionar a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de deteção. Os filtros de deteção permitem-lhe afinar os dados que o serviço de fornecimento extrai do Azure AD filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS com o Azure Ative Directory](user-provisioning.md)
+[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e desaprovisionamento automático de utilizadores em aplicações SaaS no Azure Active Directory)

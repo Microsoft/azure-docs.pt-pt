@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743580"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234776"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Resolução de problemas problemas comuns de encaminhamento
 
@@ -102,7 +102,7 @@ Existem várias causas possíveis para este sintoma:
          - Como exemplo, se o backend apenas aceitar http solicita as seguintes configurações seriam válidas:
             - _Os protocolos aceites_ são HTTP e HTTPS. _O protocolo de reencaminhamento_ é HTTP. O pedido de jogo não funcionará, uma vez que HTTPS é um protocolo permitido e se um pedido surgisse como HTTPS, a Porta Frontal tentaria encaminhá-lo usando HTTPS.
 
-            - _Os protocolos aceites_ são HTTP. _O protocolo de encaminhamento_ é um pedido de correspondência ou HTTPS.
+            - _Os protocolos aceites_ são HTTP. _O protocolo de encaminhamento_ é um pedido de correspondência ou HTTP.
 
     - _O Url Rewrite_ é desativado por padrão e só deve utilizar este campo se pretender reduzir o âmbito de recursos hospedados por backend que pretende disponibilizar. Quando desativado, a Porta Frontal encaminhará o mesmo caminho de pedido que recebe. É possível que este campo esteja mal configurado e a Porta Frontal esteja a solicitar um recurso a partir do backend que não está disponível, devolvendo assim um código de estado HTTP 404.
 

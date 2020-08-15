@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
-ms.openlocfilehash: f0a5c3df2359add9f896e05af6c8c77d9e006a2a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: c690002141c6c275d90d5bae41318f9a5907fb85
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171988"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236446"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como utilizar o serviço Tabela de Armazenamento do Azure ou a API de Tabelas do Azure Cosmos DB a partir de PHP
 
@@ -85,7 +85,7 @@ Para instanciar um cliente do serviço Tabela de Armazenamento, primeiro tem de 
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-### <a name="add-a-storage-emulator-connection"></a>Adicionar uma ligação do emulador de Armazenamento
+### <a name="add-a-storage-emulator-connection"></a>Adicione uma ligação emulador de armazenamento
 
 Para aceder ao emulador de armazenamento:
 
@@ -516,7 +516,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que já tem as noções básicas sobre o serviço Tabela do Azure e o Azure Cosmos DB, siga estas ligações para saber mais.
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c73e09e241baff7c4719acfd4257f537e27b010a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290159"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236192"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
 
@@ -33,9 +33,9 @@ Neste tutorial, ficará a saber como:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
-Inscreva-se no portal Azure em[https://portal.azure.com](https://portal.azure.com)
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
@@ -228,7 +228,7 @@ Após a criação do gateway de aplicações com o seu endereço IP público, po
 
     ![Testar o site fabrikam no gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, remova o grupo de recursos. Quando remove o grupo de recursos, também remove o gateway de aplicação e todos os seus recursos relacionados.
 
@@ -237,7 +237,7 @@ Para remover o grupo de recursos:
 1. No menu esquerdo do portal Azure, selecione **Grupos de Recursos**.
 2. Na página **de grupos de recursos,** procure **o myResourceGroupAG** na lista e, em seguida, selecione-o.
 3. Na **página**do grupo Recursos , selecione **Eliminar grupo de recursos**.
-4. Introduza *myResourceGroupAG* para **escrever o nome do grupo de recursos** e, em seguida, selecione **Eliminar**
+4. Introduza *o myResourceGroupAG* para **escrever o nome do grupo de recursos** e, em seguida, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

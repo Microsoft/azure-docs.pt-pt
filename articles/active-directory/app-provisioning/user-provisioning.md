@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163786"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235405"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?
 
@@ -59,7 +59,7 @@ A Azure AD apresenta suporte pré-integrado para muitas aplicações populares d
 
    ![Logotipo da Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../develop/howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
+   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../azuread-dev/howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
 
 * **Aplicações que suportam SCIM 2.0**. Para obter informações sobre como conectar genericamente aplicações que implementem APIs de gestão de utilizadores baseados em SCIM 2.0, consulte [Construir um ponto final SCIM e configurar o fornecimento do utilizador](use-scim-to-provision-users-and-groups.md).
 

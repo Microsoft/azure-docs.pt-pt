@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284647"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236612"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Create a managed image of a generalized VM in Azure (Criar uma imagem gerida de uma VM generalizada no Azure)
 
@@ -39,13 +39,15 @@ Para generalizar o seu Windows VM, siga estes passos:
 
 1. Inscreva-se no seu Windows VM.
    
-2. Abra uma janela de pedido de comando como administrador. Mude o diretório para %windir%\system32\sysprep e, em seguida, corra `sysprep.exe` .
+2. Abra uma janela de pedido de comando como administrador. 
+
+3. Elimine o diretório da pantera (C:\Windows\Panther). Em seguida, altere o diretório para %windir%\system32\sysprep e, em seguida, corra `sysprep.exe` .
    
-3. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE)** e selecione a caixa de **verificação Generalize.**
+4. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE)** e selecione a caixa de **verificação Generalize.**
    
-4. Para **opções de encerramento**, selecione **Shutdown**.
+5. Para **opções de encerramento**, selecione **Shutdown**.
    
-5. Selecione **OK**.
+6. Selecione **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

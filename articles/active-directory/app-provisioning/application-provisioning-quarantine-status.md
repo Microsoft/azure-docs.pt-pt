@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203021"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234747"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
 
@@ -34,7 +34,7 @@ Há três formas de verificar se um pedido está em quarentena:
 
 - No portal Azure, navegue para **Azure Ative Directory**  >  **Audit Logs** > filtro on **Activity: Quarantine** e rever o histórico de quarentena. Embora a vista na barra de progresso, tal como acima descrita, mostre se o provisionamento está atualmente em quarentena, os registos de auditoria permitem-lhe ver o histórico de quarentena para uma aplicação. 
 
-- Utilize o pedido de Gráfico microsoft [Obter sincronizaçãoJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programáticamente o estado do trabalho de provisionamento:
+- Utilize o pedido de Gráfico microsoft [Obter sincronizaçãoJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta) para obter programáticamente o estado do trabalho de provisionamento:
 
 ```microsoft-graph
         GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
@@ -52,15 +52,15 @@ Há três formas de verificar se um pedido está em quarentena:
 |---|---|
 |**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração para ver se o pedido requer especificar o URL do inquilino e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para quaisquer etapas adicionais necessárias.|
-|**Funções duplicadas:** As funções importadas de determinadas aplicações como a Salesforce e a Zendesk devem ser únicas. |Navegue para o [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de aplicação no portal Azure e retire a função duplicada.|
+|**Funções duplicadas:** As funções importadas de determinadas aplicações como a Salesforce e a Zendesk devem ser únicas. |Navegue para o [manifesto](../develop/reference-app-manifest.md) de aplicação no portal Azure e retire a função duplicada.|
 
  Um pedido do Microsoft Graph para obter o estatuto do trabalho de provisionamento mostra a seguinte razão para a quarentena:
 
-- `EncounteredQuarantineException`indica que foram fornecidas credenciais inválidas. O serviço de prestação de serviços não é capaz de estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
+- `EncounteredQuarantineException` indica que foram fornecidas credenciais inválidas. O serviço de prestação de serviços não é capaz de estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
 
-- `EncounteredEscrowProportionThreshold`indica que o provisionamento excedeu o limiar de depósito. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
+- `EncounteredEscrowProportionThreshold` indica que o provisionamento excedeu o limiar de depósito. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
 
-- `QuarantineOnDemand`significa que detetamos um problema com a sua aplicação e a definimos manualmente para a quarentena.
+- `QuarantineOnDemand` significa que detetamos um problema com a sua aplicação e a definimos manualmente para a quarentena.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Como consigo tirar a minha candidatura da quarentena?
 
@@ -74,11 +74,10 @@ Depois de resolver o problema, reinicie o trabalho de provisão. Algumas altera�
 
 - Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **Provisionamento** da aplicação em **Definições**, selecione **Limpar o estado e reiniciar a sincronização** e definir o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de prestação de serviços, o que pode demorar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as cauções, remove a aplicação da quarentena e limpa quaisquer marcas de água.
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá controlo total sobre o que reinicia. Pode optar por limpar as cauções (reiniciar o contador de cauções que se acumula para o estado de quarentena), limpar a quarentena (para remover a aplicação da quarentena) ou marcas de água límpias. utilize o seguinte pedido:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Terá controlo total sobre o que reinicia. Pode optar por limpar as cauções (reiniciar o contador de cauções que se acumula para o estado de quarentena), limpar a quarentena (para remover a aplicação da quarentena) ou marcas de água límpias. utilize o seguinte pedido:
  
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Substitua "{id}" pelo valor do ID da aplicação e substitua "{jobId}" pelo [ID do trabalho de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
-
+Substitua "{id}" pelo valor do ID da aplicação e substitua "{jobId}" pelo [ID do trabalho de sincronização](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

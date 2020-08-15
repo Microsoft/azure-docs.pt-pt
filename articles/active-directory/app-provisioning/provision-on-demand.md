@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235541"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento a pedido
 Utilize o provisionamento a pedido para doar um utilizador numa aplicação em segundos. Entre outras coisas, pode utilizar esta capacidade para:
@@ -47,9 +47,9 @@ O serviço de prestação de serviços tenta autorizar o acesso à aplicação-a
 
 #### <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
-* Certifique-se de que forneceu credenciais válidas, como o símbolo secreto e a URL do inquilino, para a aplicação do alvo. As credenciais exigidas variam de acordo com a aplicação. Para obter tutoriais de configuração detalhadas, consulte a [lista de tutoriais.](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* Certifique-se de que forneceu credenciais válidas, como o símbolo secreto e a URL do inquilino, para a aplicação do alvo. As credenciais exigidas variam de acordo com a aplicação. Para obter tutoriais de configuração detalhadas, consulte a [lista de tutoriais.](../saas-apps/tutorial-list.md) 
 * Certifique-se de que a aplicação-alvo suporta a filtragem dos atributos correspondentes definidos no painel **de mapeamentos do Atributo.** Poderá ser necessário verificar a documentação da API fornecida pelo desenvolvedor de aplicações para compreender os filtros suportados.
-* Para aplicações de Gestão de Identidade de Domínio Cruzado (SCIM), pode utilizar uma ferramenta como o Carteiro. Estas ferramentas ajudam-no a garantir que o pedido responde aos pedidos de autorização da forma que o serviço de fornecimento Azure Ative (Azure AD) espera. Veja um [pedido de exemplo.](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3)
+* Para aplicações de Gestão de Identidade de Domínio Cruzado (SCIM), pode utilizar uma ferramenta como o Carteiro. Estas ferramentas ajudam-no a garantir que o pedido responde aos pedidos de autorização da forma que o serviço de fornecimento Azure Ative (Azure AD) espera. Veja um [pedido de exemplo.](./use-scim-to-provision-users-and-groups.md#request-3)
 
 ### <a name="step-2-import-user"></a>Passo 2: Utilizador de importação
 
@@ -76,7 +76,7 @@ A secção **de detalhes do Ver** mostra as propriedades do utilizador que foram
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Passo 3: Determinar se o utilizador está no âmbito
 
-Em seguida, o serviço de fornecimento determina se o utilizador está em [possibilidade de](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) provisão. O serviço considera aspetos como:
+Em seguida, o serviço de fornecimento determina se o utilizador está em [possibilidade de](./how-provisioning-works.md#scoping) provisão. O serviço considera aspetos como:
 
 * Se o utilizador está atribuído à aplicação.
 * Se o âmbito está definido para **Sync atribuído** ou **Sync all**.
@@ -94,8 +94,8 @@ A secção **'Ver detalhes'** mostra as condições de deteção que foram avali
 
 #### <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
-* Certifique-se de que definiu um papel de scoping válido. Por exemplo, evite utilizar o [operador Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) com um valor não inteiro.
-* Se o utilizador não tiver o papel necessário, reveja as [dicas para o provisionamento dos utilizadores atribuídos à função de acesso predefinido](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Certifique-se de que definiu um papel de scoping válido. Por exemplo, evite utilizar o [operador Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) com um valor não inteiro.
+* Se o utilizador não tiver o papel necessário, reveja as [dicas para o provisionamento dos utilizadores atribuídos à função de acesso predefinido](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Passo 4: Combinar o utilizador entre a fonte e o alvo
 
@@ -129,9 +129,9 @@ A secção **de detalhes do Ver** exibe os atributos que foram modificados na ap
 
 #### <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
-* As falhas nas exportações podem variar muito. Verifique a [documentação para a disponibilização de registos](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) de falhas comuns.
+* As falhas nas exportações podem variar muito. Verifique a [documentação para a disponibilização de registos](../reports-monitoring/concept-provisioning-logs.md#error-codes) de falhas comuns.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 * **Precisa de desligar o provisionamento para utilizar o provisionamento a pedido?** Para aplicações que utilizem um token ao portador de longa duração ou um nome de utilizador e senha para autorização, não são necessários passos adicionais. Os pedidos que utilizam o OAuth para autorização exigem atualmente que o trabalho de provisionamento seja interrompido antes de utilizar o provisionamento a pedido. Aplicações como G Suite, Box, Workplace by Facebook e Slack enquadram-se nesta categoria. Estão em curso trabalhos para apoiar o provisionamento a pedido de todos os pedidos sem ter de deixar de provisões.
 
@@ -150,4 +150,4 @@ Existem atualmente algumas limitações conhecidas para o provisionamento a pedi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Disposição relativa à resolução de problemas](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Disposição relativa à resolução de problemas](./application-provisioning-config-problem.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235728"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -44,7 +44,7 @@ Para solicitar um conector automático de provisionamento Azure AD para uma apli
 
 São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
 
-Se o sign-on único baseado em SAML também estiver configurado para a aplicação, o limite interno de armazenamento por aplicação da Azure AD é de 1024 bytes. Este limite inclui todos os certificados, fichas secretas, credenciais e dados de configuração relacionados associados a uma única instância de uma aplicação (também conhecido como registo principal de serviço em Azure AD). Quando o sign-on único baseado em SAML é configurado, o certificado usado para assinar os tokens SAML consome frequentemente mais de 50% do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de e-mail de notificação, nomes de utilizador e palavras-passe) que introduza durante a configuração do fornecimento do utilizador podem exceder o limite de armazenamento. Para obter mais informações, consulte [as credenciais de administrador de poupança de problemas enquanto configura o provisionamento do utilizador](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Se o sign-on único baseado em SAML também estiver configurado para a aplicação, o limite interno de armazenamento por aplicação da Azure AD é de 1024 bytes. Este limite inclui todos os certificados, fichas secretas, credenciais e dados de configuração relacionados associados a uma única instância de uma aplicação (também conhecido como registo principal de serviço em Azure AD). Quando o sign-on único baseado em SAML é configurado, o certificado usado para assinar os tokens SAML consome frequentemente mais de 50% do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de e-mail de notificação, nomes de utilizador e palavras-passe) que introduza durante a configuração do fornecimento do utilizador podem exceder o limite de armazenamento. Para obter mais informações, consulte [as credenciais de administrador de poupança de problemas enquanto configura o provisionamento do utilizador](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -54,7 +54,7 @@ Existe um conjunto pré-configurado de atributos e mapeamentos de atributos entr
 
 Ao configurar o provisionamento, é importante rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Reveja e configuure a propriedade correspondente **(Match objects using this attribute**) que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas.
 
-Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos. Para mais informações, consulte [personalizar o fornecimento de mapeamentos de atributos para aplicações SaaS](../manage-apps/customize-application-attributes.md).
+Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos. Para mais informações, consulte [personalizar o fornecimento de mapeamentos de atributos para aplicações SaaS](./customize-application-attributes.md).
 
 Ao configurar o fornecimento de uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes mapeamentos, deve escrever uma expressão semelhante a um script que lhe permita transformar os dados dos seus utilizadores em formatos mais aceitáveis para a aplicação SaaS. Para mais detalhes, consulte [as expressões de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Pode utilizar filtros de deteção para definir regras baseadas em atributos que
 
 ### <a name="b2b-guest-users"></a>Utilizadores B2B (convidados)
 
-É possível utilizar o serviço de fornecimento de utilizadores Azure AD para a prestação de utilizadores B2B (ou convidados) em Azure AD a aplicações SaaS. No entanto, para que os utilizadores B2B inscrevam-se na aplicação SaaS utilizando a Azure AD, a aplicação SaaS deve ter a sua capacidade de entrada única baseada em SAML configurada de uma forma específica. Para obter mais informações sobre como configurar aplicações SaaS para apoiar os insurretos dos utilizadores B2B, consulte [aplicações Configure SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
+É possível utilizar o serviço de fornecimento de utilizadores Azure AD para a prestação de utilizadores B2B (ou convidados) em Azure AD a aplicações SaaS. No entanto, para que os utilizadores B2B inscrevam-se na aplicação SaaS utilizando a Azure AD, a aplicação SaaS deve ter a sua capacidade de entrada única baseada em SAML configurada de uma forma específica. Para obter mais informações sobre como configurar aplicações SaaS para apoiar os insurretos dos utilizadores B2B, consulte [aplicações Configure SaaS para colaboração B2B](../external-identities/configure-saas-apps.md).
 
 Note que o nome de utilizadorPrincipalName para um utilizador convidado é frequentemente armazenado como "alias#EXT# @domain.com ". quando o utilizadorPrincipalName está incluído nos mapeamentos do seu atributo como um atributo de origem, o #EXT# é retirado do nome do utilizadorPrincipalName. Se necessitar que o #EXT# esteja presente, substitua o nome de utilizadorPrincipalName por originalUserPrincipalName como atributo de origem. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: Inicial e incremental
 
-Quando o Azure AD é o sistema de origem, o serviço de fornecimento utiliza a [consulta Delta Use para rastrear alterações nos dados do Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) para monitorizar utilizadores e grupos. O serviço de fornecimento executa um ciclo inicial contra o sistema de origem e o sistema alvo, seguido de ciclos incrementais periódicos.
+Quando o Azure AD é o sistema de origem, o serviço de fornecimento utiliza a [consulta Delta Use para rastrear alterações nos dados do Microsoft Graph](/graph/delta-query-overview) para monitorizar utilizadores e grupos. O serviço de fornecimento executa um ciclo inicial contra o sistema de origem e o sistema alvo, seguido de ciclos incrementais periódicos.
 
 ### <a name="initial-cycle"></a>Ciclo inicial
 
@@ -154,11 +154,11 @@ Resolver estas falhas ajustando os valores de atributos para o utilizador afetad
 
 ### <a name="quarantine"></a>Quarentena
 
-Se a maioria ou todas as chamadas que são feitas contra o sistema alvo falharem consistentemente devido a um erro (por exemplo, credenciais de administração inválidas) o trabalho de provisionamento entra num estado de "quarentena". Este estado é indicado no relatório de resumo do [provisionamento](../manage-apps/check-status-user-account-provisioning.md) e via e-mail se as notificações por e-mail foram configuradas no portal Azure.
+Se a maioria ou todas as chamadas que são feitas contra o sistema alvo falharem consistentemente devido a um erro (por exemplo, credenciais de administração inválidas) o trabalho de provisionamento entra num estado de "quarentena". Este estado é indicado no relatório de resumo do [provisionamento](./check-status-user-account-provisioning.md) e via e-mail se as notificações por e-mail foram configuradas no portal Azure.
 
 Quando em quarentena, a frequência dos ciclos incrementais é gradualmente reduzida para uma vez por dia.
 
-O trabalho de provisionamento sai em quarentena depois de todos os erros ofensivos serem corrigidos e o ciclo de sincronização seguinte começar. Se o trabalho de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento é deficiente. Saiba mais aqui sobre o estado de quarentena [aqui.](../manage-apps/application-provisioning-quarantine-status.md)
+O trabalho de provisionamento sai em quarentena depois de todos os erros ofensivos serem corrigidos e o ciclo de sincronização seguinte começar. Se o trabalho de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento é deficiente. Saiba mais aqui sobre o estado de quarentena [aqui.](./application-provisioning-quarantine-status.md)
 
 ### <a name="how-long-provisioning-takes"></a>O tempo que o aprovisionamento demora
 
@@ -166,7 +166,7 @@ O desempenho depende se o seu trabalho de provisionamento está a executar um ci
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Como saber se os utilizadores estão a ser a provisionados corretamente
 
-Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de Provisionamento Azure AD [(pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os registos incluem todas as operações de leitura e escrita feitas para os sistemas de origem e alvo, bem como os dados do utilizador que foram lidos ou escritos durante cada operação. Para obter informações sobre como ler os registos de provisionamento no portal Azure, consulte o [guia de informação sobre](../manage-apps/check-status-user-account-provisioning.md)o provisionamento .
+Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de Provisionamento Azure AD [(pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os registos incluem todas as operações de leitura e escrita feitas para os sistemas de origem e alvo, bem como os dados do utilizador que foram lidos ou escritos durante cada operação. Para obter informações sobre como ler os registos de provisionamento no portal Azure, consulte o [guia de informação sobre](./check-status-user-account-provisioning.md)o provisionamento .
 
 ## <a name="de-provisioning"></a>Desesvisão
 
@@ -190,8 +190,8 @@ Se vir um atributo IsSoftDeleted nos mapeamentos do seu atributo, é utilizado p
 
 [Planear uma implementação de aprovisionamento automático de utilizadores](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configurar o aprovisionamento para uma aplicação da galeria](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configurar o aprovisionamento para uma aplicação da galeria](./configure-automatic-user-provisioning-portal.md)
 
 [Construa um ponto final SCIM e configuure o provisionamento ao criar a sua própria app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Problemas de resolução de problemas com configuração e provisionamento de utilizadores a uma aplicação](../manage-apps/application-provisioning-config-problem.md).
+[Problemas de resolução de problemas com configuração e provisionamento de utilizadores a uma aplicação](./application-provisioning-config-problem.md).

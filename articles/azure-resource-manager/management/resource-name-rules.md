@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554349"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235983"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -392,6 +392,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
+> | grupos de ação | grupo de recursos | 1-260 | Não posso usar:<br>`/` <br><br>Não pode terminar com espaço ou período.  |
 > | componentes | grupo de recursos | 1-260 | Não posso usar:<br>`%&\?/` <br><br>Não pode terminar com espaço ou período.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -652,7 +653,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | armazenamentoCotas / gestãoPolícias | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. Não se pode usar hífenes consecutivos. |
-> | table | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
+> | tabela | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -686,15 +687,16 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | ambientes | grupo de recursos | 1-90 | Não posso usar:<br>`'<>%&:\?/#` |
-> | ambientes / acessosPolícias | environment | 1-90 | Não posso usar:<br> `'<>%&:\?/#` |
-> | ambientes / eventosSources | environment | 1-90 | Não posso usar:<br>`'<>%&:\?/#` |
-> | ambientes / referênciaSSets | environment | 3-63 | Alfanuméricos |
+> | ambientes / acessosPolícias | ambiente | 1-90 | Não posso usar:<br> `'<>%&:\?/#` |
+> | ambientes / eventosSources | ambiente | 1-90 | Não posso usar:<br>`'<>%&:\?/#` |
+> | ambientes / referênciaSSets | ambiente | 3-63 | Alfanuméricos |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
+> | certificados | grupo de recursos | 1-260 | Não posso usar:<br>`/` <br><br>Não pode terminar com espaço ou período.  | 
 > | serverfarms | grupo de recursos | 1-40 | Alfanuméricos e hífens. |
 > | sites | global | 2-60 | Contém alfanuméricos e hífens.<br><br>Não se pode começar ou acabar com hífen. |
 > | sites / slots | site | 2-59 | Alfanuméricos e hífens. |
@@ -702,6 +704,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

@@ -2,18 +2,18 @@
 title: Quickstart - Criar uma tabela de armazenamento Azure no portal Azure
 description: Neste arranque rápido, utilize o serviço Table no portal Azure para criar uma tabela de Armazenamento Azure. Veja também como pode criar uma conta de armazenamento Azure.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3117a1ff24dd0a2a91768844bea41670ced8ff90
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d592dd6ac705d0f1a0b3ed55e115d06023b0a511
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033534"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236272"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Início Rápido: Criar uma Tabela de armazenamento do Azure no portal do Azure 
 

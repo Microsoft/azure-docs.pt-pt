@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283100"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235643"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino
 
@@ -54,7 +54,7 @@ A Azure AD fornece vários caminhos de integração para permitir o fornecimento
 
 * O [Serviço de Provisionamento AZure AD](../app-provisioning/user-provisioning.md) gere o fornecimento e desprovisionamento de utilizadores da Azure AD para a sua aplicação (provisionamento de saída) e da sua aplicação para Azure AD (provisionamento de entrada). O serviço conecta-se ao Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) pontos finais de gestão de IPC fornecidos pela sua aplicação.
 
-* Ao utilizar o [Microsoft Graph,](https://docs.microsoft.com/graph/)a sua aplicação gere o fornecimento de entrada e saída de utilizadores e grupos desde a Azure AD até à sua aplicação consultando a API do Microsoft Graph.
+* Ao utilizar o [Microsoft Graph,](/graph/)a sua aplicação gere o fornecimento de entrada e saída de utilizadores e grupos desde a Azure AD até à sua aplicação consultando a API do Microsoft Graph.
 
 * O fornecimento de identificação do utilizador de marcação de afirmação de segurança justo no tempo (SAML JIT) pode ser ativado se a sua aplicação estiver a utilizar o SAML para federação. Utiliza informações de sinistros enviadas no token SAML aos utilizadores de provisão.
 
@@ -72,8 +72,8 @@ Para ajudar a determinar qual a opção de integração a utilizar para a sua ap
 | Apoiar contas de hóspedes (B2B)| √| √| √ |
 | Apoiar contas não empresariais (B2C)| X| √| √ |
 
-<sup>*</sup>– A configuração AD Connect É necessária para sincronizar os utilizadores de AD a AZure AD.  
-<sup>+</sup >– A utilização do SCIM para provisão não o impede de integrar a sua aplicação com o MIcrosoft Graph para outros fins.
+<sup>*</sup> – A configuração AD Connect É necessária para sincronizar os utilizadores de AD a AZure AD.  
+<sup>+</sup >– A utilização do SCIM para provisão não o impede de integrar a sua aplicação com o Microsoft Graph para outros fins.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Serviço de Prestação de Anúncios Azure (SCIM)
 
@@ -89,7 +89,7 @@ Para obter mais informações sobre como os utilizadores do Serviço de Provisio
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph for Provisioning
 
-Quando utiliza o Microsoft Graph para provisões, tem acesso a todos os dados ricos do utilizador disponíveis no Gráfico. Além dos detalhes dos utilizadores e grupos, também pode obter informações adicionais como as funções do utilizador, gestor e relatórios diretos, dispositivos de propriedade e registados, e centenas de outras peças de dados disponíveis no [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+Quando utiliza o Microsoft Graph para provisões, tem acesso a todos os dados ricos do utilizador disponíveis no Gráfico. Além dos detalhes dos utilizadores e grupos, também pode obter informações adicionais como as funções do utilizador, gestor e relatórios diretos, dispositivos de propriedade e registados, e centenas de outras peças de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Mais de 15 milhões de organizações, e 90% da fortuna 500 empresas usam Azure AD enquanto subscrevem serviços na nuvem da Microsoft como Office 365, Microsoft Azure, Enterprise Mobility Suite ou Microsoft 365. Pode utilizar o Microsoft Graph para integrar a sua aplicação com fluxos de trabalho administrativos, tais como embarque de funcionários (e rescisão), manutenção de perfis e muito mais. 
 
@@ -97,9 +97,9 @@ Saiba mais sobre a utilização do Microsoft Graph para provisões:
 
 * [Página inicial do Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Descrição Geral do Microsoft Graph](https://docs.microsoft.com/graph/overview)
+* [Descrição Geral do Microsoft Graph](/graph/overview)
 
-* [Visão geral do Microsoft Graph Auth](https://docs.microsoft.com/graph/auth/)
+* [Visão geral do Microsoft Graph Auth](/graph/auth/)
 
 * [Começar com o Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
@@ -109,7 +109,7 @@ Se pretender que os utilizadores apenas após o primeiro sinal de entrada na sua
 
 A SAML JIT utiliza as informações de sinistros no token SAML para criar e atualizar informações dos utilizadores na aplicação. Os clientes podem configurar estas reclamações necessárias na aplicação AZure AD, se necessário. Por vezes, o provisionamento do JIT precisa de ser ativado a partir do lado da aplicação para que o cliente possa utilizar esta funcionalidade. O SAML JIT é útil para criar e atualizar utilizadores, mas não pode eliminar ou desativar os utilizadores na aplicação.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Ativar o Único S-On para a sua aplicação](../manage-apps/isv-sso-content.md)
 

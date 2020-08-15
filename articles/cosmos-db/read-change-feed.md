@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697342"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236799"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Leitura do feed de alterações do Azure Cosmos DB
 
-Pode trabalhar com o feed de mudança de DB Azure Cosmos utilizando um modelo de push ou um modelo de puxar. Com um modelo push, um cliente solicita trabalhar a partir de um servidor e tem lógica de negócio para processar uma mudança. No entanto, a complexidade na verificação de alterações e no estado de armazenamento das últimas alterações processadas é tratada no servidor.
+Pode trabalhar com o feed de mudança de DB Azure Cosmos utilizando um modelo de push ou um modelo de puxar. Com um modelo push, um servidor (o feed de mudança) empurra o trabalho para um cliente que tem lógica de negócio para processar este trabalho. No entanto, a complexidade na verificação de trabalho e estado de armazenamento para o último trabalho processado é tratada no servidor.
 
-Com um modelo de puxar, um servidor solicita o trabalho, muitas vezes solicitando-o de uma fila de trabalho central. O cliente, neste caso, não só tem lógica de negócio para processar alterações, mas também armazenar estado para a última alteração processada, manuseando o equilíbrio de carga entre vários clientes processando alterações em paralelo, e manipulando erros.
+Com um modelo de puxar, o cliente tem que retirar o trabalho do servidor. O cliente, neste caso, não só tem lógica de negócio para o processamento de trabalho, mas também armazena o estado para o último trabalho processado, manuseando o equilíbrio de cargas entre vários clientes processando trabalhos em paralelo, e manipulando erros.
 
 Ao ler o feed de mudança de DB do Azure Cosmos, recomendamos a utilização de um modelo de push porque não precisa de se preocupar com:
 
@@ -76,7 +76,7 @@ A funcionalidade de feed de alteração é emergida como fluxos de mudança na A
 
 A Nativa Apache Cassandra fornece a captura de dados de mudança (CDC), um mecanismo para sinalizar tabelas específicas para arquivo, bem como rejeitar escritas para essas tabelas uma vez que um tamanho-on-disco configurável para o log CDC é alcançado. A funcionalidade de feed de mudança em Azure Cosmos DB API para Cassandra aumenta a capacidade de consultar as mudanças com predicado via CQL. Para saber mais sobre os detalhes da implementação, consulte [change feed na API API do Azure Cosmos para Cassandra.](cassandra-change-feed.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora continuar a aprender mais sobre a alteração do feed nos seguintes artigos:
 

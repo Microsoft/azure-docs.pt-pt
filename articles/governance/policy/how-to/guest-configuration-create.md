@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045132"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236544"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,7 +16,7 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler a 
  
 Para aprender a criar políticas de Configuração de Hóspedes para Linux, consulte a página [Como criar políticas de Configuração de Hóspedes para Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração do Hóspede utiliza um módulo [de recurso de configuração estatal](/powershell/scripting/dsc/overview/overview) (DSC) desejado para criar o ficheiro de configuração. A configuração DSC define a condição em que a máquina deve estar.
+Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar.
 Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
@@ -26,7 +26,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > [!IMPORTANT]
 > As políticas personalizadas com a Configuração do Convidado são uma funcionalidade de pré-visualização.
 >
-> A extensão de Configuração do Hóspede é necessária para realizar auditorias em máquinas virtuais Azure.
+> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
 > Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política:
 >   - [Implementar pré-requisitos para ativar a política de configuração do hóspede em VMs windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
@@ -106,9 +106,9 @@ A propriedade Reasons é utilizada pelo serviço para normalizar a forma como a 
 As propriedades **Código** e **Frase** são esperadas pelo serviço. Ao autorizar um recurso personalizado, desenrida o texto (tipicamente estaladudo) que pretende mostrar como a razão pela qual o recurso não está em conformidade como o valor da **Frase**. **O código** tem requisitos específicos de formatação para que a comunicação possa apresentar claramente informações sobre o recurso utilizado para fazer a auditoria. Esta solução torna a configuração do hóspede extensível. Qualquer comando pode ser executado desde que a saída possa ser devolvida como um valor de corda para a propriedade **Frase.**
 
 - **Código** (cadeia): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como identificador pela razão. Estes três valores devem ser delimitados pelo cólon sem espaços.
-  - Um exemplo seria`registry:registry:keynotpresent`
+  - Um exemplo seria `registry:registry:keynotpresent`
 - **Frase** (cadeia): Texto legível pelo homem para explicar por que a definição não é compatível.
-  - Um exemplo seria`The registry key $key is not present on the machine.`
+  - Um exemplo seria `The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -307,6 +307,8 @@ Parâmetros do `New-GuestConfigurationPolicy` cmdlet:
 - **Versão**: Versão política.
 - **Caminho**: Caminho de destino onde são criadas definições políticas.
 - **Plataforma**: Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
+- **Tag** adiciona um ou mais filtros de etiqueta à definição de política
+- **Categoria** define o campo de metadados de categoria na definição de política
 
 O exemplo a seguir cria as definições de política num caminho especificado a partir de um pacote de política personalizado:
 
@@ -328,14 +330,6 @@ Os seguintes ficheiros são criados `New-GuestConfigurationPolicy` por:
 - **Initiative.js**
 
 A saída do cmdlet devolve um objeto que contém o nome de visualização da iniciativa e o caminho dos ficheiros de política.
-
-> [!Note]
-> O mais recente módulo de Configuração de Hóspedes inclui um novo parâmetro:
-> - **Tag** adiciona um ou mais filtros de etiqueta à definição de política
->   - Consulte a secção [filtrar as políticas de configuração do convidado utilizando Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Categoria** define o campo de metadados de categoria na definição de política
->   - Se o parâmetro não estiver incluído, a categoria predefini na Configuração do Convidado.
-> Estas funcionalidades estão em pré-visualização e requerem a versão 1.20.1 do módulo de configuração do hóspede, que pode ser instalada através de `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Por fim, publique as definições de política utilizando o `Publish-GuestConfigurationPolicy` cmdlet. O cmdlet tem apenas o parâmetro **Path** que aponta para a localização dos ficheiros JSON criados por `New-GuestConfigurationPolicy` .
 
@@ -377,9 +371,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar as políticas de configuração do hóspede usando Tags
-
-> [!Note]
-> Esta funcionalidade está em pré-visualização e requer a versão 1.20.1 do módulo de configuração do hóspede, que pode ser instalada através de `Install-Module GuestConfiguration -AllowPrerelease` .
 
 As definições de política criadas por cmdlets no módulo de Configuração do Hóspede podem, opcionalmente, incluir um filtro para tags. O parâmetro **tag** de `New-GuestConfigurationPolicy` suporte uma variedade de hashtables contendo conjuntos de etiquetas individuais inteiras. As etiquetas são adicionadas à `If` secção da definição de política e não podem ser modificadas por uma atribuição de políticas.
 
@@ -439,10 +430,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Ampliação da configuração do hóspede com ferramentas de terceiros
-
-> [!Note]
-> Esta funcionalidade está em pré-visualização e requer a versão 1.20.3 do módulo de configuração do hóspede, que pode ser instalada através de `Install-Module GuestConfiguration -AllowPrerelease` .
-> Na versão 1.20.3, esta funcionalidade só está disponível para definições de política que auditam máquinas Windows
 
 Os pacotes de artefactos para configuração de hóspedes podem ser estendidos para incluir ferramentas de terceiros.
 O alargamento da configuração do hóspede requer o desenvolvimento de dois componentes.
@@ -575,11 +562,6 @@ Se quiser lançar uma atualização da política, existem dois campos que requer
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
 
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversão de conteúdo de política do grupo do Windows para configuração de convidados de política de Azure
-
-A Configuração do Hóspede, ao auditar máquinas do Windows, é uma implementação da sintaxe de configuração do estado desejada por PowerShell. A comunidade DSC publicou ferramentas para converter modelos de Política de Grupo exportados para formato DSC. Ao utilizar esta ferramenta juntamente com os cmdlets de Configuração de Convidados acima descritos, pode converter o conteúdo da Política do Grupo Windows e publicá-lo para a Azure Policy para auditar. Para obter mais informações sobre a utilização da ferramenta, consulte o artigo [Quickstart: Converta a Política de Grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Uma vez convertido o conteúdo, os passos acima para criar um pacote e publicá-lo como Azure Policy são os mesmos que para qualquer conteúdo DSC.
-
 ## <a name="optional-signing-guest-configuration-packages"></a>Opcional: Assinar pacotes de configuração de hóspedes
 
 As políticas personalizadas de Configuração do Hóspede usam hash SHA256 para validar o pacote de política não mudou.
@@ -617,7 +599,7 @@ Uma ferramenta está disponível na pré-visualização para ajudar na resoluç�
 
 Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](programmatically-create.md)

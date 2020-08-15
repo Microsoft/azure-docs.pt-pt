@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445658"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235710"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -70,7 +70,7 @@ Este artigo utiliza os seguintes termos:
 | - | - |
 | Webinars a pedido| [Gerir as suas Aplicações Empresariais com Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a alcançar SSO para as aplicações saaS da sua empresa e as melhores práticas para controlar o acesso. |
 | Vídeos| [O que é o fornecimento de utilizadores no Ative Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [Como implementar o provisionamento do utilizador no Ative Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integração da Salesforce com Azure AD: Como automatizar o Provisionamento do Utilizador](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Cursos online| SkillUp Online: [Gestão de Identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitas aplicações SaaS e garantir o acesso dos utilizadores a essas aplicações. |
+| Cursos online| SkillUp Online:  [Gestão de Identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitas aplicações SaaS e garantir o acesso dos utilizadores a essas aplicações. |
 | Livros| [Autenticação moderna com Diretório Ativo Azure para Aplicações Web (Referência do Programador) 1ª Edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritário e de mergulho profundo para a construção de soluções de autenticação ative directy para estes novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicações SaaS com Azure AD.](../saas-apps/tutorial-list.md) |
 | FAQ| [Perguntas frequentes](../app-provisioning/user-provisioning.md) sobre o fornecimento automatizado de utilizadores |
@@ -157,7 +157,7 @@ Os passos reais necessários para permitir e configurar o fornecimento automáti
 
 Caso contrário, siga os passos abaixo:
 
-1. [Crie um pedido](../develop/howto-app-gallery-listing.md) para um conector de provisionamento pré-integrado do utilizador. A nossa equipa trabalhará consigo e com o desenvolvedor de aplicações para embarcar na sua aplicação na nossa plataforma se apoiar o SCIM.
+1. [Crie um pedido](../azuread-dev/howto-app-gallery-listing.md) para um conector de provisionamento pré-integrado do utilizador. A nossa equipa trabalhará consigo e com o desenvolvedor de aplicações para embarcar na sua aplicação na nossa plataforma se apoiar o SCIM.
 
 1. Utilize o suporte genérico de fornecimento de utilizadores [genéricos BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) para a aplicação. Este é um requisito para que a Azure AD provisa os utilizadores para a aplicação sem um conector de provisionamento pré-integrado.
 

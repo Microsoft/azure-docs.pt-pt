@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050868"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235303"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar palavras-passe más usando a Azure Ative Directory Password Protection
 
 Muitas orientações de segurança recomendam que não use a mesma palavra-passe em vários locais, para torná-la complexa, e para evitar palavras-passe simples como *a Password123*. Pode fornecer aos seus utilizadores [orientações sobre como escolher palavras-passe,](https://www.microsoft.com/research/publication/password-guidance)mas muitas vezes ainda são utilizadas senhas fracas ou inseguras. A Azure AD Password Protection deteta e bloqueia senhas fracas conhecidas e suas variantes, e também pode bloquear termos fracos adicionais que são específicos da sua organização.
 
-Com o Azure AD Password Protection, as listas de senhas proibidas globalmente padrão são aplicadas automaticamente a todos os utilizadores da nuvem. Para suportar as suas necessidades de negócio e segurança, pode definir entradas numa lista de senhas proibidas sob medida. Quando os utilizadores alteram ou reiniciam as suas palavras-passe, estas listas de senhas proibidas são verificadas para impor a utilização de senhas fortes.
+Com a Azure AD Password Protection, as listas de senhas proibidas globais são automaticamente aplicadas a todos os utilizadores de um inquilino AD Azure. Para suportar as suas necessidades de negócio e segurança, pode definir entradas numa lista de senhas proibidas sob medida. Quando os utilizadores alteram ou reiniciam as suas palavras-passe, estas listas de senhas proibidas são verificadas para impor a utilização de senhas fortes.
 
 Deve utilizar funcionalidades adicionais como [autenticação multi-factor Azure,](concept-mfa-howitworks.md)e não apenas confiar em palavras-passe fortes aplicadas pela Azure AD Password Protection. Para obter mais informações sobre a utilização de várias camadas de segurança para os seus eventos de entrada, consulte [o seu Pa$$word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ A equipa de Proteção de Identidade Azure AD analisa constantemente os dados de
 
 Quando uma palavra-passe é alterada ou reiniciada para qualquer utilizador num inquilino AZure AD, a versão atual da lista global de senhas proibidas é usada para validar a força da palavra-passe. Esta verificação de validação resulta em senhas mais fortes para todos os clientes AD Azure.
 
-A lista global de palavras-passe proibida é aplicada automaticamente a todos os utilizadores da nuvem num inquilino AZure AD. Não há nada que permita ou configuure, e não pode ser desativado.
+A lista global de palavras-passe proibida é aplicada automaticamente a todos os utilizadores de um inquilino AZure AD. Não há nada que permita ou configuure, e não pode ser desativado. Esta lista global de palavras-passe proibidas é aplicada aos utilizadores quando alteram ou reiniciam a sua própria palavra-passe através do Azure AD.
 
 > [!NOTE]
 > Os criminosos virtuais também usam estratégias semelhantes nos seus ataques para identificar senhas e variações fracas comuns. Para melhorar a segurança, a Microsoft não publica o conteúdo da lista global de senhas proibidas.
@@ -99,7 +99,7 @@ Embora a lista global proibida seja pequena em comparação com algumas listas d
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos no local
 
-Muitas organizações têm um modelo de identidade híbrida que inclui ambientes de Serviços de Domínio de Diretório Ativo (DS) no local. Para estender os benefícios de segurança da Azure AD Password Protection para o seu ambiente DS AD, pode instalar componentes nos seus servidores no local. Estes agentes requerem eventos de mudança de palavra-passe no ambiente AD DS no local para cumprir a mesma política de palavra-passe que os utilizadores apenas na nuvem.
+Muitas organizações têm um modelo de identidade híbrida que inclui ambientes de Serviços de Domínio de Diretório Ativo (DS) no local. Para estender os benefícios de segurança da Azure AD Password Protection para o seu ambiente DS AD, pode instalar componentes nos seus servidores no local. Estes agentes requerem eventos de mudança de palavra-passe no ambiente AD DS no local para cumprir a mesma política de senha que no Azure AD.
 
 Para obter mais informações, consulte [a Proteção de Passwords AZure AD para DS AD](concept-password-ban-bad-on-premises.md).
 

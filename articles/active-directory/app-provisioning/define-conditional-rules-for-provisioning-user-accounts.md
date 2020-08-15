@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781961"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235829"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicações baseados em atributos com filtros de escotagem
 O objetivo deste artigo é explicar como usar filtros de digitalização para definir regras baseadas em atributos que determinam quais os utilizadores que estão a forcam a uma aplicação.
@@ -94,7 +94,7 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
    
    j. **Greater_Than_OR_EQUALS.** A cláusula devolve "verdadeiro" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escoamento deve ser um número inteiro e o atributo no utilizador deve ser um número inteiro [0,1,2,...]. 
    
-   k. **Inclui.** A cláusula devolve "verdadeiro" se o atributo avaliado contiver o valor de cadeia (sensível a caso) como descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Inclui.** A cláusula devolve "verdadeiro" se o atributo avaliado contiver o valor de cadeia (sensível a caso) como descrito [aqui](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +130,3 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
 * [Notificações de provisão de conta](../app-provisioning/user-provisioning.md)
 * [Utilizar o SCIM para permitir o fornecimento automático de utilizadores e grupos do Azure Ative Directory às aplicações](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar apps saaS](../saas-apps/tutorial-list.md)
-

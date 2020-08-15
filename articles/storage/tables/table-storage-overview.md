@@ -2,21 +2,21 @@
 title: Introdução ao Armazenamento de tabelas – Armazenamento de objetos no Azure | Microsoft Docs
 description: Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: c850d2b01e098a10aacf383f0ed4340cb9e64e10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2670d9ce568195fd97350bf678059ac89610422f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "62129792"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236170"
 ---
-# <a name="introduction-to-table-storage-in-azure"></a>Introdução ao Armazenamento de tabelas no Azure
+# <a name="what-is-azure-table-storage-"></a>O que é o armazenamento da Mesa Azure? 
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 

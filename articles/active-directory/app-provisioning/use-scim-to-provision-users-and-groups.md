@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829701"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235473"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -156,7 +156,7 @@ Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#
 
 Siga estas orientações gerais ao implementar um ponto final SCIM para garantir a compatibilidade com a Azure AD:
 
-* `id`é uma propriedade necessária para todos os recursos. Cada resposta que devolva um recurso deve garantir que cada recurso tem esta propriedade, exceto `ListResponse` com zero membros.
+* `id` é uma propriedade necessária para todos os recursos. Cada resposta que devolva um recurso deve garantir que cada recurso tem esta propriedade, exceto `ListResponse` com zero membros.
 * A resposta a um pedido de consulta/filtro deve ser sempre um `ListResponse` .
 * Os grupos são opcionais, mas só são apoiados se a implementação do SCIM apoiar os pedidos do PATCH.
 * Não é necessário incluir todo o recurso na resposta PATCH.
@@ -751,7 +751,7 @@ O serviço de fornecimento de AD Azure opera atualmente ao abrigo dos intervalos
 
 Agora que concebeu o seu esquema e compreendeu a implementação do Azure AD SCIM, pode começar a desenvolver o seu ponto final SCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, você pode confiar em uma série de bibliotecas SCIM de código aberto publicadas pela comunidade SCIM.
 
-O código de [referência](https://aka.ms/SCIMReferenceCode) open source .NET Core publicado pela equipa de provisionamento Azure AD é um desses recursos que podem saltar para iniciar o seu desenvolvimento. Depois de ter construído o seu ponto final SCIM, vai querer testá-lo. Pode utilizar a recolha de testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou passar pelos pedidos/respostas da amostra fornecidos [acima.](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)  
+O código de [referência](https://aka.ms/SCIMReferenceCode) open source .NET Core publicado pela equipa de provisionamento Azure AD é um desses recursos que podem saltar para iniciar o seu desenvolvimento. Depois de ter construído o seu ponto final SCIM, vai querer testá-lo. Pode utilizar a recolha de testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou passar pelos pedidos/respostas da amostra fornecidos [acima.](#user-operations)  
 
    > [!Note]
    > O código de referência destina-se a ajudá-lo a começar a construir o seu ponto final SCIM e é fornecido "AS IS". As contribuições da comunidade são bem-vindas para ajudar a construir e manter o código.
@@ -796,10 +796,10 @@ O serviço SCIM deve ter um certificado de autenticação de endereço HTTP e se
 
 O .NET Core SDK inclui um certificado de desenvolvimento HTTPS que pode ser utilizado durante o desenvolvimento, o certificado é instalado como parte da experiência de primeira execução. Dependendo da forma como executar a aplicação core web ASP.NET, ouvirá uma porta diferente:
 
-* Microsoft.SCIM.WebHostSample:https://localhost:5001
-* IIS Express:https://localhost:44359/
+* Microsoft.SCIM.WebHostSample: https://localhost:5001
+* IIS Express: https://localhost:44359/
 
-Para mais informações sobre HTTPS em ASP.NET Utilização do núcleo o seguinte link: [Impor HTTPS em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Para mais informações sobre HTTPS em ASP.NET Utilização do núcleo o seguinte link: [Impor HTTPS em ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Tratamento da autenticação do ponto final
 
@@ -1168,12 +1168,12 @@ Uma vez iniciado o ciclo inicial, pode **selecionar registos de provisionamento*
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passo 5: Publique a sua candidatura na galeria de aplicações AZure AD
 
-Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de candidaturas Azure AD. Isto facilitará às organizações a descoberta da aplicação e a configuração do provisionamento. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os passos [aqui.](../develop/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes utilizarem. 
+Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de candidaturas Azure AD. Isto facilitará às organizações a descoberta da aplicação e a configuração do provisionamento. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os passos [aqui.](../azuread-dev/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes utilizarem. 
 
 ### <a name="gallery-onboarding-checklist"></a>Galeria de verificação de bordo
 Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e os clientes têm uma experiência de implementação suave. A informação será recolhida de si quando embarcar na galeria. 
 > [!div class="checklist"]
-> * Suporte um utilizador [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
+> * Suporte um utilizador [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
 > * Apoio pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
 > * Estabelecer contactos de engenharia e apoio para orientar os clientes post gallery onboarding (Obrigatório)
 > * 3 Credenciais de teste não expiradas para a sua aplicação (Requerida)

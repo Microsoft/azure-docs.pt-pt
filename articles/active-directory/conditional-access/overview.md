@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051948"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234708"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
@@ -38,7 +38,8 @@ Ao utilizar as políticas de Acesso Condicional, pode aplicar os controlos de ac
 
 ![Fluxo de processo de acesso condicional conceptual](./media/overview/conditional-access-overview-how-it-works.png)
 
-As políticas de acesso condicional são aplicadas após a autenticação do primeiro fator ter sido concluída. O Acesso Condicional não se destina a ser a primeira linha de defesa de uma organização para cenários como ataques de negação de serviço (DoS), mas pode usar sinais destes eventos para determinar o acesso.
+> [!IMPORTANT]
+> As políticas de acesso condicional são aplicadas após a autenticação do primeiro fator estar concluída. O Acesso Condicional não pretende ser a primeira linha de defesa de uma organização para cenários como ataques de negação de serviço (DoS), mas pode usar sinais destes eventos para determinar o acesso.
 
 ## <a name="common-signals"></a>Sinais comuns
 

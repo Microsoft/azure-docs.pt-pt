@@ -2,18 +2,18 @@
 title: Design Azure Table armazenamento para consultas / Microsoft Docs
 description: Tabelas de design para consultas no armazenamento da mesa Azure. Escolha uma chave de partição apropriada, otimize as consultas e sortifique os dados para o serviço Tabela.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926251"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236340"
 ---
 # <a name="design-for-querying"></a>Design das consultas
 As soluções de serviço de mesa podem ser lidas intensivamente, escrever intensivamente ou uma mistura das duas. Este artigo centra-se nas coisas a ter em conta quando está a desenhar o seu serviço de Mesa para suportar as operações de leitura de forma eficiente. Tipicamente, um design que suporta operações de leitura eficientemente também é eficiente para operações de escrita. No entanto, existem considerações adicionais a ter em conta ao conceber operações de escrita, discutidas no artigo [Design para modificação de dados](table-storage-design-for-modification.md).

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781995"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234844"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestão do fornecimento de conta de utilizador para aplicações empresariais no portal Azure
 
 Este artigo descreve as etapas gerais para a gestão do provisionamento automático da conta de utilizador e de desatentação de aplicações que o suportam. *O fornecimento de conta de utilizador* é o ato de criar, atualizar e/ou desativar registos de contas de utilizador na loja de perfis de utilizador local de uma aplicação. A maioria das aplicações em nuvem e SaaS armazenam o papel e permissões dos utilizadores na própria loja de perfis de utilizador local do utilizador, e a presença de tal registo de utilizador na loja local do utilizador é *necessária* para uma única sessão de acesso e acesso ao trabalho. Para saber mais sobre o fornecimento automático de conta de utilizador, consulte [automatizar o Provisionamento do Utilizador e Deprovisionar para aplicações SaaS com o Azure Ative Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> O Azure Ative Directory (Azure AD) tem uma galeria que contém milhares de aplicações pré-integradas que estão habilitadas para o fornecimento automático com Azure AD. Deve começar por encontrar o tutorial de configuração de provisionamento específico da sua aplicação na [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). É provável que encontre orientações passo a passo para configurar tanto a app como o AD Azure para criar a ligação de provisionamento.
+> O Azure Ative Directory (Azure AD) tem uma galeria que contém milhares de aplicações pré-integradas que estão habilitadas para o fornecimento automático com Azure AD. Deve começar por encontrar o tutorial de configuração de provisionamento específico da sua aplicação na [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](../saas-apps/tutorial-list.md). É provável que encontre orientações passo a passo para configurar tanto a app como o AD Azure para criar a ligação de provisionamento.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Encontrar as suas apps no portal
 
@@ -83,6 +83,6 @@ Pode iniciar e parar o serviço de prestação de Ad Azure para a aplicação se
 
 Se o provisionamento estiver a ser habilitado pela primeira vez para uma aplicação, ligue o serviço alterando o **Estado de Provisionamento** para **On**. Esta alteração faz com que o serviço de fornecimento de Ad Azure execute um ciclo inicial. Lê os utilizadores designados na secção **Utilizadores e grupos,** consulta a aplicação-alvo para os mesmos e, em seguida, executa as ações de provisionamento definidas na secção Azure AD **Mappings.** Durante este processo, o serviço de fornecimento armazena dados em cache sobre que contas de utilizador está a gerir, pelo que contas não geridas dentro das aplicações-alvo que nunca estiveram em âmbito de atribuição não são afetadas por operações de desavisionamento. Após o ciclo inicial, o serviço de fornecimento sincroniza automaticamente os objetos do utilizador e do grupo num intervalo de 40 minutos.
 
-Altere o **Estado de Provisionamento** para **Off** para interromper o serviço de prestação. Neste estado, o Azure não cria, atualiza ou remove qualquer utilizador ou objetos de grupo na aplicação. Mude o estado de volta para **On** e o serviço retoma onde deixou de lado.
+Altere o **Estado de Provisionamento** para **Off**  para interromper o serviço de prestação. Neste estado, o Azure não cria, atualiza ou remove qualquer utilizador ou objetos de grupo na aplicação. Mude o estado de volta para **On** e o serviço retoma onde deixou de lado.
 
-**Limpar o estado atual e reiniciar a sincronização** desencadeia um ciclo inicial. O serviço irá então avaliar todos os utilizadores do sistema de origem novamente e determinar se eles estão em possibilidade de provisão. Isto pode ser útil quando a sua aplicação está em quarentena ou precisa de fazer uma alteração nos mapeamentos do seu atributo. Note que o ciclo inicial demora mais tempo a ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam de ser avaliados. Pode aprender mais sobre o desempenho dos ciclos iniciais e incrementais [aqui.](application-provisioning-when-will-provisioning-finish-specific-user.md) 
+**Limpar o estado atual e reiniciar a sincronização** desencadeia um ciclo inicial. O serviço irá então avaliar todos os utilizadores do sistema de origem novamente e determinar se eles estão em possibilidade de provisão. Isto pode ser útil quando a sua aplicação está em quarentena ou precisa de fazer uma alteração nos mapeamentos do seu atributo. Note que o ciclo inicial demora mais tempo a ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam de ser avaliados. Pode aprender mais sobre o desempenho dos ciclos iniciais e incrementais [aqui.](application-provisioning-when-will-provisioning-finish-specific-user.md)

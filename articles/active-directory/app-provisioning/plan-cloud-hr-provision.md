@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445571"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235702"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -81,7 +81,7 @@ Você também precisa de uma licença de subscrição Azure AD Premium P1 válid
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Administrador [de identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) Azure AD para configurar o agente de provisionamento Azure AD Connect.
+- Administrador [de identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  Azure AD para configurar o agente de provisionamento Azure AD Connect.
 - Papel [de administrador de aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) AZure AD para configurar a app de provisionamento no portal Azure
 - Um teste e instância de produção da aplicação cloud HR.
 - Permissões de administrador na aplicação cloud HR para criar um utilizador de integração do sistema e fazer alterações para testar dados dos funcionários para fins de teste.
@@ -167,7 +167,7 @@ A integração de provisionamento entre a app hr em nuvem e o Ative Directory re
 - Agente de provisionamento Azure AD Connect
 - Domínio do Active Directory
 
-A topologia de implantação de agente de provisionamento Azure AD Connect depende do número de inquilinos de aplicativos hr em nuvem e domínios infantis do Ative Directory que pretende integrar. Se tiver vários domínios de Diretório Ativo, depende se os domínios do Diretório Ativo são contíguos ou [desarticulantes](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+A topologia de implantação de agente de provisionamento Azure AD Connect depende do número de inquilinos de aplicativos hr em nuvem e domínios infantis do Ative Directory que pretende integrar. Se tiver vários domínios de Diretório Ativo, depende se os domínios do Diretório Ativo são contíguos ou [desarticulantes](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 Com base na sua decisão, escolha um dos cenários de implantação:
 
@@ -313,7 +313,7 @@ Com esta expressão, se o valor do Município for Dallas, Austin, Seattle ou Lon
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Plano de entrega de senha de novas contas de utilizador
 
-Quando inicia o processo 'Joiners', tem de definir e entregar uma senha temporária de novas contas de utilizador. Com o fornecimento de utilizadores de AD em nuvem para Azure, pode lançar a capacidade [de redefinição da palavra-passe de autosserviço](../authentication/quickstart-sspr.md) AD (SSPR) para o utilizador no primeiro dia.
+Quando inicia o processo 'Joiners', tem de definir e entregar uma senha temporária de novas contas de utilizador. Com o fornecimento de utilizadores de AD em nuvem para Azure, pode lançar a capacidade [de redefinição da palavra-passe de autosserviço](../authentication/tutorial-enable-sspr.md) AD (SSPR) para o utilizador no primeiro dia.
 
 O SSPR é um meio simples para os administradores de TI permitirem que os utilizadores repusem as suas palavras-passe ou desbloqueiem as suas contas. Pode fornecê-lo do **atributo Número Móvel** da aplicação hr em nuvem ao Ative Directory e sincronizá-lo com Azure AD. Depois do atributo **Número Móvel** estar em Azure AD, pode ativar sSPR para a conta do utilizador. Em seguida, no primeiro dia, o novo utilizador pode utilizar o número de telemóvel registado e verificado para autenticação.
 

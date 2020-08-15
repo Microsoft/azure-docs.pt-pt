@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121464"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236578"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,10 +85,10 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 
 As seguintes funcionalidades estão ativadas no modelo de implementação sql Managed Instance em H1 2019:
   - Suporte para subscrições com <a href="https://aka.ms/sql-mi-visual-studio-subscribers">crédito mensal Azure para assinantes do Estúdio Visual</a> e aumento dos [limites regionais.](../managed-instance/resource-limits.md#regional-resource-limitations)
-  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 e SharePoint 2019</a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central.</a>
+  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Crie um caso gerido com <a href="https://aka.ms/managed-instance-collation">colagem ao nível de exemplo</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> à sua escolha.
   - As instâncias geridas estão agora protegidas com [firewall incorporada.](../managed-instance/management-endpoint-verify-built-in-firewall.md)
-  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 vCores na geração de hardware da Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
+  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores na geração de hardware da Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
   - As novas funcionalidades <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">permitem-lhe restaurar a sua base de dados para outro centro de dados utilizando o PowerShell,</a>a base de [dados do nome,](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) [eliminar o cluster virtual.](../managed-instance/virtual-cluster-delete.md)
   - O novo [papel de contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
   - SQL Managed Instance está disponível nas seguintes regiões do Governo Azure para GA (EUA Gov Texas, EUA Gov Arizona) bem como na China Norte 2 e China East 2. Também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, Brasil Sul, França Sul, UAE Central, UAE North, África do Sul Norte, África do Sul Oeste.
@@ -97,6 +97,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
+|[Diretor de serviço não pode aceder a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto 2020|Tem Solução||
 |[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
 |[Permissões sobre grupo de recursos não aplicados à SQL Gestd Instance](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Tem Solução||
@@ -110,7 +111,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |[O governador de recursos no nível de serviço critical empresarial pode ter de ser reconfigurado após o failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Tem Solução||
 |[Os diálogos de corretor de serviço de base cruzada devem ser reinicializados após a atualização do nível de serviço](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Ago 2019|Tem Solução||
 |[A personificação dos tipos de login AZure AD não é suportada](#impersonation-of-azure-ad-login-types-is-not-supported)|Jul 2019|Sem solução||
-|[@queryparâmetro não suportado em sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abr 2019|Sem solução||
+|[@query parâmetro não suportado em sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abr 2019|Sem solução||
 |[A replicação transacional deve ser reconfigurada após a geo-falha](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Sem solução||
 |[Base de dados temporária é utilizada durante a operação RESTORE](#temporary-database-is-used-during-restore-operation)||Tem Solução||
 |[A estrutura e o conteúdo TEMPDB são recriados](#tempdb-structure-and-content-is-re-created)||Sem solução||
@@ -124,6 +125,11 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |Funcionalidade de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura||Resolvido|Out 2019|
 |Bases de dados contidas não suportadas em SQL Gestd Instance||Resolvido|Ago 2019|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Diretor de serviço não pode aceder a Azure AD e AKV
+
+Em algumas circunstâncias, pode existir um problema com o Diretor de Serviços usado para aceder aos serviços Azure AD e Azure Key Vault (AKV). Como resultado, este problema tem impacto na utilização da autenticação AZure AD e da Encriptação transparente da Base de Dados (TDE) com SQL Managed Instance. Isto pode ser experimentado como um problema de conectividade intermitente, ou não ser capaz de executar declarações tais são CREATE LOGIN/USER FROM EXTERNAL PROVIDER ou EXECUTE AS LOGIN/USER. A configuração do TDE com a chave gerida pelo cliente numa nova Azure SQL Managed Instance também pode não funcionar em algumas circunstâncias.
+
+**Solução alternativa**: Para evitar que este problema ocorra na sua SQL Managed Instance antes de executar quaisquer comandos de atualização, ou caso já tenha experimentado este problema após os comandos de atualização, aceda ao Portal Azure, aceda ao SQL Managed Instance [Ative Directory admin.](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) Verifique se consegue ver a mensagem de erro "A Instância Gerida precisa de um Diretor de Serviço para aceder ao Diretório Ativo do Azure. Clique aqui para criar um Diretor de Serviço". Caso tenha encontrado esta mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que este erro tenha sido resolvido.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar
 
@@ -205,7 +211,7 @@ A personificação utilizando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` dos seguin
 -   Utilizadores azure azure. Neste caso, é devolvido o seguinte erro: `15517` .
 - Logins E utilizadores AZURE AD com base em aplicações AD Azure ou diretores de serviço. Neste caso, são devolvidos os seguintes erros: `15517` e `15406` .
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro não suportado em sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parâmetro não suportado em sp_send_db_mail
 
 O `@query` parâmetro do procedimento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
 
@@ -229,7 +235,7 @@ Na fase inicial, um utilizador pode aceder à base de dados vazia e até criar t
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>A estrutura e o conteúdo TEMPDB são recriados
 
-A `tempdb` base de dados é sempre dividida em 12 ficheiros de dados, e a estrutura do ficheiro não pode ser alterada. O tamanho máximo por ficheiro não pode ser alterado e os novos ficheiros não podem ser adicionados `tempdb` . `Tempdb`é sempre recriada como uma base de dados vazia quando a instância começa ou falha, e quaisquer alterações feitas `tempdb` não serão preservadas.
+A `tempdb` base de dados é sempre dividida em 12 ficheiros de dados, e a estrutura do ficheiro não pode ser alterada. O tamanho máximo por ficheiro não pode ser alterado e os novos ficheiros não podem ser adicionados `tempdb` . `Tempdb` é sempre recriada como uma base de dados vazia quando a instância começa ou falha, e quaisquer alterações feitas `tempdb` não serão preservadas.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com pequenos ficheiros de base de dados
 

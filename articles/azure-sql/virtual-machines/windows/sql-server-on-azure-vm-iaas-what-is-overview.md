@@ -1,6 +1,6 @@
 ---
 title: Descrição Geral do SQL Server em Máquinas Virtuais do Azure do Windows | Microsoft Docs
-description: Saiba como executar edições completas do SQL Server em Máquinas Virtuais do Azure.
+description: Aprenda a executar edições completas do SQL Server em Azure Virtual Machines na nuvem sem ter que gerir qualquer hardware no local.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4bf5b9b6f683783a39b7d34c430f1c6671c35885
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926698"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236374"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server em Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server c
 > [!TIP]
 > Para obter mais informações sobre como compreender os preços das imagens do SQL Server, consulte [a orientação de preços do SQL Server em Máquinas Virtuais Azure](pricing-guidance.md). 
 
-### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Pague à medida que vai.
+### <a name="pay-as-you-go"></a><a id="payasyougo"></a> Pague à medida que vai.
 A tabela seguinte fornece uma matriz de imagens do SQL Server pay as you go.
 
 | Versão | Sistema operativo | Edição |
@@ -74,7 +74,7 @@ Para ver o Servidor SQL disponível nas imagens da máquina virtual Linux, consu
 > [!NOTE]
 > Agora é possível alterar o modelo de licenciamento de um SQL Server VM pay-per-use para usar a sua própria licença. Para obter mais informações, consulte [como alterar o modelo de licenciamento para um SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-### <a name="bring-your-own-license"></a><a id="BYOL"></a>Traga a sua própria licença.
+### <a name="bring-your-own-license"></a><a id="BYOL"></a> Traga a sua própria licença.
 Também pode trazer a sua licença (BYOL). Neste cenário, apenas paga a VM sem quaisquer taxas adicionais para o licenciamento do SQL Server.  Colocar a sua própria licença poderá poupar dinheiro ao longo do tempo para cargas de trabalho de produção contínua. Para saber sobre os requisitos necessários para utilizar esta opção, veja [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](pricing-guidance.md#byol).
 
 Para obter a sua própria licença, pode converter um VM do SqL Server VM existente ou pode implantar uma imagem com o prefixo **{BYOL}**. Para obter mais informações sobre a mudança do seu modelo de licenciamento entre pay-per-use e BYOL, consulte [como alterar o modelo de licenciamento para um SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
@@ -128,7 +128,7 @@ Para obter mais detalhes, veja:
 - [Criar um caso gerido](../../managed-instance/instance-create-quickstart.md)
 - [Criar uma máquina virtual SQL Server](sql-vm-create-portal-quickstart.md)
 
-## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a>Política de atualização de imagem do SQL Server VM
+## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Política de atualização de imagem do SQL Server VM
 O Azure mantém apenas uma imagem de máquina virtual para cada sistema operativo suportado, a versão e a combinação de edição. Isto significa que ao longo do tempo as imagens são atualizadas e as imagens mais antigas são removidas. Para obter mais informações, veja a secção **Imagens** das [FAQ de VMs do SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa de melhoramento da experiência do cliente (PMEC)

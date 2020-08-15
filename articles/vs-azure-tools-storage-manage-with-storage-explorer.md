@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905351"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235250"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
@@ -183,7 +183,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
 O Storage Explorer suporta atualmente dois emuladores oficiais de armazenamento:
 
-* [Emulador de armazenamento Azure](storage/common/storage-use-emulator.md) (apenas windows)
+* [Emulador de Armazenamento Azure](storage/common/storage-use-emulator.md) (apenas para windows)
 * [Azurite](https://github.com/azure/azurite) (Windows, macOS ou Linux)
 
 Se o seu emulador estiver a ouvir nas portas predefinidos, pode utilizar o nó **Emulador - Portas Padrão** para aceder ao seu emulador. Procure **emulador - Portas Padrão** em **Contas de Armazenamento &**  >  **Locais anexas**.

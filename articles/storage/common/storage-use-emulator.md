@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3bef3ba1e993d91fee8b6f6ef2734f008c91d1a1
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447148"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236833"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o emulador de armazenamento Azure para desenvolvimento e teste
 
@@ -42,7 +42,7 @@ Existem algumas diferenças de funcionalidade entre o emulador de armazenamento 
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Iniciar e rubricar o emulador de armazenamento
 
-Para iniciar o emulador de armazenamento Azure:
+Para iniciar o Emulador de Armazenamento Azure:
 
 1. Selecione o botão **Iniciar** ou prima a tecla **Windows.**
 2. Comece a `Azure Storage Emulator` escrever.
@@ -51,7 +51,7 @@ Para iniciar o emulador de armazenamento Azure:
 Quando o emulador de armazenamento começar, aparecerá uma janela de aviso de comando. Pode utilizar esta janela da consola para iniciar e parar o emulador de armazenamento. Também pode limpar dados, obter o estado e inicializar o emulador a partir da solicitação de comando. Para obter mais informações, consulte a secção de referência da ferramenta da linha de comando do [emulador de armazenamento](#storage-emulator-command-line-tool-reference) mais tarde neste artigo.
 
 > [!NOTE]
-> O emulador de armazenamento Azure pode não começar corretamente se outro emulador de armazenamento, como o Azurite, estiver a funcionar no sistema.
+> O Emulador de Armazenamento Azure pode não começar corretamente se outro emulador de armazenamento, como o Azurite, estiver a funcionar no sistema.
 
 Quando o emulador estiver em execução, verá um ícone na área de notificação da barra de tarefas do Windows.
 
@@ -150,9 +150,9 @@ Por exemplo, o seguinte endereço pode ser utilizado para aceder a uma bolha no 
 
 Os pontos finais de serviço para o emulador de armazenamento são:
 
-* Serviço blob:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Serviço de fila:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Serviço de mesa:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Serviço blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Serviço de fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Serviço de mesa: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Endereçar a conta secundária com RA-GRS
 

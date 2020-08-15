@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214207"
+ms.locfileid: "88235269"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -115,7 +115,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 1. Adicione um segredo chamado **ConnectionStrings:AppConfig** ao Gestor Secreto.
 
-    Este segredo contém o fio de ligação para aceder à sua loja de Configuração de Aplicações. Substitua o `<your_connection_string>` valor no seguinte comando com o fio de ligação para a sua loja de Configuração de Aplicações. Pode encontrar a cadeia de ligação sob **as teclas de acesso** no portal Azure.
+    Este segredo contém o fio de ligação para aceder à sua loja de Configuração de Aplicações. Substitua o `<your_connection_string>` valor no seguinte comando com o fio de ligação para a sua loja de Configuração de Aplicações. Pode encontrar a cadeia de ligação principal apenas de leitura sob **as teclas de acesso** no portal Azure.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -362,7 +362,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
     ![Quickstart app lançar local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

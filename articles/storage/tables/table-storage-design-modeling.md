@@ -2,18 +2,18 @@
 title: Relacionamentos de modelação no design de armazenamento de mesa Azure / Microsoft Docs
 description: Compreenda o processo de modelação ao conceber a sua solução de armazenamento de mesa Azure. Leia sobre relacionamentos de um a muitos, um para um, e relações de herança.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036050"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235966"
 ---
 # <a name="modeling-relationships"></a>Modelar relações
 Este artigo discute o processo de modelação para ajudá-lo a desenhar as suas soluções de armazenamento de Mesa Azure.

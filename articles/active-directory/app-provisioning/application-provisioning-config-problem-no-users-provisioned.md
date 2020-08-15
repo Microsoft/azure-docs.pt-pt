@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782284"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234793"
 ---
 # <a name="no-users-are-being-provisioned"></a>Não existem utilizadores a ser aprovisionados 
 >[!NOTE]
@@ -58,13 +58,13 @@ Quando um utilizador aparece como "ignorado" nos registos de provisionamento, é
 - **Falta um atributo necessário ou não é preenchido para um utilizador.** Uma coisa importante a considerar ao configurar o provisionamento é rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Esta configuração inclui a definição da "propriedade correspondente" que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas. Para obter mais informações sobre este importante processo, consulte [Personalizar o fornecimento de cartões de pedidos de pedidos de SaaS no Diretório Ativo Azure](customize-application-attributes.md).
 - **Atribuir mapeamentos para grupos:** Provisionamento do nome do grupo e detalhes do grupo, além dos membros, se apoiados em algumas candidaturas. Pode ativar ou desativar esta funcionalidade ativando ou desativando o **Mapeamento** de objetos de grupo indicados no **separador Provisioning.** Se os grupos de provisionamento estiverem habilitados, certifique-se de rever os mapeamentos de atributos para garantir que um campo adequado está a ser utilizado para o "ID correspondente". O ID correspondente pode ser o nome de exibição ou pseudónimo de e-mail. O grupo e os seus membros não são a provisionados se a propriedade correspondente estiver vazia ou não povoada para um grupo em Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Provisionamento de utilizadores atribuídos à função de acesso predefinido
-A função predefinida numa aplicação da galeria é chamada de função de "acesso predefinido". Historicamente, os utilizadores destacados para esta função não são a provisionados e são marcados como ignorados nos [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) por "não terem direito eficazmente". 
+A função predefinida numa aplicação da galeria é chamada de função de "acesso predefinido". Historicamente, os utilizadores destacados para esta função não são a provisionados e são marcados como ignorados nos [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md) por "não terem direito eficazmente". 
 
 **Comportamento para configurações de provisionamento criadas após 04/16/2020:** Os utilizadores atribuídos à função de acesso predefinido serão avaliados da mesma forma que todas as outras funções. Um utilizador que lhe seja atribuído o acesso predefinido não será ignorado como "não tem direito efetivo". 
 
 **Comportamento para configurações de provisionamento criadas antes de 04/16/2020:** Nos próximos 3 meses, o comportamento continuará como é hoje. Os utilizadores com a função de acesso predefinido serão ignorados como não têm direito eficaz. Depois de julho de 2020, o comportamento será uniforme para todas as aplicações. Não vamos ignorar o provisionamento dos utilizadores com a função de acesso predefinido devido a "não ter direito eficazmente". Esta alteração será feita pela Microsoft, sem necessidade de ação do cliente. Se quiser garantir que estes utilizadores continuam a ser ignorados, mesmo após esta alteração, por favor aplique os filtros de deteção apropriados ou não desatribua o utilizador da aplicação para garantir que estão fora de alcance.  
 
-Para perguntas sobre estas mudanças, por favor, contacteprovisioningfeedback@microsoft.com
-## <a name="next-steps"></a>Próximos passos
+Para perguntas sobre estas mudanças, por favor, contacte provisioningfeedback@microsoft.com
+## <a name="next-steps"></a>Passos seguintes
 
 [Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

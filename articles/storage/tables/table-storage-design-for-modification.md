@@ -2,18 +2,18 @@
 title: Design Azure Table armazenamento para modificação de dados / Microsoft Docs
 description: Tabelas de conceção para modificação de dados no armazenamento da tabela Azure. Otimize as operações de inserção, atualização e exclusão. Garantir consistência nas suas entidades armazenadas.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1f48cbf198e8a12d4f35293b285e6cb09bef29a1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826471"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236765"
 ---
 # <a name="design-for-data-modification"></a>Design da modificação de dados
 Este artigo centra-se nas considerações de design para otimizar inserções, atualizações e eliminações. Em alguns casos, você precisará avaliar o trade-off entre designs que otimizam para consulta contra designs que otimizam para modificação de dados, assim como você faz em designs para bases de dados relacionais (embora as técnicas de gestão das trade-offs de design são diferentes numa base de dados relacional). A secção Table Design Patterns descreve alguns padrões de design detalhados para o serviço de mesa e destaca alguns destes trade-offs. Na prática, verá que muitos projetos otimizados para consultas de entidades também funcionam bem para modificar entidades.  

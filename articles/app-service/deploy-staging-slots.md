@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073867"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236748"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -423,7 +423,6 @@ Aqui estão alguns erros de troca comuns:
       ...
     </conditions>
     ```
-- Algumas [regras de restrição IP](app-service-ip-restrictions.md) podem impedir que a operação de swap envie pedidos HTTP para a sua app. Intervalos de endereços IPv4 que começam `10.` e `100.` são internos à sua implementação. Deve permitir que se conectem à sua aplicação.
 
 - Após trocas de slot, a aplicação pode experimentar recomeços inesperados. Isto porque depois de uma troca, a configuração de ligação do nome anfitrião sai de sincronização, o que por si só não causa recomeços. No entanto, certos eventos de armazenamento subjacentes (tais como falhas no volume de armazenamento) podem detetar estas discrepâncias e forçar todos os processos dos trabalhadores a reiniciar. Para minimizar este tipo de reinícios, defina a definição da [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` aplicação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todas as ranhuras*. No entanto, esta configuração da aplicação *não* funciona com aplicações da Windows Communication Foundation (WCF).
 

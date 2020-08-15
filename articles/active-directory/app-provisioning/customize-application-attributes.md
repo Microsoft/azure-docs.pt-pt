@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: kenwith
-ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782046"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235229"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -108,7 +108,7 @@ As aplicações e sistemas que suportam a personalização da lista de atributos
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
+- Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
 - As aplicações que [suportam o SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
   - *DataTime* - O atributo contém uma cadeia de datas.
   - *Inteiro -* Atributo contém um inteiro.
   - *Referência* - O Atributo contém um ID que faz referência a um valor armazenado noutra tabela na aplicação-alvo.
-  - *String* - Atributo contém uma cadeia de texto.
+  - *String*  - Atributo contém uma cadeia de texto.
 - **Chave Primária?** - Se o atributo é definido como um campo chave primário no esquema do objeto alvo.
 - **Necessário?** - Se o atributo é necessário para ser povoado na aplicação ou sistema-alvo.
 - **Multi-valor?** - Se o atributo suporta vários valores.
@@ -317,7 +317,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 - A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos mapeamentos do seu atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
 - [Expressãos de escrita para atributos-mapeamentos](../app-provisioning/functions-for-customizing-application-data.md)

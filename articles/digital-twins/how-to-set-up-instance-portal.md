@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009674"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234997"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -69,7 +69,7 @@ Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, voc
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azure. A partir do menu da instância, selecione *Access control (IAM)*. Selecione o botão *Adicionar* sob *Adicionar uma atribuição de função*.
+Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azure. A partir do menu da instância, selecione *Access control (IAM)*. Selecione o botão  *Adicionar* sob *Adicionar uma atribuição de função*.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função a partir da página 'Controlo de acesso (IAM)'":::
 
@@ -126,6 +126,9 @@ A partir da página do portal para o registo da sua aplicação, selecione *perm
 Na página de permissões da *API request* que se segue, mude para as *APIs a minha organização usa* o separador e procura *gémeos digitais azuis.* Selecione *Azure Digital Twins* a partir dos resultados da pesquisa para proceder à atribuição de permissões para as APIs de Gémeos Digitais Azure.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Ver o resultado da pesquisa da página 'Request API Permissões' mostrando Azure Digital Twins":::
+
+>[!NOTE]
+> Se tiver uma instância Azure Digital Twins existente da pré-visualização pública do serviço (antes de julho de 2020) ainda na sua subscrição, terá de procurar o *Azure Smart Spaces Service.* Este é um nome mais antigo para o mesmo conjunto de APIs, e não mudará a sua experiência para além deste passo.
 
 Em seguida, você irá selecionar quais permissões conceder para estas APIs. Expanda a permissão **de Ler (1)** e verifique a caixa que diz *Ler.Escreva* para conceder a esta aplicação de registo de permissões e permissões de escritor.
 

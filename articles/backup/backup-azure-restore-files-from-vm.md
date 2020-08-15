@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533558"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236306"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -85,6 +85,9 @@ Depois de identificar os ficheiros e copiá-los para um local de armazenamento, 
 Uma vez que os discos tenham sido desmontados, recebes uma mensagem. Pode levar alguns minutos para a ligação ser atualizada para que possa remover os discos.
 
 No Linux, após a ligação ao ponto de recuperação ser cortada, o SO não remove automaticamente os caminhos de montagem correspondentes. Os caminhos de montagem existem como volumes "órfãos" e são visíveis, mas lançam um erro quando acedem/escrevem os ficheiros. Podem ser removidos manualmente. O script, quando executado, identifica quaisquer volumes existentes a partir de quaisquer pontos de recuperação anteriores e limpa-os mediante consentimento.
+
+> [!NOTE]
+> Certifique-se de que a ligação está fechada depois de restaurados os ficheiros necessários. Isto é importante, especialmente no cenário em que a máquina em que o script é executado também está configurado para cópia de segurança. Caso a ligação ainda esteja aberta, a cópia de segurança subsequente poderá falhar com um erro "UserErrorUnableToOpenMount". Isto acontece porque as unidades/volumes montados são assumidos como disponíveis e quando acedidos podem falhar porque o armazenamento subjacente, ou seja, o servidor-alvo iSCSI pode não estar disponível. A limpeza da ligação removerá estas unidades/volumes e, portanto, não estarão disponíveis durante a cópia de segurança.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selecionando a máquina certa para executar o script
 
@@ -242,7 +245,7 @@ O seguinte comando exibe detalhes sobre todos os discos de raid:
 mdadm –detail –scan
 ```
 
- O disco RAID relevante é apresentado como`/dev/mdm/<RAID array name in the protected VM>`
+ O disco RAID relevante é apresentado como `/dev/mdm/<RAID array name in the protected VM>`
 
 Utilize o comando de montagem se o disco RAID tiver volumes físicos:
 
@@ -300,10 +303,10 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 - `download.microsoft.com`
 - URLs do Serviço de Recuperação (geo-nome refere-se à região onde reside o cofre de serviço de recuperação)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Para as regiões públicas de Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Para Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Para o Governo dos EUA)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Para a Azure Alemanha)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para as regiões públicas de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para o Governo dos EUA)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para a Azure Alemanha)
 - Portas de saída 53 (DNS), 443, 3260
 
 > [!NOTE]

@@ -1,22 +1,22 @@
 ---
-title: Como criar políticas de configuração de hóspedes para o Linux
+title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para o Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026717"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236595"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de configuração de hóspedes para o Linux
+# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
 Antes de criar políticas personalizadas, leia as informações gerais na [Configuração do Convidado Azure Policy](../concepts/guest-configuration.md).
  
 Para saber sobre a criação de políticas de configuração de hóspedes para windows, consulte a página [Como criar políticas de configuração de hóspedes para windows](./guest-configuration-create.md)
 
-Ao auditar o Linux, a Configuração do Hóspede utiliza [o Chef InSpec.](https://www.inspec.io/) O perfil InSpec define a condição em que a máquina deve estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
+Ao auditar o Linux, a Configuração de Convidado utiliza [Chef InSpec](https://www.inspec.io/). O perfil InSpec define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
 
@@ -25,7 +25,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > [!IMPORTANT]
 > As políticas personalizadas com a Configuração do Convidado são uma funcionalidade de pré-visualização.
 >
-> A extensão de Configuração do Hóspede é necessária para realizar auditorias em máquinas virtuais Azure.
+> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
 > Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política:
 >   - [Implemente os pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
@@ -50,6 +50,10 @@ Sistemas operativos onde o módulo pode ser instalado:
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> O cmdlet 'Test-GuestConfigurationPackage' requer a versão 1.0 do OpenSSL, devido à dependência do OMI.
+> Isto causa um erro em qualquer ambiente com OpenSSL 1.1 ou mais tarde.
 
 O módulo de recursos de configuração do hóspede requer o seguinte software:
 
@@ -260,6 +264,8 @@ Parâmetros do `New-GuestConfigurationPolicy` cmdlet:
 - **Versão**: Versão política.
 - **Caminho**: Caminho de destino onde são criadas definições políticas.
 - **Plataforma**: Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
+- **Tag** adiciona um ou mais filtros de etiqueta à definição de política
+- **Categoria** define o campo de metadados de categoria na definição de política
 
 O exemplo a seguir cria as definições de política num caminho especificado a partir de um pacote de política personalizado:
 
@@ -281,14 +287,6 @@ Os seguintes ficheiros são criados `New-GuestConfigurationPolicy` por:
 - **Initiative.js**
 
 A saída do cmdlet devolve um objeto que contém o nome de visualização da iniciativa e o caminho dos ficheiros de política.
-
-> [!Note]
-> O mais recente módulo de Configuração de Hóspedes inclui um novo parâmetro:
-> - **Tag** adiciona um ou mais filtros de etiqueta à definição de política
->   - Consulte a secção [filtrar as políticas de configuração do convidado utilizando Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Categoria** define o campo de metadados de categoria na definição de política
->   - Se o parâmetro não estiver incluído, a categoria ficará padrão na Configuração do Convidado.
-> Estas funcionalidades estão atualmente em pré-visualização e requerem a versão 1.20.1 do módulo de configuração do hóspede, que pode ser instalada através `Install-Module GuestConfiguration -AllowPrerelease` de .
 
 Por fim, publique as definições de política utilizando o `Publish-GuestConfigurationPolicy` cmdlet.
 O cmdlet tem apenas o parâmetro **Path** que aponta para a localização dos ficheiros JSON criados por `New-GuestConfigurationPolicy` .
@@ -405,9 +403,6 @@ A forma mais fácil de lançar um pacote atualizado é repetir o processo descri
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar as políticas de configuração do hóspede usando Tags
 
-> [!Note]
-> Esta funcionalidade encontra-se atualmente em pré-visualização e requer a versão 1.20.1 do módulo de configuração do hóspede, que pode ser instalada através do `Install-Module GuestConfiguration -AllowPrerelease` .
-
 As políticas criadas por cmdlets no módulo de Configuração de Convidados podem, opcionalmente, incluir um filtro para tags. O parâmetro **-Tag** suporta `New-GuestConfigurationPolicy` uma variedade de hashtables contendo conjuntos de etiquetas individuais inteiras. As etiquetas serão adicionadas à `If` secção da definição de política e não podem ser modificadas por uma atribuição de políticas.
 
 Um exemplo de uma definição de política que irá filtrar para tags é dado abaixo.
@@ -461,7 +456,7 @@ Uma ferramenta está disponível na pré-visualização para ajudar na resoluç�
 
 Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](programmatically-create.md)

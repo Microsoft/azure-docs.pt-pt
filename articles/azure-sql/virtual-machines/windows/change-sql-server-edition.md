@@ -1,6 +1,6 @@
 ---
 title: Mudança no lugar da edição do SQL Server
-description: Saiba como alterar a edição da sua máquina virtual SQL Server em Azure.
+description: Saiba como alterar a edição da sua máquina virtual SQL Server em Azure para reduzir custos ou upgrades para ativar mais funcionalidades.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,14 +13,14 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669172"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236289"
 ---
-# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no local da edição do SQL Server na VM do Azure
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como alterar a edição do SQL Server numa máquina virtual Windows em Azure. 
@@ -33,7 +33,7 @@ Uma vez que a edição do SQL Server tenha sido alterada internamente para o SQL
 
 Para fazer uma alteração no local da edição do SQL Server, precisa do seguinte: 
 
-- Uma [assinatura Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um [SQL Server VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado no fornecedor de recursos [SQL VM](sql-vm-resource-provider-register.md).
 - Configurar os meios de comunicação com a **edição desejada** do SQL Server. Os clientes que tenham [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do [Centro de Licenciamento de Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a sua edição desejada (normalmente localizada em `C:\SQLServerFull` ). 
 
