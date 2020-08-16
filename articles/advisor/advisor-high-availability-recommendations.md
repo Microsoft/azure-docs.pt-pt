@@ -3,31 +3,16 @@ title: Melhorar a fiabilidade da sua candidatura com o Advisor
 description: Utilize o Azure Advisor para garantir e melhorar a fiabilidade nas suas implementações Azure críticas ao negócio.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057674"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258493"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhore a fiabilidade da sua aplicação utilizando o Azure Advisor
 
 O Azure Advisor ajuda-o a garantir e a melhorar a continuidade das suas aplicações críticas ao negócio. Pode obter recomendações de fiabilidade do Advisor no separador **de Fiabilidade** do painel Advisor.
-
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Garantir tolerância à falha da máquina virtual
-
-Para fornecer redundância para a sua aplicação, recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O advisor identifica máquinas virtuais que não fazem parte de um conjunto de disponibilidade e recomenda movê-las para uma. Esta configuração garante que durante a manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e encontra a máquina virtual Azure SLA. Pode optar por criar um conjunto de disponibilidade para a máquina virtual ou adicionar a máquina virtual a um conjunto de disponibilidade existente.
-
-> [!NOTE]
-> Se optar por criar um conjunto de disponibilidade, tem de adicionar pelo menos mais uma máquina virtual. Recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidades para garantir que pelo menos uma máquina esteja disponível durante uma paragem.
-
-## <a name="ensure-availability-set-fault-tolerance"></a>Garantir tolerância de falha definida de disponibilidade
-
-Para fornecer redundância para a sua aplicação, recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O Advisor identifica conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais à sua parte.Esta configuração garante que durante a manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e encontra a máquina virtual Azure SLA.Pode optar por criar uma máquina virtual ou adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
-
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Utilize discos geridos para melhorar a fiabilidade dos dados
-
-As máquinas virtuais que estão num conjunto de disponibilidade com discos que partilham contas de armazenamento ou unidades de escala de armazenamento não são resistentes a falhas em unidades de escala única de armazenamento durante as interrupções. O Advisor identifica estes conjuntos de disponibilidade e recomenda a migração para discos geridos aZure. Esta migração assegurará que os discos das máquinas virtuais no conjunto de disponibilidades estejam suficientemente isolados para evitar um único ponto de falha. 
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Verifique a versão da imagem virtual do seu aparelho virtual da rede Check Point
 
@@ -73,6 +58,21 @@ O Azure Advisor verifica quaisquer gateways VPN que utilizem um SKU Básico e re
 - Opções de configuração ativa. 
 - Política ipsec/IKE personalizada. 
 - Maior estabilidade e disponibilidade.
+
+## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Garantir tolerância à falha da máquina virtual (temporariamente desativada)
+
+Para fornecer redundância para a sua aplicação, recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O advisor identifica máquinas virtuais que não fazem parte de um conjunto de disponibilidade e recomenda movê-las para uma. Esta configuração garante que durante a manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e encontra a máquina virtual Azure SLA. Pode optar por criar um conjunto de disponibilidade para a máquina virtual ou adicionar a máquina virtual a um conjunto de disponibilidade existente.
+
+> [!NOTE]
+> Se optar por criar um conjunto de disponibilidade, tem de adicionar pelo menos mais uma máquina virtual. Recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidades para garantir que pelo menos uma máquina esteja disponível durante uma paragem.
+
+## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Garantir a tolerância à falha definida pela disponibilidade (temporariamente desativada)
+
+Para fornecer redundância para a sua aplicação, recomendamos que agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O Advisor identifica conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais à sua parte.Esta configuração garante que durante a manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e encontra a máquina virtual Azure SLA.Pode optar por criar uma máquina virtual ou adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
+
+## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Utilize discos geridos para melhorar a fiabilidade dos dados (temporariamente desativado)
+
+As máquinas virtuais que estão num conjunto de disponibilidade com discos que partilham contas de armazenamento ou unidades de escala de armazenamento não são resistentes a falhas em unidades de escala única de armazenamento durante as interrupções. O Advisor identifica estes conjuntos de disponibilidade e recomenda a migração para discos geridos aZure. Esta migração assegurará que os discos das máquinas virtuais no conjunto de disponibilidades estejam suficientemente isolados para evitar um único ponto de falha. 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de registo inválido
 

@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055194"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257949"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -43,8 +43,9 @@ Para eliminar corretamente um cofre, deve seguir os passos desta ordem:
 - **Passo 3**: Deve verificar todos os três locais seguintes para verificar se existem itens protegidos:
 
   - **Itens protegidos em nuvem**: Vá ao menu do painel de abóbadas > **itens de reserva**. Todos os itens listados aqui devem ser removidos com **Backup stop** ou **eliminar dados de backup,** juntamente com os seus dados de cópia de segurança.  [Siga estes passos](#delete-protected-items-in-the-cloud) para remover estes itens.
+  - **Sql Server instance**: Vá ao menu do painel de abóbadas > Servidores Protegidos de **Infraestruturas**de Reserva  >  **Protected Servers**. Em Servidores Protegidos, selecione o servidor para não registar. Para apagar o cofre, tem de não registar todos os servidores. Clique com o botão direito no servidor protegido e selecione **Unregister**.
   - **Servidores protegidos por MARS**: Vá ao menu do painel de abóbadas > servidores protegidos por **infraestruturas**de backup  >  **Protected Servers**. Se tiver servidores protegidos pela MARS, todos os itens listados aqui devem ser eliminados juntamente com os seus dados de cópia de segurança. [Siga estes passos](#delete-protected-items-on-premises) para eliminar servidores protegidos pela MARS.
-  - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure**Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
+   - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure**Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
 
 - **Passo 4**: Deve assegurar-se de que todas as contas de armazenamento registadas são eliminadas. Aceda ao menu do painel de abóbadas > Contas de Armazenamento **de Infraestruturas de Backup**  >  **Storage Accounts**. Se tem contas de armazenamento listadas aqui, então deve não registar todas. Para aprender a desregistralmente da conta, consulte [Não registar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -84,7 +85,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender 
 1. A partir do menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**.
 2. Dependendo do seu cenário no local, escolha uma das seguintes opções:
 
-      - Para o MARS, selecione **Servidores Protegidos** e, em seguida, **Agente de Backup Azure**. Em seguida, selecione o servidor que pretende eliminar.
+      - Para o MARS, selecione **Servidores Protegidos** e, em seguida,  **Agente de Backup Azure**. Em seguida, selecione o servidor que pretende eliminar.
 
         ![Para o MARS, selecione o seu cofre para abrir o seu painel de instrumentos.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -171,7 +172,7 @@ Para parar a proteção e eliminar dados de backup, faça os seguintes passos:
 
 #### <a name="method-2"></a>Método 2
 
-Abra a **gestão MABS** ou a consola **de gestão DPM.** De acordo com **o método de proteção de dados Select,** limpe a caixa **de verificação de proteção** on-line.
+Abra a **gestão MABS** ou a consola **de gestão DPM.** De acordo com **o método de proteção de dados Select,** limpe a caixa  **de verificação de proteção** on-line.
 
   ![Selecione o método de proteção de dados.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -235,7 +236,7 @@ Para parar a proteção e eliminar os dados de cópia de segurança:
 
     Posto onde aparece o seguinte pedido:
 
-    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados. <br/>[Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*
+    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados. <br/> [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*
 
 - Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM (System Center Data Protection Manager) para Azure, utilize o seguinte comando para eliminar os dados de backup em Azure.
 

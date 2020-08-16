@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 08d3c61ca4b5988847676b12478a5865ac319d37
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e99d841dcfb18b41df128283c37f46682e3fa129
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164207"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257116"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Como a AKS é um serviço gerido, não é possível modificar a configuração p
 Este artigo mostra-lhe como usar ConfigMaps para opções básicas de personalização do CoreDNS em AKS. Esta abordagem difere da configuração do CoreDNS noutros contextos, tais como a utilização do CoreFile. Verifique a versão do CoreDNS que está a executar, uma vez que os valores de configuração podem mudar entre versões.
 
 > [!NOTE]
-> `kube-dns`ofereceu diferentes opções de [personalização][kubednsblog] através de um mapa config de Kubernetes. CoreDNS **não** é compatível com kube-dns. Quaisquer personalizações que tenha usado anteriormente devem ser atualizadas para utilização com o CoreDNS.
+> `kube-dns` ofereceu diferentes opções de [personalização][kubednsblog] através de um mapa config de Kubernetes. CoreDNS **não** é compatível com kube-dns. Quaisquer personalizações que tenha usado anteriormente devem ser atualizadas para utilização com o CoreDNS.
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -50,6 +50,11 @@ data:
         errors
         cache 30
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+          pods insecure
+          upstream
+          fallthrough in-addr.arpa ip6.arpa
+        }
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```

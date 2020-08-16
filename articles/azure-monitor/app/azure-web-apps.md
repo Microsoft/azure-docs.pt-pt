@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0921d7bbba90fa2199ea212bae6ad4c35e0fb051
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 33ad4503b744b4737c2d63f74e146a79d36080e1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245490"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258731"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -123,8 +123,6 @@ A monitorização do lado do cliente é opt-in para ASP.NET. Para permitir a mon
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
-![Screenshot das definições de aplicação UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
-
 Para desativar a monitorização do lado do cliente, remova o par de valor da chave associado das definições de Aplicação ou defina o valor em falso.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
@@ -141,8 +139,6 @@ Se por alguma razão pretender desativar a monitorização do lado do cliente:
      Valor: `false`
 
    * **Guarde** as definições e **reinicie** a aplicação.
-
-![Screenshot das definições de aplicação UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 

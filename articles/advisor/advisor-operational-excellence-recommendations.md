@@ -3,12 +3,12 @@ title: Melhorar a excelência operacional com o Conselheiro
 description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelência operacional para as suas subscrições Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057638"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258481"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
 
@@ -53,6 +53,16 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 **Impor *VMs de auditoria que não utilizem discos geridos*.**
 
 **Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
+
+## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação ativado
+O Azure Advisor determina que não tem um ambiente de validação ativado na subscrição atual. Ao criar as suas piscinas hospedeiras, selecionou \" o ambiente Nº \" para \" validação no \" separador propriedades. Ter pelo menos um pool de anfitriões com um ambiente de validação habilitado garante a continuidade do negócio através de implementações de serviços de desktop virtual do Windows com deteção precoce de potenciais problemas. [Saiba mais](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir o ambiente de produção (não validação) para beneficiar de uma funcionalidade estável
+O Azure Advisor deteta que muitas das suas piscinas de anfitrião têm ambiente de validação ativado. Para que os ambientes de validação sirvam melhor o seu propósito, você deve ter pelo menos um, mas nunca mais de metade das suas piscinas de anfitrião em ambiente de validação. Ao ter um equilíbrio saudável entre as piscinas de anfitrião com ambiente de validação ativado e aqueles com ele desativados, será melhor utilizar os benefícios das implementações multistage que o Windows Virtual Desktop oferece com determinadas atualizações. Para corrigir este problema, abra as propriedades da piscina do anfitrião e selecione \" Não ao lado da \" \" definição de Ambiente de \" Validação.
+
+## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Ativar a Análise de Tráfego para obter informações sobre os padrões de tráfego nos recursos do Azure
+A Análise de Tráfego é uma solução com base na cloud, que proporciona visibilidade sobre a atividade dos utilizadores e das aplicações no Azure. A Análise de Tráfego analisa os registos de fluxo do grupo de segurança de rede (NSG) do Observador de Rede para proporcionar informações sobre o fluxo do tráfego. A Análise de Tráfego permite ver as principais fontes de tráfego nas implementações Azure e não Azure, investigar portas abertas, protocolos e fluxos mal intencionados no seu ambiente e otimizar a implementação de rede para melhor desempenho. Pode processar os registos de fluxo em intervalos de processamento de 10 minutos e de 60 minutos, o que lhe permite analisar mais rapidamente o tráfego. É uma boa prática para permitir a Traffic Analytics para os seus recursos Azure. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -2,13 +2,13 @@
 title: Lançar anotações para Insights de Aplicações / Microsoft Docs
 description: Adicione marcadores de implementação ou construção aos gráficos de exploradores de métricas em Application Insights.
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320668"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258414"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
 
@@ -68,6 +68,10 @@ Crie uma chave API separada para cada um dos seus modelos de libertação de Azu
    ![No separador Azure DevOps Variables, selecione Adicionar, nomeie a variável ApiKey e cole a tecla API em Valor.](./media/annotations/7-paste-api-key.png)
    
 1. **Selecione Guarde** na janela do modelo de libertação principal para guardar o modelo.
+
+
+   > [!NOTE]
+   > Os limites para as chaves API são descritos na documentação de [limites da taxa de API](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits)REST .
 
 ## <a name="view-annotations"></a>Ver anotações
 

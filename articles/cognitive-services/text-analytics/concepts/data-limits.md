@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986819"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258271"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Use este artigo para encontrar os limites para o tamanho e as tarifas que pode e
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um documento único | 5.120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Tamanho máximo do pedido completo | 1 MB |
+| Tamanho máximo de um documento único | 5.120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Aplica-se também ao Text Analytics para recipiente de saúde. |
+| Tamanho máximo do pedido completo | 1 MB. Aplica-se também ao Text Analytics para recipiente de saúde. |
 
 O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que estiver a utilizar.
 
@@ -48,7 +48,7 @@ Os seguintes limites mudaram na V3 da API. Exceder os limites abaixo gerará um 
 | Extração de Expressões-Chave | 10 |
 | Reconhecimento de Entidades Nomeadas | 5 |
 | Ligar à Entidade | 5 |
-
+| Análise de texto para recipiente de saúde | 1000 |
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 | Funcionalidade | Documentos Max Por Pedido | 
@@ -63,7 +63,7 @@ Os seguintes limites mudaram na V3 da API. Exceder os limites abaixo gerará um 
 
 ## <a name="rate-limits"></a>Limites de taxa
 
-O seu limite de tarifa variará em função do seu [nível de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estes limites são os mesmos para ambas as versões da API.
+O seu limite de tarifa variará em função do seu [nível de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estes limites são os mesmos para ambas as versões da API. Estes limites de taxa não se aplicam ao Text Analytics para recipiente de saúde, que não tem um limite de taxa definido.
 
 | Escalão de serviço          | Pedidos por segundo | Pedidos por minuto |
 |---------------|---------------------|---------------------|
@@ -77,7 +77,7 @@ O seu limite de tarifa variará em função do seu [nível de preços.](https://
 Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada recurso, ao mesmo tempo.  
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API de Análise de Texto](../overview.md)
 * [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

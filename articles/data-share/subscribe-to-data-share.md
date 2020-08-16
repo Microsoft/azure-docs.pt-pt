@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512096"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258636"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Azure Data Share  
 
@@ -93,38 +93,35 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    Para o campo **Nome de Partilha Recebida,** pode deixar o padrão especificado pelos dados fornecerem ou especificar um novo nome para a partilha recebida. 
 
-   ![Conta de partilha de dados-alvo](./media/target-data-share.png "Conta de partilha de dados-alvo") 
-
-1. Uma vez acordado os termos de utilização e especificado um local para a sua parte, Selecione em *Aceitar e configurar*. Será criada uma subscrição de ações.
-
-   Para a partilha baseada em instantâneos, o próximo ecrã irá pedir-lhe para selecionar uma conta de armazenamento de destino para os seus dados serem copiados. 
+   Uma vez acordado com os termos de utilização e especificado uma conta De partilha de dados para gerir a sua parte recebida, **Selecione Aceitar e configurar**. Será criada uma subscrição de ações. 
 
    ![Aceitar opções](./media/accept-options.png "Aceitar opções") 
 
-   Se preferir aceitar o convite agora, mas configurar a sua loja de dados-alvo mais tarde, selecione *Aceitar e configurar mais tarde*. Para continuar a configurar o seu armazenamento mais tarde, consulte a página [de mapeamentos de conjuntos de dados configurar](how-to-configure-mapping.md) para obter etapas detalhadas sobre como retomar a configuração da partilha de dados. 
-
-   Para a partilha no local, consulte a página [de mapeamentos de conjuntos de dados configurar](how-to-configure-mapping.md) para obter etapas detalhadas sobre como retomar a configuração da partilha de dados. 
+   Isto leva-o até à sua conta de Partilha de Dados. 
 
    Se não quiser aceitar o convite, Selecione *Rejeitar*. 
 
-## <a name="configure-storage"></a>Configurar o armazenamento
-1. Em *Definições de Armazenamento Alvo*, selecione a conta de Subscrição, Grupo de Recursos e armazenamento em que gostaria de receber os seus dados. 
+## <a name="configure-received-share"></a>Configure recebeu parte
+Siga os passos abaixo para configurar onde pretende receber dados.
 
-   ![Definições de armazenamento de destino](./media/target-storage-settings.png "Armazenamento de destino") 
+1. Selecione **datasets.** Verifique a caixa ao lado do conjunto de dados a que pretende atribuir um destino. Selecione **+ Map para o alvo** para escolher uma loja de dados alvo. 
 
-1. Para receber a atualização regular dos seus dados, certifique-se de que ativa as definições de instantâneo. Note que só verá um calendário de definição de instantâneo se o seu fornecedor de dados o tiver incluído na partilha de dados. 
+   ![Mapa para alvo](./media/dataset-map-target.png "Mapa para alvo") 
 
-   ![Definições de instantâneo](./media/snapshot-settings.png "Definições de instantâneo") 
+1. Selecione um tipo de loja de dados alvo que gostaria que os dados aterrassem. Quaisquer ficheiros de dados ou tabelas na loja de dados-alvo com o mesmo caminho e nome serão substituídos. 
 
-1. Selecione *Guardar*. 
+   Para a partilha no local, selecione uma loja de dados na Localização especificada. A Localização é o centro de dados Azure onde a loja de dados do fornecedor de dados está localizada. Uma vez mapeado o conjunto de dados, pode seguir o link no Caminho-alvo para aceder aos dados.
 
-> [!IMPORTANT]
-> Se estiver a receber dados baseados em SQL e quiser receber esses dados numa fonte baseada em SQL, visite [uma configuração de um conjunto de dados que mapeie](how-to-configure-mapping.md) como configurar um SqL Server como destino para o seu conjunto de dados. 
+   ![Conta de armazenamento alvo](./media/dataset-map-target-sql.png "Armazenamento de destino") 
+
+1. Para a partilha baseada em instantâneos, se o fornecedor de dados criou um calendário instantâneo para fornecer uma atualização regular aos dados, também pode ativar o horário de instantâneo selecionando o separador **'Agenda snapshot'.** Consulte a caixa ao lado do calendário de instantâneos e selecione **+ Enable**.
+
+   ![Ativar o horário do instantâneo](./media/enable-snapshot-schedule.png "Ativar o horário do instantâneo")
 
 ## <a name="trigger-a-snapshot"></a>Desencadear um instantâneo
 Estes passos aplicam-se apenas à partilha baseada em instantâneos.
 
-1. Pode ativar uma imagem instantânea no separador 'Partilhas recebidas' -> Details selecionando **o instantâneo Trigger**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. 
+1. Pode ativar uma imagem instantânea selecionando o separador **Detalhes** seguido do **instantâneo Trigger**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. 
 
    ![Instantâneo do gatilho](./media/trigger-snapshot.png "Instantâneo do gatilho") 
 
@@ -133,7 +130,7 @@ Estes passos aplicam-se apenas à partilha baseada em instantâneos.
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento do conjunto de dados do consumidor") 
 
 ## <a name="view-history"></a>Ver histórico
-Para ver uma história das suas fotos, navegue para a História das Ações Recebidas ->. Aqui você encontrará uma história de todos os instantâneos que foram gerados nos últimos 60 dias. 
+Este passo aplica-se apenas à partilha baseada em instantâneos. Para ver o histórico das suas fotos, selecione **Histórico.** Aqui encontrará a história de todos os instantâneos que foram gerados nos últimos 30 dias. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a aceitar e receber uma Partilha de Dados Azure. Para saber mais sobre os conceitos Azure Data Share, continue a [Conceitos: Azure Data Share Terminology](terminology.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225619"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258225"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -85,7 +85,7 @@ Esta secção fornece referências para soluções de infraestrutura virtual do 
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
-* [Utilização de desktop virtual do Windows com ficheiros Azure NetApp](solutions-windows-virtual-desktop.md)
+* [Benefícios da utilização de ficheiros Azure NetApp com desktop virtual do Windows](solutions-windows-virtual-desktop.md)
 * [Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Crie um recipiente de perfil FSLogix para uma piscina hospedeira utilizando ficheiros Azure NetApp](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Windows Virtual Desktop na escala da empresa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)

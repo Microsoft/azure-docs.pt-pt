@@ -4,16 +4,16 @@ description: Use variáveis ambientais e crie opções para permitir o acesso do
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434530"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257478"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer o acesso a módulos ao armazenamento local de um dispositivo
 
@@ -83,6 +83,12 @@ sudo chmod 700 <HostStoragePath>
 
 Pode encontrar mais detalhes sobre a criação de opções a partir de [docs dockers](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="encrypted-data-in-module-storage"></a>Dados encriptados no armazenamento de módulos
+
+Quando os módulos invocam a API de carga de trabalho do Daemon IoT Edge para encriptar dados, a chave de encriptação é derivada usando o ID do módulo e o ID de geração do módulo. Um ID de geração é usado para proteger segredos se um módulo for removido da implementação e, em seguida, outro módulo com o mesmo módulo ID é posteriormente implantado para o mesmo dispositivo. Pode ver o id de geração de um módulo usando o comando Azure CLI [az iot hub módulo-identidade show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+Se quiser partilhar ficheiros entre módulos entre gerações, eles não devem conter nenhum segredo ou não serão desencriptados.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um exemplo adicional de acesso ao armazenamento de hospedeiros a partir de um módulo, consulte [os dados da Loja na borda com o Azure Blob Storage no IoT Edge](how-to-store-data-blob.md).

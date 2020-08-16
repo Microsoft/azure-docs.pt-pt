@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519248"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258611"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
 Os dois separadores abaixo mostram as funcionalidades do Azure Security Center que estão disponíveis para máquinas e servidores virtuais Windows e Linux.
 
-## <a name="supported-features-for-virtual-machines-and-servers"></a>Funcionalidades suportadas para máquinas virtuais e servidores<a name="vm-server-features"></a>
+## <a name="supported-features-for-virtual-machines-and-servers"></a>Funcionalidades suportadas para máquinas virtuais e servidores <a name="vm-server-features"></a>
 
 ### <a name="windows-machines"></a>[**Máquinas de windows**](#tab/features-windows)
 
@@ -39,7 +39,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Endurecimento da rede adaptativa](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Standard|
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Não-Azure: Standard|
@@ -63,7 +63,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Endurecimento da rede adaptativa](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Standard|
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Não-Azure: Standard|
@@ -80,7 +80,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 >Para experimentar funcionalidades que só estão disponíveis no nível de preços padrão, os utilizadores de nível livre podem inscrever-se num ensaio de 30 dias. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de pontos finais apoiadas<a name="endpoint-supported"></a>
+## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de pontos finais apoiadas <a name="endpoint-supported"></a>
 
 A tabela a seguir fornece uma matriz de:
 
@@ -91,13 +91,13 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 
 | Endpoint Protection| Plataformas | Instalação do Centro de Segurança | Deteção do Centro de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Incorporado no SO| Sim |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016 ou mais tarde| Não, Incorporado no SO| Sim |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Sim |
 | Trend Micro – Segurança Profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família linux servidor  | Não | Sim, é o seu**\*** |
-| Sophos V9+| Família linux servidor  | Não | Sim, é o seu**\***  |
+| McAfee v10+ | Família linux servidor  | Não | Sim, é o seu **\*** |
+| Sophos V9+| Família linux servidor  | Não | Sim, é o seu  **\***  |
 
  **\*** O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 
@@ -105,7 +105,7 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 > A deteção da Proteção de Pontos Finais do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v3.0 ou mais recente).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como o [Security Center recolhe dados e o Agente de Análise de Registos.](security-center-enable-data-collection.md)
 - Saiba como o [Security Center gere e salvaguarda dados.](security-center-data-security.md)

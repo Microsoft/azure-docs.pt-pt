@@ -3,12 +3,12 @@ title: Como conceber a sua implementação de Application Insights - Um vs muito
 description: Telemetria direta a diferentes recursos para desenvolvimento, teste e carimbos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420571"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258725"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
 
@@ -39,9 +39,9 @@ Cada recurso De Insights de Aplicação vem com métricas que estão disponívei
 - Para aplicações de Tecido de Serviço e serviços clássicos de nuvem, o SDK lê automaticamente do Azure Role Environment e define-as. Para todos os outros tipos de aplicações, provavelmente terá de definir isto explicitamente.
 -   A experiência Live Metrics não suporta a divisão pelo nome de papel.
 
-## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
 
-Para facilitar a alteração do ikey à medida que o código se move entre fases de produção, desave-o em código em vez de no ficheiro de configuração.
+Para facilitar a alteração do ikey à medida que o código se move entre fases de produção, consulte a chave dinamicamente em código em vez de utilizar um valor codificado/estático.
 
 Desa parte num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
@@ -139,7 +139,7 @@ No entanto, note que o número da versão de construção é gerado apenas pelo 
 ### <a name="release-annotations"></a>Anotações da versão
 Se utilizar O Azure DevOps, pode [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Recursos partilhados para múltiplos papéis](../../azure-monitor/app/app-map.md)
 * [Criar um Inicializador de Telemetria para distinguir A/ Variantes B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

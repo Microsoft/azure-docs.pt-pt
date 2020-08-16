@@ -10,17 +10,73 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2020
+ms.date: 8/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142354"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258298"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
+
+## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
+>[!NOTE]
+>O August Guest OS está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de agosto. Esta lista está sujeita a alterações.
+
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-08 |  [4571687]  |  IE Atualização Cumulativa | 2.101, 3.88, 4.81 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4561600]  |  Atualização flash | 3.88, 4.81, 5.46, 6.22 | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Última atualização cumulativa | 6.22 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4565349]  |  Última atualização cumulativa | 5.46 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4570673]  |  Atualização da pilha de manutenção | 2.101 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4571729]  |  Rollup mensal | 2.101 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569767]  |  .Net Framework 3.5.1 Rollup de segurança e qualidade | 2.101 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.101 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.88 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.88 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566426]  |  Atualização da pilha de manutenção | 3.88 | 14 de julho de 2020 |
+|  Rel 20-08 |  [4571736]  |  Rollup mensal | 3.88 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566425]  |  Atualização da pilha de manutenção | 4.81 | 14 de julho de 2020 |
+|  Rel 20-08 |  [4571703]  |  Rollup mensal | 4.81 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.81 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569778]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.81 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcódigo | 5.46 | 25 de fevereiro de 2020 |
+|  Rel 20-08 |  [4565912]  |  Atualização da pilha de manutenção | 5.46 | 14 de julho de 2020 |
+|  Rel 20-08 |  [4569746]  |  .NET Quadro 4.8 Rollup de segurança e qualidade | 5.46 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569776]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.22 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569750]  |  .Net Framework 3.5 e 4.8 Atualização Cumulativa | 6.22 | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566424]  |  Atualização da pilha de manutenção | 6.22 | 11 de agosto de 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
 
 ## <a name="july-2020-guest-os"></a>Os convidados de julho de 2020
 >[!NOTE]
@@ -119,7 +175,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4556813]  |  Última atualização cumulativa (LCU)   |  [5.43]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4551853]  |  Última atualização cumulativa (LCU)   |  [6.19]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |

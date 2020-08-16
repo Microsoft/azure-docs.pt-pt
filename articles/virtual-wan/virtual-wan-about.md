@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d7e3992f12e39dd819bc18d5deb9f8b6da935616
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513150"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258681"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre Azure Virtual WAN
 
@@ -98,7 +98,7 @@ O router pode ter quatro estatutos de encaminhamento: Provisioned, Provisioning,
 * A **Nenhum** estado indica que o hub Virtual não foriu o router. Isto pode acontecer se o WAN Virtual for do tipo *Basic*, ou se o hub virtual foi implantado antes do serviço ser disponibilizado.
 * Um **estado falhado** indica falha durante a instantânea. Para instantaneaizar ou redefinir o router, pode localizar a opção **Reset Router** navegando na página geral do hub virtual no portal Azure.
 
-Cada router de hub virtual suporta uma produção agregada até 50 Gbps. A conectividade entre as ligações de rede virtual pressupõe um total de 2000 VM de carga de trabalho em todos os VNets numa WAN virtual.
+Cada router de hub virtual suporta uma produção agregada até 50 Gbps. A conectividade entre as ligações de rede virtual pressupõe um total de 2000 VM de carga de trabalho em todos os VNets ligados a um Hub virtual.
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Conectividade de trânsito entre VPN e ExpressRoute
 
@@ -128,7 +128,7 @@ As tabelas de rotas têm agora características de associação e propagação. 
 
 * **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

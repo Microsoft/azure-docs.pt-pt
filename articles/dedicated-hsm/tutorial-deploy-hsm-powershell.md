@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512508"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257432"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
 
@@ -40,7 +40,7 @@ Este tutorial centra-se num par de HSMs e no ExpressRoute Gateway necessário (v
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O Azure Dedicated HSM não está atualmente disponível no portal Azure, pelo que toda a interação com o serviço será via linha de comando ou utilizando o PowerShell. Este tutorial usará PowerShell na Azure Cloud Shell. Se é novo na PowerShell, siga as instruções de início aqui: [Azure PowerShell Get Start](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+O Azure Dedicated HSM não está atualmente disponível no portal Azure, pelo que toda a interação com o serviço será via linha de comando ou utilizando o PowerShell. Este tutorial usará PowerShell na Azure Cloud Shell. Se é novo na PowerShell, siga as instruções de início aqui: [Azure PowerShell Get Start](/powershell/azure/get-started-azureps).
 
 Pressupostos:
 
@@ -72,12 +72,12 @@ Um dispositivo HSM é a provisionado numa rede virtual de clientes. Isto implica
 
 Uma vez que tenha os ficheiros, tem de editar o ficheiro de parâmetros para inserir os seus nomes preferidos para obter recursos. Isto significa editar linhas com "valor": "".
 
-- `namingInfix`Prefixo para nomes de recursos HSM
-- `ExistingVirtualNetworkName`Nome da rede virtual utilizada para os HSMs
-- `DedicatedHsmResourceName1`Nome do recurso HSM no carimbo do datacenter 1
-- `DedicatedHsmResourceName2`Nome do recurso HSM no carimbo do datacenter 2
-- `hsmSubnetRange`Gama de endereços IP sub-rede para HSMs
-- `ERSubnetRange`Gama de endereços IP sub-rede para gateway VNET
+- `namingInfix` Prefixo para nomes de recursos HSM
+- `ExistingVirtualNetworkName` Nome da rede virtual utilizada para os HSMs
+- `DedicatedHsmResourceName1` Nome do recurso HSM no carimbo do datacenter 1
+- `DedicatedHsmResourceName2` Nome do recurso HSM no carimbo do datacenter 2
+- `hsmSubnetRange` Gama de endereços IP sub-rede para HSMs
+- `ERSubnetRange` Gama de endereços IP sub-rede para gateway VNET
 
 Um exemplo destas alterações é o seguinte:
 
@@ -255,12 +255,12 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após completar os passos no tutorial, os recursos dedicados do HSM são a provisionados e disponíveis na sua rede virtual. Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts. Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. O ficheiro de modelo utilizado neste tutorial pode ser facilmente usado como base para uma implantação de dois HSM, mas precisa de ter os seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Alta Disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Monitorização](monitoring.md)
 * [Suportabilidade](supportability.md)

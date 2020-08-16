@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327842"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258308"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para Azure Cosmos DB Java SDK v4
 
@@ -45,9 +45,9 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     Estes modos de ligação condicionam essencialmente a rota que os pedidos do plano de dados - leituras e escritas de documentos - levam da sua máquina cliente para divisórias no DB DB Azure Cosmos. Geralmente o modo Direct é a opção preferida para o melhor desempenho - permite ao seu cliente abrir ligações TCP diretamente às divisórias no back-end Azure Cosmos e enviar pedidos *diretamente*sem intermediário. Em contraste, no modo Gateway, os pedidos feitos pelo seu cliente são encaminhados para um servidor chamado "Gateway" na frente do Azure Cosmos DB, que por sua vez os fãs apagam os seus pedidos para a(s) partição(s) apropriada no DB DB Azure Cosmos. Se a sua aplicação for executado dentro de uma rede corporativa com restrições rígidas de firewall, o modo Gateway é a melhor escolha, uma vez que utiliza a porta HTTPS padrão e um único ponto final. A troca de desempenho, no entanto, é que o modo Gateway envolve um lúpulo de rede adicional (cliente de Gateway mais Gateway para partição) sempre que os dados são lidos ou escritos para Azure Cosmos DB. Por isso, o modo Direct oferece um melhor desempenho devido a menos lúpulo de rede.
 
-    O modo de ligação para pedidos de plano de dados está configurado no construtor de clientes Azure Cosmos DB utilizando os métodos *directMode ()* ou *gatewayMode()* como mostrado abaixo. Para configurar qualquer um dos modos com definições predefinidas, ligue para qualquer um dos métodos sem argumentos. Caso contrário, passe uma configuração definições de classe como o argumento (*DirectConnectionConfig* para *directMode()*, *GatewayConnectionConfig* para *gatewayMode()*.)
+    O modo de ligação para pedidos de plano de dados está configurado no construtor de clientes Azure Cosmos DB utilizando os métodos *directMode ()* ou *gatewayMode()* como mostrado abaixo. Para configurar qualquer um dos modos com definições predefinidas, ligue para qualquer um dos métodos sem argumentos. Caso contrário, passe uma configuração definições de classe como o argumento (*DirectConnectionConfig* para *directMode()*,  *GatewayConnectionConfig* para *gatewayMode()*.)
     
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[Async](#tab/api-async)
 
@@ -65,7 +65,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     O método *directMode()* tem uma sobreposição adicional, pela seguinte razão. Controle as operações dos aviões, tais como base de dados e contentor *CRUD,* utilize sempre o modo Gateway; quando o utilizador tiver configurado o modo direto para operações de plano de dados, as operações do avião de controlo utilizam as definições padrão do modo Gateway. Isto serve à maioria dos utilizadores. No entanto, os utilizadores que pretendam o modo direto para operações de plano de dados, bem como a tunability dos parâmetros do modo Gateway do plano de controlo podem utilizar o seguinte sobreposição *direta do ModoMode:)*
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[Async](#tab/api-async)
 
@@ -133,7 +133,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     Os seguintes snippets de código mostram como inicializar o seu cliente Azure Cosmos DB para a operação API da Async ou Sync API, respectivamente:
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[Async](#tab/api-async)
 
@@ -316,7 +316,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](indexing-policies.md).
 

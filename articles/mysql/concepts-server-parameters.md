@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835991"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258553"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -98,7 +98,7 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`só podem ser atualizados nos níveis de preços otimizados para fins gerais e memória.
+> `innodb_file_per_table` só podem ser atualizados nos níveis de preços otimizados para fins gerais e memória.
 
 O MySQL armazena a tabela InnoDB em diferentes espaços de mesa com base na configuração que forneceu durante a criação da tabela. O [espaço de mesa do sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de ficheiros por tabela](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contém dados e índices para uma única tabela InnoDB, e é armazenado no sistema de ficheiros no seu próprio ficheiro de dados. Este comportamento é controlado pelo parâmetro do `innodb_file_per_table` servidor. A definição `innodb_file_per_table` faz com que o `OFF` InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de mesa de ficheiros por mesa.
 
@@ -212,6 +212,9 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
 
 Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
+> [!NOTE]
+> Se tiver um servidor de réplica de leitura, a definição **innodb_strict_mode** para OFF ao nível da sessão num servidor principal quebrará a replicação. Sugerimos manter o parâmetro definido para OFF se tiver lido réplicas.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

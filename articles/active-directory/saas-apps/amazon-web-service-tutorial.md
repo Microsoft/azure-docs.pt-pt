@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e23f516fe31b4a21232f75286540e6c0d9019d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6a68a282a907817f1921acea911754bf78834b35
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923017"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257765"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -385,8 +385,6 @@ Quando clicar no azulejo amazon Web Services (AWS) no Painel de Acesso, deverá 
 * As funções devem satisfazer os seguintes requisitos a serem elegíveis para serem importados da AWS para a Azure AD:
 
   * As funções devem ter exatamente um fornecedor de saml definido em AWS
-
-  * O comprimento combinado do papel ARN e do saml-provider ARN para um papel importado deve ser de 119 caracteres ou menos
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

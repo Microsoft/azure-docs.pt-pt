@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 90b4ffb273fc314a7c92971490fb09b6f0c131ee
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987261"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258347"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -71,15 +71,12 @@ A forma como um cliente se conecta à Azure Cosmos DB tem implicações importan
      Se a sua aplicação for executado dentro de uma rede corporativa com restrições rígidas de firewall, o modo gateway é a melhor escolha porque utiliza a porta HTTPS padrão e um único ponto final. A troca de desempenho, no entanto, é que o modo gateway envolve um salto de rede adicional cada vez que os dados são lidos ou escritos para Azure Cosmos DB. Assim, o modo direto oferece um melhor desempenho porque há menos lúpulo de rede. Recomendamos também o modo de ligação de gateway quando executar aplicações em ambientes com um número limitado de ligações à tomada.
 
      Quando utilizar o SDK em Funções Azure, nomeadamente no [plano de Consumo,](../azure-functions/functions-scale.md#consumption-plan)esteja atento aos [atuais limites de ligações](../azure-functions/manage-connections.md). Nesse caso, o modo gateway pode ser melhor se também estiver a trabalhar com outros clientes baseados em HTTP dentro da sua aplicação Azure Functions.
-
-
-No modo gateway, a Azure Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 quando está a usar o Azure Cosmos DB API para MongoDB. A porta 10250 mapeia para uma instância padrão do MongoDB sem geo-replicação. Os portões 10255 e 10256 mapeam para a instância mongoDB que tem geo-replicação.
      
-Quando utilizar o TCP em modo direto, para além das portas gateway, é necessário garantir que a autonomia entre 10000 e 20000 está aberta porque a Azure Cosmos DB utiliza portas TCP dinâmicas (quando se utiliza o modo direto em [pontos finais privados](./how-to-configure-private-endpoints.md), toda a gama de portas TCP - de 0 a 65535 - tem de estar aberta). As portas estão abertas por defeito para a configuração padrão Azure VM. Se estas portas não estiverem abertas e tentar utilizar o TCP, receberá um erro 503 Serviço Indisponível. Esta tabela mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço utilizadas para cada API:
+Quando utilizar o TCP no modo direto, para além das portas gateway, é necessário garantir que a autonomia entre 10000 e 2000 está aberta porque a Azure Cosmos DB utiliza portas TCP dinâmicas. Quando utilizar o modo direto nos [pontos finais privados,](./how-to-configure-private-endpoints.md)deve estar aberta toda a gama de portas TCP de 0 a 65535. As portas estão abertas por defeito para a configuração padrão Azure VM. Se estas portas não estiverem abertas e tentar utilizar o TCP, receberá um erro 503 Serviço Indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço utilizadas para cada API:
 
 |Modo de ligação  |Protocolo apoiado  |SDKs apoiados  |Porta API/Serviço  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabela (443), Cassandra (10350), Gráfico (443)    |
+|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabela (443), Cassandra (10350), Gráfico (443) <br> A porta 10250 mapeia para um API API API AZure Cosmos padrão para a instância MongoDB sem geo-replicação. Enquanto as portas 10255 e 10256 mapeam para o caso que tem geo-replicação.   |
 |Direct    |     TCP    |  SDK .NET    | Quando utilizar pontos finais públicos/de serviço: portas na gama 10000-20000<br>Quando utilizar pontos finais privados: portas na gama 0 a 65535 |
 
 A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do cliente .NET SDK. O protocolo TCP utiliza O Sº TLS para autenticação inicial e encriptação do tráfego. Para obter um melhor desempenho, utilize o protocolo TCP sempre que possível.
@@ -167,8 +164,8 @@ Os pedidos de DB da Azure Cosmos são feitos sobre HTTPS/REST quando utiliza o m
 **Afinar consultas paralelas para coleções divididas**
 
 SQL .NET SDK suporta consultas paralelas, que permitem consultar um recipiente dividido em paralelo. Para obter mais informações, consulte [amostras de código relacionadas](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) com o trabalho com os SDKs. Consultas paralelas são projetadas para proporcionar uma melhor consulta de latência e produção do que a sua contraparte em série. Consultas paralelas fornecem dois parâmetros que pode sintonizar para se adaptar às suas necessidades: 
-- `MaxConcurrency`controla o número máximo de divisórias que podem ser consultadas em paralelo. 
-- `MaxBufferedItemCount`controla o número de resultados pré-recáveis.
+- `MaxConcurrency` controla o número máximo de divisórias que podem ser consultadas em paralelo. 
+- `MaxBufferedItemCount` controla o número de resultados pré-recáveis.
 
 ***Grau de cônrina***
 

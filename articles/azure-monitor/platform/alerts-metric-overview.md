@@ -1,15 +1,15 @@
 ---
 title: Entenda como os alertas métricos funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Azure Monitor.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327145"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258425"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -135,12 +135,15 @@ Até agora, você viu como um único alerta métrico poderia ser usado para moni
 
 Esta funcionalidade é atualmente suportada para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens Azure:
 
-| Serviço | Azure Público | Governo | China |
+| Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
-| Bases de dados de servidores SQL | **Sim** | **Sim** | Não |
-| Piscinas elásticas do servidor SQL | **Sim** | **Sim** | Não |
-| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | Não |
+| Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
+| Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
+| NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |
+| Volumes de ficheiros NetApp | **Sim** | **Sim** | **Sim** |
+| Cofres de chaves | **Sim** | **Sim** | **Sim** |
+| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | **Sim** |
 
 Pode especificar o âmbito de monitorização através de uma única regra de alerta métrico de uma de três maneiras. Por exemplo, com máquinas virtuais pode especificar o âmbito como:  
 

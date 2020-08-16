@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057573"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257456"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -20,7 +20,7 @@ Pode utilizar [as definições de tempo para viver (TTL)](../traffic-manager/tra
 
 O Azure Advisor identifica perfis de Gestor de Tráfego que têm um TTL mais longo configurado. Recomenda a configuração do TTL para 20 segundos ou 60 segundos, dependendo se o perfil está configurado para [fast failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Melhorar o desempenho da base de dados utilizando o SqL Database Advisor
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Melhorar o desempenho da base de dados utilizando o SqL Database Advisor (temporariamente desativado)
 
 O Azure Advisor fornece uma visão consistente e consolidada das recomendações para todos os seus recursos Azure. Integra-se com o SQL Database Advisor para lhe trazer recomendações para melhorar o desempenho das suas bases de dados.O SQL Database Advisor avalia o desempenho das suas bases de dados analisando o seu histórico de utilização. Em seguida, oferece recomendações que são mais adequadas para executar a carga de trabalho típica da base de dados.
 
@@ -151,6 +151,22 @@ O advisor identifica os contentores DB da Azure Cosmos que estão a usar a polí
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Deite o tamanho da página de consulta Azure Cosmos DB (MaxItemCount) para -1 
 
 O Azure Advisor identifica os recipientes DB da Azure Cosmos que utilizam um tamanho de página de consulta de 100. Recomenda a utilização de uma página de -1 para análises mais rápidas. [Saiba mais sobre o MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Considere usar a funcionalidade De Escritas Aceleradas no seu cluster HBase para melhorar o desempenho do cluster
+O Azure Advisor analisa os registos do sistema nos últimos 7 dias e identifica se o seu cluster encontrou os seguintes cenários:
+1. Latência do tempo de sincronização de WAL elevada 
+2. Contagem elevada de pedidos de escrita (pelo menos 3 janelas de uma hora de mais de 1000 avg_write_requests/segundo/nó)
+
+Estas condições são indicadores de que o seu cluster sofre de latências de escrita elevadas. Isto pode ser devido à carga de trabalho pesada realizada no seu aglomerado. Para melhorar o desempenho do seu cluster, pode considerar a utilização da funcionalidade De Escritas Aceleradas fornecida pela Azure HDInsight HBase. A funcionalidade Escritas Aceleradas para clusters Apache HBase do HDInsight anexa discos geridos por SSD premium a todos os RegionServer (nó de trabalho) em vez de utilizar o armazenamento na cloud. Como resultado, proporciona baixa latência de escrita e melhor resiliência para as suas aplicações. Para ler mais sobre esta funcionalidade, [saiba mais](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Rever Azure Data Explorer tabela-período de cache (política) para um melhor desempenho (Pré-visualização)
+Esta recomendação expõe as tabelas do Azure Data Explorer que têm um grande número de consultas que procuram além do período de cache configurado (política). (Verá as 10 tabelas que acedem mais aos dados fora da cache, em percentagem de consultas). A ação recomendada para melhorar o desempenho do cluster: limitar as consultas nesta tabela ao intervalo de tempo mínimo necessário, (dentro do intervalo de tempo definido na política). Como alternativa, se os dados da totalidade do intervalo de tempo forem necessários, aumente o período de cache para o valor recomendado.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Melhore o desempenho ao otimizar o dimensionamento de tabelas temporárias MySQL
+A análise do conselho indica que o seu servidor MySQL pode estar a incorrer em sobrecargas desnecessárias de I/O devido a baixas definições de parâmetros de tabela temporária. Tal pode resultar em transações baseadas em discos desnecessárias e desempenho reduzido. Recomendamos que aumente os valores dos parâmetros “tmp_table_size” e “max_heap_table_size” para reduzir o número de transações baseadas em discos. [Saiba mais](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo do servidor para distribuir carga de trabalho entre os nóns
+O advisor identifica os grupos de servidores onde os dados não foram distribuídos, mas permanece no coordenador. Com base nisto, o Advisor recomenda que para benefícios completos da Hyperscale (Citus) distribuam dados em nós de trabalhadores para os seus grupos de servidores. Isto melhorará o desempenho da consulta utilizando recursos de cada nó no grupo do servidor. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como aceder às recomendações de desempenho no Advisor
 

@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/30/2020
-ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/14/2020
+ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534452"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257804"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolução de problemas problemas comuns na Azure Data Share 
 
@@ -34,7 +34,7 @@ Isto pode dever-se às seguintes razões:
     1. Pesquisa rumo **ao Microsoft.DataShare**
     1. Clique **em Registar** 
 
-    Terá de ter o [papel de Azure para](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) completar estes passos. 
+    Você precisará ter o [papel de Azure Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para a subscrição do Azure para completar estes passos. 
 
 * **O convite é enviado para o seu pseudónimo de e-mail em vez do seu e-mail de login Azure.** Se registou o serviço Azure Data Share ou já criou um recurso De partilha de dados no inquilino Azure, mas ainda não consegue ver o convite, talvez porque o fornecedor inseriu o seu pseudónimo de e-mail como destinatário em vez do seu endereço de e-mail de login Azure. Contacte o seu fornecedor de dados e certifique-se de que enviaram o convite para o seu endereço de e-mail de login da Azure e não para o seu pseudónimo de e-mail.
 

@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130839"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257506"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para satisfazer as exigências das aplicações no Azure Kubernetes Service (AKS)
 
@@ -20,12 +20,6 @@ Este artigo mostra-lhe como ativar e gerir o cluster autoscaler num cluster AKS.
 ## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.76 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
-
-## <a name="limitations"></a>Limitações
-
-Aplicam-se as seguintes limitações quando cria e gere os clusters AKS que utilizam o autoescalador do cluster:
-
-* O addon de encaminhamento de aplicações HTTP não pode ser utilizado.
 
 ## <a name="about-the-cluster-autoscaler"></a>Sobre o cluster autoscaler
 
@@ -44,7 +38,7 @@ Tanto o autoescalador horizontal como o autoescalador de agrupamento também pod
 
 Para obter mais informações sobre como o autoescalador do cluster pode não conseguir reduzir a escala, veja [que tipos de cápsulas podem impedir o cluster autoscaler de remover um nó?][autoscaler-scaledown]
 
-O autoescalador do cluster utiliza parâmetros de arranque para coisas como intervalos de tempo entre eventos de escala e limiares de recursos. Para obter mais informações sobre os parâmetros que o autoescalador do cluster utiliza, consulte [quais são os parâmetros de autoescala do cluster?][autoscaler-parameters]
+O autoescalador do cluster utiliza parâmetros de arranque para coisas como intervalos de tempo entre eventos de escala e limiares de recursos. Para obter mais informações sobre os parâmetros que o autoescalador do cluster utiliza, consulte [utilizando o perfil de autoescalador](#using-the-autoscaler-profile).
 
 O cluster e os autoescaladores horizontais podem trabalhar em conjunto, e são muitas vezes ambos implantados num cluster. Quando combinado, o autoescalador horizontal está focado em executar o número de cápsulas necessárias para satisfazer a procura de aplicações. O autoescalador do cluster está focado em executar o número de nós necessários para suportar as cápsulas programadas.
 

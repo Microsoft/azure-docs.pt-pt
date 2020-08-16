@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: c6c1b30716b52554afebe39562692de181dd7d1a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3e15adcac184a0609de3197181cb8c475a962e8d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921235"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258368"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e .NET SDK v2
 
@@ -64,7 +64,7 @@ Se estiver a testar em níveis de produção elevados (mais de 50.000 RU/s), a a
 > [!NOTE] 
 > O uso elevado do CPU pode causar um aumento da latência e solicitar exceções no tempo limite.
 
-## <a name="networking"></a><a id="networking"></a>Networking
+## <a name="networking"></a><a id="networking"></a> Networking
 
 **Política de ligação: Utilize o modo de ligação direta**
 
@@ -79,14 +79,12 @@ A forma como um cliente se conecta à Azure Cosmos DB tem implicações importan
   * Modo direto
 
     O modo direto suporta a conectividade através do protocolo TCP.
-
-No modo gateway, a Azure Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 quando está a usar o Azure Cosmos DB API para MongoDB. A porta 10250 mapeia para uma instância padrão do MongoDB sem geo-replicação. Os portões 10255 e 10256 mapeam para a instância mongoDB que tem geo-replicação.
      
-Quando utilizar o TCP em modo direto, para além das portas gateway, é necessário garantir que a autonomia entre 10000 e 20000 está aberta porque a Azure Cosmos DB utiliza portas TCP dinâmicas (quando se utiliza o modo direto em [pontos finais privados](./how-to-configure-private-endpoints.md), toda a gama de portas TCP - de 0 a 65535 - tem de estar aberta). Se estas portas não estiverem abertas e tentar utilizar o TCP, receberá um erro 503 Serviço Indisponível. Esta tabela mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço utilizadas para cada API:
+Quando utilizar o TCP no modo direto, para além das portas gateway, é necessário garantir que a autonomia entre 10000 e 2000 está aberta porque a Azure Cosmos DB utiliza portas TCP dinâmicas. Quando utilizar o modo direto nos [pontos finais privados,](./how-to-configure-private-endpoints.md)deve estar aberta toda a gama de portas TCP de 0 a 65535. Se estas portas não estiverem abertas e tentar utilizar o protocolo TCP, receberá um erro 503 Serviço Indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço utilizadas para cada API:
 
 |Modo de ligação  |Protocolo apoiado  |SDKs apoiados  |Porta API/Serviço  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabela (443), Cassandra (10350), Gráfico (443)    |
+|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabela (443), Cassandra (10350), Gráfico (443) <br> A porta 10250 mapeia para um API API API AZure Cosmos padrão para a instância MongoDB sem geo-replicação. Enquanto as portas 10255 e 10256 mapeam para o caso que tem geo-replicação.   |
 |Direct    |     TCP    |  SDK .NET    | Quando utilizar pontos finais públicos/de serviço: portas na gama 10000-20000<br>Quando utilizar pontos finais privados: portas na gama 0 a 65535 |
 
 A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do cliente .NET SDK. O protocolo TCP utiliza O Sº TLS para autenticação inicial e encriptação do tráfego. Para obter um melhor desempenho, utilize o protocolo TCP sempre que possível.
@@ -121,10 +119,10 @@ Em cenários em que tenha acesso escasso e se notar uma contagem de ligação ma
 
 **Ligue para o OpenAsync para evitar a latência do arranque no primeiro pedido**
 
-Por padrão, o primeiro pedido tem maior latência porque precisa de ir buscar a tabela de encaminhamento de endereços. Quando utilizar [o SDK V2,](sql-api-sdk-dotnet.md)ligue `OpenAsync()` uma vez durante a inicialização para evitar esta latência de arranque no primeiro pedido. A chamada parece:`await client.OpenAsync();`
+Por padrão, o primeiro pedido tem maior latência porque precisa de ir buscar a tabela de encaminhamento de endereços. Quando utilizar [o SDK V2,](sql-api-sdk-dotnet.md)ligue `OpenAsync()` uma vez durante a inicialização para evitar esta latência de arranque no primeiro pedido. A chamada parece: `await client.OpenAsync();`
 
 > [!NOTE]
-> `OpenAsync`gerará pedidos para obter a tabela de encaminhamento de endereços para todos os contentores da conta. Para contas que têm muitos contentores mas cuja aplicação acede a um subconjunto deles, `OpenAsync` geraria uma quantidade desnecessária de tráfego, o que tornaria a inicialização lenta. Assim, usar `OpenAsync` pode não ser útil neste cenário porque atrasa o arranque da aplicação.
+> `OpenAsync` gerará pedidos para obter a tabela de encaminhamento de endereços para todos os contentores da conta. Para contas que têm muitos contentores mas cuja aplicação acede a um subconjunto deles, `OpenAsync` geraria uma quantidade desnecessária de tráfego, o que tornaria a inicialização lenta. Assim, usar `OpenAsync` pode não ser útil neste cenário porque atrasa o arranque da aplicação.
 
 **Para o desempenho, colocate clientes na mesma região de Azure**
 
@@ -158,8 +156,8 @@ Os pedidos de DB da Azure Cosmos são feitos sobre HTTPS/REST quando utiliza o m
 **Afinar consultas paralelas para coleções divididas**
 
 SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte [amostras de código relacionadas](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) com o trabalho com os SDKs. Consultas paralelas são projetadas para proporcionar uma melhor consulta de latência e produção do que a sua contraparte em série. Consultas paralelas fornecem dois parâmetros que pode sintonizar para se adaptar às suas necessidades: 
-- `MaxDegreeOfParallelism`controla o número máximo de divisórias que podem ser consultadas em paralelo. 
-- `MaxBufferedItemCount`controla o número de resultados pré-recáveis.
+- `MaxDegreeOfParallelism` controla o número máximo de divisórias que podem ser consultadas em paralelo. 
+- `MaxBufferedItemCount` controla o número de resultados pré-recáveis.
 
 ***Grau de sintonização do paralelismo***
 
@@ -231,7 +229,7 @@ collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabas
 
 Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](index-policy.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Produção
+## <a name="throughput"></a><a id="measure-rus"></a> Produção
 
 **Meça e sintonize para unidades de pedido mais baixas/segunda utilização**
 
@@ -281,7 +279,7 @@ O comportamento de relembolso automatizado ajuda a melhorar a resiliência e a u
 
 A taxa de pedido (isto é, o custo de processamento de pedido) de uma determinada operação está diretamente relacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações em pequenos documentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma aplicação de amostra que é usada para avaliar Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte testes de [desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
