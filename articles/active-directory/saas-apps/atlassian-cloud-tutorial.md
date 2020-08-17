@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb3522898a40dc79e8465af813633015568f1c8
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9aafe6af0157ec187e787006d6c04bc1c5c8a8b0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033873"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271214"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
 
@@ -77,6 +77,16 @@ Para configurar e testar O Azure AD SSO com nuvem atlassiana, complete os seguin
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
+
+1. Para automatizar a configuração dentro da Nuvem Atlassiana, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar extensão ao navegador, clique em **Configurar a Nuvem Atlassiana** irá direcioná-lo para a aplicação Atlassian Cloud. A partir daí, forneça as credenciais de administração para assinar na Nuvem Atlassiana. A extensão do navegador configurará automaticamente a aplicação para si.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+1. Se pretender configurar a Atlassian Cloud manualmente, inicie sessão no site da sua empresa Atlassian Cloud como administrador e execute os seguintes passos.
 
 1. Antes de começar a ir para a sua instância de produto Atlassian e copiar/guardar o URL de instância
    > [!NOTE]
@@ -177,7 +187,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Embora o Azure não preencha o atributo **user.mail** para os utilizadores criados em Azure AD inquilinos sem licenças office 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte** e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
+      b. Embora o Azure não preencha o atributo **user.mail** para os utilizadores criados em Azure AD inquilinos sem licenças office 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          

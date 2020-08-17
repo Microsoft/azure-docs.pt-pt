@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57eda7e1d5ffedf7d5b867bfa7a59850fbadaf99
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 816315ee97ac51d40bd5787cc58ef601160ba157
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905028"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a ArcGIS Enterprise
 
@@ -48,8 +47,6 @@ Para configurar a integração AD da Azure com a ArcGIS Enterprise, precisa dos 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
-
-
 
 * ArcGIS Enterprise apoia **SP e IDP** iniciado SSO
 * A Empresa ArcGIS suporta o fornecimento de utilizadores **just in time**
@@ -113,15 +110,15 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     ![ArcGIS Enterprise Domain e URLs informações únicas de súmis](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`<EXTERNAL_DNS_NAME>.portal`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `<EXTERNAL_DNS_NAME>.portal`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     ![ArcGIS Enterprise Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte ao Cliente da ArcGIS Enterprise](mailto:support@esri.com) para obter estes valores. Você receberá o valor identificador da secção De Fornecedor de **Identidade,** que é explicado mais tarde neste tutorial.
@@ -132,21 +129,30 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 ### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurar a empresa arcgis única sign-on
 
-1. Numa janela diferente do navegador web, inicie sessão no site da empresa ArcGIS Enterprise como administrador.
+1. Para automatizar a configuração dentro do ArcGIS Enterprise, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
-2. Selecione **Configurações de EDIÇÃO >Organização.**
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar extensão ao navegador, clique em **Configurar a ArcGIS Enterprise** irá direcioná-lo para a aplicação ArcGIS Enterprise. A partir daí, forneça as credenciais de administração para assinar na ArcGIS Enterprise. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-7.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+1. Se pretender configurar a ArcGIS Enterprise manualmente, inicie sessão no site da empresa ArcGIS Enterprise como administrador.
+
+
+1. Selecione **Configurações de EDIÇÃO >Organização.**
 
     ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure1.png)
 
-3. Selecione o separador **Segurança**.
+1. Selecione o separador **Segurança**.
 
     ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure2.png)
 
-4. Desloque-se até aos Logins da Empresa através da secção **SAML** e selecione **SET ENTERPRISE LOGIN**.
+1. Desloque-se até aos Logins da Empresa através da secção **SAML** e selecione **SET ENTERPRISE LOGIN**.
 
     ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure3.png)
 
-5. Na secção **'Fornecedor de Identidade' set,** execute os seguintes passos:
+1. Na secção **'Fornecedor de Identidade' set,** execute os seguintes passos:
 
     ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure4.png)
 

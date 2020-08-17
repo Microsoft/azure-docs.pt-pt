@@ -1,17 +1,17 @@
 ---
 title: Visão geral da implementação - Avere vFXT para Azure
-description: Visão geral da implantação do Avere vFXT para o Azure
+description: Saiba como implementar um avere vFXT para cluster Azure com esta visão geral. Os artigos relacionados têm instruções de implantação específicas.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 78140fea74272dff6056bebfbd44ed9d55b0e1db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c63fdf2164dd4dce12912669eec29c79755cc2a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76153688"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271231"
 ---
 <!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
 
@@ -74,6 +74,6 @@ Aqui está uma visão geral de todos os passos.
 
    Se necessitar de mover os dados do conjunto de trabalho para um novo recipiente Blob ou outro sistema de armazenamento de back-end, siga as instruções em [Mover dados para o cluster vFXT](avere-vfxt-data-ingest.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue a [preparar-se para criar o Avere vFXT](avere-vfxt-prereqs.md) para completar as tarefas pré-requisitos.

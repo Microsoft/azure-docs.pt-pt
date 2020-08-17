@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208021"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272319"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -146,7 +146,7 @@ O Serviço de Aplicações transmite as reclamações dos utilizadores à sua ap
 
 Código que está escrito em qualquer idioma ou enquadramento pode obter a informação de que precisa destes cabeçalhos. Para ASP.NET 4.6 aplicações, o **ClaimsPrincipal** é automaticamente definido com os valores apropriados. ASP.NET Core, no entanto, não fornece um middleware de autenticação que se integre com as alegações do utilizador do App Service. Para uma solução alternativa, consulte [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-A sua aplicação também pode obter detalhes adicionais sobre o utilizador autenticado, ligando para `/.auth/me` . Os SDKs do servidor de Aplicações Móveis fornecem métodos de ajuda para trabalhar com estes dados. Para obter mais informações, consulte [Como utilizar as aplicações móveis Azure Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), e [trabalhar com o servidor de backend SDK .NET para aplicações móveis Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Se a [loja de fichas](overview-authentication-authorization.md#token-store) estiver ativada para a sua aplicação, também pode obter detalhes adicionais sobre o utilizador autenticado, ligando para `/.auth/me` . Os SDKs do servidor de Aplicações Móveis fornecem métodos de ajuda para trabalhar com estes dados. Para obter mais informações, consulte [Como utilizar as aplicações móveis Azure Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), e [trabalhar com o servidor de backend SDK .NET para aplicações móveis Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Recuperar fichas no código de aplicações
 
@@ -161,14 +161,14 @@ A partir do código do seu servidor, os tokens específicos do fornecedor são i
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-A partir do seu código cliente (como uma aplicação móvel ou javaScript no navegador), envie um pedido HTTP `GET` para `/.auth/me` . O JSON devolvido tem as fichas específicas do fornecedor.
+A partir do seu código cliente (como uma aplicação móvel ou javaScript no navegador), envie um pedido HTTP `GET` para `/.auth/me` [(token store](overview-authentication-authorization.md#token-store) deve estar ativado). O JSON devolvido tem as fichas específicas do fornecedor.
 
 > [!NOTE]
 > Os tokens de acesso são para aceder a recursos do fornecedor, pelo que só estão presentes se configurar o seu fornecedor com um segredo de cliente. Para ver como obter fichas refrescantes, consulte os tokens de acesso refresh.
 
 ## <a name="refresh-identity-provider-tokens"></a>Fichas de fornecedor de identidade atualizar
 
-Quando o token de acesso do seu fornecedor (não o token da [sessão)](#extend-session-token-expiration-grace-period)expirar, tem de reautorá-lo antes de voltar a utilizar esse token. Pode evitar a expiração do token fazendo uma `GET` chamada para o ponto final da sua `/.auth/refresh` aplicação. Quando chamado, o Serviço de Aplicações atualiza automaticamente os tokens de acesso na loja simbólica para o utilizador autenticado. Os pedidos subsequentes de tokens pelo seu código de aplicação recebem os tokens renovados. No entanto, para que a atualização simbólica funcione, a loja simbólica deve conter [fichas de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização é documentada por cada fornecedor, mas a seguinte lista é um breve resumo:
+Quando o token de acesso do seu fornecedor (não o token da [sessão)](#extend-session-token-expiration-grace-period)expirar, tem de reautorá-lo antes de voltar a utilizar esse token. Pode evitar a expiração do token fazendo uma `GET` chamada para o ponto final da sua `/.auth/refresh` aplicação. Quando chamado, o Serviço de Aplicações atualiza automaticamente os tokens de acesso na [loja simbólica](overview-authentication-authorization.md#token-store) para o utilizador autenticado. Os pedidos subsequentes de tokens pelo seu código de aplicação recebem os tokens renovados. No entanto, para que a atualização simbólica funcione, a loja simbólica deve conter [fichas de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização é documentada por cada fornecedor, mas a seguinte lista é um breve resumo:
 
 - **Google**: Apeia um `access_type=offline` parâmetro de cadeia de consulta à sua chamada `/.auth/login/google` API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (ver [Google Refresh Tokens).](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)
 - **Facebook**: Não fornece fichas de atualização. As fichas de longa duração expiram em 60 dias (ver [Expiração do Facebook e Extensão de Fichas de Acesso).](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)

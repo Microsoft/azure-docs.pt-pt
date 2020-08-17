@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185626"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271061"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -40,7 +40,7 @@ As métricas do Azure File Sync são ativadas por predefinição e são enviadas
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
@@ -112,7 +112,7 @@ Para visualizar a saúde de um **ponto final** do servidor no portal, navegue pa
 
 - As seguintes tabelas métricas são visualizadas no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | Description | Nome da lâmina |
+  | Nome da métrica | Descrição | Nome da lâmina |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo sincronizado, ponto final do servidor |
   | Recuperação de camadas de nuvem | Tamanho dos dados recordados | Servidores registados |
@@ -135,7 +135,7 @@ Utilize o registo de eventos de Telemetria no servidor para monitorizar a saúde
 
 Saúde sincronizada
 
-- O ID 9102 do evento é registado assim que uma sessão de sincronização estiver concluída. Utilize este evento para determinar se as sessões de sincronização são bem sucedidas **(HResult = 0**) e se existem erros de sincronização por item. Para obter mais informações, consulte a documentação de erros de [saúde](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- O ID 9102 do evento é registado assim que uma sessão de sincronização estiver concluída. Utilize este evento para determinar se as sessões de sincronização são bem sucedidas **(HResult = 0**) e se existem erros de sincronização por item **(PerItemErrorCount).** Para obter mais informações, consulte a documentação de erros de [saúde](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
   > [!Note]  
   > Por vezes, as sessões de sincronização falham globalmente ou têm um PerItemErrorCount não-zero. No entanto, eles ainda fazem progressos, e alguns ficheiros sincronizam com sucesso. Pode ver isto nos campos Aplicados como AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Estes campos dizem-lhe quanto da sessão conseguiu. Se vir várias sessões de sincronização a falhar em linha e tiverem uma contagem de aplicação cada vez maior, dê tempo de sincronização para tentar novamente antes de abrir um bilhete de apoio.
@@ -172,7 +172,7 @@ Para ver os contadores de desempenho do Azure File Sync no servidor, abra o Moni
 
 Os seguintes contadores de desempenho para Azure File Sync estão disponíveis no Monitor de Desempenho:
 
-| Objeto de desempenho\Nome do contador | Description |
+| Objeto de desempenho\Nome do contador | Descrição |
 |-|-|
 | AFS Bytes Transferido\Downloaded Bytes/sec | Número de bytes descarregados por segundo. |
 | AFS Bytes transferido\Uploaded Bytes/sec | Número de bytes carregados por segundo. |
@@ -196,7 +196,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 5. Dentro da lâmina **lógica de sinal configurar,** clique no **resultado da sessão de Sincronização** com o nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
     - Nome de dimensão: **Nome do ponto final do servidor**  
-    - Operador:**=** 
+    - Operador: **=** 
     - Valores de dimensão: **Todos os valores atuais e futuros**  
 7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
     - Limite definido para **Estática** 
@@ -218,7 +218,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 5. Dentro da lâmina lógica de **sinal configurar,** clique em **Ficheiros não sincronizando** com o nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome de dimensão: **Nome do ponto final do servidor**  
-     - Operador:**=** 
+     - Operador: **=** 
      - Valores de dimensão: **Todos os valores atuais e futuros**  
 7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
      - Limite definido para **Estática** 
@@ -240,7 +240,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 5. Dentro da lâmina lógica de **sinal configurar,** clique no **estado on-line do Servidor** com o nome de sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome de dimensão: **Nome do servidor**  
-     - Operador:**=** 
+     - Operador: **=** 
      - Valores de dimensão: **Todos os valores atuais e futuros**  
 7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
      - Limite definido para **Estática** 
@@ -262,7 +262,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 5. Dentro da lâmina **lógica de sinal configurar,** clique no **tamanho da recuperação do nível de nuvem** sob o nome de sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome de dimensão: **Nome do servidor**  
-     - Operador:**=** 
+     - Operador: **=** 
      - Valores de dimensão: **Todos os valores atuais e futuros**  
 7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
      - Limite definido para **Estática** 

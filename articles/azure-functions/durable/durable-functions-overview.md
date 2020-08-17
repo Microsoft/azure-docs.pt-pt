@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499386"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272353"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -25,6 +25,7 @@ Funções Duradouras suportam atualmente os seguintes idiomas:
 * **JavaScript**: suportado apenas para a versão 2.x do tempo de execução das Funções Azure. Requer a versão 1.7.0 da extensão funções duradouras, ou uma versão posterior. 
 * **Python**: requer a versão 1.8.5 da extensão funções duráveis, ou uma versão posterior. 
 * **F#**: bibliotecas de classes pré-recompensadas e script F#. F# O script só é suportado para a versão 1.x do tempo de execução das Funções Azure.
+* **PowerShell**: o suporte para Funções Duradouras está atualmente em visualização pública. Suportado apenas para a versão 3.x do tempo de funcionamento das Funções Azure e PowerShell 7. Requer a versão 2.2.2 da extensão funções duradouras, ou uma versão posterior. Apenas os seguintes padrões são suportados atualmente: [Acorrentamento de funções,](#chaining) [Fan-out/fan-in,](#fan-in-out) [APIs Async HTTP](#async-http).
 
 As Funções Duradouras têm como objetivo apoiar todas as [línguas Azure Functions](../supported-languages.md). Consulte a [lista de problemas de funções duradouras](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o mais recente estado de trabalho para suportar idiomas adicionais.
 
@@ -119,6 +120,19 @@ Pode utilizar o `context` objeto para invocar outras funções pelo nome, passar
 > [!NOTE]
 > O `context` objeto em Python representa o contexto de orquestração. Aceda ao principal contexto Azure Functions utilizando o `function_context` imóvel no contexto de orquestração.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+$X = Invoke-ActivityFunction -FunctionName 'F1'
+$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
+$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
+Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+```
+
+Pode utilizar o `Invoke-ActivityFunction` comando para invocar outras funções pelo nome, passar parâmetros e devolver a saída da função. Cada vez que o código chama `Invoke-ActivityFunction` sem o `NoWait` interruptor, o quadro de funções duráveis verifica o progresso da instância de função atual. Se o processo ou máquina virtual reciclar a meio da execução, a instância de função retoma a partir da `Invoke-ActivityFunction` chamada anterior. Para mais informações, consulte a secção seguinte, Padrão #2: Ventilador para fora/ventilador dentro
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Padrão #2: Ventilador para fora/ventilador em
@@ -156,7 +170,7 @@ public static async Task Run(
 }
 ```
 
-O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `Task.WhenAll`é chamado a esperar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
+O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `Task.WhenAll` é chamado a esperar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
 
 O controlo automático que ocorre na `await` chamada garante que uma `Task.WhenAll` possível falha ou reinicialização do meio do caminho não requer o reinício de uma tarefa já concluída.
 
@@ -182,7 +196,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `context.df.Task.all`A API é chamada a aguardar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
+O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `context.df.Task.all` A API é chamada a aguardar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
 
 O controlo automático que ocorre na `yield` chamada garante que uma `context.df.Task.all` possível falha ou reinicialização do meio do caminho não requer o reinício de uma tarefa já concluída.
 
@@ -208,9 +222,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `context.task_all`A API é chamada a aguardar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
+O trabalho de ventilação é distribuído em várias instâncias da `F2` função. O trabalho é acompanhado através de uma lista dinâmica de tarefas. `context.task_all` A API é chamada a aguardar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
 
 O controlo automático que ocorre na `yield` chamada garante que uma `context.task_all` possível falha ou reinicialização do meio do caminho não requer o reinício de uma tarefa já concluída.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+# Get a list of work items to process in parallel.
+$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+
+$ParallelTasks =
+    foreach ($WorkItem in $WorkBatch) {
+        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+    }
+
+$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+
+# Aggregate all outputs and send the result to F3.
+$Total = ($Outputs | Measure-Object -Sum).Sum
+Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+```
+
+O trabalho de ventilação é distribuído em várias instâncias da `F2` função. Por favor, note a utilização do `NoWait` interruptor na invocação da `F2` função: este interruptor permite que o orquestrador proceda a invocar `F2` sem a conclusão da atividade. O trabalho é acompanhado através de uma lista dinâmica de tarefas. O `Wait-ActivityFunction` comando é chamado para esperar que todas as funções chamadas terminem. Em seguida, as `F2` saídas de função são agregadas da lista de tarefas dinâmicas e transmitidas para a `F3` função.
+
+O controlo automático que acontece na `Wait-ActivityFunction` chamada garante que uma possível falha ou reinicialização do meio do caminho não requer o reinício de uma tarefa já concluída.
 
 ---
 
@@ -357,6 +395,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O Monitor não é suportado atualmente no PowerShell.
+
 ---
 
 Quando um pedido é recebido, uma nova instância de orquestração é criada para esse iD de trabalho. O caso sonda um estado até que uma condição seja satisfeita e o loop seja saído. Um temporizador durável controla o intervalo de votação. Então, mais trabalho pode ser realizado, ou a orquestração pode terminar. Quando `nextCheck` `expiryTime` exceder, o monitor termina.
@@ -455,6 +497,10 @@ main = df.Orchestrator.create(orchestrator_function)
 
 Para criar o temporizador durável, `context.create_timer` ligue. A notificação é recebida por `context.wait_for_external_event` . Em seguida, `context.task_any` é chamado a decidir se se agrava (o intervalo acontece primeiro) ou processa a aprovação (a aprovação é recebida antes do intervalo).
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A interação humana não é suportada no PowerShell.
+
 ---
 
 Um cliente externo pode entregar a notificação do evento a uma função de orquestrador de espera utilizando as [APIs HTTP incorporadas:](durable-functions-http-api.md#raise-event)
@@ -501,6 +547,10 @@ async def main(client: str):
     is_approved = True
     await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A interação humana não é suportada no PowerShell.
 
 ---
 
@@ -583,6 +633,10 @@ module.exports = df.entity(function(context) {
 
 As entidades duradouras não são atualmente apoiadas em Python.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+As entidades duradouras não são atualmente apoiadas na PowerShell.
+
 ---
 
 Os clientes podem enquadrizar *operações* para (também conhecida como "sinalização") uma função de entidade utilizando a ligação do cliente da [entidade.](durable-functions-bindings.md#entity-client)
@@ -623,6 +677,10 @@ module.exports = async function (context) {
 
 As entidades duradouras não são atualmente apoiadas em Python.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+As entidades duradouras não são atualmente apoiadas na PowerShell.
+
 ---
 
 As funções de entidade estão disponíveis em [Funções Duráveis 2.0](durable-functions-versions.md) e superior para C# e JavaScript.
@@ -649,7 +707,7 @@ Você pode começar com Funções Duráveis em menos de 10 minutos completando u
 
 Em ambos os arranques rápidos, você cria localmente e testa uma função durável "olá mundo". Em seguida, publique o código de função no Azure. A função que cria orquestra e acorrenta em conjunto chama a outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 O seguinte vídeo destaca os benefícios das Funções Duradouras:
 

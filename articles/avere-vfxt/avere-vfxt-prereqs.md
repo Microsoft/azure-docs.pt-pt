@@ -1,17 +1,17 @@
 ---
 title: Pré-requisitos Avere vFXT - Azure
-description: Pré-requisitos para Avere vFXT para Azure
+description: Saiba mais sobre tarefas a executar antes de criar um cluster em Avere vFXT para Azure, incluindo lidar com subscrições, quotas e pontos finais de serviço de armazenamento.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496717"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272421"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 

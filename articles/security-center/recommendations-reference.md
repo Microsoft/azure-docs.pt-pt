@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262556"
+ms.locfileid: "88272031"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -181,6 +181,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**Um máximo de 3 proprietários deve ser designado para a sua subscrição**|Designar menos de três proprietários de subscrição para reduzir o potencial de violação por um proprietário comprometido.<br>(Política relacionada: Um máximo de 3 proprietários deve ser designado para a sua subscrição)|Alto|N|Subscrição|
 |**Proteção avançada de ameaças deve ser ativada em cofres Azure Key Vault**|O Azure Security Center inclui proteção de ameaças avançadas para a Azure Key Vault, fornecendo uma camada adicional de inteligência de segurança.<br>Importante: Remediar esta recomendação resultará em encargos para proteger os seus cofres AKV. Se não tiver cofres AKV nesta subscrição, não serão incorridos quaisquer encargos. Se criar algum cofre AKV nesta subscrição no futuro, eles serão automaticamente protegidos e as cargas começarão nessa altura.<br>(Política relacionada: [A proteção avançada de ameaças deve ser ativada nos cofres do Cofre da Chave Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|Alto|**S**|Subscrição|
 |**Os registos de diagnóstico no Cofre de Chaves devem ser ativados**|Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre de Chaves devem ser ativados)|Baixa|**S**|Cofre de Chaves|
+|**Os principais serviços devem ser usados para proteger as suas assinaturas em vez de Certificados de Gestão**|Os certificados de gestão permitem a quem autenticar com eles a(s) subscrição a que estão associados. Para gerir as subscrições de forma mais segura, recomenda-se a utilização de princípios de serviço com o Gestor de Recursos para limitar o raio de explosão em caso de compromisso de certificado. Também automatiza a gestão de recursos.|Médio|Não|Subscrição|
 ||||||
 
 

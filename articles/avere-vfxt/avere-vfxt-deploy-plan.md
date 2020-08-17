@@ -1,17 +1,17 @@
 ---
 title: Planeie o seu sistema Avere vFXT - Azure
-description: Explica o planeamento antes de implementar Avere vFXT para o Azure
+description: Planeie um avere vFXT para o cluster Azure que seja adequado para as suas necessidades. Aprenda perguntas a fazer antes de ir ao Azure Marketplace ou criar máquinas virtuais.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922681"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272795"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -71,7 +71,7 @@ Siga estas orientações ao planear a infraestrutura de rede do seu cluster Aver
 
   Se quiser utilizar recursos que já existem, certifique-se de que cumprem os requisitos desta tabela.
 
-  | Recurso | Usar a existência? | Requirements |
+  | Recurso | Usar a existência? | Requisitos |
   |----------|-----------|----------|
   | Grupo de recursos | Sim, se estiver vazio. | Deve estar vazio.|
   | Conta de armazenamento | **Sim,** se ligar um recipiente Blob existente após a criação do cluster <br/>  **Não** se criar um novo recipiente Blob durante a criação de clusters | Recipiente blob existente deve estar vazio <br/> &nbsp; |

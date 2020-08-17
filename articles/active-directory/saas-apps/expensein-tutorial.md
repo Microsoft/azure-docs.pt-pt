@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 210fc244aebf0b13a996df69e2cf84763a9adf9e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017521"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272914"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar DespesasIn com Diretório Ativo Azure
 
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL:`https://app.expensein.com/saml`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.expensein.com/saml`
 
 1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia do botão de cópia **do Url de metadados da Federação de Aplicações** e clique em **Descarregar** para descarregar o **Certificado (Base64)** e guardá-lo no seu computador.
 
@@ -104,7 +104,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -127,7 +127,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-expensein-sso"></a>Configure despesas Em SSO
 
-1. Abra uma nova janela do navegador web e inscreva-se no seu site da empresa ExpenseIn como administrador.
+1. Para automatizar a configuração dentro do ExpenseIn, é necessário instalar a extensão do **navegador 'As aplicações' Secure's,** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar extensão ao navegador, clique em **Configurar DespesasIn** irá direcioná-lo para a aplicação ExpenseIn. A partir daí, forneça as credenciais de administração para assinar em ExpenseIn. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+1. Se pretender configurar as despesas manualmente, inicie sessão no seu site da empresa Desemudo como administrador.
 
 1. Clique em **Administração** no topo da página e, em seguida, navegue para **O Único Sign-On** e clique em **Adicionar fornecedor**.
 
@@ -147,7 +155,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     e. Abra o Certificado (Base64) no Bloco de Notas, copie o seu conteúdo e cole-o na caixa de texto **do Certificado.**
 
-    f. Clique em **Create** (Criar).
+    f. Clique em **Criar**.
 
 ### <a name="create-expensein-test-user"></a>Criar DespesasIn utilizador de teste
 
@@ -171,7 +179,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no ExpenseIn, devem s
 
     c. Na caixa de texto **por e-mail,** insira o e-mail do utilizador como `B.Simon@contoso.com` .
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ## <a name="test-sso"></a>Teste SSO
 

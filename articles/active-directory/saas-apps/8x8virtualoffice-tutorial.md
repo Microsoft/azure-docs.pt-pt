@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81e63a073882dea3a7aea32d5e9f4d3d5c48f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36e29ebbdc4207c0cfe3a9967d433c6595d3fdc1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018642"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Azure Ative Directy integração única (SSO) com 8x8
 
@@ -48,7 +48,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * 8x8 suporta **SP e IDP** iniciado SSO
 
-* Uma vez configurado 8x8, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurado 8x8, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
@@ -64,7 +64,7 @@ Para configurar a integração do 8x8 no AD Azure, é necessário adicionar 8x8 
 1. Na secção Adicionar da secção **da galeria,** digite **8x8** na caixa de pesquisa.
 1. Selecione **8x8** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Configurar e testar Azure AD único sinal para 8x8
+## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Configurar e testar Azure AD SSO para 8x8
 
 Configure e teste Azure AD SSO com 8x8 usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em 8x8.
 
@@ -89,9 +89,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **identifier,** digite um URL:`https://sso.8x8.com/saml2`
+    a. Na caixa de texto **identifier,** digite um URL: `https://sso.8x8.com/saml2`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL:`https://sso.8x8.com/saml2`
+    b. Na caixa de texto **URL de resposta,** digite um URL: `https://sso.8x8.com/saml2`
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador. Utilizará o certificado mais tarde no tutorial na secção **Configure 8x8 SSO.**
 
@@ -111,7 +111,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -139,7 +139,15 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
 ### <a name="configure-8x8-configuration-manager"></a>Configurar gestor de configuração 8x8
 
-1. Faça login no [Gestor de Configuração](https://vo-cm.8x8.com/)8x8 .
+1. Para automatizar a configuração dentro do 8x8, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar extensão ao navegador, clique em **Configurar 8x8** irá direcioná-lo para a aplicação 8x8. A partir daí, forneça as credenciais de administração para assinar em 8x8. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+1. Se pretender configurar o 8x8 manualmente, inscreva-se no Gestor [de Configuração](https://vo-cm.8x8.com/) 8x8 como administrador.
 
 1. A partir da página inicial clique **em Gestão de Identidade.**
 
@@ -161,7 +169,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     d. Baixar **Certificado (Base64)** e fazer o upload para **o Certificado.**
 
-    e. Clique em **Save** (Guardar).
+    e. Clique em **Guardar**.
 
 ### <a name="configure-8x8-account-manager"></a>Configurar gestor de conta 8x8
 
@@ -213,9 +221,9 @@ Quando clicar no azulejo 8x8 no Painel de Acesso, deverá ser automaticamente in
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

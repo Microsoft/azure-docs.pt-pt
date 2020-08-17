@@ -1,17 +1,17 @@
 ---
 title: Monte o Avere vFXT - Azure
-description: Como montar clientes com Avere vFXT para a Azure
+description: Saiba como conectar os clientes ao seu cluster vFXT em Avere vFXT para a Azure e como equilibrar o tráfego de clientes entre os seus nós de cluster.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229572"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272576"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montar o cluster Avere vFXT
 
@@ -64,7 +64,7 @@ A função acima faz parte do exemplo do Lote disponível no site [de exemplos A
 > [!NOTE]
 > Se não criou um novo recipiente Blob ao criar o seu cluster Avere vFXT, adicione os sistemas de armazenamento descritos no [armazenamento Configure](avere-vfxt-add-storage.md) antes de tentar montar clientes.
 
-A partir do seu cliente, o ``mount`` comando mapeia o servidor virtual (vserver) no cluster vFXT para um caminho no sistema de ficheiros local. O formato é``mount <vFXT path> <local path> {options}``
+A partir do seu cliente, o ``mount`` comando mapeia o servidor virtual (vserver) no cluster vFXT para um caminho no sistema de ficheiros local. O formato é ``mount <vFXT path> <local path> {options}``
 
 O comando de montagem tem três elementos:
 
@@ -76,7 +76,7 @@ O comando de montagem tem três elementos:
 
 O caminho vserver é uma combinação do seu *endereço IP* mais o caminho para uma *junção de espaço de nome*. A junção do espaço de nome é um caminho virtual que foi definido quando o sistema de armazenamento foi adicionado.
 
-Se o seu cluster foi criado com armazenamento Blob, o caminho do espaço de nome para aquele recipiente é`/msazure`
+Se o seu cluster foi criado com armazenamento Blob, o caminho do espaço de nome para aquele recipiente é `/msazure`
 
 Exemplo: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 

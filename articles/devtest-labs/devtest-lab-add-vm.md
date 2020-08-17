@@ -1,14 +1,14 @@
 ---
 title: Adicione um VM a um laboratório em Azure DevTest Labs Microsoft Docs
-description: Saiba como adicionar uma máquina virtual a um laboratório em Azure DevTest Labs
+description: Aprenda a usar o portal Azure para adicionar uma máquina virtual a um laboratório em Azure DevTest Labs. Pode escolher uma base que seja uma imagem personalizada ou uma fórmula.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a872fdaa3d7d5b2cf5aff17ea15d07604dc287b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e6e685a52ac3658cb9b9ca37f64fc51f3ce1e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483963"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270721"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicione um VM a um laboratório em Azure DevTest Labs
 Se já [criou o seu primeiro VM,](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)provavelmente fê-lo a partir de uma imagem de [mercado](devtest-lab-configure-marketplace-images.md)pré-carregada. Agora, se quiser adicionar VMs subsequentes ao seu laboratório, também pode escolher uma *base* que seja uma [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial acompanha-o através do portal Azure para adicionar um VM a um laboratório em DevTest Labs.
@@ -108,7 +108,7 @@ Uma vez guardado, pode utilizar o modelo Azure Resource Manager para [implementa
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Uma vez criado o VM, pode ligar-se ao VM selecionando **Connect** no painel de VM.
 * Saiba como [criar artefactos personalizados para o seu VM DevTest Labs](devtest-lab-artifact-author.md).
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

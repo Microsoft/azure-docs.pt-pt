@@ -1,7 +1,7 @@
 ---
 title: Visualização dos registos de fluxo Azure NSG - Power BI
 titleSuffix: Azure Network Watcher
-description: Esta página descreve como visualizar os registos de fluxo NSG com Power BI.
+description: Saiba como utilizar o Power BI para visualizar os registos de fluxo do Grupo de Segurança de Rede para permitir visualizar informações sobre o tráfego IP no Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1ef2e32614b5a57208f91ac0fe5a4c17affa38e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738554"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272642"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizar registos de fluxo do Grupo de Segurança da Rede com Power BI
 
@@ -28,7 +28,7 @@ Pode ser difícil obter informações sobre dados de registo de fluxos, pesquisa
 > [!Warning]  
 > Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 No cenário seguinte, conectamos o desktop Power BI à conta de armazenamento que configuramos como o lavatório para os nossos dados de Registo de Fluxo NSG. Depois de ligarmos à nossa conta de armazenamento, o Power BI descarrega e analisa os registos para fornecer uma representação visual do tráfego que é registado pelos grupos de Segurança da Rede.
 
@@ -111,7 +111,7 @@ Sinta-se livre para personalizar este modelo para as suas necessidades. Existem 
 
 ## <a name="notes"></a>Notas
 
-* Os registos por predefinição são armazenados em`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Os registos por predefinição são armazenados em `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
     * Se existirem outros dados noutro diretório, as consultas para retirar e processar os dados devem ser modificadas.
 

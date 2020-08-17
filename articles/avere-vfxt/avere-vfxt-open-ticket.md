@@ -1,17 +1,17 @@
 ---
 title: Como obter apoio para Avere vFXT para Azure
-description: Explicação da abertura de bilhetes de apoio sobre Avere vFXT para o Azure
+description: Saiba como resolver problemas que possam surgir durante a implementação ou utilização do Avere vFXT para Azure, criando um bilhete de apoio através do portal Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847341"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271112"
 ---
 # <a name="get-help-with-your-system"></a>Obtenha ajuda com o seu sistema
 
@@ -43,7 +43,7 @@ Siga estes passos para se certificar de que o seu bilhete de apoio está marcado
 
     ![screenshot de um novo ecrã de pedido de suporte no portal Azure. O separador Básico é selecionado. Os itens de ecrã incluem tipo de emissão, subscrição, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-   Clique **em seguida** para continuar.
+   Clique em **Next** (Seguinte) para continuar.
 
 1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na descrição do seu resumo. Clique no botão **Seguinte** na parte inferior se ainda precisar de criar um bilhete de apoio.
 

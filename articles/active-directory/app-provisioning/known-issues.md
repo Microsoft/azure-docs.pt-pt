@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 08/12/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214288"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271010"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -66,9 +66,11 @@ As expressões de mapeamento de atributos podem ter um máximo de 10.000 caracte
 - O provisionamento de grupos aninhados não é apoiado. 
 - O fornecimento aos inquilinos B2C não é suportado devido ao tamanho dos inquilinos. 
 
+**O intervalo de provisionamento é fixado** O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é atualmente configurável. 
+
 **Alterações que não se movem da app-alvo para Azure AD**
 
-O serviço de fornecimento de aplicações não está ciente das alterações feitas em aplicações externas. Portanto, não são tomadas medidas para recuar. O serviço de fornecimento de aplicações baseia-se em alterações feitas no Azure AD.  
+O serviço de fornecimento de aplicações não está ciente das alterações feitas em aplicações externas. Portanto, não são tomadas medidas para recuar. O serviço de fornecimento de aplicações baseia-se em alterações feitas no Azure AD. 
 
 **Ciclo de provisionamento continua até à conclusão**
 

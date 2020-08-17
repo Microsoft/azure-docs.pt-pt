@@ -3,12 +3,12 @@ title: Guia de protocolo de conexões híbridas Azure Relay / Microsoft Docs
 description: Este artigo descreve as interações do lado do cliente com o relé Conexões Híbridas para ligar clientes em funções de ouvinte e remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316661"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272014"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
 
@@ -195,11 +195,11 @@ O URL deve ser utilizado como destinar-se ao estabelecimento da tomada de aceita
 
 | Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser`sb-hc-action=accept`
+| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser `sb-hc-action=accept`
 | `{path}`       | Sim      | (ver o parágrafo seguinte)
 | `sb-hc-id`     | Não       | Consulte a descrição anterior do **id**.
 
-`{path}`é o caminho do espaço de nome codificado por URL da ligação híbrida pré-configurada para registar este ouvinte. Esta expressão é anexada à parte do `$hc/` caminho fixo.
+`{path}` é o caminho do espaço de nome codificado por URL da ligação híbrida pré-configurada para registar este ouvinte. Esta expressão é anexada à parte do `$hc/` caminho fixo.
 
 A `path` expressão pode ser estendida com um sufixo e uma expressão de corda de consulta que segue o nome registado após um corte para a frente de separação.
 Isto permite ao cliente remetente passar argumentos de despacho para o ouvinte aceitante quando não é possível incluir cabeçalhos HTTP. A expectativa é que o quadro do ouvinte analise a parte do caminho fixo e o nome registado do caminho e faça com que o restante, possivelmente sem quaisquer argumentos de cadeia de consulta, seja prefixado no `sb-` pedido de decisão sobre se aceita a ligação.
@@ -294,16 +294,16 @@ O conteúdo do JSON `request` é o seguinte:
 * **id** – corda. O identificador único para este pedido.
 * **solicitadoresHeaders** – este objeto contém todos os cabeçalhos HTTP que foram fornecidos ao ponto final pelo remetente, com exceção das informações de autorização, conforme [explicado acima](#request-operation), e cabeçalhos que se relacionam estritamente com a ligação com o gateway. Especificamente, todos os cabeçalhos definidos ou reservados em [RFC7230,](https://tools.ietf.org/html/rfc7230) `Via` exceto, são despojados e não reencaminhados:
 
-  * `Connection`(RFC7230, Secção 6.1)
-  * `Content-Length`(RFC7230, Secção 3.3.2)
-  * `Host`(RFC7230, Secção 5.4)
-  * `TE`(RFC7230, Secção 4.3)
-  * `Trailer`(RFC7230, Secção 4.4)
-  * `Transfer-Encoding`(RFC7230, Secção 3.3.1)
-  * `Upgrade`(RFC7230, Secção 6.7)
-  * `Close`(RFC7230, Secção 8.1)
+  * `Connection` (RFC7230, Secção 6.1)
+  * `Content-Length`  (RFC7230, Secção 3.3.2)
+  * `Host`  (RFC7230, Secção 5.4)
+  * `TE`  (RFC7230, Secção 4.3)
+  * `Trailer`  (RFC7230, Secção 4.4)
+  * `Transfer-Encoding`  (RFC7230, Secção 3.3.1)
+  * `Upgrade` (RFC7230, Secção 6.7)
+  * `Close`  (RFC7230, Secção 8.1)
 
-* **requestTarget** – cadeia. Este imóvel detém o ["Target request" (RFC7230, Secção 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) do pedido. Isto inclui a porção de cadeia de consulta, que é despojada de TODOS os `sb-hc-` parâmetros pré-fixados.
+* **requestTarget** – cadeia. Este imóvel detém o  ["Target request" (RFC7230, Secção 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) do pedido. Isto inclui a porção de cadeia de consulta, que é despojada de TODOS os `sb-hc-` parâmetros pré-fixados.
 * **método** - corda. Este é o método do pedido, por [RFC7231, Secção 4](https://tools.ietf.org/html/rfc7231#section-4). O `CONNECT` método NÃO DEVE ser utilizado.
 * **corpo** - boolean. Indica se segue uma ou mais molduras binárias do corpo.
 
@@ -367,7 +367,7 @@ O `address` URL no deve ser utilizado `request` como-é para estabelecer a tomad
 
 | Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser`sb-hc-action=request`
+| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser `sb-hc-action=request`
 
 Se houver um erro, o serviço pode responder da seguinte forma:
 
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 O _endereço de espaço-nome_ é o nome de domínio totalmente qualificado do espaço de nome Azure Relay que acolhe a Conexão Híbrida, tipicamente do formulário `{myname}.servicebus.windows.net` .
 
-O pedido pode conter cabeçalhos HTTP adicionais arbitrários, incluindo os definidos pela aplicação. Todos os cabeçalhos fornecidos, exceto os definidos diretamente no RFC7230 (ver [mensagem de pedido)](#Request message)fluem para o ouvinte e podem ser encontrados no `requestHeader` objeto da mensagem de **pedido.**
+O pedido pode conter cabeçalhos HTTP adicionais arbitrários, incluindo os definidos pela aplicação. Todos os cabeçalhos fornecidos, exceto os definidos diretamente no RFC7230 (ver [mensagem de pedido)](#request-message)fluem para o ouvinte e podem ser encontrados no `requestHeader` objeto da mensagem de **pedido.**
 
 As opções de parâmetro de cadeia de consulta são as seguintes:
 
@@ -496,7 +496,7 @@ Se houver um erro, o serviço pode responder da seguinte forma. Se a resposta te
 | 503  | Bad Gateway     | O pedido não podia ser encaminhado para nenhum ouvinte.
 | 504  | Tempo de gateway | O pedido foi encaminhado para um ouvinte, mas o ouvinte não reconheceu o recibo no tempo necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

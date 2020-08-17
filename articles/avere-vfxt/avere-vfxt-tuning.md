@@ -1,17 +1,17 @@
 ---
 title: Afinação do cluster Avere vFXT - Azure
-description: Visão geral das definições personalizadas para otimizar o desempenho em Avere vFXT para Azure
+description: Saiba mais sobre algumas das afinações personalizadas para clusters vFXT em Avere vFXT para Azure que você pode fazer, trabalhando com um representante de suporte.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505295"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272387"
 ---
 # <a name="cluster-tuning"></a>Otimização do cluster
 

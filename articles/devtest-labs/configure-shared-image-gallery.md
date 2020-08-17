@@ -1,14 +1,14 @@
 ---
 title: Configure uma galeria de imagens partilhada em Azure DevTest Labs Microsoft Docs
-description: Saiba como configurar uma galeria de imagens partilhada em Azure DevTest Labs
+description: Saiba como configurar uma galeria de imagens partilhada em Azure DevTest Labs, que permite aos utilizadores aceder a imagens a partir de uma localização partilhada enquanto criam recursos laboratoriais.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483793"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271044"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
 A DevTest Labs agora suporta a funcionalidade [Da Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md) Permite que os utilizadores de laboratório acedam a imagens a partir de um local partilhado enquanto criam recursos laboratoriais. Também ajuda a construir estrutura e organização em torno das suas imagens VM geridas por medida. A Galeria de Imagens Partilhadas suporta:
@@ -118,5 +118,5 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos sobre a criação de um VM utilizando uma imagem da galeria de imagens partilhada anexada: [Criar um VM utilizando uma imagem partilhada da galeria](add-vm-use-shared-image.md)

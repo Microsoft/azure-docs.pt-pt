@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235966"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271197"
 ---
 # <a name="modeling-relationships"></a>Modelar relações
 Este artigo discute o processo de modelação para ajudá-lo a desenhar as suas soluções de armazenamento de Mesa Azure.
@@ -51,7 +51,7 @@ A tabela seguinte resume os prós e os contras de cada uma das abordagens descri
 <td>
 <ul>
 <li>Pode atualizar uma entidade do departamento com uma única operação.</li>
-<li>Pode utilizar um EGT para manter a consistência se tiver a obrigação de modificar uma entidade de departamento sempre que atualizar/inserir/eliminar uma entidade do colaborador. Por exemplo, se mantiver uma contagem de funcionários do departamento para cada departamento.</li>
+<li>Pode utilizar uma Transação do Grupo Entity* (EGT) para manter a consistência se tiver a obrigação de modificar uma entidade de departamento sempre que atualizar/inserir/eliminar uma entidade do colaborador. Por exemplo, se mantiver uma contagem de funcionários do departamento para cada departamento.</li>
 </ul>
 </td>
 <td>
@@ -92,6 +92,9 @@ A tabela seguinte resume os prós e os contras de cada uma das abordagens descri
 </td>
 </tr>
 </table>
+
+*Para mais informações, consulte [As Transações do Grupo Entity](table-storage-design.md#entity-group-transactions)  
+
 
 A forma como escolhes entre estas opções, e quais dos prós e contras são mais significativos, depende dos teus cenários específicos de aplicação. Por exemplo, com que frequência modifica entidades de departamento; fazer todas as suas consultas de funcionários precisa de informações adicionais do departamento; Qual a sua proximidade com os limites de escalabilidade das suas divisórias ou da sua conta de armazenamento?  
 

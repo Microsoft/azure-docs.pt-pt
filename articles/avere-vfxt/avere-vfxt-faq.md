@@ -1,18 +1,18 @@
 ---
 title: FAQ - Avere vFXT para Azure
-description: Perguntas frequentes sobre Avere vFXT para Azure
+description: Utilize estas perguntas frequentes para decidir se Avere vFXT para Azure se adequa às suas necessidades. Saiba como o Avere vFXT para a Azure funciona com outros componentes Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: 55423119e55401d5176e228eba784f2eb498bfef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196353"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272696"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT for Azure
 
@@ -122,7 +122,7 @@ Não, Avere vFXT deve ser implementado como uma aplicação independente.
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Os VMs Avere vFXT contam com a minha quota de cálculo?
 
-Sim. Certifique-se de que tem uma quota suficiente na região para apoiar o cluster.  
+Yes. Certifique-se de que tem uma quota suficiente na região para apoiar o cluster.  
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>Posso executar as máquinas de cluster Avere vFXT em diferentes zonas de disponibilidade?
 
@@ -177,7 +177,7 @@ Sim, pode criar o seu sistema Avere vFXT numa rede virtual diferente. Leia [o Pl
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>A Avere vFXT necessita da sua própria sub-rede?
 
-Sim. Avere vFXT funciona estritamente como um cluster de alta disponibilidade (HA) e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, evita-se o risco de conflitos de endereços IP, o que pode causar problemas de instalação e funcionamento normal. A sub-rede do cluster pode estar dentro de uma rede virtual utilizada por outros recursos, desde que nenhum endereço IP se sobreponha.
+Yes. Avere vFXT funciona estritamente como um cluster de alta disponibilidade (HA) e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, evita-se o risco de conflitos de endereços IP, o que pode causar problemas de instalação e funcionamento normal. A sub-rede do cluster pode estar dentro de uma rede virtual utilizada por outros recursos, desde que nenhum endereço IP se sobreponha.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Posso executar Avere vFXT na InfiniBand?
 
@@ -283,7 +283,7 @@ Em Azure, não existe uma taxa de licenciamento adicional para a utilização de
 
 Não, os clusters Avere vFXT requerem um serviço "sempre ligado". Os aglomerados podem ser desligados quando não são necessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com Avere vFXT para a Azure, leia estes artigos para aprender a planear e implementar o seu próprio sistema:
 

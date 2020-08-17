@@ -3,22 +3,22 @@ title: Contadores de eventos em Application Insights / Microsoft Docs
 description: Monitor e personalizado .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 000486ecd4fddd5749e4c7cc9f9210a1f0f8666c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324408"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272370"
 ---
 # <a name="eventcounters-introduction"></a>Introdução do EventCounters
 
-`EventCounter`é .NET/.NET Mecanismo central para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento dá uma visão geral `EventCounters` e exemplos sobre como publicá-los e consumi-los. Os EventCounters são suportados em todas as plataformas DE - Windows, Linux e macOS. Pode ser considerado como um equivalente transversal para os [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) que só é suportado em sistemas Windows.
+`EventCounter` é .NET/.NET Mecanismo central para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento dá uma visão geral `EventCounters` e exemplos sobre como publicá-los e consumi-los. Os EventCounters são suportados em todas as plataformas DE - Windows, Linux e macOS. Pode ser considerado como um equivalente transversal para os [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) que só é suportado em sistemas Windows.
 
 Embora os utilizadores possam publicar qualquer costume `EventCounters` para satisfazer as suas necessidades, o prazo de execução .NET Core 3.0 publica um conjunto destes contadores por padrão. O documento percorrerá os passos necessários para recolher e visualizar `EventCounters` (definido pelo sistema ou definido pelo utilizador) em Azure Application Insights.
 
 ## <a name="using-application-insights-to-collect-eventcounters"></a>Utilização de Insights de Aplicações para recolher EventCounters
 
-A Application Insights suporta a recolha `EventCounters` com o seu , que faz parte do pacote de `EventCounterCollectionModule` nugets recém-lançado [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule`é automaticamente ativado quando se utiliza [o AspNetCore](asp-net-core.md) ou [o WorkerService](worker-service.md). `EventCounterCollectionModule`recolhe balcões com uma frequência de recolha não configurável de 60 segundos. Não são necessárias permissões especiais para recolher o EventCounters.
+A Application Insights suporta a recolha `EventCounters` com o seu , que faz parte do pacote de `EventCounterCollectionModule` nugets recém-lançado [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` é automaticamente ativado quando se utiliza [o AspNetCore](asp-net-core.md) ou [o WorkerService](worker-service.md). `EventCounterCollectionModule` recolhe balcões com uma frequência de recolha não configurável de 60 segundos. Não são necessárias permissões especiais para recolher o EventCounters.
 
 ## <a name="default-counters-collected"></a>Balcões predefinidos recolhidos
 
@@ -45,10 +45,6 @@ Para aplicações em execução em .NET Core 3.0, os seguintes contadores são r
 |`System.Runtime` | `threadpool-queue-length` |
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
-|`Microsoft.AspNetCore.Hosting` | `requests-per-second` |
-|`Microsoft.AspNetCore.Hosting` | `total-requests` |
-|`Microsoft.AspNetCore.Hosting` | `current-requests` |
-|`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
 > Os contadores da categoria Microsoft.AspNetCore.Hosting são adicionados apenas em ASP.NET Aplicações Core.

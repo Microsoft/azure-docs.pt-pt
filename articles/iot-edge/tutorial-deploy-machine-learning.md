@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439380"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271282"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
@@ -49,7 +49,7 @@ Recursos da cloud:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Uma área de trabalho do Azure Machine Learning. Siga as instruções em [Utilizar o portal Azure para começar com a Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) para criar uma e aprender a usá-la.
-  * Tome nota do nome do espaço de trabalho, grupo de recursos e ID de subscrição. Estes valores estão todos disponíveis na visão geral do espaço de trabalho no portal Azure. Você usará estes valores mais tarde no tutorial para ligar um caderno Azure aos seus recursos do espaço de trabalho.
+  * Tome nota do nome do espaço de trabalho, grupo de recursos e ID de subscrição. Estes valores estão todos disponíveis na visão geral do espaço de trabalho no portal Azure. Você usará estes valores mais tarde no tutorial para ligar um arquivo Azure Notebooks aos seus recursos do espaço de trabalho.
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Criar e implementar módulo de aprendizagem automática Azure
 
@@ -142,7 +142,7 @@ Os passos seguintes mostram como configurar o Visual Studio Code para monitoriza
 
    ![Resposta de aprendizagem de máquina azure no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

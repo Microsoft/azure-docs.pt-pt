@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: fff032d37fa0746695736e0dbdde73c6bcaade4b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a786baf70dfd9063c635fd27d43d198b3bd89bfb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445683"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272132"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integrar renderização remota numa app holográfica HoloLens
 
@@ -58,7 +58,7 @@ No diálogo solicitado, consulte o pacote NuGet denominado **"Microsoft.Azure.Re
 
 e adicione-o ao projeto selecionando a embalagem e, em seguida, pressionando o botão "Instalar".
 
-O pacote NuGet adiciona as dependências de renderização remota ao projeto. Mais concretamente:
+O pacote NuGet adiciona as dependências de renderização remota ao projeto. Especificamente:
 * Ligação contra a biblioteca do cliente (RemoteRenderingClient.lib).
 * Estabeleça as dependências .dll.
 * Desacorda o caminho correto para o diretório incluído.
@@ -99,14 +99,15 @@ Começamos por adicionar as incluições necessárias. Adicione o seguinte inclu
 #include <AzureRemoteRendering.h>
 ```
 
-... e esta diretiva adicional `include` para arquivar HolographicAppMain.cpp:
+... e estas diretivas adicionais `include` para arquivar HolographicAppMain.cpp:
 
 ```cpp
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
+#include <windows.perception.spatial.h>
 ```
 
-Para a simplicidade do código, definimos o seguinte atalho de espaço de nome no topo do ficheiro HolographicAppMain.h, após a `include` diretiva:
+Para a simplicidade do código, definimos o seguinte atalho de espaço de nome no topo do ficheiro HolographicAppMain.h, após as `include` diretivas:
 
 ```cpp
 namespace RR = Microsoft::Azure::RemoteRendering;
@@ -297,7 +298,7 @@ namespace HolographicApp
         bool m_modelLoadTriggered = false;
         float m_modelLoadingProgress = 0.f;
         bool m_modelLoadFinished = false;
-
+        bool m_needsCoordinateSystemUpdate = true;
     }
 ```
 
@@ -420,9 +421,13 @@ void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, 
 
 ### <a name="per-frame-update"></a>Por atualização de quadro
 
-Temos que marcar o cliente uma vez por simulação. A classe `HolographicApp1Main` fornece um bom gancho para atualizações por quadro. Além disso, temos de fazer uma sondagem sobre o estado da sessão e ver se ela transitou para `Ready` o Estado. Se tivermos uma ligação com sucesso, finalmente iniciamos o carregamento do modelo via `StartModelLoading` .
+Temos de atualizar o cliente uma vez por simulação e fazer algumas atualizações adicionais do estado. A `HolographicAppMain::Update` função fornece um bom gancho para atualizações por quadro.
 
-Adicione o seguinte código ao corpo de `HolographicApp1Main::Update` função:
+#### <a name="state-machine-update"></a>Atualização da máquina do estado
+
+Precisamos de sondar o estado da sessão e ver se ela passou para `Ready` o Estado. Se tivermos uma ligação com sucesso, finalmente iniciamos o carregamento do modelo via `StartModelLoading` .
+
+Adicione o seguinte código ao corpo de `HolographicAppMain::Update` função:
 
 ```cpp
 // Updates the application state once per frame.
@@ -485,9 +490,57 @@ HolographicFrame HolographicAppMain::Update()
         }
     }
 
+    if (m_needsCoordinateSystemUpdate && m_stationaryReferenceFrame && m_graphicsBinding)
+    {
+        // Set the coordinate system once. This must be called again whenever the coordinate system changes.
+        winrt::com_ptr<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem> ptr{ m_stationaryReferenceFrame.CoordinateSystem().as<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem>() };
+        m_graphicsBinding->UpdateUserCoordinateSystem(ptr.get());
+        m_needsCoordinateSystemUpdate = false;
+    }
+
     // Rest of the body:
     ...
 }
+```
+
+#### <a name="coordinate-system-update"></a>Coordenar atualização do sistema
+
+Temos de concordar com o serviço de renderização de um sistema de coordenadas a utilizar. Para aceder ao sistema de coordenadas que queremos utilizar, precisamos do `m_stationaryReferenceFrame` que é criado no final da função. `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`
+
+Este sistema de coordenadas geralmente não muda, por isso esta é uma inicialização única. Deve ser chamado novamente se a sua aplicação alterar o sistema de coordenadas.
+
+O código acima define o sistema de coordenadas uma vez dentro da `Update` função assim que ambos temos um sistema de coordenadas de referência e uma sessão conectada.
+
+#### <a name="camera-update"></a>Atualização da câmara
+
+Temos de atualizar os planos de clipe da câmara para que a câmara do servidor seja mantida em sintonia com a câmara local. Podemos fazê-lo no final da `Update` função:
+
+```cpp
+    ...
+    if (m_isConnected)
+    {
+        // Any near/far plane values of your choosing.
+        constexpr float fNear = 0.1f;
+        constexpr float fFar = 10.0f;
+        for (HolographicCameraPose const& cameraPose : prediction.CameraPoses())
+        {
+            // Set near and far to the holographic camera as normal
+            cameraPose.HolographicCamera().SetNearPlaneDistance(fNear);
+            cameraPose.HolographicCamera().SetFarPlaneDistance(fFar);
+        }
+
+        // The API to inform the server always requires near < far. Depth buffer data will be converted locally to match what is set on the HolographicCamera.
+        auto settings = *m_api->CameraSettings();
+        settings->NearPlane(std::min(fNear, fFar));
+        settings->FarPlane(std::max(fNear, fFar));
+        settings->EnableDepth(true);
+    }
+
+    // The holographic frame will be used to get up-to-date view and projection matrices and
+    // to present the swap chain.
+    return holographicFrame;
+}
+
 ```
 
 ### <a name="rendering"></a>Composição

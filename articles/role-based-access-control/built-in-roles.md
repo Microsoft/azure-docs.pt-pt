@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/29/2020
+ms.date: 08/16/2020
 ms.custom: generated
-ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 44b4134404d5af3a8dde7028ffa1b43258df7558
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448890"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271996"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -30,9 +30,9 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | Papel incorporado | Descrição | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
-> | [Contribuinte](#contributor) | Permite-lhe gerir tudo, exceto conceder acesso aos recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
-> | [Proprietário](#owner) | Permite-lhe gerir tudo, incluindo o acesso aos recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
-> | [Leitor](#reader) | Permite-lhe ver tudo, mas não fazer alterações. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+> | [Contribuinte](#contributor) | Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [Proprietário](#owner) | Concede acesso total à gestão de todos os recursos, incluindo a capacidade de atribuir funções no Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | [Leitor](#reader) | Ver todos os recursos, mas não lhe permite fazer quaisquer alterações. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrador de Acesso do Utilizador](#user-access-administrator) | Permite-lhe gerir o acesso do utilizador aos recursos Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Computação** |  |  |
 > | [Colaborador clássico da máquina virtual](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não acesso a elas, e não à rede virtual ou à conta de armazenamento a que estão ligadas. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
@@ -63,7 +63,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Leitor e Acesso a Dados](#reader-and-data-access) | Permite-lhe ver tudo, mas não permitirá que elimine ou crie uma conta de armazenamento ou recurso contido. Também permitirá o acesso de leitura/escrita a todos os dados contidos numa conta de armazenamento através do acesso às chaves da conta de armazenamento. | c12c16-33a1-487b-954d-41c89c60f349 |
 > | [Contribuidor de Conta de Armazenamento](#storage-account-contributor) | Permite a gestão das contas de armazenamento. Fornece acesso à chave da conta, que pode ser usada para aceder a dados através da autorização da Chave Partilhada. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Papel de serviço chave de operador de conta de armazenamento](#storage-account-key-operator-service-role) | Permite a listagem e regeneração das chaves de acesso à conta de armazenamento. | 81aa9662b-bebf-436f-a333-f67b29880f12 |
-> | [Colaborador de dados blob de armazenamento](#storage-blob-data-contributor) | Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | [Contribuinte de Dados do Armazenamento de Blobs](#storage-blob-data-contributor) | Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | [Proprietário de dados blob de armazenamento](#storage-blob-data-owner) | Fornece acesso total aos recipientes e dados blob de armazenamento Azure, incluindo a atribuição do controlo de acesso POSIX. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Leitor de dados blob de armazenamento](#storage-blob-data-reader) | Leia e enuncie os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Delegado blob de armazenamento](#storage-blob-delegator) | Obtenha uma chave de delegação de utilizador, que pode ser usada para criar uma assinatura de acesso partilhado para um recipiente ou bolha que é assinado com credenciais AZure AD. Para mais informações, consulte [Criar uma delegação de utilizador SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
@@ -161,7 +161,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | **DevOps** |  |  |
 > | [Utilizador de Laboratórios DevTest](#devtest-labs-user) | Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus Laboratórios Azure DevTest. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Criador de Laboratório](#lab-creator) | Permite criar novos laboratórios sob as suas contas do Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
-> | **Monitorização** |  |  |
+> | **Monitorizar** |  |  |
 > | [Contribuinte componente de insights de aplicação](#application-insights-component-contributor) | Pode gerir componentes de Insights de Aplicação | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Insights de aplicação Snapshot Debugger](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para visualizar e descarregar instantâneos de depurg recolhidos com o Debugger Debugger Do Snapshot da Aplicação. Note que estas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Contribuinte.](#contributor) Ao atribuir aos utilizadores o papel de Debugger Snapshot Debugger do Application Insights, deve conceder a função diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Colaborador de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
@@ -207,7 +207,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 
 ### <a name="contributor"></a>Contribuinte
 
-Permite-lhe gerir tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
+Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -229,7 +229,7 @@ Permite-lhe gerir tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-a
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage everything except access to resources.",
+  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
   "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "permissions": [
@@ -256,7 +256,7 @@ Permite-lhe gerir tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-a
 
 ### <a name="owner"></a>Proprietário
 
-Permite-lhe gerir tudo, incluindo o acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
+Concede acesso total à gestão de todos os recursos, incluindo a capacidade de atribuir funções no Azure RBAC. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -274,7 +274,7 @@ Permite-lhe gerir tudo, incluindo o acesso aos recursos. [Saiba mais](rbac-and-d
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage everything, including access to resources.",
+  "description": "Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
   "name": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
   "permissions": [
@@ -295,7 +295,7 @@ Permite-lhe gerir tudo, incluindo o acesso aos recursos. [Saiba mais](rbac-and-d
 
 ### <a name="reader"></a>Leitor
 
-Permite-lhe ver tudo, mas não fazer alterações. [Saiba mais](rbac-and-directory-admin-roles.md)
+Ver todos os recursos, mas não lhe permite fazer quaisquer alterações. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -313,7 +313,7 @@ Permite-lhe ver tudo, mas não fazer alterações. [Saiba mais](rbac-and-directo
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view everything, but not make any changes.",
+  "description": "View all resources, but does not allow you to make any changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
   "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
   "permissions": [
@@ -2094,7 +2094,7 @@ Permite a listagem e regeneração das chaves de acesso à conta de armazenament
 }
 ```
 
-### <a name="storage-blob-data-contributor"></a>Colaborador de dados blob de armazenamento
+### <a name="storage-blob-data-contributor"></a>Contribuinte de Dados do Armazenamento de Blobs
 
 Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -3026,6 +3026,7 @@ Lista de ação de credencial de administrador de agrupamento. [Saiba mais](../a
 > | --- | --- |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterAdminCredential/action | Listar o clusterAdenão credencial de um cluster gerido |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/accessProfiles/listCredential/action | Obtenha um perfil de acesso ao cluster gerido por nome de função usando credencial de lista |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | Obtenha um cluster gerido |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3045,7 +3046,8 @@ Lista de ação de credencial de administrador de agrupamento. [Saiba mais](../a
     {
       "actions": [
         "Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action",
-        "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action"
+        "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+        "Microsoft.ContainerService/managedClusters/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3066,6 +3068,7 @@ Listar ação credencial do utilizador do cluster. [Saiba mais](../aks/control-k
 > | Ações | Descrição |
 > | --- | --- |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerido |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | Obtenha um cluster gerido |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3084,7 +3087,8 @@ Listar ação credencial do utilizador do cluster. [Saiba mais](../aks/control-k
   "permissions": [
     {
       "actions": [
-        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action",
+        "Microsoft.ContainerService/managedClusters/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6811,6 +6815,8 @@ Pode ler todos os dados de monitorização e editar as definições de monitoriz
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/activityLogAlerts/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/* | Criar e gerir um alerta métrico clássico |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/componentes/* | Criar e gerir componentes insights |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRules/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRuleAssociations/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Cria, atualiza ou lê a definição de diagnóstico para o Servidor de Análise |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/eventtypes/* | Liste eventos de Registo de Atividade (eventos de gestão) numa subscrição. Esta permissão aplica-se tanto ao acesso programático como ao portal ao Registo de Atividades. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/LogDefinitions/* | Esta permissão é necessária para os utilizadores que necessitem de acesso aos Registos de Atividade através do portal. Listar categorias de registo em Registo de Atividade. |
@@ -6860,6 +6866,8 @@ Pode ler todos os dados de monitorização e editar as definições de monitoriz
         "Microsoft.Insights/activityLogAlerts/*",
         "Microsoft.Insights/AlertRules/*",
         "Microsoft.Insights/components/*",
+        "Microsoft.Insights/dataCollectionRules/*",
+        "Microsoft.Insights/dataCollectionRuleAssociations/*",
         "Microsoft.Insights/DiagnosticSettings/*",
         "Microsoft.Insights/eventtypes/*",
         "Microsoft.Insights/LogDefinitions/*",

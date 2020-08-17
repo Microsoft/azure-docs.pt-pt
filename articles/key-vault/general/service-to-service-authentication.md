@@ -9,17 +9,17 @@ ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 56ada47e46d788ca77f65e354836e19f4d3969d2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034792"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272761"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído a nova biblioteca de identidade Azure **DefaultAzureCredentis** disponível para .NET, Java, TypeScript e Python e deve ser usada para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído por nova biblioteca de identidade Azure **DefaultAzureCredentis** disponíveis para .NET, Java, TypeScript e Python e deve ser usado para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 Para autenticar o Azure Key Vault, precisa de uma credencial Azure Ative Directory (Azure AD), seja um segredo partilhado ou um certificado.
 
@@ -92,7 +92,7 @@ Para utilizar o Azure CLI:
 
 1. Verifique o acesso entrando na *conta az get-token --resource https: \/ /vault.azure.net*. Se receber um erro, verifique se a versão correta do Azure CLI está corretamente instalada.
 
-   Se o Azure CLI não estiver instalado no diretório predefinido, poderá receber um relatório de erro que `AzureServiceTokenProvider` não encontre o caminho para o Azure CLI. Utilize a variável ambiente **AzureCLIPath** para definir a pasta de instalação Azure CLI. `AzureServiceTokenProvider`adiciona o diretório especificado na variável ambiente **AzureCLIPath** à variável **ambiente Path** quando necessário.
+   Se o Azure CLI não estiver instalado no diretório predefinido, poderá receber um relatório de erro que `AzureServiceTokenProvider` não encontre o caminho para o Azure CLI. Utilize a variável ambiente **AzureCLIPath** para definir a pasta de instalação Azure CLI. `AzureServiceTokenProvider` adiciona o diretório especificado na variável ambiente **AzureCLIPath** à variável **ambiente Path** quando necessário.
 
 1. Se estiver inscrito no Azure CLI usando várias contas ou a sua conta tiver acesso a várias subscrições, tem de especificar a subscrição a utilizar. Introduza o conjunto de conta de comando *az --subscrição <>de subscrição . *
 
@@ -190,7 +190,7 @@ Existem três métodos primários de utilização de um Diretor de Serviço para
 
 1. Execute a aplicação.
 
-Uma vez que tudo esteja configurado corretamente, não são necessárias mais alterações de código. `AzureServiceTokenProvider`utiliza a variável ambiente e o certificado para autenticar a Azure AD.
+Uma vez que tudo esteja configurado corretamente, não são necessárias mais alterações de código. `AzureServiceTokenProvider` utiliza a variável ambiente e o certificado para autenticar a Azure AD.
 
 ### <a name="use-a-certificate-in-key-vault-to-sign-into-azure-ad"></a>Use um certificado em Key Vault para assinar no Azure AD
 
@@ -210,7 +210,7 @@ Para utilizar um certificado de cliente para autenticação principal de serviç
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
     ```
 
-    O identificador de certificado será um URL no formato`https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+    O identificador de certificado será um URL no formato `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. Substitua `{KeyVaultCertificateSecretIdentifier}` nesta cadeia de ligação o identificador de certificado:
 
@@ -235,17 +235,17 @@ Por predefinição, `AzureServiceTokenProvider` tenta os seguintes métodos de a
 
 Para controlar o processo, utilize uma cadeia de ligação passada ao `AzureServiceTokenProvider` construtor ou especificada na variável ambiente *AzureServicesAuthConnectionString.*  As seguintes opções são suportadas:
 
-| Opção de cadeia de ligação | Scenario | Comentários|
+| Opção de cadeia de ligação | Cenário | Comentários|
 |:--------------------------------|:------------------------|:----------------------------|
-| `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | `AzureServiceTokenProvider`usa AzureCli para obter ficha. |
-| `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | `AzureServiceTokenProvider`usa o Visual Studio para obter o token. |
-| `RunAs=CurrentUser` | Desenvolvimento local | Não suportado em .NET Core. `AzureServiceTokenProvider`utiliza autenticação integrada Azure AD para obter ficha. |
-| `RunAs=App` | [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider`usa uma identidade gerida para obter ficha. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade atribuída pelo utilizador para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider`usa uma identidade atribuída ao utilizador para obter ficha. |
-| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticação de serviços personalizados | `KeyVaultCertificateSecretIdentifier`é o identificador secreto do certificado. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal (Principal de serviço) | `AzureServiceTokenProvider`usa certificado para obter ficha da Azure AD. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal (Principal de serviço) | `AzureServiceTokenProvider`usa certificado para obter token de Azure AD|
-| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal (Principal de serviço) |`AzureServiceTokenProvider`usa segredo para obter ficha de Azure AD. |
+| `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | `AzureServiceTokenProvider` usa AzureCli para obter ficha. |
+| `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | `AzureServiceTokenProvider` usa o Visual Studio para obter o token. |
+| `RunAs=CurrentUser` | Desenvolvimento local | Não suportado em .NET Core. `AzureServiceTokenProvider` utiliza autenticação integrada Azure AD para obter ficha. |
+| `RunAs=App` | [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` usa uma identidade gerida para obter ficha. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade atribuída pelo utilizador para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` usa uma identidade atribuída ao utilizador para obter ficha. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticação de serviços personalizados | `KeyVaultCertificateSecretIdentifier` é o identificador secreto do certificado. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal (Principal de serviço) | `AzureServiceTokenProvider` usa certificado para obter ficha da Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal (Principal de serviço) | `AzureServiceTokenProvider` usa certificado para obter token de Azure AD|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal (Principal de serviço) |`AzureServiceTokenProvider` usa segredo para obter ficha de Azure AD. |
 
 ## <a name="samples"></a>Amostras
 

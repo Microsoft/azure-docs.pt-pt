@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dca903591c5d6805108d55163aaedc2435d9297e
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 718f4c0b41400ae2e35b88820b2d4154dab23111
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610085"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272829"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
 
@@ -225,7 +225,7 @@ Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, e
 
 1. Eliminar o(s) grupo de recursos criado para deter o Dev VM, IoT Edge VM, IoT Hub, conta de armazenamento, serviço de espaço de trabalho de machine learning (e recursos criados: registo de contentores, Insights de Aplicação, cofre chave, conta de armazenamento).
 
-1. Elimine o projeto de aprendizagem automática em [cadernos Azure.](https://notebooks.azure.com)
+1. Elimine o projeto de aprendizagem automática em [Cadernos Azure.](https://notebooks.azure.com)
 
 1. Se clonou o repo localmente, feche quaisquer janelas do Código PowerShell ou VS referentes ao repo local e, em seguida, apague o diretório de repo.
 

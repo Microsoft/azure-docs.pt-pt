@@ -1,17 +1,17 @@
 ---
 title: Ativar o suporte para Avere vFXT - Azure
-description: Como ativar uploads de suporte de Avere vFXT para Azure
+description: Saiba como ativar o carregamento automático de dados de suporte sobre o seu cluster a partir de Avere vFXT para a Azure para ajudar o Suporte a fornecer o serviço ao cliente.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fc86cca1b73eb58a038a0a6da109e86b995709c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505482"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272733"
 ---
 # <a name="enable-support-uploads"></a>Ativar carregamentos de suporte
 
@@ -40,7 +40,7 @@ Siga estes passos do Painel de Controlo de Avere para ativar o suporte. (Ler [Ac
 
    ![Screenshot contendo a secção de suporte proactivo seguro concluída na página de definições de suporte](media/avere-vfxt-support-sps.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se necessitar de adicionar um sistema de armazenamento em nuvem no local ou existente ao cluster, siga as instruções no [armazenamento Configure](avere-vfxt-add-storage.md).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75c9f9065fdb2be86438f1517c07de1ce45f5623
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aea7e18a7ccfb42a3ef641150d74c0ce54eaee04
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187230"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Tutorial: Azure Ative Directy integração única (SSO) com iSAMS
 
@@ -84,13 +84,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.isams.cloud/main/sso/saml2`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.isams.cloud/main/sso/saml2`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.isams.cloud/main/sso/saml2/acs`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.isams.cloud/main/sso/saml2/acs`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.isams.cloud/`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.isams.cloud/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do cliente iSAMS](mailto:support@isams.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -147,21 +147,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configuração](./media/isams-tutorial/configure-isams.png)
 
-    a. Na caixa de texto **Name,** dê um nome válido como`Saml2 Azure`
+    a. Na caixa de texto **Name,** dê um nome válido como `Saml2 Azure` . Este é o nome que aparecerá na página de login.
 
-    b. Na caixa de texto **do Sign On URL,** cole o valor URL de **login** que copiou a partir do portal Azure.
+    b. Na caixa URL dos metadados, insira o valor **url de metadados da Federação de Aplicações** que copiou a partir do portal Azure.
+    
+    c. **Prima Import**.
+    
+    d. Na lista de **aplicações** dentro da secção **de Aplicações do Cliente Ativada,** selecione todas as aplicações iSAMS que deseja que o seu fornecedor apareça na página de login para.
 
-    c. Na caixa de texto **emitente,** cole o valor **de ID** da Entidade que copiou a partir do portal Azure.
-
-    d. Desa estabague a **autenticação de força** para **falso** de dropdown.
-
-    e. Preencha a caixa de texto **'Atributo do Utilizador'** com um nome de utilizador válido.
-
-    f. Abra o **Certificado** descarregado do portal Azure para o Bloco de Notas e cole o conteúdo na caixa de texto **de impressão digital X509.**
-
-    exemplo, Desative o valor de **restrição do público** para **falso** a partir do dropdown.
-
-    h. Clique em **Guardar & Fechar**.
+    e. Clique em **Guardar & Fechar**.
 
 ### <a name="create-isams-test-user"></a>Criar utilizador de teste iSAMS
 
@@ -186,9 +180,9 @@ Quando clicar no azulejo iSAMS no Painel de Acesso, deverá ser automaticamente 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

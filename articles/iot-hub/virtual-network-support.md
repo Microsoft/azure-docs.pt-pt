@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534486"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272905"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -182,7 +182,7 @@ O IoT Hub pode encaminhar mensagens para uma conta de armazenamento do cliente. 
 
 5. Navegue para a secção **de pontos finais personalizados** e clique em **Adicionar**. Selecione **o Armazenamento** como o tipo de ponto final.
 
-6. Na página que aparece, forneça um nome para o seu ponto final, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, forneça codificação e formato de nome de ficheiro. Selecione **Sistema Atribuído** como tipo **de autenticação** ao seu ponto final de armazenamento. Clique no botão **Criar**.
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, forneça codificação e formato de nome de ficheiro. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**.
 
 Agora, o seu ponto final de armazenamento personalizado está configurado para usar a identidade atribuída ao sistema do seu hub, e tem permissão para aceder ao seu recurso de armazenamento, apesar das restrições de firewall. Agora pode utilizar este ponto final para definir uma regra de encaminhamento.
 
@@ -234,7 +234,7 @@ A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos c
 
 4. Na página de recursos do seu IoT Hub, navegue para **o separador de upload de ficheiros.**
 
-5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão**e **contagem máxima de entrega** conforme desejado. Selecione **Sistema Atribuído** como tipo **de autenticação** ao seu ponto final de armazenamento. Clique no botão **Criar**.
+5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão**e **contagem máxima de entrega** conforme desejado. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**.
 
 Agora, o seu ponto final de armazenamento para upload de ficheiros está configurado para usar a identidade atribuída ao sistema do seu hub, e tem permissão para aceder ao seu recurso de armazenamento, apesar das restrições de firewall.
 

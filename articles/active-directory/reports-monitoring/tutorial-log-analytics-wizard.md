@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 337b75412751fb15e3fc1746666a8efb385a8939
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854536"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271268"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
@@ -152,7 +152,7 @@ Veja os sign-ins onde o Acesso Condicional foi um sucesso
 
 Conte quantos sucessos houve
 
-'SigninLogs ] onde ConditionalAccessStatus == "sucesso" projeto UserDisplayName, ConditionalAccessStatus ! contar '
+`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count`
 
 
 Contagem agregada de insusição bem sucedida por utilizador por dia:
@@ -216,7 +216,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
 4. Na página **'Logs',** clique em **'Começar'.**
 
-5. Na caixa de texto **procurar,** escreva:`SigninLogs |where UserDisplayName contains "BreakGlass" | project UserDisplayName`
+5. Na caixa de texto **procurar,** escreva: `SigninLogs |where UserDisplayName contains "BreakGlass" | project UserDisplayName`
 
 6. Clique em **Run** (Executar).  
 
@@ -277,15 +277,15 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     1. Selecione **e-mail assunto**.
 
-    2. Na caixa de texto da **linha de assunto,** escreva:`Breakglass account has been used`
+    2. Na caixa de texto da **linha de assunto,** escreva: `Breakglass account has been used`
 
 16. Em **detalhes da regra de alerta,** execute os seguintes passos:
 
     ![Detalhes da regra de alerta](./media/tutorial-log-analytics-wizard/alert-rule-details.png)
 
-    1. Na caixa de texto **do nome da regra de alerta,** escreva:`Breakglass account`
+    1. Na caixa de texto **do nome da regra de alerta,** escreva: `Breakglass account`
 
-    2. Na caixa de texto **Descrição,** escreva:`Your emergency access account has been used`
+    2. Na caixa de texto **Descrição,** escreva: `Your emergency access account has been used`
 
 17. Clique em **Criar regra de alerta**.   
 
@@ -328,7 +328,7 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
     ![Adicionar consulta](./media/tutorial-log-analytics-wizard/add-query.png)
 
-9. Na caixa de texto de consulta, escreva:`SigninLogs | where TimeGenerated > ago(7d) | project TimeGenerated, UserDisplayName, ClientAppUsed | summarize count() by ClientAppUsed`
+9. Na caixa de texto de consulta, escreva: `SigninLogs | where TimeGenerated > ago(7d) | project TimeGenerated, UserDisplayName, ClientAppUsed | summarize count() by ClientAppUsed`
 
 10. Clique **em 'Executar Consulta' ( 'Executar'.**
 
@@ -371,7 +371,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
     ![Adicionar consulta de livro](./media/tutorial-log-analytics-wizard/add-custom-workbook-query.png)
 
-7. Na caixa de texto de consulta, escreva:`SigninLogs | where TimeGenerated > ago(20d) | where ConditionalAccessPolicies != "[]" | summarize dcount(UserDisplayName) by bin(TimeGenerated, 1d), ConditionalAccessStatus`
+7. Na caixa de texto de consulta, escreva: `SigninLogs | where TimeGenerated > ago(20d) | where ConditionalAccessPolicies != "[]" | summarize dcount(UserDisplayName) by bin(TimeGenerated, 1d), ConditionalAccessStatus`
 
 8. Clique **em 'Executar Consulta' ( 'Executar'.**
 

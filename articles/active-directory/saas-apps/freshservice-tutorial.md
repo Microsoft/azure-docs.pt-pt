@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b52ec552434f74c56333d1afe00cde2a285418
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 201b927a0cbde410bd7737da18bc881979643ca5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905436"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272719"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Azure Ative Directory integração única (SSO) com Freshservice
 
@@ -60,7 +60,7 @@ Para configurar a integração da Freshservice no Azure AD, é necessário adici
 1. Na secção Adicionar a partir da secção **da galeria,** escreva **Freshservice** na caixa de pesquisa.
 1. Selecione **Freshservice** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshservice"></a>Configurar e testar Azure AD único sign-on para Freshservice
+## <a name="configure-and-test-azure-ad-sso-for-freshservice"></a>Configure e teste Azure AD SSO para freshservice
 
 Configure e teste Azure AD SSO com Freshservice utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Freshservice.
 
@@ -85,9 +85,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<democompany>.freshservice.com`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<democompany>.freshservice.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<democompany>.freshservice.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<democompany>.freshservice.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Freshservice](https://support.freshservice.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -132,7 +132,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-freshservice-sso"></a>Configure o Serviço Fresco SSO
 
-1. Abra uma nova janela do navegador web e inscreva-se no seu site da empresa Freshservice como administrador.
+1. Para automatizar a configuração dentro do Freshservice, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar extensão ao navegador, clique em **Configurar O Freshservice** irá direcioná-lo para a aplicação Freshservice. A partir daí, forneça as credenciais de administração para assinar na Freshservice. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+1. Se pretender configurar o Freshservice manualmente, inicie sessão no site da empresa Freshservice como administrador.
 
 1. No menu à esquerda, clique em **Administração** e selecione **Helpdesk Security** nas **Definições Gerais**.
 
@@ -199,9 +207,9 @@ Quando clicar no azulejo Freshservice no Painel de Acesso, deverá ser automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
