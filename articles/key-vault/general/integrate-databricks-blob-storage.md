@@ -1,23 +1,23 @@
 ---
 title: Aceder ao Armazenamento de Blobs do Azure com o Azure Databricks e o Azure Key Vault
 description: Neste tutorial, você aprenderá a aceder ao Azure Blob Storage da Azure Databricks usando um segredo armazenado em Azure Key Vault
-author: taytran0
-ms.author: t-trtr
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: 50ea93dea62b6e4e333e58550b2750897c7e0a77
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 9b3d07eae9e47b7a8466cfb32f03b8790c079f02
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988903"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262998"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Tutorial: Access Azure Blob Storage usando Azure Databricks e Azure Key Vault
 
 Neste tutorial, você aprenderá a aceder ao Azure Blob Storage da Azure Databricks usando um segredo armazenado em Azure Key Vault. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma conta de armazenamento e recipiente blob com Azure CLI
@@ -124,4 +124,4 @@ df.show()
 
 Certifique-se de que o seu Cofre de Chaves é recuperável:
 > [!div class="nextstepaction"]
-> [Apague os seus recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+> [Limpar os seus recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)

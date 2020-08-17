@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a criar um cofre dos Serviços de Recupera�
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372557"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263423"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -150,13 +150,13 @@ Para executar um trabalho de cópia de segurança a pedido:
 
     ![Mosaico Tarefas de cópia de segurança](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretende continuar a trabalhar com tutoriais subsequentes, não limpe os recursos criados neste tutorial. Se não pretende continuar, use os seguintes passos para eliminar todos os recursos criados por este tutorial no portal Azure.
 
 1. No **painel myRecoveryServicesVault,** selecione **3** em **Itens de Cópia de Segurança** para abrir o menu Itens de Cópia de Segurança.
 
-    ![Artigos de reserva](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Abra o menu de itens de backup](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. No menu **Itens de Cópia de Segurança,** selecione **Azure Virtual Machine** para abrir a lista de máquinas virtuais associadas ao cofre.
 
@@ -185,11 +185,11 @@ Se pretende continuar a trabalhar com tutoriais subsequentes, não limpe os recu
 
 1. Quando não houver mais itens no cofre, selecione **Delete**.
 
-    ![Selecione Parar a cópia de segurança para eliminar o cofre](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Selecione eliminar](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Assim que o cofre for apagado, voltará à lista de cofres dos Serviços de Recuperação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou o portal do Azure para:
 

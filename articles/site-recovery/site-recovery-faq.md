@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083740"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263388"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre recuperação do local de Azure
 
@@ -121,7 +121,7 @@ Pode ligar a identidade gerida do cofre dos serviços de recuperação indo para
 
 - Contas de armazenamento baseadas em gestores de recursos (Tipo Padrão):
   - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)
-  - [Colaborador de dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  - [Contribuinte de Dados do Armazenamento de Blobs](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Contas de armazenamento baseadas em gestores de recursos (Tipo Premium):
   - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)
   - [Proprietário de dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -247,6 +247,75 @@ Yes. A Azure Site Recovery for Linux Operation System suporta scripts personaliz
 
 >[!Note]
 >A versão do agente de recuperação do site deve ser 9.24 ou superior para suportar scripts personalizados.
+
+## <a name="replication-policy"></a>Política de replicação
+
+### <a name="what-is-a-replication-policy"></a>O que é uma política de replicação?
+
+Uma política de replicação define as definições para o histórico de retenção dos pontos de recuperação. A política também define a frequência de instantâneos consistentes com aplicações. Por predefinição, a Azure Site Recovery cria uma nova política de replicação com definições predefinidas de:
+
+- 24 horas para o histórico de retenção de pontos de recuperação.
+- 4 horas para a frequência de instantâneos consistentes com aplicações.
+
+[Saiba mais sobre as definições de replicação.](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings)
+
+### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é um ponto de recuperação consistente?
+
+Um ponto de recuperação consistente com falhas tem os dados do disco como se tivesse retirado o cabo de alimentação do servidor durante a imagem. O ponto de recuperação consistente não inclui nada que estivesse na memória quando a foto foi tirada.
+
+Hoje, a maioria das aplicações pode recuperar bem de instantâneos consistentes. Um ponto de recuperação consistente com falhas é geralmente suficiente para sistemas operativos sem base de dados e aplicações como servidores de ficheiros, servidores DHCP e servidores de impressão.
+
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual é a frequência da geração de pontos de recuperação consistentes?
+
+A Recuperação do Local cria um ponto de recuperação consistente a cada 5 minutos.
+
+### <a name="what-is-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistente de aplicações?
+
+Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações. Os pontos de recuperação consistentes da aplicação captam os mesmos dados que os instantâneos consistentes com falhas, ao mesmo tempo que capturam dados na memória e todas as transações em processo.
+
+Devido ao seu conteúdo extra, as fotos consistentes com aplicações são as mais envolvidas e demoram mais tempo. Recomendamos pontos de recuperação consistentes de aplicações para sistemas operativos de base de dados e aplicações como o SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto dos pontos de recuperação consistentes da aplicação no desempenho da aplicação?
+
+Os pontos de recuperação consistentes da aplicação captam todos os dados na memória e no processo. Como os pontos de recuperação capturam esses dados, eles requerem uma estrutura como o Serviço de Cópia Sombra de Volume no Windows para quiesce a aplicação. Se o processo de captura for frequente, pode afetar o desempenho quando a carga de trabalho já está ocupada. Não recomendamos que utilize baixa frequência para pontos de recuperação consistentes com aplicações para cargas de trabalho não-base. Mesmo para a carga de trabalho da base de dados, uma hora é suficiente.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual é a frequência mínima de geração de pontos de recuperação consistentes de aplicação?
+
+A Recuperação do Site pode criar um ponto de recuperação consistente com uma frequência mínima de 1 hora.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>Como são gerados e salvos pontos de recuperação?
+
+Para entender como a Recuperação do Site gera pontos de recuperação, vamos ver um exemplo de uma política de replicação. Esta política de replicação tem um ponto de recuperação com uma janela de retenção de 24 horas e um instantâneo de frequência consistente de 1 hora.
+
+A Recuperação do Local cria um ponto de recuperação consistente a cada 5 minutos. Não pode mudar esta frequência. Durante a última hora, pode escolher entre 12 pontos consistentes com falhas e 1 ponto consistente com aplicações. À medida que o tempo avança, a Recuperação do Local adcade todos os pontos de recuperação para além da última hora e poupa apenas 1 ponto de recuperação por hora.
+
+A imagem que se segue ilustra o exemplo. Na imagem:
+
+- Na última hora, há pontos de recuperação com uma frequência de 5 minutos.
+- Além da última hora, a Recuperação do Local mantém apenas 1 ponto de recuperação.
+
+   ![Lista de pontos de recuperação gerados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### <a name="how-far-back-can-i-recover"></a>Até onde posso me recuperar?
+
+O ponto de recuperação mais antigo que pode usar é de 72 horas.
+
+### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Tenho uma política de replicação de 24 horas. O que acontecerá se um problema impedir a Recuperação do Local de gerar pontos de recuperação por mais de 24 horas? Os meus pontos de recuperação anteriores vão perder-se?
+
+Não, a Recuperação do Site manterá todos os seus pontos de recuperação anteriores. Dependendo da janela de retenção dos pontos de recuperação, a Recuperação do Local substitui o ponto mais antigo apenas se gerar novos pontos. Devido ao problema, a Recuperação do Site não pode gerar novos pontos de recuperação. Até que haja novos pontos de recuperação, todos os pontos antigos permanecerão depois de chegar à janela de retenção.
+
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois de a replicação ser ativada num VM, como posso alterar a política de replicação?
+
+Aceda às políticas **de**  >  replicação da infraestrutura do local**de recuperação do local de recuperação do local.**  >  **Replication policies** Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á também a todas as replicações existentes.
+
+### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa do VM ou um diferencial?
+
+O primeiro ponto de recuperação gerado tem a cópia completa. Quaisquer pontos de recuperação sucessivos têm mudanças delta.
+
+### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>O aumento do período de retenção dos pontos de recuperação aumenta o custo de armazenamento?
+
+Sim, se aumentar o período de retenção de 24 horas para 72 horas, a Recuperação do Local poupará os pontos de recuperação por mais 48 horas. O tempo adicional incorrerá em taxas de armazenamento. Por exemplo, um único ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de $0,16 por mês. Os encargos adicionais seriam $1,60 × 48 por mês.
+
 
 ## <a name="failover"></a>Ativação pós-falha
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se estou a falhar com o Azure, como acedo aos VMs do Azure depois do fracasso?

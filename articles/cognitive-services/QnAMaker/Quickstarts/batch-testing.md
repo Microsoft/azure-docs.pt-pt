@@ -3,12 +3,12 @@ title: 'Quickstart: Testar base de conhecimento com perguntas de lote'
 description: Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecimento no seu recurso QnA Maker para obter respostas esperadas, pontuações de confiança e solicitações de várias voltas.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 498f84c97fdc022e460dec453b1d65bb8088b787
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337738"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263151"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Testar base de conhecimento com perguntas de lote e respostas esperadas
 
@@ -25,7 +25,7 @@ Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecim
 
 [Inscreva-se no](https://www.qnamaker.ai/) portal QnA Maker.
 
-## <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Criar uma nova base de conhecimento a partir do ficheiro sample.docx multi-turn
+## <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Criar uma nova base de conhecimento a partir do ficheiro de sample.docx multi-volta
 
 1. **Selecione Criar uma base** de conhecimento a partir da barra de ferramentas.
 1. Salte **o Passo 1** porque já deve ter um recurso QnA Maker, passando para o **Passo 2** para selecionar as informações de recursos existentes:
@@ -39,10 +39,10 @@ Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecim
 
     |Definição|Valor|
     |--|--|
-    |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Assinalado|
+    |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Marcado|
     |**Texto de resposta predefinido**| `Batch test - default answer not found.`|
     |**+ Adicionar Arquivo**|Selecione a listagem de ficheiros descarregada `.docx` nos pré-requisitos.|
-    |**Chit-chat**|Selecione **Profissional**|
+    |**Conversa**|Selecione **Profissional**|
 
 1. No **passo 5,** selecione **Criar o seu KB**.
 
@@ -56,16 +56,16 @@ Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecim
     |Dados necessários| Exemplo|
     |--|--|
     |Anfitrião publicado|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
-    |Chave publicada|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(32 caracteres de corda mostrados após `Endpoint` )|
-    |ID da Aplicação|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de corda mostrados como parte de `POST` ) |
+    |Chave publicada|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` (32 caracteres de corda mostrados após `Endpoint` )|
+    |ID da Aplicação|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 caracteres de corda mostrados como parte de `POST` ) |
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Criar ficheiro de teste de lote com IDs de pergunta
 
-Para utilizar a ferramenta de teste de lote, crie um ficheiro nomeado `batch-test-data-1.tsv` com um editor de texto. O ficheiro precisa de ter as seguintes colunas separadas por uma aba.
+Para utilizar a ferramenta de teste de lote, crie um ficheiro nomeado `batch-test-data-1.tsv` com um editor de texto. O ficheiro deve estar no formato UTF-8 e tem de ter as seguintes colunas separadas por um separador.
 
 |Campos de ficheiros de entrada de TSV|Notas|Exemplo|
 |--|--|--|
-|ID da base de conhecimento|A sua identificação da base de conhecimento encontrada na página publicar. Teste várias bases de conhecimento no mesmo serviço de uma só vez num único ficheiro utilizando diferentes IDs de base de conhecimento num único ficheiro.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de corda mostrados como parte de `POST` ) |
+|ID da base de conhecimento|A sua identificação da base de conhecimento encontrada na página publicar. Teste várias bases de conhecimento no mesmo serviço de uma só vez num único ficheiro utilizando diferentes IDs de base de conhecimento num único ficheiro.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 caracteres de corda mostrados como parte de `POST` ) |
 |Pergunta|O texto de pergunta que um utilizador entraria. 1.000 caracteres no máximo.|`How do I sign out?`|
 |Etiquetas de metadados|opcional|`topic:power`usa a _chave:formato de valor_|
 |Parâmetro superior|opcional|`25`|
@@ -130,7 +130,7 @@ Utilize o gráfico seguinte para entender como encontrar os valores de campo par
 |Número da coluna|Coluna opcional|Localização dos dados|
 |--|--|--|
 |3|do IdP|Exportar a base de conhecimento existente para _a chave existente:pares de valor._|
-|4|superior|Recomenda-se o valor `25` predefinido.|
+|4|top|Recomenda-se o valor `25` predefinido.|
 |5|ID do conjunto de perguntas e respostas|Exportar a base de conhecimento existente para valores de ID. Note também que os IDs foram devolvidos no ficheiro de saída.|
 
 ## <a name="add-metadata-to-the-knowledge-base"></a>Adicionar metadados à base de conhecimento
@@ -199,7 +199,7 @@ Se não continuar a utilizar esta base de conhecimento, elimine a base de conhec
 1. No portal QnA Maker, selecione **as bases my knowledge** a partir do menu superior.
 1. Na lista de bases de conhecimento, selecione o ícone **Eliminar** na linha da base de conhecimento deste arranque rápido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

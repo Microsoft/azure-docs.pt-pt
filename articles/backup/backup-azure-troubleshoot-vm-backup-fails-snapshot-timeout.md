@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167934"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262862"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -96,7 +96,7 @@ Depois de registar e agendar um VM para o serviço Azure Backup, o Backup inicia
 
 **Causa 5: [A solução de controlo de aplicações está a bloquear IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
-## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed - O VM está em estado de provisionamento falhado
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed – a VM está no estado de aprovisionamento com falhas
 
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
@@ -107,7 +107,7 @@ Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de pro
 - Se qualquer outra extensão estiver em estado de falha, então pode interferir com a cópia de segurança. Certifique-se de que estas questões de extensão estão resolvidas e relemisse a operação de reserva.
 - Se o estado de provisionamento de VM estiver em estado de atualização, pode interferir com a cópia de segurança. Certifique-se de que está saudável e relemissa a operação de reserva.
 
-## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - atingiu o limite máximo da coleção de Pontos de Restauro
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached – atingiu o limite máximo da coleção de Pontos de Restauro
 
 **Código de erro**: UserErrorRpCollectionLimitReached <br>
 **Error message**: O limite máximo de recolha do Ponto de Restauração atingiu. <br>
@@ -140,7 +140,7 @@ Depois de registar e agendar um VM para o serviço Azure Backup, o Backup inicia
 
 **[O estado do instantâneo não pode ser recuperado, ou um instantâneo não pode ser tirado](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
-## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensãoOperaçãoFailedForManagedDisks - Operação de extensão VMSnapshot falhou
+## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks – a operação da extensão VMSnapshot falhou
 
 **Código de**erro : ExtensionOperationFailedForManagedDisks <br>
 **Mensagem de erro**: A operação de extensão VMSnapshot falhou<br>
@@ -175,23 +175,23 @@ A sua operação de backup pode falhar ao fazer o backup de um VM com um tamanho
 
 O teu recente trabalho de reserva falhou porque há um trabalho de reserva em andamento. Não podes começar um novo trabalho de reserva até que o trabalho atual termine. Certifique-se de que a operação de backup em curso está concluída antes de ativar ou agendar outras operações de backup. Para verificar o estado dos trabalhos de reserva, faça os seguintes passos:
 
-1. Inscreva-se no portal Azure, clique em **Todos os serviços**. Escreva Serviços de Recuperação e clique em **Cofres dos Serviços de Recuperação**. É apresentada a lista dos cofres dos serviços de recuperação.
+1. Inscreva-se no portal Azure, selecione **Todos os serviços**. Serviços de recuperação de tipo e cofres de **serviços de recuperação selecionados.** É apresentada a lista dos cofres dos serviços de recuperação.
 2. Da lista de cofres dos serviços de recuperação, selecione um cofre no qual a cópia de segurança está configurada.
-3. No menu do painel de instrumentos do cofre, clique **em Backup Jobs** exibe todos os trabalhos de backup.
+3. No menu do painel de instrumentos do cofre, selecione **Backup Jobs** exibe todos os trabalhos de backup.
    - Se um trabalho de reserva estiver em andamento, aguarde que complete ou cancele o trabalho de reserva.
-     - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e clique em **Cancelar** ou utilizar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e selecione **Cancelar** ou utilizar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Se reconfiguraste o apoio num cofre diferente, então assegura-te que não há trabalhos de reserva a funcionar no velho cofre. Se existe, cancele o trabalho de reserva.
-     - Para cancelar a tarefa de cópia de segurança, faça clique com o botão direito do rato na tarefa de cópia de segurança e clique em **Cancelar** ou utilize o [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
+     - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e selecione **Cancelar** ou usar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
 4. Re-tentar a operação de reserva.
 
 Se a operação de backup programada estiver a demorar mais tempo, entrando em conflito com a próxima configuração de backup, em seguida, reveja as [melhores práticas,](backup-azure-vms-introduction.md#best-practices) [o desempenho de backup](backup-azure-vms-introduction.md#backup-performance)e a [consideração de Restauro](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
-## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError - A cópia de segurança falhou devido a um erro. Para mais detalhes, consulte detalhes da mensagem de erro de trabalho
+## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError – falha na cópia de segurança devido a um erro. Para obter mais informações, veja os Detalhes da Mensagem de Erro do Trabalho
 
 **Código de erro**: UserErrrCrpReportedUserror <br>
 **Error message**: A cópia de segurança falhou devido a um erro. Para mais detalhes, consulte os detalhes da mensagem de erro de trabalho.
 
-Este erro é reportado a partir do IaaS VM. Para identificar a causa principal do problema, vá às definições do cofre dos Serviços de Recuperação. Na secção **de Monitorização,** selecione **trabalhos de backup** para filtrar e visualizar o estado. Clique em **Falhas** para rever os detalhes da mensagem de erro subjacente. Tome outras ações de acordo com as recomendações na página de detalhes de erro.
+Este erro é reportado a partir do IaaS VM. Para identificar a causa principal do problema, vá às definições do cofre dos Serviços de Recuperação. Na secção **de Monitorização,** selecione **trabalhos de backup** para filtrar e visualizar o estado. Selecione **Falhas** para rever os detalhes da mensagem de erro subjacentes. Tome outras ações de acordo com as recomendações na página de detalhes de erro.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Cópia de segurança falhou: Esta máquina virtual não está (ativamente) protegida pela Azure Backup
 
@@ -204,7 +204,7 @@ Verifique se a máquina virtual dada está ativamente protegida (não em estado 
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado no VM, mas não responde (para VMs windows)
 
-#### <a name="solution"></a>Solução
+#### <a name="solution-for-this-error"></a>Solução para este erro
 
 O agente VM pode ter sido corrompido, ou o serviço pode ter sido parado. Reinstalar o agente VM ajuda a obter a versão mais recente. Também ajuda a reiniciar a comunicação com o serviço.
 
@@ -256,9 +256,9 @@ Para obter a lista completa das opções de ficheiros de configuração de víde
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controlo de aplicações está a bloquear IaaSBcdrExtension.exe
 
-Se estiver a executar [o AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controlo de aplicações) e as regras forem baseadas em editores ou caminhos, podem bloquear a execução da **IaaSBcdrExtension.exe.**
+Se estiver a executar [o AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controlo de aplicações), e as regras forem baseadas em editores ou caminhos, podem bloquear a execução da **IaaSBcdrExtension.exe.**
 
-#### <a name="solution"></a>Solução
+#### <a name="solution-to-this-issue"></a>Solução para esta questão
 
 Excluir o `/var/lib` caminho ou a **IaaSBcdrExtension.exe** executável do AppLocker (ou de outro software de controlo de aplicações.)
 
@@ -266,7 +266,7 @@ Excluir o `/var/lib` caminho ou a **IaaSBcdrExtension.exe** executável do AppLo
 
 A cópia de segurança VM baseia-se na emissão de um comando instantâneo para a conta de armazenamento subjacente. A cópia de segurança pode falhar quer porque não tem acesso à conta de armazenamento, quer porque a execução da tarefa instantânea está atrasada.
 
-#### <a name="solution"></a>Solução
+#### <a name="solution-for-this-issue"></a>Solução para esta questão
 
 As seguintes condições podem fazer com que a tarefa do instantâneo falhe:
 
@@ -280,7 +280,7 @@ As seguintes condições podem fazer com que a tarefa do instantâneo falhe:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Aceda à **opção Todos os Recursos**, selecione o grupo de recursos de recolha de pontos de restauração no seguinte formato AzureBackupRG_ `<Geo>` _ `<number>` .
 3. Na secção **Definições,** selecione **Fechaduras** para visualizar as fechaduras.
-4. Para remover a fechadura, selecione a elipse e clique em **Eliminar**.
+4. Para remover a fechadura, selecione a elipse e selecione **Delete**.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
@@ -307,16 +307,16 @@ Depois de retirar a fechadura, desencadeie uma cópia de segurança a pedido. Es
 Para limpar manualmente a recolha de pontos de restauro, que não está limpa devido à fechadura do grupo de recursos, experimente os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu **Hub,** clique em **Todos os recursos,** selecione o grupo De recursos com o seguinte formato AzureBackupRG_ `<Geo>` _ onde está localizado o seu `<number>` VM.
+2. No menu **Hub,** selecione **Todos os recursos,** selecione o grupo De recursos com o seguinte formato AzureBackupRG_ `<Geo>` _ onde está localizado o seu `<number>` VM.
 
-    ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Selecione o grupo de recursos](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Clique no grupo de recursos, o **painel de visão** geral é apresentado.
+3. Selecione grupo de recursos, o **painel de visão** geral é exibido.
 4. Selecione Mostrar a opção **de tipos ocultos** para exibir todos os recursos ocultos. Selecione as coleções de ponto de restauração com o seguinte formato AzureBackupRG_ `<VMName>` _ `<number>` .
 
-    ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Selecione a coleção de pontos de restauro](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Clique **em Eliminar** para limpar a coleção de pontos de restauro.
+5. **Selecione Eliminar** para limpar a coleção de pontos de restauro.
 6. Volte a tentar a operação de reserva.
 
 > [!NOTE]

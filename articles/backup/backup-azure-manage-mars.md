@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317353"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263304"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -29,60 +29,60 @@ Quando modificar a política de backup, pode adicionar novos itens, remover iten
 
 ### <a name="add-new-items-to-existing-policy"></a>Adicione novos itens à política existente
 
-1. Em **Ações**, clique **em Agendar Backup**.
+1. Em **Ações**, selecione **Agendar Backup**.
 
     ![Agendar uma cópia de segurança do Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-2. No **separador de artigos de política selecione** e selecione **Modificar o calendário de backup para os seus ficheiros e pastas** e clique em **Seguinte**.
+2. No **separador de produto de política Selecione** e selecione **Modificar o calendário de backup para os seus ficheiros e pastas** e selecione **Next**.
 
     ![Selecione Itens de Política](./media/backup-azure-manage-mars/select-policy-items.png)
 
-3. No **separador Descodificou ou parou o** separador de backup, selecione Faça **alterações a itens ou horários de backup** e clique em **Seguinte**.
+3. No **separador Descodificou ou para o separador de backup,** selecione **Faça alterações em itens ou horários de cópia de segurança** e selecione **Seguinte**.
 
     ![Modificar ou agendar backup](./media/backup-azure-manage-mars/modify-schedule-backup.png)
 
-4. No **separador 'Selecionar' itens para o** separador 'Backup', clique em Adicionar **itens** para adicionar os itens que pretende fazer cópias de segurança.
+4. No **separador 'Selecionar' itens para o** separador Backup, selecione Adicionar **itens** para adicionar os itens que pretende fazer cópias de segurança.
 
     ![Modificar ou agendar itens adicionais de backup](./media/backup-azure-manage-mars/modify-schedule-backup-add-items.png)
 
-5. Na janela **'Itens',** selecione moscas ou pastas que pretende adicionar e clique **em OK**.
+5. Na janela **'Itens',** selecione ficheiros ou pastas que pretende adicionar e selecione **OK**.
 
     ![Selecione os itens](./media/backup-azure-manage-mars/select-item.png)
 
-6. Complete os próximos passos e clique em **Terminar** para completar a operação.
+6. Complete os próximos passos e **selecione Acabamento** para completar a operação.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Adicione as regras de exclusão à política existente
 
 Pode adicionar regras de exclusão para saltar ficheiros e pastas que não quer ser apoiado. Pode fazê-lo durante a definição de uma nova política ou modificação de uma política existente.
 
-1. A partir do painel de Ações, clique **em Agendar Backup**. Vá para **selecionar itens para backup** e clique em **Definições de Exclusão**.
+1. A partir do painel de Ações, **selecione Agendar Backup**. Vá para **selecionar itens para backup** e selecione **Definições de exclusão**.
 
-    ![Selecione os itens](./media/backup-azure-manage-mars/select-exclusion-settings.png)
+    ![Definições de exclusão](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
-2. Em **Definições de Exclusão**, clique **em Adicionar Exclusão**.
+2. Em **Definições de Exclusão**, selecione **Adicionar Exclusão**.
 
-    ![Selecione os itens](./media/backup-azure-manage-mars/add-exclusion.png)
+    ![Adicionar exclusão](./media/backup-azure-manage-mars/add-exclusion.png)
 
-3. De **Itens Selecionados para Excluir,** navegue nos ficheiros e pastas e selecione itens que pretende excluir e clique **em OK**.
+3. De **Itens Selecionados para Excluir,** navegue nos ficheiros e pastas e selecione itens que pretende excluir e selecione **OK**.
 
-    ![Selecione os itens](./media/backup-azure-manage-mars/select-items-exclude.png)
+    ![Selecione os itens para excluir](./media/backup-azure-manage-mars/select-items-exclude.png)
 
 4. Por predefinição, todas **as sub-dobradeiras** dentro das pastas selecionadas estão excluídas. Pode alterá-lo selecionando **Sim** ou **Não.** Pode editar e especificar os tipos de ficheiros para excluir como mostrado abaixo:
 
-    ![Selecione os itens](./media/backup-azure-manage-mars/subfolders-type.png)
+    ![Selecione tipos de sub-dobradores](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Complete os próximos passos e clique em **Terminar** para completar a operação.
+5. Complete os próximos passos e **selecione Acabamento** para completar a operação.
 
 ### <a name="remove-items-from-existing-policy"></a>Remover itens da política existente
 
-1. A partir do painel de Ações, clique **em Agendar Backup**. Ir para **Selecionar itens para Backup**. Na lista, selecione os ficheiros e pastas que pretende remover do horário de backup e clique em **Remover itens**.
+1. A partir do painel de Ações, **selecione Agendar Backup**. Ir para **Selecionar itens para Backup**. Na lista, selecione os ficheiros e pastas que pretende remover do horário de backup e selecione **Remover itens**.
 
-    ![Selecione os itens](./media/backup-azure-manage-mars/select-items-remove.png)
+    ![Selecione os itens para remover](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
     > Tenha cuidado quando retirar completamente um volume da apólice.  Se precisar de adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma Cópia de Segurança Inicial (cópia de segurança completa) em vez de Cópia de Segurança Incremental. Se precisar de remover temporariamente e adicionar itens mais tarde, então é aconselhável utilizar **definições** de exclusões em vez de **remover itens** para garantir uma cópia de segurança incremental em vez de uma cópia de segurança completa.
 
-2. Complete os próximos passos e clique em **Terminar** para completar a operação.
+2. Complete os próximos passos e **selecione Acabamento** para completar a operação.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Pare de proteger ficheiros e cópias de segurança da pasta
 
@@ -102,17 +102,17 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 
 1. Abra a consola de gestão MARS, vá ao **painel de Ações**e **selecione Agendar Backup**.
 
-    ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Na página **'Selecionar Artigo de Política',** selecione **Modificar um calendário de cópia de segurança para os seus ficheiros e pastas** e clique em **Seguinte**.
+    ![Selecione backup de horário](./media/backup-azure-manage-mars/mars-actions.png)
+1. Na página **'Selecionar 'Item's' 'Select',** selecione **Modificar um calendário de cópia de segurança para os seus ficheiros e pastas** e selecione **Seguinte**.
 
-    ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+    ![Selecione o item da política](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. A partir da página **Modificar ou Parar uma** página de Backup agendada, selecione Parar de usar este horário de **backup, mas mantenha as cópias de segurança armazenadas até que um horário seja novamente ativado**. Em seguida, selecione **Seguinte**.
 
-    ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Em **Pausa Cópia de Segurança Programada,** reveja as informações e clique em **Terminar**.
+    ![Pare com um reforço programado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. Em **Pausa Cópia de Segurança Programada,** reveja as informações e selecione **Acabamento**.
 
-    ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. No **Modificar o progresso da cópia de segurança,** verifique se a pausa de backup do seu horário está em estado de sucesso e clique **perto** do fim.
+    ![Faça uma pausa num reforço programado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. No **Modificar o progresso da cópia de segurança,** verifique se a pausa de backup do seu horário está em estado de sucesso e selecione **perto** do fim.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Parar a proteção e eliminar dados de backup
 
@@ -123,7 +123,7 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 
 3. A partir da página **Stop a Scheduled Backup,** selecione **Finish**.
 
-    ![Pare com um reforço programado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+    ![Pare uma cópia de segurança programada e selecione acabamento](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. É-lhe pedido que introduza um PIN de segurança (número de identificação pessoal), que deve gerar manualmente. Para isso, primeiro inscreva-se no portal Azure.
 5. Vá para **o cofre dos serviços de recuperação**  >  **Propriedades de**  >  **configurações**.
 6. Em **Pin de segurança,** selecione **Gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
@@ -133,7 +133,7 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 
 8. Na página **Modificar Backup Progress** aparece: Os dados de cópia de *segurança eliminados serão retidos durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados.*  
 
-    ![Apague a infraestrutura de reserva.](./media/backup-azure-delete-vault/deleted-backup-data.png)
+    ![Modificar o progresso da cópia de segurança](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
 Depois de eliminar os itens de backup no local, siga os próximos passos a partir do portal.
 
@@ -142,15 +142,15 @@ Depois de eliminar os itens de backup no local, siga os próximos passos a parti
 Se parasse a proteção enquanto retém dados e decidisse retomar a proteção, então pode voltar a ativar o calendário de backup utilizando a política de backup modificada.
 
 1. Em **Ações** **selecione Agenda de reserva**.
-1. Selecione **Re-activar o horário de backup. Também pode modificar itens ou horários de cópia de segurança** e clicar em **Seguinte**.<br>
+1. Selecione **Re-activar o horário de backup. Também pode modificar itens ou horas de cópia de segurança** e selecionar **Next**.<br>
 
-    ![Apague a infraestrutura de reserva.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
-1. Em **Itens selecionados para cópia de segurança**, clique em **Seguinte**.
+    ![Re-ativar o horário de backup](./media/backup-azure-manage-mars/re-enable-policy-next.png)
+1. Em **Itens selecionados para backup**, selecione **Seguinte**.
 
-    ![Apague a infraestrutura de reserva.](./media/backup-azure-manage-mars/re-enable-next.png)
-1. Em **Especificar Agenda de Cópia de Segurança**, especifique o horário de backup e clique em **Seguinte**.
-1. Na **Política de Retenção Selecionada**, especifique a duração da retenção e clique em **Seguinte**.
-1. Finalmente no ecrã **de Confirmação,** reveja os detalhes da política e clique em **Terminar**.
+    ![Selecione Itens para backup](./media/backup-azure-manage-mars/re-enable-next.png)
+1. Em **Especificar Agenda de Cópia de Segurança**, especifique o horário de backup e selecione **Seguinte**.
+1. Na **Política de Retenção Selecionada**, especifique a duração da retenção e selecione **Seguinte**.
+1. Finalmente no ecrã **de Confirmação,** reveja os detalhes da política e selecione **Terminar**.
 
 ## <a name="re-generate-passphrase"></a>Re-gerar frases de passe
 
@@ -158,15 +158,15 @@ Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o ba
 
 1. A partir da consola de agente MARS, vá às propriedades **de Ações Pane**  >  **Change** >. Em seguida, vá ao **separador de encriptação**.<br>
 1. Selecione **Change Passphrase** checkbox.<br>
-1. Introduza uma nova frase ou clique em **Gerar Frases de Passe**.
-1. Clique **em Procurar** para guardar a nova frase de passagem.
+1. Introduza uma nova frase de passe ou **selecione Gerar Palavras de Passe**.
+1. **Selecione Procurar** para guardar a nova frase de passagem.
 
     ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Clique **em OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](./backup-azure-security-feature.md#enable-security-features) estiver ativada no portal Azure para o Cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)<br>
-1. Cole o PIN de segurança do portal e clique **em OK** para aplicar as alterações.<br>
+1. Selecione **OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](./backup-azure-security-feature.md#enable-security-features) estiver ativada no portal Azure para o Cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)<br>
+1. Cole o PIN de segurança do portal e selecione **OK** para aplicar as alterações.<br>
 
-    ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase2.png)
+    ![Cole o PIN de segurança](./media/backup-azure-manage-mars/passphrase2.png)
 1. Certifique-se de que a palavra-passe é bem guardada num local alternativo (diferente da máquina de origem), de preferência no Cofre da Chave Azure. Acompanhe todas as frases-passe se tiver várias máquinas a serem apoiadas com os agentes MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gerir dados de backup para máquinas indisponíveis

@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006337"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263015"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -53,7 +53,7 @@ Se não tiver permissões, pode [restaurar um disco](#restore-disks), e depois d
 
 1. No cofre associado ao VM que pretende restaurar, selecione **itens de cópia de segurança**  >  **Azure Virtual Machine**.
 1. Selecione um VM. Por predefinição no painel VM, são apresentados pontos de recuperação dos últimos 30 dias. Pode apresentar pontos de recuperação com mais de 30 dias ou filtrar para encontrar pontos de recuperação baseados em datas, intervalos de tempo e diferentes tipos de consistência instantânea.
-1. Para restaurar o VM, clique em **Restaurar VM**.
+1. Para restaurar o VM, selecione **Restaurar vM**.
 
     ![Ponto de restauro](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -85,7 +85,7 @@ Como uma das opções de [restauro,](#restore-options)pode criar um VM rapidamen
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Como uma das opções de [restauro,](#restore-options)pode criar um disco a partir de um ponto de restauração. Em seguida, com o disco, pode fazer um dos seguintes:
+Como uma das opções de [restauro,](#restore-options)pode criar um disco a partir de um ponto de restauração. Em seguida, com o disco, pode fazer uma das seguintes ações:
 
 - Utilize o modelo gerado durante a operação de restauro para personalizar as definições e desencadear a implementação de VM. Edita as definições do modelo predefinido e submete o modelo para a implementação de VM.
 - [Fixe os discos restaurados](../virtual-machines/windows/attach-managed-disk-portal.md) a um VM existente.
@@ -95,7 +95,7 @@ Como uma das opções de [restauro,](#restore-options)pode criar um disco a part
 1. No **grupo De recursos,** selecione um grupo de recursos existente para os discos restaurados, ou crie um novo com um nome globalmente único.
 1. Na **localização de encenação**, especifique a conta de armazenamento para copiar os VHDs. [Saiba mais](#storage-accounts).
 
-    ![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Selecione grupo de recursos e localização de encenação](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. **Selecione Restaurar** para ativar a operação de restauro.
 

@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: 0afd37a9f80fd2778f2b7206f58cec6ff423763e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184963"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263185"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Quais são as novidades no Data Lake Analytics?
 
@@ -23,7 +23,7 @@ O Azure Data Lake Analytics é atualizado numa base aperídica para determinados
 
 ## <a name="notification-of-key-component-beta-preview"></a>Notificação da pré-visualização beta do componente chave
 
-Não existe uma versão beta componente chave disponível para pré-visualização. 
+Não há versão beta de componente chave disponível para pré-visualização. 
 
 ## <a name="u-sql-runtime"></a>Tempo de execução U-SQL
 
@@ -33,14 +33,13 @@ Quando submeter o trabalho de análise do Azure Data Lake a partir de quaisquer 
 
 A versão de tempo de execução será atualizada de forma aperiodicamente. E o tempo de execução anterior será mantido disponível por algum tempo. Quando uma nova versão Beta estiver pronta para pré-visualização, também estará disponível lá.
 
-Seguem-se as versões de tempo de execução atualmente disponíveis.
+> [!CAUTION]
+> - Escolher um tempo de execução diferente do padrão tem o potencial de quebrar os seus empregos U-SQL. É altamente recomendável não utilizar estas versões não padrão para produção, mas apenas para testes.
+> - A versão de tempo de execução não padrão tem um ciclo de vida fixo. Será expirado automaticamente.
 
-- release-20200124live_adl_16283022_2 --> a versão **padrão atual**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+A versão a seguir é a versão atual padrão de tempo de execução.
+
+- 20200124live_adl_16283022_2 de libertação
 
 Para compreender como resolver falhas de tempo de execução U-SQL, consulte [falhas de tempo de execução U-SQL de resolução de problemas](runtime-troubleshoot.md).
 

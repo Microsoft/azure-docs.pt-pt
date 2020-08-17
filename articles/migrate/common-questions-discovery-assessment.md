@@ -3,12 +3,12 @@ title: Perguntas sobre a descoberta, avaliação e análise de dependência em A
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829888"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263508"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -36,23 +36,34 @@ Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servid
 - Utilize avaliações **da Solução VMware Azure (AVS)** quando pretender avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Pode utilizar um grupo comum com as máquinas virtuais VMware apenas para executar ambos os tipos de avaliações. Tenha em atenção que se estiver a fazer avaliações do AVS no Azure Migrate pela primeira vez, será aconselhável criar um novo grupo de máquinas virtuais VMware.
+ 
+
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Por que motivo os meus dados de desempenho estão em falta em algumas/todas as VMs no meu relatório de avaliação?
+
+Na avaliação “Baseada no desempenho”, a exportação do relatório de avaliação indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando a aplicação Azure Migrate não consegue recolher os dados de desempenho das VMs no local. Verifique:
+
+- Se as VMs estão ligadas durante o período para o qual está a criar a avaliação
+- Se apenas os contadores de memória estiverem ausentes e tentar avaliar as VMs do Hyper-V, verifique se tem a memória dinâmica ativada nessas VMs. Há um problema conhecido atualmente que faz com que a aplicação do Azure Migrate não consiga recolher a utilização da memória dessas VMs.
+- Se todos os contadores de desempenho estiverem em falta, confirme que as ligações de saída nas portas 443 (HTTPS) são permitidas.
+
+Nota – se algum dos contadores de desempenho estiver ausente, o Azure Migrate: Avaliação do Servidor reverterá para os núcleos/memória alocados no local e recomendará um tamanho de VM em conformidade.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Porque é que a classificação de confiança da minha avaliação é baixa?
+
+A classificação de confiança é calculada para as avaliações “Baseadas no desempenho” com base na percentagem de [pontos de dados disponíveis](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings), necessários para calcular a avaliação. Veja abaixo os motivos pelos quais uma avaliação pode obter uma classificação de confiança baixa:
+
+- Não analisou o ambiente durante o tempo para a qual está a criar a avaliação. Por exemplo, se estiver a criar uma avaliação com a duração de desempenho definida para uma semana, terá de aguardar, pelo menos, uma semana após iniciar a deteção de todos os pontos de dados serem recolhidos. Se não puder esperar pela duração, altere a duração do desempenho para um período mais curto e “Recalcule” a avaliação.
+ 
+- A Avaliação do Servidor não é capaz de recolher os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Verifique se as VMs foram ligadas durante a avaliação e se são permitidas ligações de saída nas portas 443. Para as VMs Hyper-V, se a memória dinâmica estiver ativada, os contadores de memória estarão em falta, o que levará a uma classificação de baixa confiança. “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança. 
+
+- Algumas VMs foram criadas após a deteção numa Avaliação do Servidor ter sido iniciada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
+
+[Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre a classificação de confiança.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos quando estou a criar uma avaliação da Solução VMware (AVS) do Azure VMware
 
 - A avaliação do AVS pode ser feita em grupos que têm apenas máquinas virtuais VMware. Remova as máquinas virtuais que não sejam VMware do grupo se quiser realizar uma avaliação do AVS.
 - Se estiver a fazer avaliações do AVS no Azure Migrate pela primeira vez, será aconselhável criar um novo grupo de máquinas virtuais VMware.
-
-## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como selecionar o nível FTT-RAID na avaliação AVS?
-
-O motor de armazenamento utilizado em AVS é vSAN. As políticas de armazenamento vSAN definem os requisitos de armazenamento das máquinas virtuais. Estas políticas garantem o nível de serviço necessário das VMs, porque determinam como o armazenamento é alocado à VM. Estas são as Combinações FTT-Raid disponíveis: 
-
-**Falhas a Tolerar (FTT)** | **Configuração do RAID** | **Anfitriões Mínimos Necessários** | **Consideração sobre o dimensionamento**
---- | --- | --- | --- 
-1 | RAID-1 (Espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
-1 | RAID-5 (Codificação de Eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
-2 | RAID-1 (Espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
-2 | RAID-6 (Codificação de Eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
-3 | RAID-1 (Espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Governo de Azure.
 

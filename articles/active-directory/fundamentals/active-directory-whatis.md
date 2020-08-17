@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796630"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262963"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -26,7 +26,7 @@ O Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e aces
 
 - Recursos internos, como aplicações na sua rede corporativa e intranet, juntamente com quaisquer aplicações em nuvem desenvolvidas pela sua própria organização. Para obter mais informações sobre a criação de um inquilino para a sua organização, consulte [Quickstart: Crie um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode usar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Office 365.
+Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode usar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem usa a Azure AD?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791389"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263238"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
 Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
@@ -31,16 +31,15 @@ Este tópico explica como ver e compreender as recomendações no Azure Security
 
 Recomendações são ações a tomar para garantir os seus recursos.
 
-O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como removê-las.
+O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como remediar essas vulnerabilidades.
 
 Cada recomendação fornece-lhe:
 
-- Uma breve descrição do que está a ser recomendado.
-- As medidas de reparação a tomar para implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
-- Que recursos precisam de si para realizar a ação recomendada neles.
-- O **impacto 'Pontuação Segura'** é a quantidade que o seu Secure Score irá subir se implementar esta recomendação.
+- Uma breve descrição do assunto.
+- As medidas de reparação a tomar para implementar a recomendação.
+- Os recursos afetados.
 
-## <a name="monitor-recommendations"></a>Monitorizar recomendações<a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Monitorizar recomendações <a name="monitor-recommendations"></a>
 
 O Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O azulejo **de recomendações** no âmbito **do overview** mostra o número total de recomendações identificadas pelo Centro de Segurança.
 
@@ -48,28 +47,30 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
 
 1. Selecione o **azulejo de recomendações** sob **visão geral**. A lista **de recomendações** abre.
 
-      ![Ver recomendações](./media/security-center-recommendations/view-recommendations.png)
+1. As recomendações são agrupadas nos controlos de segurança.
 
-    Pode filtrar recomendações. Para filtrar as recomendações, **selecione Filtro** na lâmina **recomendações.** A lâmina **do filtro** abre-se e seleciona a gravidade e os valores de estado que deseja ver.
+      ![Recomendações agrupadas pelo controlo de segurança](./media/security-center-recommendations/view-recommendations.png)
 
-   * **RECOMENDAÇÕES**: A recomendação.
-   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pelo Security Center utilizando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial cada recomendação é. Para obter mais informações, consulte o [cálculo 'Pontuação Segura'.](secure-score-security-controls.md#how-your-secure-score-is-calculated)
-   * **RECURSO**: Lista os recursos a que se aplica esta recomendação.
-   * **BARRAS DE ESTATUTO**: Descreve a gravidade dessa recomendação específica:
-       * **Alta (Vermelha)**: Existe uma vulnerabilidade com um recurso significativo (como uma aplicação, um VM ou um grupo de segurança de rede) e requer atenção.
-       * **Médio (Laranja)**: Existe uma vulnerabilidade e são necessários passos não críticos ou adicionais para eliminá-lo ou concluir um processo.
-       * **Baixa (Azul)**: Existe uma vulnerabilidade que deve ser abordada mas não requer atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas pode filtrar recomendações baixas se quiser vê-las.) 
-       * **Saudável (Verde)**:
-       * **Não disponível (Cinza)**:
+1. Expanda um controlo e selecione uma recomendação específica para ver a página de recomendação.
 
-1. Para ver os detalhes de cada recomendação, clique na recomendação.
+    :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Página de detalhes de recomendação." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
-    ![Detalhes da recomendação](./media/security-center-recommendations/recommendation-details.png)
+    A página inclui:
 
->[!NOTE] 
-> Consulte [os modelos clássicos e de implementação do Gestor de Recursos](../azure-classic-rm.md) para obter recursos da Azure.
+    - **Indicador de gravidade**
+    - **Intervalo de frescura**  (se for caso disso) 
+    - **Descrição** - Uma breve descrição da questão
+    - **Medidas de reparação** - Descrição das etapas manuais necessárias para remediar a questão da segurança nos recursos afetados. Para recomendações com "correção rápida", pode selecionar **a lógica de remediação** do Ver antes de aplicar a correção sugerida aos seus recursos. 
+    - **Recursos afetados** - Os seus recursos são agrupados em separadores:
+        - **Recursos saudáveis** – Recursos relevantes que não são impactados ou sobre os quais já remediaram o problema.
+        - **Recursos pouco saudáveis** – Recursos que ainda são impactados pela questão identificada.
+        - **Recursos não aplicáveis** – Recursos para os quais a recomendação não pode dar uma resposta definitiva. O separador não aplicável também inclui razões para cada recurso. 
+
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Não recursos aplicáveis com razões.":::
+
+
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, foi apresentado às recomendações de segurança no Centro de Segurança. Para aprender a remediar as recomendações:
 

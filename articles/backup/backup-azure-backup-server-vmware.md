@@ -3,12 +3,12 @@ title: Backup VMware VMs com Azure Backup Server
 description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer backup vMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892d308df15ef745f34419ec315e2c5000b0852c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497918"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263542"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
 
@@ -51,7 +51,7 @@ Crie um canal seguro da seguinte forma:
 
     ![vSphere Web Client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
-2. Na página de login do vSphere Web Client, clique em **Baixar certificados de CA de raiz fidedigna**.
+2. Na página de login do vSphere Web Client, selecione **Descarregue certificados de CA de raiz fidedignos**.
 
     ![Descarregue o certificado ca raiz fidedigno](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
@@ -75,19 +75,19 @@ Crie um canal seguro da seguinte forma:
 
 8. Clique com o botão direito no certificado raiz e no menu pop-up, **selecione Install Certificate**.
 
-9. No **Certificado Import Wizard**, selecione Máquina **Local** como destino para o certificado e, em seguida, clique em **Seguinte**. Confirme se lhe perguntam se pretende permitir alterações no computador.
+9. No **Certificado Import Wizard**, selecione Máquina **Local** como destino para o certificado e, em seguida, selecione **Seguinte**. Confirme se lhe perguntam se pretende permitir alterações no computador.
 
     ![Bem-vindo ao Feiticeiro](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-10. Na página **Certificate Store,** selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em procurar para escolher a loja de **certificados.**
+10. Na página **Certificate Store,** selecione **Coloque todos os certificados na loja seguinte**e, em seguida, selecione Procurar para escolher a loja de **certificados.**
 
     ![Armazenamento de certificados](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-11. Na **Select Certificate Store**, selecione As **Autoridades de Certificação de Raiz Fidedigna como** a pasta de destino para os certificados e, em seguida, clique em **OK**.
+11. Na **Select Certificate Store**, selecione As **Autoridades de Certificação de Raiz Fidedigna como** a pasta de destino para os certificados e, em seguida, selecione **OK**.
 
     ![Pasta de destino certificado](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-12. Ao **Completar o Assistente de Importação de Certificados,** verifique a pasta e clique em **Terminar**.
+12. Ao **completar o Assistente de Importação de Certificados,** verifique a pasta e, em seguida, selecione **Acabamento**.
 
     ![Verifique se o certificado está na pasta adequada](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -114,18 +114,18 @@ Se tiver limites seguros dentro da sua organização e não quiser utilizar o pr
 O Azure Backup Server necessita de uma conta de utilizador com permissões para aceder ao servidor/anfitrião V-Center Server/ESXi. Crie uma função VMware com privilégios específicos e, em seguida, associe uma conta de utilizador com o papel.
 
 1. Inscreva-se no servidor vCenter (ou anfitrião ESXi se não estiver a utilizar o servidor vCenter).
-2. No painel **Navigator,** clique em **Administração.**
+2. No painel **Navigator,** selecione **Administração**.
 
     ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. Em **Funções de Administração,**  >  **Roles**clique no ícone de função de adicionar (o símbolo +).
+3. Em **Funções de Administração,**  >  **Roles**selecione o ícone de função de adicionar (o símbolo +).
 
     ![Adicionar papel](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
 4. In **Create Role**Role  >  **name**, *insin BackupAdminRole*. O nome pode ser o que quiser, mas deve ser reconhecível para o propósito do papel.
 
-5. Selecione os privilégios como resumido na tabela abaixo e, em seguida, clique em **OK**.  O novo papel aparece na lista no painel **Roles.**
-   - Clique no ícone ao lado da etiqueta dos pais para expandir o progenitor e ver os privilégios da criança.
+5. Selecione os privilégios como resumido na tabela abaixo e, em seguida, selecione **OK**.  O novo papel aparece na lista no painel **Roles.**
+   - Selecione o ícone ao lado da etiqueta dos pais para expandir o progenitor e ver os privilégios da criança.
    - Para selecionar os privilégios VirtualMachine, você precisa ir a vários níveis para a hierarquia dos pais filhos.
    - Não precisas de selecionar todos os privilégios infantis dentro de um privilégio dos pais.
 
@@ -205,13 +205,13 @@ A tabela que se segue captura os privilégios que precisa de atribuir à conta d
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta VMware
 
-1. No painel vCenter Server **Navigator,** clique em **Utilizadores e Grupos**. Se não utilizar o vCenter Server, crie a conta no anfitrião ESXi apropriado.
+1. No painel vCenter Server **Navigator,** selecione **Utilizadores e Grupos**. Se não utilizar o vCenter Server, crie a conta no anfitrião ESXi apropriado.
 
     ![Opção Utilizadores e Grupos](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
     Aparece o painel **de Utilizadores e Grupos do vCenter.**
 
-2. No painel **vCenter Users and Groups,** selecione o **separador Utilizadores** e, em seguida, clique no ícone de utilizadores de adicionar (o símbolo +).
+2. No painel **vCenter Users and Groups,** selecione o **separador Utilizadores** e, em seguida, selecione o ícone de utilizadores de adicionar (o símbolo +).
 
     ![painel de utilizadores e grupos vCenter](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
@@ -219,15 +219,15 @@ A tabela que se segue captura os privilégios que precisa de atribuir à conta d
 
     ![Nova caixa de diálogo do utilizador](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
 
-4. Para associar a conta do utilizador à função, no painel **Navigator,** clique em **Permissões Globais**. No painel **Permissões Globais,** selecione o **separador 'Gerir'** e, em seguida, clique no ícone de adicionar (o símbolo +).
+4. Para associar a conta de utilizador à função, no painel **Navigator,** selecione **Global Permissões**. No painel **Permissões Globais,** selecione o **separador 'Gerir'** e, em seguida, selecione o ícone de adicionar (o símbolo +).
 
     ![Painel de Permissões Globais](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
-5. In **Global Permission Root - Add Permission**, clique em **Adicionar** para escolher o utilizador ou grupo.
+5. In **Global Permission Root - Add Permission**, selecione **Adicionar** para escolher o utilizador ou grupo.
 
     ![Escolha o utilizador ou grupo](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
-6. Em **Selecionar Utilizadores/Grupos,** escolha **BackupAdmin**  >  **Add**. Nos **Utilizadores,** o formato *de nome de utilizador de domínio\username* é utilizado para a conta do utilizador. Se pretender utilizar um domínio diferente, escolha-o na lista **de Domínios.** Clique **em OK** para adicionar os utilizadores selecionados à caixa de diálogo de permissão de **adicionar.**
+6. Em **Selecionar Utilizadores/Grupos,** escolha **BackupAdmin**  >  **Add**. Nos **Utilizadores,** o formato *de nome de utilizador de domínio\username* é utilizado para a conta do utilizador. Se pretender utilizar um domínio diferente, escolha-o na lista **de Domínios.** Selecione **OK** para adicionar os utilizadores selecionados à caixa de diálogo **de permissão** de adicionar.
 
     ![Adicionar Backup UtilizadorAdmin](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
@@ -243,31 +243,31 @@ No **separador 'Gerir'** no painel **De permissões Globais,** a nova conta de u
 
     ![Ícone do servidor de backup Azure](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. Na consola Azure Backup **Management**Server, clique em  >   **Servidores de Produção de Gestão**  >  **de Gestão Gerenciar VMware**.
+2. Na consola Azure Backup **Management**Server, selecione  >   **Management Production Servers**Manage  >  **VMware**.
 
     ![Consola do servidor de backup Azure](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
-3. Na caixa de diálogo **'Gestão de Credenciais',** clique em **Adicionar**.
+3. Na caixa de diálogo **'Gestão de Credenciais',** selecione **Adicionar**.
 
-    ![Azure Backup Servidor Gerencie caixa de diálogo de credenciais](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+    ![Gerir caixa de diálogo de credenciais](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 4. In **Add Credential,** insira um nome e uma descrição para a nova credencial, e especifique o nome de utilizador e a palavra-passe que definiu no servidor VMware. O nome, *Credencial Contoso Vcenter* é usado para identificar a credencial neste procedimento. Se o servidor VMware e o Servidor de Backup Azure não estiverem no mesmo domínio, especifique o domínio no nome de utilizador.
 
     ![Azure Backup Server Adicionar caixa de diálogo credencial](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
-5. Clique **em Adicionar** para adicionar a nova credencial.
+5. **Selecione Adicionar** para adicionar a nova credencial.
 
-    ![Azure Backup Servidor Gerencie caixa de diálogo de credenciais](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+    ![Adicionar novas credenciais](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server"></a>Adicione o servidor vCenter
 
 Adicione o servidor vCenter ao Servidor de Backup Azure.
 
-1. Na consola Azure Backup **Management**Server, clique em  >  **Servidores de Produção**de Gestão  >  **Add**.
+1. Na consola Azure Backup **Management**Server, selecione  >  **Management Production Servers**  >  **Add**.
 
     ![Assistente de adição de servidor de produção aberto](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. No **Assistente de Adição do Servidor de Produção**  >  **Selecione** a página do tipo servidor de produção, selecione **VMware Servers**e, em seguida, clique em **Seguinte**.
+2. No **Assistente de Adição do Servidor de Produção**  >  **Selecione** a página do tipo servidor de produção, selecione **VMware Servers**e, em seguida, selecione **Seguinte**.
 
     ![Assistente de adição de servidor de produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -281,11 +281,11 @@ Adicione o servidor vCenter ao Servidor de Backup Azure.
 
     ![Especificar credencial](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Clique em **Adicionar** para adicionar o servidor VMware à lista de servidores. Em seguida, clique em **Seguinte**.
+6. **Selecione Adicionar** para adicionar o servidor VMware à lista de servidores. Em seguida, selecione **Seguinte**.
 
     ![Adicionar servidor VMWare e credencial](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
-7. Na página **Resumo,** clique **em Adicionar** para adicionar o servidor VMware ao Servidor de Backup Azure. O novo servidor é adicionado imediatamente, nenhum agente é necessário no servidor VMware.
+7. Na página **Resumo,** **selecione Adicionar** para adicionar o servidor VMware ao Servidor de Backup Azure. O novo servidor é adicionado imediatamente, nenhum agente é necessário no servidor VMware.
 
     ![Adicione o servidor VMware ao Servidor de Backup do Azure](./media/backup-azure-backup-server-vmware/tasks-screen.png)
 
@@ -299,24 +299,24 @@ Se tiver vários anfitriões ESXi que não são geridos pelo servidor vCenter, o
 
 Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem vários VMs e aplicam as mesmas definições de retenção de dados e backup a todos os VMs do grupo.
 
-1. Na consola Azure Backup Server, clique em **Proteção**, > **New**.
+1. Na consola Azure Backup Server, selecione **Protection**, > **New**.
 
     ![Abra o assistente do Grupo criar novas proteções](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-1. Na página de boas-vindas **do grupo de proteção Criar Nova Proteção,** clique em **Seguinte**.
+1. Na página de boas-vindas **do grupo de proteção Criar Nova Proteção,** selecione **Seguinte**.
 
     ![Criar caixa de diálogo de assistente de novo grupo de proteção](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-1. Na página do **tipo do grupo Select Protection,** selecione **Servidores** e, em seguida, clique em **Seguinte**. Aparece a página **de membros do grupo Select.**
+1. Na página do **tipo do grupo Select Protection,** selecione **Servidores** e, em seguida, selecione **Seguinte**. Aparece a página **de membros do grupo Select.**
 
-1. Nos **membros do grupo Select**, selecione as pastas VM (ou VM) que pretende fazer. Em seguida, clique em **Seguinte**.
+1. Nos **membros do grupo Select**, selecione as pastas VM (ou VM) que pretende fazer. Em seguida, selecione **Seguinte**.
 
     - Quando selecionar uma pasta, ou VMs ou pastas no interior dessa pasta também são selecionados para cópia de segurança. Pode desmarcar pastas ou VMs que não quer fazer recuar.
 1. Se um VM ou uma pasta já estiver a ser apoiado, não pode selecioná-lo. Isto garante que os pontos de recuperação duplicados não são criados para um VM.
 
     ![Selecione membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na página **Select Data Protection Method,** insira um nome para o grupo de proteção e as definições de proteção. Para apoiar o Azure, desconfiem da proteção de curto prazo ao **Disk** e permitam a proteção online. Em seguida, clique em **Seguinte**.
+1. Na página **Select Data Protection Method,** insira um nome para o grupo de proteção e as definições de proteção. Para apoiar o Azure, desconfiem da proteção de curto prazo ao **Disk** e permitam a proteção online. Em seguida, selecione **Seguinte**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -325,13 +325,13 @@ Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem 
    - Na **frequência de sincronização,** especifique a frequência com que são tomados os pontos de recuperação do disco.
        - Se não quiser definir um intervalo de backup, pode verificar **antes de um ponto de recuperação** para que um backup seja executado antes de cada ponto de recuperação ser programado.
        - As cópias de segurança de curto prazo são cópias de segurança completas e não incrementais.
-       - Clique **em Modificar** para alterar as horas/datas quando ocorrem cópias de segurança de curto prazo.
+       - Selecione **Modificar** para alterar as horas/datas quando ocorrerem cópias de segurança a curto prazo.
 
          ![Especificar objetivos de curto prazo](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
 1. Na **Atribuição de Discos de Revisão,** reveja o espaço do disco previsto para as cópias de segurança VM. para os VMs.
 
-   - As alocações recomendadas em disco baseiam-se na gama de retenção especificada, no tipo de carga de trabalho e no tamanho dos dados protegidos. Faça as alterações necessárias e, em seguida, clique em **Seguinte**.
+   - As alocações recomendadas em disco baseiam-se na gama de retenção especificada, no tipo de carga de trabalho e no tamanho dos dados protegidos. Faça as alterações necessárias e, em seguida, selecione **Seguinte**.
    - **Tamanho dos dados:** Tamanho dos dados no grupo de proteção.
    - **Espaço em disco:** A quantidade recomendada de espaço em disco para o grupo de proteção. Se quiser modificar esta definição, deverá alocar um espaço total ligeiramente maior do que a quantidade que estima que cada fonte de dados cresce.
    - **Dados de colocação:** Se ligar a colocação, várias fontes de dados na proteção podem mapear para uma única réplica e volume de ponto de recuperação. A colocação não é suportada para todas as cargas de trabalho.
@@ -340,36 +340,36 @@ Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem 
 
     ![Rever alocação de discos](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-1. Na página **Escolha Método de Criação de Réplica,** especifique como pretende fazer a cópia de segurança inicial e, em seguida, clique em **Seguinte**.
+1. Na página **Escolha Método de Criação de Réplica,** especifique como pretende fazer a cópia de segurança inicial e, em seguida, selecione **Seguinte**.
    - O padrão é **automaticamente sobre a rede** e **agora**.
    - Se utilizar o padrão, recomendamos que especifique um tempo fora do pico. Escolha **Mais tarde** e especifique um dia e hora.
    - Para grandes quantidades de dados ou condições de rede menos ideais, considere replicar os dados offline utilizando suportes amovíveis.
 
     ![Escolha o método de criação de réplicas](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Nas **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, clique em **Seguinte**.
+1. Nas **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, selecione **Seguinte**.
       - Pode executar verificações de consistência quando os dados de réplica se tornam inconsistentes, ou num calendário definido.
       - Se não quiser configurar verificações automáticas de consistência, pode verificar manualmente. Para isso, clique com o botão direito no grupo de proteção > **Executar verificação de consistência**.
 
-1. Na página **De Dados de Proteção Online,** selecione as pastas VM ou VM que pretende fazer o back up. Pode selecionar os membros individualmente ou clicar **em Selecionar Todos** para escolher todos os membros. Em seguida, clique em **Seguinte**.
+1. Na página **De Dados de Proteção Online,** selecione as pastas VM ou VM que pretende fazer o back up. Pode selecionar os membros individualmente ou selecionar **Todos** para escolher todos os membros. Em seguida, selecione **Seguinte**.
 
     ![Especificar dados de proteção on-line](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na página **'Especificar agendamento' de cópia de segurança on-line,** especifique a frequência com que pretende fazer cópias de segurança do armazenamento local para o Azure.
 
-    - Os pontos de recuperação da nuvem para os dados serão gerados de acordo com o calendário. Em seguida, clique em **Seguinte**.
-    - Após a geração do ponto de recuperação, é transferido para o cofre dos Serviços de Recuperação em Azure.
+    - Os pontos de recuperação da nuvem para os dados serão gerados de acordo com o calendário. Em seguida, selecione **Seguinte**.
+    - Depois do ponto de recuperação ser gerado, é transferido para o cofre dos Serviços de Recuperação em Azure.
 
     ![Especificar o horário de backup on-line](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. Na página **'Política de Retenção Online' especifique,** indique quanto tempo pretende manter os pontos de recuperação que são criados a partir das cópias de segurança diárias/semanais/mensais/ano para a Azure. em seguida, clique **em Seguinte**.
+1. Na página **'Política de Retenção Online' especifique,** indique quanto tempo pretende manter os pontos de recuperação que são criados a partir das cópias de segurança diárias/semanais/mensais/ano para a Azure. em seguida, selecione **Next**.
 
     - Não há limite de tempo para quanto tempo podes manter os dados em Azure.
     - O único limite é que não se pode ter mais de 9999 pontos de recuperação por instância protegida. Neste exemplo, o caso protegido é o servidor VMware.
 
     ![Especificar a política de retenção on-line](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
-1. Na página **Resumo,** reveja as definições e, em seguida, clique em **Criar Grupo**.
+1. Na página **Resumo,** reveja as definições e, em seguida, selecione **Criar Grupo**.
 
     ![Membro do grupo de proteção e resumo de definição](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
@@ -539,6 +539,6 @@ Para remover o disco da exclusão, executar o seguinte comando:
 C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para problemas de resolução de problemas ao configurar backups, reveja o [guia de resolução de problemas para o Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
