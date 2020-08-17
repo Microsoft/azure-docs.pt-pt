@@ -2,19 +2,17 @@
 title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral e comparação entre cofres dos Serviços de Recuperação e cofres Azure Backup.
 ms.topic: conceptual
-ms.date: 08/10/2018
-ms.openlocfilehash: 0e1d061c6baf31fad2e937a604098f0baff6086d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 08/17/2020
+ms.openlocfilehash: 2b292a39e38ef5e298f45c2babbee9fbd20c39ea
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041906"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261876"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
 Este artigo descreve as características de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é uma entidade de armazenamento em Azure que alberga dados. Os dados são normalmente cópias de dados, ou informações de configuração para máquinas virtuais (VMs), cargas de trabalho, servidores ou estações de trabalho. Pode utilizar cofres dos Serviços de Recuperação para conter dados de backup para vários serviços Azure, tais como IaaS VMs (Linux ou Windows) e bases de dados Azure SQL. Os cofres dos Serviços de Recuperação suportam o System Center DPM, Windows Server, Azure Backup Server e muito mais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de cópia de segurança ao minimizar os custos de gestão. Os cofres dos Serviços de Recuperação baseiam-se no modelo Azure Resource Manager da Azure, que fornece funcionalidades como:
-
-## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparando cofres dos Serviços de Recuperação e cofres de reserva
 
 - **Capacidades melhoradas para ajudar a proteger dados de backup**: Com os cofres dos Serviços de Recuperação, o Azure Backup fornece capacidades de segurança para proteger cópias de segurança na nuvem. As funcionalidades de segurança garantem que pode proteger as suas cópias de segurança e recuperar dados com segurança, mesmo que os servidores de produção e cópia de segurança estejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
 

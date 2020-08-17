@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "73518890"
 ---
-Para utilizar o Serviço de Visão Personalizada, terá de criar recursos personalizados de formação e previsão de visão em Azure. Para tal, no portal Azure, preencha a janela de diálogo na página [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de Formação e Previsão. 
+Para utilizar o Serviço de Visão Personalizada, terá de criar recursos de Treino e Previsão de Visão Personalizada em Azure. Para tal, no portal Azure, preencha a janela de diálogo na página [Criar Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de Formação e Previsão. 

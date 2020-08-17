@@ -8,17 +8,17 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 57a070aa5931349d94597c629a09ab7662e327fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530015"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922460"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrições do Azure
 
 
-Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequada. O Azure tem um sistema de autorização denominado [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) que tem à sua disposição várias funções incorporadas. Pode atribuir estas funções em âmbitos diferentes, tais como grupo de gestão, subscrição ou grupo de recursos. Por predefinição, a pessoa que cria uma nova subscrição do Azure pode atribuir a outros utilizadores acesso administrativo a uma subscrição.
+Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequada. O Azure tem um sistema de autorização denominado [controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) que tem à sua disposição várias funções incorporadas. Pode atribuir estas funções em âmbitos diferentes, tais como grupo de gestão, subscrição ou grupo de recursos. Por predefinição, a pessoa que cria uma nova subscrição do Azure pode atribuir a outros utilizadores acesso administrativo a uma subscrição.
 
 Este artigo descreve como adicionar ou alterar a função de administrador para um utilizador que utiliza o RBAC no âmbito da subscrição.
 

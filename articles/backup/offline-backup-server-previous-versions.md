@@ -1,14 +1,14 @@
 ---
 title: Backup offline para Gestor de Proteção de Dados (DPM) e Microsoft Azure Backup Server (MABS) - versões anteriores
-description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
+description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e do Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186950"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261927"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
 
@@ -61,7 +61,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
     | Estados Unidos da América | [Ligação](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Ligação](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Foi criada uma conta de armazenamento Azure com o modelo de implementação do Gestor de Recursos na subscrição a partir da qual descarregou o ficheiro de definições de publicação. Na conta de armazenamento, crie um novo recipiente blob que será usado como destino.
+* Foi criada uma conta de armazenamento Azure com o modelo de implementação do Gestor de Recursos na subscrição a partir da qual descarregou o ficheiro de definições de publicação. Na conta de armazenamento, crie um novo recipiente blob, que será usado como destino.
 
   ![Criar uma conta de armazenamento com desenvolvimento do Gestor de Recursos](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -99,14 +99,14 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 Siga estes passos para enviar manualmente o certificado de cópia de segurança offline para uma aplicação de Diretório Azure Ative anteriormente criada destinada a cópias de segurança offline.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Aceda às inscrições da **Azure Ative Directory**  >  **App**.
 1. No **separador aplicações Possuídas,** localize uma aplicação com o formato de nome de `AzureOfflineBackup _<Azure User Id` exibição.
 
     ![Localizar aplicação no separador de aplicações próprias](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Selecione a inscrição. Under **Manage** no painel esquerdo, vá a **Certificados & segredos**.
-1. Verifique se há certificados pré-existentes ou chaves públicas. Se não houver nenhuma, pode eliminar com segurança a aplicação selecionando o botão **Eliminar** na página **'Vista Geral'** da aplicação. Em seguida, pode voltar a tentar os passos para [preparar o servidor para o](#prepare-the-server-for-the-offline-backup-process) processo de backup offline e saltar os seguintes passos. Caso contrário, continue a seguir estes passos a partir da instância DPM ou do servidor Azure Backup onde pretende configurar a cópia de segurança offline.
+1. Verifique se existem certificados ou chaves públicas. Se não houver nenhuma, pode eliminar com segurança a aplicação selecionando o botão **Eliminar** na página **'Vista Geral'** da aplicação. Em seguida, pode voltar a tentar os passos para [preparar o servidor para o](#prepare-the-server-for-the-offline-backup-process) processo de backup offline e saltar os seguintes passos. Caso contrário, continue a seguir estes passos a partir da instância DPM ou do servidor Azure Backup onde pretende configurar a cópia de segurança offline.
 1. From **Start** – **Run**, type *Certlm.msc*. Nos **Certificados -** Janela do Computador Local, selecione os Certificados – Separador Pessoal **do Computador Local.** Procure o certificado com o nome  >  **Personal** `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Selecione o certificado, clique com o botão direito **Todas as Tarefas**e, em seguida, selecione **Export**, sem uma chave privada, no formato .cer.
 1. Aceda à aplicação de backup offline Azure no portal Azure.

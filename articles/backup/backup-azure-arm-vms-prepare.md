@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533602"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261944"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -140,7 +140,7 @@ A fase instantânea garante a disponibilidade de um ponto de recuperação armaz
 
 Existem **duas Sub Tarefas** em execução no backend, uma para o trabalho de backup frontal que pode ser verificado a partir do painel de detalhes do **trabalho de backup** como dado abaixo:
 
-  ![Estado do trabalho de backup](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Sub-tarefas de backup do estado do trabalho](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 Os **dados de transferência para a** fase do cofre podem demorar vários dias a ser concluídos dependendo do tamanho dos discos, churn por disco e vários outros fatores.
 

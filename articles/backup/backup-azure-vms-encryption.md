@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405768"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262794"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
 
@@ -70,13 +70,13 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
     - Uma política de backup especifica quando as cópias de segurança são tomadas e quanto tempo estão armazenadas.
     - Os detalhes da política predefinida estão listados no menu pendente.
 
-    ![Abrir o painel Cenário](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Escolha a política de backup](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. Se não quiser utilizar a política predefinitiva, **selecione Create New**e crie uma política [personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Em **Máquinas Virtuais**, selecione **Adicionar**.
 
-    ![Abrir o painel Cenário](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Adicionar máquinas virtuais](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Escolha os VMs encriptados que pretende fazer de fazer com a política selecionada e selecione **OK**.
 
@@ -149,7 +149,7 @@ Restaurar vMs encriptados da seguinte forma:
     2. Crie um novo VM a partir dos discos restaurados utilizando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para os VMs Linux, reinstale a extensão ADE para que os discos de dados estejam abertos e montados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se encontrar algum problema, reveja estes artigos:
 
