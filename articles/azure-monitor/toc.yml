@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Utilizar limiares dinâmicos
               href: platform/alerts-dynamic-thresholds.md
+            - name: Alertas individuais para muitas séries temporais
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Alertas de métricas em registos
               href: platform/alerts-metric-logs.md
             - name: Com o modelo do Resource Manager

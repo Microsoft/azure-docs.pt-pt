@@ -8,7 +8,7 @@
       items:
         - name: Acerca do Container Registry
           href: container-registry-intro.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       expanded: true
       items:
         - name: Criar registo de contentor - CLI
@@ -148,6 +148,12 @@
         - name: Resolução de problemas
           expanded: false
           items:
+            - name: Resolver problemas de início de sessão
+              href: container-registry-troubleshoot-login.md
+            - name: Resolver problemas de rede
+              href: container-registry-troubleshoot-access.md
+            - name: Resolver problemas de desempenho de registo
+              href: container-registry-troubleshoot-performance.md
             - name: Detetar problemas comuns
               href: container-registry-check-health.md
             - name: FAQ

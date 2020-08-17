@@ -3,7 +3,7 @@ title: Documentação do Cloud Foundry no Azure
 summary: O Cloud Foundry é uma plataforma como serviço (PaaS) de código aberto que permite criar, implementar e utilizar aplicações de 12 fatores programadas em diferentes linguagens e arquiteturas.
 metadata:
   title: Documentação do Cloud Foundry no Azure
-  description: O Cloud Foundry é uma plataforma como serviço (PaaS) de código aberto que permite criar, implementar e utilizar aplicações de 12 fatores programadas em diferentes linguagens e arquiteturas.
+  description: O Cloud Foundry é uma plataforma PaaS open-source que permite criar, implementar e utilizar aplicações de 12 fatores programadas em diferentes linguagens e arquiteturas.
   services: multiple
   ms.service: multiple
   ms.devlang: devops
@@ -11,12 +11,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 92fc1fb74316e2a80d0cf4fde912f05db2b3613b
-  ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+  ms.openlocfilehash: 8191a179474db5e9d60e0cd10fb1efff189a3a73
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/12/2020
-  ms.locfileid: "84750346"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88224973"
 landingContent:
 - title: Acerca do Cloud Foundry no Azure
   linkLists:

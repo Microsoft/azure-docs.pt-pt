@@ -531,6 +531,8 @@
               items:
                 - name: Utilizar nós de extremidade em branco
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: Utilizar nós periféricos para dimensionar o HiveServer2
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: Resolução de problemas
           items:
             - name: Problemas comuns

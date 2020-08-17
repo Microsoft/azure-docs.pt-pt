@@ -10,12 +10,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 06/01/2020
-  ms.openlocfilehash: c119a7da6da42266c2cfb615a8aad887ac846579
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: c999417f091d82adf09df5d6962de146ef58b285
+  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87039775"
+  ms.lasthandoff: 08/16/2020
+  ms.locfileid: "88257373"
 landingContent:
 - title: Analisar os seus custos
   linkLists:
@@ -71,6 +71,8 @@ landingContent:
     links:
     - text: Utilizar alertas de custos
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - text: Alocar custos
+      url: costs/allocate-costs.md
     - text: Ver e transferir a sua fatura do Azure
       url: understand/download-azure-invoice.md
     - text: Ver e transferir a utilização e os custos do Azure

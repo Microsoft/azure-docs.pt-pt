@@ -6,7 +6,7 @@
       href: overview-what-is-tsi.md
     - name: Casos de utilização
       href: overview-use-cases.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Explorar o Time Series Insights Gen2
@@ -67,7 +67,9 @@
       items:
         - name: Autenticar e autorizar
           href: time-series-insights-authentication-and-authorization.md
-        - name: Consultar dados com C#
+        - name: Consultar dados com C# - Gen2
+          href: time-series-insights-update-query-data-csharp.md
+        - name: Consultar dados com C# - Gen1
           href: time-series-insights-query-data-csharp.md
         - name: Gerir dados de referência com C#
           href: time-series-insights-manage-reference-data-csharp.md

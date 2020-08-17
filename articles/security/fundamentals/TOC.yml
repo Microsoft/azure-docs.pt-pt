@@ -78,12 +78,16 @@
   items:
     - name: Segurança e encriptação de dados
       href: encryption-overview.md
+    - name: Encriptação dupla
+      href: double-encryption.md
     - name: Encriptação de disco
       items:
         - name: Melhores práticas
           href: data-encryption-best-practices.md
-        - name: Encriptação inativa de dados
+        - name: Encriptação de dados inativos
           href: encryption-atrest.md
+        - name: Modelos de encriptação de dados
+          href: encryption-models.md
         - name: Azure Disk Encryption para máquinas virtuais
           href: azure-disk-encryption-vms-vmss.md
     - name: Segurança de bases de dados

@@ -7,20 +7,20 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 08/13/2020
   ms.author: magoedte
-  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: afb1dd4986220bcf3f244532a730faf6b80e6074
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87008494"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212777"
 landingContent:
-- title: Descrição geral do Azure Arc
+- title: Sobre o Azure Arc
   linkLists:
   - linkListType: overview
     links:
-    - text: Saiba mais sobre o Azure Arc
+    - text: O que é o Azure Arc?
       url: https://aka.ms/Azure-Arc-Info
 - title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
   linkLists:
@@ -30,12 +30,18 @@ landingContent:
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
+    - text: Ativar o agente de servidores compatível com o Arc
+      url: ./servers/learn/quick-enable-hybrid-vm.md
+  - linkListType: how-to-guide
+    links:
     - text: Ligar computadores ao Azure Arc no portal do Azure
       url: ./servers/onboard-portal.md
     - text: Ligar computadores em escala através do principal de serviço
       url: ./servers/onboard-service-principal.md
     - text: Ligar computadores ao Azure com o PowerShell DSC
       url: ./servers/onboard-dsc.md
+    - text: Gerir e utilizar extensões de VM do Azure
+      url: ./servers/manage-vm-extensions.md
 - title: Ligar clusters Kubernetes ao Azure utilizando Azure Arc
   linkLists:
   - linkListType: overview

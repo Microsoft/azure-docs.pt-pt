@@ -287,8 +287,10 @@
       items:
         - name: Descrição geral
           href: offline-backup-overview.md
-        - name: Cópia de segurança offline com o Azure Data Box
+        - name: Cópia de Segurança Offline com o Azure Data Box (MARS)
           href: offline-backup-azure-data-box.md
+        - name: Cópia de Segurança Offline com o Azure Data Box (DPM/MABS)
+          href: offline-backup-azure-data-box-dpm-mabs.md
         - name: Cópia de segurança offline com Importar/Exportar (MARS)
           href: backup-azure-backup-import-export.md
         - name: Cópia de segurança offline com Importar/Exportar (DPM/MABS)

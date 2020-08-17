@@ -30,6 +30,11 @@
       href: event-based-video-recording-tutorial.md
     - name: Reproduzir gravações de vários dias
       href: playback-multi-day-recordings-tutorial.md
+    - name: Analisar vídeos em direto
+      items:
+        - name: Com o OVMS através da extensão HTTP
+          displayName: 'intel, OpenVINO'
+          href: use-intel-openvino-tutorial.md
 - name: Amostras
   items:
     - name: Amostras C# do Live Video Analytics no IoT Edge

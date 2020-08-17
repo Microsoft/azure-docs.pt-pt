@@ -1,4 +1,4 @@
-- name: Azure DB para Documentos do MariaDB
+- name: Documentação do Azure DB for MariaDB
   href: index.yml
 - name: Descrição geral
   items:

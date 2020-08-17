@@ -27,20 +27,16 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guias de procedimentos
   items:
-    - name: Definir as preferências do portal do Azure
+    - name: Gerir as definições e as preferências do portal do Azure
       href: set-preferences.md
-    - name: Estabelecer definições de tempo limite de inatividade para todos os utilizadores
-      href: admin-timeout.md
-    - name: Ativar o alto contraste ou a alteração de tema
-      href: azure-portal-change-theme-high-contrast.md
     - name: 'Adicionar, remover e ordenar favoritos'
       href: azure-portal-add-remove-sort-favorites.md
-    - name: Criar e partilhar dashboards do Azure
-      href: azure-portal-dashboards.md
-    - name: Utilizar um mosaico de markdown personalizado
-      href: azure-portal-markdown-tile.md
-    - name: Exportar ou eliminar as definições de utilizador
-      href: azure-portal-export-delete-settings.md
+    - name: Criar dashboards do Azure
+      items:
+        - name: Criar e partilhar dashboards do Azure
+          href: azure-portal-dashboards.md
+        - name: Utilizar um mosaico de markdown personalizado
+          href: azure-portal-markdown-tile.md
     - name: Séries de vídeos de procedimentos do portal do Azure
       href: azure-portal-video-series.md
     - name: Criar e gerir pedidos de suporte
