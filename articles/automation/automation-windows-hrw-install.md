@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448050"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270585"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -111,7 +111,7 @@ Na máquina-alvo, execute os seguintes passos para automatizar a instalação e 
 
 ### <a name="step-1---download-the-powershell-script"></a>Passo 1 - Descarregue o script PowerShell
 
-Descarregue **o**New-OnPremiseHybridWorker.ps1script da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Depois de ter descarregado o script, copie-o ou execute-o na máquina alvo. O **New-OnPremiseHybridWorker.ps1** script utiliza os parâmetros descritos abaixo durante a execução.
+Descarregue ** o **New-OnPremiseHybridWorker.ps1script da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Depois de ter descarregado o script, copie-o ou execute-o na máquina alvo. O **New-OnPremiseHybridWorker.ps1** script utiliza os parâmetros descritos abaixo durante a execução.
 
 | Parâmetro | Estado | Descrição |
 | --------- | ------ | ----------- |
@@ -138,9 +138,15 @@ Na linha de comando PowerShell, navegue na pasta que contém o script que descar
 É-lhe pedido que autentica com o Azure depois de publicar o guião. Tem de iniciar scontabilidade com uma conta que é membro da função de Administrador de Subscrição e coadministradora da subscrição.
 
 ```powershell-interactive
-.\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <nameOfAutomationAccount> -AAResourceGroupName <nameOfResourceGroup>`
--OMSResourceGroupName <nameOfOResourceGroup> -HybridGroupName <nameOfHRWGroup> `
--SubscriptionID <subscriptionId> -WorkspaceName <nameOfLogAnalyticsWorkspace>
+$NewOnPremiseHybridWorkerParameters = @{
+  AutomationAccountName = <nameOfAutomationAccount>
+  AAResourceGroupName   = <nameOfResourceGroup>
+  OMSResourceGroupName  = <nameOfResourceGroup>
+  HybridGroupName       = <nameOfHRWGroup>
+  SubscriptionID        = <subscriptionId>
+  WorkspaceName         = <nameOfLogAnalyticsWorkspace>
+}
+.\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
 ```
 
 ### <a name="step-4---install-nuget"></a>Passo 4 - Instalar nuGet

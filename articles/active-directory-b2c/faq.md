@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84297909"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270670"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -154,7 +154,7 @@ Você pode usar a nossa nova experiência de registos de **Aplicações unificad
 1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Assine fora do portal Azure e, em seguida, inscreva-se de volta para refrescar o seu acesso.
 1. Selecione **Azure Ative Directory** no menu da esquerda.
-1. Na página **'Visão Geral',** selecione **Eliminar o diretório**. Siga as instruções no ecrã para concluir o processo.
+1. Na página **'Vista Geral',** selecione **Excluir inquilino**. Siga as instruções no ecrã para concluir o processo.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 

@@ -1,14 +1,14 @@
 ---
 title: Crie artefactos personalizados para a sua máquina virtual DevTest Labs Microsoft Docs
-description: Aprenda a autorar os seus próprios artefactos para usar com a Azure DevTest Labs.
+description: Aprenda a criar artefactos para usar com a Azure DevTest Labs para implementar e configurar aplicações depois de providenciar uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857021"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270687"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Crie artefactos personalizados para a sua máquina virtual DevTest Labs
 
@@ -83,7 +83,7 @@ Os tipos permitidos são:
 * matriz (qualquer matriz JSON válida)
 
 ## <a name="secrets-as-secure-strings"></a>Segredos como cordas seguras
-Declare segredos como cordas seguras. Aqui está a sintaxe para declarar um parâmetro de corda seguro dentro `parameters` da secção doartifactfile.js**em** arquivo:
+Declare segredos como cordas seguras. Aqui está a sintaxe para declarar um parâmetro de corda seguro dentro `parameters` da secção doartifactfile.js** em** arquivo:
 
 ```json
 
@@ -148,5 +148,5 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 * [Como diagnosticar falhas de artefactos em Laboratórios DevTest](devtest-lab-troubleshoot-artifact-failure.md)
 * [Junte um VM a um domínio de Diretório Ativo existente usando um modelo de Gestor de Recursos em Laboratórios DevTest](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Aprenda a [adicionar um repositório de artefactos Git a um laboratório.](devtest-lab-add-artifact-repo.md)

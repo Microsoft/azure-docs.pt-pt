@@ -1,14 +1,14 @@
 ---
 title: Criar e gerir VMs reclamais em Azure DevTest Labs Microsoft Docs
-description: Saiba como adicionar uma máquina virtual reclamada a um laboratório em Azure DevTest Labs
+description: Aprenda a usar o portal Azure para adicionar uma máquina virtual reivindicada em Azure DevTest Labs e veja os processos a seguir para reivindicar/não reclamar uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481311"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270984"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reclamais em Azure DevTest Labs
 Adiciona-se um VM reclamado a um laboratório de forma semelhante à forma como [adiciona um VM padrão](devtest-lab-add-vm.md) – a partir de uma *base* que é ou uma [imagem personalizada,](devtest-lab-create-template.md) [fórmula](devtest-lab-manage-formulas.md)ou imagem [do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial acompanha-o através do portal Azure para adicionar um VM reclamado a um laboratório em DevTest Labs, e mostra os processos que um utilizador segue para reivindicar e desclamar o VM.
@@ -86,6 +86,6 @@ Isto é conhecido como "transferir o disco de dados". O disco de dados fica ent�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Uma vez criado, pode ligar-se ao VM selecionando **Connect** no seu painel de gestão.
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

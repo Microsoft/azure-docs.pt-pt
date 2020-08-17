@@ -1,18 +1,18 @@
 ---
 title: 'Criar um anfitrião Azure Bastion: portal'
-description: Neste artigo, aprenda a criar um hospedeiro Azure Bastion usando o portal
+description: Neste artigo, aprenda a criar um anfitrião Azure Bastion, que fornece conectividade RDP/SSH a todas as máquinas virtuais numa rede virtual.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0bc9a17a12afac6d91867b19aba0f90b7f6edb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744277"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270755"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Criar um anfitrião Azure Bastion usando o portal
 
@@ -30,7 +30,7 @@ O bastião está disponível nas seguintes regiões públicas do Azure:
 
 Esta secção ajuda-o a criar um novo recurso Azure Bastion a partir do portal Azure.
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 1. Na página **Nova,** no campo *Procurar o Mercado,* **digitar Bastion,** clique em **Entrar** para obter os resultados da pesquisa.
 
@@ -59,7 +59,7 @@ Esta secção ajuda-o a criar um novo recurso Azure Bastion a partir do portal A
 1. Na página **Criar um bastião,** clique em **Criar**.
 1. Verá uma mensagem a dizer-lhe que a sua implantação está em curso. O estado será exibido nesta página à medida que os recursos forem criados. Leva cerca de 5 minutos para o recurso Bastion ser criado e implantado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia as [FAQ de Bastião](bastion-faq.md) para obter informações adicionais.
 
