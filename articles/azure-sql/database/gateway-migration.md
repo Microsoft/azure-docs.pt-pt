@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759704"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507523"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,21 +28,43 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Setembro de 2020
+Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **15 de setembro de 2020:**
 
-Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 10 de setembro de 2020:
+- Sudeste da Austrália : 13.77.48.10
+- Canadá Leste : 40.86.226.166, 52.242.30.154
+- Reino Unido Sul : 51.140.184.11, 51.105.64.0
+
+Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **15 de setembro de 2020:**
+
+- Sudeste da Austrália : 191.239.192.109 e 13.73.109.251
+- Centro dos EUA : 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 e 104.208.21.1
+- Ásia Oriental : 191.234.2.139, 52.175.33.150 e 13.75.32.4
+- Leste dos EUA : 40.121.158.30, 40.79.153.12, 191.238.6.43 e 40.78.225.32
+- Leste DOS EUA 2 : 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 e 104.208.150.3
+- França Central: 40.79.137.0 e 40.79.129.1
+- Japão Oeste: 104.214.148.156, 40.74.100.192, 191.238.68.11 e 40.74.97.10
+- Norte Central EUA : 23.96.178.199, 23.98.55.75 e 52.162.104.33
+- Sudeste Asiático : 104.43.15.0, 23.100.117.95 e 40.78.232.3
+- Oeste dos EUA: 104.42.238.205, 23.99.34.75 e 13.86.216.196
+
+Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **10 de setembro de 2020:**
 
 - Centro-Oeste dos EUA : 13.78.248.43 
 - África do Sul Norte : 102.133.120.2  
 
-Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020:
+Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **1 de setembro de 2020:**
 
 - Norte da Europa : 13.74.104.113 
 - West US2 : 40.78.248.10 
 - Europa Ocidental : 52.236.184.163 
 - Centro Sul dos EUA : 20.45.121.1, 20.49.88.1 
 
-Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020. :
+Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **1 de setembro de 2020:**
 - Japão Leste : 40.79.184.8, 40.79.192.5
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+
+As seguintes migrações de gateway estão completas: 
 
 ### <a name="august-2020"></a>agosto de 2020
 
@@ -53,10 +75,6 @@ Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 - Oeste DOS EUA 2 : 40.78.240.8
 
 Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 10 de agosto de 2020. 
-
-# <a name="completed"></a>[Concluído](#tab/completed-ip)
-
-As seguintes migrações de gateway estão completas: 
 
 ### <a name="october-2019"></a>Outubro de 2019
 - Sul do Brasil
@@ -96,7 +114,7 @@ Recomendamos que permita tráfego de saída para endereços IP para todos os [en
 
 As ligações efetuadas a partir de aplicações que utilizam o Controlador Microsoft JDBC abaixo da versão 4.0 podem falhar na validação do certificado. As versões mais baixas do Microsoft JDBC dependem do Nome Comum (CN) no campo assunto do certificado. A mitigação é para garantir que a propriedade do Anfitrião NatalInCertificate está definida para *.database.windows.net. Para obter mais informações sobre como definir a propriedade hostNameInCertificate, consulte [Connecting with Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
-Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL:https://aka.ms/getazuresupport
+Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL: https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77132054"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508809"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenha imagens de drones de parceiros de drones
 
@@ -53,9 +53,9 @@ Siga estes passos.
 5. Vá ao diretório onde os ficheiros foram enviados. Por padrão, são enviados para o diretório doméstico sob o nome de utilizador.
 6. Execute o seguintes script:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 
@@ -89,6 +89,6 @@ Ficheiros e imagens enviados pelo fornecedor de drones aparecem na secção **Ma
 
   ![Secção de mapas](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a usar as [APIs](rest-api-in-azure-farmbeats.md) do Datahub do FarmBeats para obter as suas imagens de drones.

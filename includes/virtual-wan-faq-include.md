@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375804"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507587"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -187,7 +187,7 @@ Não. O WAN virtual não requer o ExpressRoute de cada site. Os sites podem esta
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Existe um limite de produção ou ligação de rede ao utilizar o Azure Virtual WAN?
 
-A produção de rede é per serviço num hub WAN virtual. Enquanto você pode ter o número de WANs virtuais que você quiser, cada WAN Virtual permite 1 hub por região. Em cada hub, a produção agregada VPN é de até 20 Gbps, a produção agregada ExpressRoute é de até 20 Gbps e o rendimento agregado VPN/VPN do utilizador é de até 20 Gbps. O router em hub virtual suporta até 50 Gbps para fluxos de tráfego VNet-to-VNet e assume um total de 2000 VM de carga de trabalho em todos os VNets em centros VIRTUAIS WAN.
+A produção de rede é per serviço num hub WAN virtual. Enquanto você pode ter o número de WANs virtuais que você quiser, cada WAN Virtual permite 1 hub por região. Em cada hub, a produção agregada VPN é de até 20 Gbps, a produção agregada ExpressRoute é de até 20 Gbps e o rendimento agregado VPN/VPN do utilizador é de até 20 Gbps. O router em hub virtual suporta até 50 Gbps para fluxos de tráfego VNet-to-VNet e assume um total de 2000 VM de carga de trabalho em todos os VNets ligados a um único Hub virtual.
 
 Quando os Sites VPN se ligam a um hub, fazem-no com ligações. O WAN virtual suporta até 1000 ligações ou túneis 2000 IPsec por centro virtual. Quando os utilizadores remotos se ligam ao hub virtual, conectam-se ao gateway P2S VPN, que suporta até 10.000 utilizadores dependendo da unidade de escala (largura de banda) escolhida para o gateway P2S VPN no centro virtual.
 

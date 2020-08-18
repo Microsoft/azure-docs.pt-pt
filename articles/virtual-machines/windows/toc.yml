@@ -423,7 +423,7 @@
         - name: Descrição Geral da Migração
           href: migration-classic-resource-manager-overview.md
         - name: Descrição Aprofundada da migração
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Planear a migração
           href: migration-classic-resource-manager-plan.md
         - name: Migrar com o PowerShell
@@ -433,7 +433,7 @@
         - name: Ferramentas da comunidade para migração
           href: migration-classic-resource-manager-community-tools.md
         - name: FAQ
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Utilizar Imagens
       displayName: 'SIG, AMI, image'
       items:
@@ -853,7 +853,7 @@
           href: detach-disk.md
         - name: Implementar discos com o modelo do Resource Manager
           displayName: Azure Resource Manager
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Ativar discos partilhados
           href: disks-shared-enable.md
         - name: Carregar um VHD para um disco - PowerShell
@@ -901,7 +901,7 @@
         - name: Desempenho
           items:
             - name: Ativar o acelerador de escrita
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Utilizar os discos ultra
               href: disks-enable-ultra-ssd.md
             - name: Criar um disco de referência
