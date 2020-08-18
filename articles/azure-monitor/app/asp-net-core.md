@@ -3,12 +3,12 @@ title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270925"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518089"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -36,6 +36,8 @@ O [SDK de Insights de Aplicação para ASP.NET Core](https://nuget.org/packages/
 - Uma chave de instrumentação válida de Insights de Aplicação. Esta chave é necessária para enviar qualquer telemetria para Insights de Aplicação. Se precisar de criar um novo recurso Application Insights para obter uma chave de instrumentação, consulte [Criar um recurso Application Insights](./create-new-resource.md).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Ativar a telemetria do lado do servidor do Application Insights (Estúdio Visual)
+
+Para o Estúdio Visual para Mac utilize a [orientação manual.](#enable-application-insights-server-side-telemetry-no-visual-studio) Apenas a versão Windows do Visual Studio suporta este procedimento.
 
 1. Abra o projeto no Visual Studio.
 

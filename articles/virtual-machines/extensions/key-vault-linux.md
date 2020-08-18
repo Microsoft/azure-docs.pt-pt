@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5056f453580ef3e4549a0d8ee5b59e893d8c56bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010806"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522296"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
@@ -73,16 +73,16 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 > 
 > Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de Cofre Chave](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> A propriedade 'autenticaçõesSettings' é opcional para cenários quando a VM tem múltiplas identidades atribuídas.
-> Permite especificar a identidade para a autenticação no Cofre de Chaves.
+> [!IMPORTANT]
+> A propriedade 'autenticaçõesSettings' só é **necessária** para VMs com **identidades atribuídas pelo utilizador**.
+> Especifica a identidade para a autenticação no Cofre de Chaves.
 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1,0 | int |
@@ -209,7 +209,7 @@ Por favor, esteja ciente das seguintes restrições/requisitos:
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
 

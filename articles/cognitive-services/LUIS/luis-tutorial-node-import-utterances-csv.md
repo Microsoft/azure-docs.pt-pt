@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 669c5f1ae6b667073e885a0077e9f3130ba3c4f0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 3df1ccadb69f02272c44a0ba574805c816151dc7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405981"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520945"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente utilizando Node.js
 
@@ -27,7 +27,7 @@ A LUIS disponibiliza uma API programática que faz tudo o que o site [da LUIS](l
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Inscreva-se no site da [LUIS](luis-reference-regions.md) e encontre a sua [chave de autoria](luis-how-to-azure-subscription.md#authoring-key) nas Definições de Conta. Usa esta chave para chamar as APIs de autoria.
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 * Este artigo começa com um CSV para os ficheiros de registo de registo de pedidos de utilizador de uma empresa hipotética. Descarregue [aqui.](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)
 * Instale as últimas Node.js com OPM. Descarregue a partir [daqui.](https://nodejs.org/en/download/)
 * **[Recomendado]** Código de Estúdio Visual para IntelliSense e depurando, descarregue-o a partir [daqui](https://code.visualstudio.com/) gratuitamente.
@@ -186,7 +186,7 @@ Assim que o script estiver concluído, pode iniciar sôms no [LUIS](luis-referen
 ![Intenção turnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Teste e treine a sua app no site da LUIS](luis-interactive-test.md)

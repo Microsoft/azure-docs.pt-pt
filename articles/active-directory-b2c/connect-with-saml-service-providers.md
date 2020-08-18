@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020071"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520214"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -350,7 +350,7 @@ Para completar este tutorial utilizando a nossa [Aplicação de Teste SAML:][sam
 
 * Atualize o nome do inquilino
 * Atualizar o nome da política, por *exemplo, B2C_1A_signup_signin_saml*
-* Especifique este emitente URI:`https://contoso.onmicrosoft.com/app-name`
+* Especifique este emitente URI: `https://contoso.onmicrosoft.com/app-name`
 
 Selecione **Login** e deverá ser apresentado com um ecrã de entrada de utilizador. Após a sua inscrição, uma afirmação SAML é emitida de volta ao pedido de amostra.
 
@@ -414,6 +414,10 @@ Os seguintes cenários de partidos de suporte SAML (RP) são suportados através
 * URLs múltiplos de logout ou encadernação POST para URL logout em objeto principal de aplicação/serviço.
 * Especifique a chave de assinatura para verificar os pedidos de RP no objeto principal de aplicação/serviço.
 * Especifique a chave de encriptação simbólica no objeto principal de aplicação/serviço.
+* O Fornecedor de Identidade iniciou a sua inscrição, onde o Fornecedor de Identidade é Azure AD B2C.
+
+Os seguintes cenários de partidos dependentes da SAML (RP) não são atualmente suportados:
+* O Fornecedor de Identidade iniciou a sua inscrição, onde o Fornecedor de Identidade é um Fornecedor de Identidade externo, por exemplo, ADFS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

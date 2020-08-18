@@ -2,26 +2,21 @@
 title: 'Tutorial: Configurar o Velpic para o provisionamento automático do utilizador com o Azure Ative Directory Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Velpic.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064126"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532369"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurar Velpic para o Provisionamento Automático do Utilizador
 
@@ -98,6 +93,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

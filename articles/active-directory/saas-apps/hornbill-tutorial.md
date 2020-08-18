@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o Hornbill Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Hornbill.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 173061e4-ac1d-458f-bb9b-e9a2493aab0e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2770a1c5826b8eebaadb6694068afa29118a3037
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 315c6ecaeb466f3a04ed33dc9040ddab49361575
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500052"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: Integração do Diretório Ativo Azure com Hornbill
 
@@ -110,9 +105,9 @@ Para configurar o Azure AD single sign-on com Hornbill, execute os seguintes pas
 
     ![Informações de sinalização única do domínio hornbill e URLs](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/lib/saml/auth/simplesaml/module.php/saml/sp/metadata.php/saml`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/lib/saml/auth/simplesaml/module.php/saml/sp/metadata.php/saml`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte a [equipa de apoio ao Cliente Hornbill](https://www.hornbill.com/support/?request/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -182,7 +177,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

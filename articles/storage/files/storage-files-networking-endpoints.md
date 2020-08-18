@@ -4,18 +4,19 @@ description: Uma visão geral das opções de networking para ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497771"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525902"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
+
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.
@@ -27,12 +28,21 @@ Este artigo centra-se em como configurar os pontos finais de uma conta de armaze
 Recomendamos a leitura [de considerações de networking de ficheiros Azure](storage-files-networking-overview.md) files antes de ler este como orientar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - Este artigo pressupõe que já criou uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este artigo pressupõe que já criou uma parte de ficheiro Azure numa conta de armazenamento à qual gostaria de ligar a partir do local. Para aprender a criar uma partilha de ficheiros Azure, consulte [Criar uma partilha de ficheiros Azure](storage-how-to-create-file-share.md).
+- Este artigo pressupõe que já criou uma partilha de ficheiros Azure numa conta de armazenamento à que gostaria de ligar a partir do local. Para aprender a criar uma partilha de ficheiros Azure, consulte [Criar uma partilha de ficheiros Azure](storage-how-to-create-file-share.md).
 - Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto final privado
+## <a name="endpoint-configurations"></a>Configurações de ponto final
+
+Pode configurar os seus pontos finais para restringir o acesso à rede à sua conta de armazenamento. Existem duas abordagens para restringir o acesso a uma conta de armazenamento a uma rede virtual:
+
+- [Crie um ou mais pontos finais privados para a conta de armazenamento](#create-a-private-endpoint)  e restrinja todo o acesso ao ponto final público. Isto garante que apenas o tráfego originário das redes virtuais pretendidas pode aceder às ações de ficheiros Azure dentro da conta de armazenamento.
+- [Restringir o ponto final público a uma ou mais redes virtuais](#restrict-public-endpoint-access). Isto funciona utilizando uma capacidade da rede virtual chamada *pontos finais de serviço*. Quando restringe o tráfego a uma conta de armazenamento através de um ponto final de serviço, ainda está a aceder à conta de armazenamento através do endereço IP público, mas o acesso só é possível a partir dos locais especificados na sua configuração.
+
+### <a name="create-a-private-endpoint"></a>Criar um ponto final privado
+
 A criação de um ponto final privado para a sua conta de armazenamento resultará na implementação dos seguintes recursos Azure:
 
 - **Um ponto final privado**: Um recurso Azure que representa o ponto final privado da conta de armazenamento. Pode pensar nisto como um recurso que liga uma conta de armazenamento e uma interface de rede.
@@ -106,7 +116,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Se tudo funcionou com sucesso, deverá ver a seguinte saída, onde `192.168.0.5` está o endereço IP privado do ponto final privado na sua rede virtual. Note que ainda deve usar storageaccount.file.core.windows.net para montar a sua partilha de ficheiros em vez do `privatelink` caminho.
+Se tudo funcionou com sucesso, deverá ver a seguinte saída, onde `192.168.0.5` está o endereço IP privado do ponto final privado na sua rede virtual. Deve ainda utilizar storageaccount.file.core.windows.net para montar a sua partilha de ficheiros em vez do `privatelink` caminho.
 
 ```Output
 Server:         127.0.0.53
@@ -120,13 +130,12 @@ Address: 192.168.0.5
 
 ---
 
-## <a name="restrict-access-to-the-public-endpoint"></a>Restringir o acesso ao ponto final público
-Pode restringir o acesso ao ponto final público utilizando as definições de firewall da conta de armazenamento. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringirá o acesso em rede a uma ou mais redes virtuais. Existem duas abordagens para restringir o acesso a uma conta de armazenamento a uma rede virtual:
+### <a name="restrict-public-endpoint-access"></a>Restringir o acesso ao ponto final público
 
-- [Crie um ou mais pontos finais privados para a conta de armazenamento](#create-a-private-endpoint) e restrinja todo o acesso ao ponto final público. Isto garante que apenas o tráfego originário das redes virtuais pretendidas pode aceder às ações de ficheiros Azure dentro da conta de armazenamento.
-- Restringir o ponto final público a uma ou mais redes virtuais. Isto funciona utilizando uma capacidade da rede virtual chamada *pontos finais de serviço*. Quando restringe o tráfego a uma conta de armazenamento através de um ponto final de serviço, ainda está a aceder à conta de armazenamento através do endereço IP público.
+Limitar o acesso ao ponto final público requer primeiro que desative o acesso geral ao ponto final público. O acesso incapacitante ao ponto final público não afeta os pontos finais privados. Depois de desativado o ponto final público, pode selecionar redes específicas ou endereços IP que possam continuar a aceder ao mesmo. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringem o acesso em rede a uma ou mais redes virtuais.
 
-### <a name="disable-access-to-the-public-endpoint"></a>Desativar o acesso ao ponto final público
+#### <a name="disable-access-to-the-public-endpoint"></a>Desativar o acesso ao ponto final público
+
 Quando o acesso ao ponto final público é desativado, a conta de armazenamento ainda pode ser acedida através dos seus pontos finais privados. Caso contrário, os pedidos válidos para o ponto final público da conta de armazenamento serão rejeitados. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -140,7 +149,8 @@ Quando o acesso ao ponto final público é desativado, a conta de armazenamento 
 
 ---
 
-### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restringir o acesso ao ponto final público a redes virtuais específicas
+#### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restringir o acesso ao ponto final público a redes virtuais específicas
+
 Quando restringe a conta de armazenamento a redes virtuais específicas, está a permitir pedidos para o ponto final público a partir das redes virtuais especificadas. Isto funciona utilizando uma capacidade da rede virtual chamada *pontos finais de serviço*. Isto pode ser usado com ou sem pontos finais privados.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -155,6 +165,7 @@ Quando restringe a conta de armazenamento a redes virtuais específicas, está a
 ---
 
 ## <a name="see-also"></a>Ver também
+
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
 - [Configurar o reencaminhamento de DNS para Ficheiros do Azure](storage-files-networking-dns.md)
 - [Configurar S2S VPN para ficheiros Azure](storage-files-configure-s2s-vpn.md)

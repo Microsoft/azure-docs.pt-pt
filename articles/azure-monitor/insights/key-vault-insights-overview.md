@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498961"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531264"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorizar o seu serviço de cofre de chaves com o Azure Monitor para o Cofre de Chaves (pré-visualização)
 O Azure Monitor for Key Vault (pré-visualização) proporciona uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -45,7 +45,7 @@ O Azure Monitor para Key Vault combina registos e métricas para fornecer uma so
 
 A partir do Azure Monitor, pode visualizar detalhes de pedido, latência e falha de vários cofres chave na sua subscrição, e ajudar a identificar problemas de desempenho e cenários de estrangulamento.
 
-Para visualizar a utilização e as operações das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos:
+Para visualizar a utilização e operações dos seus cofres-chave em todas as suas subscrições, execute os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/)
 
@@ -206,6 +206,6 @@ Além disso, se tiver um elevado número de cofres-chave e subscrições selecio
 
 Pode editar o livro existente, através da utilização do modo de edição, e depois guardar o seu trabalho como um novo livro que terá todas as suas novas alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

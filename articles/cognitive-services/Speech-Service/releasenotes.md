@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505810"
+ms.locfileid: "88525926"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -26,13 +26,13 @@ ms.locfileid: "88505810"
 
 * **Neural TTS: novo estilo de fala para `en-US` Voz de Aria.** AriaNeural pode soar como um apresentador ao ler notícias. O estilo "newscast-formal" parece mais sério, enquanto o estilo "newscast-casual" é mais descontraído e informal. Veja [como utilizar os estilos de fala em SSML](speech-synthesis-markup.md).
 
-* **Voz Personalizada: é lançada uma nova funcionalidade para verificar automaticamente a qualidade dos dados de treino**. Ao fazer o upload dos seus dados, a capacidade de verificação de dados examinará vários aspetos do seu áudio e das transcrições, e corrigirá ou filtrará automaticamente os dados com problemas de modo a melhorar a qualidade do modelo de voz treinado. Isto cobre o volume do seu áudio, o nível de ruído, a precisão da pronúncia do discurso, o alinhamento da fala com o texto normalizado, o silêncio no áudio, além do formato áudio e script. 
+* **Voz Personalizada: é lançada uma nova funcionalidade para verificar automaticamente a qualidade dos dados de treino**. Ao fazer o upload dos seus dados, o sistema irá examinar vários aspetos dos seus dados de áudio e transcrição e corrigir automaticamente ou filtrar problemas para melhorar a qualidade do modelo de voz. Isto cobre o volume do seu áudio, o nível de ruído, a precisão da pronúncia da fala, o alinhamento da fala com o texto normalizado, o silêncio no áudio, além do formato áudio e script. 
 
 * **Criação de Conteúdo sonoro: um conjunto de novas funcionalidades para permitir a afinação de voz e capacidades de gestão de áudio mais potentes.**
 
     * Pronúncia: a função de afinação de pronúncia é atualizada para o mais recente conjunto de fones de telefone. Pode escolher o elemento de identificação telefônica certo da biblioteca e aperfeiçoar a pronúncia das palavras que selecionou. 
 
-    * Download: A funcionalidade áudio "Download"/"Exportação" é melhorada para suportar áudios geradores por cada parágrafo. Pode facilmente editar diferentes conteúdos no mesmo ficheiro/SSML, gerando várias saídas de áudio. A estrutura de ficheiros de "Download" também é refinada. Agora, pode facilmente obter todos os áudios numa só pasta. 
+    * Download: A função áudio "Download"/"Export" é melhorada para suportar o áudio gerador por parágrafo. Pode editar conteúdo no mesmo ficheiro/SSML, gerando várias saídas de áudio. A estrutura de ficheiros de "Download" também é refinada. Agora, pode facilmente obter todos os áudios numa só pasta. 
 
     * Estado da tarefa : A experiência de exportação de vários ficheiros é melhorada. Quando exportar vários ficheiros no passado, se um dos ficheiros falhar, toda a tarefa falhará. Mas agora, todos os outros ficheiros serão exportados com sucesso. O relatório de tarefas é enriquecido com informações mais pormenorizadas e estruturadas. Pode verificar os registos de todos os ficheiros e frases falhados agora com o relatório. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "88505810"
 
 ### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais da qualidade da voz TTS
 
-* Erro de pronúncia reduzido ao nível da palavra % para `ru-RU` (erro reduzido em 56%) e `sv-SE` (erro reduzido em 49%)
+* Erro de pronúncia reduzido ao nível da palavra % para `ru-RU` (erros reduzidos em 56%) e `sv-SE` (erros reduzidos em 49%)
 
 * Leitura melhorada da palavra polifonia sobre `en-US` vozes neurais em 40%. Exemplos de palavras de polifonia incluem "ler", "viver", "conteúdo", "gravar", "objeto", etc. 
 
@@ -62,9 +62,9 @@ ms.locfileid: "88505810"
 ### <a name="bug-fixes"></a>Correções de erros
 
 * Corrigiu uma série de bugs com a ferramenta de Criação de Conteúdos Áudio 
-    * Corrigiu o problema com auto-refrescante. 
-    * Problemas fixos com vozes de estilo na ZH-CN na região do Sudeste Asiático
-    * Corrigiu a questão na estabilidade, incluindo o erro de exportação com a etiqueta 'break', erros nas pontuações    
+    * Problema fixo com auto refrescante. 
+    * Problemas fixos com estilos de voz em zh-CN na região do Sudeste Asiático.
+    * Problema de estabilidade fixo, incluindo um erro de exportação com a etiqueta 'break' e erros nas pontuações.    
 
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
 Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias `cs-CZ` e `hu-HU` , 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [idiomas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
@@ -177,7 +177,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Input | Leitura após melhoria |
+    | Linguagem | Entrada | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |

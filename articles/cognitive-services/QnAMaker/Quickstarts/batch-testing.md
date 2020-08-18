@@ -3,12 +3,12 @@ title: 'Quickstart: Testar base de conhecimento com perguntas de lote'
 description: Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecimento no seu recurso QnA Maker para obter respostas esperadas, pontuações de confiança e solicitações de várias voltas.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 498f84c97fdc022e460dec453b1d65bb8088b787
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263151"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531074"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Testar base de conhecimento com perguntas de lote e respostas esperadas
 
@@ -16,7 +16,7 @@ Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecim
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Ou [cria um serviço QnA Maker](create-publish-knowledge-base.md) ou utiliza um serviço existente, que utiliza a língua inglesa.
 * Descarregue o [ `.docx` ficheiro de amostra de várias voltas](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Descarregue a [ferramenta de teste de lote,](https://aka.ms/qnamakerbatchtestingtool)extrate o ficheiro executável do `.zip` ficheiro.

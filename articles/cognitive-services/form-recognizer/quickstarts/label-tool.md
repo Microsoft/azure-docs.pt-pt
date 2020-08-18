@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 54fe33750b08b5da85b30d876a32daf33d8b4bc2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903481"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517919"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
 Neste arranque rápido, utilizará a API do Coitalista de Formulários com a ferramenta de rotulagem da amostra para treinar um modelo personalizado com dados etiquetados manualmente. Consulte a secção [Train com etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -159,11 +159,11 @@ Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu 
 
 Os seguintes tipos de valor e variações são atualmente suportados:
 * `string`
-    * padrão, `no-whitespaces` ,`alphanumeric`
+    * padrão, `no-whitespaces` , `alphanumeric`
 * `number`
-    * padrão,`currency`
+    * padrão, `currency`
 * `date` 
-    * padrão, `dmy` `mdy` ,`ymd`
+    * padrão, `dmy` `mdy` , `ymd`
 * `time`
 * `integer`
 

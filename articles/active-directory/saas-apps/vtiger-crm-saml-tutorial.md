@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Vtiger CRM (SAML) Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Vtiger CRM (SAML).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f14e34a6-f51f-4cd1-a6ad-f04df551303d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccd1304ae43a2f424dab94cf67e7cc41357579fa
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7eb2b4e2f51750cfc6ec3bddcbcf313a8e52d759
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167033"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531287"
 ---
 # <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Tutorial: Integrar Vtiger CRM (SAML) com Diretório Ativo Azure
 
@@ -89,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
    - `https://<customer_instance>.od2.vtiger.com`
    - `https://<customer_instance>.od1.vtiger.ws`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<customer_instance>.od1.vtiger.com/sso/saml?acs`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<customer_instance>.od1.vtiger.com/sso/saml?acs`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de apoio ao cliente Vtiger CRM (SAML)](mailto:support@vtiger.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

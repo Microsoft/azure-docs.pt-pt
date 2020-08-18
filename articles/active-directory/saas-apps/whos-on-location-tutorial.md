@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com WhosOnLocation Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o WhosOnLocation.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4126cc8d-46a3-485f-8a51-8fe56b6f2f69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d14789f63e1868a145388c7dde4aec251fa399
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba9fe6b727ec3f2f5ec8133901fb1aea287fbcd8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535726"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosonlocation"></a>Tutorial: Azure Ative Directory integração única (SSO) com WhosOnLocation
 
@@ -84,11 +80,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://login.whosonlocation.com/saml/login/<CUSTOM_ID>`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://login.whosonlocation.com/saml/login/<CUSTOM_ID>`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://login.whosonlocation.com/saml/metadata/<CUSTOM_ID>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://login.whosonlocation.com/saml/metadata/<CUSTOM_ID>`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://login.whosonlocation.com/saml/acs/<CUSTOM_ID>`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://login.whosonlocation.com/saml/acs/<CUSTOM_ID>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente WhosOnLocation](mailto:support@whosonlocation.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -111,7 +107,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -169,9 +165,9 @@ Quando clicar no azulejo WhosOnLocation no Painel de Acesso, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

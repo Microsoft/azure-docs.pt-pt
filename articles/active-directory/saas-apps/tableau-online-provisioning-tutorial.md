@@ -2,26 +2,21 @@
 title: 'Tutorial: Configurar Tableau Online para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para procedê-lo e desprovisionar automaticamente as contas dos utilizadores ao Tableau Online.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fae770950810899f7c6583fa401110c3e85022b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064224"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533444"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar Tableau Online para fornecimento automático de utilizadores
 
@@ -173,7 +168,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 * [Gerir o provisionamento da conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

@@ -2,25 +2,20 @@
 title: 'Tutorial: Fornecimento de utilizadores para Cerner Central - Azure AD'
 description: Saiba como configurar o Azure Ative Directory para providenciar automaticamente aos utilizadores uma lista em Cerner Central.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058321"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529870"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar Cerner Central para o fornecimento automático de utilizadores
 
@@ -65,25 +60,25 @@ Para providenciar contas de utilizador à Cerner Central, terá de solicitar uma
 
 1. O primeiro passo é garantir que as pessoas que gerem a integração cerner e AD Azure tenham uma conta CernerCare, que é necessária para aceder à documentação necessária para completar as instruções. Se necessário, utilize os URLs abaixo para criar contas CernerCare em cada ambiente aplicável.
 
-   * Caixa de areia:https://sandboxcernercare.com/accounts/create
+   * Caixa de areia:  https://sandboxcernercare.com/accounts/create
 
-   * Produção:https://cernercare.com/accounts/create  
+   * Produção:  https://cernercare.com/accounts/create  
 
 2. Em seguida, deve ser criada uma conta de sistema para o Azure AD. Utilize as instruções abaixo para solicitar uma Conta do Sistema para a sua caixa de areia e ambientes de produção.
 
-   * Instruções:https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instruções:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Caixa de areia:https://sandboxcernercentral.com/system-accounts/
+   * Caixa de areia: https://sandboxcernercentral.com/system-accounts/
 
-   * Produção:https://cernercentral.com/system-accounts/
+   * Produção:  https://cernercentral.com/system-accounts/
 
 3. Em seguida, gere um símbolo portador de OAuth para cada uma das suas contas do sistema. Para isso, siga as instruções abaixo.
 
-   * Instruções:https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instruções:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Caixa de areia:https://sandboxcernercentral.com/system-accounts/
+   * Caixa de areia: https://sandboxcernercentral.com/system-accounts/
 
-   * Produção:https://cernercentral.com/system-accounts/
+   * Produção:  https://cernercentral.com/system-accounts/
 
 4. Por fim, é necessário adquirir IDs de Lista de Utilizadores para os ambientes de areia e produção em Cerner para completar a configuração. Para obter informações sobre como adquiri-lo, consulte: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM . 
 
@@ -101,9 +96,9 @@ Para providenciar contas de utilizador à Cerner Central, terá de solicitar uma
 
    * No campo URL do **inquilino,** introduza um URL no formato abaixo, substituindo "User-Roster-Realm-ID" pelo ID do reino que adquiriu em #4 passo.
 
-    > Caixa de areia:https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Caixa de areia: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
     > 
-    > Produção:https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Produção: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * No campo **Token Secreto,** insira o token portador da OAuth que gerou na #3 passo e clique em **Test Connection**.
 
@@ -130,6 +125,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

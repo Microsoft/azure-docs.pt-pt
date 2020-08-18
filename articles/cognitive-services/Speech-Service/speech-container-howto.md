@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808665"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518327"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (pré-visualização)
 
-Os contentores permitem-lhe executar algumas das APIs do serviço de fala no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de segurança e governação de dados. Neste artigo você vai aprender a descarregar, instalar e executar um recipiente Speech.
+Os contentores permitem-lhe executar algumas das APIs do Serviço de voz no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo, ficará a saber como transferir, instalar e executar um contentor de Voz.
 
-Os recipientes de fala permitem aos clientes construir uma arquitetura de aplicação de fala que seja otimizada tanto para capacidades de nuvem robustas como para a localidade de borda. Há quatro recipientes diferentes disponíveis. Os dois recipientes padrão são **discurso-a-texto** e **texto-a-discurso**. Os dois recipientes personalizados são **personalizados Discurso-a-texto** e **Texto-a-Discurso Personalizado.** Os recipientes de fala têm os mesmos [preços que](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) os Serviços de Fala Azure baseados na nuvem.
+Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicação de voz, otimizada para capacidades de cloud robustas e localidades no Edge. Existem quatro contentores diferentes disponíveis. Os dois recipientes padrão são **discurso-a-texto** e **texto-a-discurso**. Os dois recipientes personalizados são **personalizados Discurso-a-texto** e **Texto-a-Discurso Personalizado.** Os recipientes de fala têm os mesmos [preços que](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) os Serviços de Fala Azure baseados na nuvem.
 
 > [!IMPORTANT]
 > Todos os recipientes de fala são atualmente oferecidos como parte de uma [pré-visualização pública "Gated".](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) Um anúncio será feito quando os contentores de fala progredirem para a Disponibilidade Geral (GA).
@@ -33,13 +33,13 @@ Os recipientes de fala permitem aos clientes construir uma arquitetura de aplica
 | Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
 | Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os seguintes pré-requisitos antes da utilização dos recipientes de fala:
 
-| Obrigatório | Objetivo |
+| Necessário | Objetivo |
 |--|--|
 | Motor do Docker | Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br> |
 | Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos. |
@@ -107,7 +107,7 @@ O núcleo e a memória correspondem às `--cpus` `--memory` definições e confi
 > [!NOTE]
 > Os mínimos e recomendados baseiam-se fora dos limites do Docker, *não* dos recursos da máquina hospedeira. Por exemplo, os contentores de memória de um grande modelo de linguagem, por exemplo, são *recomendados* que todo o ficheiro se encaixe na memória, que é um adicional de 4-6 GB. Além disso, a primeira execução de qualquer um dos recipientes pode demorar mais tempo, uma vez que os modelos estão a ser colocados na memória.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
 As imagens do contentor para a fala estão disponíveis no seguinte registo de contentores.
 
@@ -237,7 +237,7 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 1. [Consultar o ponto final de previsão do recipiente.](#query-the-containers-prediction-endpoint)
 
-## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
+## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com `docker run`
 
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o contentor. Consulte a [recolha dos parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{Endpoint_URI}` valores e `{API_Key}` valores. Estão também disponíveis [exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do `docker run` comando.
 
@@ -441,7 +441,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Simple.Extensions`irá devolver o resultado do sentimento na camada raiz da resposta.
+`Simple.Extensions` irá devolver o resultado do sentimento na camada raiz da resposta.
 
 ```json
 {
@@ -480,7 +480,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`fornece o resultado do sentimento na camada raiz da resposta. `Detailed.Options`fornece o resultado na `NBest` camada da resposta. Podem ser usados separadamente ou em conjunto.
+`Detailed.Extensions` fornece o resultado do sentimento na camada raiz da resposta. `Detailed.Options` fornece o resultado na `NBest` camada da resposta. Podem ser usados separadamente ou em conjunto.
 
 ```json
 {

@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar Leapsome para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao Leapsome.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: e5837887325c06f9140a3f40eb183139782e2a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d240819f3690292c572a350f387cd025c24737
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057469"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519313"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configurar Leapsome para o fornecimento automático de utilizadores
 
@@ -169,6 +165,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

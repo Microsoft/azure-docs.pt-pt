@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: a5c0e9bf94a9953e107de148792af2e39f8bac24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3ba9844bf8412e169322fd4953cbc259a94e174
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512289"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525780"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de uma tarefa de importação
 O serviço Importar/Exportar do Microsoft Azure pode não copiar alguns dos seus ficheiros ou partes de um ficheiro para o serviço Blob do Windows Azure. Alguns motivos de falhas incluem:  
@@ -24,7 +24,7 @@ O serviço Importar/Exportar do Microsoft Azure pode não copiar alguns dos seus
   
 -   A chave da conta de armazenamento mudou enquanto o ficheiro estava a ser transferido.  
   
-Pode executar a Ferramenta Importar/Exportar do Microsoft Azure com os ficheiros de registo de cópias da tarefa de importação, e a ferramenta envia os ficheiros em falta (ou partes de um ficheiro) para a sua conta de armazenamento Windows Azure para completar o trabalho de importação.  
+Pode executar a Ferramenta de Importação/Exportação do Microsoft Azure com os ficheiros de registo de cópias do trabalho de importação. A ferramenta envia os ficheiros em falta, ou partes de um ficheiro, para a sua conta de armazenamento Do Windows Azure para completar o trabalho de importação.  
   
 ## <a name="repairimport-parameters"></a>ReparaçãoParessos
 
@@ -32,24 +32,24 @@ Os seguintes parâmetros podem ser especificados com **RepairImport:**
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**Necessário.** Caminho para o ficheiro de reparação, que acompanha o progresso da reparação, e permite-lhe retomar uma reparação interrompida. Cada unidade deve ter um e único ficheiro de reparação. Quando iniciar uma reparação para uma determinada unidade, passe no caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação interrompida, deverá passar em nome de um ficheiro de reparação existente. O ficheiro de reparação correspondente à unidade-alvo deve ser sempre especificado.|  
+|**/r:**<RepairFile\>|**Necessário.** Caminho para o ficheiro de reparação, que acompanha o progresso da reparação, e permite-lhe retomar uma reparação interrompida. Cada unidade deve ter um e único ficheiro de reparação. Quando iniciar uma reparação para uma determinada unidade, passe no caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação interrompida, deverá passar em nome de um ficheiro de reparação existente. Especifique sempre o ficheiro de reparação correspondente à unidade do alvo.|  
 |**/logdir:**<LogDirectory\>|**É opcional.** O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado nenhum diretório de registos, o diretório atual é utilizado como diretório de registo.|  
-|**/d:**<TargetDirectories\>|**Necessário.** Um ou mais diretórios separados por pontos de separá-se de pontos que contêm os ficheiros originais que foram importados. A unidade de importação também pode ser utilizada, mas não é necessária se estiverem disponíveis localizações alternativas de ficheiros originais.|  
-|**/bk:**<BitLockerKey\>|**É opcional.** Deve especificar a tecla BitLocker se pretender que a ferramenta desbloqueie uma unidade encriptada onde os ficheiros originais estão disponíveis.|  
+|**/d:**<TargetDirectories\>|**Necessário.** Um ou mais diretórios separados por pontos de separá-se de pontos que contêm os ficheiros originais que foram importados. A unidade de importação também pode ser usada, mas não é necessária se estiverem disponíveis localizações alternativas de ficheiros originais.|  
+|**/bk:**<BitLockerKey\>|**É opcional.** Especifique a tecla BitLocker se pretender que a ferramenta desbloqueie uma unidade encriptada onde os ficheiros originais estão disponíveis.|  
 |**/sn:**<StorageAccountName\>|**Necessário.** O nome do armazém é responsável pelo trabalho de importação.|  
-|**/sk:**<StorageAccountKey\>|**Obrigatório** se e somente se não for especificado um SAS de contentor. A chave da conta para o armazém é a conta do trabalho de importação.|  
+|**/sk:**<StorageAccountKey\>|**Obrigatório** se e somente se um contentor SAS não for especificado. A chave da conta para o armazém é a conta do trabalho de importação.|  
 |**/csas:**<ContainerSas\>|**Necessário** se e somente se a chave da conta de armazenamento não for especificada. O contentor SAS para acesso às bolhas associadas ao trabalho de importação.|  
 |**/CopyLogFile:**<DriveCopyLogFile\>|**Necessário.** Caminho para o ficheiro de registo de cópia de unidade (ou registo verboso ou registo de erro). O ficheiro é gerado pelo serviço De importação/Exportação do Windows Azure e pode ser descarregado a partir do armazenamento de bolhas associado ao trabalho. O ficheiro de registo de cópias contém informações sobre bolhas ou ficheiros falhados, que devem ser reparados.|  
-|**/PathMapFile:**<DrivePathMapFile\>|**É opcional.** Caminho para um ficheiro de texto que pode ser usado para resolver ambiguidades se tiver vários ficheiros com o mesmo nome que estava a importar no mesmo trabalho. A primeira vez que a ferramenta é executada, pode povoar este ficheiro com todos os nomes ambíguos. As execuções subsequentes da ferramenta utilizam este ficheiro para resolver as ambiguidades.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**É opcional.** Caminho para um ficheiro de texto usado para resolver ambiguidades se tiver vários ficheiros com o mesmo nome que estava a importar no mesmo trabalho. A primeira vez que a ferramenta é executada, pode povoar este ficheiro com todos os nomes ambíguos. Posteriormente, executa a ferramenta, utilize este ficheiro para resolver as ambiguidades.|  
   
 ## <a name="using-the-repairimport-command"></a>Utilizando o comando RepairImport  
-Para reparar os dados de importação através do streaming dos dados através da rede, deve especificar os diretórios que contêm os ficheiros originais que estava a importar usando o `/d` parâmetro. Também tem de especificar o ficheiro de registo de cópia que descarregou a partir da sua conta de armazenamento. Uma linha de comando típica para reparar um trabalho de importação com falhas parciais parece:  
+Para reparar os dados de importação através do streaming dos dados através da rede, deve especificar os diretórios que contêm os ficheiros originais que estava a importar usando o `/d` parâmetro. Especificar também o ficheiro de registo de cópia que descarregou a partir da sua conta de armazenamento. Uma linha de comando típica para reparar um trabalho de importação com falhas parciais parece:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
-No exemplo seguinte de um ficheiro de registo de cópia, uma peça de 64-K de um ficheiro foi corrompida na unidade que foi enviada para o trabalho de importação. Uma vez que esta é a única falha indicada, o resto das bolhas no trabalho foram importadas com sucesso.  
+No exemplo seguinte de um ficheiro de registo de cópia, uma peça de 64-K de um ficheiro foi corrompida na unidade que foi enviada para o trabalho de importação. Uma vez que esta falha é a única indicada, o resto das bolhas no trabalho foram importadas com sucesso.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -75,7 +75,7 @@ Em algumas situações, a ferramenta pode não ser capaz de encontrar ou abrir o
   
 Pode ocorrer um erro ambíguo se a ferramenta estiver a tentar localizar `\animals\koala.jpg` e houver um ficheiro com esse nome em ambos e `C:\Users\bob\pictures` `X:\BobBackup\photos` . Ou seja, tanto `C:\Users\bob\pictures\animals\koala.jpg` e `X:\BobBackup\photos\animals\koala.jpg` existem nas unidades de emprego de importação.  
   
-A `/PathMapFile` opção permite-lhe resolver estes erros. Pode especificar o nome do ficheiro, que contém a lista de ficheiros que a ferramenta não foi capaz de identificar corretamente. O exemplo da linha de comando a seguir `9WM35C2V_pathmap.txt` povoa:  
+A `/PathMapFile` opção permite-lhe resolver estes erros. Pode especificar o nome do ficheiro, que contém a lista de ficheiros que a ferramenta não conseguiu identificar corretamente. O exemplo da linha de comando a seguir `9WM35C2V_pathmap.txt` povoa:  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
@@ -88,7 +88,7 @@ A ferramenta escreverá então os caminhos problemáticos do ficheiro para `9WM3
 \animals\kangaroo.jpg  
 ```
   
- Para cada ficheiro da lista, deverá tentar localizar e abrir o ficheiro para garantir que está disponível para a ferramenta. Se desejar dizer explicitamente à ferramenta onde encontrar um ficheiro, pode modificar o ficheiro do mapa do caminho e adicionar o caminho a cada ficheiro na mesma linha, separado por um caractere de separador:  
+ Para cada ficheiro da lista, deverá tentar localizar e abrir o ficheiro para garantir que está disponível para a ferramenta. Se desejar dizer explicitamente à ferramenta onde encontrar um ficheiro, modificar o ficheiro do mapa do caminho e adicionar o caminho a cada ficheiro na mesma linha, separado por um caractere de separador:  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
@@ -97,10 +97,9 @@ A ferramenta escreverá então os caminhos problemáticos do ficheiro para `9WM3
   
 Depois de disponibilizar os ficheiros necessários à ferramenta ou de atualizar o ficheiro do mapa de caminhos, pode voltar a completar a ferramenta para concluir o processo de importação.  
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do estado da tarefa com ficheiros de registo de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Resolver problemas da Ferramenta de Importação /Exportação do Azure (Troubleshooting the Azure Import/Export Tool)](storage-import-export-tool-troubleshooting-v1.md)
+* [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)

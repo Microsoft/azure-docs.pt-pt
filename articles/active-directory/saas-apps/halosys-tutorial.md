@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Halosys Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Halosys.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7cdc8dce8a4b30b543c4e332207354697a9e0d
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 5c5efdfb90f98374c988fa2908bf2cc32097042b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367670"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integração do Azure Ative Directory com Halosys
 
@@ -106,9 +101,9 @@ Para configurar o Azure AD com Halosys, execute os seguintes passos:
 
     ![Halosys Domain e URLs informações únicas de assinatura](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<company-name>.halosys.com`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<company-name>.halosys.com`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<company-name>.halosys.com/<instance name>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente Halosys](https://www.sonata-software.com/form/contact) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

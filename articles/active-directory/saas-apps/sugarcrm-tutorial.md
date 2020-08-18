@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com CRM de açúcar Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Sugar CRM.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3331b9fc-ebc0-4a3a-9f7b-bf20ee35d180
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3199509b03b058b71b609d276a8d95e8d225175
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167764"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533707"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com CRM de açúcar
 
@@ -143,7 +138,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Na secção **Administração,** clique em **Gestão de Passwords.**
 
@@ -175,7 +170,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Na secção **Administração,** clique em **Gestão de Utilizadores.**
 
@@ -212,9 +207,9 @@ Quando clicar no azulejo de CRM do açúcar no Painel de Acesso, deverá ser aut
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

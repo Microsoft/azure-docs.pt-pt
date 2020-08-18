@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 32650d44b452b90ffd2935eb31f7c7b958c0f7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/18/2020
+ms.openlocfilehash: 8ec950ddabd3844618c878471d2e1391979e2056
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737769"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521378"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copie os dados de e para o servidor SFTP utilizando a Azure Data Factory
 
@@ -56,24 +56,24 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado SFTP:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para *Sftp*. |Sim |
-| anfitrião | O nome ou endereço IP do servidor SFTP. |Sim |
-| porta | A porta na qual o servidor SFTP está a ouvir.<br/>O valor permitido é um número inteiro, e o valor padrão é *de 22*. |Não |
-| skipHostKeyValidation | Especificar se deve ignorar a validação da chave do anfitrião.<br/>Os valores permitidos são *verdadeiros* e *falsos* (padrão).  | Não |
+| tipo | A propriedade tipo deve ser definida para *Sftp*. |Yes |
+| anfitrião | O nome ou endereço IP do servidor SFTP. |Yes |
+| porta | A porta na qual o servidor SFTP está a ouvir.<br/>O valor permitido é um número inteiro, e o valor padrão é *de 22*. |No |
+| skipHostKeyValidation | Especificar se deve ignorar a validação da chave do anfitrião.<br/>Os valores permitidos são *verdadeiros* e *falsos* (padrão).  | No |
 | hostKeyFingerprint | Especifique a impressão digital da chave hospedeira. | Sim, se o "skipHostKeyValidation" estiver definido como falso.  |
-| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic* e *SshPublicKey*. Para obter mais propriedades, consulte a secção [de autenticação básica Utilizar.](#use-basic-authentication) Para os exemplos JSON, consulte a secção [de autenticação da chave pública Use SSH.](#use-ssh-public-key-authentication) |Sim |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Para saber mais, consulte a secção [Pré-Requisitos.](#prerequisites) Se o tempo de execução da integração não for especificado, o serviço utiliza o tempo de execução de integração Azure predefinido. |Não |
+| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic* e *SshPublicKey*. Para obter mais propriedades, consulte a secção [de autenticação básica Utilizar.](#use-basic-authentication) Para os exemplos JSON, consulte a secção [de autenticação da chave pública Use SSH.](#use-ssh-public-key-authentication) |Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Para saber mais, consulte a secção [Pré-Requisitos.](#prerequisites) Se o tempo de execução da integração não for especificado, o serviço utiliza o tempo de execução de integração Azure predefinido. |No |
 
 ### <a name="use-basic-authentication"></a>Utilizar a autenticação básica
 
 Para utilizar a autenticação básica, desaprova a propriedade *autenticaçãoType* para *Basic,* e especifique as seguintes propriedades para além das propriedades genéricas do conector SFTP que foram introduzidas na secção anterior:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O utilizador que tem acesso ao servidor SFTP. |Sim |
-| palavra-passe | A palavra-passe para o utilizador (userName). Marque este campo como um SecureString para armazená-lo de forma segura na sua fábrica de dados, ou [fazer referência a um segredo armazenado num cofre de chaves Azure](store-credentials-in-key-vault.md). | Sim |
+| userName | O utilizador que tem acesso ao servidor SFTP. |Yes |
+| palavra-passe | A palavra-passe para o utilizador (userName). Marque este campo como um SecureString para armazená-lo de forma segura na sua fábrica de dados, ou [fazer referência a um segredo armazenado num cofre de chaves Azure](store-credentials-in-key-vault.md). | Yes |
 
 **Exemplo:**
 
@@ -107,9 +107,9 @@ Para utilizar a autenticação básica, desaprova a propriedade *autenticaçãoT
 
 Para utilizar a autenticação de chaves públicas SSH, descreva a propriedade "authenticationType" como **SshPublicKey**, e especifique as seguintes propriedades além das genéricas do conector SFTP introduzidas na última secção:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O utilizador que tem acesso ao servidor SFTP. |Sim |
+| userName | O utilizador que tem acesso ao servidor SFTP. |Yes |
 | privateKeyPath | Especifique o caminho absoluto para o ficheiro chave privado que o tempo de integração pode aceder. Isto só se aplica quando o tipo de tempo de integração auto-hospedado é especificado em "connectVia". | Especificar ou `privateKeyPath` `privateKeyContent` especificar ou .  |
 | privateKeyContent | Base64 codificado conteúdo de chave privada SSH. A chave privada SSH deve ser o formato OpenSSH. Marque este campo como um SecureString para armazená-lo de forma segura na sua fábrica de dados, ou [fazer referência a um segredo armazenado num cofre de chaves Azure](store-credentials-in-key-vault.md). | Especificar ou `privateKeyPath` `privateKeyContent` especificar ou . |
 | passPhrase | Especifique a frase de passe ou a palavra-passe para desencriptar a chave privada se o ficheiro chave estiver protegido por uma frase de passe. Marque este campo como um SecureString para armazená-lo de forma segura na sua fábrica de dados, ou [fazer referência a um segredo armazenado num cofre de chaves Azure](store-credentials-in-key-vault.md). | Sim, se o ficheiro de chave privada estiver protegido por uma frase de passe. |
@@ -184,11 +184,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para SFTP `location` em definições no conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Necessário |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade *tipo* `location` em conjunto de dados deve ser definida como *SftpLocation*. | Sim      |
-| folderPath | O caminho para a pasta. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique o caminho nas definições de origem da atividade. | Não       |
-| fileName   | O nome do ficheiro na pasta especificadaPath. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique o nome do ficheiro nas definições de origem da atividade. | Não       |
+| tipo       | A propriedade *tipo* `location` em conjunto de dados deve ser definida como *SftpLocation*. | Yes      |
+| folderPath | O caminho para a pasta. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique o caminho nas definições de origem da atividade. | No       |
+| fileName   | O nome do ficheiro na pasta especificadaPath. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique o nome do ficheiro nas definições de origem da atividade. | No       |
 
 **Exemplo:**
 
@@ -226,20 +226,20 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para SFTP sob as `storeSettings` definições na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário                                      |
+| Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para *SftpReadSettings*. | Sim                                           |
+| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para *SftpReadSettings*. | Yes                                           |
 | ***Localizar os ficheiros para copiar*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Cópia do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de uma pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome da sua pasta tiver um wildcard ou este char de fuga no interior. <br>Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta especificadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior.  Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um conjunto de ficheiros especificado. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados).<br/>Quando utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Para mais exemplos, consulte [exemplos da lista de ficheiros.](#file-list-examples) |Não |
+| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome da sua pasta tiver um wildcard ou este char de fuga no interior. <br>Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
+| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta especificadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior.  Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
+| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um conjunto de ficheiros especificado. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados).<br/>Quando utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Para mais exemplos, consulte [exemplos da lista de ficheiros.](#file-list-examples) |No |
 | ***Definições adicionais*** |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são *verdadeiros* (padrão) e *falsos.*<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |
-| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia binária, onde as lojas de fontes de dados são Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. O valor predefinido: falso. |Não |
-| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo *Last Modified*. <br>Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | Não                                            |
-| modificadoDatetimeEnd      | O mesmo que acima.                                               | Não                                            |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | Não                                            |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são *verdadeiros* (padrão) e *falsos.*<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
+| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia binária, onde as lojas de fontes de dados são Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. O valor predefinido: falso. |No |
+| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo *Last Modified*. <br>Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
+| modificadoDatetimeEnd      | O mesmo que acima.                                               | No                                            |
+| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No                                            |
 
 **Exemplo:**
 
@@ -284,17 +284,17 @@ As seguintes propriedades são suportadas para SFTP sob as `storeSettings` defin
 
 ### <a name="sftp-as-a-sink"></a>SFTP como um lavatório
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 As seguintes propriedades são suportadas para SFTP `storeSettings` em configurações num lavatório de cópia baseado em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário |
+| Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para *SftpWriteSettings*. | Sim      |
-| copyOportundo             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não       |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | Não       |
+| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para *SftpWriteSettings*. | Yes      |
+| copyOportundo             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | No       |
+| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No       |
 | useTempFileRename | Indique se deve fazer o upload para ficheiros temporários e renomeá-los, ou escrever diretamente para a pasta alvo ou para a localização do ficheiro. Por predefinição, a Azure Data Factory escreve primeiro para ficheiros temporários e depois rebatiza-os quando o upload está terminado. Esta sequência ajuda a (1) evitar conflitos que possam resultar num ficheiro corrompido se tiver outros processos escritos para o mesmo ficheiro, e (2) garantir que a versão original do ficheiro existe durante a transferência. Se o seu servidor SFTP não suportar uma operação de renome, desative esta opção e certifique-se de que não tem uma escrita simultânea para o ficheiro alvo. Para mais informações, consulte a ponta de resolução de problemas no final desta tabela. | Não. O valor predefinido é *verdadeiro.* |
-| operaçãoTimeout | O tempo de espera antes de cada pedido de escrita para o servidor SFTP horas fora. O valor predefinido é de 60 min (01:00:00).|Não |
+| operaçãoTimeout | O tempo de espera antes de cada pedido de escrita para o servidor SFTP horas fora. O valor predefinido é de 60 min (01:00:00).|No |
 
 >[!TIP]
 >Se receber o erro "UserErrorSftpPathNotFound", "UserErrorSftpPermissionDenied", ou "SftpOperationFail" quando estiver a escrever dados no SFTP, e o utilizador SFTP que utiliza *tem* as permissões adequadas, verifique se o seu sistema de suporte ao servidor SFTP está a funcionar. Se não for, desative o upload com a opção de **ficheiro temporário** `useTempFileRename` () e tente novamente. Para saber mais sobre esta propriedade, consulte a tabela anterior. Se utilizar um tempo de integração auto-hospedado para a atividade Copy, certifique-se de que utiliza a versão 4.6 ou mais tarde.
@@ -351,7 +351,7 @@ Esta tabela descreve o comportamento que resulta da utilização de um caminho d
 
 | Estrutura de origem da amostra                                      | Conteúdo em FileListToCopy.txt                             | Configuração da Fábrica de Dados Azure                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| raiz<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Sub-página1/File3.csv<br>Sub-página1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta:`root/FolderA`<br><br>**Na fonte de atividade copy:**<br>- Caminho da lista de ficheiros:`root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de ficheiros aponta para um ficheiro de texto na mesma loja de dados que inclui uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
+| raiz<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Sub-página1/File3.csv<br>Sub-página1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Na fonte de atividade copy:**<br>- Caminho da lista de ficheiros: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de ficheiros aponta para um ficheiro de texto na mesma loja de dados que inclui uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
@@ -372,15 +372,15 @@ Para obter informações sobre as propriedades da atividade de Apagar, consulte 
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade *tipo* do conjunto de dados deve ser definida para *FileShare*. |Sim |
-| folderPath | O caminho para a pasta. Um filtro wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o seu nome de ficheiro real tiver um wildcard ou este char de fuga no interior. <br/><br/>Exemplos: rootfolder/subfolder/, ver mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Sim |
-| fileName |  **Nome ou filtro wildcard** para os ficheiros sob a especificada "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único carácter).<br/>- Exemplo 1:`"fileName": "*.csv"`<br/>- Exemplo 2:`"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior. |Não |
-| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral do movimento de dados será afetado permitindo esta definição quando pretender fazer filtro de ficheiros a partir de um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
-| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral do movimento de dados será afetado permitindo esta definição quando pretender fazer filtro de ficheiros a partir de um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
+| tipo | A propriedade *tipo* do conjunto de dados deve ser definida para *FileShare*. |Yes |
+| folderPath | O caminho para a pasta. Um filtro wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o seu nome de ficheiro real tiver um wildcard ou este char de fuga no interior. <br/><br/>Exemplos: rootfolder/subfolder/, ver mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Yes |
+| fileName |  **Nome ou filtro wildcard** para os ficheiros sob a especificada "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único carácter).<br/>- Exemplo 1: `"fileName": "*.csv"`<br/>- Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior. |No |
+| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral do movimento de dados será afetado permitindo esta definição quando pretender fazer filtro de ficheiros a partir de um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| No |
+| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral do movimento de dados será afetado permitindo esta definição quando pretender fazer filtro de ficheiros a partir de um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| No |
 | formato | Se pretender copiar ficheiros como está entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, suportam-se os seguintes tipos de formato de ficheiro: *TextFormat,* *JsonFormat,* *AvroFormat,* *OrcFormat*e *ParquetFormat*. Desa um destes valores, o *tipo* de propriedade em formato. Para mais informações, consulte [o formato Text,](supported-file-formats-and-compression-codecs-legacy.md#text-format) [formato Json,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e secções [de formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para cenário de cópia binária) |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são *GZip,* *Deflate,* *BZip2*e *ZipDeflate*.<br/>Os níveis suportados são *ideais* e *mais rápidos.* |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são *GZip,* *Deflate,* *BZip2*e *ZipDeflate*.<br/>Os níveis suportados são *ideais* e *mais rápidos.* |No |
 
 >[!TIP]
 >Para copiar todos os ficheiros numa pasta, especifique apenas *o apêndio.*<br>Para copiar um único ficheiro com um nome especificado, especifique *a pastaPata* com a parte da pasta e *o nome de ficheiro* com o nome do ficheiro.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique *a pastaPata* com a parte da pasta e *arquive o nome* com o filtro wildcard.
@@ -421,11 +421,11 @@ Para obter informações sobre as propriedades da atividade de Apagar, consulte 
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia legacy Copy
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *FileSystemSource* |Sim |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, as pastas vazias e as sub-dobras não serão copiadas ou criadas na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos* | Não |
-| maxConcurrentConnections | O número de ligações que podem ligar-se a uma loja de armazenamento simultaneamente. Especifique um número apenas quando pretende limitar as ligações simultâneas à loja de dados. | Não |
+| tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *FileSystemSource* |Yes |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, as pastas vazias e as sub-dobras não serão copiadas ou criadas na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos* | No |
+| maxConcurrentConnections | O número de ligações que podem ligar-se a uma loja de armazenamento simultaneamente. Especifique um número apenas quando pretende limitar as ligações simultâneas à loja de dados. | No |
 
 **Exemplo:**
 
@@ -459,5 +459,5 @@ Para obter informações sobre as propriedades da atividade de Apagar, consulte 
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados que são suportadas como fontes e sumidouros pela atividade Copy na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Lenses.io Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Lenses.io.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2a0d4a7c-a171-48c6-b1c1-f2bd728fb37f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b630111261be8e3615ab45e95633040e799551
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0b8d736ab169ad07bd23a21d3a420bb6a044bf01
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050995"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88528646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o portal Lenses.io DataOps.
 
@@ -85,12 +81,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>` por exemplo.`https://lenses.my.company.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>` por exemplo. `https://lenses.my.company.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>` por exemplo.`https://lenses.my.company.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>` por exemplo. `https://lenses.my.company.com`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
-    por exemplo.`https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
+    por exemplo. `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador, com base no URL base da sua instância do portal Lenses. Pode encontrar mais informações na [documentação Lenses.io SSO.](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
@@ -112,15 +108,15 @@ Você pode descobrir como lenses usa mapeamento de membro do grupo para autoriza
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 Para criar o grupo:
 1. Volte para **o Azure Ative Directory**, selecione **Groups**
 1. Selecione **Novo grupo** na parte superior do ecrã.
 1. Nas propriedades do **Grupo,** siga estes passos:
    1. No campo **do tipo Grupo,** selecione `Security` .
-   1. No campo **Nome de Grupo,** insira`LensesUsers`
-   1. Clique em **Create** (Criar).
+   1. No campo **Nome de Grupo,** insira `LensesUsers`
+   1. Clique em **Criar**.
 1. Selecione o grupo `LensesUsers` e tome nota do **Id do Objeto** (por `f8b5c1ec-45de-4abd-af5c-e874091fb5f7` exemplo). Este ID será usado em Lentes para mapear os utilizadores desse grupo para as [permissões corretas.](https://docs.lenses.io/install_setup/configuration/security.html#id3)  
    
 Para atribuir o grupo ao utilizador de teste: 
@@ -167,11 +163,11 @@ Quando clicar no azulejo Lenses.io no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Configurar sSO na sua Lenses.io instância](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
+- [ Configurar sSO na sua Lenses.io instância ](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

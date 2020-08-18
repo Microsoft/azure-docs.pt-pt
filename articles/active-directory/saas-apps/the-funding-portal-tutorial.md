@@ -1,152 +1,147 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração única (SSO) com o Portal de Financiamento [ SSO) Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Financiamento Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Portal de Financiamento.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4663cc8a-976a-4c6c-b3b4-1e5df9b66744
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f707e9e56ea5386f1ccb438aa06aac066784e7cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8b54d3a9f4a9b0fd74a1aabd2b5b696db213bab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70173442"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516797"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-funding-portal"></a>Tutorial: Azure Ative Diretório integração única (SSO) com o Portal de Financiamento
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-funding-portal"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Financiamento
 
-Neste tutorial, você vai aprender a integrar o Portal de Financiamento com o Azure Ative Directory (Azure AD). Quando integrar o Portal de Financiamento com a Azure AD, pode:
+Neste tutorial, você vai aprender a integrar o Portal de Financiamento com O Diretório Ativo Azure (Azure AD). Quando integrar o Portal de Financiamento com AZure AD, pode:
 
-* Controlo em Azure AD que tem acesso ao Portal de Financiamento.
-* Permitir que os seus utilizadores sejam automaticamente inscritos no Portal de Financiamento com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Controlo em AZure AD que tem acesso ao Portal do Financiamento.
+* Permitir que os seus utilizadores sejam automaticamente inscritos no Portal do Financiamento com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* O Portal de Financiamento único (SSO) permitiu a subscrição.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura única ativada pelo Portal de Financiamento (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Portal de Financiamento apoia **SP** iniciado SSO
+* O Portal de Financiamento apoia **o SSO** iniciado pela SP
 
 ## <a name="adding-the-funding-portal-from-the-gallery"></a>Adicionar o Portal de Financiamento da galeria
 
-Para configurar a integração do Portal de Financiamento em Azure AD, é necessário adicionar o Portal de Financiamento da galeria à sua lista de aplicações geridas do SaaS.
+Para configurar a integração do Portal de Financiamento no AD AZure, é necessário adicionar o Portal de Financiamento da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No **Add da** secção galeria, digite **o Portal de Financiamento** na caixa de pesquisa.
-1. Selecione **o Portal** de Financiamento do painel de resultados e, em seguida, adicione a app. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite O Portal de Financiamento** na caixa de pesquisa.
+1. Selecione **o Portal de Financiamento** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-the-funding-portal"></a>Configure e teste Azure AD único signo para o Portal de Financiamento
+## <a name="configure-and-test-azure-ad-single-sign-on-for-the-funding-portal"></a>Configurar e testar Azure AD único sinal para o Portal de Financiamento
 
-Configure e teste Azure AD SSO com o Portal de Financiamento utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador coligado no Portal de Financiamento.
+Configure e teste Azure AD SSO com o Portal de Financiamento usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Portal do Financiamento.
 
-Para configurar e testar o Azure AD SSO com o Portal de Financiamento, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com o Portal de Financiamento, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure o Portal de Financiamento SSO](#configure-the-funding-portal-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    1. **[Criar o utilizador](#create-the-funding-portal-test-user)** de teste do Portal de Financiamento - para ter uma contrapartida de B.Simon no Portal de Financiamento que está ligado à representação da AD Azure do utilizador.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Portal de Financiamento SSO](#configure-the-funding-portal-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create The Funding Portal test user](#create-the-funding-portal-test-user)** - para ter uma contrapartida de B.Simon no Portal de Financiamento que está ligada à representação AZure AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações do **Portal de Financiamento,** encontre a secção **Gerir** e selecione um **único sinal.**
-1. Na página **de método de inscrição, selecione** **SAML**.
-1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do Portal do Financiamento,** encontre a secção **Gerir** e selecione um único sinal de **sing.**
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
+1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<subdomain>.regenteducation.net/`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<subdomain>.regenteducation.net/`
 
-    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<subdomain>.regenteducation.net`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<subdomain>.regenteducation.net`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de apoio ao Cliente do [Portal de Financiamento](mailto:info@regenteducation.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de apoio ao Cliente do Portal de Financiamento](mailto:info@regenteducation.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-1. Na secção **Configurar o Portal de Financiamento,** copie os URL(s) adequados com base na sua exigência.
+1. Na secção **Configurar O Portal de Financiamento,** copie os URL(s) apropriados com base na sua exigência.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que b.Simon utilize o único signon azure, concedendo acesso ao Portal de Financiamento.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Portal de Financiamento.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **O Portal de Financiamento.**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-the-funding-portal-sso"></a>Configure o Portal de Financiamento SSO
+## <a name="configure-the-funding-portal-sso"></a>Configurar o portal de financiamento SSO
 
-Para configurar um único sign-on no lado do Portal de **Financiamento,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de suporte do [Portal de Financiamento.](mailto:info@regenteducation.com) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **do Portal de Financiamento,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte do Portal de Financiamento](mailto:info@regenteducation.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-the-funding-portal-test-user"></a>Criar o utilizador de teste do Portal de Financiamento
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon no Portal de Financiamento. Trabalhar com a equipa de apoio do [Portal de Financiamento](mailto:info@regenteducation.com) para adicionar os utilizadores na plataforma Portal de Financiamento. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado Britta Simon no Portal do Financiamento. Trabalhe com [a equipa de apoio do Portal do Financiamento](mailto:info@regenteducation.com) para adicionar os utilizadores na plataforma Portal do Financiamento. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no portal de financiamento no Painel de Acesso, deverá ser automaticamente inscrito no Portal de Financiamento para o qual criou o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo do Portal do Financiamento no Painel de Acesso, deverá ser automaticamente inscrito no Portal de Financiamento para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o Portal de Financiamento com AD Azure](https://aad.portal.azure.com/)
+- [Experimente o Portal de Financiamento com Azure AD](https://aad.portal.azure.com/)

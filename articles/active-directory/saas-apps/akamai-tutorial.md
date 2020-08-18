@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Akamai Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Akamai.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1b7e0d7a-e78f-43a5-af93-b626186e2376
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: fbec82e25424fd5220aa992cf2dd0e8449e6a0a4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232394"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523138"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -148,9 +144,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a [equipa de suporte do Cliente Akamai](https://www.akamai.com/us/en/contact-us/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -540,15 +536,15 @@ Atribuir o Fornecedor de Identidade
 
 1. Aqui está a Sintaxe genérica.
 
-1. ktpass /out ActiveDirectorydomain.keytab /princ `HTTP/yourloginportalurl@ADDomain.com` /mapuser serviceaccount@ADdomain.com /pass +rdnPass /crypto All /ptype KRB5_NT_PRINCIPAL
+1. ktpass /out ActiveDirectorydomain.keytab /princ `HTTP/yourloginportalurl@ADDomain.com`  /mapuser serviceaccount@ADdomain.com /pass +rdnPass /crypto All /ptype KRB5_NT_PRINCIPAL
 
 1. Exemplo explicado
 
     | Fragmento de código | Explicação |
     | - | - |
     | Ktpass /out EAADemo.keytab | Nome do ficheiro Keytab de saída |
-    | /princHTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
-    | /mapusereaadelegation@superdemo.live | Conta da delegação da EAA |
+    | /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
+    | /mapuser eaadelegation@superdemo.live | Conta da delegação da EAA |
     | /passe RANDOMPASS | Password da conta da delegação da EAA |
     | /crypto All ptype KRB5_NT_PRINCIPAL | consultar documentação akamai EAA |
     | | |
@@ -597,9 +593,9 @@ Quando clicar no azulejo da Akamai no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

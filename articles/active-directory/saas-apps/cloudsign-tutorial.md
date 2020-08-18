@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com CloudSign Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o CloudSign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2ecfde55-6a37-4b82-80bb-30390e0a0404
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1bc880d7e01879f7ac89eb2e2fcd36d19f583a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b47f9156b9e18db5ff61f0ea8af37cc0d39988ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101776"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudsign"></a>Tutorial: Azure Ative Directory integração única (SSO) com CloudSign
 
@@ -84,11 +80,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** o URL:`https://www.cloudsign.jp/login`
+    a. Na caixa de texto **URL, digite** o URL: `https://www.cloudsign.jp/login`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`urn:amazon:cognito:sp:ap-northeast-1_<CUSTOM_ID>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `urn:amazon:cognito:sp:ap-northeast-1_<CUSTOM_ID>`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://cloudsign-<CUSTOM_ID>.auth.ap-northeast-1.amazoncognito.com/saml2/idpresponse`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://cloudsign-<CUSTOM_ID>.auth.ap-northeast-1.amazoncognito.com/saml2/idpresponse`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de resposta e o identificador de resposta. Contacte [a equipa de suporte do Cliente CloudSign](mailto:contact@cloudsign.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -111,7 +107,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -147,9 +143,9 @@ Quando clicar no azulejo CloudSign no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

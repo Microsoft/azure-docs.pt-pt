@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037172"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520533"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -44,7 +45,7 @@ Para os clientes que migram de servidores de ficheiros no local ou criam novas a
 
 Se pretender utilizar a chave da conta de armazenamento para aceder às suas ações de ficheiros Azure, recomendamos a utilização de pontos finais de serviço, conforme descrito na secção [Networking.](#networking)
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 As ações de ficheiros Azure estão acessíveis a partir de qualquer lugar através do ponto final público da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de início de súmã de um utilizador, podem ter origem seguramente dentro ou fora de Azure. Em muitos ambientes de clientes, uma montagem inicial da partilha de ficheiros Azure na sua estação de trabalho no local falhará, mesmo que os suportes dos VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que o SMB usa para comunicar, porta 445. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
@@ -86,7 +87,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.
@@ -103,7 +104,7 @@ Para obter mais informações, consulte [a proteção contra ameaças avançadas
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-Em geral, as funcionalidades da Azure Files e a interoperabilidade com outros serviços são as mesmas entre ações de ficheiros premium e ações de ficheiros padrão, no entanto existem algumas diferenças importantes:
+Em geral, as funcionalidades da Azure Files e a interoperabilidade com outros serviços são as mesmas entre ações de ficheiros premium e ações de ficheiros padrão (incluindo ações de ficheiros otimizadas, quentes e cool), no entanto existem algumas diferenças importantes:
 - **Modelo de faturação**
     - As ações de ficheiros premium são faturadas usando um modelo de faturação provisão, o que significa que você paga pelo armazenamento que você presta em vez de quanto armazenamento você realmente pede. 
     - As ações de ficheiros standard são faturadas usando um modelo pay-as-you-go, que inclui um custo base de armazenamento para o armazenamento que você está realmente consumindo e, em seguida, um custo adicional de transação com base na forma como você usa a ação. Com as ações de ficheiro padrão, a sua conta aumentará se utilizar (ler/escrever/montar) o ficheiro Azure partilhar mais.

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Nuvem Atlassian Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Atlassian Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aafe6af0157ec187e787006d6c04bc1c5c8a8b0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271214"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517657"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
 

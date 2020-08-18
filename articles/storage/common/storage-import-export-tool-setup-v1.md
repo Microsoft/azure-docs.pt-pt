@@ -1,6 +1,6 @@
 ---
 title: Criação da Ferramenta de Importação/Exportação Azure v1 / Microsoft Docs
-description: Saiba como configurar a ferramenta de preparação e reparação de unidades para o serviço Azure Import/Export. Isto refere-se a v1 da Ferramenta de Importação/Exportação.
+description: Saiba como configurar a ferramenta de preparação e reparação de unidades para o serviço Azure Import/Export. Este artigo refere-se à versão 1 da Ferramenta de Importação/Exportação.
 author: twooley
 services: storage
 ms.service: storage
@@ -8,28 +8,28 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077813"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530805"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Criação da Ferramenta de Importação/Exportação Azure v1
 A Ferramenta de Importação/Exportação microsoft Azure é a ferramenta de preparação e reparação de unidades que pode utilizar com o serviço De importação/Exportação do Microsoft Azure. Pode utilizar a ferramenta para as seguintes funções:  
 
--   Antes de criar uma tarefa de importação, pode utilizar esta ferramenta para copiar dados para os discos rígidos que vai enviar para um centro de dados do Windows Azure.  
+-   Antes de criar uma tarefa de importação, pode utilizar esta ferramenta para copiar dados para os discos rígidos que está a enviar para um centro de dados do Windows Azure.  
 
 -   Depois de concluída uma tarefa de importação, pode utilizar esta ferramenta para reparar quaisquer bolhas que foram corrompidas, que estavam desaparecidas ou em conflito com outras bolhas.  
 
 -   Depois de receber as unidades de uma tarefa de exportação concluída, pode utilizar esta ferramenta para reparar quaisquer ficheiros que foram corrompidos ou em falta nas unidades.  
 
 ## <a name="prerequisites"></a>Pré-requisitos  
-Se estiver a preparar unidades para um trabalho de importação, terá de cumprir os seguintes requisitos:  
+Se estiver a preparar unidades para um trabalho de importação, terá de cumprir os seguintes pré-requisitos:  
 
 -   Deve ter uma subscrição ativa do Azure.  
 
--   A sua subscrição deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os ficheiros que vai importar.  
+-   A sua subscrição deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os ficheiros que está a importar.  
 
 -   Precisa de pelo menos uma das chaves da conta para a conta de armazenamento.  
 
@@ -39,7 +39,7 @@ Se estiver a preparar unidades para um trabalho de importação, terá de cumpri
 
 -   O BitLocker deve ser ativado na máquina de cópia.  
 
--   Necessitará de uma ou mais unidades que contenham dados para serem importados ou discos rígidos SATA vazios de 3,5 polegadas ligados à máquina de cópia.  
+-   Você precisará de uma ou mais unidades que contenham dados para serem importados ou discos rígidos SATA vazios de 3,5 polegadas ligados à máquina de cópia.  
 
 -   Os ficheiros que pretende importar devem estar acessíveis a partir da máquina de cópia, quer estejam numa partilha de rede ou num disco rígido local.
 
@@ -253,5 +253,4 @@ Examples:
 * [Pré-visualização do uso do Drive para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Revisão do estado da tarefa com ficheiros de registo de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de uma tarefa de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Resolver problemas da Ferramenta de Importação /Exportação do Azure (Troubleshooting the Azure Import/Export Tool)](storage-import-export-tool-troubleshooting-v1.md)
+* [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)

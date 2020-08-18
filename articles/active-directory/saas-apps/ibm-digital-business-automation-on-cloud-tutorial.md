@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a IBM Digital Business Automation na Cloud Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a IBM Digital Business Automation na Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 46f9c739-cd21-4d84-9b65-8e0e381e85ea
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: c3c2e9b8b37d3d81b9683e871844e2dd8d099074
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479798"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517068"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutorial: Azure Ative Directy integração única (SSO) com IBM Digital Business Automation on Cloud
 
@@ -97,13 +93,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Se não tiver **um ficheiro de metadados do Fornecedor de Serviços,** na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20/login`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20/login`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://www.automationcloud.ibm.com/isam/sps/<TENANT>/login`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/login`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a IBM Digital Business Automation na equipa de suporte do Cliente Cloud](mailto:supportbpmoncloud@us.ibm.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -161,9 +157,9 @@ Quando clicar na IBM Digital Business Automation on Cloud no Painel de Acesso, d
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

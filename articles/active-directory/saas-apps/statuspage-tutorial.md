@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com statusPage / Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o StatusPage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: c1ad9d7afd215371b92c83445cfd1c8778bc0642
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170535"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Diretório Ativo Azure com statusPage
 

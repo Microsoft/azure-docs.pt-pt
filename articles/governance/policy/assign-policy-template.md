@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com modelos'
 description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma atribuição de política para identificar recursos não conformes.
-ms.date: 05/21/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: f4cb4cb1fc56d06ab1e061b2d0e9a031e0e511dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 93c8e907190a3e87c3c0ce3392ccfd7fd4d2e515
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242054"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520877"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo ARM
 
@@ -18,7 +18,7 @@ Este quickstart passos através do processo de utilização de um modelo de Gest
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar o modelo ARM para atribuir uma Política de Azure ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Neste arranque rápido, cria-se uma atribuição de política e atribui-se uma definição de política incorporada chamada _Audit VMs que não utilizam discos geridos_. Para obter uma lista parcial das políticas incorporadas disponíveis, consulte [as amostras da Política Azure](./samples/index.md).
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
 :::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
@@ -49,12 +49,12 @@ O recurso definido no modelo é:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \<Date in MMDD\> rg_. |
    | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
-   | Nome de atribuição de políticas | Especifique um nome de atribuição de política. Pode utilizar o visor de definição de política, se quiser. Por exemplo, **Audit VMs que não utilizam discos geridos**. |
+   | Nome de atribuição de políticas | Especifique um nome de atribuição de política. Pode utilizar o visor de definição de política, se quiser. Por exemplo, _Audit VMs que não utilizam discos geridos_. |
    | Nome Rg | Especifique um nome de grupo de recursos para onde pretende atribuir a apólice. Neste arranque rápido, utilize o valor predefinido **[grupo de recursos().nome]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
    | ID de definição de política | Especificar **/fornecedores/Microsoft.Autorização/políticaDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Concordo com os termos e condições acima indicados | (Selecione) |
@@ -70,7 +70,7 @@ Alguns recursos adicionais:
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
-Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize os **VMs de auditoria que não utilizem** a atribuição de política de discos geridos que criou.
+Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize os _VMs de auditoria que não utilizem_ a atribuição de política de discos geridos que criou.
 
 :::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página geral de conformidade de política" border="false":::
 
@@ -78,13 +78,13 @@ Se houver recursos existentes que não estejam em conformidade com esta nova atr
 
 Para mais informações, consulte [como funciona a conformidade.](./how-to/get-compliance-data.md#how-compliance-works)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição criada, siga estes passos:
 
-1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página Azure Policy e localize a atribuição de política **Auditar VMs que não utilizam discos geridos** que criou.
+1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página Azure Policy e localize a atribuição de política _Auditar VMs que não utilizam discos geridos_ que criou.
 
-1. Clique com o direito nos **VMs de auditoria que não utilizam** a atribuição de política de discos geridos e selecione a atribuição de **Eliminar**.
+1. Clique com o direito nos _VMs de auditoria que não utilizam_ a atribuição de política de discos geridos e selecione a atribuição de **Eliminar**.
 
    :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Excluir uma atribuição da página geral de conformidade" border="false":::
 

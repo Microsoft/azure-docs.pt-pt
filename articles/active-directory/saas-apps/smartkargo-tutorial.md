@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o SmartKargo Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SmartKargo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4112e1f0-1a71-4e60-9052-3a1bae1d84b9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 2a01943036e1cff225364892c199ac94fe86a4e3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482620"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524680"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Tutorial: Azure Ative Directory integração única (SSO) com SmartKargo
 
@@ -83,11 +79,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente SmartKargo](https://www.smartkargo.com/company/contact-2/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -146,9 +142,9 @@ Quando clicar no azulejo SmartKargo no Painel de Acesso, deverá ser automaticam
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

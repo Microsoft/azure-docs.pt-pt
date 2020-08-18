@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Ariba Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Ariba.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed7c6ece045ab75571c9146c235c69f5c8d19a0
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: a154f75b496676f3c639a19f604d5d5727d43fac
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Diretório Ativo Azure com a Ariba
 
@@ -113,7 +108,7 @@ Para configurar o Azure AD com Ariba, execute os seguintes passos:
     https://<subdomain>.supplier.ariba.com
     ```
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`http://<subdomain>.procurement-2.ariba.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `http://<subdomain>.procurement-2.ariba.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. Aqui sugerimos que use o valor único da corda no Identificador. Contacte a equipa de apoio ao Cliente Ariba em **1-866-218-2155** para obter estes valores.. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

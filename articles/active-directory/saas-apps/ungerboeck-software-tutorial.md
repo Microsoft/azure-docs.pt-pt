@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Software Ungerboeck Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Ungerboeck Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: bd861069-8a15-4d29-aa26-0d7be3a0a94a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 654abe0900cd1cecd4964c344a01dafe40caeb85
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0999cbcb53edad8c496dc2f6dbd27471c93f3e4c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166983"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532802"
 ---
 # <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Tutorial: Integrar software ungerboeck com diretório ativo Azure
 
@@ -80,7 +75,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    1. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.ungerboeck.com/prod`
+    1. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.ungerboeck.com/prod`
 
     1. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203593"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521217"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de token SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -56,7 +56,8 @@ Os **elementos InputClaims,** **OutputClaims**e **PersistClaims** estão vazios 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| EmitenteUri | Não | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
+| EmitenteUri | No | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
+| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Afirmação SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a resposta SAML, consulte [os metadados SAML do partido Relying](relyingparty.md#metadata)|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -64,27 +65,16 @@ O elemento CryptographicKeys contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| MetadadosSigning | Sim | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados. |
-| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar a resposta `<samlp:Response>` enviada à parte que conta.|
+| MetadadosSigning | Yes | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados. |
+| SamlMessageSigning| Yes| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar a resposta `<samlp:Response>` enviada à parte que conta.|
 
 ## <a name="session-management"></a>Gestão de sessões
 
 Para configurar as sessões Azure AD B2C SAML entre uma aplicação de partido em suporte, o atributo do `UseTechnicalProfileForSessionManagement` elemento, referência à sessão [SSO SSO da SamlSSOSessionProvider.](custom-policy-reference-sso.md#samlssosessionprovider)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seguinte artigo, por exemplo, utilizando um perfil técnico de emitente SAML:
 
 - [Registar um pedido DE SAML em Azure AD B2C](connect-with-saml-service-providers.md)
-
-
-
-
-
-
-
-
-
-
-
 

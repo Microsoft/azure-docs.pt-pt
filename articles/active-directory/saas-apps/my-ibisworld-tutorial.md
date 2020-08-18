@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directory integração única (SSO) com o My IBISWorld Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o My IBISWorld.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4b420540-bc72-4bc0-afaa-d5a7e4f0eaa4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ed9dd75f7119268c2d5971e05704e5a4eca4a0
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 92eecc419128b593dced0f9679dd02eb273cbb62
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798243"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518242"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Tutorial: Azure Ative Directory integração única (SSO) com o My IBISWorld
 
@@ -86,7 +82,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:`https://my.ibisworld.com/account/login`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://my.ibisworld.com/account/login`
 
 1. Clique em **Guardar**.
 
@@ -154,9 +150,9 @@ Quando clicar no azulejo My IBISWorld no Painel de Acesso, deverá ser automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

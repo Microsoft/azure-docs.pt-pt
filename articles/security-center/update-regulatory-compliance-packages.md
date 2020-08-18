@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873329"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522611"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -74,6 +74,8 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
     
     ![Adicionar pacotes regulamentares ao painel de conformidade regulamentar do Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
+1. **Selecione Adicionar** e insira todos os detalhes necessários para a iniciativa específica, tais como âmbito, parâmetros e remediação.
+
 1. A partir da barra lateral do Security Center, **selecione conformidade regulamentar** novamente para voltar ao painel de conformidade regulamentar.
     * O seu novo padrão aparece na sua lista de normas regulamentares & indústria. 
     * Se adicionou **Azure CIS 1.1.0 (Novo),** a visão *estática* original do seu cumprimento Azure CIS 1.1.0 também permanecerá ao seu lado. Pode ser removido automaticamente no futuro.
@@ -83,7 +85,7 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
     [![Painel de conformidade regulamentar mostrando o antigo e novo Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a **adicionar pacotes de conformidade** para monitorizar o cumprimento de normas adicionais. 
 

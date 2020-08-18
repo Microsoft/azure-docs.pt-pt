@@ -1,59 +1,55 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com toPdesk - Público / Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a TOPdesk - Público Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o TOPdesk - Público.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a18cb583b246c3cfbf09f43b9921497de37a3613
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71950411"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524294"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Diretório Ativo Azure com toPdesk - Público
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Diretório Ativo Azure com a TOPdesk - Público
 
-Neste tutorial, aprende-se a integrar o TOPdesk - Public with Azure Ative Directory (Azure AD).
-Integração TOPdesk - Público com AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o TOPdesk - Público com o Azure Ative Directory (Azure AD).
+Integração TOPdesk - Público com Azure AD proporciona-lhe os seguintes benefícios:
 
-* Você pode controlar em Azure AD que tem acesso a TOPdesk - Público.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no TOPdesk - Public (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Você pode controlar em Azure AD que tem acesso ao TOPdesk - Público.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no TOPdesk - Public (Single Sign-On) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com toPdesk - Público, precisa dos seguintes itens:
+Para configurar a integração AZure AD com a TOPdesk - Público, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* TOPdesk - Assinatura de inscrição única ativada por um único público
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* TOPdesk - Assinatura individual ativada pelo público
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* TOPdesk - Público apoia **SP** iniciado SSO
+* TOPdesk - Apoios públicos **SP** iniciou SSO
 
 ## <a name="adding-topdesk---public-from-the-gallery"></a>Adicionar TOPdesk - Público da galeria
 
-Para configurar a integração do TOPdesk - Público em Azure AD, você precisa adicionar TOPdesk - Público da galeria à sua lista de aplicações geridas saaS.
+Para configurar a integração do TOPdesk - Público em Azure AD, é necessário adicionar TOPdesk - Público da galeria à sua lista de aplicações geridas pelo SaaS.
 
 **Para adicionar TOPdesk - Público da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,113 +57,113 @@ Para configurar a integração do TOPdesk - Público em Azure AD, você precisa 
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **TOPdesk - Público**, selecione **TOPdesk - Público** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **TOPdesk - Público**, selecione **TOPdesk - Público** do painel de resultados e depois clique em Adicionar botão **adicionar** a aplicação.
 
      ![TOPdesk - Público na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o single sign-on azure com toPdesk - Público baseado num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador coligado em TOPdesk - O público tem de ser estabelecido.
+Nesta secção, você configura e testa Azure AD single sign-on com TOPdesk - Público com base em um utilizador de teste chamado **Britta Simon**.
+Para um único sign-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na TOPdesk - O público precisa de ser estabelecido.
 
-Para configurar e testar o único signo da Azure AD com toPdesk - Público, você precisa completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com TOPdesk - Público, tem de completar os seguintes blocos de construção:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure TOPdesk - Public Single Sign-On](#configure-topdesk---public-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Criar toPdesk - utilizador público](#create-topdesk---public-test-user)** de testes - para ter uma contrapartida de Britta Simon no TOPdesk - Público que está ligado à representação da AD Azure do utilizador.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configurar o TOPdesk - Sign-On único público](#configure-topdesk---public-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+5. **[Criar TOPdesk - utilizador de teste público](#create-topdesk---public-test-user)** - para ter uma contrapartida de Britta Simon em TOPdesk - Público que está ligada à representação AD Azure do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único signo da Azure AD com toPdesk - Público, execute os seguintes passos:
+Para configurar a Azure AD um único sinal de inscrição com TOPdesk - Público, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página **TOPdesk - Public** application integrationpage, selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página **TOPdesk -** Integração de aplicações públicas, selecione **Single sign-on**.
 
-    ![Configurar um único link de sinalização](common/select-sso.png)
+    ![Configurar link único de inscrição](common/select-sso.png)
 
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
+2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
 
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
+    ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4.  Na secção **Basic SAML Configuration,** se tiver ficheiro de **metadados do Prestador**de Serviços, execute os seguintes passos:
+4.  Na secção **de Configuração Básica SAML,** se tiver **um ficheiro de metadados do Fornecedor de Serviços,** execute os seguintes passos:
 
     >[!NOTE]
-    >Obterá o ficheiro de metadados do Prestador de **Serviços** a partir da secção **Configure TOPdesk - Public Single Sign-On** que é explicado mais tarde no tutorial.
+    >Você receberá o **ficheiro de metadados do Fornecedor** de Serviços da secção **Configurar TOPdesk - Public Single Sign-On,** que é explicado mais tarde no tutorial.
 
-    a. Clique no **ficheiro de metadados de upload**.
+    a. Clique **em Carregar o ficheiro de metadados**.
     
-    ![Upload ficheiro de metadados](common/upload-metadata.png)
+    ![Carregar ficheiro de metadados](common/upload-metadata.png)
 
-    b. Clique no logotipo da **pasta** para selecionar o ficheiro de metadados e clicar em **Carregar**.
+    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
 
-    ![escolher ficheiro de metadados](common/browse-upload-metadata.png)
+    ![escolher arquivo de metadados](common/browse-upload-metadata.png)
 
-    c. Após o ficheiro de metadados ser carregado com sucesso, os valores de URL do **Identificador** e **da Resposta** ficam povoados automaticamente na secção de Configuração Básica do SAML.
+    c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML.
 
-    ![TOPdesk - Domínio Público e URLs informações únicas de inscrição](common/sp-identifier-reply.png)
+    ![TOPdesk - Domínio Público e URLs informações únicas de súpr no sinal](common/sp-identifier-reply.png)
 
-    d. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<companyname>.topdesk.net`
+    d. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.topdesk.net`
 
-    e. Na caixa de texto **URL do Identificador,** preencha o URL de metadados TOPdesk que pode recuperar a partir da configuração TOPdesk. Deve utilizar o seguinte padrão:`https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    e. Na caixa de texto DO URL do **Identifier,** preencha o URL de metadados TOPdesk que pode obter a partir da configuração TOPdesk. Deve utilizar o seguinte padrão: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
     
-    f. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<companyname>.topdesk.net/tas/public/login/verify`
+    f. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Se os valores de URL do **Identificador** e **da Resposta** não forem povoados automaticamente, terá de os introduzir manualmente. Para identificador, siga o padrão como mencionado acima e obtenha o valor URL de resposta da secção **Configure TOPdesk - Public Single Sign-On** que é explicado mais tarde no tutorial. O valor **do URL de Sign-on** não é real, pelo que precisa de atualizar o valor com o URL de Sign-On real. Contacte [a TOPdesk - Equipa de apoio](https://help.topdesk.com/saas/enterprise/user/) ao Cliente Público para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, é necessário inseri-los manualmente. Para o Identificador, siga o padrão acima mencionado e obtenha o valor URL de resposta a partir da secção **Configure TOPdesk - Sign-On único público,** que é explicada mais tarde no tutorial. O valor **URL de inscrição** não é real, pelo que é necessário atualizar o valor com o URL de inscrição real. Contacte [a TOPdesk - Equipa de apoio ao Cliente Público](https://help.topdesk.com/saas/enterprise/user/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-6. No **TOPdesk de Configuração -** Secção Pública, copie os URL(s) adequados de acordo com o seu requisito.
+6. Na **secção set up TOPdesk - Secção pública,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
+    b. Identificador de Azure Ad
 
     c. Logout URL
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Configure TOPdesk - Inscrição Única Pública
+### <a name="configure-topdesk---public-single-sign-on"></a>Configurar TOPdesk - Sign-On único público
 
-1. Inscreva-se no seu **SITE TOPdesk -** Empresa Pública como administrador.
+1. Inscreva-se no seu **SITE TOPdesk - Empresa Pública** como administrador.
 
 2. No menu **TOPdesk,** clique em **Definições**.
    
     ![Definições](./media/topdesk-public-tutorial/ic790598.png "Definições")
 
-3. Clique **em Definições de Login**.
+3. Clique em **Definições de Início**de Sessão .
    
-    ![Definições de login](./media/topdesk-public-tutorial/ic790599.png "Definições de login")
+    ![Definições de início de sessão](./media/topdesk-public-tutorial/ic790599.png "Definições de início de sessão")
 
-4. Expanda o menu definições de **login** e, em seguida, clique em **General**.
+4. Expandir o menu **'Definições de início de sessão'** e, em seguida, clicar em **Geral**.
    
-    ![General](./media/topdesk-public-tutorial/ic790600.png "Geral")
+    ![Geral](./media/topdesk-public-tutorial/ic790600.png "Geral")
 
-5. Na secção **Pública** da secção de configuração de **login SAML,** execute os seguintes passos:
+5. Na secção **Pública** da secção de configuração de **login DA SAML,** execute os seguintes passos:
    
     ![Definições Técnicas](./media/topdesk-public-tutorial/ic790601.png "Definições Técnicas")
    
-    a. Clique em **Baixar** para descarregar o ficheiro de metadados públicos e, em seguida, guarde-o localmente no seu computador.
+    a. Clique **em Baixar** para descarregar o ficheiro de metadados públicos e guarde-o localmente no seu computador.
    
-    b. Abra o ficheiro de metadados descarregado e, em seguida, localize o nó **Do Serviço de Consumidores de Afirmação.**
+    b. Abra o ficheiro de metadados descarregado e, em seguida, localize o nó **De Serviço de Afirmação.**
 
-    ![Serviço de Consumidores de Afirmação](./media/topdesk-public-tutorial/ic790619.png "Serviço de Consumidores de Afirmação")
+    ![Serviço De Afirmação](./media/topdesk-public-tutorial/ic790619.png "Serviço De Afirmação")
    
-    c. Copie o valor **Do Serviço de CréditodoConsumidor,** cole este valor na caixa de texto URL de **resposta** na secção **basic SAML Configuração.**      
+    c. Copie o valor **AfirmaçãoConsumerService,** cole este valor na caixa de texto **URL de resposta** na secção **configuração BÁSICA SAML.**      
    
 6. Para criar um ficheiro de certificado, execute os seguintes passos:
     
@@ -175,39 +171,39 @@ Para configurar o único signo da Azure AD com toPdesk - Público, execute os se
     
     a. Abra o ficheiro de metadados descarregado do portal Azure.
     
-    b. Expanda o nó **RoleDescriptor** que tem um **xsi:tipo** de **fed:ApplicationServiceType**.
+    b. Expandir o nó **RoleDescriptor** que tem um **xsi:tipo** de **fed:ApplicationServiceType**.
     
-    c. Copie o valor do nó **X509Certificate.**
+    c. Copie o valor do nó **X509Certificado.**
     
-    d. Guarde o valor **copiado x509Certificado** localmente no seu computador num ficheiro.
+    d. Guarde o valor **X509Certificado** copiado localmente no seu computador num ficheiro.
 
-7. Na secção **Pública,** clique em **Adicionar**.
+7. Na secção **Público,** clique **em Adicionar**.
     
     ![SAML Login](./media/topdesk-public-tutorial/ic790625.png "SAML Login")
 
-8. Na página de diálogo do assistente de **configuração SAML,** execute os seguintes passos:
+8. Na página de diálogo **do assistente de configuração SAML,** execute os seguintes passos:
     
     ![Assistente de Configuração SAML](./media/topdesk-public-tutorial/ic790608.png "Assistente de Configuração SAML")
     
-    a. Para fazer o upload do ficheiro de metadados descarregado sabotado do portal Azure, sob **os Metadados da Federação,** clique em **Navegar**.
+    a. Para fazer o upload do seu ficheiro de metadados descarregado a partir do portal Azure, no portal **Federation Metadas,** clique em **Procurar**.
 
-    b. Para fazer upload do seu ficheiro de certificado, em **Certificado (RSA)**, clique em **Navegar**.
+    b. Para fazer o upload do seu arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
 
-    c. Para fazer upload do ficheiro de logotipo que obteve da equipa de suporte toPdesk, sob **o ícone logotipo,** clique em **Navegar**.
+    c. Para fazer o upload do ficheiro de logotipo que obteve da equipa de suporte TOPdesk, no **ícone do logotipo,** clique em **Procurar**.
 
-    d. No **nome utilizador atributo** caixa `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`de texto, escreva .
+    d. Na caixa de texto do **nome do utilizador,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
-    e. Na caixa de texto do **nome Display,** escreva um nome para a sua configuração.
+    e. Na caixa de texto **do nome do Visor,** escreva um nome para a sua configuração.
 
     f. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -215,51 +211,51 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
+    b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso ao TOPdesk - Público.
+Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao TOPdesk - Público.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **TOPdesk - Público**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **TOPdesk - Público**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **TOPdesk - Público**.
+2. Na lista de candidaturas, selecione **TOPdesk - Public**.
 
-    ![O TOPdesk - Link público na lista de Candidaturas](common/all-applications.png)
+    ![O TOPdesk - Ligação pública na lista de Candidaturas](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-topdesk---public-test-user"></a>Criar TOPdesk - Utilizador público de testes
+### <a name="create-topdesk---public-test-user"></a>Criar TOPdesk - Utilizador de teste público
 
-Para permitir que os utilizadores da AD Azure assinem no TOPdesk - Público, devem ser aprovisionados no TOPdesk - Público. No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores da Azure AD assinem na TOPdesk - Público, devem ser a provisionados na TOPdesk - Público. No caso da TOPdesk - Público, o provisionamento é uma tarefa manual.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o fornecimento do utilizador, execute os seguintes passos:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento do utilizador, execute os seguintes passos:
 
-1. Inscreva-se no seu **TOPdesk -** Site da empresa pública como administrador.
+1. Inscreva-se no seu **SITE TOPdesk - Empresa Pública** como administrador.
 
-2. No menu em cima, clique em **TOPdesk \> New \> Support Files \> Person**.
+2. No menu em cima, clique em **TOPdesk \> New Support Files \> \> Person**.
    
     ![Pessoa](./media/topdesk-public-tutorial/ic790628.png "Pessoa")
 
@@ -276,18 +272,18 @@ Para permitir que os utilizadores da AD Azure assinem no TOPdesk - Público, dev
     d. Clique em **Guardar**.
 
 > [!NOTE]
-> Pode utilizar qualquer outra TOPdesk - Ferramentas de criação de conta de utilizador público ou APIs fornecidas pela TOPdesk - Public para fornecer contas de utilizadores da Azure AD.
+> Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador público ou APIs fornecidas pela TOPdesk - Públicas para fornecer contas de utilizador Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no TOPdesk - Azulejo público no Painel de Acesso, deverá ser automaticamente inscrito no TOPdesk - Público para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Ao clicar no TOPdesk - Azulejo público no Painel de Acesso, deverá ser automaticamente inscrito no TOPdesk - Público para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

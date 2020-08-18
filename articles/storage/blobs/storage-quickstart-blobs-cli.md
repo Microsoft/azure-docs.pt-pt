@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 06/04/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15e1b52bfa79063cd5d7801a1aaaebc726309a16
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507132"
+ms.locfileid: "88520775"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI
 
@@ -78,7 +78,7 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Os Blobs são sempre carregados para um contentor. Pode organizar grupos de bolhas em recipientes semelhantes à forma como organiza os seus ficheiros no seu computador em pastas. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). 
+Os Blobs são sempre carregados para um contentor. Pode organizar grupos de bolhas em recipientes semelhantes à forma como organiza os seus ficheiros no seu computador em pastas. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container).
 
 O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Mesmo que você é o proprietário da conta, você precisa de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções Azure, consulte [Use Azure CLI para atribuir uma função Azure para acesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
@@ -89,21 +89,17 @@ az ad signed-in-user show --query objectId -o tsv | az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee @- \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+
+az storage container create \
+    --account-name <storage-account> \
+    --name <container> \
+    --auth-mode login
 ```
 
 > [!IMPORTANT]
 > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
 
 Também pode utilizar a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
-
-Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
-
-```azurecli
-az storage container create \
-    --account-name <storage-account> \
-    --name <container> \
-    --auth-mode login
-```
 
 ## <a name="upload-a-blob"></a>Carregar um blob
 

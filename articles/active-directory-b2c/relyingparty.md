@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203746"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521268"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra um elemento **DaParte de Apoio** no ficheiro de polít
 
 O elemento **opcional RelyingParty** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | PredefiniçãoJourney | 1:1 | A viagem de utilizador predefinido para a aplicação RP. |
 | UserJourneyBehaviors | 0:1 | O âmbito dos comportamentos de viagem do utilizador. |
@@ -104,13 +104,13 @@ O elemento **DefaultUserJourney** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador da viagem de utilizador na apólice. Para mais informações, consulte [as viagens de utilizador](userjourneys.md) |
+| ReferenceId | Yes | Um identificador da viagem de utilizador na apólice. Para mais informações, consulte [as viagens de utilizador](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
 O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | O âmbito do comportamento de sessão de sessão de inscrição única (SSO) de uma viagem de utilizador. |
 | SessãoExpiryType |0:1 | O comportamento de autenticação da sessão. Valores possíveis: `Rolling` ou `Absolute` . O `Rolling` valor (predefinido) indica que o utilizador permanece assinado enquanto o utilizador estiver continuamente ativo na aplicação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado pela sessão de trabalho útil da sessão de aplicação. |
@@ -125,9 +125,9 @@ O elemento **SingleSignOn** contém no seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Âmbito | Sim | O âmbito do comportamento de um único sinal. Valores possíveis: `Suppressed` `Tenant` , , ou `Application` `Policy` . O `Suppressed` valor indica que o comportamento é suprimido e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navegue através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navegue através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção do fornecedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | Sim | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](custom-policy-keep-me-signed-in.md) |
-|EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
+| Âmbito | Yes | O âmbito do comportamento de um único sinal. Valores possíveis: `Suppressed` `Tenant` , , ou `Application` `Policy` . O `Suppressed` valor indica que o comportamento é suprimido e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navegue através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navegue através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção do fornecedor de identidade ao alternar entre políticas. |
+| KeepAliveInDays | Yes | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](custom-policy-keep-me-signed-in.md) |
+|EnforceIdTokenHintOnLogout| No|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -136,12 +136,12 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| TelemetriaEngine | Sim | O valor deve `ApplicationInsights` ser. |
-| InstrumentaçãoKey | Sim | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
-| DeveloperMode | Sim | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Esta configuração é boa para o desenvolvimento, mas limitada em volumes elevados Os registos de atividades detalhadas são projetados apenas para ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
-| ClienteEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
-| ServerEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
-| TelemetriaVersão | Sim | O valor deve `1.0.0` ser. |
+| TelemetriaEngine | Yes | O valor deve `ApplicationInsights` ser. |
+| InstrumentaçãoKey | Yes | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
+| DeveloperMode | Yes | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Esta configuração é boa para o desenvolvimento, mas limitada em volumes elevados Os registos de atividades detalhadas são projetados apenas para ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
+| ClienteEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
+| ServerEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
+| TelemetriaVersão | Yes | O valor deve `1.0.0` ser. |
 
 Para mais informações, consulte [a recolha de registos](troubleshoot-with-application-insights.md)
 
@@ -155,7 +155,7 @@ O exemplo a seguir passa um parâmetro nomeado `campaignId` com um valor da cade
 
 O elemento **ContentDefinitionParameters** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ConteúdoDefinitionParameter | 0:n | Uma cadeia que contém o par de valor chave que é anexado à cadeia de consulta de uma definição de conteúdo carregar URI. |
 
@@ -163,7 +163,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome do par de valores chave. |
+| Nome | Yes | O nome do par de valores chave. |
 
 Para obter mais informações, consulte [configurar a UI com conteúdo dinâmico utilizando políticas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
@@ -173,14 +173,14 @@ O elemento **TécnicoProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O valor deve `PolicyProfile` ser. |
+| Id | Yes | O valor deve `PolicyProfile` ser. |
 
 O **Ficheiro Técnico** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | A cadeia que contém o nome do perfil técnico. |
-| Descrição | 0:1 | A cadeia que contém a descrição do perfil técnico. |
+| Description | 0:1 | A cadeia que contém a descrição do perfil técnico. |
 | Protocolo | 1:1 | O protocolo usado para a federação. |
 | Metadados | 0:1 | A recolha de *Itens* de pares chave/valor utilizados pelo protocolo para comunicar com o ponto final no decurso de uma transação para configurar a interação entre a parte de confiança e outros participantes da comunidade. |
 | Resultados | 1:1 | Uma lista de tipos de reclamações que são tomados como saída no perfil técnico. Cada um destes elementos contém referência a um **ClaimType** já definido na secção **ClaimsSchema** ou numa política a partir da qual este ficheiro de política herda. |
@@ -190,13 +190,21 @@ O elemento **protocolo** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2` . O `OpenIdConnect` valor representa o padrão de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. |
+| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2` . O `OpenIdConnect` valor representa o padrão de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
-## <a name="outputclaims"></a>Resultados
+### <a name="metadata"></a>Metadados
+
+Quando o protocolo é `SAML` , um elemento de metadados contém os seguintes elementos.
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
+
+### <a name="outputclaims"></a>Resultados
 
 O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | O nome de um tipo de reclamação esperada na lista apoiada para a política a que o partido que conta subscrever. Esta alegação serve de saída para o perfil técnico. |
 
@@ -204,21 +212,22 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sim | Uma referência a um **ClaimType** já definido na secção **ClaimsSchema** no ficheiro de política. |
-| PadrãoValue | Não | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
-| PartnerClaimType | Não | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
+| ClaimTypeReferenceId | Yes | Uma referência a um **ClaimType** já definido na secção **ClaimsSchema** no ficheiro de política. |
+| PadrãoValue | No | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
+| PartnerClaimType | No | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
 
 ### <a name="subjectnaminginfo"></a>Nomeação de AssuntosInfo
 
 Com o elemento **SubjectNameingInfo,** controla-se o valor do sujeito simbólico:
 - **JWT token** - a `sub` reivindicação. Este é um principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização seguras, como quando o token é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório. Para obter mais informações, consulte [Token, sessão e configuração de sessão única](session-behavior.md).
-- **Símbolo SAML** - o `<Subject><NameID>` elemento que identifica o elemento sujeito.
+- **Símbolo SAML** - o `<Subject><NameID>` elemento que identifica o elemento sujeito. O formato NameId pode ser modificado.
 
 O elemento **SubjectNamingInfo** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimType | Sim | Uma referência ao **PartnerClaimType**de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
+| ClaimType | Yes | Uma referência ao **PartnerClaimType**de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
+| Formato | No | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
 
 O exemplo a seguir mostra como definir uma parte de confiante OpenID Connect. A informação sobre o nome do sujeito é configurada `objectId` como:
 
@@ -248,4 +257,25 @@ O token JWT inclui a `sub` reclamação com o utilizador objectId:
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   ...
 }
+```
+
+O exemplo a seguir mostra como definir uma festa de singing SAML. A informação do nome do sujeito é configurada como `objectId` o , e o NameId foi `format` fornecido:
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"/>
+  </TechnicalProfile>
+</RelyingParty>
 ```

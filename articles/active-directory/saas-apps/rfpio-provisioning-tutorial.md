@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar RFPIO para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao RFPIO.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 54419db4-47d5-4fb4-ab74-7b0b28afb11b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 963f89c99d71afbebbe122e3c7d8b3227dc4a8be
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77060869"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518414"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: Configurar RFPIO para o provisionamento automático do utilizador
 
@@ -94,7 +90,7 @@ Para configurar o RFPIO para o fornecimento automático de utilizadores com Azur
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **RFPIO,** selecione **RFPIO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **RFPIO,** selecione **RFPIO** no painel de resultados e, em seguida, clique no botão    **Adicionar** para adicionar a aplicação.
 
     ![RFPIO na lista de resultados](common/search-new-app.png)
 
@@ -168,6 +164,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

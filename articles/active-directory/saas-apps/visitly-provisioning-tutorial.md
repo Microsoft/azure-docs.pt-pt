@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar Visita visitly para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desprovisionar as contas dos utilizadores ao Visitly.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15031a3e139265410179baa13db9ed3f1b41cf17
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063174"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531808"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configurar Visita visitly para fornecimento automático de utilizadores
 
@@ -161,6 +157,6 @@ Visitly não suporta eliminações duras. Tudo é macio apenas apagar.
 * [Gerir o provisionamento da conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

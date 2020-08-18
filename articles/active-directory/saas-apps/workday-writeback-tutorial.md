@@ -3,23 +3,19 @@ title: 'Tutorial: Configurar a gravação do Workday no Azure Ative Directory / 
 description: Saiba como configurar a gravação do atributo Azure a Workday
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215867b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 1d76fb96676ad49ce28ff4ef0d6c4fbc84636638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041793"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88526835"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
 O objetivo deste tutorial é mostrar os passos que precisa de executar para escrever atributos de Azure AD a Workday. A aplicação de writeback Workday suporta atribuir valores aos seguintes atributos workday:
@@ -159,7 +155,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
      > [!div class="mx-imgBorder"]
      > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)

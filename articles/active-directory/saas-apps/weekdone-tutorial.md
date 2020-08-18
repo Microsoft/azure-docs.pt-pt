@@ -1,61 +1,57 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a Weekdone Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Weekdone Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Weekdone.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 43ade2035e6f831f9d665d2b53dabb3afb96f41d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 613509f59d759bfecc11bd16cdafcb5fc49413cc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67087363"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integração do Diretório Ativo Azure com a Weekdone
 
-Neste tutorial, aprende-se a integrar o Weekdone com o Azure Ative Directory (Azure AD).
-Integrar a Weekdone com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, aprende-se a integrar a Weekdone com o Azure Ative Directory (Azure AD).
+A integração da Weekdone com a AZure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar em Azure AD quem tem acesso a Weekdone.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Weekdone (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Você pode controlar em Azure AD que tem acesso à Weekdone.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Weekdone (Sign-on Único) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Weekdone, precisa dos seguintes itens:
+Para configurar a integração AZure AD com a Weekdone, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura de inscrição única da Weekdone
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura ativada única semanada
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Weekdone suporta **SP** e **IDP** iniciado SSO
+* Weekdone apoia **SP** e **IDP** iniciado SSO
 
-* Weekdone suporta o fornecimento de utilizadores **Just In Time**
+* Weekdone suporta **provisão de** utilizadores just in time
 
-## <a name="adding-weekdone-from-the-gallery"></a>Adicionando Weekdone da galeria
+## <a name="adding-weekdone-from-the-gallery"></a>Adicionar Weekdone da galeria
 
-Para configurar a integração da Weekdone em Azure AD, você precisa adicionar Weekdone da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da Weekdone no AD Azure, precisa adicionar a Weekdone da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Weekdone a partir da galeria, execute os seguintes passos:**
+**Para adicionar Weekdone da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -63,91 +59,91 @@ Para configurar a integração da Weekdone em Azure AD, você precisa adicionar 
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Weekdone**, selecione **Weekdone** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Weekdone**, selecione **Weekdone** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Weekdone na lista de resultados](common/search-new-app.png)
+     ![Semanada na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o single sign-on azure com a Weekdone com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Weekdone.
+Nesta secção, você configura e testa Azure AD single sign-on with Weekdone com base em um utilizador de teste chamado **Britta Simon**.
+Para um único início de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Weekdone.
 
-Para configurar e testar o único sinal de Azure AD com a Weekdone, é necessário completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com o Weekdone, é necessário completar os seguintes blocos de construção:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Weekdone Single Sign-On](#configure-weekdone-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create Weekdone test user](#create-weekdone-test-user)** - para ter uma contrapartida de Britta Simon em Weekdone que está ligada à representação da AD Azure do utilizador.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Sign-On Único Weekdone](#configure-weekdone-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+5. **[Create Weekdone test user](#create-weekdone-test-user)** - ter uma contraparte de Britta Simon em Weekdone que está ligada à representação AD AD do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sign-on azure com a Weekdone, execute os seguintes passos:
+Para configurar o Azure AD single sign-on com Weekdone, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **weekdone,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Weekdone,** selecione **Single sign-on**.
 
-    ![Configurar um único link de sinalização](common/select-sso.png)
+    ![Configurar link único de inscrição](common/select-sso.png)
 
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
+2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
 
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
+    ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na secção **Basic SAML Configuration,** se pretender configurar a aplicação no modo iniciado **idp,** execute os seguintes passos:
+4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Semanadone Domain e URLs informações únicas de inscrição](common/idp-intiated.png)
+    ![Informações de assinatura única de domínio e URLs da Weekdone](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://weekdone.com/a/<tenant>/metadata`
-
-    > [!NOTE]
-    > O ficheiro de metadados da semana pode ser recuperado com a utilização do mesmo URL.
-
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://weekdone.com/a/<tenantname>`
-
-5. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
-
-    ![Semanadone Domain e URLs informações únicas de inscrição](common/metadata-upload-additional-signon.png)
-
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://weekdone.com/a/<tenantname>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte ao [Cliente weekdone](mailto:hello@weekdone.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O ficheiro de metadados da semana passada pode ser recuperado com a utilização do mesmo URL.
 
-6. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://weekdone.com/a/<tenantname>`
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-7. Na secção **set up Weekdone,** copie os URL(s) adequados de acordo com o seu requisito.
+    ![Informações de assinatura única de domínio e URLs da Weekdone](common/metadata-upload-additional-signon.png)
+
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://weekdone.com/a/<tenantname>`
+
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Weekdone](mailto:hello@weekdone.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+
+6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+
+    ![O link de descarregamento de certificado](common/certificatebase64.png)
+
+7. Na secção **set up Weekdone,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
+    b. Identificador de Azure Ad
 
     c. Logout URL
 
-### <a name="configure-weekdone-single-sign-on"></a>Configure Weekdone Single Sign-On
+### <a name="configure-weekdone-single-sign-on"></a>Configurar o sign-on único da semana
 
-Para configurar um único sinal no lado **da Weekdone,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte weekdone](mailto:hello@weekdone.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **da Weekdone,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Weekdone](mailto:hello@weekdone.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -155,60 +151,60 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
+    b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso ao Weekdone.
+Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Weekdone.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Weekdone**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Weekdone**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Weekdone**.
 
-    ![O link Weekdone na lista de Candidaturas](common/all-applications.png)
+    ![O link Weekdone na lista de Aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-weekdone-test-user"></a>Criar o utilizador de teste Weekdone
+### <a name="create-weekdone-test-user"></a>Criar utilizador de teste Weekdone
 
-Nesta secção, um utilizador chamado Britta Simon é criado em Weekdone. A Weekdone suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Weekdone, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Weekdone. A Weekdone suporta o provisionamento do utilizador just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Weekdone, um novo é criado após a autenticação.
 
 >[!NOTE]
->Se precisar de criar um utilizador manualmente, tem de contactar a equipa de suporte ao [Cliente Weekdone.](mailto:hello@weekdone.com)
+>Se precisar de criar um utilizador manualmente, tem de contactar a equipa de suporte do [Cliente Weekdone.](mailto:hello@weekdone.com)
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Weekdone no Painel de Acesso, deve ser automaticamente inscrito no Weekdone para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo Weekdone no Painel de Acesso, deverá ser automaticamente inscrito na Weekdone para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Reward Gateway Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Reward Gateway.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 34336386-998a-4d47-ab55-721d97708e5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 03e6f52d764b72c423269fcdfdc966474978aa6e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 61d7e678b2904ff6eda1866951cfafd0fa0d6688
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169362"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Ative Directory com Reward Gateway
 
@@ -120,7 +116,7 @@ Para configurar o Azure AD com o Reward Gateway, execute os seguintes passos:
     - `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Para obter estes valores, comece a configurar uma Integração no Portal do Gestor de Recompensas. Detalhes podem ser encontrados emhttps://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Para obter estes valores, comece a configurar uma Integração no Portal do Gestor de Recompensas. Detalhes podem ser encontrados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
@@ -138,7 +134,7 @@ Para configurar o Azure AD com o Reward Gateway, execute os seguintes passos:
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Configure recompensa Gateway single sign-on
 
-Para configurar um único sinal no lado **do Reward Gateway,** comece a configurar uma Integração no Portal do Gestor de Recompensas. Utilize os metadados descarregados para obter o certificado de assinatura e carresse-os durante a configuração. Detalhes podem ser encontrados emhttps://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
+Para configurar um único sinal no lado **do Reward Gateway,** comece a configurar uma Integração no Portal do Gestor de Recompensas. Utilize os metadados descarregados para obter o certificado de assinatura e carresse-os durante a configuração. Detalhes podem ser encontrados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 

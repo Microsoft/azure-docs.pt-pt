@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
-ms.date: 04/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205046"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520718"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -61,10 +61,10 @@ A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testa
 
 Esta propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
+|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Description |
 |-|-|-|-|-|-|
-|Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Sim |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Ativado |Predefinição |string |Yes |Yes |O efeito da política é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Sim |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
@@ -75,12 +75,11 @@ O **âmbito** da atribuição inclui todos os contentores de recursos infantis e
 ## <a name="policy-definition-id"></a>ID de definição de política
 
 Este campo deve ser o nome completo de uma definição de política ou de uma definição de iniciativa.
-`policyDefinitionId`é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, use uma [iniciativa](./initiative-definition-structure.md) em vez disso.
+`policyDefinitionId` é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, use uma [iniciativa](./initiative-definition-structure.md) em vez disso.
 
 ## <a name="parameters"></a>Parâmetros
 
-Este segmento da atribuição de políticas fornece os valores para os parâmetros definidos na [definição de política ou na definição de iniciativa.](./definition-structure.md#parameters)
-Este desenho permite reutilizar uma definição de política ou iniciativa com diferentes recursos, mas verificar diferentes valores ou resultados de negócio.
+Este segmento da atribuição de políticas fornece os valores para os parâmetros definidos na [definição de política ou na definição de iniciativa.](./definition-structure.md#parameters) Este desenho permite reutilizar uma definição de política ou iniciativa com diferentes recursos, mas verificar diferentes valores ou resultados de negócio.
 
 ```json
 "parameters": {
@@ -95,7 +94,7 @@ Este desenho permite reutilizar uma definição de política ou iniciativa com d
 
 Neste exemplo, os parâmetros previamente definidos na definição de política são `prefix` e `suffix` . Esta atribuição de política específica `prefix` define-se à **DeptA** e `suffix` à **-LC**. A mesma definição política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo simultanea a duplicação e a complexidade das definições políticas, proporcionando flexibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Clareza Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Clarity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89700ccac8e197b393cb1e96cdbf5e04877c4a44
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 969fb8c688fe26e1aa830cab2bbc35c5712b060e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484605"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarity"></a>Tutorial: Integração do Diretório Ativo Azure com Clareza
 
@@ -82,9 +78,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://ca.ondemand.saml.20.post.<companyname>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://ca.ondemand.saml.20.post.<companyname>`
 
-    b. Na caixa de texto **URL de resposta,** escreva como:`https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. Na caixa de texto **URL de resposta,** escreva como: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE]
     > Este valor não é real. Atualize este valor com o identificador real. Contacte a [equipa de suporte do Cliente Clarity](mailto:catechnicalsupport@ca.com) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -107,7 +103,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique **em Criar**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

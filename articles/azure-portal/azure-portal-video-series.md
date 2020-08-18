@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 05/11/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 49a9cfca1c1f3a76c85dfac98cafea00df1d5ff0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504891"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522951"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Séries de vídeos de procedimentos do portal do Azure
 
@@ -22,22 +22,23 @@ A série de vídeos do portal Azure mostra como trabalhar com os serviços da Az
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos-lhe como ligar-se a uma conta de armazenamento utilizando o Azure Private Link.
+Neste vídeo em destaque, mostramos-lhe como implementar uma App Web Estática Azure.
 
-> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
+> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
 
-[Como ligar-se a uma conta de armazenamento usando o Azure Private Link](https://www.youtube.com/watch?v=vM7yDwHSc_o)
+[Como implementar uma App Web Estática Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
 
 Acompanhe estes vídeos recentes que pode ter perdido:
 
-| [A nova experiência Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg)  | [Implementando a sua aplicação web usando ações do GitHub](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Utilização de cartões de informação de serviço](https://www.youtube.com/watch?v=u00TU531qsQ)  |
+| [Como monitorizar as Funções Azure](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Como usar a versão blob](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Conecte-se a uma conta de armazenamento usando o Azure Private Link](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Imagem de vídeo do YouTube sobre a nova experiência Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Imagem de vídeo do YouTube implementando a sua aplicação web usando GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Imagem de vídeo do YouTube sobre o uso de cartões de informação de serviço](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
+| [![Imagem de vídeo do YouTube sobre como monitorizar as Funções do Azure](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Imagem de vídeo do YouTube sobre como usar a versão blob](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Imagem de vídeo do YouTube sobre a ligação a uma conta de armazenamento usando O Link Privado Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
+
 
 ## <a name="video-playlist"></a>Lista de reprodução de vídeo
 
 Explore o [portal Azure como fazer séries para](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) obter algumas dicas sobre como aproveitar ao máximo o portal Azure. Subscreva o canal para ser notificado quando forem adicionados novos vídeos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore centenas de vídeos para serviços Azure na [biblioteca de vídeo.](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal)

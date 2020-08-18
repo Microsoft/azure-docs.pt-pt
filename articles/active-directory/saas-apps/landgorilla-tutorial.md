@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Land Gorilla Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Land Gorilla.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 452f06e1294fad64547e0b04003ae06f80c1d9f4
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2eaa9c01c88ba31a9ec1f8425a50c1647140a40c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799807"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519347"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Tutorial: Integrar o Land Gorilla com o Azure Ative Directory
 
@@ -155,8 +150,8 @@ Quando clicar no azulejo Land Gorilla no Painel de Acesso, deverá ser automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

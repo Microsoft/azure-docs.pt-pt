@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com AlertMedia Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o AlertMedia.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c77f6fc-807c-47e8-8e49-eece5ebd7f09
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: dce72b7a39d1e729ea9739abbc354fa93c338529
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608896"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutorial: Azure Ative Directy integração única (SSO) com AlertMedia
 
@@ -84,9 +80,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No **set-on único com** a página SAML, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.alertmedia.com`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.alertmedia.com`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.alertmedia.com/api/sso/saml/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.alertmedia.com/api/sso/saml/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente AlertMedia](mailto:support@alertmedia.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -149,7 +145,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na caixa de **textos do URL MetaData,** cole o valor do **url da Federação de Metadados** da App, que copiou para o portal Azure.
 1. Selecione **a comparação de contexto de autenticação solicitada** como **exata**
 1. Na caixa de texto **URL do IDP Login,** cole o valor URL de **login,** que copiou a partir do portal Azure.
-1. Clique **em Guardar**
+1. Clicar em **Guardar**
 
 ### <a name="create-alertmedia-test-user"></a>Criar utilizador de teste AlertMedia
 
@@ -163,9 +159,9 @@ Quando clicar no azulejo AlertMedia no Painel de Acesso, deverá ser automaticam
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

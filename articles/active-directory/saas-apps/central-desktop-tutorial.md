@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o Ambiente central de trabalhos Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Central Desktop.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2fa19c7c2525eadc0eb8008d66cf37b3526d72
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: dc444c0179078713f9586c47c0138fe15f246a5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799647"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Diretório Ativo Azure com o Ambiente central
 
@@ -106,7 +101,7 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
 
     ![Central Desktop Domain e URLs informações únicas de súmis](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<companyname>.centraldesktop.com`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.centraldesktop.com`
 
     b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:
     
@@ -115,7 +110,7 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
     https://<companyname>.imeetcentral.com/saml2-metadata.php
     ```
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<companyname>.centraldesktop.com/saml2-assertion.php`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.centraldesktop.com/saml2-assertion.php`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a equipa de suporte do Cliente Central desktop](https://imeetcentral.com/contact-us) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: 5bc8955f9eb9db837b3243b8a2937d80a4d38e2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2752e5ab2bf7c2926ec9e2c0e4929eab91ed377
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099371"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530975"
 ---
 # <a name="configure-virtual-network-service-endpoint-policies-for-azure-hdinsight"></a>Configure políticas de ponto final de serviço de rede virtual para Azure HDInsight
 
@@ -91,7 +91,7 @@ Utilize o seguinte processo para criar as políticas de ponto final de serviço 
 
     Se preferir configurar a sua política de ponto final de serviço utilizando o PowerShell, utilizando o seguinte corte de código.
     
-    ```json
+    ```powershell
     #Script to assign SEP 
     $subscriptionId = "<subscription id>"
     $rgName = "<resource group name>"

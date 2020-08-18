@@ -3,23 +3,19 @@ title: 'Tutorial: Configurar a gravação do SAP SuccessFactors no Azure Ative D
 description: Saiba como configurar o atributo de volta aos SAP SuccessFactors da Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: f150d6abf2ac6a423a99d3347df9bf0adc9b294b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809937"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534001"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
@@ -151,7 +147,7 @@ A aplicação de provisionamento de writeback SuccessFactors utiliza certos valo
 1. No Carteiro, clique na elipse (...) associada à coleção SuccessFactors e adicione um "Novo Pedido" chamado "Obter Tipos de E-mail" como mostrado abaixo. 
 
    > [!div class="mx-imgBorder"]
-   > ![Pedido de e-mail do carteiro](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Pedido de e-mail do carteiro ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
 
 1. Abra o painel de pedidos "Get Email Type". 
 1. No URL GET, adicione o seguinte URL, substituindo `successFactorsAPITenantName` pelo inquilino da API para a sua instância SuccessFactors. 
