@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Crie uma aplicação iOS que tire uma foto e a lança no Leitor Imersivo (Swift)'
+title: 'Tutorial: Criar uma aplicação iOS que tira uma foto e a lança no Leitor Imersivo (Swift)'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, irá construir uma aplicação iOS de raiz e adicionar a Imagem à funcionalidade Imersiva do Leitor.
+description: Neste tutorial, irá construir uma aplicação iOS de raiz e adicionar a imagem à funcionalidade Immersive Reader.
 services: cognitive-services
 author: metanMSFT
 ms.service: cognitive-services
@@ -9,44 +9,44 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 968f3c9fbfea1e2f04fb029605173087f6f311c0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735135"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516508"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Criar uma aplicação iOS que lança o Leitor Imersivo com conteúdo a partir de uma foto (Swift)
 
-O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente projetada que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-O [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) deteta conteúdo de texto numa imagem utilizando os mais recentes modelos de reconhecimento da Microsoft e converte o texto identificado num fluxo de caracteres legível por máquina.
+A [API de Serviços Cognitivos de Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) deteta conteúdo de texto numa imagem utilizando os modelos de reconhecimento mais recentes da Microsoft e converte o texto identificado num fluxo de caracteres legível por máquina.
 
-Neste tutorial, irá construir uma aplicação iOS de raiz e integrar a API read, e o Leitor Imersivo utilizando o SDK de Leitor Imersivo. Uma amostra completa deste tutorial está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)
+Neste tutorial, você vai construir uma aplicação iOS de raiz e integrar a API de leitura, e o Leitor Imersivo usando o Leitor Imersivo SDK. Uma amostra completa deste tutorial está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* Um recurso Imersivo do Leitor configurado para autenticação de Diretório Ativo Azure. Siga [estas instruções](./how-to-create-immersive-reader.md) para ser configurado. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de amostra. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
-* A utilização desta amostra requer uma subscrição azure ao Serviço Cognitivo da Visão Computacional. Crie um recurso do Serviço Cognitivo de [Visão Computacional no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+* Um recurso imersivo do Leitor configurado para a autenticação do Azure Ative Directory. Siga [estas instruções](./how-to-create-immersive-reader.md) para se preparar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de amostra. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
+* A utilização desta amostra requer uma subscrição do Azure ao Serviço Cognitivo da Visão Computacional. [Criar um recurso de Serviço Cognitivo de Visão Computacional no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto Xcode
 
-Crie um novo projeto em Xcode.
+Criar um novo projeto no Xcode.
 
 ![Novo Projeto](./media/ios/xcode-create-project.png)
 
-Escolha **a aplicação de visão única**.
+Escolha **a aplicação de vista única.**
 
-![Nova app de visão única](./media/ios/xcode-single-view-app.png)
+![Nova aplicação single view](./media/ios/xcode-single-view-app.png)
 
-## <a name="get-the-sdk-cocoapod"></a>Obtenha o CocoaPod SDK
-A maneira mais fácil de usar o SDK de leitor imersivo é através de CocoaPods. Para instalar via Cocoapods:
-1. [Instale CocoaPods](http://guides.cocoapods.org/using/getting-started.html) - Siga o guia de arranque para instalar Cocoapods.
-2. Crie um Podfile executando `pod init` o diretório raiz do seu projeto Xcode.
-3.  Adicione o CocoaPod ao seu Podfile adicionando `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'` . O seu Podfile deve parecer o seguinte, com o nome do seu alvo a substituir o leitor-a-imersivo:
+## <a name="get-the-sdk-cocoapod"></a>Obtenha o SDK CocoaPod
+A maneira mais fácil de usar o SDK do leitor imersivo é através de Cacau. Para instalar através de Cacau:
+1. [Instalar Cacau -](http://guides.cocoapods.org/using/getting-started.html) Siga o guia de arranque para instalar cacau.
+2. Crie um Podfile executando `pod init` o diretório de raiz do seu projeto Xcode.
+3.  Adicione o Cacau ao seu Podfile adicionando `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'` . O seu Podfile deve parecer o seguinte, com o nome do seu alvo a substituir a imagem-a-imersiva leitor-rapidez:
  ```ruby
   platform :ios, '9.0'
 
@@ -56,13 +56,13 @@ A maneira mais fácil de usar o SDK de leitor imersivo é através de CocoaPods.
   pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
-4. No terminal, no diretório do seu projeto Xcode, execute o comando `pod install` para instalar o pod SDK Imersivo do Leitor.
-5. Adicione `import immersive_reader_sdk` a todos os ficheiros que precisam de fazer referência ao SDK.
+4. No terminal, no diretório do seu projeto Xcode, executar o comando `pod install` para instalar o pod SDK do leitor imersivo.
+5. Adicione `import immersive_reader_sdk` a todos os ficheiros que necessitem de fazer referência ao SDK.
 6. Certifique-se de abrir o projeto abrindo o `.xcworkspace` ficheiro e não o `.xcodeproj` ficheiro.
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um símbolo de autenticação Azure AD
+## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação AD AZure
 
-Precisa de alguns valores da configuração de autenticação AD Azure, passo acima necessário para esta parte. Volte a consultar o ficheiro de texto que guardou dessa sessão.
+Necessita de alguns valores da configuração de autenticação AD Azure, antes de se aproximar desta parte. Consulte de volta o ficheiro de texto que guardou nessa sessão.
 
 ````text
 TenantId     => Azure subscription TenantId
@@ -71,19 +71,19 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Na pasta principal do projeto, que contém o ficheiro ViewController.swift, crie um ficheiro de classe Swift chamado Constants.swift. Substitua a classe pelo seguinte código, adicionando os seus valores quando aplicável. Mantenha este ficheiro como um ficheiro local que só existe na sua máquina e certifique-se de não comprometer este ficheiro no controlo de origem, uma vez que contém segredos que não devem ser tornados públicos. Recomenda-se que não guarde segredos na sua aplicação. Em vez disso, recomendamos a utilização de um serviço backend para obter o símbolo, onde os segredos podem ser mantidos fora da app e fora do dispositivo. O ponto final da API deve ser protegido por detrás de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que utilizadores não autorizados obtenham fichas para usar contra o seu serviço de Leitor Imersivo e faturação; que o trabalho está fora do âmbito deste tutorial.
+Na pasta principal do projeto, que contém o ficheiro ViewController.swift, crie um ficheiro de classe Swift chamado Constants.swift. Substitua a classe pelo seguinte código, adicionando os seus valores sempre que aplicável. Guarde este ficheiro como um ficheiro local que só existe na sua máquina e certifique-se de que não compromete este ficheiro em controlo de origem, uma vez que contém segredos que não devem ser tornados públicos. Recomenda-se que não guarde segredos na sua aplicação. Em vez disso, recomendamos a utilização de um serviço de backend para obter o token, onde os segredos podem ser guardados fora da app e fora do dispositivo. O ponto final da API de backend deve ser protegido por trás de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que utilizadores não autorizados obtenham fichas para usar contra o seu serviço de Leitor Imersivo e faturação; que o trabalho está fora do âmbito deste tutorial.
 
-## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Configurar a app para executar sem um storyboard
+## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Crie a app para funcionar sem um storyboard
 
-Abra appDelegate.swift e substitua o ficheiro pelo seguinte código.
+Abrir AppDeegate.swift e substituir o ficheiro pelo seguinte código.
 
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>Adicione funcionalidade para tirar e carregar fotos
 
-Mude o nome viewController.swift para PictureLaunchViewController.swift e substitua o ficheiro pelo seguinte código.
+Renomear ViewController.swift para PictureLaunchViewController.swift e substituir o ficheiro pelo seguinte código.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Desloque o sistema de arquivo em Xcode selecionando um simulador ou alvo de dispositivo.
+Desaponte o esquema de arquivo no Xcode selecionando um simulador ou alvo do dispositivo.
 ![Esquema de arquivo](./media/ios/xcode-archive-scheme.png)<br/>
 ![Selecionar o Destino](./media/ios/xcode-select-target.png)
 
@@ -91,9 +91,9 @@ No Xcode, prima Ctrl + R ou clique no botão de reprodução para executar o pro
 
 Na sua aplicação, deve ver:
 
-![App de amostras](./media/ios/picture-to-immersive-reader-ipad-app.png)
+![Aplicativo de amostra](./media/ios/picture-to-immersive-reader-ipad-app.png)
 
-Dentro da aplicação, tire ou carregue uma foto de texto premindo o botão 'Tirar foto' ou 'Escolha a Foto da Biblioteca' e o Leitor Imersivo lançará então exibindo o texto a partir da foto.
+Dentro da aplicação, tire ou carre fique com uma fotografia de texto premindo o botão 'Take Photo' ou 'Choose Photo from Library' e o Leitor Imersivo lançará então a exibição do texto a partir da fotografia.
 
 ![Leitura Avançada](./media/ios/picture-to-immersive-reader-ipad.png)
 

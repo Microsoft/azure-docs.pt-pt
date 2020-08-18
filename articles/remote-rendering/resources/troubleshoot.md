@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563272"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509285"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -105,7 +105,7 @@ Se estes dois passos não ajudaram, é necessário descobrir se os quadros de v�
 
 **O modelo excede os limites do VM selecionado, especificamente o número máximo de polígonos:**
 
-Consulte [os limites específicos do tamanho dos VM](../reference/limits.md#overall-number-of-polygons).
+Consulte [limites específicos de tamanho do servidor](../reference/limits.md#overall-number-of-polygons).
 
 **O modelo não está dentro da câmara frustum:**
 
@@ -148,7 +148,7 @@ Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição 
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão de tabuleiro de xadrez é renderizado após o carregamento do modelo
 
-Se a imagem renderizada se parece com esta: ![ Tabuleiro de ](../reference/media/checkerboard.png) xadrez, o renderizador atinge os limites do [polígono para o tamanho padrão de VM](../reference/vm-sizes.md). Para atenuar, mude para o tamanho **VM premium** ou reduza o número de polígonos visíveis.
+Se a imagem renderizada se parece com esta: ![ Tabuleiro de ](../reference/media/checkerboard.png) xadrez, o renderizador atinge os limites do [polígono para o tamanho padrão de configuração](../reference/vm-sizes.md). Para atenuar, mude para o tamanho de configuração **premium** ou reduza o número de polígonos visíveis.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada na Unidade está de cabeça para baixo
 
@@ -236,7 +236,7 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

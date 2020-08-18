@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827423"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510237"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -221,7 +221,7 @@ Para o armazenamento premium, existem as seguintes opções de caching:
 
 Para armazenamento premium, recomendamos que utilize **o Cache de Leitura para ficheiros** de dados da base de dados SAP e escolha Não cache para os discos de **ficheiros de log.s.**
 
-Para as implementações da Série M, recomendamos que utilize o Acelerador de Escrita Azure para a sua implementação DBMS. Para mais detalhes, restrições e implementação do Acelerador de Escrita Azure, consulte [Ativar o Acelerador de Escrita](../../windows/how-to-enable-write-accelerator.md).
+Para as implementações da Série M, recomendamos que utilize o Acelerador de Escrita Azure para a sua implementação DBMS. Para mais detalhes, restrições e implementação do Acelerador de Escrita Azure, consulte [Ativar o Acelerador de Escrita](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="azure-nonpersistent-disks"></a>Discos não-activos Azure

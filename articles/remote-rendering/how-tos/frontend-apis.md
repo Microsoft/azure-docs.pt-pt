@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552691"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509982"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação
 
@@ -60,11 +60,11 @@ A informação da conta pode ser obtida a partir do portal, conforme descrito no
 
 ## <a name="azure-frontend"></a>Azure Frontend
 
-As aulas relevantes são ```AzureFrontend``` ```AzureSession``` e. ```AzureFrontend```é utilizado para a gestão de conta e funcionalidade do nível de conta, que inclui: conversão de ativos e criação de sessão de renderização. ```AzureSession```é usado para funcionalidade de nível de sessão e inclui: atualização de sessão, consultas, renovação e desmantelamento.
+As aulas relevantes são ```AzureFrontend``` ```AzureSession``` e. ```AzureFrontend``` é utilizado para a gestão de conta e funcionalidade do nível de conta, que inclui: conversão de ativos e criação de sessão de renderização. ```AzureSession``` é usado para funcionalidade de nível de sessão e inclui: atualização de sessão, consultas, renovação e desmantelamento.
 
 Cada aberto/criado ```AzureSession``` manterá uma referência ao frontend que o criou. Para encerrar de forma limpa, todas as sessões têm de ser negociadas antes que o frontend seja negociado.
 
-Negociar uma sessão não vai parar o VM em Azure, `AzureSession.StopAsync` deve ser explicitamente chamado.
+A negociação de uma sessão não irá parar o servidor em Azure, `AzureSession.StopAsync` deve ser chamada explicitamente.
 
 Uma vez criada uma sessão e o seu estado foi marcado como pronto, pode ligar-se ao tempo de execução de renderização remota com `AzureSession.ConnectToRuntime` .
 
@@ -478,7 +478,7 @@ void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta](create-an-account.md)
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

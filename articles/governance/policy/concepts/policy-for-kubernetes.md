@@ -3,12 +3,12 @@ title: Pré-visualização - Saiba a política do Azure para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003496"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509880"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
 
@@ -73,19 +73,19 @@ Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funci
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Kubernetes Service provider
      az provider register --namespace Microsoft.ContainerService
-   
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
-   
+
      # Feature register: enables installing the add-on
      az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-     
+
      # Use the following to confirm the feature has registered
      az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].   {Name:name,State:properties.state}"
-     
+
      # Once the above shows 'Registered' run the following to propagate the update
      az provider register -n Microsoft.ContainerService
      ```
@@ -135,7 +135,7 @@ Uma vez concluídos os passos pré-requisitos acima, instale o Add-on de Políti
      <a name="migrate-from-v1"></a>
      > [!NOTE]
      > Se o botão **de complemento Ativar** estiver acinzentado, a subscrição ainda não foi adicionada à pré-visualização. Se o botão **de desativação de desativar** estiver ativado e for visualizada uma mensagem v2 de aviso de migração, o add-on V1 é instalado e deve ser removido antes de atribuir definições de política v2. O addon v1 _preced_ será automaticamente substituído pelo add-on v2 a partir de 24 de agosto de 2020. Devem então ser atribuídas novas versões v2 das definições políticas. Para atualizar agora, siga estes passos:
-     > 
+     >
      > 1. Validar o seu cluster AKS tem o add-on v1 instalado visitando a página **políticas (pré-visualização)** no seu cluster AKS e tem o "O cluster atual usa add-on Azure Policy v1..." Mensagem.
      > 1. [Retire o addon](#remove-the-add-on-from-aks).
      > 1. Selecione o botão **de adicionar Ativar** para instalar a versão V2 do add-on.
@@ -185,16 +185,16 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -205,7 +205,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
 1. O seu cluster Kubernetes habilitado para o Arco Azure. Para mais informações, consulte [a bordo de um cluster Kubernetes para O Arco de Azure.](../../../azure-arc/kubernetes/connect-cluster.md)
 
-1. Ter o ID de Recursos Azure totalmente qualificado do Arco Azure habilitado para o cluster Kubernetes. 
+1. Ter o ID de Recursos Azure totalmente qualificado do Arco Azure habilitado para o cluster Kubernetes.
 
 1. Abra as portas para o add-on. O Azure Policy Add-on utiliza estes domínios e portas para obter definições e atribuições políticas e reportar o cumprimento do cluster de volta à Política Azure.
 
@@ -226,7 +226,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
    - Azure PowerShell
 
-     ```azure powershell-interactive
+     ```azurepowershell-interactive
      $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
 
      @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
@@ -289,16 +289,16 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -310,7 +310,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
      ```bash
      # Get the kube-apiserver pod name
      kubectl get pods -n kube-system
-   
+
      # Find the aadClientID value
      kubectl exec <kube-apiserver pod name> -n kube-system cat /etc/kubernetes/azure.json
      ```
@@ -393,21 +393,20 @@ Encontre as definições de política incorporadas para gerir o seu cluster util
 
 1. Desaprote o **Âmbito** para o grupo de gestão, subscrição ou grupo de recursos do cluster Kubernetes onde a atribuição de políticas será aplicada.
 
-   > [!NOTE]    
+   > [!NOTE]
    > Ao atribuir a definição Azure Policy for Kubernetes, o **Âmbito** deve incluir o recurso cluster. Para um cluster de motores AKS, o **Scope** deve ser o grupo de recursos do cluster.
 
-1. Dê à atribuição de política um **nome** e **descrição** que pode usar para identificá-lo facilmente.    
+1. Dê à atribuição de política um **nome** e **descrição** que pode usar para identificá-lo facilmente.
 
-1. Definir a [aplicação da política](./assignment-structure.md#enforcement-mode) para um dos valores    
-   abaixo.   
+1. Desa cos assim o coloque na [aplicação da Política](./assignment-structure.md#enforcement-mode) um dos valores abaixo.
 
-   - **Habilitado** - Impor a política no cluster. Os pedidos de admissão de Kubernetes com violações são negados.    
+   - **Habilitado** - Impor a política no cluster. Os pedidos de admissão de Kubernetes com violações são negados.
 
    - **Desativado** - Não aplique a política no cluster. Os pedidos de admissão de Kubernetes com violações não são negados. Os resultados da avaliação da conformidade ainda estão disponíveis. Ao lançar novas definições de política para executar clusters, a opção _de desativada_ é útil para testar a definição de política, uma vez que os pedidos de admissão com violações não são negados.
 
-1. Selecione **Seguinte**. 
+1. Selecione **Seguinte**.
 
-1. Definir **valores de parâmetros** 
+1. Definir **valores de parâmetros**
 
    - Para excluir os espaços de nomes de Kubernetes da avaliação de políticas, especifique a lista de espaços de nome em exclusões de espaço **de nome de parâmetros**. É recomendado excluir: _sistema kube,_ _gatekeeper-system,_ e _azure-arc_.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055244"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509761"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência na nuvem
 
@@ -570,7 +570,7 @@ Em contraste, para especificar uma configuração de disco gerida num modelo, re
 }
 ```
 
-As mesmas alterações aplicam também [discos de dados.](../../virtual-machines/windows/using-managed-disks-template-deployments.md)
+As mesmas alterações aplicam também [discos de dados.](../../virtual-machines/using-managed-disks-template-deployments.md)
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verifique se as extensões VM estão disponíveis no Azure Stack
 
@@ -665,7 +665,7 @@ Considere as seguintes dicas para testes e automatização:
 * Esteja ciente de que alguns testes podem ser realizados sem ser ligado ao Azure Resource Manager. Outros, como a implementação do modelo de teste, exigem que o Gestor de Recursos execute determinadas ações que não podem ser realizadas offline.
 * Testar um modelo de implementação contra a API de validação não é igual a uma implementação real. Além disso, mesmo que implemente um modelo a partir de um ficheiro local, quaisquer referências a modelos aninhados no modelo são recuperados diretamente pelo Gestor de Recursos, e os artefactos referenciados por extensões VM são recuperados pelo agente VM que corre dentro do VM implantado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Considerações do modelo do Gestor de Recursos Azure](/azure-stack/user/azure-stack-develop-templates)
 * [Melhores práticas para modelos ARM](template-syntax.md)

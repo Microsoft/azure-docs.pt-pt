@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511147"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -114,7 +114,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
         - Em geral, não recomendamos a utilização de [discos HDD Standard Azure](../../windows/disks-types.md#standard-hdd).
         - Utilize [o Azure Premium Storage](../../windows/disks-types.md#premium-ssd) para quaisquer VMs DBMS que sejam remotamente sensíveis ao desempenho.
         - Utilize [discos geridos Azure](https://azure.microsoft.com/services/managed-disks/).
-        - Utilize o acelerador de escrita Azure para as unidades de registo DBMS com série M. Esteja atento aos limites e utilização do Acelerador de Escrita, conforme documentado no [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+        - Utilize o acelerador de escrita Azure para as unidades de registo DBMS com série M. Esteja atento aos limites e utilização do Acelerador de Escrita, conforme documentado no [Write Accelerator](../../how-to-enable-write-accelerator.md).
         - Para os diferentes tipos de DBMS, verifique a [documentação genérica do DBMS relacionada com](./dbms_guide_general.md) o SAP e a documentação específica do DBMS a que o documento genérico aponta.
         - Para obter mais informações sobre o SAP HANA, consulte [as configurações e operações de infraestrutura SAP HANA em Azure.](./hana-vm-operations.md)
         - Nunca monte discos de dados Azure num VM Azure Linux utilizando o ID do dispositivo. Em vez disso, utilize o identificador universalmente único (UUID). Tenha cuidado ao utilizar ferramentas gráficas para montar discos de dados Azure, por exemplo. Verifique duas vezes as entradas em /etc/fstab para se certificar de que o UUID é utilizado para montar os discos. Pode encontrar mais detalhes [neste artigo.](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk)
@@ -135,7 +135,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
             - Oracle Linux 7.5. Se estiver a utilizar o núcleo RHCKL, é necessário soltar 3.10.0-862.13.1.1.7. Se estiver a utilizar o kernel Oracle UEK, é necessário libertar 5.
         - Testar e avaliar a latência da rede entre os VMs da camada de aplicação SAP e os VMs DBMS de acordo com as notas de suporte [SAP #500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados com a orientação de latência da rede na [nota de suporte da SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência da rede deve estar ao alcance moderado ou bom. As exceções aplicam-se ao tráfego entre as unidades de VMs e HANA Large Instance, conforme documentado [neste artigo.](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)
         - Certifique-se de que as implementações do ILB estão configurada para utilizar a Return do Servidor Direto. Esta definição reduzirá a latência quando os ILBs Azure forem utilizados para configurações de alta disponibilidade na camada DBMS.
-        - Se estiver a utilizar o Azure Load Balancer juntamente com os sistemas operativos do linux, verifique se o parâmetro de rede Linux **net.ipv4.tcp_timestamps** está definido para **0**. Esta recomendação entra em conflito com recomendações em versões mais antigas da [nota SAP #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP é agora atualizada para indicar que este parâmetro precisa de ser definido para **0** para funcionar com os equilibradores de carga Azure.
+        - Se estiver a utilizar o Azure Load Balancer juntamente com os sistemas operativos de hóspedes Linux, verifique se o parâmetro da rede Linux **net.ipv4.tcp_timestamps** está definido para **0**. Esta recomendação entra em conflito com recomendações em versões mais antigas da [nota SAP #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP é agora atualizada para indicar que este parâmetro precisa de ser definido para **0** para funcionar com os equilibradores de carga Azure.
         - Considere usar [grupos de colocação de proximidade Azure](../../linux/co-location.md) para obter a latência ideal da rede. Para obter mais informações, consulte [os grupos de colocação de proximidade do Azure para obter uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
    4. Alta disponibilidade e implantações de recuperação de desastres.
         - Se implementar a camada de aplicação SAP sem definir uma zona específica de disponibilidade de Azure, certifique-se de que todos os VMs que executam instâncias de diálogo SAP ou instâncias de middleware de um único sistema SAP são implantados num [conjunto de disponibilidade](../../windows/manage-availability.md).

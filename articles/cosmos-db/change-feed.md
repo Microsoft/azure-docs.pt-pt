@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119380"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510288"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Se uma propriedade TTL (Tempo para Viver) estiver definida num item para -1, o f
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Mude o feed e _etag, _lsn ou _ts
 
-O formato _etag é interno e não deve assumir dependência, porque pode mudar a qualquer momento. _ts é uma modificação ou uma estamp de tempo de criação. Pode usar _ts para comparação cronológica. _lsn é um ID de lote que é adicionado apenas para alterar feed; representa o ID de transação. Muitos itens podem ter a mesma _lsn. O ETag no FeedResponse é diferente do _etag que vê no item. _etag é um identificador interno e é utilizado para o controlo da concuência diz sobre a versão do item, enquanto o ETag é usado para sequenciar o feed.
+O formato _etag é interno e não deve assumir dependência, porque pode mudar a qualquer momento. _ts é uma modificação ou uma estamp de tempo de criação. Pode usar _ts para comparação cronológica. _lsn é um ID de lote que é adicionado apenas para alterar feed; representa o ID de transação. Muitos itens podem ter a mesma _lsn. O ETag no FeedResponse é diferente do _etag que vê no item. _etag é um identificador interno e é utilizado para o controlo da conuncy. A propriedade _etag fala sobre a versão do item, enquanto a propriedade ETag é usada para sequenciar o feed.
 
 ## <a name="working-with-change-feed"></a>Trabalhar com o feed de mudança
 
@@ -95,7 +95,7 @@ A funcionalidade de feed de alteração é emergida como fluxo de mudança na AP
 
 A Nativa Apache Cassandra fornece a captura de dados de mudança (CDC), um mecanismo para sinalizar tabelas específicas para arquivo, bem como rejeitar escritas para essas tabelas uma vez que um tamanho-on-disco configurável para o log CDC é alcançado. A funcionalidade de feed de mudança em Azure Cosmos DB API para Cassandra aumenta a capacidade de consultar as mudanças com predicado via CQL. Para saber mais sobre os detalhes da implementação, consulte [change feed na API API do Azure Cosmos para Cassandra.](cassandra-change-feed.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora proceder para saber mais sobre a alteração do feed nos seguintes artigos:
 

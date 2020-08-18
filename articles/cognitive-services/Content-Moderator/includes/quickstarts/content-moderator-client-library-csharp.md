@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: aa2663706d052619dd1f40c0154222b0dac8c790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b064f6515c8ff4b3be4219cc6516ef25dabf0679
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87298732"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510122"
 ---
 Começa com a biblioteca de clientes do Content Moderador para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Content Moderador é um serviço cognitivo que verifica conteúdo de texto, imagem e vídeo para material potencialmente ofensivo, arriscado ou indesejável. Quando este tipo de material é encontrado, o serviço aplica etiquetas adequadas (sinalizadores) ao conteúdo. A sua aplicação pode então lidar com conteúdo sinalizado para cumprir as normas ou manter o ambiente pretendido para os utilizadores.
 
@@ -263,7 +263,7 @@ Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 dotnet run 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

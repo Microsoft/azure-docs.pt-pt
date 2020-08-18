@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825009"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510866"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para a carga de trabalho SAP
 O Azure tem inúmeros tipos de armazenamento que diferem muito em capacidades, produção, latência e preços. Alguns dos tipos de armazenamento não são, ou de usutilizável limitado para cenários SAP. Enquanto que vários tipos de armazenamento Azure são bem adequados ou otimizados para cenários específicos de carga de trabalho SAP. Especialmente para o SAP HANA, alguns tipos de armazenamento Azure foram certificados para o uso com SAP HANA. Neste documento, estamos a analisar os diferentes tipos de armazenamento e a descrever a sua capacidade e usabilidade com cargas de trabalho SAP e componentes SAP.
@@ -84,7 +84,7 @@ Antes de entrarmos em detalhes, apresentamos o resumo e as recomendações já n
 | DBMS volume de registo não-HANA não-M/Mv2 VM famílias | não apoiado | adequado restrito (não-prod) | adequado para a carga de trabalho até média | recomendado | não apoiado |
 
 
-<sup>1</sup> Com a utilização do Acelerador de [Escrita Azure](../../windows/how-to-enable-write-accelerator.md) para famílias M/Mv2 VM para volumes de log/redo log <sup>2</sup> A utilização da ANF requer /hana/dados, bem como /hana/log para estar na ANF 
+<sup>1</sup> Com a utilização do Acelerador de [Escrita Azure](../../how-to-enable-write-accelerator.md) para famílias M/Mv2 VM para volumes de log/redo log <sup>2</sup> A utilização da ANF requer /hana/dados, bem como /hana/log para estar na ANF 
 
 Características que pode esperar da lista de diferentes tipos de armazenamento como:
 
@@ -101,7 +101,7 @@ Características que pode esperar da lista de diferentes tipos de armazenamento 
 | Geo redundância | não para discos geridos | não para discos geridos | não | não | não |
 
 
-<sup>1</sup> Com a utilização do Acelerador de [Escrita Azure](../../windows/how-to-enable-write-accelerator.md) para famílias M/Mv2 VM para volumes de log/redo
+<sup>1</sup> Com a utilização do Acelerador de [Escrita Azure](../../how-to-enable-write-accelerator.md) para famílias M/Mv2 VM para volumes de log/redo
 
 <sup>2</sup> Os custos dependem do IOPS e da produção a provisionados
 
@@ -137,7 +137,7 @@ A matriz de capacidade para a carga de trabalho SAP parece:
 | Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | adequado | todos os sistemas |
-| Disco de dados | adequado | todos os sistemas - [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Disco de dados | adequado | todos os sistemas - [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Diretório global de transportes SAP | SIM | [Suportado](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAPMNT | adequado | todos os sistemas |
 | Armazenamento de backup | adequado | para armazenamento a curto prazo de backups |
@@ -149,12 +149,12 @@ A matriz de capacidade para a carga de trabalho SAP parece:
 | IOPS máximo por disco | 20.000 [dependentes do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites de VM](../../sizes.md) |
 | Produção SLA | SIM | - |
 | Produção linear à capacidade | semi linear em parênteses | [Preços geridos do disco](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certificada | SIM | [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| HANA certificada | SIM | [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Instantâneos de disco possíveis | SIM | - |
-| Instantâneos VM de backup Azure possíveis | SIM | exceto para discos em cache [do acelerador de escrever](../../windows/how-to-enable-write-accelerator.md)  |
+| Instantâneos VM de backup Azure possíveis | SIM | exceto para discos em cache [do acelerador de escrever](../../how-to-enable-write-accelerator.md)  |
 | Custos | Média | - |
 
-O armazenamento premium Azure não preenche os KPI'kPI's de latência de armazenamento SAP HANA com os tipos comuns de caching oferecidos com armazenamento premium Azure. Para cumprir os KPI's de latência de armazenamento para as gravações SAP HANA, é necessário utilizar o caching do acelerador de escrita Azure, conforme descrito no artigo [Enable Write Accelerator](../../windows/how-to-enable-write-accelerator.md). O Azure Write Accelerator beneficia todos os outros sistemas DBMS para as suas gravações de transações e redações de registos de redo. Por isso, recomenda-se a sua utilização em todas as implementações do DBMS SAP. Para o SAP HANA, a utilização do Acelerador Azure Write em conjunto com o armazenamento premium Azure é obrigatória.
+O armazenamento premium Azure não preenche os KPI'kPI's de latência de armazenamento SAP HANA com os tipos comuns de caching oferecidos com armazenamento premium Azure. Para cumprir os KPI's de latência de armazenamento para as gravações SAP HANA, é necessário utilizar o caching do acelerador de escrita Azure, conforme descrito no artigo [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). O Azure Write Accelerator beneficia todos os outros sistemas DBMS para as suas gravações de transações e redações de registos de redo. Por isso, recomenda-se a sua utilização em todas as implementações do DBMS SAP. Para o SAP HANA, a utilização do Acelerador Azure Write em conjunto com o armazenamento premium Azure é obrigatória.
 
 
 

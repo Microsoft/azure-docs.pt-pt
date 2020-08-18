@@ -138,6 +138,8 @@
           href: concepts-server-parameters.md
     - name: Desenvolvimento
       items:
+        - name: Melhores Práticas de Aplicações
+          href: app-development-best-practices.md
         - name: Compatibilidade de controladores e ferramentas
           href: concepts-compatibility.md
         - name: Programação de aplicações

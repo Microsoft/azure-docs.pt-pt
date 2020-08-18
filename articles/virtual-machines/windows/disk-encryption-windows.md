@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291971"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509166"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -132,7 +132,7 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | Parâmetro | Descrição |
 | --- | --- |
 | vmName | Nome do VM para executar a operação de encriptação. |
-| keyVaultName | Nome do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando Azure CLI`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| keyVaultName | Nome do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando Azure CLI `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre chave|
 |  keyEncryptionKeyURL | O URL da chave de encriptação, no formato https:// &lt; nome de &gt; chavevault .vault.azure.net/key/ &lt; nome-chave &gt; . Se não desejar utilizar um KEK, deixe este campo em branco. |
 | volumeType | Tipo de volume em que a operação de encriptação é executada. Valores válidos são _OS,_ _Dados_e _Todos._ 
@@ -264,7 +264,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos de acelerador de escrita.
-- Aplicando ADE a um VM que tenha um disco de dados encriptado com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK), ou aplicando SSE + CMK a um disco de dados num VM encriptado com ADE.
+- Aplicação de ADE a um VM que tenha, ou *já* teve, discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
 

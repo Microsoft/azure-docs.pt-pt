@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061221"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510271"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -33,7 +33,7 @@ Você precisa permitir a integração de parceiros para o seu exemplo Azure Farm
 - Segredo do cliente
 - Cadeia de conexão EventHub
 
-Siga estes passos:
+Siga estes passos.
 
 > [!NOTE]
 > Deve ser um administrador para fazer os seguintes passos.
@@ -58,13 +58,13 @@ Siga estes passos:
 
 5. Vá para o seu diretório de casa.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     cd
     ```
-    
+
 6. Execute o seguinte comando. Isto liga uma conta autenticada para usar para pedidos AZure AD
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
@@ -78,7 +78,7 @@ Siga estes passos:
 
 8. Execute o seguinte script. O script pede o ID do inquilino, que pode ser obtido a partir da página de Visão Geral do **Diretório Ativo Azure.**  >  **Overview**
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1
 
@@ -108,7 +108,7 @@ Siga estes passos:
 |          Fabricante            |         Nome do fabricante    |
 |  Código de Produto                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800.  |
 |            Portas          |     Nome e tipo portuário, que é digital ou analógico.
-|     Name                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+|     Nome                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
       Descrição     | Forneça uma descrição significativa do modelo.
 |    Propriedades          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
@@ -117,7 +117,7 @@ Siga estes passos:
 |  ReporteInterval        |   Intervalo de reportagem em segundos.
 |  Localização            |  Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros).
 |ParentDeviceId       |    ID do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, um nó que está ligado a um portal. Um nó tem os paisDeviceId como porta de entrada.  |
-|    Name            | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.|
+|    Nome            | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.|
 |     Descrição       |      Forneça uma descrição significativa. |
 |     Propriedades    |  Propriedades adicionais do fabricante.
 |     **SensorModel**        |          |
@@ -129,7 +129,7 @@ Siga estes passos:
 |    Tipo de > sensores    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricConductivity, LeafWetness, Comprimento, LiquidLevel, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, RelativaHumidity, Salinidade, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapopiration, PAR. Para adicionar mais, consulte a API /ExtendedType.|
 |        Unidade de > sensores              | Unidade de dados de telemetria sensor. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsSperquareMeter, Watts, WattsPerquareMeter, Watts, WattsPersquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Para adicionar mais, consulte a API /ExtendedType.|
 |    SensorMeasures > A agregaçãoType    |  Os valores não podem ser nenhum, médio, máximo, mínimo ou StandardDeviation.  |
-|          Name            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
+|          Nome            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
 |    Descrição        | Forneça uma descrição significativa do modelo.|
 |   Propriedades       |  Propriedades adicionais do fabricante.|
 |    **Sensor**      |          |
@@ -138,7 +138,7 @@ Siga estes passos:
 | Localização          |  Latitude sensora (-90 a +90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome > Do Porto        |  Nome e tipo da porta à qual o sensor está ligado ao dispositivo. Este tem de ser o mesmo nome definido no modelo do dispositivo.|
 |    DeviceID  |    Identificação do dispositivo a que o sensor está ligado. |
-| Name            |   Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
+| Nome            |   Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
 |    Descrição      | Forneça uma descrição significativa.|
 |    Propriedades        |Propriedades adicionais do fabricante.|
 

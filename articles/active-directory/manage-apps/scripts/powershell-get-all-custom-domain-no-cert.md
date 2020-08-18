@@ -2,22 +2,21 @@
 title: Amostra PowerShell - Aplicações Proxy sem certificado
 description: Exemplo da PowerShell que lista todas as aplicações Proxy de aplicação Azure Ative (Azure AD) que estão a utilizar domínios personalizados mas que não têm um certificado TLS/SSL válido carregado.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97dc46a34e1bb5bb85dcb771a9720a19d356e6f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66a0c14ad9c9143a0b671379d4a22b14944d4eb6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79481216"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511223"
 ---
 # <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Receba todas as aplicações de aplicação Azure AD Proxy publicadas sem certificado carregado
 
@@ -43,7 +42,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Obtém uma aplicação AD Azure. |
 |[Get-AzureADApplicationProxyApplicationApplicationApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

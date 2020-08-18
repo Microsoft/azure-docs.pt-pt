@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
-ms.openlocfilehash: bfe609dc480dcdb71f162ca1bfd383a27257fedc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321705"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516627"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Ative Directory service principal com Azure SQL
 
@@ -80,6 +80,8 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
 
 > [!IMPORTANT]
 > Os passos 1 e 2 devem ser executados na ordem acima. Em primeiro lugar, criar ou atribuir a identidade do servidor, seguida da concessão da permissão dos [**Leitores de Diretório.**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) Omitir um destes passos, ou ambos causarão um erro de execução durante uma criação de objeto AD Azure em Azure SQL em nome de uma aplicação AD Azure. Para obter instruções passo a passo para criar um utilizador AZure AD em nome de uma aplicação AD Azure, consulte [Tutorial: Criar utilizadores de AD Azure utilizando aplicações AD Azure](authentication-aad-service-principal-tutorial.md).
+>
+> Na **pré-visualização pública,** pode atribuir o papel **de Leitores** de Diretório a um grupo em Azure AD. Os proprietários do grupo podem então adicionar a identidade gerida como membro deste grupo, o que contornaria a necessidade de um **Administrador Global** ou Administrador **de Funções Privilegiadas** conceder o papel de Leitores de **Diretório.** Para obter mais informações sobre esta funcionalidade, consulte o [papel dos Leitores de Diretório no Diretório Ativo Azure para a Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Resolução de problemas e limitações para visualização pública
 

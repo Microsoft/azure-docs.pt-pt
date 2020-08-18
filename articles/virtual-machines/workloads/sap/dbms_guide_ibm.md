@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ea95603ea630a1320db5698092f6748e36a9934
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245762"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510203"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -73,7 +73,7 @@ Em alternativa, pode utilizar pools de armazenamento do Windows (apenas disponí
 
 Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretórios de sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar piscinas de armazenamento do Windows, deve criar as piscinas de armazenamento manualmente através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Recomendação sobre vm e estrutura de disco para implantação de Db2 IBM
 

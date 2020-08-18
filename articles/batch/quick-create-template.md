@@ -2,14 +2,14 @@
 title: Azure Quickstart - Criar uma conta batch - Modelo de Gestor de Recursos Azure
 description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure. Criar e gerir recursos Azure a partir da linha de comando ou em scripts.
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086131"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511393"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Quickstart: Criar uma conta batch utilizando o modelo ARM
 
@@ -17,7 +17,7 @@ Você precisa de uma conta Batch para criar recursos compute (conjuntos de nós 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
@@ -29,7 +29,7 @@ Deve ter uma subscrição ativa do Azure.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
 :::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
@@ -70,7 +70,7 @@ Pode validar a implementação no portal Azure navegando para o grupo de recurso
 
 Se pretender continuar a trabalhar com [tutoriais subsequentes,](./tutorial-parallel-dotnet.md)poderá querer deixar estes recursos no lugar. Ou, se já não precisar deles, pode [eliminar o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), que também eliminará a conta Batch e a conta de armazenamento que criou.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou uma conta Batch e uma conta de armazenamento. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch.
 

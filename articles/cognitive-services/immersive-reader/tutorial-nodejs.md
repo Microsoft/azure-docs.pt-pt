@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c64fc95c44aad81087cada23639e3b13bf478056
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407188"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516338"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Lançar o Leitor Imersivo (Node.js)
 
@@ -30,7 +30,7 @@ Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e com
 > * Especificar o idioma da interface imersiva do leitor
 > * Lançar o Leitor Imersivo com conteúdo matemático
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -259,7 +259,7 @@ Pode incluir conteúdo matemático no Leitor Imersivo utilizando [MathML](https:
 
 2. Navegue para _http://localhost:3000_ . Quando lançar o Leitor Imersivo e rolar para o fundo, verá a fórmula matemática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
 * Ver amostras de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

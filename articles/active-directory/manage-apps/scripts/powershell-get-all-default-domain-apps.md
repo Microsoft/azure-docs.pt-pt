@@ -2,22 +2,21 @@
 title: Amostra powerShell - Aplicações Proxy de aplicação usando domínio padrão
 description: Exemplo powerShell que lista todas as aplicações Proxy de aplicação Azure Ative (Azure AD) que estão a utilizar domínios predefinidos (.msappproxy.net).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40a9f7ce86981d6f03b25237a7a73869fd5fd4ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9de36d27b592576300728f3720087073c165a672
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75483378"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511206"
 ---
 # <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>Obtenha todas as aplicações Proxy da Aplicação usando domínios predefinidos (.msappproxy.net)
 
@@ -43,7 +42,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Obtém uma aplicação AD Azure. |
 |[Get-AzureADApplicationProxyApplicationApplicationApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

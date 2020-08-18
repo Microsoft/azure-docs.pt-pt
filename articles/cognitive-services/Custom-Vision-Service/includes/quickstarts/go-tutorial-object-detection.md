@@ -2,30 +2,30 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 45dad7d7b176037087e37638db380294521a8e19
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134097"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511349"
 ---
-Este artigo fornece informações e código de amostra para ajudá-lo a começar a usar o Custom Vision SDK com Go para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Go.
+Este artigo fornece informações e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision com Go para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Go.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Ir 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
+## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar o serviço De Visão Personalizada SDK para Ir, execute o seguinte comando no PowerShell:
+Para instalar a biblioteca de clientes de serviço De Visão Personalizada para Go, execute o seguinte comando em PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-ou se `dep`utilizar, dentro da sua corrida de repo:
+ou se `dep` utilizar, dentro da sua corrida de repo:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -42,7 +42,7 @@ Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções quando criar o seu projeto (explicado no guia do portal build [a detetor](../../get-started-build-detector.md) web).
+Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
 
 ```go
 import(
@@ -90,7 +90,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação para o seu projeto, adicione o seguinte código ao fim da *amostra.go:*
+Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao fim da *amostra.go*:
 
 ```Go
 # Make two tags in the new project
@@ -103,9 +103,9 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas.
 
 > [!NOTE]
-> Se não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, pode utilizar a UI web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já estão fornecidas.
+> Se não tiver um utilitário de clique e arrasto para marcar as coordenadas das regiões, pode utilizar a UI web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já estão fornecidas.
 
-Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Note que neste tutorial as regiões são de linha de dentro codificadas. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
+Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Note que neste tutorial as regiões são codificadas em linha. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
 
 ```Go
 forkImageRegions := map[string][4]float64{
@@ -154,10 +154,10 @@ scissorsImageRegions := map[string][4]float64{
     "scissors_20.jpg": [4]float64{ 0.158088237, 0.04047389, 0.6691176, 0.843137264 },
 }
 ```
-Em seguida, use este mapa de associações para carregar cada imagem de amostra com as suas coordenadas de região (pode carregar até 64 imagens num único lote). Adicione o seguinte código.
+Em seguida, utilize este mapa de associações para carregar cada imagem de amostra com as suas coordenadas de região (pode carregar até 64 imagens num único lote). Adicione o seguinte código.
 
 > [!NOTE]
-> Terá de alterar o caminho para as imagens com base no local onde descarregou o projeto DeServiços Cognitivos Go SDK Samples mais cedo.
+> Você precisará mudar o caminho para as imagens com base no local onde você descarregou o projeto Cognitive Services Go SDK Samples mais cedo.
 
 ```Go
 // Go through the data table above and create the images
@@ -219,7 +219,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### <a name="train-the-project-and-publish"></a>Treine o projeto e publique
 
-Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final da previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
+Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -236,7 +236,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtenha e use a iteração publicada no ponto final da previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -276,7 +276,7 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisará treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de treino trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
+Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de formação trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)

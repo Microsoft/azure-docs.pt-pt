@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681249"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509846"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
@@ -71,15 +71,15 @@ Este comando cria uma sessão. Devolve a identificação da nova sessão. Precis
 
 **Entidade de pedido:**
 
-* maxLeaseTime (timepan): um valor de tempo limite quando o VM será desativado automaticamente
+* maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 * modelos (matriz): URLs de contentores de ativos para pré-carregar
-* tamanho (cadeia): o tamanho VM **("standard"** ou **"premium").** Consulte [as limitações específicas do tamanho do VM](../reference/limits.md#overall-number-of-polygons).
+* tamanho (cadeia): o tamanho do servidor para configurar[**("standard"**](../reference/vm-sizes.md) ou [**"premium").**](../reference/vm-sizes.md) Consulte [limitações de tamanho específicas.](../reference/limits.md#overall-number-of-polygons)
 
 **Respostas:**
 
 | Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | - sessionId: GUID | Êxito |
+| 202 | - sessionId: GUID | Success |
 
 ### <a name="example-script-create-a-session"></a>Script de exemplo: Criar uma sessão
 
@@ -130,13 +130,13 @@ Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estende
 
 **Entidade de pedido:**
 
-* maxLeaseTime (timepan): um valor de tempo limite quando o VM será desativado automaticamente
+* maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 
 **Respostas:**
 
 | Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | | Êxito |
+| 200 | | Success |
 
 ### <a name="example-script-update-a-session"></a>Script de exemplo: Atualizar uma sessão
 
@@ -258,7 +258,7 @@ Este comando para uma sessão. O VM atribuído será recuperado pouco depois.
 
 | Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 204 | | Êxito |
+| 204 | | Success |
 
 ### <a name="example-script-stop-a-session"></a>Roteiro de exemplo: Parar uma sessão
 
@@ -281,6 +281,6 @@ Headers           : {[MS-CV, YDxR5/7+K0KstH54WG443w.0], [Date, Thu, 09 May 2019 
 RawContentLength  : 0
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

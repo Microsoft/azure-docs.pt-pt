@@ -2,36 +2,36 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 8/12/2020
 ms.author: sngun
-ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c5ed4e1bbe54c642202c19e1beb61de94b4f751
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184010"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88515245"
 ---
 **1. Como é que os clientes serão notificados da reforma do SDK?**
 
-A Microsoft fornecerá uma notificação antecipada de 12 meses para o fim do suporte do SDK reformado, de forma a facilitar uma transição suave para um SDK suportado. Além disso, os clientes serão notificados através de vários canais de comunicação – Portal de Gestão Azure, Centro de Desenvolvimento, blog post e comunicação direta aos administradores de serviços atribuídos.
+A Microsoft fornecerá uma notificação antecipada de 12 meses para o fim do suporte do SDK reformado, de forma a facilitar uma transição suave para um SDK suportado. Além disso, os clientes serão notificados através de vários canais de comunicação – portal Azure, Azure Updates e comunicação direta aos administradores de serviços atribuídos.
 
 **2. Os clientes podem autoritar aplicações utilizando um Azure Cosmos DB SDK reformado reformado durante o período de 12 meses?** 
 
-Sim, os clientes terão acesso total ao autor, implementar e modificar aplicações usando o "a ser" reformado Azure Cosmos DB SDK durante o período de carência de 12 meses. Durante o período de carência de 12 meses, os clientes são aconselhados a migrar para uma versão mais recente suportada da Azure Cosmos DB SDK, conforme apropriado.
+Sim, os clientes terão acesso total ao autor, implementar e modificar aplicações usando o "a ser" reformado Azure Cosmos DB SDK durante o período de pré-aviso de 12 meses. Durante o período de pré-aviso de 12 meses, os clientes são aconselhados a migrar para uma versão mais recente suportada da Azure Cosmos DB SDK, conforme apropriado. 
 
-**3. Os clientes podem autoritar e modificar aplicações utilizando um Azure Cosmos DB SDK reformado após o período de notificação de 12 meses?**
+**3. Após a data da reforma, o que acontece com as aplicações que estão a utilizar o Azure Cosmos DB SDK não suportado?** 
 
-Após o período de notificação de 12 meses, o SDK será retirado. Qualquer acesso ao Azure Cosmos DB através de uma aplicação que utilize um SDK reformado não será permitido pela plataforma DB Azure Cosmos. Além disso, a Microsoft não fornecerá suporte ao cliente no SDK reformado.
+Após a data de aposentadoria, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões SDK reformadas. Se preferir não fazer upgrade, os pedidos enviados a partir das versões aposentadas do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos. 
 
-**4. O que acontece com as aplicações de execução do Cliente que estão a utilizar a versão DDK DB SDK não suportada da Azure Cosmos?**
+**4. Quais as versões SDK que terão as mais recentes funcionalidades e atualizações?**
 
-Quaisquer tentativas feitas para ligar ao serviço DB da Azure Cosmos com uma versão SDK reformada serão rejeitadas. 
+Novas funcionalidades e atualizações só serão adicionadas à versão menor mais recente da mais recente versão SDK suportada. Recomenda-se sempre utilizar a versão mais recente para tirar partido de novas funcionalidades, melhorias de desempenho e correções de bugs. Se estiver a utilizar uma versão antiga e não aposentada do SDK, os seus pedidos para Azure Cosmos DB continuarão a funcionar, mas não terá acesso a quaisquer novas capacidades.  
 
-**5. Serão aplicadas novas funcionalidades e funcionalidades a todos os SDKs não reformados?**
+**5. O que devo fazer se não conseguir atualizar o meu pedido antes de uma data limite?**
 
-Novas funcionalidades e funcionalidades apenas serão adicionadas às novas versões. Se estiver a utilizar uma versão antiga e não aposentada do SDK, os seus pedidos para Azure Cosmos DB continuarão a funcionar como anteriores, mas não terás acesso a quaisquer novas capacidades.  
+Recomendamos que atualize para o SDK mais cedo possível. Uma vez que um SDK tenha sido marcado para a aposentadoria, terá 12 meses para atualizar a sua aplicação. Se não conseguir atualizar até à data de aposentadoria, os pedidos enviados a partir das versões aposentadas do SDK continuarão a ser servidos pela Azure Cosmos DB, pelo que as suas aplicações de execução continuarão a funcionar. No entanto, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões SDK reformadas. 
 
-**6. O que devo fazer se não conseguir atualizar o meu pedido antes de uma data limite?**
+Se tiver um plano de apoio e necessitar de apoio técnico, [contacte-nos](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através da apresentação de um bilhete de apoio.
+    
 
-Recomendamos que atualize para o SDK mais cedo possível. Uma vez que um SDK tenha sido marcado para a aposentadoria, terá 12 meses para atualizar a sua aplicação. Se, por qualquer motivo, não conseguir completar a atualização da sua aplicação dentro deste prazo, contacte a [Equipa DB cosmos](mailto:askcosmosdb@microsoft.com) e solicite a sua assistência antes da data limite.
 

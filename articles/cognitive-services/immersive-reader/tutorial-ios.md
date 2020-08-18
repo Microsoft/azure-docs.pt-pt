@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: d9bb3a5fb41215f2e839efc7989ea7854f254f16
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce9d3af8f7517e2acae5264197b842d47085279c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537940"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516372"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-swift-ios-code-sample"></a>Tutorial: Inicie o Leitor Imersivo utilizando a amostra de código Swift iOS
 
@@ -26,7 +26,7 @@ Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e com
 > * Adquira um símbolo de acesso.
 > * Inicie o Leitor Imersivo com o conteúdo da amostra.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Não comprometas esta mudança no controlo de fontes porque contém segredos que
 
 Em Xcode, selecione **Ctrl+R** para executar o projeto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore a [referência Imersiva SDK](https://github.com/microsoft/immersive-reader-sdk) do leitor e a [referência SDK do leitor imersivo](./reference.md).
 * Ver amostras de código no [GitHub.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)

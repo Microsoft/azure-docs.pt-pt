@@ -1,49 +1,49 @@
 ---
 title: O que são documentos paralelos? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: Documentos paralelos são pares de documentos onde um é a tradução do outro. Um documento no par contém frases na língua de origem e o outro documento contém estas frases traduzidas na linguagem-alvo.
+description: Documentos paralelos são pares de documentos onde um é a tradução do outro. Um documento do par contém frases na língua de origem e o outro documento contém estas frases traduzidas para a língua-alvo.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d397e481fcd11e534e4bb5cf98f8c402435e890e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997082"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510815"
 ---
 # <a name="what-are-parallel-documents"></a>O que são documentos paralelos?
 
-Documentos paralelos são pares de documentos onde um é a tradução do outro. Um documento no par contém frases na língua de origem e o outro documento contém estas frases traduzidas na linguagem-alvo.
-Não importa qual a língua que é marcada como "fonte" e qual a língua que é marcada como "alvo" – um documento paralelo pode ser usado para treinar um sistema de tradução em qualquer direção.
+Documentos paralelos são pares de documentos onde um é a tradução do outro. Um documento do par contém frases na língua de origem e o outro documento contém estas frases traduzidas para a língua-alvo.
+Não importa qual a língua que é marcada como "fonte" e qual a língua que é marcada como "alvo" – um documento paralelo pode ser usado para formar um sistema de tradução em qualquer direção.
 
 ## <a name="requirements"></a>Requisitos
 
-Você precisará de um mínimo de 10.000 frases paralelas alinhadas únicas para treinar um sistema. Esta limitação é uma rede de segurança para garantir que as suas frases paralelas contenham vocabulário único suficiente para treinar com sucesso um modelo de tradução. Como uma boa prática, adicione continuamente mais conteúdo paralelo e retreça para melhorar a qualidade do seu sistema de tradução. Por favor, consulte o Alinhamento da [Sentença](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Você precisará de um mínimo de 10.000 frases paralelas únicas alinhadas para treinar um sistema. Esta limitação é uma rede de segurança para garantir que as suas frases paralelas contenham vocabulário único suficiente para treinar com sucesso um modelo de tradução. Como uma boa prática, adicione continuamente mais conteúdo paralelo e retreinar para melhorar a qualidade do seu sistema de tradução. Consulte o [Alinhamento da Frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
-A Microsoft exige que os documentos enviados para o Tradutor Personalizado não violem os direitos de autor ou propriedades intelectuais de terceiros. Para mais informações, por favor leia as condições legais de [utilização.](https://azure.microsoft.com/support/legal/cognitive-services-terms/)
+A Microsoft exige que os documentos enviados para o Tradutor Personalizado não violem os direitos de autor ou propriedades intelectuais de terceiros. Para mais informações, por favor leia as [condições legais de utilização.](https://azure.microsoft.com/support/legal/cognitive-services-terms/)
 O upload de um documento utilizando o portal não altera a propriedade da propriedade intelectual no próprio documento.
 
 ## <a name="use-of-parallel-documents"></a>Utilização de documentos paralelos
 
 Os documentos paralelos são utilizados pelo sistema:
 
-1.  Para aprender como as palavras, frases e frases são comumente mapeadas entre as duas línguas.
+1.  Para aprender como palavras, frases e frases são geralmente mapeadas entre as duas línguas.
 
 2.  Para aprender a processar o contexto apropriado dependendo das frases circundantes. Uma palavra pode nem sempre traduzir-se para a mesma palavra na outra língua.
 
-Como uma boa prática, certifique-se de que existe uma correspondência de 1:1 entre a fonte e as versões linguísticas-alvo dos documentos.
+Como melhor prática, certifique-se de que existe uma correspondência de sentença de 1:1 entre as versões linguísticas de origem e alvo dos documentos.
 
-Se o seu projeto for específico de domínio (categoria), os seus documentos devem ser consistentes em terminologia dentro dessa categoria. A qualidade do sistema de tradução resultante depende do número de frases no seu conjunto de documentos e da qualidade das frases. Quanto mais exemplos os seus documentos contêm com diversos usos para uma palavra específica da sua categoria, melhor é o trabalho que o sistema pode fazer durante a tradução.
+Se o seu projeto for específico de domínio (categoria), os seus documentos devem ser consistentes em terminologia dentro dessa categoria. A qualidade do sistema de tradução resultante depende do número de frases no seu conjunto de documentos e da qualidade das frases. Quanto mais exemplos os seus documentos contiverem com usos diversos para uma palavra específica para a sua categoria, melhor trabalho o sistema pode fazer durante a tradução.
 
-Os documentos enviados são privados para cada espaço de trabalho e podem ser usados em tantos projetos ou formações quanto quiser. As frases extraídas dos seus documentos são armazenadas separadamente no seu repositório como ficheiros de texto Unicode simples e estão disponíveis para a sua eliminação. Não utilize o Tradutor Personalizado como repositório de documentos, não poderá descarregar os documentos que carregou no formato que os carregou.
+Os documentos enviados são privados de cada espaço de trabalho e podem ser usados em tantos projetos ou formações que quiser. As frases extraídas dos seus documentos são armazenadas separadamente no seu repositório como ficheiros de texto simples do Unicode e estão disponíveis para eliminar. Não utilize o Tradutor Personalizado como repositório de documentos, não poderá descarregar os documentos que carregou no formato que os carregou.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar um [dicionário](what-is-dictionary.md) em Tradutor Personalizado.

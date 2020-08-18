@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805016"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509302"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
 
@@ -100,7 +100,7 @@ Esta secção regista informações sobre o formato de ficheiro de origem.
 Esta secção fornece informações sobre a cena da origem. Muitas vezes haverá discrepâncias entre os valores desta secção e os valores equivalentes na ferramenta que criou o modelo de origem. Estas diferenças são esperadas, uma vez que o modelo é modificado durante as etapas de exportação e conversão.
 
 * `numMeshes`: O número de peças de malha, onde cada peça pode fazer referência a um único material.
-* `numFaces`: O número total de _triângulos_ em todo o modelo. Note que a malha é triangulada durante a conversão. Este número contribui para o limite do polígono no [tamanho padrão de VM de renderização](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: O número total de _triângulos_ em todo o modelo. Note que a malha é triangulada durante a conversão. Este número contribui para o limite do polígono no tamanho padrão do [servidor de renderização](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: O número total de vértices em todo o modelo.
 * `numMaterial`: O número total de materiais em todo o modelo.
 * `numFacesSmallestMesh`: O número de triângulos na malha mais pequena do modelo.
@@ -125,7 +125,7 @@ Esta secção regista informações calculadas a partir do ativo convertido.
 * `recenteringOffset`: Quando a `recenterToOrigin` opção nas [conversõesEção](configure-model-conversion.md) estiver ativada, este valor é a tradução que moveria o modelo convertido de volta à sua posição original.
 * `boundingBox`: Os limites do modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conversão de modelo](model-conversion.md)
 * [Configurar a conversão de modelos](configure-model-conversion.md)

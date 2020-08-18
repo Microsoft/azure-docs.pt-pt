@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 1327a2c621eca1cfadcf776ecd62f0899651f0bc
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807932"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510652"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Quickstart: Criar e encriptar uma máquina virtual do Windows com o portal Azure
 
@@ -29,22 +29,23 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Na página Nova, em Popular, selecione **O Centro de Dados do Windows Server 2016**.
-1. No separador Basics, nos detalhes do Projeto, certifique-se de que a subscrição correta é selecionada e, em seguida, opte por **criar um novo grupo de recursos**. Insira *o myResourceGroup* como o nome.
+1. No separador Basics, nos detalhes do Projeto, certifique-se de que a subscrição correta é selecionada.
+1. Para "Grupo de Recursos", **selecione Criar novos**. Insira *o myResourceGroup* como o nome e selecione **Ok**.
 1. Para **o nome da máquina virtual,** insira o *MyVM*.
-1. Para **a Região**, selecione a mesma região que usou ao fazer o seu cofre-chave acima (por exemplo, *Leste dos EUA).*
-1. Certifique-se de que o **tamanho** é *Standard D2s v3*.
+1. Para **a Região**, selecione *(EUA) Leste DOS EUA.*
+1. Verifique se o **tamanho** é *Standard D2s v3*.
 1. Na **conta do Administrador**, selecione **Password**. Insira um nome de utilizador e uma senha.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-windows-vm-creation.png" alt-text="Ecrã de criação do Grupo de Recursos":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Ecrã de criação do Windows VM":::
 
     > [!WARNING]
-    > O separador "Discos" apresenta um campo "Tipo de Encriptação" nas **opções de Disco**. Este campo é utilizado para especificar opções de encriptação para [Discos Geridos](managed-disks-overview.md) + CMK, e não para Encriptação do Disco Azure. 
+    > O separador "Discos" apresenta um campo "Tipo de Encriptação" nas **opções de Disco**. Este campo é utilizado para especificar opções de encriptação para [Discos Geridos](managed-disks-overview.md) + CMK, e não para Encriptação do Disco Azure.
     >
-    > Para evitar confusões, sugerimos que ignore completamente o separador *Discos* enquanto completa este tutorial. 
+    > Para evitar confusões, sugerimos que ignore completamente o separador *Discos* enquanto completa este tutorial.
 
 1. Selecione o separador "Gestão" e verifique se tem uma Conta de Armazenamento de Diagnóstico. Se não tiver contas de armazenamento, selecione "Create New", dê um nome à sua nova conta e selecione "Ok"
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Ecrã de criação do Grupo de Recursos":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Ecrã de criação do Grupo de Recursos":::
 
 1. Clique em "Review + Create".
 1. Na página **Criar uma máquina virtual**, pode ver os detalhes sobre a VM que está prestes a criar. Quando estiver pronto, selecione **Criar**.
@@ -55,27 +56,27 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
 
 1. Quando a implementação de VM estiver concluída, selecione **Ir para o recurso**.
 1. Na barra lateral esquerda, selecione **Discos**.
-1. No ecrã discos, selecione **Encriptação**. 
+1. Na barra superior, selecione **Definições Adicionais** .
+1. Nas **definições de encriptação,**  >  **os discos para encriptar,** selecione **OS e discos de dados**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="discos e seleção de encriptação":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="discos e seleção de encriptação":::
 
-1. No ecrã de encriptação, em **Discos para encriptar,** escolha **os discos de OS e de dados**.
 1. Nas **definições de encriptação,** escolha **Selecionar um cofre de tecla e chave para encriptação**.
 1. Na **tecla Select a partir do ecrã Azure Key Vault,** selecione **Create New**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="discos e seleção de encriptação":::
 
-1. No ecrã do **cofre da chave Criar,** certifique-se de que o Grupo de Recursos é o mesmo que o utilizado para criar o VM.
-1. Dê um nome ao seu cofre de chaves.  Cada cofre-chave em Azure deve ter um nome único.
+1. À esquerda do **cofre e tecla chave,** selecione **Click para selecionar uma tecla**.
+1. Na **tecla Select a partir do Cofre da Chave Azure,** sob o campo **Key Vault,** selecione **Criar novos**.
+1. No ecrã do **cofre de teclas Create,** certifique-se de que o Grupo de Recursos é *o myResourceGroup*e dê um nome ao cofre da sua chave.  Cada cofre-chave em Azure deve ter um nome único.
 1. No separador **Políticas de Acesso,** verifique a encriptação do **disco Azure para obter a caixa de encriptação de volume.**
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="discos e seleção de encriptação":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="discos e seleção de encriptação":::
 
 1. Selecione **Rever + criar**.  
 1. Depois de passar a validação do cofre da chave, **selecione Criar**. Isto irá devolvê-lo à tecla Select do ecrã **Azure Key Vault.**
 1. Deixe o campo **chave** em branco e escolha **Selecione**.
 1. No topo do ecrã de encriptação, clique em **Guardar**. Um pop-up irá avisá-lo que o VM vai reiniciar. Clique **em Sim**.
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

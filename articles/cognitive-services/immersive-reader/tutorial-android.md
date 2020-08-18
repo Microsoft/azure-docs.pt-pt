@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
 ms.custom: devx-track-java
-ms.openlocfilehash: f8420a42b87481b5e51b383ace1ba8a510d2a6a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 637b4d988a4845369a441dce55f0043d873879f6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366743"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516440"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-android-java-code-sample"></a>Tutorial: Inicie o Leitor Imersivo utilizando a amostra de código Android Java
 
@@ -27,7 +27,7 @@ Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e com
 > * Adquira um símbolo de acesso.
 > * Inicie o Leitor Imersivo com o conteúdo da amostra.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Escolha um emulador de dispositivo do Gestor AVD e execute o projeto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore a [referência Imersiva SDK](https://github.com/microsoft/immersive-reader-sdk) do leitor e a [referência SDK do leitor imersivo](./reference.md).
 * Ver amostras de código no [GitHub.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)

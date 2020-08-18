@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507935"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510016"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -46,7 +46,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 
 |  | Implementação no local | Implementação do Azure |
 | --- | --- | --- |
-| **Redes** |LAN/WAN  |SDN (rede definida por software)|
+| **Rede** |LAN/WAN  |SDN (rede definida por software)|
 | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança de Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para a recuperação)|
 | **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](../../windows/infrastructure-example.md) (patching/upgrades geridos pelo Azure) |
@@ -56,7 +56,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 | **Dimensionamento** |Escala vertical |Dimensionamento horizontal|
 
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 - Determine o tamanho e a taxa de crescimento da base de dados.
 - Determine os requisitos do IOPS, que pode estimar com base em relatórios oracle AWR ou outras ferramentas de monitorização da rede.
@@ -187,7 +187,7 @@ Depois de ter uma imagem clara dos requisitos de E/S, pode escolher uma combina�
 - Utilize a compressão de dados para reduzir a E/S (tanto para dados como para índices).
 - Separe os registos, o sistema e as temperaturas e desfaça o TS em discos de dados separados.
 - Não coloque ficheiros de aplicação em discos de OS predefinidos (/dev/sda). Estes discos não estão otimizados para tempos de arranque rápidos em VM, e podem não proporcionar um bom desempenho para a sua aplicação.
-- Ao utilizar VMs da Série M no armazenamento Premium, ative [o Acelerador de Escrita](../../linux/how-to-enable-write-accelerator.md) no disco de registos de redo.
+- Ao utilizar VMs da Série M no armazenamento Premium, ative [o Acelerador de Escrita](../../how-to-enable-write-accelerator.md) no disco de registos de redo.
 
 ### <a name="disk-cache-settings"></a>Definições de cache de disco
 
@@ -232,7 +232,7 @@ Depois de configurar e configurar o seu ambiente Azure, o próximo passo é prot
 - [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
 - [Apoio e recuperação da Oráculo](oracle-backup-recovery.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)

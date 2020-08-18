@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565512"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509370"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
@@ -84,7 +84,7 @@ Mais tarde queremos implementar este projeto num HoloLens e conectar-nos ao serv
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Crie uma sessão e veja o modelo padrão
 
-Prima o botão **De Reprodução** da Unidade para iniciar a sessão. Você deve ver uma sobreposição com texto de estado, na parte inferior do viewport no painel *de jogo.* A sessão será submetida a uma série de transições estatais. No estado **inicial,** o VM remoto é girado, o que leva vários minutos. Após o sucesso, passa para o estado **Ready.** Agora a sessão entra no estado **de Ligação,** onde tenta atingir o tempo de execução de renderização naquele VM. Quando bem sucedida, a amostra transite para o estado **Ligado.** Neste momento, começará a descarregar o modelo para renderização. Devido ao tamanho do modelo, o download pode demorar mais alguns minutos. Em seguida, o modelo renderizado remotamente aparecerá.
+Prima o botão **De Reprodução** da Unidade para iniciar a sessão. Você deve ver uma sobreposição com texto de estado, na parte inferior do viewport no painel *de jogo.* A sessão será submetida a uma série de transições estatais. No estado **inicial,** o servidor é girado, o que leva vários minutos. Após o sucesso, passa para o estado **Ready.** Agora a sessão entra no estado **de Ligação,** onde tenta atingir o tempo de execução de renderização naquele servidor. Quando bem sucedida, a amostra transite para o estado **Ligado.** Neste momento, começará a descarregar o modelo para renderização. Devido ao tamanho do modelo, o download pode demorar mais alguns minutos. Em seguida, o modelo renderizado remotamente aparecerá.
 
 ![Saída da amostra](media/arr-sample-output.png)
 

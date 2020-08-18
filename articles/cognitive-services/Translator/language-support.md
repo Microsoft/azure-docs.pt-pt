@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888311"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510798"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
-Utilize o Tradutor para traduzir para e a partir de qualquer uma das mais de 60 línguas de tradução de texto. A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas alimentadas por IA de alta qualidade e está disponível como o padrão usando V3 de Tradutor quando um sistema neural está disponível.
+Utilize o Tradutor para traduzir para e a partir de qualquer uma das mais de 70 línguas de tradução de texto. A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas alimentadas por IA de alta qualidade e está disponível como o padrão usando V3 de Tradutor quando um sistema neural está disponível.
 
 Também pode utilizar o Tradutor em conjunto com o Custom Tradutor para construir sistemas de tradução neural que compreendam a terminologia utilizada no seu próprio negócio e indústria, e com o Microsoft Speech Service para adicionar tradução de voz à sua app.
 
@@ -47,6 +47,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 |Chinês tradicional|   `zh-Hant`       |
 |Croata|  `hr`    |
 |Checo| `cs`    |
+|Rio Dari|  `prs`   |
 |Dinamarquês|    `da`        |
 |Neerlandês| `nl`|
 |Inglês|   `en`    |
@@ -83,6 +84,8 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 |Maori| `mi`  |
 |Marata| `mr`  |
 |Norueguês| `nb`    |
+|Odia|  `or`    |
+|Rio Pashto|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Português (Brasil)|   `pt-br` |
@@ -185,26 +188,26 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 
 | Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Árabe | `ar` | Árabe`Arab` | <--> | Latim`Latn` |
-| Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Latim`Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Chinês tradicional`Hant`|
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Latim`Latn` |
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Chinês simplificado`Hans` |
-| Guzerate | `gu`  | Guzerate`Gujr` | --> | Latim`Latn` |
-| Hebraico | `he` | Hebraico`Hebr` | <--> | Latim`Latn` |
-| Hindi | `hi` | Devanagari`Deva` | <--> | Latim`Latn` |
-| Japonês | `ja` | Japonês`Jpan` | <--> | Latim`Latn` |
-| Canarês | `kn` | Canarês`Knda` | --> | Latim`Latn` |
-| Malaiala | `ml` | Malaiala`Mlym` | --> | Latim`Latn` |
-| Marata | `mr` | Devanagari`Deva` | --> | Latim`Latn` |
-| Odia | `or` | Oriya`Orya` | <--> | Latim`Latn` |
-| Punjabi | `pa` | Rio Gurmukhi`Guru`  | <--> | Latim`Latn`  |
-| Sérvio (Cirílico) | `sr-Cyrl` | Cirílico`Cyrl`  | --> | Latim`Latn` |
-| Sérvio (Latim) | `sr-Latn` | Latim`Latn` | --> | Cirílico`Cyrl`|
-| Tâmil | `ta` | Tâmil`Taml` | --> | Latim`Latn` |
-| Telugu | `te` | Telugu`Telu` | --> | Latim`Latn` |
-| Tailandês | `th` | Tailandês`Thai` | --> | Latim`Latn` |
+| Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
+| Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
+| Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
+| Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
+| Canarês | `kn` | Canarês `Knda` | --> | Latim `Latn` |
+| Malaiala | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
+| Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+| Punjabi | `pa` | Rio Gurmukhi `Guru`  | <--> | Latim `Latn`  |
+| Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
+| Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
+| Tâmil | `ta` | Tâmil `Taml` | --> | Latim `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latim `Latn` |
+| Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dicionário
 

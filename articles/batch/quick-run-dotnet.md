@@ -1,29 +1,31 @@
 ---
-title: Início Rápido do Azure – Executar trabalho do Batch – .NET
-description: Execute rapidamente um trabalho de amostra de Lote Azure e tarefas a partir de uma aplicação C# com a biblioteca de clientes Batch .NET.
+title: Quickstart - Executar o seu primeiro trabalho em Azure Batch com a API .NET
+description: Neste quickstart, você executou um trabalho de amostra de Azure Batch e tarefas a partir de uma aplicação C# com a biblioteca de clientes Batch .NET.
 ms.topic: quickstart
-ms.date: 11/29/2018
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117221"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511036"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
 
-Este início rápido executa um trabalho do Azure Batch a partir de uma aplicação C# criada a partir da API .NET do Azure Batch. A aplicação carrega vários ficheiros de dados de entrada para o armazenamento do Azure e, em seguida, cria um *conjunto* de nós de computação do Batch (máquinas virtuais). Em seguida, cria uma *tarefa* de amostra que executa *tarefas* para processar cada ficheiro de entrada no conjunto com um comando básico. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
+Inicie com o Azure Batch executando um trabalho a partir de uma aplicação C# construída no Azure Batch .NET API. A aplicação carrega vários ficheiros de dados de entrada para o armazenamento do Azure e, em seguida, cria um conjunto de nós de computação do Batch (máquinas virtuais). Em seguida, cria uma tarefa de amostra que executa tarefas para processar cada ficheiro de entrada no conjunto com um comando básico.
 
-![Início rápido do fluxo de trabalho da aplicação](./media/quick-run-dotnet/sampleapp.png)
+Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Diagrama mostrando uma visão geral do fluxo de trabalho da aplicação Azure Batch.](./media/quick-run-dotnet/sampleapp.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017 ou mais tarde](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-* Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md). 
+- Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
+
+- [Visual Studio 2017 ou posteriormente](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -60,11 +62,11 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 Para ver o fluxo de trabalho do Batch em ação, crie e execute a aplicação no Visual Studio ou na linha de comandos com os comandos `dotnet build` e `dotnet run`. Depois de executar a aplicação, reveja o código para saber o que faz cada parte da aplicação. Por exemplo, no Visual Studio:
 
-* Clique com o botão direito do rato no Explorador de Soluções e clique em **Compilar Solução**. 
+- Clique com o botão direito do rato no Explorador de Soluções e clique em **Compilar Solução**. 
 
-* Confirme o restauro de quaisquer pacotes NuGet, se lhe for pedido. Se precisar de transferir pacotes em falta, certifique-se de que o [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) está instalado.
+- Confirme o restauro de quaisquer pacotes NuGet, se lhe for pedido. Se precisar de transferir pacotes em falta, certifique-se de que o [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) está instalado.
 
-Em seguida, execute-o. Quando executar a aplicação de exemplo, o resultado da consola é semelhante ao seguinte. Durante a execução, ocorre uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do conjunto são iniciados. As tarefas são colocadas em fila para serem executadas assim que o primeiro nó de computação estiver em execução. Vá à sua conta de Lote no [portal Azure](https://portal.azure.com) para monitorizar a piscina, calcular nós, trabalho e tarefas.
+Quando executar a aplicação de exemplo, o resultado da consola é semelhante ao seguinte. Durante a execução, ocorre uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do conjunto são iniciados. As tarefas são colocadas em fila para serem executadas assim que o primeiro nó de computação estiver em execução. Aceda à sua conta Batch no [portal Azure](https://portal.azure.com) para monitorizar a piscina, nómada, trabalho e tarefas.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -93,17 +95,16 @@ stderr:
 
 O tempo de execução normal é de aproximadamente 5 minutos quando executa a aplicação na configuração predefinida. A configuração do conjunto inicial demora mais tempo. Para executar novamente o trabalho, elimine-o da execução anterior e não elimine o conjunto. Num conjunto pré-configurado, o trabalho é concluído em alguns segundos.
 
-
 ## <a name="review-the-code"></a>Rever o código
 
 A aplicação .NET neste início rápido faz o seguinte:
 
-* Carrega três pequenos ficheiros de texto para um contentor de blobs na sua conta de armazenamento do Azure. Estes ficheiros são entradas para processamento através do Batch.
-* Cria um conjunto de nós de computação com o Windows Server.
-* Cria um trabalho e três tarefas para serem executados nos nós. Cada tarefa processa um dos ficheiros de entrada através de uma linha de comandos do Windows. 
-* Apresenta ficheiros devolvidos pelas tarefas.
+- Carrega três pequenos ficheiros de texto para um contentor de blobs na sua conta de armazenamento do Azure. Estes ficheiros são entradas para processamento através do Batch.
+- Cria um conjunto de nós de computação com o Windows Server.
+- Cria um trabalho e três tarefas para serem executados nos nós. Cada tarefa processa um dos ficheiros de entrada através de uma linha de comandos do Windows. 
+- Apresenta ficheiros devolvidos pelas tarefas.
 
-Veja o ficheiro `Program.cs` e as secções seguintes para obter mais detalhes. 
+Veja o ficheiro `Program.cs` e as secções seguintes para obter mais detalhes.
 
 ### <a name="preliminaries"></a>Preliminares
 
@@ -182,7 +183,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ```
 
-### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
+### <a name="create-a-batch-job"></a>Criar uma tarefa do Batch
 
 Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. A aplicação utiliza o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho no seu conjunto.
 
@@ -245,7 +246,6 @@ Quando já não forem necessários, elimine o grupo de recursos, a conta do Batc
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, executou a compilação de uma pequena aplicação com a API .NET do Batch para criar um conjunto e um trabalho do Batch. A tarefa executou tarefas de exemplo e transferiu os resultados criados nos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para obter mais informações sobre o Azure Batch e saber utilizar uma carga de trabalho paralela com uma aplicação do mundo real, avance para o tutorial .NET do Batch.
-
 
 > [!div class="nextstepaction"]
 > [Processar uma carga de trabalho paralela com .NET](tutorial-parallel-dotnet.md)

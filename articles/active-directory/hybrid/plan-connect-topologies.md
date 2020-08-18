@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698772"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509093"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve várias topologias no local e Azure Ative Directory (Azure AD) que utilizam a sincronização Azure AD Connect como a solução-chave de integração. Este artigo inclui configurações suportadas e não apoiadas.
@@ -192,7 +192,12 @@ Os inquilinos da AD AZure são isolados pelo design. Estas tarefas não são apo
 
 Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar os utilizadores (via GALSync) entre duas organizações de Intercâmbio. Os utilizadores de uma organização aparecem como utilizadores/contactos estrangeiros na outra organização. Estes diferentes casos de Ative Directory podem então ser sincronizados com os seus próprios inquilinos AD Azure.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>Usando clientes não autorizados para aceder ao backend Azure AD Connect
+![Usando clientes não autorizados para aceder ao backend Azure AD Connect](./media/plan-connect-topologies/other-client-unsupported.png)
+
+O servidor Azure Ative Directory Connect comunica com o Azure Ative Directory através do backend Azure Ative Directory Connect. O único software que pode ser usado para comunicar com este backend é o Azure Ative Directory Connect. Não é suportado para comunicar com o backend Azure Ative Directory Connect utilizando qualquer outro software ou método. 
+
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a instalar o Azure AD Connect para estes cenários, consulte [a instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)

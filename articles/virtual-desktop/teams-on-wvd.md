@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006116"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509608"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -36,7 +36,7 @@ Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá d
 
 ## <a name="install-the-teams-desktop-app"></a>Instale a aplicação de desktop Teams
 
-Esta secção irá mostrar-lhe como instalar a aplicação de desktop Teams na sua multi-sessão Do Windows 10 ou na imagem VM do Windows 10 Enterprise. Para saber mais, confira [instalar ou atualizar a aplicação de ambiente de trabalho Teams no VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi/).
+Esta secção irá mostrar-lhe como instalar a aplicação de desktop Teams na sua multi-sessão Do Windows 10 ou na imagem VM do Windows 10 Enterprise. Para saber mais, confira [instalar ou atualizar a aplicação de ambiente de trabalho Teams no VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### <a name="prepare-your-image-for-teams"></a>Prepare a sua imagem para equipas
 
@@ -71,17 +71,17 @@ A tabela a seguir lista as versões mais recentes do Serviço WebSocket:
 
 Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma instalação por máquina ou por utilizador. Para instalar as Equipas Microsoft no ambiente de ambiente de trabalho virtual do Windows:
 
-1. Descarregue o [pacote DE MSI das equipas](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) que corresponde ao seu ambiente. Recomendamos a utilização do instalador de 64 bits num sistema operativo de 64 bits.
+1. Descarregue o [pacote DE MSI das equipas](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) que corresponde ao seu ambiente. Recomendamos a utilização do instalador de 64 bits num sistema operativo de 64 bits.
 
-      > [!NOTE]
-      > A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
+      > [!IMPORTANT]
+      > A última atualização da versão 1.3.00.21759 do cliente teams mostrou o fuso horário da UTC em chat, canais e calendário. A nova versão do cliente mostrará o fuso horário de sessão remota.
 
 2. Executar um dos seguintes comandos para instalar o MSI no VM anfitrião:
 
     - Instalação por utilizador
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name>
         ```
 
         Este processo é a instalação predefinida, que instala equipas na pasta de utilizador **%AppData%.** As equipas não funcionarão corretamente com a instalação por utilizador numa configuração não persistente.
@@ -89,13 +89,13 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
     - Instalação por máquina
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
         Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
 
-        Da próxima vez que abrires equipas numa sessão, serão-te pedidos as tuas credenciais.
-
+        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o instalador de máquinas de equipas aparece no Programa e nas Funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas. 
+       
         > [!NOTE]
         > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.
 
@@ -125,12 +125,11 @@ Depois de instalar o Serviço WebSocket e a aplicação de desktop Teams, siga e
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
-Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente não virtualizado. Para obter mais informações sobre as limitações das equipas em ambientes virtualizados, consulte [equipas de Infraestruturas de Ambiente de Trabalho Virtualizadas.](/microsoftteams/teams-for-vdi#known-issues-and-limitations/)
+Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente não virtualizado. Para obter mais informações sobre as limitações das equipas em ambientes virtualizados, consulte [equipas de Infraestruturas de Ambiente de Trabalho Virtualizadas.](/microsoftteams/teams-for-vdi#known-issues-and-limitations)
 
 ### <a name="client-deployment-installation-and-setup"></a>Implantação, instalação e configuração do cliente
 
 - Com a instalação por máquina, as equipas em VDI não são automaticamente atualizadas da mesma forma que os clientes não-VDI Teams são. Para atualizar o cliente, terá de atualizar a imagem VM instalando um novo MSI.
-- Atualmente, as equipas apenas mostram o fuso horário UTC em chat, canais e calendário.
 - A otimização de meios de comunicação para equipas só é suportada para o cliente do Windows Desktop em máquinas que executam o Windows 10.
 - A utilização de proxies HTTP explícitos definidos num ponto final não é suportada.
 
@@ -143,7 +142,7 @@ Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente
 - Devido às limitações da WebRTC, a resolução de fluxo de vídeo de entrada e saída está limitada a 720p.
 - A aplicação Teams não suporta botões HID ou comandos LED com outros dispositivos.
 
-Para equipas conhecidas questões que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização](/microsoftteams/known-issues/)
+Para equipas conhecidas questões que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização](/microsoftteams/known-issues)
 
 ## <a name="uservoice-site"></a>Site UserVoice
 
@@ -165,8 +164,8 @@ A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho 
 
 Não é necessário ativar as reorientações do dispositivo quando se utilizam equipas com otimização de meios. Se estiver a utilizar equipas sem otimização de meios, desaverta as seguintes propriedades RDP para permitir a reorientação do microfone e da câmara:
 
-- `audiocapturemode:i:1`permite a captura de áudio a partir do dispositivo local e redireciona aplicações de áudio na sessão remota.
-- `audiomode:i:0`reproduz áudio no computador local.
-- `camerastoredirect:s:*`redireciona todas as câmaras.
+- `audiocapturemode:i:1` permite a captura de áudio a partir do dispositivo local e redireciona aplicações de áudio na sessão remota.
+- `audiomode:i:0` reproduz áudio no computador local.
+- `camerastoredirect:s:*` redireciona todas as câmaras.
 
 Para saber mais, consulte [as propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões.](customize-rdp-properties.md)

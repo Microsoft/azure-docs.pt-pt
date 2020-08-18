@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac79e1eb5c4f7448dc17804cd8aac3cba582497e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711498"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509948"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Reserva pré-fixo de endereço IPv6 público
 O IPv6 para Azure Virtual Network (VNet) permite-lhe hospedar aplicações em Azure com conectividade IPv6 e IPv4, tanto dentro de uma rede virtual como de e para a Internet. Além de reservar endereços IPv6 individuais, pode reservar gamas contíguas de endereços Azure IPv6 (conhecidos como PREfixo IP) para a sua utilização. Estes artigos descrevem como criar endereços IP públicos IPv6 e intervalos de endereços usando Azure PowerShell e CLI.
@@ -29,7 +29,7 @@ O IPv6 para Azure Virtual Network (VNet) permite-lhe hospedar aplicações em Az
 
 Pode criar um único endereço IP público reservado (estático) utilizando a Azure PowerShell com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) da seguinte forma:
 
-```azurepowershell  
+```azurepowershell
  $myOwnIPv6Address = New-AzPublicIpAddress `
  -name PIPv6_WestUS `
  -ResourceGroup MyRG `
@@ -42,7 +42,7 @@ Pode criar um único endereço IP público reservado (estático) utilizando a Az
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
  Pode criar um único endereço IP público reservado (estático) IPv6 Azure CLI com [rede az public-ip criar](/cli/azure/network/public-ip) da seguinte forma:
-  
+
 ```azurecli
  az network public-ip create \
  --name dsPublicIP_v6 \
@@ -55,12 +55,12 @@ Pode criar um único endereço IP público reservado (estático) utilizando a Az
 
 ## <a name="create-a-reserved-ipv6-prefix-range"></a>Criar um prefixo IPv6 reservado (alcance)
 
-Para reservar um prefixo IPv6, adicione a família de endereços IP do IPv6 ao mesmo comando utilizado para a criação de prefixos IPv4. Os seguintes comandos criam um prefixo de tamanho /125 ( endereços 8 IPv6).  
+Para reservar um prefixo IPv6, adicione a família de endereços IP do IPv6 ao mesmo comando utilizado para a criação de prefixos IPv4. Os seguintes comandos criam um prefixo de tamanho /125 ( endereços 8 IPv6).
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
 Pode criar um endereço IPv6 público utilizando o Azure CLI com [a rede az public-ip criar](/powershell/module/az.network/new-azpublicipprefix) da seguinte forma:
-```azurepowershell  
+```azurepowershell
  $myOwnIPv6Prefix = New-AzPublicIpPrefix `
  -name IPv6PrefixWestUS `
  -ResourceGroupName MyRG `
@@ -74,7 +74,7 @@ Pode criar um endereço IPv6 público utilizando o Azure CLI com [a rede az publ
 
 Pode criar um endereço IPv6 público utilizando o Azure CLI da seguinte forma:
 
-```azurecli  
+```azurecli
 az network public-ip prefix create \
 --name IPv6PrefixWestUS \
 --resource-group MyRG \
@@ -89,7 +89,7 @@ az network public-ip prefix create \
 
  Cria um IP público estático IPv6 a partir de um prefixo reservado adicionando o `-PublicIpPrefix` argumento ao criar o IP público usando Azure PowerShell. O exemplo a seguir pressupõe que um prefixo foi criado e armazenado numa variável PowerShell denominada: *$myOwnIPv6Prefixo*.
 
-```azurepowershell:  
+```azurepowershell
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \
  -name PIPv6_fromPrefix `
  -ResourceGroup DsStdLb04 `
@@ -101,10 +101,10 @@ az network public-ip prefix create \
 ```
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
- 
+
 O exemplo a seguir pressupõe que um prefixo foi criado e armazenado numa variável CLI denominada: *IPv6PrefixWestUS*.
 
-```azurecli 
+```azurecli
 az network public-ip create \
 --name dsPublicIP_v6 \
 --resource-group UpgradeInPlace_CLI_RG1 \
@@ -115,6 +115,6 @@ az network public-ip create \
 --public-ip-prefix  IPv6PrefixWestUS
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o prefixo do endereço IPv6](ipv6-public-ip-address-prefix.md).
 - Saiba mais sobre [os endereços IPv6](ipv6-overview.md).

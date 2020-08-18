@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 9b246734e454e4ca93e0f3176c124cd8869bd015
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9a8076dcf23c4049ce2728c5099d691f9e865a5f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87298736"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510121"
 ---
 Começa com a biblioteca de clientes do Content Moderador para python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Content Moderador é um serviço cognitivo que verifica conteúdo de texto, imagem e vídeo para material potencialmente ofensivo, arriscado ou indesejável. Quando este tipo de material é encontrado, o serviço aplica etiquetas adequadas (sinalizadores) ao conteúdo. Em seguida, a aplicação pode processar o conteúdo sinalizado para cumprir os regulamentos ou manter o ambiente desejado para os utilizadores.
 
@@ -338,7 +338,7 @@ Execute a aplicação com o `python` comando no seu ficheiro quickstart.
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

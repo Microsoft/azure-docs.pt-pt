@@ -2,15 +2,15 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: dd587279e05b00304eda6edd763ecda9bd6e3c8f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.date: 08/17/2020
+ms.openlocfilehash: f54b5c7bec7d2b9af67b967ff34ab43bd1818a7d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85805878"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511326"
 ---
-Este artigo mostra-lhe como começar a usar o SDK Visão Personalizada com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
+Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -18,9 +18,9 @@ Este artigo mostra-lhe como começar a usar o SDK Visão Personalizada com Pytho
 - Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
+## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar o SDK do serviço de Visão Personalizada para Python, utilize o seguinte comando no PowerShell:
+Para instalar a biblioteca de clientes de serviço De Visão Personalizada para Python, executar o seguinte comando em PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision

@@ -2,22 +2,21 @@
 title: Amostra PowerShell - Aplicações movem aplicações proxy para outro grupo
 description: Azure Ative Directory (Azure AD) Exemplo Proxy PowerShell usado para mover todas as aplicações atualmente atribuídas a um grupo de conector para um grupo de conector diferente.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6dccdaa96dadb061b168bbdf6148ed4d759776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2632dbc4db093126d9b334e338a63dc8d0079b0c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75481987"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511108"
 ---
 # <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Mover todas as aplicações atribuídas a um grupo de conector para outro grupo de conector
 
@@ -44,7 +43,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 | [Get-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup?view=azureadps-2.0) | Recupera uma lista de todos os grupos de conector, ou se especificado, detalhes do grupo de conector especificado. |
 | [Set-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationconnectorgroup?view=azureadps-2.0) | Atribui o grupo de conector dado a uma aplicação especificada.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

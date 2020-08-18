@@ -2,14 +2,14 @@
 title: Azure Quickstart - Executar o seu primeiro trabalho em Batch no portal Azure
 description: Aprenda a usar o portal Azure para criar uma conta Batch, um conjunto de nós computacional, e um trabalho que executa tarefas básicas na piscina.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: f9af6a2f0fbbbd799b781480d499adf124b4cb7d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225338"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511376"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -23,7 +23,7 @@ Começa com o Azure Batch utilizando o portal Azure para criar uma conta Batch, 
 
 Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. Tem de ter uma conta do Batch para criar conjuntos e trabalhos. Conforme mostrado aqui, pode associar uma conta de armazenamento do Azure à conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real.
 
-1. No portal Azure, Selecione **Criar um**serviço de lote  >  **compute**  >  **de**recurso . 
+1. No [portal Azure](https://portal.azure.com), selecione **Criar um**serviço de lote  >  **compute**  >  **de**recurso . 
 
    :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Screenshot do Serviço de Lote no Mercado Azure.":::
 
@@ -109,7 +109,7 @@ Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do 
 
 Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch.
 

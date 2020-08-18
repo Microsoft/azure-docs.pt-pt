@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876738"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509914"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizar em Azure Notebook
 
@@ -623,7 +623,7 @@ Coffee count 4
 
 ## <a name="validate-new-learning-policy"></a>Validar nova política de aprendizagem
 
-Volte ao caderno Azure, e continue executando o mesmo loop, mas por apenas 2.000 iterações. Refresque periodicamente o gráfico de métricas no portal Azure para ver as chamadas totais para o serviço. Quando se tem cerca de 4.000 chamadas, uma chamada de classificação e recompensa por cada iteração do loop, as iterações são feitas.
+Volte ao arquivo Azure Notebooks e continue executando o mesmo loop, mas por apenas 2.000 iterações. Refresque periodicamente o gráfico de métricas no portal Azure para ver as chamadas totais para o serviço. Quando se tem cerca de 4.000 chamadas, uma chamada de classificação e recompensa por cada iteração do loop, as iterações são feitas.
 
 ```python
 # max iterations
@@ -652,7 +652,7 @@ O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinh
 
 ![O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinhando-se com as preferências dos utilizadores.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não pretende continuar a série tutorial, limpe os seguintes recursos:
 

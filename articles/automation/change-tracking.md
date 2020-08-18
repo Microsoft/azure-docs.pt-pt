@@ -3,14 +3,14 @@ title: Rastreio de alteração de alteração de automação Azure e visão gera
 description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447922"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511053"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -26,10 +26,10 @@ Este artigo apresenta-lhe a Alteração tracking and Inventory in Azure Automati
 > [!NOTE]
 > Para acompanhar as alterações de propriedade do Azure Resource Manager, consulte o histórico de [alteração](../governance/resource-graph/how-to/get-resource-changes.md)do Gráfico de Recursos Azure .
 
-O Change Tracking and Inventory obtém os seus dados do Azure Monitor. Máquinas virtuais ligadas aos espaços de trabalho do Log Analytics utilizam agentes do Log Analytics para recolher dados sobre alterações a software instalado, serviços microsoft, registo do Windows e ficheiros e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, os agentes enviam-nos para o Azure Monitor para tratamento. O Azure Monitor aplica lógica aos dados recebidos, regista-os e disponibiliza-os. 
+O Change Tracking and Inventory obtém os seus dados do Azure Monitor. Máquinas virtuais ligadas aos espaços de trabalho do Log Analytics utilizam o agente Log Analytics para recolher dados sobre alterações a software instalado, serviços microsoft, registo do Windows e ficheiros e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, o agente envia-os para o Azure Monitor para tratamento. O Azure Monitor aplica lógica aos dados recebidos, regista-os e disponibiliza-os.
 
 > [!NOTE]
-> Para utilizar a função De Rastreio e Inventário de Alterações, tem de localizar todos os seus VMs na mesma subscrição e região da conta Automação.
+> Alterar o Tracking and Inventory requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](./how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
 Alterar rastreio e inventário atualmente não suporta os seguintes itens:
 
@@ -53,7 +53,7 @@ O Change Tracking and Inventory está atualmente a experimentar as seguintes que
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para sistemas operativos que suportam o Log Analytics, consulte [a visão geral do agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para obter uma lista de sistemas operativos suportados, consulte [a visão geral do agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -132,7 +132,7 @@ O Change Tracking and Inventory permite monitorizar as alterações nas chaves d
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com amapper, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc. Semelhante à secção [de motoristas] no ficheiro **system.ini.**
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com massa de onda, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc para aplicações de 32 bits em computadores de 64 bits. Semelhante à secção [de motoristas] no ficheiro **system.ini.**
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoriza a lista de DLLs de sistema conhecidos ou comumente utilizados. A monitorização impede que as pessoas explorem permissões fracas de diretório de aplicações, largando nas versões de cavalos de Troia dos DLLs do sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos **dewinlogon.exe, **o modelo de suporte de início de são interativo para o Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos ** dewinlogon.exe, **o modelo de suporte de início de são interativo para o Windows.
 
 ## <a name="recursion-support"></a>Suporte à recursão
 

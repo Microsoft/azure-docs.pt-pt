@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 4d4e09bed1350a59848ef6853efe2a301d7357e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2fb18503600d48775c2d5cb981841f5ae627e7eb
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375346"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510123"
 ---
 Começa com a biblioteca de clientes do Content Moderador para a Java. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Content Moderador é um serviço cognitivo que verifica conteúdo de texto, imagem e vídeo para material potencialmente ofensivo, arriscado ou indesejável. Quando este tipo de material é encontrado, o serviço aplica etiquetas adequadas (sinalizadores) ao conteúdo. Em seguida, a aplicação pode processar o conteúdo sinalizado para cumprir os regulamentos ou manter o ambiente desejado para os utilizadores.
 
@@ -188,7 +188,7 @@ gradle run
 
 Em seguida, navegue para o *src/main/resources/ModerationOutput.jsem* arquivo e veja os resultados da moderação do seu conteúdo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

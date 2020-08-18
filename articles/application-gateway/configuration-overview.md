@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 32809c33e1c365d8d333bb89a5c2f773b311c2ff
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438907"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511087"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
 
@@ -38,11 +38,13 @@ Um gateway de aplicações é uma implementação dedicada na sua rede virtual. 
 
 O Application Gateway utiliza um endereço IP privado por exemplo, além de outro endereço IP privado se um IP frontal privado estiver configurado.
 
-O Azure também reserva cinco endereços IP em cada sub-rede para uso interno: os quatro primeiros e os últimos endereços IP. Por exemplo, considere 15 instâncias de gateway de aplicações sem IP frontal privado. Precisa de pelo menos 20 endereços IP para esta sub-rede: cinco para uso interno e 15 para as instâncias de gateway de aplicação. Então, precisa de um tamanho de sub-rede /27 ou maior.
+O Azure também reserva cinco endereços IP em cada sub-rede para uso interno: os quatro primeiros e os últimos endereços IP. Por exemplo, considere 15 instâncias de gateway de aplicações sem IP frontal privado. Precisa de pelo menos 20 endereços IP para esta sub-rede: cinco para uso interno e 15 para as instâncias de gateway de aplicação.
 
-Considere uma sub-rede que tem 27 instâncias de gateway de aplicação e um endereço IP para um IP frontal privado. Neste caso, precisa de 33 endereços IP: 27 para as instâncias de gateway de aplicação, um para a frente privada e cinco para uso interno. Então, precisa de um tamanho de sub-rede /26 ou maior.
+Considere uma sub-rede que tem 27 instâncias de gateway de aplicação e um endereço IP para um IP frontal privado. Neste caso, precisa de 33 endereços IP: 27 para as instâncias de gateway de aplicação, um para a frente privada e cinco para uso interno.
 
-Recomendamos que utilize um tamanho de sub-rede de pelo menos /28. Este tamanho dá-lhe 11 endereços IP utilizáveis. Se a carga da sua aplicação necessitar de mais de 10 instâncias do Gateway de aplicação, considere um tamanho de sub-rede /27 ou /26.
+O Gateway de Aplicação (Standard ou WAF) SKU pode suportar até 32 instâncias (endereços IP de 32 instâncias + 1 front-end privado IP + 5 Azure reservado) – assim é recomendado um tamanho mínimo de sub-rede de /26
+
+O Gateway de aplicações (Standard_v2 ou WAF_v2 SKU) pode suportar até 125 instâncias (endereços IP de 125 instâncias + 1 front-end privado IP + 5 Azure reservado) – assim é recomendado um tamanho mínimo de sub-rede de /24
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de segurança de rede na sub-rede Do Gateway de Aplicação
 
@@ -292,7 +294,7 @@ Para obter mais informações sobre a reorientação, consulte:
 Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S), bem como os parâmetros de trajetória e de consulta de URL, à medida que os pacotes de pedido e resposta se movem entre o cliente e as piscinas de backend através do gateway de aplicação.
 
 Os cabeçalhos e parâmetros URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis do servidor. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
  - [Reescrever cabeçalhos HTTP e visão geral do URL](rewrite-http-headers-url.md)
  - [Configure HTTP reescrita cabeçalho HTTP](rewrite-http-headers-portal.md)

@@ -3,15 +3,15 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 383df0d9f3c8fef01d5185be1cf69fe203ba11a2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: a822ab52024a801f4443a9dd864b4b96ec52d000
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374824"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511342"
 ---
-Este artigo mostra-lhe como começar a usar o SDK Visão Personalizada com a Java para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão padrão do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
+Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com a Java para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão padrão do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,11 +20,11 @@ Este artigo mostra-lhe como começar a usar o SDK Visão Personalizada com a Jav
 - [Maven](https://maven.apache.org/) instalado
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obtenha o SDK de Visão Personalizada e o código da amostra
+## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Obtenha a biblioteca de clientes Visão Personalizada e o código de amostra
 
 Para escrever uma aplicação de Java que utilize a Visão Personalizada, precisa dos pacotes maven da Visão Personalizada. Estes pacotes estão incluídos no projeto de amostra que você vai baixar, mas você pode acessá-los individualmente aqui.
 
-Pode encontrar o SDK de visão personalizada no repositório central maven:
+Pode encontrar a biblioteca de clientes Da Visão Personalizada no repositório central maven:
 - [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 

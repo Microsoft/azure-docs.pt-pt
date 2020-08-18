@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1abd1052c33346d949809d7c35a99ef97bde2c03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407205"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516287"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar múltiplos recursos imersivos do leitor
 
@@ -25,7 +25,7 @@ Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e com
 > * Criar vários recursos imersivos do Leitor sob um grupo de recursos existente
 > * Lançar o Leitor Imersivo usando vários recursos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,7 +79,7 @@ SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 
 Certifique-se de que não compromete este ficheiro em controlo de fontes, pois contém segredos que não devem ser tornados públicos.
 
-Em seguida, vamos modificar o ficheiro _routes\index.js_ que criamos para suportar os nossos múltiplos recursos. Substitua o seu conteúdo pelo seguinte código.
+Em seguida, vamos modificar o ficheiro  _routes\index.js_ que criamos para suportar os nossos múltiplos recursos. Substitua o seu conteúdo pelo seguinte código.
 
 Como antes, este código cria um ponto final da API que adquire um token de autenticação AD Azure usando a sua senha principal de serviço. Desta vez, permite ao utilizador especificar uma localização de recursos e passá-la como parâmetro de consulta. Em seguida, devolve um objeto que contém o símbolo e o subdomínio correspondente.
 
@@ -261,7 +261,7 @@ O ponto final da API **getimmersivereaderlaunchparams** deve ser protegido por t
 
 4. Abra o seu navegador e navegue para `http://localhost:3000` . Deve ver o conteúdo acima na página. Clique no botão **EastUS Immersive Reader** ou no botão **WestUS Immersive Reader** para lançar o Leitor Imersivo utilizando esses respetivos recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
 * Ver amostras de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

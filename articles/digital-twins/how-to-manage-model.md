@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 919db9338917a9c2bedd7806eb251a2e5ef6187b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987329"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509999"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -160,7 +160,7 @@ Pageable<ModelData> pmd3 = client.GetModels(null, true);
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-A API chama para recuperar os modelos todos os objetos de `ModelData` retorno. `ModelData`contém metadados sobre o modelo armazenado no exemplo Azure Digital Twins, como nome, DTMI, e data de criação do modelo. O `ModelData` objeto também inclui opcionalmente o próprio modelo. Dependendo dos parâmetros, pode assim utilizar as chamadas de recuperação para recuperar apenas metadados (o que é útil em cenários em que pretende apresentar uma lista de UI de ferramentas disponíveis, por exemplo), ou todo o modelo.
+A API chama para recuperar os modelos todos os objetos de `ModelData` retorno. `ModelData` contém metadados sobre o modelo armazenado no exemplo Azure Digital Twins, como nome, DTMI, e data de criação do modelo. O `ModelData` objeto também inclui opcionalmente o próprio modelo. Dependendo dos parâmetros, pode assim utilizar as chamadas de recuperação para recuperar apenas metadados (o que é útil em cenários em que pretende apresentar uma lista de UI de ferramentas disponíveis, por exemplo), ou todo o modelo.
 
 A `RetrieveModelWithDependencies` chamada devolve não só o modelo solicitado, mas também todos os modelos de que o modelo solicitado depende.
 
@@ -174,7 +174,7 @@ Os modelos também podem ser removidos do serviço, de uma de duas formas:
 
 Estas são características separadas e não se impactam entre si, embora possam ser usadas em conjunto para remover um modelo gradualmente. 
 
-### <a name="decommissioning"></a>Desmantelamento
+#### <a name="decommissioning"></a>Desmantelamento
 
 Aqui está o código para desativar um modelo:
 

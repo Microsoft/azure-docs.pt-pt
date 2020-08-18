@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506481"
+ms.locfileid: "88516304"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
@@ -42,7 +42,7 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão gratuito|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário de Assinatura** |
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA (parcial)<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Gov dos EUA (parcial)<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -60,9 +60,9 @@ Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores c
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre alertas de segurança, consulte o seguinte:
 
 * [Alertas de segurança - um guia de referência](alerts-reference.md) -- Conheça os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure
 * [Gerir e responder a alertas de segurança no Centro de Segurança Azure](security-center-managing-and-responding-alerts.md) -- Aprender a gerir e responder a alertas de segurança
-- [Automatização do fluxo de trabalho](workflow-automation.md) -- Automatizar respostas a alertas com lógica de notificação personalizada
+* [Automatização do fluxo de trabalho](workflow-automation.md) -- Automatizar respostas a alertas com lógica de notificação personalizada

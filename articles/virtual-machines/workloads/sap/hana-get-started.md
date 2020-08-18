@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042327"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509965"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalação de SAP HANA em máquinas virtuais Azure
 ## <a name="introduction"></a>Introdução
@@ -72,7 +72,7 @@ Nesta fase, é necessário passar pelos passos que implementam os VM(s) para ins
     -  [Nota de suporte SAP #2382421 - Otimização da Configuração da Rede no Nível HANA e OS](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Selecione o tipo de armazenamento Azure para SAP HANA. Neste passo, você precisa decidir sobre o layout de armazenamento para a instalação SAP HANA. Você vai usar discos Azure anexados ou ações nativas da Azure NFS. Os tipos de armazenamento Azure que ou suportados e combinações de diferentes tipos de armazenamento Azure que podem ser usados, são documentados em [configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md). Tome as configurações documentadas como ponto de partida. Para sistemas de não produção, poderá configurar uma produção mais baixa ou iOPS. Para efeitos de produção, poderá ser necessário configurar um pouco mais de produção e IOPS.
-2. Certifique-se de que configura o [Acelerador de Escrita Azure](../../linux/how-to-enable-write-accelerator.md) para os seus volumes que contêm os registos de transações DBMS ou registos de redo quando estiver a utilizar VMs da Série M ou da Série Mv2. Esteja ciente das limitações para o Acelerador de Escrita, conforme documentado.
+2. Certifique-se de que configura o [Acelerador de Escrita Azure](../../how-to-enable-write-accelerator.md) para os seus volumes que contêm os registos de transações DBMS ou registos de redo quando estiver a utilizar VMs da Série M ou da Série Mv2. Esteja ciente das limitações para o Acelerador de Escrita, conforme documentado.
 2. Verifique se [o Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está ativado nos VM(s) implantados.
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Cenários do Azure Disk Encryption em VMs com Linux
+title: Cenários do Azure Disk Encryption em VMs do Linux
 description: Este artigo fornece instruções para permitir a Encriptação do Disco Azure da Microsoft para os VMs Linux para vários cenários
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 88a0239409d29700d95b8949c1499dd30f50bb5f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372659"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510730"
 ---
-# <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
+# <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs do Linux
 
 
 A encriptação do disco Azure para máquinas virtuais Linux (VMs) utiliza a funcionalidade DM-Crypt do Linux para fornecer encriptação completa do disco de segurança e discos de dados. Além disso, fornece encriptação do disco temporário ao utilizar a função EncryptFormatAll.
@@ -413,7 +413,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Um VM com "pontos de montagem aninhados"; ou seja, múltiplos pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
 - Um VM com uma unidade de dados montada em cima de uma pasta de SO.
 - VMs da série M com discos de acelerador de escrita.
-- Aplicando ADE a um VM que tenha um disco de dados encriptado com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK), ou aplicando SSE + CMK a um disco de dados num VM encriptado com ADE.
+- Aplicação de ADE a um VM que tenha, ou *já* teve, discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Passos seguintes

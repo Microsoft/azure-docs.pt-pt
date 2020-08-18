@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525267"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510900"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -59,7 +59,7 @@ O tamanho da página é tipicamente 2048 KB. Para mais detalhes veja o artigo [P
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Recomendações sobre vm e estrutura de disco para implementações SAP ASE
 
-O SAP ASE para aplicações SAP NetWeaver é suportado em qualquer tipo VM listado na [nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533) tipos típicos de VM utilizados para servidores de base de dados SAP ASE de tamanho médio incluem Esv3.  Grandes bases de dados multi-terabytes podem alavancar tipos de VM da série M. O desempenho do disco de gravação de registo de transações SAP ASE pode ser melhorado permitindo o Acelerador de Escrita da série M. O Acelerador de Escrita deve ser testado cuidadosamente com SAP ASE devido à forma como o SAP ASE executa as gravações de log.  [Reveja a nota de suporte da SAP #2816580](../../windows/how-to-enable-write-accelerator.md) e considere realizar um teste de desempenho.  
+O SAP ASE para aplicações SAP NetWeaver é suportado em qualquer tipo VM listado na [nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533) tipos típicos de VM utilizados para servidores de base de dados SAP ASE de tamanho médio incluem Esv3.  Grandes bases de dados multi-terabytes podem alavancar tipos de VM da série M. O desempenho do disco de gravação de registo de transações SAP ASE pode ser melhorado permitindo o Acelerador de Escrita da série M. O Acelerador de Escrita deve ser testado cuidadosamente com SAP ASE devido à forma como o SAP ASE executa as gravações de log.  [Reveja a nota de suporte da SAP #2816580](../../how-to-enable-write-accelerator.md) e considere realizar um teste de desempenho.  
 O Write Accelerator foi concebido apenas para o disco de registo de transações. A cache de nível do disco deve ser definida para NENHUM. Não se surpreenda se o Acelerador de Escrita Azure não apresentar melhorias semelhantes às de outros DBMS. Com base na forma como o SAP ASE escreve no registo de transações, pode ser que haja pouca ou nenhuma aceleração por parte do Acelerador de Escrita Azure.
 São recomendados discos separados para dispositivos de dados e dispositivos de registo.  As bases de dados do sistema sybsecurity e `saptools` não requerem discos dedicados e podem ser colocados nos discos que contêm os dados da base de dados SAP e dispositivos de registo 
 
@@ -68,7 +68,7 @@ São recomendados discos separados para dispositivos de dados e dispositivos de 
 ### <a name="file-systems-stripe-size--io-balancing"></a>Sistemas de ficheiros, tamanho de listras & equilíbrio IO 
 A SAP ASE escreve dados sequencialmente em dispositivos de armazenamento de discos, salvo configuração em contrário. Isto significa que uma base de dados SAP ASE vazia com quatro dispositivos irá escrever dados apenas no primeiro dispositivo.  Os outros dispositivos de disco só serão escritos quando o primeiro dispositivo estiver cheio.  A quantidade de IO DE LER e ESCREVER para cada dispositivo SAP ASE é provável que seja diferente. Para equilibrar o disco IO em todos os discos Azure disponíveis, quer os Espaços de Armazenamento do Windows, quer o Linux LVM2, tem de ser utilizado. No Linux, recomenda-se a utilização do sistema de ficheiros XFS para formatar os discos. O tamanho da risca LVM deve ser testado com um teste de desempenho. O tamanho das listras KB de 128 É um bom ponto de partida. No Windows, o tamanho da unidade de atribuição NTFS (AUS) deve ser testado. 64 KB pode ser usado como um valor inicial. 
 
-Recomenda-se configurar a expansão automática da base de dados, conforme descrito no artigo [Configurar a expansão automática do espaço de base de dados em servidor adaptativo SAP Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) e [nota de suporte SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
+Recomenda-se configurar a expansão automática da base de dados, conforme descrito no artigo [Configurar a expansão automática do espaço de base de dados em servidor adaptativo SAP Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  e [nota de suporte SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Amostra SAP ASE em configurações de máquina virtual Azure, disco e sistema de ficheiros 
 Os modelos abaixo mostram configurações de amostra tanto para Linux como para Windows. Antes de confirmar a configuração da máquina virtual e do disco, certifique-se de que as quotas de largura de banda de rede e armazenamento do VM individual são suficientes para satisfazer os requisitos de negócio. Tenha também em mente que diferentes tipos de VM Azure têm diferentes números máximos de discos que podem ser ligados ao VM. Por exemplo, um E4s_v3 VM tem um limite de armazenamento de 48 MB/seg de produção IO. Se o rendimento de armazenamento exigido pela atividade de backup da base de dados exigir mais de 48 MB/seg, então um tipo VM maior com mais largura de banda de armazenamento é inevitável. Ao configurar o armazenamento Azure, também deve ter em mente que especialmente com o [armazenamento Azure Premium](../../windows/premium-storage-performance.md) a produção e IOPS por GB de capacidade mudam. Veja mais sobre este tópico no artigo [Que tipos de disco estão disponíveis no Azure?](../../windows/disks-types.md) As quotas para tipos específicos de VM Azure estão documentadas no artigo [Memória otimizado tamanhos](../../sizes-memory.md) de máquinas virtuais e artigos ligados a ele. 
@@ -309,5 +309,5 @@ Outras informações são publicadas em
 Uma newsletter mensal é publicada através da [nota de apoio da SAP #2381575](https://launchpad.support.sap.com/#/notes/2381575) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Verifique o artigo [Cargas de trabalho SAP no Azure: lista de verificação de planeamento e implantação](./sap-deployment-checklist.md)

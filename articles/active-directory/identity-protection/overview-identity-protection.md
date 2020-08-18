@@ -5,20 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
+ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019616"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509115"
 ---
-# <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
+# <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
 A Proteção de Identidade é uma ferramenta que permite às organizações realizar três tarefas-chave:
 
@@ -69,6 +70,12 @@ Os administradores podem rever as deteções e tomar medidas manuais sobre elas,
 
 Mais informações podem ser encontradas no artigo, [Como: Investigar o risco.](howto-identity-protection-investigate-risk.md)
 
+### <a name="risk-levels"></a>Níveis de risco
+
+A Proteção de Identidade categoriza o risco em três níveis: baixo, médio e alto. 
+
+Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, diremos que cada nível traz maior confiança de que o utilizador ou o teste de saúde estão comprometidos. Por exemplo, algo como um exemplo de propriedades de inscrição desconhecidas para um utilizador pode não ser tão ameaçador como credenciais vazadas para outro utilizador.
+
 ## <a name="exporting-risk-data"></a>Dados de risco de exportação
 
 Os dados da Proteção de Identidade podem ser exportados para outras ferramentas para arquivar e continuar a investigação e correlação. As APIs baseadas no Microsoft Graph permitem que as organizações recolham estes dados para posterior processamento numa ferramenta como o seu SIEM. Informações sobre como aceder à API de Proteção de Identidade podem ser encontradas no artigo, [Começar com a Azure Ative Directory Identity Protection e Microsoft Graph](howto-identity-protection-graph-api.md)
@@ -94,17 +101,17 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capacidade | Detalhes | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
+| Funcionalidade | Detalhes | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
 | --- | --- | --- | --- | --- |
 | Políticas de risco | Política de risco do utilizador (via Proteção de Identidade) | Sim | Não | Não |
 | Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional) | Sim | Não | Não |
 | Relatórios de segurança | Descrição geral | Sim | Não | Não |
 | Relatórios de segurança | Utilizadores de risco | Acesso completo | Informação Limitada | Informação Limitada |
 | Relatórios de segurança | Inícios de sessão de risco | Acesso completo | Informação Limitada | Informação Limitada |
-| Relatórios de segurança | Deteções de riscos | Acesso completo | Informação Limitada | No |
-| Notificações | Utilizadores em risco detetados alertas | Sim | No | Não |
-| Notificações | Digestão semanal | Sim | No | Não |
-| | Política de registo na MFA | Sim | No | Não |
+| Relatórios de segurança | Deteções de riscos | Acesso completo | Informação Limitada | Não |
+| Notificações | Utilizadores em risco detetados alertas | Sim | Não | Não |
+| Notificações | Digestão semanal | Sim | Não | Não |
+| | Política de registo na MFA | Sim | Não | Não |
 
 ## <a name="next-steps"></a>Próximos passos
 

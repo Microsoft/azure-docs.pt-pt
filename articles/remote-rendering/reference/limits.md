@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808551"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509232"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -35,12 +35,12 @@ Uma série de funcionalidades têm tamanho, contagem ou outras limitações.
 
 O número admissível de polígonos para todos os modelos carregados depende do tamanho do VM, tal como transmitido à [gestão da sessão REST API:](../how-tos/session-rest-api.md#create-a-session)
 
-| Tamanho da VM | Número máximo de polígonos |
+| Tamanho do servidor | Número máximo de polígonos |
 |:--------|:------------------|
 |padrão| 20 milhões |
 |premium| sem limite |
 
-Consulte o capítulo [do tamanho de VM](../reference/vm-sizes.md) para obter informações mais detalhadas sobre esta limitação.
+Consulte o capítulo [do tamanho do servidor](../reference/vm-sizes.md) para obter informações mais detalhadas sobre esta limitação.
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 
