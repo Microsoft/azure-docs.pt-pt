@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042280"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506481"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
@@ -32,6 +32,9 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 - um máximo de **dois** e-mails por dia para alertas **de gravidade média**
 - um máximo de **um** e-mail por dia para alertas **de baixa gravidade**
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configurar os detalhes do contacto que receberá e-mails sobre alertas de segurança." :::
+
 ## <a name="availability"></a>Disponibilidade
 
 |Aspeto|Detalhes|
@@ -43,9 +46,7 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 |||
 
 
-
-
-## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações de email para alertas<a name="email"></a>
+## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações de email para alertas <a name="email"></a>
 
 Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas do Azure.
 
@@ -64,3 +65,4 @@ Para saber mais sobre alertas de segurança, consulte o seguinte:
 
 * [Alertas de segurança - um guia de referência](alerts-reference.md) -- Conheça os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure
 * [Gerir e responder a alertas de segurança no Centro de Segurança Azure](security-center-managing-and-responding-alerts.md) -- Aprender a gerir e responder a alertas de segurança
+- [Automatização do fluxo de trabalho](workflow-automation.md) -- Automatizar respostas a alertas com lógica de notificação personalizada

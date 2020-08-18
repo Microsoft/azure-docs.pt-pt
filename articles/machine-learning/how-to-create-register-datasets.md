@@ -12,20 +12,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 51e31977a5f31777252920f9cd18bf069bad6d1e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037546"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507200"
 ---
-# <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
+# <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a criar conjuntos de dados de Aprendizagem automática Azure para aceder a dados para as suas experiências locais ou remotas. Para entender onde os conjuntos de dados se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
-Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Como os dados permanecem na sua localização existente, não incorre nenhum custo extra de armazenamento e não arrisca a integridade das suas fontes de dados. Também os conjuntos de dados são avaliados preguiçosamente, o que ajuda nas velocidades de desempenho do fluxo de trabalho. Pode criar conjuntos de dados a partir de datastores, URLs públicos e [Conjuntos de Dados Abertos Azure](../open-datasets/how-to-create-dataset-from-open-dataset.md).
+Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Como os dados permanecem na sua localização existente, não incorre nenhum custo extra de armazenamento e não arrisca a integridade das suas fontes de dados. Também os conjuntos de dados são avaliados preguiçosamente, o que ajuda nas velocidades de desempenho do fluxo de trabalho. Pode criar conjuntos de dados a partir de datastores, URLs públicos e [Conjuntos de Dados Abertos Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
 Com conjuntos de dados de aprendizagem automática Azure, pode:
 
@@ -232,7 +232,7 @@ Para criar um conjunto de dados no estúdio:
 
 [Os conjuntos de dados Azure Open](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos com curadoria que pode utilizar para adicionar funcionalidades específicas de cenários a soluções de machine learning para modelos mais precisos. Os conjuntos de dados incluem dados de domínio público para o tempo, recenseamento, feriados, segurança pública e localização que o ajudam a treinar modelos de aprendizagem automática e a enriquecer soluções preditivas. Os Conjuntos de Dados Abertos estão na nuvem no Microsoft Azure e estão incluídos tanto no SDK como no estúdio.
 
-Saiba como criar [conjuntos de dados de aprendizagem de máquinas Azure a partir de conjuntos de dados Azure Open](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+Saiba como criar [conjuntos de dados de aprendizagem de máquinas Azure a partir de conjuntos de dados Azure Open](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
 
 ## <a name="train-with-datasets"></a>Preparar com conjuntos de dados
 

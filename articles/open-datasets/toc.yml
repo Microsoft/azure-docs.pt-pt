@@ -15,7 +15,7 @@
 - name: Guias de procedimentos
   items:
     - name: Conjuntos de dados no Azure Machine Learning
-      href: how-to-create-dataset-from-open-dataset.md
+      href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
 - name: Amostras
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md

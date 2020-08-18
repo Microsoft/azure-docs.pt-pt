@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e01eecf24802bc43aebfa7b02105a2b1aa679a52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051937"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506435"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -259,7 +259,7 @@ Como o VM M64-32ms tem muita memória, a carga de IO pode não atingir o limite 
 
 Especialmente no caso de a carga de trabalho ser intensa de leitura, poderia aumentar o desempenho do IO para ligar a cache do anfitrião Azure "read-only", como recomendado para os volumes de dados do software de base de dados. Considerando que para o registo de transações a cache do disco de anfitrião Azure deve ser "nenhuma". 
 
-No que diz respeito ao tamanho do volume de registo, um ponto de partida recomendado é um heurístico de 15% do tamanho dos dados. A criação do volume de registo pode ser realizada utilizando diferentes tipos de discos Azure, dependendo dos requisitos de custo e de produção. Para o volume de registo, é necessária uma produção de E/S elevada.  Em caso de utilização do tipo VM M64-32ms, é obrigatório ativar o [Acelerador de Escrita](../../linux/how-to-enable-write-accelerator.md). O Acelerador Azure Write fornece uma latência de escrita de disco ideal para o registo de transações (apenas disponível para série M). Existem alguns itens a considerar, embora como o número máximo de discos por tipo VM. Detalhes sobre o Acelerador de Escrita podem ser encontrados [aqui](../../windows/how-to-enable-write-accelerator.md)
+No que diz respeito ao tamanho do volume de registo, um ponto de partida recomendado é um heurístico de 15% do tamanho dos dados. A criação do volume de registo pode ser realizada utilizando diferentes tipos de discos Azure, dependendo dos requisitos de custo e de produção. Para o volume de registo, é necessária uma produção de E/S elevada.  Em caso de utilização do tipo VM M64-32ms, é obrigatório ativar o [Acelerador de Escrita](../../how-to-enable-write-accelerator.md). O Acelerador Azure Write fornece uma latência de escrita de disco ideal para o registo de transações (apenas disponível para série M). Existem alguns itens a considerar, embora como o número máximo de discos por tipo VM. Detalhes sobre o Acelerador de Escrita podem ser encontrados [aqui](../../how-to-enable-write-accelerator.md)
 
 
 Aqui estão alguns exemplos sobre o dimensionamento do volume de registo:

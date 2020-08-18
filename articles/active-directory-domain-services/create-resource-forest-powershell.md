@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922001"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506333"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Crie uma floresta de recursos de serviços de diretório ativo Azure e uma confiança florestal de saída para um domínio no local usando a Azure PowerShell
 
@@ -88,7 +88,7 @@ Para criar uma floresta de recursos de domínio gerido, você usa o `New-AzureAa
 
 1. Em primeiro lugar, crie um grupo de recursos utilizando o cmdlet [New-AzResourceGroup.][New-AzResourceGroup] No exemplo seguinte, o grupo de recursos é nomeado *myResourceGroup* e é criado na região *oeste.* Use o seu próprio nome e região desejada:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -123,7 +123,7 @@ Para criar uma floresta de recursos de domínio gerido, você usa o `New-AzureAa
 
 1. Agora crie uma floresta de recursos de domínio gerido usando o `New-AzureAaaddsForest` script. O exemplo a seguir cria uma floresta chamada *addscontoso.com* e cria uma sub-rede de carga de trabalho. Forneça os seus próprios nomes de parâmetros e intervalos de endereços IP ou redes virtuais existentes.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -204,7 +204,7 @@ Agora forneça ao guião as seguintes informações:
 
 O exemplo a seguir cria uma relação de confiança chamada *myAzureADDSTrust* para *onprem.contoso.com*. Use os seus próprios nomes de parâmetros e palavras-passe:.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `

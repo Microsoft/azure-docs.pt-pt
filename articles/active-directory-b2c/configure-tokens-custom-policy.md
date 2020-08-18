@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a35662a3f21aec1306b7b6994e7a08f9cbd467e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389535"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505466"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e token utilizando políticas personalizadas no Azure Ative Directory B2C
 
 Este artigo fornece informações sobre como você pode gerir as suas configurações de token, sessão e único sign-on (SSO) usando [políticas personalizadas](custom-policy-overview.md) em Azure Ative Directory B2C (Azure AD B2C).
 
-## <a name="jtw-token-lifetimes-and-claims-configuration"></a>JTW token lifes and claims configuração
+## <a name="jwt-token-lifetimes-and-claims-configuration"></a>JWT token lifes and claims configuração
 
 Para alterar as definições das suas vidas simbólicas, adicione um elemento [ClaimsProviders](claimsproviders.md) no ficheiro de partidos de suporte da política que pretende impactar.  O elemento **ClaimsProviders** é uma criança do elemento [TrustFrameworkPolicy.](trustframeworkpolicy.md)
 
@@ -57,7 +57,7 @@ Os seguintes valores são definidos no exemplo anterior:
 - **Atualizar a vida útil -** O valor de vida de token de atualização é definido com o item metadados **refresh_token_lifetime_secs.** O valor predefinido é de 1209600 segundos (14 dias).
 - **Refrescar a vida útil da janela deslizante** - Se quiser definir uma janela deslizá-la para o seu token de atualização, desapedace o valor do **rolling_refresh_token_lifetime_secs** item metadados. O valor predefinido é de 7776000 (90 dias). Se não pretender impor uma janela deslizante, substitua o item por `<Item Key="allow_infinite_rolling_refresh_token">True</Item>` .
 - **Reclamação emitente (iss)** - A alegação do Emitente (iss) é definida com o item metadados **IssuanceClaimPattern.** Os valores aplicáveis são `AuthorityAndTenantGuid` `AuthorityWithTfp` e.
-- **Definição de reclamação que representa o ID da política** - As opções para definir este valor são `TFP` (política de quadro de confiança) e `ACR` (referência de contexto de autenticação). `TFP`é o valor recomendado. Definir **AutenticaçãoContextReferenceClaimPattern** com o valor de `None` .
+- **Definição de reclamação que representa o ID da política** - As opções para definir este valor são `TFP` (política de quadro de confiança) e `ACR` (referência de contexto de autenticação). `TFP` é o valor recomendado. Definir **AutenticaçãoContextReferenceClaimPattern** com o valor de `None` .
 
     No elemento **ClaimsSchema,** adicione este elemento:
 
@@ -88,7 +88,7 @@ Os seguintes valores são definidos no exemplo anterior:
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).
 - Saiba como configurar o comportamento da [sessão em políticas personalizadas.](session-behavior-custom-policy.md)

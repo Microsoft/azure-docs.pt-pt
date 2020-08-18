@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: bb8f80baac5ce49db612a7d3a599d727b824bffc
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073301"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505893"
 ---
 Começa com a biblioteca de clientes Face para o Go. Siga estes passos para instalar a biblioteca e experimente os nossos exemplos para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -90,7 +90,7 @@ Em seguida, começará a adicionar código para realizar diferentes operações 
 
 As seguintes classes e interfaces lidam com algumas das principais características da biblioteca de clientes do serviço Face Go.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |[BaseCiente](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | Esta classe representa a sua autorização para usar o serviço Face, e precisa dele para toda a funcionalidade Face. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes. |
 |[Cliente](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Esta classe lida com as tarefas básicas de deteção e reconhecimento que pode fazer com rostos humanos. |

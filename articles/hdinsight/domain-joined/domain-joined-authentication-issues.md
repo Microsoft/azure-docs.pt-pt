@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218850feea8b0e22b8e11695a3aa3c69173f1ab7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75896125"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504930"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
@@ -148,7 +148,7 @@ Varia.
 
 ### <a name="resolution"></a>Resolução
 
-Para que o kinit tenha sucesso, precisa de conhecer o seu `sAMAccountName` (este é o nome da conta curta sem o reino). `sAMAccountName`é geralmente o prefixo da conta (como bob in `bob@contoso.com` ). Para alguns utilizadores, pode ser diferente. Você precisará da capacidade de navegar / pesquisar o diretório para aprender o seu `sAMAccountName` .
+Para que o kinit tenha sucesso, precisa de conhecer o seu `sAMAccountName` (este é o nome da conta curta sem o reino). `sAMAccountName` é geralmente o prefixo da conta (como bob in `bob@contoso.com` ). Para alguns utilizadores, pode ser diferente. Você precisará da capacidade de navegar / pesquisar o diretório para aprender o seu `sAMAccountName` .
 
 Formas de `sAMAccountName` encontrar:
 
@@ -208,11 +208,11 @@ Este erro ocorre intermitentemente quando os utilizadores tentam aceder à ADLS 
 
 * Para a Azure Data Lake Storage Gen1, limpe a cache do navegador e volte a entrar em Ambari.
 
-* Para a Azure Data Lake Storage Gen2, corra `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` para o utilizador que o utilizador está a tentar iniciar sessão como
+* Para a Azure Data Lake Storage Gen2, corra `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` para o utilizador que o utilizador está a tentar iniciar sessão como
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

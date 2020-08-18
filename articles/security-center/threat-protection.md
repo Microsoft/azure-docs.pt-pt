@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041991"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272506"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -43,7 +43,7 @@ Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a 
 
 
 
-## <a name="threat-protection-for-windows-machines"></a>Proteção contra ameaças para máquinas Windows<a name="windows-machines"></a>
+## <a name="threat-protection-for-windows-machines"></a>Proteção contra ameaças para máquinas Windows <a name="windows-machines"></a>
 
 O Azure Security Center integra-se com os serviços Azure para monitorizar e proteger as suas máquinas baseadas no Windows. O Centro de Segurança apresenta as sugestões de alerta e remediação de todos estes serviços num formato fácil de usar.
 
@@ -74,7 +74,7 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
 
 
-## <a name="threat-protection-for-linux-machines"></a>Proteção contra ameaças para máquinas Linux<a name="linux-machines"></a>
+## <a name="threat-protection-for-linux-machines"></a>Proteção contra ameaças para máquinas Linux <a name="linux-machines"></a>
 
 O Security Center recolhe registos de auditoria de máquinas Linux utilizando **auditados,** um dos quadros de auditoria linux mais comuns. vidas auditadas no núcleo principal. 
 
@@ -91,7 +91,7 @@ O Security Center recolhe registos de auditoria de máquinas Linux utilizando **
 
 
 
-## <a name="threat-protection-for-azure-app-service"></a>Proteção contra ameaças para o Serviço de Aplicações Azure<a name="app-services"></a>
+## <a name="threat-protection-for-azure-app-service"></a>Proteção contra ameaças para o Serviço de Aplicações Azure <a name="app-services"></a>
 
 > [!NOTE]
 > Este serviço não está atualmente disponível no governo de Azure e nas regiões de nuvem soberana.
@@ -110,7 +110,7 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 
 
 
-## <a name="threat-protection-for-containers"></a>Proteção contra ameaças para contentores<a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Proteção contra ameaças para contentores <a name="azure-containers"></a>
 
 ### <a name="availability"></a>Disponibilidade
 
@@ -131,7 +131,7 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Proteção contra ameaças para base de dados SQL e Armazém de Dados SQL<a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Proteção contra ameaças para base de dados SQL e Armazém de Dados SQL <a name="data-sql"></a>
 
 A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
@@ -147,7 +147,7 @@ Para obter mais informações, veja:
 
 
 
-## <a name="threat-protection-for-azure-storage"></a>Proteção contra ameaças para armazenamento Azure<a name="azure-storage"></a>
+## <a name="threat-protection-for-azure-storage"></a>Proteção contra ameaças para armazenamento Azure <a name="azure-storage"></a>
 
 ### <a name="availability"></a>Disponibilidade
 
@@ -204,7 +204,7 @@ Para obter mais informações, veja:
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Proteção contra ameaças para Azure Cosmos DB<a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db"></a>Proteção contra ameaças para Azure Cosmos DB <a name="cosmos-db"></a>
 
 Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos.
 
@@ -216,7 +216,7 @@ Para obter mais informações, veja:
 
 
 
-## <a name="threat-protection-for-azure-network-layer"></a>Proteção contra ameaças para camada de rede Azure<a name="network-layer"></a>
+## <a name="threat-protection-for-azure-network-layer"></a>Proteção contra ameaças para camada de rede Azure <a name="network-layer"></a>
 
 A análise da camada de rede do Security Center baseia-se em [dados IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export)da amostra, que são cabeçalhos de pacote recolhidos pelos routers do núcleo Azure. Com base neste feed de dados, o Security Center utiliza modelos de machine learning para identificar e sinalizar atividades de tráfego malicioso. O Security Center também utiliza a base de dados da Microsoft Threat Intelligence para enriquecer endereços IP.
 
@@ -230,7 +230,6 @@ Algumas configurações de rede podem restringir o Centro de Segurança de gerar
 
 Para obter uma lista dos alertas da camada de rede Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azurenetlayer).
 
-Para obter detalhes sobre como o Security Center pode utilizar sinais relacionados com a rede para aplicar a proteção contra ameaças, consulte [deteções de DNS heurísticos no Centro de Segurança](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 
@@ -281,9 +280,9 @@ Para obter uma lista dos alertas do Cofre da Chave Azure, consulte a [tabela de 
 
 
 
-## <a name="threat-protection-for-other-microsoft-services"></a>Proteção contra ameaças para outros serviços da Microsoft<a name="alerts-other"></a>
+## <a name="threat-protection-for-other-microsoft-services"></a>Proteção contra ameaças para outros serviços da Microsoft <a name="alerts-other"></a>
 
-### <a name="threat-protection-for-azure-waf"></a>Proteção contra ameaças para a Azure WAF<a name="azure-waf"></a>
+### <a name="threat-protection-for-azure-waf"></a>Proteção contra ameaças para a Azure WAF <a name="azure-waf"></a>
 
 O Gateway de Aplicação do Azure oferece uma firewall de aplicações Web (WAF) que fornece proteção centralizada para as suas aplicações Web contra exploits e vulnerabilidades comuns.
 
@@ -292,7 +291,7 @@ As aplicações web são cada vez mais direcionadas por ataques maliciosos que e
 Se tiver uma licença para a Azure WAF, os seus alertas WAF são transmitidos para o Centro de Segurança sem necessidade de configuração adicional. Para obter mais informações sobre os alertas gerados pela WAF, consulte [grupos e regras de regras de regras de crs de firewall de aplicação web](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31).
 
 
-### <a name="threat-protection-for-azure-ddos-protection"></a>Proteção contra ameaças para a proteção do DDoS Azure<a name="azure-ddos"></a>
+### <a name="threat-protection-for-azure-ddos-protection"></a>Proteção contra ameaças para a proteção do DDoS Azure <a name="azure-ddos"></a>
 
 Os ataques de negação de serviço distribuídos (DDoS) são conhecidos por serem fáceis de executar. Tornaram-se uma grande preocupação com a segurança, especialmente se estiveres a mover as tuas aplicações para a nuvem. 
 

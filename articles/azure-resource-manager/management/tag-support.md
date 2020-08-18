@@ -3,12 +3,12 @@ title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de recursos Azure que suportam tags. Fornece detalhes para todos os serviços da Azure.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: e3a51bb7c21b6ea2e8baa86fe2981184c41d7d69
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337998"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272438"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiqueta para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/group-filter.md) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -902,7 +902,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | áreas de trabalho | Sim | Não |
+> | áreas de trabalho | Sim | Sim |
 > | espaços de trabalho / dbWorkspaces | Não | Não |
 > | espaços de trabalho / armazenamentoEncryption | Não | Não |
 > | espaços de trabalho / virtualNetworkPeerings | Não | Não |

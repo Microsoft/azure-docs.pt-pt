@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847709"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507119"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprenda a executar inferência de lote em grandes quantidades de dados assíncrona e paralelamente utilizando a Azure Machine Learning. O ParallelRunStep fornece capacidades de paralelismo fora da caixa.
+Este artigo mostra-lhe como executar o seu modelo de Aprendizagem automática Azure em paralelo, avaliando rapidamente grandes quantidades de dados. 
 
-Com ParallelRunStep, é simples escalar inferências offline para grandes aglomerados de máquinas em terabytes de dados estruturados ou não estruturados com melhoria da produtividade e custo otimizado.
+A inferição de grandes conjuntos de dados ou com modelos complicados pode ser demorado. A `ParallelRunStep` classe permite-lhe realizar o processamento em paralelo, potencialmente obtenindo resultados globais mais rapidamente. Mesmo que executar uma única avaliação seja bastante rápido, muitos cenários (deteção de objetos, processamento de vídeo, processamento de linguagem natural, etc.) envolvem executar muitas avaliações. 
+
+Com `ParallelRunStep` , é simples escalar inferências de lote para grandes aglomerados de máquinas. Estes clusters podem lidar com terabytes de dados estruturados ou não estruturados com uma produtividade melhorada e custos otimizados.
 
 Neste artigo, aprende-se as seguintes tarefas:
 
@@ -52,7 +54,7 @@ As seguintes ações configuram os recursos de aprendizagem automática que voc�
 
 ### <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o config.jsno ficheiro e carrega os detalhes num objeto chamado WS.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()` lê o config.jsno ficheiro e carrega os detalhes num objeto chamado WS.
 
 ```python
 from azureml.core import Workspace
@@ -134,7 +136,7 @@ def_data_store = ws.get_default_datastore()
 
 As entradas para inferência do lote são os dados que pretende dividir para processamento paralelo. Um pipeline de inferência de lote aceita entradas de dados através [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) de .
 
-`Dataset`é para explorar, transformar e gerir dados em Azure Machine Learning. Existem dois tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . Neste exemplo, usará `FileDataset` como entradas. `FileDataset`fornece-lhe a capacidade de descarregar ou montar os ficheiros para o seu cálculo. Ao criar um conjunto de dados, cria uma referência à localização da fonte de dados. Se aplicar algumas transformações de subscímia ao conjunto de dados, elas também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido qualquer custo extra de armazenamento.
+`Dataset` é para explorar, transformar e gerir dados em Azure Machine Learning. Existem dois tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . Neste exemplo, usará `FileDataset` como entradas. `FileDataset` fornece-lhe a capacidade de descarregar ou montar os ficheiros para o seu cálculo. Ao criar um conjunto de dados, cria uma referência à localização da fonte de dados. Se aplicar algumas transformações de subscímia ao conjunto de dados, elas também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido qualquer custo extra de armazenamento.
 
 Para obter mais informações sobre conjuntos de dados de aprendizagem automática Azure, consulte [Criar e aceder conjuntos de dados (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -157,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Criar a saída
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)os objetos são utilizados para transferir dados intermédios entre etapas de gasoduto. Neste exemplo, usa-se para inferência.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) os objetos são utilizados para transferir dados intermédios entre etapas de gasoduto. Neste exemplo, usa-se para inferência.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -287,14 +289,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Especificar os parâmetros usando ParallelRunConfig
 
-`ParallelRunConfig`é a principal `ParallelRunStep` configuração, por exemplo, dentro do pipeline Azure Machine Learning. Usa-o para embrulhar o seu script e configurar os parâmetros necessários, incluindo todas as seguintes entradas:
+`ParallelRunConfig` é a principal `ParallelRunStep` configuração, por exemplo, dentro do pipeline Azure Machine Learning. Usa-o para embrulhar o seu script e configurar os parâmetros necessários, incluindo todas as seguintes entradas:
 - `entry_script`: Um script do utilizador como um caminho de arquivo local que será executado em paralelo em múltiplos nós. Se `source_directory` estiver presente, use um caminho relativo. Caso contrário, utilize qualquer caminho acessível na máquina.
 - `mini_batch_size`: O tamanho do mini-lote passou para uma única `run()` chamada. (opcional; o valor predefinido são `10` ficheiros para `FileDataset` e para `1MB` `TabularDataset` .)
     - Para `FileDataset` , é o número de ficheiros com um valor mínimo de `1` . Pode combinar vários ficheiros num mini-lote.
     - Para, `TabularDataset` é o tamanho dos dados. Os valores de exemplo `1024` `1024KB` `10MB` são, `1GB` e. O valor recomendado é `1MB` . O mini-lote `TabularDataset` de nunca cruzará os limites do ficheiro. Por exemplo, se tiver ficheiros .csv com vários tamanhos, o ficheiro mais pequeno é de 100 KB e o maior é de 10 MB. Se `mini_batch_size = 1MB` definir, os ficheiros com um tamanho inferior a 1 MB serão tratados como um mini-lote. Os ficheiros com um tamanho superior a 1 MB serão divididos em vários mini-lotes.
 - `error_threshold`: O número de falhas de registo `TabularDataset` e falhas de ficheiros para tal deve `FileDataset` ser ignorado durante o processamento. Se a contagem de erros para toda a entrada for superior a este valor, o trabalho será abortado. O limiar de erro é para toda a entrada e não para mini-lote individual enviado para o `run()` método. O alcance `[-1, int.max]` é. A `-1` peça indica ignorar todas as falhas durante o processamento.
 - `output_action`: Um dos seguintes valores indica como a saída será organizada:
-    - `summary_only`: O script do utilizador armazena a saída. `ParallelRunStep`utilizará a saída apenas para o cálculo do limiar de erro.
+    - `summary_only`: O script do utilizador armazena a saída. `ParallelRunStep` utilizará a saída apenas para o cálculo do limiar de erro.
     - `append_row`: Para todas as entradas, apenas um ficheiro será criado na pasta de saída para anexar todas as saídas separadas por linha.
 - `append_row_file_name`: Para personalizar o nome do ficheiro de saída para append_row output_action (opcional; valor predefinido `parallel_run_step.txt` é ).
 - `source_directory`: Caminhos para pastas que contenham todos os ficheiros a executar no alvo do cálculo (opcional).

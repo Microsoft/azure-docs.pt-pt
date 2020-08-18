@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163635"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505330"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -24,10 +24,10 @@ Este documento de como escrever uma função Azure que pode ingerir telemetria a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar com este exemplo, terá de completar os seguintes pré-requisitos.
-* **Um hub IoT.** Consulte a secção *Criar um hub IoT* [deste quickstart IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md) para obter instruções.
-* **Uma Função Azure** com as permissões corretas para ligar para a sua instância digital twin. Ver [*Como fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md) para obter instruções. 
-* **Uma instância digital de Gémeos** que receberá a telemetria do seu dispositivo. Ver [ *Como fazer: Configurar uma instância e autenticação de Gémeos Digitais Azure*](./how-to-set-up-instance-portal.md) 
+Antes de continuar com este exemplo, terá de configurar os seguintes recursos como pré-requisitos:
+* **Um hub IoT.** Para obter instruções, consulte a secção *Criar um hub IoT* [deste quickstart IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Uma Função Azure** com as permissões corretas para ligar para a sua instância digital twin. Para obter instruções, consulte [*Como fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md). 
+* **Um exemplo de Azure Digital Twins** que receberá a telemetria do seu dispositivo. Para obter instruções, consulte [*Como fazer: Configurar uma instância e autenticação de Gémeos Digitais Azure*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Cenário de telemetria de exemplo
 

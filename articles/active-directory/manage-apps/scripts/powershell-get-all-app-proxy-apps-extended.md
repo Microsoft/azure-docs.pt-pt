@@ -2,22 +2,21 @@
 title: Amostra PowerShell - Lista de informações estendidas para aplicações Proxy de aplicações
 description: Exemplo powerShell que lista todas as aplicações de procuração de aplicação Azure Ative (Azure AD) juntamente com o ID da aplicação (AppId), nome (DisplayName), URL externo (ExternalUrl), URL interno (InternalUrl) e tipo de autenticação (ExternalAuthenticationType).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58de8c081dbb0323a2d9638777e29d879172072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8994abc61e27a9d7c7097aacab92282f0c47c989
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482143"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506949"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obtenha todas as aplicações Proxy de aplicação e liste informações estendidas
 
@@ -43,7 +42,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Obtém uma aplicação AD Azure. |
 |[Get-AzureADApplicationProxyApplicationApplicationApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

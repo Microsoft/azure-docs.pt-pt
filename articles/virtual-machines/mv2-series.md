@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: f86400f1fb45217133bbd715788986994f5f77cc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f6dc732a512368b007a289c3aaabc3123a696d96
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836263"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505262"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -28,7 +28,7 @@ Migração ao vivo: Não suportado
 
 Atualizações de preservação da memória: Não suportadas
 
-Acelerador de escrita: [suportado](./windows/how-to-enable-write-accelerator.md)
+Acelerador de escrita: [suportado](./how-to-enable-write-accelerator.md)
 
 |Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos | Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|

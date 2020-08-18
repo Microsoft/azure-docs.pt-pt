@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832268"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504947"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação DBMS de máquinas virtuais Azure para carga de trabalho SAP
 
@@ -404,7 +404,7 @@ Se forem necessários mais IOPS, recomendamos a utilização de Pools de Armazen
 
 
 #### <a name="write-accelerator"></a>Acelerador de Escritas
-Para os VMs da Série M de Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores quando comparada com o Azure Premium Storage. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+Para os VMs da Série M de Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores quando comparada com o Azure Premium Storage. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauro
@@ -420,7 +420,7 @@ Para obter mais informações sobre a recuperação de desastres para bases de d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente uma rede acelerada, tal como descrito em [rede acelerada Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para a Oracle Database em Oracle Linux
@@ -498,7 +498,7 @@ Se forem necessários mais IOPS, recomendamos a utilização de LVM (Logical Vol
 
 
 #### <a name="write-accelerator"></a>Acelerador de Escritas
-Para os VMs da série Azure M, quando utilizar o Acelerador de Escrita Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores quando comparada com o desempenho do Azure Premium Storage. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+Para os VMs da série Azure M, quando utilizar o Acelerador de Escrita Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores quando comparada com o desempenho do Azure Premium Storage. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauro
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.

@@ -11,17 +11,63 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185320"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505810"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
+## <a name="text-to-speech-2020-august-release"></a>Lançamento de texto-a-discurso 2020-agosto
+
+### <a name="new-features"></a>Novas funcionalidades
+
+* **Neural TTS: novo estilo de fala para `en-US` Voz de Aria.** AriaNeural pode soar como um apresentador ao ler notícias. O estilo "newscast-formal" parece mais sério, enquanto o estilo "newscast-casual" é mais descontraído e informal. Veja [como utilizar os estilos de fala em SSML](speech-synthesis-markup.md).
+
+* **Voz Personalizada: é lançada uma nova funcionalidade para verificar automaticamente a qualidade dos dados de treino**. Ao fazer o upload dos seus dados, a capacidade de verificação de dados examinará vários aspetos do seu áudio e das transcrições, e corrigirá ou filtrará automaticamente os dados com problemas de modo a melhorar a qualidade do modelo de voz treinado. Isto cobre o volume do seu áudio, o nível de ruído, a precisão da pronúncia do discurso, o alinhamento da fala com o texto normalizado, o silêncio no áudio, além do formato áudio e script. 
+
+* **Criação de Conteúdo sonoro: um conjunto de novas funcionalidades para permitir a afinação de voz e capacidades de gestão de áudio mais potentes.**
+
+    * Pronúncia: a função de afinação de pronúncia é atualizada para o mais recente conjunto de fones de telefone. Pode escolher o elemento de identificação telefônica certo da biblioteca e aperfeiçoar a pronúncia das palavras que selecionou. 
+
+    * Download: A funcionalidade áudio "Download"/"Exportação" é melhorada para suportar áudios geradores por cada parágrafo. Pode facilmente editar diferentes conteúdos no mesmo ficheiro/SSML, gerando várias saídas de áudio. A estrutura de ficheiros de "Download" também é refinada. Agora, pode facilmente obter todos os áudios numa só pasta. 
+
+    * Estado da tarefa : A experiência de exportação de vários ficheiros é melhorada. Quando exportar vários ficheiros no passado, se um dos ficheiros falhar, toda a tarefa falhará. Mas agora, todos os outros ficheiros serão exportados com sucesso. O relatório de tarefas é enriquecido com informações mais pormenorizadas e estruturadas. Pode verificar os registos de todos os ficheiros e frases falhados agora com o relatório. 
+
+    * Documentação SSML: ligada ao documento SSML para ajudá-lo a verificar as regras de como utilizar todas as funcionalidades de afinação.
+
+* **A API da Lista de Vozes é atualizada para incluir um nome de exibição amigável do utilizador e os estilos de fala suportados para vozes neurais**.
+
+### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais da qualidade da voz TTS
+
+* Erro de pronúncia reduzido ao nível da palavra % para `ru-RU` (erro reduzido em 56%) e `sv-SE` (erro reduzido em 49%)
+
+* Leitura melhorada da palavra polifonia sobre `en-US` vozes neurais em 40%. Exemplos de palavras de polifonia incluem "ler", "viver", "conteúdo", "gravar", "objeto", etc. 
+
+* Melhorou a naturalidade do tom de pergunta em `fr-FR` . MOS (Pontuação média de opinião) ganho: +0,28
+
+* Atualizou os vocoders para as seguintes vozes, com melhorias de fidelidade e aceleração global do desempenho em 40%.
+
+    | Região | Voz |
+    |---|---|    
+    | `en-GB` | Mia |
+    | `es-MX` | Rio Dalia |
+    | `fr-CA` | Sylvie |
+    | `fr-FR` | Rio Denise |
+    | `ja-JP` | Nanami |
+    | `ko-KR` | Sol-Hi |
+
+### <a name="bug-fixes"></a>Correções de erros
+
+* Corrigiu uma série de bugs com a ferramenta de Criação de Conteúdos Áudio 
+    * Corrigiu o problema com auto-refrescante. 
+    * Problemas fixos com vozes de estilo na ZH-CN na região do Sudeste Asiático
+    * Corrigiu a questão na estabilidade, incluindo o erro de exportação com a etiqueta 'break', erros nas pontuações    
+
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
-Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias cs-CZ e hu-HU, 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [idiomas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
+Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias `cs-CZ` e `hu-HU` , 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [idiomas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
 
 | Região  | Linguagem                          |
 |---------|-----------------------------------|
@@ -59,7 +105,7 @@ Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias cs-CZ 
 
 **Novas funcionalidades**
 - **C:** Apoio adicional à transcrição de conversação assíncrona. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)  
-- **JavaScript**: Suporte adicional de reconhecimento de altifalantes tanto para [o navegador](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) como [paranode.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Suporte adicional de reconhecimento de altifalantes tanto para [o navegador](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) como [ paranode.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Suporte adicional para deteção automática de idiomas/ID de linguagem. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)
 - **Objectivo-C**: Suporte adicional para [conversações multi-dispositivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) e [transcrição de conversação](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription). 
 - **Python**: Suporte áudio comprimido adicionado para Python em Windows e Linux. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams) 
@@ -129,9 +175,9 @@ Mantenha-se saudável!
 ### <a name="bug-fixes"></a>Correções de erros
 
 * Leitura cambial
-    * Corrigiu a questão com a leitura da moeda para `es-ES` e`es-MX`
+    * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após melhoria |
+    | Linguagem | Input | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
@@ -279,11 +325,11 @@ Mantenha-se saudável!
 - JavaScript: Suporte adicional `FromHost API` para facilitar a utilização com recipientes on-prem e nuvens soberanas. Consulte a documentação [aqui.](speech-container-howto.md)
 - JavaScript: Agora honramos `NODE_TLS_REJECT_UNAUTHORIZED` graças a uma contribuição de [orgads](https://github.com/orgads). Consulte os detalhes [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
-- `OpenSSL`foi atualizado para a versão 1.1.1b e está estáticamente ligado à biblioteca central do SDK do Discurso para o Linux. Isto pode causar uma rutura se a sua caixa de entrada `OpenSSL` não tiver sido instalada no `/usr/lib/ssl` diretório do sistema. Por favor, consulte a [nossa documentação](how-to-configure-openssl-linux.md) nos docs da Speech SDK para contornar o assunto.
+- `OpenSSL` foi atualizado para a versão 1.1.1b e está estáticamente ligado à biblioteca central do SDK do Discurso para o Linux. Isto pode causar uma rutura se a sua caixa de entrada `OpenSSL` não tiver sido instalada no `/usr/lib/ssl` diretório do sistema. Por favor, consulte a [nossa documentação](how-to-configure-openssl-linux.md) nos docs da Speech SDK para contornar o assunto.
 - Alteramos o tipo de dados devolvido para C# `WordLevelTimingResult.Offset` de para permitir o acesso a quando os `int` `long` `WordLevelTimingResults` dados da fala são superiores a 2 minutos.
-- `PushAudioInputStream`e `PullAudioInputStream` agora enviar informações de cabeçalho de wav para o Serviço de Fala com base `AudioStreamFormat` em , opcionalmente especificado quando foram criados. Os clientes devem agora utilizar o [formato de entrada de áudio suportado.](how-to-use-audio-input-streams.md) Quaisquer outros formatos obterão resultados de reconhecimento sub-ideais ou poderão causar outros problemas. 
+- `PushAudioInputStream` e `PullAudioInputStream` agora enviar informações de cabeçalho de wav para o Serviço de Fala com base `AudioStreamFormat` em , opcionalmente especificado quando foram criados. Os clientes devem agora utilizar o [formato de entrada de áudio suportado.](how-to-use-audio-input-streams.md) Quaisquer outros formatos obterão resultados de reconhecimento sub-ideais ou poderão causar outros problemas. 
 
 **Correções de bugs**
 
@@ -320,7 +366,7 @@ Mantenha-se saudável!
 - Suporte `KeywordRecognizer` adicional no Windows (UWP), Android e iOS através dos pacotes NuGet e Unidade
 - Adicionou conversa remota Java API para fazer transcrição de conversação em lotes assíncronos.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - As funcionalidades de Transcrição de Conversação deslocaram-se sob o espaço de `Microsoft.CognitiveServices.Speech.Transcription` nome.
 - Parte dos métodos de Transcrição de Conversação são transferidos para uma nova `Conversation` classe.
@@ -332,8 +378,8 @@ Mantenha-se saudável!
 
 **Amostras**
 
-- Amostra de Xamarin para`KeywordRecognizer`
-- Amostra de unidade para`KeywordRecognizer`
+- Amostra de Xamarin para `KeywordRecognizer`
+- Amostra de unidade para `KeywordRecognizer`
 - Amostras C++ e Java para Deteção Automática de Idiomas de Origem.
 
 ## <a name="speech-sdk-170-2019-september-release"></a>Discurso SDK 1.7.0: Lançamento 2019-setembro
@@ -356,9 +402,9 @@ Mantenha-se saudável!
 - Problema fixo com UUIDs não sendo único em algumas propriedades de conexão
 - Fixados alguns avisos sobre os especificadores de nulidade nas ligações Swift (podem exigir pequenas alterações de código)
 - Corrigiu um bug que fez com que as ligações websocket fossem fechadas sem gravidade sob carga de rede
-- Corrigiu um problema no Android que, por vezes, resulta em iDs de impressão duplicado usados por`DialogServiceConnector`
-- Melhorias na estabilidade das ligações através de interações multi-voltas e o relato de falhas (através de `Canceled` eventos) quando ocorrem com`DialogServiceConnector`
-- `DialogServiceConnector`início da sessão irá agora fornecer eventos corretamente, incluindo quando chamar `ListenOnceAsync()` durante um ativo`StartKeywordRecognitionAsync()`
+- Corrigiu um problema no Android que, por vezes, resulta em iDs de impressão duplicado usados por `DialogServiceConnector`
+- Melhorias na estabilidade das ligações através de interações multi-voltas e o relato de falhas (através de `Canceled` eventos) quando ocorrem com `DialogServiceConnector`
+- `DialogServiceConnector` início da sessão irá agora fornecer eventos corretamente, incluindo quando chamar `ListenOnceAsync()` durante um ativo `StartKeywordRecognitionAsync()`
 - Abordado um acidente associado a `DialogServiceConnector` atividades que estão a ser recebidas
 
 **Amostras**
@@ -374,14 +420,14 @@ Mantenha-se saudável!
 - Amostras quickstart para texto para falar sobre uWP e unidade
 - Amostra quickstart para Swift no iOS
 - Amostras de unidade para Discurso & Reconhecimento e Tradução de Intenções
-- Amostras de arranque rápido atualizadas para`DialogServiceConnector`
+- Amostras de arranque rápido atualizadas para `DialogServiceConnector`
 
 **Melhorias / Alterações**
 
 - Espaço de nome de diálogo:
   - `SpeechBotConnector` mudou de nome para `DialogServiceConnector`
   - `BotConfig` mudou de nome para `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`foi rempetado para`DialogServiceConfig::FromBotSecret()`
+  - `BotConfig::FromChannelSecret()` foi rempetado para `DialogServiceConfig::FromBotSecret()`
   - Todos os clientes do Direct Line Speech existentes continuam a ser apoiados após o renomeamento
 - Atualizar adaptador TTS REST para suporte proxy, conexão persistente
 - Melhorar a mensagem de erro quando uma região inválida é passada
@@ -544,7 +590,7 @@ Esta é uma versão apenas para JavaScript. Não foram adicionados recursos. For
   - O SDK de discurso para JavaScript foi de origem aberta. O código fonte está disponível no [GitHub.](https://github.com/Microsoft/cognitive-services-speech-sdk-js)
   - Agora apoiamos Node.js, mais informações podem ser [encontradas aqui.](quickstart-js-node.md)
   - A restrição de comprimento das sessões de áudio foi removida, a reconexão acontecerá automaticamente sob a capa.
-- `Connection`objeto
+- `Connection` objeto
   - A partir `Recognizer` do, você pode aceder a um `Connection` objeto. Este objeto permite-lhe iniciar explicitamente a ligação de serviço e subscrever eventos de ligação e desconexão.
     (Esta funcionalidade ainda não está disponível a partir de JavaScript e Python.)
 - Apoio a Ubuntu 18.04.
@@ -627,7 +673,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - Apoio ao Objective-C no iOS. Confira o nosso [arranque rápido Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no browser. Confira o nosso [arranque rápido JavaScript](quickstart-js-browser.md).
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Com esta versão, são introduzidas várias alterações de rutura.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para mais detalhes.
@@ -646,7 +692,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 - Exponha informações adicionais sobre erros de ligação.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Em Java (Android), a `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não requer um parâmetro de caminho. Agora o caminho é automaticamente detetado em todas as plataformas suportadas.
 - O acessório da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -671,11 +717,11 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 **Alterações funcionais**
 
-- `StartContinuousRecognitionAsync()`apoia o reconhecimento de longa duração.
+- `StartContinuousRecognitionAsync()` apoia o reconhecimento de longa duração.
 - O resultado do reconhecimento contém mais campos. São compensados desde o início e duração áudio (ambos em carrapatos) do texto reconhecido e valores adicionais que representam o estatuto de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout` .
 - Autorização de ApoioToken para criar instâncias de fábrica.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Eventos de reconhecimento: `NoMatch` tipo de evento foi fundido no `Error` evento.
 - SpeechOutputFormat em C# foi renomeado `OutputFormat` para permanecer alinhado com C++.

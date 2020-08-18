@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052299"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506516"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
@@ -26,21 +26,21 @@ O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-render
 Para executar os scripts de amostra, precisa de uma configuração funcional do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Instalar o Azure PowerShell:
-    1. Abrir um PowerShell com direitos de administração
-    1. Corra:`Install-Module -Name Az -AllowClobber`
+    1. Abra uma janela PowerShell com direitos de administração.
+    1. Corra: `Install-Module -Name Az -AllowClobber`
 
 1. Se tiver erros em executar scripts, certifique-se de que a sua [política de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
-    1. Abrir um PowerShell com direitos de administração
-    1. Corra:`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+    1. Abra uma janela PowerShell com direitos de administração.
+    1. Corra: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Preparar uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
 1. Faça login na sua subscrição contendo a sua conta de renderização remota Azure:
-    1. Abra um PowerShell
+    1. Abra uma janela do PowerShell.
     1. Corra: `Connect-AzAccount` e siga as instruções no ecrã.
 
-> [!NOTE]
-> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > [!NOTE]
+    > Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Descarregue a pasta *Scripts* a partir do [repositório GithHub de renderização remota do Azure.](https://github.com/Azure/azure-remote-rendering)
 
@@ -77,7 +77,7 @@ Ao lado dos `.ps1` ficheiros há um `arrconfig.json` que precisa de preencher:
 > Certifique-se de que escapa corretamente às costas no caminho LocalAssetDirectoryPath utilizando duas costas: \\ \\ " e use barras para a frente "/" em todos os outros caminhos, como inputFolderPath e inputAssetPath.
 
 > [!CAUTION]
-> Os valores opcionais têm de ser preenchidos ou é necessário remover completamente a chave e o valor. Por exemplo, se não utilizar o `"outputAssetFileName"` parâmetro, tem de eliminar toda a linha interior `arrconfig.json` .
+> Os valores opcionais têm de ser preenchidos ou é necessário remover completamente a chave e o valor. Por exemplo, se não utilizar o  `"outputAssetFileName"` parâmetro, tem de eliminar toda a linha interior `arrconfig.json` .
 
 ### <a name="accountsettings"></a>contasSettings
 
@@ -86,9 +86,9 @@ Para `region` ver a lista das [regiões disponíveis.](../reference/regions.md)
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Esta estrutura deve ser preenchida se quiser correr **RenderingSession.ps1**.
+Esta estrutura deve ser preenchida se quiser correr **RenderingSession.ps1: **
 
-- **vmSize:** Selecione o tamanho da máquina virtual. Selecione *standard* ou *premium*. Desligue as sessões de renderização quando já não precisar delas.
+- **vmSize:** Selecione o tamanho da máquina virtual. Selecione [*standard*](../reference/vm-sizes.md) ou [*premium*](../reference/vm-sizes.md). Desligue as sessões de renderização quando já não precisar delas.
 - **maxLeaseTime:** A duração para a qual pretende arrendar o VM. Será encerrado quando o contrato expirar. O tempo de locação pode ser prolongado mais tarde (ver abaixo).
 
 ### <a name="assetconversionsettings"></a>activosConversionSettings
@@ -189,10 +189,10 @@ A utilização de uma conta de armazenamento ligada é a forma preferida de util
 .\Conversion.ps1
 ```
 
-1. Faça o upload de todos os ficheiros contidos no `assetConversionSettings.modelLocation` recipiente de bolha de entrada sob o dado`inputFolderPath`
+1. Faça o upload de todos os ficheiros contidos no `assetConversionSettings.modelLocation` recipiente de bolhas de entrada sob o `inputFolderPath` dado ..
 1. Ligue para a conversão do [modelo REST API](../how-tos/conversion/conversion-rest-api.md) para iniciar a conversão do [modelo](../how-tos/conversion/model-conversion.md)
-1. Sondagem do estado de conversão até que a conversão tenha sido bem sucedida ou falhada
-1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente)
+1. Regisi-se o estado de conversão até que a conversão tenha sido bem sucedida ou falhada.
+1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente).
 
 ### <a name="access-to-storage-via-shared-access-signatures"></a>Acesso ao armazenamento através de assinaturas de acesso partilhado
 
@@ -202,13 +202,13 @@ A utilização de uma conta de armazenamento ligada é a forma preferida de util
 
 Isto será:
 
-1. Faça o upload do ficheiro local do `assetConversionSettings.localAssetDirectoryPath` para o recipiente de bolha de entrada
-1. Gere um SAS URI para o recipiente de entrada
-1. Gere um SAS URI para o recipiente de saída
-1. Ligue para a conversão do [modelo REST API](../how-tos/conversion/conversion-rest-api.md) para iniciar a conversão do [modelo](../how-tos/conversion/model-conversion.md)
-1. Sondagem do estado de conversão até que a conversão tenha sido bem sucedida ou falhada
-1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente)
-1. Desada um SAS URI para o modelo convertido no recipiente de bolha de saída
+1. Faça o upload do ficheiro local do `assetConversionSettings.localAssetDirectoryPath` recipiente de entrada blob.
+1. Gere um SAS URI para o recipiente de entrada.
+1. Gere um SAS URI para o recipiente de saída.
+1. Ligue para a conversão do [modelo REST API](../how-tos/conversion/conversion-rest-api.md) para iniciar a conversão do [modelo](../how-tos/conversion/model-conversion.md).
+1. Regisi-se o estado de conversão até que a conversão tenha sido bem sucedida ou falhada.
+1. Detalhes de saída da localização do ficheiro convertido (conta de armazenamento, recipiente de saída, caminho de arquivo no recipiente).
+1. Desata um SAS URI para o modelo convertido no recipiente de bolhas de saída.
 
 ### <a name="additional-command-line-options"></a>Opções adicionais de linha de comando
 
@@ -249,7 +249,7 @@ Por exemplo, pode combinar uma série de opções dadas como esta:
 
 Se quiser executar etapas individuais do processo, pode utilizar:
 
-Apenas faça upload de dados a partir do LocalAssetDirectoryPath
+Faça o upload de dados a partir do LocalAssetDirectoryPath.
 
 ```PowerShell
 .\Conversion.ps1 -Upload

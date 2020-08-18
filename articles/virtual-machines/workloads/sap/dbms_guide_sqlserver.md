@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831061"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505564"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
 
@@ -314,7 +314,7 @@ Este documento abrange várias áreas diferentes a ter em conta na implementaç�
 
 
 > [!IMPORTANT]
-> O âmbito deste documento é a versão do Windows no SQL Server. O SAP não está a suportar a versão Linux do SQL Server com nenhum dos softwares SAP. O documento não está a discutir a Base de Dados SQL do Microsoft Azure, que é uma Plataforma como uma oferta de serviço da Plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server, como é conhecido pelas implementações no local em Azure Virtual Machines, alavancando a Infraestrutura como uma capacidade de Serviço do Azure. As capacidades e funcionalidades da base de dados entre estas duas ofertas são diferentes e não devem ser misturadas umas com as outras. Consulte também:<https://azure.microsoft.com/services/sql-database/>
+> O âmbito deste documento é a versão do Windows no SQL Server. O SAP não está a suportar a versão Linux do SQL Server com nenhum dos softwares SAP. O documento não está a discutir a Base de Dados SQL do Microsoft Azure, que é uma Plataforma como uma oferta de serviço da Plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server, como é conhecido pelas implementações no local em Azure Virtual Machines, alavancando a Infraestrutura como uma capacidade de Serviço do Azure. As capacidades e funcionalidades da base de dados entre estas duas ofertas são diferentes e não devem ser misturadas umas com as outras. Consulte também: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -355,13 +355,13 @@ O diagrama acima mostra uma caixa simples. Tal como nos termos do artigo [Consid
 
 
 ### <a name="special-for-m-series-vms"></a>Especial para M-Series VMs
-Para o Azure M-Series VM, a escrita de latência no registo de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para o registo de transações do SQL Server. Os detalhes podem ser lidos no documento [Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+Para o Azure M-Series VM, a escrita de latência no registo de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para o registo de transações do SQL Server. Os detalhes podem ser lidos no documento [Write Accelerator](../../how-to-enable-write-accelerator.md).
   
 
 ### <a name="formatting-the-disks"></a>Formatar os discos
 Para o SQL Server, o tamanho do bloco NTFS para discos que contenham dados do SQL Server e ficheiros de registo deve ser de 64KB. Não há necessidade de formatar o D:\ Conduzir. Esta unidade vem pré-formatada.
 
-Para garantir que a restauração ou criação de bases de dados não esteja a inicializar os ficheiros de dados através da produção do conteúdo dos ficheiros, deve certificar-se de que o contexto do utilizador em que o serviço SQL Server está a funcionar tem uma certa permissão. Normalmente, os utilizadores do grupo de administrador do Windows têm estas permissões. Se o serviço SQL Server for executado no contexto do utilizador do administrador não Windows, tem de atribuir a esse utilizador as **tarefas**de manutenção do volume do Utilizador Right Perform .  Consulte os detalhes deste artigo base de conhecimento da Microsoft:<https://support.microsoft.com/kb/2574695>
+Para garantir que a restauração ou criação de bases de dados não esteja a inicializar os ficheiros de dados através da produção do conteúdo dos ficheiros, deve certificar-se de que o contexto do utilizador em que o serviço SQL Server está a funcionar tem uma certa permissão. Normalmente, os utilizadores do grupo de administrador do Windows têm estas permissões. Se o serviço SQL Server for executado no contexto do utilizador do administrador não Windows, tem de atribuir a esse utilizador as **tarefas**de manutenção do volume do Utilizador Right Perform .  Consulte os detalhes deste artigo base de conhecimento da Microsoft: <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>Impacto da compressão da base de dados
 Em configurações onde a largura de banda de I/S pode tornar-se um fator limitativo, cada medida, que reduz o IOPS pode ajudar a esticar a carga de trabalho que se pode correr num cenário iaaS como o Azure. Portanto, se ainda não for feito, a aplicação da compressão SQL Server PAGE é recomendada tanto pela SAP como pela Microsoft antes de enviar uma base de dados SAP existente para o Azure.
@@ -487,16 +487,16 @@ O "Database Mirroring" suportado pelo SAP (ver NOTA [SAP 965908)]baseia-se na de
 
 A partir de implementações apenas em nuvem, o método mais fácil é ter outra configuração de domínio em Azure para ter esses VMs DBMS (e idealmente dedicados VMs SAP) dentro de um domínio.
 
-Se um domínio não for possível, também se pode utilizar certificados para os pontos finais espelham a base de dados, conforme descrito aqui:<https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Se um domínio não for possível, também se pode utilizar certificados para os pontos finais espelham a base de dados, conforme descrito aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-Um tutorial para configurar o Database Mirroring em Azure pode ser consultado aqui:<https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Um tutorial para configurar o Database Mirroring em Azure pode ser consultado aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Como Always On é suportado para SAP no local (ver NOTA SAP [1772688),]é suportado em combinação com SAP em Azure. Existem algumas considerações especiais em torno da implementação do Ouvinte do Grupo de Disponibilidade de Servidor SQL (não confundir com o Conjunto de Disponibilidade de Azure) uma vez que o Azure neste momento não permite a criação de um objeto AD/DNS, uma vez que é possível no local. Portanto, são necessários alguns passos de instalação diferentes para superar o comportamento específico do Azure.
 
 Algumas considerações utilizando um Ouvinte do Grupo disponibilidade são:
 
-* A utilização de um Ouvinte do Grupo disponibilidade só é possível com o Windows Server 2012 ou superior ao sistema operativo convidado do VM. Para o Windows Server 2012, tem de se certificar de que este patch é aplicado:<https://support.microsoft.com/kb/2854082> 
+* A utilização de um Ouvinte do Grupo disponibilidade só é possível com o Windows Server 2012 ou superior ao sistema operativo convidado do VM. Para o Windows Server 2012, tem de se certificar de que este patch é aplicado: <https://support.microsoft.com/kb/2854082> 
 * Para o Windows Server 2008 R2, este patch não existe e always On teria de ser utilizado da mesma forma que o Database Mirroring especificando um parceiro de failover na cadeia de ligações (então feita através do parâmetro dbs/mss/servidor do parâmetro SAP default.pfl - ver Nota [SAP 965908]).
 * Ao utilizar um Ouvinte do Grupo disponibilidade, os VMs de base de dados devem ser ligados a um balanceador de carga dedicado. A fim de evitar que o Azure esteja a atribuir novos endereços IP nos casos em que ambos os VMs são acidentalmente desligados, deve-se atribuir endereços IP estáticos às interfaces de rede desses VMs na configuração Always On (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo)
 * Existem passos especiais necessários para a construção da configuração do cluster WSFC onde o cluster precisa de um endereço IP especial atribuído, porque a Azure com a sua funcionalidade atual atribuiria ao nome do cluster o mesmo endereço IP que o nó em que o cluster é criado. Isto significa que deve ser realizado um passo manual para atribuir um endereço IP diferente ao cluster.

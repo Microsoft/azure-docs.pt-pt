@@ -1,18 +1,18 @@
 ---
 title: Trabalhar com VMs e NSGs em Azure Bastion
-description: Este artigo descreve como incorporar o acesso nSG com Azure Bastion
+description: Pode utilizar grupos de segurança de rede com Azure Bastion. Saiba mais sobre as sub-redes necessárias para esta configuração.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 1fc261c31a1190536f3128ed6472d9ca76dfce7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112216"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270534"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -58,6 +58,6 @@ Esta é a sub-rede que contém a máquina virtual alvo a que pretende fazer RDP/
    * **Tráfego ingresso de Azure Bastion:** Azure Bastion chegará ao VM alvo em vez de IP privado. As portas RDP/SSH (portas 3389/22, respectivamente) precisam de ser abertas no lado alvo do VM em vez de IP privado. Como uma boa prática, pode adicionar o intervalo de endereço IP da Subnet Azure Bastion nesta regra para permitir que apenas Bastion possa abrir estas portas nos VMs-alvo na sub-rede VM alvo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre O Azure Bastion, consulte as [FAQ](bastion-faq.md).

@@ -2,22 +2,21 @@
 title: Amostra PowerShell - Listar informações básicas para aplicações Proxy de aplicações
 description: Exemplo powerShell que lista aplicações de procuração de aplicações Azure Ative (Azure AD) juntamente com o ID de aplicação (AppId), nome (DisplayName) e ID de objeto (ObjId).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 009aabb8b742a752a29d775efbd11b153588c09b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80509969a30ea3e708d2e176a87277d51fb6da3f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482221"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506936"
 ---
 # <a name="get-all-application-proxy-apps-and-list-basic-information"></a>Obtenha todas as aplicações Proxy de aplicação e liste informações básicas
 
@@ -40,7 +39,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Arranja um diretor de serviço. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

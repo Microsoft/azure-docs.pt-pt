@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: b4cc6e046b3d6442526df40cad574dbdb9159d5f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 8ec32c7bd0d977ea18e4ff66dc616c300851a633
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073346"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505894"
 ---
 Começa com a biblioteca de clientes Face para python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -65,7 +65,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 As seguintes aulas e interfaces lidam com algumas das principais características da biblioteca cliente Face Python.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Esta classe representa a sua autorização para usar o serviço Face, e precisa dele para toda a funcionalidade Face. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes. |
 |[Operações faciais](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Esta classe lida com as tarefas básicas de deteção e reconhecimento que pode fazer com rostos humanos. |
@@ -171,7 +171,7 @@ O código seguinte tira uma imagem com múltiplas faces e procura encontrar a id
 
 ### <a name="get-a-test-image"></a>Obtenha uma imagem de teste
 
-O seguinte código olha na raiz do seu projeto para uma _imagemtest-image-person-group.jpg_ e deteta os rostos na imagem. Pode encontrar esta imagem com as imagens utilizadas para a gestão **do PersonGroup:** https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
+O seguinte código olha na raiz do seu projeto para uma _ imagemtest-image-person-group.jpg_ e deteta os rostos na imagem. Pode encontrar esta imagem com as imagens utilizadas para a gestão **do PersonGroup:** https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 

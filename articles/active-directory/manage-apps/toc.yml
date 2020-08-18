@@ -91,16 +91,6 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Comparação das soluções de acesso remoto
           href: application-proxy-migration.md
-    - name: Colocar uma aplicação no mercado
-      items:
-        - name: Ativar o SSO para a sua aplicação multi-inquilino
-          href: isv-sso-content.md
-        - name: Criar um inquilino do Azure para a aplicação multi-inquilino
-          href: isv-tenant-multi-tenant-app.md
-        - name: Escolher federação multi-inquilino
-          href: isv-choose-multi-tenant-federation.md
-        - name: Criar documentação para a aplicação multi-inquilino
-          href: isv-create-sso-documentation.md
 - name: Guias de procedimentos
   expanded: false
   items:

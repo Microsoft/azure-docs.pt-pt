@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a01f945496d2f0bc81a108c5e58c89587c1c4e38
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034388"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505483"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
 
@@ -116,7 +116,7 @@ A tabela que se segue enumera as tarefas que as funções de gestão de direitos
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
-Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos do Office 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo.
+Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos do Office 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo, exceto para um grupo configurado como atribuível a uma função de diretório.
 
 Para um utilizador que não seja um administrador global ou um administrador do Utilizador, para adicionar grupos, aplicações ou sites SharePoint Online a um catálogo, esse utilizador deve ter *tanto* a função de diretório AD AD exigida como a função de gestão de direitos do proprietário do catálogo. A tabela que se segue lista as combinações de funções que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 
@@ -131,6 +131,9 @@ Para um utilizador que não seja um administrador global ou um administrador do 
 | [Administrador de aplicação](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | [Administrador de aplicação em nuvem](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação |  |
+
+> [!NOTE]
+> Se um utilizador adicionar um grupo de segurança ou um grupo do Office 365, então o grupo não pode ser atribuível. Se o utilizador adicionar um grupo que seja atribuível a funções quando criar o pacote de acesso, então eles também devem ser o proprietário desse grupo atribuível a função. Para mais informações, consulte [criar um grupo atribuível a funções no Diretório Ativo Azure](../users-groups-roles/roles-groups-create-eligible.md).
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar [as funções de Administrador através da tarefa de administração no Diretório Ativo Azure](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 

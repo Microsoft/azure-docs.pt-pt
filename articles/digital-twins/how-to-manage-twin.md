@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563930"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506538"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -151,7 +151,7 @@ O resultado de chamar `object result = await client.DigitalTwins.GetByIdAsync("m
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web
-* Outras propriedades numa `$metadata` secção. Estas incluem:
+* Outras propriedades numa `$metadata` secção. Incluem-se:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -181,6 +181,8 @@ Para atualizar propriedades de um twin digital, escreve a informação que prete
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Uma chamada de patch pode atualizar todas as propriedades de um único gémeo quanto você gostaria (mesmo todas elas). Se precisar de atualizar propriedades em vários gémeos, precisará de uma chamada de atualização separada para cada gémeo.
+
 > [!TIP]
 > Após a criação ou atualização de um gémeo, pode haver uma latência de até 10 segundos antes de as alterações se refletirem em [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [anteriormente neste artigo)](#get-data-for-a-digital-twin)não experimenta este atraso, por isso use a chamada da API em vez de consultar os seus gémeos recém-atualizados se precisar de uma resposta imediata. 
 
@@ -204,6 +206,7 @@ Aqui está um exemplo do código de patch JSON. Este documento substitui os *val
 Pode criar patches manualmente ou utilizando uma aula de ajudante de serialização no [SDK](how-to-use-apis-sdks.md). Aqui está um exemplo de cada um.
 
 #### <a name="create-patches-manually"></a>Criar patches manualmente
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -279,6 +282,19 @@ O patch para esta situação precisa atualizar tanto o modelo como a propriedade
 ]
 ```
 
+### <a name="handle-conflicting-update-calls"></a>Lidar com chamadas de atualização conflituosas
+
+A Azure Digital Twins garante que todos os pedidos de entrada são processados um após o outro. Isto significa que mesmo que várias funções tentem atualizar a mesma propriedade em um gémeo ao mesmo tempo, não há **necessidade de** escrever código de bloqueio explícito para lidar com o conflito.
+
+Este comportamento é por gémeo. 
+
+Como exemplo, imagine um cenário em que estas três chamadas cheguem ao mesmo tempo: 
+*   Escreva propriedade A em *Twin1*
+*   Escreva propriedade B em *Twin1*
+*   Escreva propriedade A em *Twin2*
+
+As duas chamadas que modificam *o Twin1* são executadas uma após a outra e as mensagens de alteração são geradas para cada mudança. O apelo para modificar *o Twin2* pode ser executado simultaneamente sem qualquer conflito, assim que chegar.
+
 ## <a name="delete-a-digital-twin"></a>Excluir um gémeo digital
 
 Pode eliminar gémeos utilizando `DeleteDigitalTwin(ID)` . No entanto, só se pode apagar um gémeo quando não tem mais relacionamentos. Primeiro, tens de apagar todas as relações. 
@@ -351,7 +367,7 @@ Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a 
 
 Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

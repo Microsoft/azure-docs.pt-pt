@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62c4baafdd66465502bf45fe19a111e17a9539ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e56a5d8607ac2472ba4ef4bdb090468691c93de6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609082"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505015"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configure identidades geridas para recursos Azure em um Azure VM usando PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código. 
+Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código.
 
 Neste artigo, utilizando o PowerShell, aprende-se a executar as seguintes identidades geridas para operações de recursos Azure num VM Azure.
 
@@ -47,9 +47,9 @@ Nesta secção, aprenderá a ativar e desativar a identidade gerida atribuída p
 Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Consulte um dos seguintes Quickstarts Azure VM, completando apenas as secções necessárias ("Iniciar ação com Azure", "Criar grupo de recursos", "Criar grupo de networking", "Criar o VM").
-    
+
     Quando chegar à secção "Criar o VM", faça uma ligeira modificação na sintaxe cmdlet [New-AzVMConfig.](/powershell/module/az.compute/new-azvm) Certifique-se de adicionar um `-AssignIdentity:$SystemAssigned` parâmetro para a disponibilização do VM com a identidade atribuída ao sistema, por exemplo:
-      
+
     ```powershell
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
     ```
@@ -90,7 +90,7 @@ Depois de ter ativado a identidade atribuída ao sistema num VM, pode adicioná-
 
 2. Recupere e note o `ObjectID` (conforme especificado no `Id` campo dos valores devolvidos) do principal de serviço da VM:
 
-   ```powerhshell
+   ```powershell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
@@ -120,8 +120,8 @@ Se tiver uma Máquina Virtual que já não necessita da identidade gerida atribu
 
 2. Recupere as propriedades VM utilizando o `Get-AzVM` cmdlet e desajuste o `-IdentityType` parâmetro `UserAssigned` para:
 
-   ```powershell   
-   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
+   ```powershell
+   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
    ```
 
@@ -142,14 +142,14 @@ Nesta secção, aprende-se a adicionar e a remover uma identidade gerida atribu�
 
 Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Consulte um dos seguintes Quickstarts Azure VM, completando apenas as secções necessárias ("Iniciar ação com Azure", "Criar grupo de recursos", "Criar grupo de networking", "Criar o VM"). 
-  
+1. Consulte um dos seguintes Quickstarts Azure VM, completando apenas as secções necessárias ("Iniciar ação com Azure", "Criar grupo de recursos", "Criar grupo de networking", "Criar o VM").
+
     Quando chegar à secção "Criar o VM", faça uma ligeira modificação na sintaxe do [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet. Adicione os `-IdentityType UserAssigned` parâmetros e `-IdentityID` os parâmetros à disposição do VM com uma identidade atribuída ao utilizador.  `<VM NAME>`Substitua, , , e com os seus `<SUBSCRIPTION ID>` `<RESROURCE GROUP>` `<USER ASSIGNED IDENTITY NAME>` próprios valores.  Por exemplo:
-    
-    ```powershell 
+
+    ```powershell
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
-    
+
     - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Criar uma máquina virtual Linux utilizando o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
@@ -203,7 +203,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 Se o seu VM tiver identidades geridas atribuídas ao sistema e atribuídas ao utilizador, pode remover todas as identidades geridas atribuídas pelo utilizador, mudando para utilizar apenas identidades geridas atribuídas pelo sistema.
 
-```powershell 
+```powershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
@@ -212,6 +212,6 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 - [Identidades geridas para visão geral dos recursos da Azure](overview.md)
 - Para a criação completa de Azure VM Quickstarts, consulte:
-  
-  - [Criar máquinas virtuais do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Criar máquinas virtuais do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
+
+  - [Criar máquinas virtuais do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+  - [Criar máquinas virtuais do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758865"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507098"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
@@ -40,10 +40,10 @@ Cada sessão passa por várias fases.
 
 Quando pede à ARR para [criar uma nova sessão,](../how-tos/session-rest-api.md#create-a-session)a primeira coisa que faz é devolver uma sessão [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Este UUID permite-lhe consultar informações sobre a sessão. A UUID e algumas informações básicas sobre a sessão são persistidos durante 30 dias, para que possa consultar essa informação mesmo depois de a sessão ter sido interrompida. Neste momento, o estado da **sessão** será reportado como **Start .**
 
-Em seguida, a Azure Remote Rendering tenta encontrar um servidor que possa hospedar a sua sessão. Há dois parâmetros para esta busca. Em primeiro lugar, só reservará servidores na sua [região.](../reference/regions.md) Isto porque a latência da rede em todas as regiões pode ser demasiado elevada para garantir uma experiência decente. O segundo fator é o *tamanho* desejado que especificou. Em cada região, há um número limitado de servidores que podem cumprir o pedido de tamanho *Standard* ou *Premium.* Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente a ser utilizados na sua região, a criação de sessão falhará. A razão do fracasso [pode ser questionada.](../how-tos/session-rest-api.md#get-sessions-properties)
+Em seguida, a Azure Remote Rendering tenta encontrar um servidor que possa hospedar a sua sessão. Há dois parâmetros para esta busca. Em primeiro lugar, só reservará servidores na sua [região.](../reference/regions.md) Isto porque a latência da rede em todas as regiões pode ser demasiado elevada para garantir uma experiência decente. O segundo fator é o *tamanho* desejado que especificou. Em cada região, há um número limitado de servidores que podem cumprir o pedido de tamanho [*Standard*](../reference/vm-sizes.md) ou [*Premium.*](../reference/vm-sizes.md) Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente a ser utilizados na sua região, a criação de sessão falhará. A razão do fracasso [pode ser questionada.](../how-tos/session-rest-api.md#get-sessions-properties)
 
 > [!IMPORTANT]
-> Se você solicitar um tamanho *VM Standard* e o pedido falhar devido à alta procura, isso não implica que solicitar um servidor *Premium* também falhará. Portanto, se for uma opção para si, pode tentar recorrer a um *VM Premium.*
+> Se solicitar um tamanho de servidor *Standard* e o pedido falhar devido à elevada procura, isso não implica que solicitar um servidor *Premium* também falhe. Portanto, se for uma opção para si, pode tentar recorrer ao tamanho do servidor *Premium.*
 
 Quando o serviço encontra um servidor adequado, tem de copiar a máquina virtual adequada (VM) para o transformar num anfitrião de renderização remota Azure. Este processo demora vários minutos. Em seguida, o VM é iniciado e o estado da **sessão** transita para **Ready**.
 
@@ -72,7 +72,7 @@ Uma sessão também pode ser interrompida por causa de alguma falha.
 Em todos os casos, não será cobrado mais uma vez que uma sessão seja interrompida.
 
 > [!WARNING]
-> Se se liga a uma sessão, e por quanto tempo, não afeta a faturação. O que paga pelo serviço depende da duração da *sessão,* o que significa o tempo que um servidor é reservado exclusivamente para si, e as capacidades de hardware solicitadas (o tamanho VM). Se iniciar uma sessão, conecte-se durante cinco minutos e, em seguida, não pare a sessão, de modo que continue a funcionar até que o seu contrato expire, será cobrado o tempo completo de locação. Inversamente, o *tempo máximo de locação* é principalmente uma rede de segurança. Não importa se você solicita uma sessão com um tempo de arrendamento de oito horas, em seguida, use-a apenas por cinco minutos, se você parar manualmente a sessão depois.
+> Se se liga a uma sessão, e por quanto tempo, não afeta a faturação. O que paga pelo serviço depende da duração da *sessão,* o que significa o tempo que um servidor é reservado exclusivamente para si, e as capacidades de hardware solicitadas (o [tamanho atribuído).](../reference/vm-sizes.md) Se iniciar uma sessão, conecte-se durante cinco minutos e, em seguida, não pare a sessão, de modo que continue a funcionar até que o seu contrato expire, será cobrado o tempo completo de locação. Inversamente, o *tempo máximo de locação* é principalmente uma rede de segurança. Não importa se você solicita uma sessão com um tempo de arrendamento de oito horas, em seguida, use-a apenas por cinco minutos, se você parar manualmente a sessão depois.
 
 #### <a name="extend-a-sessions-lease-time"></a>Prolongar o tempo de arrendamento de uma sessão
 
@@ -138,13 +138,13 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 Múltiplos `AzureFrontend` e `AzureSession` casos podem ser mantidos, manipulados e consultados a partir do código. Mas apenas um dispositivo pode ligar-se a `AzureSession` um de cada vez.
 
-A vida útil de uma máquina virtual não está ligada ao `AzureFrontend` caso ou ao `AzureSession` caso. `AzureSession.StopAsync`deve ser chamado para parar uma sessão.
+A vida útil de uma máquina virtual não está ligada ao `AzureFrontend` caso ou ao `AzureSession` caso. `AzureSession.StopAsync` deve ser chamado para parar uma sessão.
 
 O ID da sessão persistente pode ser consultado através `AzureSession.SessionUUID()` e em cache localmente. Com este ID, uma aplicação pode `AzureFrontend.OpenSession` ligar-se a essa sessão.
 
 Quando `AzureSession.IsConnected` é verdade, `AzureSession.Actions` devolve um exemplo de , que contém as `RemoteManager` funções para carregar [modelos](models.md), manipular [entidades](entities.md)- e [consultar informações](../overview/features/spatial-queries.md) sobre a cena renderizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Entidades](entities.md)
 * [Modelos](models.md)

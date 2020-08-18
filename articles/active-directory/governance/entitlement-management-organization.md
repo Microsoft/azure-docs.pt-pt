@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170501"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506027"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -103,7 +103,7 @@ Para adicionar um diretório ou domínio AD AD externo como uma organização co
 
 Se a organização ligada mudar para um domínio diferente, o nome da organização muda ou pretende alterar os patrocinadores, pode atualizar a organização conectada seguindo as instruções desta secção.
 
-**Função pré-requisito**: *Administrador global,* *administrador de utilizador,* ou *convidado convidado*
+**Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
 1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
 
@@ -120,7 +120,7 @@ Se a organização ligada mudar para um domínio diferente, o nome da organizaç
 
 Se já não tiver uma relação com um diretório ou domínio Azure AD externo, pode eliminar a organização conectada.
 
-**Função pré-requisito**: *Administrador global,* *administrador de utilizador,* ou *convidado convidado*
+**Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
 1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
 

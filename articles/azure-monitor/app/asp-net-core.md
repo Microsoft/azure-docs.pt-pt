@@ -3,12 +3,12 @@ title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475520"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270925"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -109,12 +109,16 @@ O [SDK de Insights de Aplicação para ASP.NET Core](https://nuget.org/packages/
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`é normalmente usado em [Azure Web Apps,](./azure-web-apps.md?tabs=net)mas também pode ser usado em todos os lugares onde este SDK é suportado. (Se estiver a fazer uma monitorização de aplicações web sem código, este formato é necessário se não estiver a utilizar as cadeias de ligação.)
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` é normalmente usado em [Azure Web Apps,](./azure-web-apps.md?tabs=net)mas também pode ser usado em todos os lugares onde este SDK é suportado. (Se estiver a fazer uma monitorização de aplicações web sem código, este formato é necessário se não estiver a utilizar as cadeias de ligação.)
 
     Em vez de definir as teclas de instrumentação, pode agora também utilizar [cordas de ligação](./sdk-connection-string.md?tabs=net).
 
     > [!NOTE]
     > Uma chave de instrumentação especificada em código vence a variável `APPINSIGHTS_INSTRUMENTATIONKEY` ambiental, que vence outras opções.
+
+### <a name="user-secrets-and-other-configuration-providers"></a>Segredos do utilizador e outros fornecedores de configuração
+
+Se pretender armazenar a chave de instrumentação em ASP.NET Os segredos do utilizador Core ou recuperá-la de outro fornecedor de configuração, pode utilizar a sobrecarga com um `Microsoft.Extensions.Configuration.IConfiguration` parâmetro. Por exemplo, `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>Executar a aplicação
 
@@ -143,7 +147,7 @@ Suporte para [contadores de desempenho](./web-monitor-performance.md) em ASP.NET
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`é ativado por padrão, e irá recolher um conjunto padrão de contadores a partir de aplicações .NET Core 3.X. O tutorial [do EventCounter](eventcounters.md) lista o conjunto predefinido de contadores recolhidos. Também tem instruções para personalizar a lista.
+`EventCounterCollectionModule` é ativado por padrão, e irá recolher um conjunto padrão de contadores a partir de aplicações .NET Core 3.X. O tutorial [do EventCounter](eventcounters.md) lista o conjunto predefinido de contadores recolhidos. Também tem instruções para personalizar a lista.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Ativar a telemetria do lado do cliente para aplicações web
 
@@ -199,16 +203,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Lista completa de configurações em`ApplicationInsightsServiceOptions`
+Lista completa de configurações em `ApplicationInsightsServiceOptions`
 
 |Definições | Descrição | Predefinição
 |---------------|-------|-------
-|EnablePerformanceCounterCollectionModule  | Ativar/Desativar`PerformanceCounterCollectionModule` | true
-|EnableRequestTrackingTelemetryModule   | Ativar/Desativar`RequestTrackingTelemetryModule` | true
-|EnableEventCounterCollectionModule   | Ativar/Desativar`EventCounterCollectionModule` | true
-|EnableDependencyTrackingTelemetryModule   | Ativar/Desativar`DependencyTrackingTelemetryModule` | true
-|EnableAppServicesHeartbeatTelemetryModule  |  Ativar/Desativar`AppServicesHeartbeatTelemetryModule` | true
-|EnableAzureInstanceMetadataTelemetryModule   |  Ativar/Desativar`AzureInstanceMetadataTelemetryModule` | true
+|EnablePerformanceCounterCollectionModule  | Ativar/Desativar `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Ativar/Desativar `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Ativar/Desativar `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Ativar/Desativar `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Ativar/Desativar `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Ativar/Desativar `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Ativar/Desativar a funcionalidade LiveMetrics | true
 |EnableAdaptiveSampling | Permitir/Desativar a amostragem adaptativa | true
 |EnableHeartbeat | Ativar/Desativar a funcionalidade Heartbeats, que periodicamente (padrão de 15 min) envia uma métrica personalizada chamada 'HeartbeatState' com informações sobre o tempo de execução como .NET Version, Informações do Ambiente Azure, se aplicável, etc. | true
@@ -281,13 +285,13 @@ O Application Insights utiliza módulos de telemetria para recolher automaticame
 
 Os seguintes módulos de recolha automática são ativados por predefinição. Estes módulos são responsáveis pela recolha automática de telemetria. Pode desativá-los ou configurá-los para alterar o seu comportamento predefinido.
 
-* `RequestTrackingTelemetryModule`- Recolhe PedidoTelemetry a partir de pedidos web de entrada.
-* `DependencyTrackingTelemetryModule`- Recolhe [a DependencyTelemetry](./asp-net-dependencies.md) a partir de chamadas http e chamadas de sql de saída.
-* `PerformanceCollectorModule`- Coleciona o Windows PerformanceCounters.
-* `QuickPulseTelemetryModule`- Coleta telemetria para exibição no portal Live Metrics.
-* `AppServicesHeartbeatTelemetryModule`- Coleciona batimentos cardíacos (que são enviados como métricas personalizadas), sobre o ambiente do Azure App Service onde a aplicação é hospedada.
-* `AzureInstanceMetadataTelemetryModule`- Coleciona batimentos cardíacos (que são enviados como métricas personalizadas), sobre o ambiente Azure VM onde a aplicação é hospedada.
-* `EventCounterCollectionModule`- Coleciona [Os EventCounters.](eventcounters.md) Este módulo é uma nova funcionalidade e está disponível na versão SDK 2.8.0 ou superior.
+* `RequestTrackingTelemetryModule` - Recolhe PedidoTelemetry a partir de pedidos web de entrada.
+* `DependencyTrackingTelemetryModule` - Recolhe [a DependencyTelemetry](./asp-net-dependencies.md) a partir de chamadas http e chamadas de sql de saída.
+* `PerformanceCollectorModule` - Coleciona o Windows PerformanceCounters.
+* `QuickPulseTelemetryModule` - Coleta telemetria para exibição no portal Live Metrics.
+* `AppServicesHeartbeatTelemetryModule` - Coleciona batimentos cardíacos (que são enviados como métricas personalizadas), sobre o ambiente do Azure App Service onde a aplicação é hospedada.
+* `AzureInstanceMetadataTelemetryModule` - Coleciona batimentos cardíacos (que são enviados como métricas personalizadas), sobre o ambiente Azure VM onde a aplicação é hospedada.
+* `EventCounterCollectionModule` - Coleciona [Os EventCounters.](eventcounters.md) Este módulo é uma nova funcionalidade e está disponível na versão SDK 2.8.0 ou superior.
 
 Para configurar qualquer predefinição, `TelemetryModule` utilize o método de extensão em , como mostra o exemplo `ConfigureTelemetryModule<T>` `IServiceCollection` seguinte.
 
@@ -367,7 +371,7 @@ O acima referido não impede que quaisquer módulos de recolha de automóveis re
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
-Sim. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
+Yes. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
 
 Além disso, se estiver a utilizar instruções baseadas no Visual Studio a partir [daqui,](#enable-application-insights-server-side-telemetry-visual-studio)atualize a versão mais recente do Visual Studio 2019 (16.3.0) a bordo. Versões anteriores do Visual Studio não suportam a bordo automática para ASP.NET aplicações Core 3.X.
 
@@ -428,7 +432,7 @@ A `Microsoft.AspNetCore.All` metapackage 2.0 incluía o Application Insights SDK
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 
-Sim. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
+Yes. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
 * O SDK recolhe [contadores de eventos](./eventcounters.md) no Linux porque [os Contadores de Desempenho](./performance-counters.md) só são suportados no Windows. A maioria das métricas são as mesmas.
 * Apesar de `ServerTelemetryChannel` estar ativado por padrão, se a aplicação estiver em execução no Linux ou no MacOS, o canal não cria automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a esta limitação, a telemetria perde-se quando existem problemas temporários de rede ou servidor. Para contornar esta questão, configuure uma pasta local para o canal:

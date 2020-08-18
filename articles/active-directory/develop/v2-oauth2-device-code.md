@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689772"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272455"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2.0
 
@@ -51,17 +51,17 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parâmetro | Condição | Description |
+| Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | Pode ser /comum, /consumidores, ou /organizações.  Também pode ser o inquilino do diretório que você deseja solicitar permissão em formato GUID ou nome amigável.  |
+| `tenant` | Obrigatório | Pode ser /comum, /consumidores, ou /organizações.  Também pode ser o inquilino do diretório que você deseja solicitar permissão em formato GUID ou nome amigável.  |
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
-| `scope` | Recomendado | Uma lista de [âmbitos separados](v2-permissions-and-consent.md) pelo espaço a que o utilizador consinta.  |
+| `scope` | Necessário | Uma lista de [âmbitos separados](v2-permissions-and-consent.md) pelo espaço a que o utilizador consinta.  |
 
 ### <a name="device-authorization-response"></a>Resposta à autorização do dispositivo
 
 Uma resposta bem sucedida será um objeto JSON contendo as informações necessárias para permitir que o utilizador faça o seu sposição.
 
-| Parâmetro | Formato | Description |
+| Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
 |`device_code`     | String | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
 |`user_code`       | String | Uma corda curta mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
@@ -92,8 +92,8 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parâmetro | Obrigatório | Descrição|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessário | O mesmo pseudónimo de inquilino ou inquilino usado no pedido inicial. |
-| `grant_type` | Necessário | Deve ser`urn:ietf:params:oauth:grant-type:device_code`|
+| `tenant`  | Obrigatório | O mesmo pseudónimo de inquilino ou inquilino usado no pedido inicial. |
+| `grant_type` | Necessário | Deve ser `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Necessário | Deve corresponder ao `client_id` usado no pedido inicial. |
 | `device_code`| Necessário | O `device_code` devolvido no pedido de autorização do dispositivo.  |
 
@@ -101,7 +101,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 O fluxo de código do dispositivo é um protocolo de votação, pelo que o seu cliente deve esperar receber erros antes de o utilizador terminar a autenticação.
 
-| Erro | Description | Ação do Cliente |
+| Erro | Descrição | Ação do Cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | O utilizador ainda não terminou a autenticação, mas não cancelou o fluxo. | Repita o pedido após pelo menos `interval` segundos. |
 | `authorization_declined` | O utilizador final negou o pedido de autorização.| Pare de votar, e volte a um estado não autenticado.  |
@@ -123,7 +123,7 @@ Uma resposta simbólica bem sucedida será como:
 }
 ```
 
-| Parâmetro | Formato | Description |
+| Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
 | `token_type` | String| Sempre "Portador. |
 | `scope` | Cadeias separadas do espaço | Se um token de acesso foi devolvido, este lista os âmbitos para os para oses para os qual o token de acesso é válido. |

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080903"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505032"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -54,6 +54,7 @@ As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cogniti
 > * [Análise de Texto](./text-analytics/index.yml)
 > * [Criador de FAQ](./qnamaker/index.yml)
 > * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Leitura Avançada](./immersive-reader/index.yml)
 
 ## <a name="service-tags"></a>Etiquetas de Serviço
 
@@ -72,6 +73,7 @@ Os Serviços Cognitivos suportam tags de serviço para a configuração das regr
 > * [Criador de FAQ](./qnamaker/index.yml)
 > * [Tradutor](./translator/index.yml)
 > * [Serviço de Fala](./speech-service/index.yml)
+> * [Leitura Avançada](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
 
