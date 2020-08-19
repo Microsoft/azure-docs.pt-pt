@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Business Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Amazon Business.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2597a66-afd9-4f11-b14b-646b597bb6c2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f5ff42597a457a8849e424e041f1677c28b383
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 0db43f438eaff3e783b829eabe7152c5f13e943d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608964"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548300"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio Amazon com o Azure Ative Directory
 
@@ -171,7 +166,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![Atributos](media/amazon-business-tutorial/map-attribute1.png)
 
-1. No assistente **de mapeamento do Atributo,** adicione os campos de requisito clicando na opção + Adicionar uma opção **de campo.** Adicione os valores de atributos, incluindo o espaço de nome, que copiou da secção **atributos do utilizador & do** portal Azure no campo **SAML AttributeName,** e clique em **Seguinte**.
+1. No assistente **de mapeamento do Atributo,** adicione os campos de requisito clicando na opção + Adicionar uma opção **de campo.** Adicione os valores de atributos, incluindo o espaço de nome, que copiou da secção **atributos do utilizador & do** portal Azure no campo  **SAML AttributeName,** e clique em **Seguinte**.
 
     ![Atributos](media/amazon-business-tutorial/map-attribute2.png)
 
@@ -293,8 +288,8 @@ Ao clicar no azulejo da Amazon Business no Painel de Acesso, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

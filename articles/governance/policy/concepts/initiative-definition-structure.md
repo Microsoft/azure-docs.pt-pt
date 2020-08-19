@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa política são usadas para agrupar definições de políticas para implantação de recursos Azure na sua organização.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205961"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544643"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição de iniciativa política Azure
 
@@ -109,14 +109,14 @@ Os clientes podem definir quaisquer propriedades e valores úteis à sua organiz
 
 ### <a name="common-metadata-properties"></a>Propriedades comuns de metadados
 
-- `version`(cadeia): Rastreia detalhes sobre a versão do conteúdo de uma definição de iniciativa política.
-- `category`(cadeia): Determina em que categoria no portal Azure é apresentada a definição de política.
+- `version` (cadeia): Rastreia detalhes sobre a versão do conteúdo de uma definição de iniciativa política.
+- `category` (cadeia): Determina em que categoria no portal Azure é apresentada a definição de política.
 
   > [!NOTE]
   > Para uma iniciativa [de Conformidade Regulamentar,](./regulatory-compliance.md) `category` deve ser a Conformidade **Regulamentar.**
 
-- `preview`(boolean: bandeira verdadeira ou falsa para se a definição de iniciativa política for _a pré-visualização_.
-- `deprecated`(boolean: verdadeira ou falsa bandeira para se a definição de iniciativa política tiver sido marcada como _precída_.
+- `preview` (boolean: bandeira verdadeira ou falsa para se a definição de iniciativa política for _a pré-visualização_.
+- `deprecated` (boolean: verdadeira ou falsa bandeira para se a definição de iniciativa política tiver sido marcada como _precída_.
 
 > [!NOTE]
 > O serviço Azure Policy `version` utiliza, `preview` e propriedades para transmitir `deprecated` o nível de mudança a uma definição ou iniciativa e iniciativa de política incorporada. O formato `version` de: `{Major}.{Minor}.{Patch}` . Estados específicos, tais como _prevadidos_ ou _pré-visualização,_ são anexados à `version` propriedade ou em outra propriedade como um **booleano**. Para obter mais informações sobre a forma como as versões Azure Policy incorporadas, consulte [a versão incorporada.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)
@@ -218,10 +218,10 @@ A `policyDefinitions` parte da definição de iniciativa é um _conjunto_ de def
 
 Cada elemento _de matriz_ que representa uma definição de política tem as seguintes propriedades:
 
-- `policyDefinitionId`(cadeia): O ID da definição de política personalizada ou incorporada para incluir.
-- `policyDefinitionReferenceId`Um nome curto para a definição de política incluída.
+- `policyDefinitionId` (cadeia): O ID da definição de política personalizada ou incorporada para incluir.
+- `policyDefinitionReferenceId` Um nome curto para a definição de política incluída.
 - `parameters`: (Opcional) Os pares de nome/valor para passar um parâmetro de iniciativa para a definição de política incluída como propriedade nessa definição política. Para obter mais informações, consulte [parâmetros.](#parameters)
-- `groupNames`(matriz de cordas): (Opcional) O grupo da definição de política é membro. Para obter mais informações, consulte [os grupos de política.](#policy-definition-groups)
+- `groupNames` (matriz de cordas): (Opcional) O grupo da definição de política é membro. Para obter mais informações, consulte [os grupos de política.](#policy-definition-groups)
 
 Aqui está um exemplo `policyDefinitions` disso tem duas definições políticas incluídas que são aprovadas cada uma no mesmo parâmetro de iniciativa:
 
@@ -257,11 +257,11 @@ Detalhes adicionais de agrupamento podem ser encontrados num objeto **policyMeta
 
 Cada elemento _de matriz_ deve ter ambas `policyDefinitionGroups` as seguintes propriedades:
 
-- `name`(corda) \[ : \] O nome curto para o **comando**. O valor deste imóvel é utilizado `groupNames` `policyDefinitions` por.
-- `category`(cadeia): o domínio de **conformidade** do controlo.
-- `displayName`(corda): O nome amigável para o **controlo**. Usado pelo portal.
-- `description`Uma descrição do que o **controlo** faz.
-- `additionalMetadataId`(cadeia): a localização do objeto [policyMetadata](#metadata-objects) que tem detalhes adicionais sobre o domínio de **controlo** e **conformidade**.
+- `name` (corda) \[ : \] O nome curto para o **comando**. O valor deste imóvel é utilizado `groupNames` `policyDefinitions` por.
+- `category` (cadeia): o domínio de **conformidade** do controlo.
+- `displayName` (corda): O nome amigável para o **controlo**. Usado pelo portal.
+- `description` Uma descrição do que o **controlo** faz.
+- `additionalMetadataId` (cadeia): a localização do objeto [policyMetadata](#metadata-objects) que tem detalhes adicionais sobre o domínio de **controlo** e **conformidade**.
 
   > [!NOTE]
   > Os clientes podem apontar para um objeto [de política existenteMetadata.](#metadata-objects) No entanto, estes objetos são _apenas de leitura_ e criados apenas pela Microsoft.
@@ -292,9 +292,9 @@ Esta informação é:
 Os metadados para um agrupamento de políticas têm as seguintes informações no `properties` nó:
 
 - `metadataId`: O **ID de controlo** a que o agrupamento diz respeito.
-- `category`(obrigatório): O **domínio de conformidade** a que o **controlo** pertence.
-- `title`(obrigatório): O nome amigável do **ID de controlo**.
-- `owner`(obrigatório): Identifica quem tem a responsabilidade pelo controlo em Azure: _Cliente,_ _Microsoft,_ _Shared_.
+- `category` (obrigatório): O **domínio de conformidade** a que o **controlo** pertence.
+- `title` (obrigatório): O nome amigável do **ID de controlo**.
+- `owner` (obrigatório): Identifica quem tem a responsabilidade pelo controlo em Azure: _Cliente,_ _Microsoft,_ _Shared_.
 - `description`: Informações adicionais sobre o controlo.
 - `requirements`: Pormenores sobre a responsabilidade da implementação do controlo.
 - `additionalContentUrl`: Uma ligação a mais informações sobre o controlo. Esta propriedade é tipicamente uma ligação com a secção de documentação que cobre este controlo na norma de conformidade.
@@ -319,7 +319,7 @@ Abaixo está um exemplo do objeto **de políticaMetadata.** Este exemplo de meta
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver a estrutura de [definição](./definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

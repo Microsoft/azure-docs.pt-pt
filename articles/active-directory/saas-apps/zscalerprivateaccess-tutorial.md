@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com zscaler Private Access (ZPA) Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Zscaler Private Access (ZPA).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07607d6695d1010e5a704ed05608e9ea2587a64b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c7347aabb3aa6f122ea82a46ad8a09f53e271bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016161"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545694"
 ---
 # <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integrar acesso privado Zscaler (ZPA) com Diretório Ativo Azure
 
@@ -83,9 +78,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    1. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+    1. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
-    1. Na caixa de texto **identifier (Entity ID),** digite um URL:`https://samlsp.private.zscaler.com/auth/metadata`
+    1. Na caixa de texto **identifier (Entity ID),** digite um URL: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE]
     > O **valor do sinal de URL** não é real. Atualizar o valor com o sinal real no URL. Contacte [a equipa de suporte ao cliente Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -130,7 +125,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Selecione o seu domínio no campo **Domínios.**
     
-    d. Clique em **Save** (Guardar).
+    d. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -142,7 +137,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
    1. No campo **Nome**, introduza `Britta Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `BrittaSimon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

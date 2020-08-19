@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Clear Review / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Clear Review.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7900373c5d8897fd360c708434d96e5dfbc73d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034640"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Ative Directory com Clear Review
 
@@ -109,15 +104,15 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     ![Clear Review Domain e URLs informações únicas de súmis](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<customer name>.clearreview.com/sso/metadata/`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<customer name>.clearreview.com/sso/acs/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<customer name>.clearreview.com/sso/acs/`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     ![Clear Review Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<customer name>.clearreview.com`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<customer name>.clearreview.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do cliente Clear Review](https://clearreview.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -136,7 +131,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     b. Na lista **de atributos Source,** selecione o valor do atributo **user.mail** para esta linha.
 
-    c. Clique em **Save** (Guardar).
+    c. Clique em **Guardar**.
 
 8. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -176,7 +171,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     d. Abra o certificado descarregado no bloco de notas e cole o conteúdo na caixa de texto **do Certificado X.509.**   
 
-    e. Clique em **Save** (Guardar).
+    e. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -201,7 +196,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Configuração SSO do MVISION Cloud AD Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Configuração SSO AD SSO da MVISION Cloud Azure.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a519ab6558db95ecf86b7595dbbb13a970460043
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: d529123b52e0e90702839f6822a586cf53dffa52
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85806861"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546719"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a configuração SSO AD AD AD da MVISION com diretório ativo Azure
 
@@ -84,15 +80,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/response/saml-postlogin`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     ![MVISION Cloud Azure AD SSO Configuration Domain e URLs informações únicas de sing-on](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a equipa de [suporte do cliente de configuração MVISION Cloud Azure AD SSO](mailto:support@skyhighnetworks.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

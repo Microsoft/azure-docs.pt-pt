@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o RedVector Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o RedVector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 99042f39-0ab2-475b-8df8-3016d7f875e9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: f3660956a3e66fc9a632eace378feb8873bceaf8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69b699ed54778f4c65a0517ac60b6a4a9dc39783
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506094"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Tutorial: Integração do Diretório Ativo Azure com o RedVector
 
@@ -105,9 +101,9 @@ Para configurar o Azure AD com redVector, execute os seguintes passos:
 
     ![RedVector Domain e URLs informações únicas de súmis](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://sso2.redvector.com/adfs/<Companyname>`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://sso2.redvector.com/adfs/<Companyname>`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://sso2.redvector.com/saml2`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://sso2.redvector.com/saml2`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente RedVector](mailto:sso@redvector.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Plataforma NUVEM SAP Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Plataforma NUVEM SAP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2972af3c94768cc21b53bbf5376826940aee639a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168869"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma NUVEM SAP
 
@@ -112,7 +107,7 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
 
     ![Sap Cloud Platform Domain e URLs informações únicas de acesso](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **do Sign On URL,** digite o URL utilizado pelos seus utilizadores para iniciar sing à sua aplicação **SAP Cloud Platform.** Este é o URL específico da conta de um recurso protegido na sua aplicação SAP Cloud Platform. O URL baseia-se no seguinte padrão:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. Na caixa de texto **do Sign On URL,** digite o URL utilizado pelos seus utilizadores para iniciar sing à sua aplicação **SAP Cloud Platform.** Este é o URL específico da conta de um recurso protegido na sua aplicação SAP Cloud Platform. O URL baseia-se no seguinte padrão: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >Este é o URL da sua aplicação SAP Cloud Platform que requer que o utilizador autentica.

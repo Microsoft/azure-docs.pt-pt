@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236544"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547669"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,8 +16,7 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler a 
  
 Para aprender a criar políticas de Configuração de Hóspedes para Linux, consulte a página [Como criar políticas de Configuração de Hóspedes para Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar.
-Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
+Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
 
@@ -56,7 +55,7 @@ O módulo de recursos de configuração do hóspede requer o seguinte software:
 
 - PowerShell 6.2 ou mais tarde. Se não estiver ainda instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se não estiver ainda instalado, siga [estas instruções](/powershell/azure/install-az-ps).
-  - Apenas são necessários os módulos AZ 'Az.Accounts' e 'Az.Resources'.
+  - Apenas são necessários os módulos Az 'Az.Accounts' e 'Az.Resources'.
 
 ### <a name="install-the-module"></a>Instale o módulo
 
@@ -90,8 +89,7 @@ Quando a Configuração de Hóspedes audita uma máquina, a sequência de evento
 1. O valor booleano devolvido pela função determina se o estado do Gestor de Recursos Azure para a Atribuição do Hóspede deve ser conforme/não conforme.
 1. O fornecedor corre `Get-TargetResource` para devolver o estado atual de cada configuração para que haja detalhes disponíveis tanto sobre o motivo pelo qual uma máquina não está em conformidade como para confirmar que o estado atual está em conformidade.
 
-Os parâmetros na Política Azure que passam valores para as atribuições de Configuração de Convidados devem ser do tipo _de corda._
-Não é possível passar matrizes através de parâmetros, mesmo que o recurso DSC suporte matrizes.
+Os parâmetros na Política Azure que passam valores para as atribuições de Configuração de Convidados devem ser do tipo _de corda._ Não é possível passar matrizes através de parâmetros, mesmo que o recurso DSC suporte matrizes.
 
 ### <a name="get-targetresource-requirements"></a>Requisitos get-TargetResource
 
@@ -121,7 +119,7 @@ return @{
 }
 ```
 
-A propriedade Reasons também deve ser adicionada ao esquema MOF para o recurso como uma classe incorporada.
+A propriedade Reasons deve ser adicionada ao esquema MOF para o recurso como uma classe incorporada.
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -166,8 +164,7 @@ O formato do pacote deve ser um ficheiro .zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefactos de configuração de hóspedes
 
 A embalagem .zip deve ser armazenada num local acessível pelas máquinas virtuais geridas.
-Exemplos incluem repositórios GitHub, um Azure Repo, ou armazenamento Azure. Se preferir não tornar o pacote público, pode incluir um [token SAS](../../../storage/common/storage-sas-overview.md) no URL.
-Também pode implementar [o ponto final de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para máquinas numa rede privada, embora esta configuração se aplique apenas ao acesso ao pacote e não à comunicação com o serviço.
+Exemplos incluem repositórios GitHub, um Azure Repo, ou armazenamento Azure. Se preferir não tornar o pacote público, pode incluir um [token SAS](../../../storage/common/storage-sas-overview.md) no URL. Também pode implementar [o ponto final de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para máquinas numa rede privada, embora esta configuração se aplique apenas ao acesso ao pacote e não à comunicação com o serviço.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Passo a passo, criando uma política de auditoria de configuração personalizada para windows
 
@@ -372,7 +369,7 @@ New-AzRoleDefinition -Role $role
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar as políticas de configuração do hóspede usando Tags
 
-As definições de política criadas por cmdlets no módulo de Configuração do Hóspede podem, opcionalmente, incluir um filtro para tags. O parâmetro **tag** de `New-GuestConfigurationPolicy` suporte uma variedade de hashtables contendo conjuntos de etiquetas individuais inteiras. As etiquetas são adicionadas à `If` secção da definição de política e não podem ser modificadas por uma atribuição de políticas.
+As definições de política criadas por cmdlets no módulo de Configuração do Hóspede podem, opcionalmente, incluir um filtro para tags. O parâmetro **tag** de `New-GuestConfigurationPolicy` suporte uma variedade de hashtables contendo conjuntos de etiquetas individuais inteiras. As etiquetas são adicionadas à `If` secção da definição de política e não podem ser modificadas por uma atribuição de política.
 
 Um exemplo de uma definição de política que filtra para tags é dado abaixo.
 
@@ -602,5 +599,5 @@ Para obter mais informações sobre os cmdlets desta ferramenta, utilize o coman
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
-- Entenda como [criar políticas programáticas.](programmatically-create.md)
-- Saiba como [obter dados de conformidade.](get-compliance-data.md)
+- Entenda como [criar políticas programáticas.](./programmatically-create.md)
+- Saiba como [obter dados de conformidade.](./get-compliance-data.md)

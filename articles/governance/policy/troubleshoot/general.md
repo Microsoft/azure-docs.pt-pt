@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
-ms.date: 05/22/2020
+ms.date: 08/17/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135576"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545544"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -148,7 +148,7 @@ O Gráfico helm com o nome `azure-policy-addon` já foi instalado ou parcialment
 
 Siga as instruções para [remover a Política de Azure para o add-on de Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on)e, em seguida, repercuta o `helm install azure-policy-addon` comando.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

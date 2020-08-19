@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar Zscaler Beta para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizadores à Zscaler Beta.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71b40fe903e5a837046b9b29f62ef4875e3139e5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062746"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545922"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler Beta para fornecimento automático de utilizadores
 
@@ -113,7 +109,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **Ativar o Provisionamento baseado em SCIM** para recuperar **o URL base** e o **token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token** para **Secret Token** no portal Azure.
+    Selecione **Ativar o Provisionamento baseado em SCIM** para recuperar **o URL base** e o **token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que a Azure AD pode ligar-se à Zscaler Beta. Se a ligação falhar, certifique-se de que a sua conta Beta Zscaler tem permissões de Administração e tente novamente.
 
@@ -164,7 +160,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
 

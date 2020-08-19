@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com BrowserStack Single Sign-on / Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o BrowserStack Single Sign-on.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 122f2095-07cb-4e8e-9f87-d059271380c8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545fead0d80b204225c79ee7f365660a55cfbfef
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 48754b6ac1d6348df440db496d713f0d0a0b71ea
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85487029"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-browserstack-single-sign-on"></a>Tutorial: Azure Ative Directy integração única (SSO) com browserStack Single Sign-on
 
@@ -86,13 +82,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://login.browserstack.com/auth/realms/<REALM_ID>`
+    a. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://login.browserstack.com/auth/realms/<REALM_ID>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://login.browserstack.com/auth/realms/<REALM_ID>/broker/<BROKER_ID>/endpoint`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://login.browserstack.com/auth/realms/<REALM_ID>/broker/<BROKER_ID>/endpoint`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:`https://browserstack.com/users/sign_in`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://browserstack.com/users/sign_in`
 
     > [!Note]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte individual do BrowserStack para](mailto:support@browserstack.com) obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -153,9 +149,9 @@ Quando clicar no azulejo de sign-on single do BrowserStack no Painel de Acesso, 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

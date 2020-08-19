@@ -1,14 +1,14 @@
 ---
 title: Avaliar o impacto de uma nova definição de Política Azure
 description: Compreenda o processo a seguir ao introduzir uma nova definição de política no seu ambiente Azure.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684295"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544707"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Avaliar o impacto de uma nova definição de Política Azure
 
@@ -65,7 +65,7 @@ Quaisquer alterações ao âmbito (nível ou exclusões) devem ser totalmente va
 
 Implementar e atribuir a sua definição de política não é o passo final. Monitorize continuamente o nível de [conformidade](../how-to/get-compliance-data.md) dos recursos à sua nova definição de política e configurar [os alertas e notificações adequados do Azure Monitor](../../../azure-monitor/platform/alerts-overview.md) para quando forem identificados dispositivos não conformes. Também é recomendado avaliar a definição de política e atribuições relacionadas numa base programada para validar a definição de política está a satisfazer as necessidades de negócio e conformidade. As políticas devem ser eliminadas, se já não for necessário. As políticas também precisam de ser atualizadas de tempos a tempos à medida que os recursos Azure subjacentes evoluem e adicionam novas propriedades e capacidades.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)

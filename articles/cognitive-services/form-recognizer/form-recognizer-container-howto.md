@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cdcf4182f098affba0a18be5846ae6f6e52d7229
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538025"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547363"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulários (pré-visualização)
 
@@ -28,7 +28,7 @@ Para reduzir a complexidade e integrar facilmente um modelo personalizado de Rec
 |----------|----------|
 | Reconhecedor de Formato | <li>Processos ficheiros PDF, PNG e JPG<li>Treina modelos personalizados com um mínimo de cinco formas do mesmo layout <li>Extrai pares de valores-chave e informações de tabela <li>Utiliza a funcionalidade Azure Cognitive Services Computer Vision API Recognise Text para detetar e extrair texto impresso a partir de imagens dentro de formulários<li>Não requer anotação ou rotulagem |
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,13 +49,13 @@ Antes de utilizar os recipientes do Form Recogniser, deve cumprir os seguintes r
 
 Existem três parâmetros primários para todos os contentores dos Serviços Cognitivos que são necessários. O contrato de licença de utilizador final (EULA) deve estar presente com um valor de `accept` . Além disso, tanto um URL endpoint como uma chave API são necessários.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Endpoint URI `{COMPUTER_VISION_ENDPOINT_URI}` e`{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Endpoint URI `{COMPUTER_VISION_ENDPOINT_URI}` e `{FORM_RECOGNIZER_ENDPOINT_URI}`
 
 O valor **Endpoint** URI está disponível na página *geral* do portal Azure do recurso correspondente do Serviço Cognitivo. Navegue para a página *overview,* paire sobre o Ponto final e aparecerá um `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone. Copiar e usar sempre que necessário.
 
 ![Reúna o ponto final uri para utilização posterior](../containers/media/overview-endpoint-uri.png)
 
-### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e`{FORM_RECOGNIZER_API_KEY}`
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e `{FORM_RECOGNIZER_API_KEY}`
 
 Esta chave é utilizada para iniciar o contentor e está disponível na página Chaves do portal Azure do recurso serviço cognitivo correspondente. Navegue na página *Chaves* e clique no `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone.
 
@@ -332,7 +332,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 >  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja os recipientes de configuração](form-recognizer-container-configuration.md) para configurações.
 * Utilize mais [recipientes de serviços cognitivos.](../cognitive-services-container-support.md)

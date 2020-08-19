@@ -2,25 +2,20 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Jobscience Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Jobscience.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870532"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Diretório Ativo Azure com a Jobscience
 
@@ -105,7 +100,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Configurar um único sign-on][4]
 
-1. No diálogo **de assinatura único,** selecione **Mode** como **Sign-on baseado em SAML** para ativar um único sinal de súplica.
+1. No diálogo **de assinatura único,** selecione **Mode** como    **Sign-on baseado em SAML** para ativar um único sinal de súplica.
  
     ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
@@ -113,7 +108,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:`http://<company name>.my.salesforce.com`
+    Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de inscrição real. Obtenha este valor pela equipa de [suporte do Cliente Jobscience](http://www.jobscience.com/support) ou pelo perfil SSO que irá criar, o que é explicado mais tarde no tutorial. 
@@ -164,7 +159,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     b. Na caixa de texto **emitente,** cole o valor do ID da **Entidade SAML,** que copiou do portal Azure.
 
-    c. Na caixa de texto **Id da Entidade,** escreva`https://salesforce-jobscience.com`
+    c. Na caixa de texto **Id da Entidade,** escreva `https://salesforce-jobscience.com`
 
     d. Clique **em Procurar** para fazer o upload do certificado AZure AD.
 

@@ -1,14 +1,14 @@
 ---
 title: Criar políticas programaticamente
 description: Este artigo acompanha-o através de políticas programáticas para a Política Azure com Azure CLI, Azure PowerShell e REST API.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969894"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548316"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -88,12 +88,12 @@ O primeiro passo para uma melhor visibilidade dos seus recursos é criar e atrib
    Substitua _a ContosoRG_ pelo nome do seu grupo de recursos pretendido.
 
    O parâmetro **Scope** sobre `New-AzPolicyAssignment` trabalhos com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recursos completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` devoluções. O padrão de **Âmbito** para cada recipiente é o seguinte. `{rName}`Substitua, , e pelo seu nome de `{rgName}` `{subId}` `{mgName}` recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de gestão, respectivamente.
-   `{rType}`seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
+   `{rType}` seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
 
-   - Recurso -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupo de recursos -`/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Assinatura -`/subscriptions/{subId}/`
-   - Grupo de gestão -`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Recurso - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Assinatura - `/subscriptions/{subId}/`
+   - Grupo de gestão - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para obter mais informações sobre a gestão das políticas de recursos utilizando o módulo PowerShell do Gestor de Recursos, consulte [Az.Resources](/powershell/module/az.resources/#policies).
 
@@ -216,12 +216,12 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   O parâmetro **de âmbito** em `az policy assignment create` funcionamento com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recursos completo. O padrão de **mira** para cada recipiente é o seguinte. `{rName}`Substitua, , e pelo seu nome de `{rgName}` `{subId}` `{mgName}` recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de gestão, respectivamente. `{rType}`seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
+   O parâmetro **de âmbito** em `az policy assignment create` funcionamento com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recursos completo. O padrão de **mira** para cada recipiente é o seguinte. `{rName}`Substitua, , e pelo seu nome de `{rgName}` `{subId}` `{mgName}` recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de gestão, respectivamente. `{rType}` seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
 
-   - Recurso -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupo de recursos -`/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Assinatura -`/subscriptions/{subID}`
-   - Grupo de gestão -`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Recurso - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Assinatura - `/subscriptions/{subID}`
+   - Grupo de gestão - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Pode obter o ID de Definição de Política Azure utilizando o PowerShell com o seguinte comando:
 
@@ -237,7 +237,7 @@ O ID de definição de política para a definição de política que criou deve 
 
 Para obter mais informações sobre como gerir as políticas de recursos com o Azure [CLI, consulte as Políticas de Recursos do CLI Azure.](/cli/azure/policy?view=azure-cli-latest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 

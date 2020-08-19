@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 06/12/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116998"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547805"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -17,7 +17,7 @@ Saiba mais sobre [as condições.](#conditions)
 
 Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que os recursos tenham uma etiqueta particular. As atribuições políticas são herdadas por recursos infantis. Se uma atribuição de política for aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
 
-O esquema de definição de política encontra-se aqui:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+O esquema de definição de política encontra-se aqui: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Usas o JSON para criar uma definição de política. A definição de política contém elementos para:
 
@@ -100,15 +100,15 @@ Por exemplo, o recurso `Microsoft.Network/routeTables` suporta tags e localizaç
 
 Recomendamos que desfase o **modo** `all` na maioria dos casos. Todas as definições de política criadas através do portal utilizam o `all` modo. Se utilizar o PowerShell ou o Azure CLI, pode especificar manualmente o parâmetro do **modo.** Se a definição de política não incluir um valor de **modo,** ele falha `all` em Azure PowerShell e `null` em Azure CLI. Um `null` modo é o mesmo que usar para suportar a `indexed` retrocompatibilidade.
 
-`indexed`deve ser usado na criação de políticas que imponham tags ou locais. Embora não seja necessário, impede que recursos que não suportam tags e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **grupos de recursos** e **subscrições.** As definições de política que impõem a localização ou as tags num grupo de recursos ou subscrição devem definir **o modo** `all` de e especificamente direcionar o `Microsoft.Resources/subscriptions/resourceGroups` ou o `Microsoft.Resources/subscriptions` tipo. Por exemplo, consulte [Padrão: Etiquetas - Amostra #1](../samples/pattern-tags.md). Para obter uma lista de recursos que suportem tags, consulte [o suporte da Tag para os recursos da Azure.](../../../azure-resource-manager/management/tag-support.md)
+`indexed` deve ser usado na criação de políticas que imponham tags ou locais. Embora não seja necessário, impede que recursos que não suportam tags e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **grupos de recursos** e **subscrições.** As definições de política que impõem a localização ou as tags num grupo de recursos ou subscrição devem definir **o modo** `all` de e especificamente direcionar o `Microsoft.Resources/subscriptions/resourceGroups` ou o `Microsoft.Resources/subscriptions` tipo. Por exemplo, consulte [Padrão: Etiquetas - Amostra #1](../samples/pattern-tags.md). Para obter uma lista de recursos que suportem tags, consulte [o suporte da Tag para os recursos da Azure.](../../../azure-resource-manager/management/tag-support.md)
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modos fornecedores de recursos (pré-visualização)
 
 Os seguintes modos de Fornecedor de Recursos são atualmente suportados durante a pré-visualização:
 
-- `Microsoft.ContainerService.Data`para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo está a ser _depreciado._
-- `Microsoft.Kubernetes.Data`para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está a ser _depreciada._
-- `Microsoft.KeyVault.Data`para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.ContainerService.Data` para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo está a ser _depreciado._
+- `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está a ser _depreciada._
+- `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Os modos de Fornecedor de Recursos suportam apenas definições de políticas incorporadas e não suportam iniciativas durante a pré-visualização.
@@ -119,10 +119,10 @@ A propriedade opcional `metadata` armazena informações sobre a definição de 
 
 ### <a name="common-metadata-properties"></a>Propriedades comuns de metadados
 
-- `version`(cadeia): Rastreia detalhes sobre a versão do conteúdo de uma definição de política.
-- `category`(cadeia): Determina em que categoria no portal Azure é apresentada a definição de política.
-- `preview`(boolean: bandeira verdadeira ou falsa para se a definição de política for _de visualização_.
-- `deprecated`(boolean: verdadeira ou falsa bandeira para se a definição de política tiver sido marcada como _prevada_.
+- `version` (cadeia): Rastreia detalhes sobre a versão do conteúdo de uma definição de política.
+- `category` (cadeia): Determina em que categoria no portal Azure é apresentada a definição de política.
+- `preview` (boolean: bandeira verdadeira ou falsa para se a definição de política for _de visualização_.
+- `deprecated` (boolean: verdadeira ou falsa bandeira para se a definição de política tiver sido marcada como _prevada_.
 
 > [!NOTE]
 > O serviço Azure Policy `version` utiliza, `preview` e propriedades para transmitir `deprecated` o nível de mudança a uma definição ou iniciativa e iniciativa de política incorporada. O formato `version` de: `{Major}.{Minor}.{Patch}` . Estados específicos, tais como _prevadidos_ ou _pré-visualização,_ são anexados à `version` propriedade ou em outra propriedade como um **booleano**. Para obter mais informações sobre a forma como as versões Azure Policy incorporadas, consulte [a versão incorporada.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)
@@ -188,7 +188,7 @@ Esta amostra refere o parâmetro **permitido delocalização** que foi demonstra
 
 Dentro da `metadata` propriedade, você pode usar **o StrongType** para fornecer uma lista multi-selecionada de opções dentro do portal Azure. **StrongType** pode ser um tipo de _recurso_ suportado ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para o **StrongType,** utilize [o Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). O formato para um _tipo de recurso_ **forteType** é `<Resource Provider>/<Resource Type>` . Por exemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
-Alguns tipos de _recursos_ não devolvidos pela **Get-AzResourceProvider** são suportados. Estes são:
+Alguns tipos de _recursos_ não devolvidos pela **Get-AzResourceProvider** são suportados. Estes tipos são:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -275,7 +275,8 @@ Uma condição avalia se um **campo** ou o acessório **de valor** cumpre determ
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 Por **menos,** **menos, os locais EQuals**, **maiores**e **maiores,** se o tipo de propriedade não corresponder ao tipo de condição, é lançado um erro. As comparações de cordas são feitas `InvariantCultureIgnoreCase` utilizando.
@@ -346,8 +347,7 @@ No exemplo seguinte, `concat` é usado para criar um lookup de campo de tags par
 
 ### <a name="value"></a>Valor
 
-As condições também podem ser formadas com **o valor.** **valore** verifica as condições contra [parâmetros,](#parameters) [funções de modelo suportadas,](#policy-functions)ou literais.
-**o valor** é emparelhado com qualquer [condição](#conditions)suportada .
+As condições também podem ser formadas com **o valor.** **valore** verifica as condições contra [parâmetros,](#parameters) [funções de modelo suportadas,](#policy-functions)ou literais. **o valor** é emparelhado com qualquer [condição](#conditions)suportada .
 
 > [!WARNING]
 > Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação**implícita. Para obter mais informações, consulte [evitar falhas no modelo](#avoiding-template-failures). Utilize [a aplicação da](./assignment-structure.md#enforcement-mode) **DoNotEnforce** para evitar o impacto de uma avaliação falhada em recursos novos ou atualizados enquanto testa e valida uma nova definição de política.
@@ -453,7 +453,7 @@ As seguintes propriedades são utilizadas com **contagem:**
 - **count.field** (obrigatório): Contém o caminho para a matriz e deve ser um pseudónimo de matriz. Se faltar a matriz, a expressão é avaliada como _falsa_ sem considerar a expressão da condição.
 - **count.where** (opcional): A expressão da condição para avaliar individualmente cada membro da [ \[ \* \] ](#understanding-the--alias) matriz de **nomes de conde.field**. Se esta propriedade não for fornecida, todos os membros da matriz com o caminho do 'campo' são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade.
   [Os operadores lógicos](#logical-operators) podem ser usados dentro desta propriedade para criar requisitos de avaliação complexos.
-- **\<condition\>**(obrigatório): O valor é comparado com o número de itens que cumpriram a **contagem.onde** a expressão da condição. Deve ser utilizada uma [condição](../concepts/definition-structure.md#conditions) numérica.
+- **\<condition\>** (obrigatório): O valor é comparado com o número de itens que cumpriram a **contagem.onde** a expressão da condição. Deve ser utilizada uma [condição](../concepts/definition-structure.md#conditions) numérica.
 
 #### <a name="count-examples"></a>Contar exemplos
 
@@ -575,7 +575,7 @@ Todas as [funções do modelo do Gestor de Recursos](../../../azure-resource-man
 
 A função a seguir está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure (modelo ARM):
 
-- `utcNow()`- Ao contrário de um modelo ARM, esta propriedade pode ser usada fora _do padrãoValue_.
+- `utcNow()` - Ao contrário de um modelo ARM, esta propriedade pode ser usada fora _do padrãoValue_.
   - Devolve uma corda que está definida para a data e hora atuais no formato Universal ISO 8601 DateTime 'yyyy-MM-ddTHH:mm:ss.fffffZ'
 
 As seguintes funções só estão disponíveis nas regras políticas:
@@ -586,7 +586,7 @@ As seguintes funções só estão disponíveis nas regras políticas:
 - `field(fieldName)`
   - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
   - Devolve o valor desse campo do recurso que está a ser avaliado pela condição If
-  - `field`é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
+  - `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Devolve a versão API do pedido que desencadeou a avaliação da política (exemplo: `2019-09-01` ).
     Este valor é a versão API que foi utilizada no pedido PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre utilizada durante a avaliação de conformidade sobre os recursos existentes.

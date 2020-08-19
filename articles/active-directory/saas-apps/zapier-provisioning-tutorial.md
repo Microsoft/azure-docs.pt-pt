@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar Zapier para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como provisão e desavisagem automática de contas de utilizadores de Azure AD a Zapier.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 66e224f9-2311-4564-bb84-99fce59a398f
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 015325fe213c8cc1de347282752211750339cd65
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4a6b4698a873d6bdba0c4145b5bf7bb486b5e1c5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927254"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546151"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutorial: Configurar Zapier para o fornecimento automático de utilizadores
 

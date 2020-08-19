@@ -11,21 +11,21 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497884"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548468"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar recipientes face (pré-visualização)
 
 > [!IMPORTANT]
-> O limite para os utilizadores de recipientes Face foi atingido. Não estamos atualmente a aceitar novas aplicações para o contentor Face.
+> Foi atingido o limite de utilizadores do contentor de Face. De momento, não estamos a aceitar novas aplicações para o contentor de Face.
 
 A Azure Cognitive Services Face fornece um recipiente Linux padronizado para Docker que deteta rostos humanos em imagens. Também identifica atributos, que incluem marcos faciais como narizes e olhos, sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança. Face também pode comparar rostos com uma base de dados para ver se um rosto semelhante ou idêntico já existe. Também pode organizar rostos semelhantes em grupos usando traços visuais partilhados.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -153,7 +153,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para como descarregar, inst
 > [!IMPORTANT]
 > Os contentores dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes devem permitir que os recipientes comuniquem sempre informações de faturação com o serviço de medição. Os contentores dos Serviços Cognitivos não enviam dados dos clientes, como a imagem ou texto que está a ser analisado, para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurações, consulte [recipientes de configuração](face-resource-container-config.md).
 * Para saber mais sobre como detetar e identificar rostos, consulte [a visão geral do Face](Overview.md).

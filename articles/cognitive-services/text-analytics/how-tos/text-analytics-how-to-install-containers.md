@@ -11,23 +11,23 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108995"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545663"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
 > [!NOTE]
-> * O recipiente para Análise de Sentimento v3 está agora geralmente disponível. A frase-chave de extração e de deteção de linguagem está disponível como uma pré-visualização pública não acompanhada.
+> * O recipiente para Análise de Sentimento v3 está agora geralmente disponível. Os contentores de deteção de idioma e extração de expressões-chave estão disponíveis como uma pré-visualização pública livre.
 > * A ligação da entidade e o NER não estão atualmente disponíveis como recipiente.
-> * Atualmente, não será cobrado para text analytics para uso de recipientes de saúde.
+> * Atualmente, não lhe será faturado pela utilização dos contentores de Análise de Texto para a Saúde.
 
-Os contentores permitem-lhe executar as APIs analíticas de texto no seu próprio ambiente e são ótimos para os seus requisitos específicos de segurança e governação de dados. Os recipientes Text Analytics fornecem processamento avançado da linguagem natural sobre o texto cru, e incluem três funções principais: análise de sentimento, extração de frases-chave e deteção de linguagem. 
+Os contentores permitem-lhe executar as APIs de Análise de Texto no seu próprio ambiente e são ótimos para os requisitos específicos de governação de dados e segurança. Os recipientes Text Analytics fornecem processamento avançado da linguagem natural sobre o texto cru, e incluem três funções principais: análise de sentimento, extração de frases-chave e deteção de linguagem. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 > [!IMPORTANT]
 > A conta gratuita está limitada a 5.000 transações por mês e apenas os níveis de preços **Gratuitos** e **Standard** são <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> válidos</a> para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
@@ -65,7 +65,7 @@ O quadro a seguir descreve as especificações mínimas e recomendadas para os r
 
 O núcleo e a memória do CPU correspondem às `--cpus` `--memory` definições e configurações, que são utilizadas como parte do `docker run` comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -96,7 +96,7 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias.
 1. [Consultar o ponto final de previsão do recipiente.](#query-the-containers-prediction-endpoint)
 
-## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
+## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com `docker run`
 
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar os contentores. O contentor continuará a funcionar até o parar.
 
@@ -125,11 +125,11 @@ Use o comando de execução do [estivador](https://docs.docker.com/engine/refere
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de previsão do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 
-O recipiente fornece APIs de previsão de consulta baseada em REST.
+O contentor fornece APIs de ponto final de predição de consulta com base em REST.
 
-Utilize o hospedeiro, `http://localhost:5000` para apis de contentores.
+Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor.
 
 <!--  ## Validate container is running -->
 
@@ -174,7 +174,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](../text-analytics-resource-container-config.md) para configurações de configuração
 * Consulte [perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados com a funcionalidade.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552225"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547329"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Permitir o registo em ações de treino do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Pode registar vários tipos de dados, incluindo valores escalares, listas, tabel
 ## <a name="interactive-logging-session"></a>Sessão interativa de registo
 
 As sessões de registo interativo são normalmente utilizadas em ambientes de cadernos. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) inicia uma sessão de registo interativo. Quaisquer métricas registadas durante a sessão são adicionadas ao registo de execução na experiência. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) termina as sessões e marca a execução como concluído.
-
-O seguinte corte de código utiliza uma sessão de registo interativo para registar parâmetros de treino e métricas de desempenho com o método [run.log().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) Também envia o modelo treinado para um local de saída especificado.
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-Para obter um caderno de amostras completo que utilize a madeira interativa, consulte [Train um modelo num caderno.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig regista
 
@@ -101,7 +95,7 @@ Os seguintes cadernos demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte estes artigos para saber mais sobre como usar a Azure Machine Learning:
 

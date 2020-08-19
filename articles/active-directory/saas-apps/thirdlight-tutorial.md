@@ -1,138 +1,134 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a ThirdLight Microsoft Docs'
-description: Neste tutorial, você vai aprender a configurar um único sign-on entre o Azure Ative Directory e o ThirdLight.
+title: 'Tutorial: Integração do Azure Ative Directory com o ThirdLight Microsoft Docs'
+description: Neste tutorial, você aprenderá a configurar um único sign-on entre Azure Ative Directory e ThirdLight.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 168aae9a-54ee-4c2b-ab12-650a2c62b901
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67089096"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544983"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integração do Diretório Ativo Azure com a ThirdLight
+# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integração do Diretório Ativo Azure com o ThirdLight
 
-Neste tutorial, você vai aprender a integrar o ThirdLight com o Azure Ative Directory (Azure AD). Esta integração proporciona estes benefícios:
+Neste tutorial, você vai aprender a integrar ThirdLight com Azure Ative Directory (Azure AD). Esta integração proporciona estes benefícios:
 
 * Pode utilizar o Azure AD para controlar quem tem acesso ao ThirdLight.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no ThirdLight (único sinal) com as suas contas Azure AD.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no ThirdLight (único sinte) com as suas contas AD Azure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Se quiser saber mais sobre a integração de aplicações saaS com a Azure AD, consulte o [single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais sobre a integração de aplicações saaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a ThirdLight, é necessário ter:
+Para configurar a integração Azure AD com a ThirdLight, você precisa ter:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Uma subscrição ThirdLight que tem um único sinal ativado.
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Uma subscrição thirdLight que tem um único sinal de insusitado.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você vai configurar e testar o único sign-on Azure AD em um ambiente de teste.
+Neste tutorial, você vai configurar e testar Azure AD um único sinal de acesso em um ambiente de teste.
 
-* ThirdLight suporta SSO iniciado por SP.
+* A ThirdLight suporta sSO iniciado pelo SP.
 
-## <a name="add-thirdlight-from-the-gallery"></a>Adicione thirdLight da galeria
+## <a name="add-thirdlight-from-the-gallery"></a>Adicione ThirdLight da galeria
 
-Para configurar a integração da ThirdLight em Azure AD, você precisa adicionar ThirdLight da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração do ThirdLight em Azure AD, precisa de adicionar ThirdLight da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory:**
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**:
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Ir a **aplicações** > da Enterprise**Todas as aplicações:**
+2. Ir para **aplicações da Empresa**  >  **Todas as aplicações**:
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
-    ![Selecione Nova aplicação](common/add-new-app.png)
+    ![Selecione nova aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **thirdLight**. Selecione **ThirdLight** nos resultados da pesquisa e, em seguida, **selecione Adicionar**.
+4. Na caixa de pesquisa, insira **a ThirdLight**. Selecione **ThirdLight** nos resultados da pesquisa e, em seguida, **selecione Adicionar**.
 
-     ![Resultados de pesquisa](common/search-new-app.png)
+     ![Resultados da pesquisa](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, irá configurar e testar um único sinal de Azure AD com a ThirdLight utilizando uma utilizadora de teste chamada Britta Simon.
-Para permitir um único início de inscrição, é necessário estabelecer uma relação entre um utilizador da AD Azure e o utilizador correspondente no ThirdLight.
+Nesta secção, irá configurar e testar o Azure AD com o ThirdLight utilizando um utilizador de teste chamado Britta Simon.
+Para ativar um único sinal, é necessário estabelecer uma relação entre um utilizador Azure AD e o utilizador correspondente no ThirdLight.
 
-Para configurar e testar o único sinal de Azure AD com o ThirdLight, é necessário completar estes passos:
+Para configurar e testar o Azure AD com o ThirdLight, é necessário completar estes passos:
 
-1. Configure o único sinal de entrada **[da AD Azure](#configure-azure-ad-single-sign-on)** para ativar a funcionalidade para os seus utilizadores.
-2. **[Configure](#configure-thirdlight-single-sign-on)** o terceiro sinal único da Terceira Luz no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de AD Azure.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para ativar o único sinal de entrada da Azure AD para o utilizador.
-5. **[Crie um utilizador](#create-a-thirdlight-test-user)** de teste ThirdLight ligado à representação da AD Azure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** para verificar se a configuração funciona.
+1. **[Configurar o Azure AD um único sinal para](#configure-azure-ad-single-sign-on)** ativar a funcionalidade para os seus utilizadores.
+2. **[Configurar o terceiro sinal único no](#configure-thirdlight-single-sign-on)** lado da aplicação.
+3. **[Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user)** para testar o Azure AD com um único sinal de sessão.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para ativar um único sinal de Azure AD para o utilizador.
+5. Crie um utilizador de **[teste ThirdLight](#create-a-thirdlight-test-user)** que esteja ligado à representação AD AZure do utilizador.
+6. **[Teste um único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, irá ativar o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativará a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sinal de Azure AD com a ThirdLight, tome estes passos:
+Para configurar o Azure AD single sign-on com ThirdLight, tome estes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações ThirdLight, selecione **Single sign-on:**
+1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação ThirdLight, selecione **Single sign-on**:
 
-    ![Selecione um único sinal](common/select-sso.png)
+    ![Selecione um único sinal de s-on](common/select-sso.png)
 
-2. Na selectuma única caixa de diálogo do **método de sinalização,** selecione o modo **SAML/WS-Fed** para ativar um único sinal:
+2. Na caixa de diálogo **de método de inscrição única,** selecione o modo **SAML/WS-Fed** para permitir um único sinal de entrada:
 
-    ![Selecione um único método de sinalização](common/select-saml-option.png)
+    ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na configuração de um único sign-on com a página **SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração SAML básica:**
+3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
-4. Na caixa de diálogo **Basic SAML Configuration,** complete os seguintes passos.
+4. Na caixa de diálogo **de configuração DE SAML Básica,** complete os seguintes passos.
 
-    ![Caixa de diálogo de configuração SAML básica](common/sp-identifier.png)
+    ![Caixa básica de diálogo de configuração SAML](common/sp-identifier.png)
 
-    1. No **signo na** caixa URL, introduza um URL neste padrão:
+    1. Na **caixa de URL** sign in, introduza um URL neste padrão:
     
           `https://<subdomain>.thirdlight.com/`
 
-    1. Na caixa **Identifier (Id da Entidade),** introduza um URL neste padrão:
+    1. Na caixa **identifier (Entity ID),** introduza um URL neste padrão:
 
        `https://<subdomain>.thirdlight.com/saml/sp`
 
        > [!NOTE]
-       > Estes valores são espaços reservados. Tens de usar o URL e identificador de inscrição real. Contacte a equipa de [suporte thirdLight](https://www.thirdlight.com/support) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **Basic SAML Configuration** no portal Azure.
+       > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Contacte a [equipa de apoio da ThirdLight](https://www.thirdlight.com/support) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na configuração de um único sinal com a página **SAML,** na secção Certificado de **Assinatura SAML,** selecione o link **de descarregamento** ao lado dos **Metadados da Federação XML,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador:
+5. Na **configuração de um único Sessão de Sessão com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **descarregamento** ao lado **do Metadados XML da Federação,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador:
 
     ![Link de descarregamento de certificado](common/metadataxml.png)
 
-6. Na secção Configurar terceira **luz,** copie os URLs apropriados, com base nos seus requisitos:
+6. Na secção Configurar a **Terceira Luz,** copie os URLs apropriados, com base nos seus requisitos:
 
     ![Copiar os URLs de configuração](common/copy-configuration-urls.png)
 
     1. **URL de login**.
 
-    1. **Identificador Azure AD**.
+    1. **Identificador Azure Ad.**
 
-    1. **URL de logout**.
+    1. **URL logout**.
 
-### <a name="configure-thirdlight-single-sign-on"></a>Configure terceiro sinal único da Terceira Luz
+### <a name="configure-thirdlight-single-sign-on"></a>Configurar o sign-on único da ThirdLight
 
 1. Numa nova janela do navegador web, inscreva-se no site da empresa ThirdLight como administrador.
 
-1. Ir para a**Administração do** > Sistema de **Configuração** > **SAML2:**
+1. Ir para a Administração do Sistema **de Configuração**  >  **System Administration**  >  **SAML2:**
 
     ![Administração do Sistema](./media/thirdlight-tutorial/ic805843.png "Administração do Sistema")
 
@@ -140,19 +136,19 @@ Para configurar o único sinal de Azure AD com a ThirdLight, tome estes passos:
   
     ![Secção de configuração SAML2](./media/thirdlight-tutorial/ic805844.png "Secção de configuração SAML2")
 
-    1. Selecione **ativar o saml2 single sign-on**.
+    1. Selecione **Ativar O único sinal de inscrição do SAML2**.
 
-    1. Em **Origem para Metadados IdP,** selecione **Metadados IdP de Carregamento a partir de XML**.
+    1. Em **Fonte para Metadados IdP,** selecione **Metadados de IdP de carga de XML**.
 
-    1. Abra o ficheiro de metadados que descarregou do portal Azure na secção anterior. Copie o conteúdo do ficheiro e cole-o na caixa **IDP Metadata XML.**
+    1. Abra o ficheiro de metadados que descarregou a partir do portal Azure na secção anterior. Copie o conteúdo do ficheiro e cole-o na caixa **IdP Metadata XML.**
 
-    1. Selecione **guardar as definições do SAML2**.
+    1. **Selecione Guardar as definições SAML2**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar uma utilizadora de teste chamada Britta Simon no portal Azure.
+Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal Azure.
 
-1. No portal Azure, selecione **Azure Ative Directory** no painel esquerdo, selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores:**
+1. No portal Azure, selecione **O Diretório Ativo Azure** no painel esquerdo, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**:
 
     ![Selecionar Todos os utilizadores](common/users.png)
 
@@ -160,23 +156,23 @@ Nesta secção, você vai criar uma utilizadora de teste chamada Britta Simon no
 
     ![Selecione Novo utilizador](common/new-user.png)
 
-3. Na caixa de diálogo **do Utilizador,** tome os seguintes passos.
+3. Na caixa de diálogo **do utilizador,** tome os seguintes passos.
 
     ![Caixa de diálogo do utilizador](common/user-properties.png)
 
-    1. Na caixa **de nomes,** entre **brittaSimon.**
+    1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa de **nomes do Utilizador,** introduza **\<BrittaSimon@> de domínio da\< sua empresa.>de extensão. ** (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension> ** (Por exemplo, BrittaSimon@contoso.com .)
 
-    1. Selecione **Mostrar palavra-passe**e, em seguida, anote o valor que está na caixa **password.**
+    1. Selecione **Mostrar Palavra-Passe**e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
 
     1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que Britta Simon use o único sign-on azure, concedendo-lhe acesso à ThirdLight.
+Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo-lhe acesso à ThirdLight.
 
-1. No portal Azure, selecione **aplicações Enterprise,** selecione **Todas as aplicações,** e, em seguida, selecione **ThirdLight**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **ThirdLight**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -188,42 +184,42 @@ Nesta secção, permitirá que Britta Simon use o único sign-on azure, conceden
 
     ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Atribuição adicionar'.**
+4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 
-5. Na caixa de diálogo **De utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores e, em seguida, clique no botão **Select** na parte inferior da janela.
+5. Na caixa de diálogo **de Utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores e, em seguida, clique no botão **Select** na parte inferior da janela.
 
-6. Se esperar um valor de papel na afirmação Do SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Clique no botão **Selecionar** na parte inferior da janela.
+6. Se espera um valor de função na afirmação SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Clique no botão **Selecione** na parte inferior da janela.
 
-7. Na caixa de diálogo **Adicionar Atribuição,** selecione **Atribuir**.
+7. Na caixa de diálogo **'Adicionar Atribuição',** selecione **Atribuir**.
 
 ### <a name="create-a-thirdlight-test-user"></a>Criar um utilizador de teste ThirdLight
 
-Para permitir que os utilizadores de Anúncios Azure assinem o ThirdLight, é necessário adicioná-los ao ThirdLight. Precisa adicioná-las manualmente.
+Para permitir que os utilizadores de Azure AD entrem no ThirdLight, é necessário adicioná-los ao ThirdLight. Precisa adicioná-las manualmente.
 
-Para criar uma conta de utilizador, tome estas medidas:
+Para criar uma conta de utilizador, tome estes passos:
 
 1. Inscreva-se no site da empresa ThirdLight como administrador.
 
-1. Vá ao separador **Utilizadores.**
+1. Aceda ao **separador Utilizadores.**
 
 1. Selecione **Utilizadores e Grupos**.
 
-1. **Selecione Adicionar novo Utilizador**.
+1. **Selecione Adicionar novo utilizador**.
 
-1. Introduza o nome do utilizador, um nome ou descrição e o endereço de e-mail de uma conta Azure AD válida que pretende fornecer. Escolha um Preset ou Grupo de Novos Membros.
+1. Insira o nome de utilizador, um nome ou descrição e o endereço de e-mail de uma conta AD Azure válida que pretende prever. Escolha uma Pré-sintonia ou grupo de novos membros.
 
 1. Selecione **Criar**.
 
 > [!NOTE]
-> Pode utilizar qualquer ferramenta de criação de conta de utilizador ou API fornecida pela ThirdLight para fornecer contas de utilizador da Azure AD.
+> Pode utilizar qualquer ferramenta de criação de conta de utilizador ou API fornecida pela ThirdLight para fornecer contas de utilizador Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Agora precisa de testar a configuração de um único sinal de acesso do Azure AD utilizando o Painel de Acesso.
+Agora tem de testar a sua configuração de inscrição única AD Azure utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo ThirdLight no Painel de Acesso, deve ser automaticamente inscrito na instância ThirdLight para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [O Acesso e utilize aplicações no portal My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo ThirdLight no Painel de Acesso, deverá ser automaticamente inscrito na instância ThirdLight para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -231,4 +227,4 @@ Quando selecionar o azulejo ThirdLight no Painel de Acesso, deve ser automaticam
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

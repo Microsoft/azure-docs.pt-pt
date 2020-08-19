@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com PolicyStat Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o PolicyStat.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: af5eb0f1-1c8e-4809-b0c4-8ccfb915ca42
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 739e4fa45987f33b3a32503eaedf9aae74a7e000
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 212bd1bc0b15ad985fc8037e99876d78132b2c22
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500000"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Diretório Ativo Azure com PolicyStat
 
@@ -109,9 +105,9 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
     ![Informações únicas de sign-on do Domínio e DOS URLs](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<companyname>.policystat.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.policystat.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<companyname>.policystat.com/saml2/metadata/`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente PolicyStat](http://www.policystat.com/support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -146,7 +142,7 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
     
     f. Da lista **do Parâmetro 1,** digite o valor do atributo indicado para esta linha.
 
-    exemplo, Clique em **Save** (Guardar).
+    exemplo, Clique em **Guardar**.
 
 7. Na secção **Configurar PolicyStat,** copie os URL(s) apropriados de acordo com o seu requisito.
 

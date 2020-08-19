@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a9c64d1a5c4c7ada666b5fe3a8bcc70b39871850
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72935946"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545629"
 ---
-# <a name="check-text-against-a-custom-term-list-in-c"></a>Consulte o texto contra uma lista de termos personalizados em C #
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Verifique o texto contra uma lista de termos personalizados em C #
 
 A lista global predefinida de termos no Azure Content Moderator é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, poderá ter de filtrar termos que são específicos da sua organização. Por exemplo, poderá querer etiquetar nomes de concorrentes para nova revisão. 
 
@@ -32,7 +32,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 - Editar informações da lista.
 - Atualizar o índice para que as alterações à lista sejam incluídas numa nova análise.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Inscrever-se nos serviços do Content Moderator
 
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e campos com os valores do URL final e chave de subscrição. Pode encontrá-los no **separador De arranque rápido** do seu recurso no portal Azure.
+Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize os `AzureEndpoint` campos e os campos com os `CMSubscriptionKey` valores do URL do ponto final e da chave de subscrição. Pode encontrá-las no separador **Início Rápido** do seu recurso no portal Azure.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Para filtrar texto, utilize uma lista de termos com **ContentModeratorClient.Tex
 - Um tipo MIME, que pode ser "text/html", "text/xml", "text/markdown" ou "text/plain".
 - O texto a filtrar.
 - Um valor booleano. Defina este campo como **true** para corrigir automaticamente o texto antes de filtrá-lo.
-- Um valor booleano. Deteto este campo como **verdadeiro** para detetar dados pessoais no texto.
+- Um valor booleano. Desa esta definição deste campo para **ser verdadeiramente** detetado dados pessoais no texto.
 - O ID da lista de termos.
 
 Para obter mais informações, veja a [Referência à API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -362,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Componha o método principal
+## <a name="compose-the-main-method"></a>Compor o método principal
 
 Adicione a definição de método **Main** ao espaço de nomes **TermLists**, classe **Program**. Por fim, feche a classe **Program** e o espaço de nomes **TermLists**.
 
@@ -404,7 +404,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Executar a aplicação para ver o resultado
 
-A saída da consola será parecida com a seguinte:
+A saída da consola será semelhante:
 
 ```console
 Creating term list.

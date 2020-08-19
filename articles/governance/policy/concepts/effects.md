@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 06/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791423"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544728"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -16,13 +16,13 @@ Cada definição de política no Azure Policy tem um efeito único. Este efeito 
 
 Estes efeitos são atualmente apoiados numa definição de política:
 
-- [Acrescentar](#append)
-- [Auditoria](#audit)
+- [Append](#append)
+- [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desativado](#disabled)
-- [Modificar](#modify)
+- [Modify](#modify)
 
 Os seguintes efeitos estão a ser _depreciados:_
 
@@ -546,7 +546,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |Description |
 |-|-|
 |addOrReplace |Adiciona a etiqueta definida e valor ao recurso, mesmo que a etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a etiqueta definida e valor ao recurso. |
@@ -628,7 +628,7 @@ Se tanto a política 1 como a política 2 tiveram efeito de negação, a situaç
 
 Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o**resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

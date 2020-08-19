@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o Administrador de Acesso Privado Zscaler Microsoft Docs'
 description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o Administrador de Acesso Privado Zscaler.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104583522c7041d89d9c63ba67a5633a3bd383f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5507c25510a84dcfeafc1b2db6c2a774153a59c3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016492"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Diretório Ativo Azure com o Administrador de Acesso Privado Zscaler
 
@@ -109,19 +104,19 @@ Para configurar o Azure AD com o administrador de acesso privado Zscaler, execut
 
     ![Zscaler Private Access Administrator Domain e URLs informações únicas de acesso](common/idp-relay.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.private.zscaler.com/auth/metadata`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/metadata`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.private.zscaler.com/auth/sso`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`
 
     c. Clique **em Definir URLs adicionais**.
 
-    d. Na caixa de texto **do Estado de Retransmissão,** digite um URL:`idpadminsso`
+    d. Na caixa de texto **do Estado de Retransmissão,** digite um URL: `idpadminsso`
 
 5.  Se desejar configurar a aplicação no modo iniciado pela **SP,** execute o seguinte passo:
 
     ![Zscaler Private Access Administrator Domain e URLs informações únicas de acesso](common/both-signonurl.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.private.zscaler.com/auth/sso`   
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`   
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a [equipa de suporte do Zscaler Private Access Administrator](https://help.zscaler.com/zpa-submit-ticket) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -166,7 +161,7 @@ Para configurar o Azure AD com o administrador de acesso privado Zscaler, execut
 
     d. Selecione o seu domínio no campo **Domínios.**
     
-    e. Clique em **Save** (Guardar).
+    e. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -190,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -256,7 +251,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Administrador de A
 
     exemplo, Na caixa de texto **timezone,** selecione o Timezone.
 
-    h. Clique em **Save** (Guardar).
+    h. Clique em **Guardar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

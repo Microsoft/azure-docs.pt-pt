@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo fornece informações sobre alta disponibilidade na Base de Dados Azure para PostgreSQL - Servidor Único
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508469"
+ms.locfileid: "88547686"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Servidor Único
 O serviço Azure Database for PostgreSQL – Single Server proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99% de tempo de 99,99%.](https://azure.microsoft.com/support/legal/sla/postgresql) A Azure Database for PostgreSQL fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for PostgreSQL pode recuperar rapidamente da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação de aplicação ao utilizar este serviço.
@@ -61,7 +61,7 @@ Aqui estão alguns cenários de falha e como a Base de Dados Azure para PostgreS
 
 | **Cenário** | **Recuperação automática** |
 | ---------- | ---------- |
-| <B>Falha do servidor de base de dados | Se o servidor de base de dados estiver em baixo devido a alguma falha de hardware subjacente, as ligações ativas são retiradas e quaisquer transações de voo são abortadas. Um novo servidor de base de dados é automaticamente implantado e o armazenamento remoto de dados é anexado ao novo servidor de base de dados. Após a recuperação da base de dados estar concluída, os clientes podem ligar-se ao novo servidor de base de dados através do Gateway. <br /> <br /> O tempo de recuperação (RTO) está dependente de vários fatores, incluindo a atividade no momento da avaria, como a grande transação e a quantidade de recuperação a realizar durante o processo de arranque de corte de base de dados. <br /> <br /> As aplicações que utilizam as bases de dados PostgreSQL precisam de ser construídas de forma a detetarem e recaírem ligações e transações falhadas.  Quando a aplicação recauchutado, o Gateway redireciona transparentemente a ligação para o servidor de base de dados recém-criado. |
+| <B>Falha do servidor de base de dados | Se o servidor de base de dados estiver em baixo devido a alguma falha de hardware subjacente, as ligações ativas são retiradas e quaisquer transações de voo são abortadas. Um novo servidor de base de dados é automaticamente implantado e o armazenamento remoto de dados é anexado ao novo servidor de base de dados. Após a recuperação da base de dados estar concluída, os clientes podem ligar-se ao novo servidor de base de dados através do Gateway. <br /> <br /> O tempo de recuperação (RTO) depende de vários fatores, incluindo a atividade no momento da falha, como a grande transação e a quantidade de recuperação a realizar durante o processo de arranque do servidor de base de dados. <br /> <br /> As aplicações que utilizam as bases de dados PostgreSQL precisam de ser construídas de forma a detetarem e recaírem ligações e transações falhadas.  Quando a aplicação recauchutado, o Gateway redireciona transparentemente a ligação para o servidor de base de dados recém-criado. |
 | <B>Falha de armazenamento | As aplicações não vêem qualquer impacto para quaisquer questões relacionadas com o armazenamento, tais como uma falha no disco ou uma corrupção de bloco físico. Como os dados são armazenados em 3 exemplares, a cópia dos dados é servida pelo armazenamento sobrevivente. As corrupçãos de blocos são automaticamente corrigidas. Se uma cópia dos dados for perdida, uma nova cópia dos dados é criada automaticamente. |
 
 Eis alguns cenários de falha que exigem que a ação do utilizador recupere:

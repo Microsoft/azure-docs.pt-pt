@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Shopify Plus Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Shopify Plus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4f3f2888-1bc8-42c6-94d5-163d05eeb66d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3740415652407c834ec258730f89e46398a9f79
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 61d2eb05f7953cda16664f6b4e3317feb46aa8ad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170484"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548589"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Shopify Plus
 
@@ -84,11 +80,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://accounts.shopify.com/saml/consume/organization/<ORGANIZATION_ID>`
+    Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://accounts.shopify.com/saml/consume/organization/<ORGANIZATION_ID>`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:`https://shopify.plus/login`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://shopify.plus/login`
 
     > [!NOTE]
     > O valor URL de resposta não é real. Atualizar o valor com o URL de resposta real. Contacte [a equipa de suporte do Cliente Shopify Plus](mailto:plus-user-management@shopify.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -99,7 +95,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Shopify Plus espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---- | --------------- |
     | e-mail | user.mail |
 

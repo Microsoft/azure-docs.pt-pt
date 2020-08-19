@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Reflektive Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Reflektive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 70ad4bfdfda0def4fba2778725fcfc4e81e72a5b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169056"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: Integração do Diretório Ativo Azure com Reflektive
 
@@ -114,7 +110,7 @@ Para configurar o Azure AD com o Reflektive, execute os seguintes passos:
 
     ![image](common/both-preintegrated-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL:`https://www.reflektive.com/app`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://www.reflektive.com/app`
 
     > [!NOTE]
     > Para o modo SP, você precisa obter o id de e-mail registrado com [a equipe de suporte Reflektive](https://support@reflektive.com). Quando introduzir o seu ID na caixa de texto **de e-mail,** a opção de inscrição única será ativada. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

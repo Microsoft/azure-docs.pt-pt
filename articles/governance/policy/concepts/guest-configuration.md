@@ -3,24 +3,23 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987108"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544677"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
-A Azure Policy pode auditar as definições dentro de uma máquina, tanto para máquinas que executam em Azure como [arc connected Machines](../../../azure-arc/servers/overview.md).
-A validação é executada pela extensão da Configuração de Convidado e pelo cliente. A extensão, através do cliente, valida as definições, como:
+A Azure Policy pode auditar as definições dentro de uma máquina, tanto para máquinas que executam em Azure como [arc connected Machines](../../../azure-arc/servers/overview.md). A validação é executada pela extensão da Configuração de Convidado e pelo cliente. A extensão, através do cliente, valida as definições, como:
 
 - A configuração do sistema operativo
 - Presença ou configuração da aplicação
 - Definições do ambiente
 
-Neste momento, a maioria das políticas de configuração de hóspedes da Azure Policy apenas auditam as definições dentro da máquina.
-Não aplicam configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
+Neste momento, a maioria das políticas de Configuração de Convidado do Azure Policy audita apenas as definições na máquina virtual.
+Não se aplica às configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
 
 ## <a name="enable-guest-configuration"></a>Ativar a configuração do hóspede
 
@@ -32,7 +31,7 @@ Antes de poder utilizar a Configuração do Convidado, tem de registar o fornece
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Implementar requisitos para máquinas virtuais Azure
 
-Para auditar as definições dentro de uma máquina, está ativada uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) e a máquina deve ter uma identidade gerida pelo sistema. A extensão descarrega a atribuição de política aplicável e a definição de configuração correspondente. A identidade é utilizada para autenticar a máquina à medida que lê e escreve para o serviço de Configuração de Hóspedes. A extensão não é necessária para máquinas ligadas ao arco porque está incluída no agente da Máquina Ligada ao Arco.
+Para auditar as definições dentro de uma máquina, está ativada uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) e a máquina deve ter uma identidade gerida pelo sistema. A extensão transfere a atribuição da política aplicável e a definição da configuração correspondente. A identidade é utilizada para autenticar a máquina à medida que lê e escreve para o serviço de Configuração de Hóspedes. A extensão não é necessária para máquinas ligadas ao arco porque está incluída no agente da Máquina Ligada ao Arco.
 
 > [!IMPORTANT]
 > A extensão de Configuração do Hóspede e uma identidade gerida são necessárias para auditar máquinas virtuais Azure. Para implementar a extensão em escala, atribua a seguinte iniciativa política:
@@ -63,7 +62,7 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 As políticas de configuração dos hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível.
 A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Nome|Versões|
+|Publisher|Name|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
@@ -93,8 +92,7 @@ O tráfego é encaminhado usando o [endereço IP público virtual](../../../virt
 
 ### <a name="azure-arc-connected-machines"></a>Máquinas ligadas a Azure Arc
 
-Os nós localizados fora de Azure que estão ligados pelo Azure Arc requerem conectividade ao serviço de Configuração do Hóspede.
-Detalhes sobre os requisitos de rede e procuração fornecidos na documentação do [Arco Azure](../../../azure-arc/servers/overview.md).
+Os nós localizados fora de Azure que estão ligados pelo Azure Arc requerem conectividade ao serviço de Configuração do Hóspede. Detalhes sobre os requisitos de rede e procuração fornecidos na documentação do [Arco Azure](../../../azure-arc/servers/overview.md).
 
 Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos datacenters Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras [do Grupo de Segurança de Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) A [etiqueta de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Hóspedes.
 
@@ -157,9 +155,9 @@ Atualmente, as políticas de configuração dos hóspedes apenas suportam a atri
 
 A extensão de Configuração do Hóspede escreve ficheiros de registo para os seguintes locais:
 
-Janelas:`C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Janelas: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux:`/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Quando `<version>` se refere ao número da versão atual.
 

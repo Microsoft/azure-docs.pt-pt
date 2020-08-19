@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para o Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236595"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547725"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -25,9 +25,8 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > [!IMPORTANT]
 > As políticas personalizadas com a Configuração do Convidado são uma funcionalidade de pré-visualização.
 >
-> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
-> Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política:
->   - [Implemente os pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política:
+> - [Implemente os pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
 
@@ -52,14 +51,13 @@ Sistemas operativos onde o módulo pode ser instalado:
 - Windows
 
 > [!NOTE]
-> O cmdlet 'Test-GuestConfigurationPackage' requer a versão 1.0 do OpenSSL, devido à dependência do OMI.
-> Isto causa um erro em qualquer ambiente com OpenSSL 1.1 ou mais tarde.
+> O cmdlet 'Test-GuestConfigurationPackage' requer a versão 1.0 do OpenSSL, devido à dependência do OMI. Isto causa um erro em qualquer ambiente com OpenSSL 1.1 ou mais tarde.
 
 O módulo de recursos de configuração do hóspede requer o seguinte software:
 
 - PowerShell 6.2 ou mais tarde. Se não estiver ainda instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se não estiver ainda instalado, siga [estas instruções](/powershell/azure/install-az-ps).
-  - Apenas são necessários os módulos AZ 'Az.Accounts' e 'Az.Resources'.
+  - Apenas são necessários os módulos Az 'Az.Accounts' e 'Az.Resources'.
 
 ### <a name="install-the-module"></a>Instale o módulo
 
@@ -81,7 +79,8 @@ Para instalar o módulo **GuestConfiguration** no PowerShell:
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Artefactos de configuração de hóspedes e política para Linux
 
-Mesmo em ambientes Linux, a Configuração do Hóspede usa a Configuração do Estado Desejada como uma abstração linguística. A implementação baseia-se em código nativo (C++) pelo que não requer carregamento powerShell. No entanto, requer uma configuração MOF descrevendo detalhes sobre o ambiente. A DSC está a agir como um invólucro para a InSpec uniformizar como é executada, como os parâmetros são fornecidos e como a saída é devolvida ao serviço. Pouco conhecimento da DSC é necessário ao trabalhar com conteúdo personalizado da InSpec.
+Mesmo em ambientes Linux, a Configuração do Hóspede usa a Configuração do Estado Desejada como uma abstração linguística. A implementação baseia-se em código nativo (C++) pelo que não requer carregamento powerShell. No entanto, requer uma configuração MOF descrevendo detalhes sobre o ambiente.
+A DSC está a agir como um invólucro para a InSpec uniformizar como é executada, como os parâmetros são fornecidos e como a saída é devolvida ao serviço. Pouco conhecimento da DSC é necessário ao trabalhar com conteúdo personalizado da InSpec.
 
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
@@ -141,8 +140,6 @@ AuditFilePathExists -out ./Config
 Guarde este ficheiro com o nome `config.ps1` na pasta do projeto. Execute-o no PowerShell executando `./config.ps1` no terminal. Será criado um novo ficheiro mof.
 
 O `Node AuditFilePathExists` comando não é tecnicamente necessário, mas produz um ficheiro nomeado em vez do `AuditFilePathExists.mof` padrão, `localhost.mof` . Ter o nome do ficheiro .mof seguir a configuração facilita a organização de muitos ficheiros ao operar em escala.
-
-
 
 Deve agora ter uma estrutura de projeto como abaixo:
 
@@ -288,8 +285,7 @@ Os seguintes ficheiros são criados `New-GuestConfigurationPolicy` por:
 
 A saída do cmdlet devolve um objeto que contém o nome de visualização da iniciativa e o caminho dos ficheiros de política.
 
-Por fim, publique as definições de política utilizando o `Publish-GuestConfigurationPolicy` cmdlet.
-O cmdlet tem apenas o parâmetro **Path** que aponta para a localização dos ficheiros JSON criados por `New-GuestConfigurationPolicy` .
+Por fim, publique as definições de política utilizando o `Publish-GuestConfigurationPolicy` cmdlet. O cmdlet tem apenas o parâmetro **Path** que aponta para a localização dos ficheiros JSON criados por `New-GuestConfigurationPolicy` .
 
 Para executar o comando Publicar, precisa de ter acesso para criar Políticas em Azure. Os requisitos específicos de autorização estão documentados na página [Azure Policy Overview.](../overview.md) O melhor papel incorporado é o **Contribuinte para a Política de Recursos.**
 
@@ -459,5 +455,5 @@ Para obter mais informações sobre os cmdlets desta ferramenta, utilize o coman
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
-- Entenda como [criar políticas programáticas.](programmatically-create.md)
-- Saiba como [obter dados de conformidade.](get-compliance-data.md)
+- Entenda como [criar políticas programáticas.](./programmatically-create.md)
+- Saiba como [obter dados de conformidade.](./get-compliance-data.md)

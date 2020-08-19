@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com BlueJeans para Azure AD / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o BlueJeans para a Azure AD.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e249c512825dc4c36ff3f6355a4a774934ee4e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94b8a26a398ad8604a469486185d805fcbb6a8b2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499941"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD
 
@@ -90,11 +86,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<companyname>.bluejeans.com`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.bluejeans.com`
 
-    a. Na caixa de texto **identifier (Entity ID),** digite um URL:`http://samlsp.bluejeans.com`
+    a. Na caixa de texto **identifier (Entity ID),** digite um URL: `http://samlsp.bluejeans.com`
 
-    a. Na caixa de texto **URL de resposta,** digite um URL:`https://bluejeans.com/sso/saml2/`
+    a. Na caixa de texto **URL de resposta,** digite um URL: `https://bluejeans.com/sso/saml2/`
 
     > [!NOTE]
     > O valor URL de inscrição não é real. Atualize o valor com o URL de inscrição real. Contacte [a Equipa de Apoio ao Cliente Azure AD para](https://support.bluejeans.com/contact) obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -128,7 +124,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -203,7 +199,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em BlueJeans pa
 
 3. Na secção **ADD USER,** execute os seguintes passos:
 
-    ![Adicionar Utilizador](./media/bluejeans-tutorial/ic785886.png "Adicionar Utilizador")
+    ![Adicionar utilizador](./media/bluejeans-tutorial/ic785886.png "Adicionar Utilizador")
 
     a. Na caixa de texto **First Name,** insira o primeiro nome do utilizador como **B**.
 
@@ -223,7 +219,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em BlueJeans pa
 
     i. Clique **em CONTINUAR**.
 
-    ![Adicionar Utilizador](./media/bluejeans-tutorial/ic785887.png "Adicionar Utilizador")
+    ![Adicionar utilizador](./media/bluejeans-tutorial/ic785887.png "Adicionar Utilizador")
 
     J. Clique **em ADD USER**.
 
@@ -238,9 +234,9 @@ Quando clicar nos BlueJeans para azulejo Azure AD no Painel de Acesso, deverá s
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

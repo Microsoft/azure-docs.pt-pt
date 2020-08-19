@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524510"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547397"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar recipientes de estivadores LUIS
 
@@ -26,7 +26,7 @@ O vídeo que se segue demonstra a utilização deste recipiente.
 
 [![Demonstração de contentores para serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ A tabela abaixo lista valores mínimos e recomendados para o hospedeiro do recip
 
 O núcleo e a memória correspondem às `--cpus` `--memory` definições e configurações, que são utilizadas como parte do `docker run` comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
 Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor do `mcr.microsoft.com/azure-cognitive-services/luis` repositório:
 
@@ -171,7 +171,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | O ID da aplicação da aplicação LUIS publicada. |
 | **{SLOT_NAME}** | O ambiente da aplicação LUIS publicada. Utilize um dos seguintes valores:<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | A chave de autoria da conta LUIS para a aplicação LUIS publicada.<br/>Pode obter a sua chave de autoria na página **Definições** do Utilizador no portal LUIS. |
-| **{AZURE_REGION}** | A região de Azure adequada:<br/><br/>`westus`- Oeste dos EUA<br/>`westeurope`- Europa Ocidental<br/>`australiaeast`- Austrália Leste |
+| **{AZURE_REGION}** | A região de Azure adequada:<br/><br/>`westus` - Oeste dos EUA<br/>`westeurope` - Europa Ocidental<br/>`australiaeast` - Austrália Leste |
 
 Para descarregar o pacote publicado, consulte a documentação da [API aqui.][download-published-package] Se for descarregado com sucesso, a resposta é um ficheiro de pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente.
 
@@ -190,11 +190,11 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | Identificação de aplicação da app LUIS treinada. |
 | **{APP_VERSION}** | A versão de aplicação da app LUIS treinada. |
 | **{AUTHORING_KEY}** | A chave de autoria da conta LUIS para a aplicação LUIS publicada.<br/>Pode obter a sua chave de autoria na página **Definições** do Utilizador no portal LUIS. |
-| **{AZURE_REGION}** | A região de Azure adequada:<br/><br/>`westus`- Oeste dos EUA<br/>`westeurope`- Europa Ocidental<br/>`australiaeast`- Austrália Leste |
+| **{AZURE_REGION}** | A região de Azure adequada:<br/><br/>`westus` - Oeste dos EUA<br/>`westeurope` - Europa Ocidental<br/>`australiaeast` - Austrália Leste |
 
 Para descarregar o pacote de versão, consulte a documentação da [API aqui.][download-versioned-package] Se for descarregado com sucesso, a resposta é um ficheiro de pacote LUIS. Guarde o ficheiro no local de armazenamento especificado para o suporte de entrada do recipiente.
 
-## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
+## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com `docker run`
 
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o contentor. Consulte a [recolha dos parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{ENDPOINT_URI}` valores e `{API_KEY}` valores.
 
@@ -385,7 +385,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja os recipientes de configuração](luis-container-configuration.md) para configurações.
 * Consulte [as limitações do contentor LUIS](luis-container-limitations.md) para as restrições de capacidade conhecidas.

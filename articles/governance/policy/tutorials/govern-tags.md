@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerir a governação da tag'
 description: Neste tutorial, você usa o efeito Modificar da Política Azure para criar e impor um modelo de governação de tags em recursos novos e existentes.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142270"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545510"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerir a governação com a Política Azure
 
@@ -45,7 +45,7 @@ Como qualquer boa implementação dos controlos de governação, os requisitos d
 
 ## <a name="configure-the-costcenter-tag"></a>Configure a etiqueta CostCenter
 
-Em termos específicos de um ambiente Azure gerido pela Azure Policy, os requisitos de etiqueta _costCenter_ exigem o seguinte:
+Em termos específicos de um ambiente Azure gerido pela Azure Policy, os requisitos de etiquetas _CostCenter_ exigem os seguintes resultados:
 
 - Negar grupos de recursos que faltem à etiqueta _CostCenter_
 - Modifique os recursos para adicionar a etiqueta _CostCenter_ do grupo de recursos-mãe quando faltar
@@ -107,7 +107,7 @@ Esta regra de política usa a operação **de adição** em vez de **addOrReplac
 
 ## <a name="configure-the-env-tag"></a>Configure a etiqueta Env
 
-Em termos específicos de um ambiente Azure gerido pela Azure Policy, os requisitos da etiqueta _Env_ exigem o seguinte:
+Em termos específicos de um ambiente Azure gerido pela Azure Policy, os requisitos da etiqueta _Env_ exigem os seguintes resultados:
 
 - Modifique a etiqueta _Env_ no grupo de recursos com base no esquema de nomeação do grupo de recursos
 - Modifique a etiqueta _Env_ em todos os recursos do grupo de recursos para o mesmo que o grupo de recursos-mãe
@@ -204,7 +204,7 @@ Se já acabou de trabalhar com recursos deste tutorial, use os seguintes passos 
 
 1. Clique com o botão direito do rato na linha ou selecione as reticências no fim da definição (ou atribuição) e selecione **Eliminar definição** (ou **Eliminar atribuição**).
 
-## <a name="review"></a>Rever
+## <a name="review"></a>Revisão
 
 Neste tutorial, aprendeu sobre as seguintes tarefas:
 
@@ -213,7 +213,7 @@ Neste tutorial, aprendeu sobre as seguintes tarefas:
 > - Mapeado cada requisito para uma definição de política
 > - Agrupou as políticas de etiquetas numa iniciativa
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo:
 

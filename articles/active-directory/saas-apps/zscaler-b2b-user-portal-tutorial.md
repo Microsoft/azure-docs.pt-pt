@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Utilizador Zscaler B2B / Microsoft Docs'
 description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o Zscaler B2B User Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 75b90449-095d-4e47-a1fd-8b5cbbfe7e3d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda294bccb3c73c0d26184f03860f4dd1277b940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eda6eec4251e373ad08be8623a9f11407c1476
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016247"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545952"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Utilizador Zscaler B2B
 
@@ -88,9 +84,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No **set-on único com** a página SAML, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/metadata/<UniqueID>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://samlsp.private.zscaler.com/auth/metadata/<UniqueID>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/login?domain=EXAMPLE`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://samlsp.private.zscaler.com/auth/login?domain=EXAMPLE`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Zscaler B2B User Portal cliente](https://help.zscaler.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -113,7 +109,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -157,7 +153,7 @@ Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, con
 
     c. Selecione o seu domínio no campo **Domínios.**
     
-    d. Clique em **Save** (Guardar).
+    d. Clique em **Guardar**.
 
 ### <a name="create-zscaler-b2b-user-portal-test-user"></a>Criar utilizador de teste do Portal do Utilizador Zscaler B2B
 
@@ -171,9 +167,9 @@ Quando clicar no azulejo do Portal do Utilizador Zscaler B2B no Painel de Acesso
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

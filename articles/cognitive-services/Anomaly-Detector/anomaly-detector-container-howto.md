@@ -1,5 +1,5 @@
 ---
-title: Como instalar e executar recipientes para utilizar a API do Detetor de Anomalias
+title: Como instalar e executar recipientes para a utilização da API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
 description: Utilize os algoritmos avançados da API do Detetor de Anomalias para identificar anomalias nos dados da série de tempo.
 services: cognitive-services
@@ -10,35 +10,35 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589980"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548536"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar recipientes do Detetor de Anomalias (Pré-visualização)
+# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar recipientes de detetor de anomalias (pré-visualização)
 
-O Detetor de Anomalias tem a seguinte funcionalidade de funcionalidade do recipiente:
+O Detetor de Anomalias tem a seguinte funcionalidade de contentor:
 
 | Função | Funcionalidades |
 |--|--|
-| Detetor de anomalias | <li> Deteta anomalias como ocorrem em tempo real. <li> Deteta anomalias em todo o seu conjunto de dados como um lote. <li> Infere a gama normal esperada dos seus dados. <li> Suporta o ajuste de sensibilidade à deteção de anomalias para melhor se adaptar aos seus dados. |
+| Detetor de anomalias | <li> Deteta anomalias à medida que ocorrem em tempo real. <li> Deteta anomalias em todo o seu conjunto de dados como um lote. <li> Infere o intervalo normal esperado dos seus dados. <li> Suporta um ajuste de sensibilidade à deteção de anomalias para melhor se adaptar aos seus dados. |
 
 Para obter informações detalhadas sobre as APIs, consulte:
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes do Detetor de Anomalias:
+Deve encontrar os seguintes pré-requisitos antes de utilizar recipientes do Detetor de Anomalias:
 
 |Necessário|Objetivo|
 |--|--|
-|Motor do Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
-|Recurso do Detetor de Anomalias |Para utilizar estes recipientes, deve ter:<br><br>Um recurso do Detetor de _Anomalias_ Azure para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão Geral e Teclas do detetor de **anomalias** do portal Azure e são necessários para iniciar o recipiente.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**|
+|Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
+|Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.|
+|Recurso de detetor de anomalias |Para utilizar estes recipientes, deve ter:<br><br>Um recurso _de detetor de anomalia_ azure para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas do detetor de **anomalias** do portal Azure e das páginas Keys e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -48,48 +48,48 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes do De
 
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
-### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações de contentores
+### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações do contentor
 
-A tabela que se segue descreve os núcleos e memória cpu mínimos e recomendados para alocar para o recipiente detetor de anomalias.
+A tabela a seguir descreve os núcleos e memórias mínimos e recomendados da CPU para alocar para o detetor de anomalias.
 
-| QPS (consultas por segundo) | Mínimo | Recomendado |
+| QPS (Consultas por segundo) | Mínimo | Recomendado |
 |-----------|---------|-------------|
-| 10 QPS | 4 núcleo, 1-GB de memória | 8 memória de 2-GB de núcleo |
-| 20 QPS | 8 núcleo, 2-GB memória | 16 memória de 4-GB de núcleo |
+| 10 QPS | 4 núcleo, memória de 1-GB | 8 núcleo de memória 2-GB |
+| 20 QPS | 8 núcleo, memória de 2 GB | 16 núcleo de memória 4-GB |
 
-Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
+Cada núcleo deve ser pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 
-O núcleo e a memória correspondem às `--cpus` definições e `--memory` definições, que são usadas como parte do `docker run` comando.
+O núcleo e a memória correspondem às `--cpus` `--memory` definições e configurações, que são utilizadas como parte do `docker run` comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
-Utilize o comando para descarregar uma imagem de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) contentor.
+Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor.
 
 | Contentor | Repositório |
 |-----------|------------|
-| cognitivo-serviços-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomalia-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker puxar para o recipiente do Detetor de Anomalias
+### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker puxa para o recipiente do Detetor de Anomalias
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Como utilizar o recipiente
+## <a name="how-to-use-the-container"></a>Como usar o recipiente
 
-Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
+Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
 1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
-1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint).
+1. [Consultar o ponto final de previsão do recipiente.](#query-the-containers-prediction-endpoint)
 
-## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
+## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com `docker run`
 
-Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os `{ENDPOINT_URI}` valores e `{API_KEY}` valores necessários.
+Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o contentor. Consulte a [recolha dos parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{ENDPOINT_URI}` valores e `{API_KEY}` valores.
 
 [Exemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
@@ -103,23 +103,23 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa um recipiente de detetor de anomalias a partir da imagem do recipiente
-* Atribui um núcleo cpu e 4 gigabytes (GB) de memória
-* Expõe a porta TCP 5000 e atribui um pseudo-TTY para o contentor
-* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro. 
+* Executa um detetor de anomalias a partir da imagem do recipiente
+* Atribui um núcleo de CPU e 4 gigabytes (GB) de memória
+* Expõe a porta TCP 5000 e atribui uma pseudo-TTY para o contentor
+* Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
 > [!IMPORTANT]
-> O `Eula` `Billing` , e as `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [billing.](#billing)
+> As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
 
-### <a name="running-multiple-containers-on-the-same-host"></a>Executar vários recipientes no mesmo hospedeiro
+### <a name="running-multiple-containers-on-the-same-host"></a>Executando vários contentores no mesmo anfitrião
 
-Se pretender executar vários contentores com portas expostas, certifique-se de que executa cada recipiente com uma porta diferente. Por exemplo, executar o primeiro recipiente no porto 5000 e o segundo contentor no porto 5001.
+Se pretender executar vários recipientes com portas expostas, certifique-se de que funciona cada recipiente com uma porta diferente. Por exemplo, executar o primeiro contentor no porto 5000 e o segundo contentor no porto 5001.
 
-Substitua `<container-registry>` o e os `<container-name>` valores dos recipientes utilizados. Estes não têm de ser o mesmo recipiente. Pode ter o recipiente do Detetor de Anomalias e o recipiente LUIS a funcionar juntos no HOSPEDEIRO ou pode ter vários recipientes do Detetor de Anomalias em funcionamento. 
+Substitua o `<container-registry>` e `<container-name>` pelos valores dos recipientes que utiliza. Estes não têm de ser o mesmo recipiente. Pode ter o recipiente do Detetor de Anomalias e o recipiente LUIS a funcionar em conjunto no HOST ou pode ter vários recipientes de detetor de anomalias em funcionamento.
 
-Gereno primeiro recipiente no porto 5000. 
+Executar o primeiro contentor no porto 5000.
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -127,10 +127,10 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Corra o segundo contentor no porto 5001.
+Executar o segundo contentor na porta 5001.
 
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -138,13 +138,13 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Cada recipiente subsequente deve estar numa porta diferente. 
+Cada recipiente subsequente deve estar numa porta diferente.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 
-O recipiente fornece APIs finais de previsão de consulta baseadas em REST. 
+O contentor fornece APIs de ponto final de predição de consulta com base em REST.
 
-Utilize o http://localhost:5000 hospedeiro, para apis de contentor.
+Utilize o anfitrião, http://localhost:5000, para APIs de contentor.
 
 <!--  ## Validate container is running -->
 
@@ -156,17 +156,17 @@ Utilize o http://localhost:5000 hospedeiro, para apis de contentor.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se executar o recipiente com um [suporte](anomaly-detector-container-configuration.md#mount-settings) de saída e uma exploração de madeira ativada, o recipiente gera ficheiros de registo que são úteis para resolver problemas que ocorrem durante o arranque ou funcionamento do recipiente.
+Se executar o recipiente com um [suporte](anomaly-detector-container-configuration.md#mount-settings) de saída e um registo ativado, o recipiente gera ficheiros de registo que são úteis para resolver problemas que ocorrem durante o arranque ou execução do recipiente.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Faturação
 
-Os recipientes do Detetor de Anomalias enviam informações de faturação para o Azure, utilizando um recurso do Detetor de _Anomalias_ na sua conta Azure. 
+Os contentores do Detetor de Anomalias enviam informações de faturação para a Azure, utilizando um recurso _de detetor de anomalias_ na sua conta Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para mais informações sobre estas opções, consulte [os recipientes Configur.](anomaly-detector-container-configuration.md)
+Para obter mais informações sobre estas opções, consulte [os recipientes Configure](anomaly-detector-container-configuration.md).
 
 <!--blogs/samples/video coures -->
 
@@ -174,19 +174,19 @@ Para mais informações sobre estas opções, consulte [os recipientes Configur.
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes do Detetor de Anomalias. Em resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes de Detetor de Anomalias. Em resumo:
 
-* O Detetor de Anomalias fornece um recipiente Linux para o Docker, encapsulando a deteção de anomalias com lote vs streaming, inferência de alcance esperada e afinação de sensibilidade.
-* As imagens do contentor são descarregadas a partir de um registo privado de contentores Azure dedicado à pré-visualização de contentores.
+* O Detetor de Anomalias fornece um recipiente Linux para Docker, encapsulando a deteção de anomalias com streaming de lote vs, inferência de alcance esperada e sintonização de sensibilidade.
+* As imagens do contentor são descarregadas a partir de um registo privado do contentor Azure dedicado à pré-visualização de contentores.
 * Imagens de contentores correm em Docker.
-* Pode utilizar a API REST ou SDK para ligar para operações em recipientes do Detetor de Anomalias, especificando o uri hospedeiro do recipiente.
-* Deve especificar a informação de faturação ao instantaneamente um recipiente.
+* Pode utilizar a API REST ou a SDK para ligar para operações em contentores do Detetor de Anomalias, especificando o hospedeiro URI do recipiente.
+* Deve especificar as informações de faturação ao instantaneamente um recipiente.
 
 > [!IMPORTANT]
-> Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem serem ligados ao Azure para medição. Os clientes precisam de permitir que os contentores comuniquem sempre informações de faturação com o serviço de medição. Os recipientes dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, os dados da série de tempo que estão a ser analisados) para a Microsoft.
+> Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os contentores dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, os dados da série de tempo que está a ser analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Rever [Configure recipientes](anomaly-detector-container-configuration.md) para configurações de configuração
-* [Implante um recipiente de detetor de anomalias para instâncias de contentores de Azure](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [Rever recipientes de configuração](anomaly-detector-container-configuration.md) para configurações de configuração
+* [Implantar um detetor de anomalias em instâncias de contentores de Azure](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
