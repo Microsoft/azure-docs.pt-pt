@@ -118,6 +118,19 @@
       items:
         - name: Contas de armazenamento
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autorização
+          items:
+            - name: Autorizar operações de dados
+              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Autorizar com o Azure AD
+                  href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizar com a Chave Partilhada
+                  href: /rest/api/storageservices/authorize-with-shared-key
+                - name: Delegar o acesso com assinaturas de acesso partilhado (SAS)
+                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autorizar operações de gestão
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Segurança
           items:
             - name: Recomendações de segurança
@@ -131,17 +144,6 @@
                   href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Chaves fornecidas pelo cliente no pedido
                   href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Autorizar operações de dados
-              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Autorizar com o Azure AD
-                  href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autorizar com a Chave Partilhada
-                  href: /rest/api/storageservices/authorize-with-shared-key
-                - name: Delegar o acesso com assinaturas de acesso partilhado (SAS)
-                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Autorizar operações de gestão
-              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
             - name: Proteção avançada contra ameaças
@@ -313,64 +315,64 @@
               href: storage-blob-properties-metadata.md
             - name: Copiar um blob (.NET)
               href: storage-blob-copy.md
+        - name: Autorizar o acesso aos dados de blobs
+          items:
+            - name: Opções de autorização para os utilizadores
+              items:
+                - name: Portal
+                  href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: CLI do Azure
+                  href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gerir direitos de acesso com RBAC
+              items:
+                - name: Portal
+                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: CLI do Azure
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autenticar e autorizar com o Azure AD
+              items:
+                - name: Autorizar com uma identidade gerida
+                  href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizar a partir de uma aplicação
+                  href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autorizar com a Chave Partilhada
+              items:
+                - name: Ver e gerir chaves de contas
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurar cadeias de ligação
+                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Utilizar a API REST do Armazenamento do Azure
+                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Delegar o acesso com assinaturas de acesso partilhado (SAS)
+              items:
+                - name: Criar uma SAS de delegação de utilizador
+                  items:
+                    - name: PowerShell
+                      href: storage-blob-user-delegation-sas-create-powershell.md
+                    - name: CLI do Azure
+                      href: storage-blob-user-delegation-sas-create-cli.md
+                    - name: .NET
+                      href: storage-blob-user-delegation-sas-create-dotnet.md
+                - name: Criar uma SAS de serviço (.NET)
+                  href: storage-blob-service-sas-create-dotnet.md
+                - name: Criar uma SAS de conta (.NET)
+                  href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Definir uma política de acesso armazenada
+                  href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gerir o acesso de leitura anónimo para dados de blobs
+              items:
+                - name: Configurar o acesso de leitura anónimo para contentores e blobs
+                  href: anonymous-read-access-configure.md
+                - name: Impedir o acesso de leitura anónimo para dados de blobs
+                  href: anonymous-read-access-prevent.md
+                - name: Aceder anonimamente a contentores públicos e blobs (.NET)
+                  href: anonymous-read-access-client.md
         - name: Proteger dados de blobs
           items:
-            - name: Autorizar o acesso aos dados de blobs
-              items:
-                - name: Opções de autorização para os utilizadores
-                  items:
-                    - name: Portal
-                      href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI do Azure
-                      href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Gerir direitos de acesso com RBAC
-                  items:
-                    - name: Portal
-                      href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI do Azure
-                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autenticar e autorizar com o Azure AD
-                  items:
-                    - name: Autorizar com uma identidade gerida
-                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Autorizar a partir de uma aplicação
-                      href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Autorizar com a Chave Partilhada
-                  items:
-                    - name: Ver e gerir chaves de contas
-                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configurar cadeias de ligação
-                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Utilizar a API REST do Armazenamento do Azure
-                      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Delegar o acesso com assinaturas de acesso partilhado (SAS)
-                  items:
-                    - name: Criar uma SAS de delegação de utilizador
-                      items:
-                        - name: PowerShell
-                          href: storage-blob-user-delegation-sas-create-powershell.md
-                        - name: CLI do Azure
-                          href: storage-blob-user-delegation-sas-create-cli.md
-                        - name: .NET
-                          href: storage-blob-user-delegation-sas-create-dotnet.md
-                    - name: Criar uma SAS de serviço (.NET)
-                      href: storage-blob-service-sas-create-dotnet.md
-                    - name: Criar uma SAS de conta (.NET)
-                      href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Definir uma política de acesso armazenada
-                      href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Gerir o acesso de leitura anónimo para dados de blobs
-                  items:
-                    - name: Configurar o acesso de leitura anónimo para contentores e blobs
-                      href: anonymous-read-access-configure.md
-                    - name: Impedir o acesso de leitura anónimo para dados de blobs
-                      href: anonymous-read-access-prevent.md
-                    - name: Aceder anonimamente a contentores públicos e blobs (.NET)
-                      href: anonymous-read-access-client.md
             - name: Gerir a encriptação do Armazenamento do Azure
               items:
                 - name: Verificar se um blob está encriptado

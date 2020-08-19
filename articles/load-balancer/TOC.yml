@@ -1,4 +1,4 @@
-- name: Documentação do Load Balancer
+- name: Documentação do Balanceador de Carga
   href: index.yml
 - name: Descrição geral
   items:
@@ -6,9 +6,7 @@
       href: load-balancer-overview.md
     - name: Novidades
       href: whats-new.md
-    - name: Perguntas mais frequentes
-      href: load-balancer-faqs.md
-- name: Início Rápido
+- name: Guias de Início Rápido
   items:
     - name: Criar um balanceador de carga público - Portal
       href: quickstart-load-balancer-standard-public-portal.md
@@ -130,14 +128,14 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configuração do balanceador de carga só de saída
       href: egress-only.md
-- name: Resolução de problemas
-  items:
-    - name: Resolver problemas do Balanceador de Carga do Azure
-      href: load-balancer-troubleshoot.md
-    - name: Resolver erros de implementação comuns
-      href: load-balancer-common-deployment-errors.md
-    - name: Resolver problemas comuns de ligação de saída
-      href: troubleshoot-outbound-connection.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas do Balanceador de Carga do Azure
+          href: load-balancer-troubleshoot.md
+        - name: Resolver erros de implementação comuns
+          href: load-balancer-common-deployment-errors.md
+        - name: Resolver problemas comuns de ligação de saída
+          href: troubleshoot-outbound-connection.md
 - name: Referência
   items:
     - name: Exemplos de código
@@ -175,3 +173,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações do produto
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
+    - name: FAQ
+      href: load-balancer-faqs.md
