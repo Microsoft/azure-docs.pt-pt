@@ -1,6 +1,6 @@
 ---
 title: Quickstart para Configuração de Aplicativos Azure com .NET Framework / Microsoft Docs
-description: Um quickstart para usar a configuração de aplicativos Azure com aplicações .NET Framework
+description: Neste artigo, crie uma aplicação .NET Framework com Configuração de Aplicações Azure para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 63b7f8b28e339abde326bf3dca34d9ee6d816a31
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209910"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590273"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação .NET Framework com Configuração de Aplicações Azure
 
@@ -106,7 +106,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
     ```
 1. Reinicie o Estúdio Visual para permitir que a alteração entre em vigor. Prima Ctrl + F5 para construir e executar a aplicação da consola.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

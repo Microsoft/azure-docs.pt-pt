@@ -1,27 +1,22 @@
 ---
-title: Domínios personalizados em Azure AD Application Proxy / Microsoft Docs
+title: Domínios personalizados no Azure AD Application Proxy
 description: Configure e gere domínios personalizados no Azure AD Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764915"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587774"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com Proxy de aplicação AD Azure
 
@@ -91,11 +86,11 @@ Para publicar a sua aplicação através do Application Proxy com um domínio pe
    
    ![Selecione domínio personalizado](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Se o domínio já tiver um certificado, o campo **Certificado** apresenta as informações do certificado. Caso contrário, selecione o campo **Certificado.** 
+6. Se o domínio já tiver um certificado, o campo **Certificado** apresenta as informações do certificado. Caso contrário, selecione o campo **Certificado.**
    
    ![Clique para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Na página de **certificado SSL,** navegue e selecione o seu ficheiro de certificado PFX. Introduza a palavra-passe para o certificado e selecione **o Certificado de Upload**. Para obter mais informações sobre certificados, consulte os Certificados para a secção [de domínios personalizados.](#certificates-for-custom-domains)
+7. Na página de **certificado SSL,** navegue e selecione o seu ficheiro de certificado PFX. Introduza a palavra-passe para o certificado e selecione **o Certificado de Upload**. Para obter mais informações sobre certificados, consulte os Certificados para a secção [de domínios personalizados.](#certificates-for-custom-domains) Se o certificado não for válido ou houver um problema com a palavra-passe, verá uma mensagem de erro. O [Proxy FAQ de aplicação](application-proxy-faq.md#application-configuration) contém alguns passos de resolução de problemas que pode experimentar.
    
    ![Certificado de upload](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -126,7 +121,7 @@ Um certificado cria a ligação TLS segura para o seu domínio personalizado.
 
 Deve utilizar um certificado PFX para garantir que todos os certificados intermédios necessários estão incluídos. O certificado deve incluir a chave privada.
 
-Não há restrições nos métodos de assinatura de certificado. A Criptografia da Curva Elíptica (ECC), Nome Alternativo sujeito (SAN) e outros tipos de certificados comuns são suportados. 
+Os métodos de assinatura de certificado mais comuns são suportados, tais como Nome Alternativo Sujeito (SAN). 
 
 Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Você deve usar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para também aceder a subdomínios, tem de adicionar os wildcards do subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para * \* .adventure-works.com* não funcionará para * \* .apps.adventure-works.com* a menos que adicione * \* .apps.adventure-works.com* como nome alternativo ao assunto. 
 
@@ -142,7 +137,7 @@ Uma vez que um certificado é carregado para uma aplicação, também será auto
 
 Quando um certificado expira, recebe um aviso a dizer-lhe para enviar outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue na página **de procuração** de aplicação para a aplicação, selecione **Certificate**e faça upload de um novo certificado. Se o certificado antigo não estiver a ser usado por outras aplicações, é apagado automaticamente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ative o único sign-on das](application-proxy-configure-single-sign-on-with-kcd.md) suas aplicações publicadas com autenticação AZure AD.
 * [Acesso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) para as suas aplicações publicadas na nuvem.

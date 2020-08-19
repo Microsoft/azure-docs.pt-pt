@@ -1,18 +1,18 @@
 ---
 title: Reagir a eventos de valor-chave de configuração de aplicações Azure
-description: Utilize a Grelha de Eventos Azure para subscrever eventos de Configuração de Aplicações.
+description: Utilize a Grelha de Eventos Azure para subscrever eventos de Configuração de Aplicações, que permitem que as aplicações reajam a alterações nos valores-chave sem a necessidade de um código complicado.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523803"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590035"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagir a eventos de configuração de aplicativos Azure
 
@@ -29,7 +29,7 @@ Veja os [eventos de Configuração de Aplicações Route Azure para um ponto fin
 ## <a name="available-azure-app-configuration-events"></a>Eventos disponíveis de configuração de aplicativos Azure
 A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. As subscrições de eventos de configuração de aplicativos Azure podem incluir dois tipos de eventos:  
 
-> |Nome do Evento|Descrição|
+> |Nome do Evento|Description|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Disparado quando um valor-chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Disparado quando um valor-chave é eliminado|
@@ -37,10 +37,10 @@ A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md
 ## <a name="event-schema"></a>Esquema de eventos
 Os eventos de Configuração de Aplicações Azure contêm todas as informações necessárias para responder às alterações nos seus dados. Pode identificar um evento de Configuração de Aplicações porque a propriedade eventType começa com "Microsoft.AppConfiguration". Informações adicionais sobre a utilização das propriedades do evento Event Grid estão documentadas no [esquema de eventos da Grade de Eventos.](../event-grid/event-schema.md)  
 
-> |Propriedade|Tipo|Descrição|
+> |Propriedade|Tipo|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |tópico|string|Full Azure Resource Manager id da Configuração de Aplicação que emite o evento.|
-> |Assunto|string|O URI do valor-chave que é o tema do evento.|
+> |subject|string|O URI do valor-chave que é o tema do evento.|
 > |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
 > |Id|string|Um identificador único deste evento.|
@@ -82,7 +82,7 @@ As aplicações que lidam com eventos de Configuração de Aplicações devem se
 > * Utilize o campo sujeito para aceder ao valor-chave que foi modificado.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Grelha de Eventos e dê à Azure App Configuration eventos uma tentativa:
 

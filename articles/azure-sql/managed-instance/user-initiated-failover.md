@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
-ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 08/18/2020
+ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191193"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589508"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -126,9 +126,12 @@ Antes de iniciar a falha, a sua saída indicará a réplica primária atual no n
 
 Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para BC. Isto porque o nível de serviço GP baseia-se apenas num único nó. A saída de consulta T-SQL para o nível de serviço GP só mostrará um único nó antes e depois da falha. A perda de conectividade do seu cliente durante a execução, tipicamente com duração inferior a um minuto, será a indicação da execução falhada.
 
+> [!NOTE]
+> A conclusão do processo de failover (não a indisponibilidade efetiva e curta) pode demorar vários minutos de cada vez em caso de cargas de trabalho **de alta intensidade.** Isto porque o motor de instância está a tratar de todas as transações atuais no principal e a recuperar o nó secundário, antes de ser capaz de falhar.
+
 > [!IMPORTANT]
 > As limitações funcionais da falha manual iniciada pelo utilizador são:
-> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada 30 minutos.
+> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos**.
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 

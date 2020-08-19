@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525902"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586686"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 
@@ -136,7 +136,7 @@ Limitar o acesso ao ponto final público requer primeiro que desative o acesso g
 
 #### <a name="disable-access-to-the-public-endpoint"></a>Desativar o acesso ao ponto final público
 
-Quando o acesso ao ponto final público é desativado, a conta de armazenamento ainda pode ser acedida através dos seus pontos finais privados. Caso contrário, os pedidos válidos para o ponto final público da conta de armazenamento serão rejeitados. 
+Quando o acesso ao ponto final público é desativado, a conta de armazenamento ainda pode ser acedida através dos seus pontos finais privados. Caso contrário, os pedidos válidos para o ponto final da conta de armazenamento serão rejeitados, a menos que sejam de [uma fonte especificamente permitida.](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

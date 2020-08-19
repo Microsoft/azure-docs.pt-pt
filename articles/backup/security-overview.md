@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades de segurança
 description: Saiba mais sobre as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319308"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589389"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -48,9 +48,9 @@ A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos d
 
 * Dentro do Azure, os dados em trânsito entre o armazenamento Azure e o cofre estão [protegidos por HTTPS](backup-support-matrix.md#network-traffic-to-azure). Estes dados permanecem na rede de espinha dorsal do Azure.
 
-* Os dados de backup são automaticamente encriptados utilizando [as teclas geridas pela Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), e não é necessário tomar nenhuma ação explícita para os ativar. Também pode encriptar os seus dados de reserva utilizando [as teclas geridas pelo cliente armazenadas](encryption-at-rest-with-cmk.md) no Cofre de Chaves Azure. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas até ao cofre dos Serviços de Recuperação.
+* Os dados de backup são automaticamente encriptados utilizando [teclas geridas pela plataforma](backup-encryption.md), e não é necessário tomar nenhuma ação explícita para o ativar. Também pode encriptar os seus dados de reserva utilizando [as teclas geridas pelo cliente armazenadas](encryption-at-rest-with-cmk.md) no Cofre de Chaves Azure. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas até ao cofre dos Serviços de Recuperação.
 
-* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Dados encriptados com [Encriptação de Disco Azure (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) e [VMs com discos encriptados CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Para mais informações, [saiba mais sobre VMs Azure encriptados e Backup Azure](./backup-azure-vms-encryption.md).
+* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Dados encriptados com [Encriptação de Disco Azure (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) e [VMs com discos encriptados CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Para mais informações, [saiba mais sobre VMs Azure encriptados e Backup Azure](./backup-azure-vms-encryption.md).
 
 * Quando os dados são cópias de segurança dos servidores no local com o agente MARS, os dados são encriptados com uma palavra-passe antes do upload para Azure Backup e desencriptados apenas depois de serem descarregados a partir do Azure Backup. Leia mais sobre [funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas.](#security-features-to-help-protect-hybrid-backups)
 
@@ -64,7 +64,7 @@ O Azure Backup fornece [capacidades de monitorização e alerta incorporadas](./
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos
 
-O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas. Estas funcionalidades incluem:
+O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas. As funcionalidades incluem:
 
 * Uma camada adicional de autenticação é adicionada sempre que é realizada uma operação crítica como alterar uma palavra-passe. Esta validação destina-se a garantir que tais operações só podem ser realizadas por utilizadores que tenham credenciais Azure válidas. [Saiba mais sobre as funcionalidades que impedem os ataques.](./backup-azure-security-feature.md#prevent-attacks)
 

@@ -1,6 +1,6 @@
 ---
 title: Configuração de aplicativos Azure as melhores práticas Microsoft Docs
-description: Saiba como utilizar melhor a configuração da aplicação Azure
+description: Aprenda as melhores práticas durante a utilização da Configuração da Aplicação Azure. Os tópicos abordados incluem agrupamentos chave, composições de valor-chave, bootstrap de configuração de aplicações, e muito mais.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d97626d5eed96a3debb41c86f6dab6fbaf1953cd
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206674"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588063"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 

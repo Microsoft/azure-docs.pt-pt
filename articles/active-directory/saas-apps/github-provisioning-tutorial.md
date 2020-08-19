@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: cfcf68b1e00e9f3333a8cd1fdb21ec71712f0e95
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550675"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589219"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores
 
@@ -29,6 +29,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 * Uma organização GitHub criada em [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) da GitHub Enterprise
 * Uma conta de utilizador no GitHub com permissões de administração para a organização
 * Certifique-se de que o acesso da OAuth foi fornecido para a sua organização, como descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* O fornecimento de SCIM a uma única organização só é suportado quando o SSO é ativado a nível da organização
 
 > [!NOTE]
 > A integração de provisionamento Azure AD depende da [GitHub SCIM API,](https://developer.github.com/v3/scim/)que está disponível para os clientes [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)da GitHub Enterprise .

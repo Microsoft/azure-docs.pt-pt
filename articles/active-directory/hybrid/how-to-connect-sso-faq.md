@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019736"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589049"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -104,7 +104,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    2. `Update-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando atualiza a chave de desencriptação Kerberos para a `AZUREADSSO` conta do computador nesta floresta específica de AD e atualiza-a em Azure AD.
    
    >[!NOTE]
-   >Se você não é um administrador de domínio e foi-lhe atribuídas permissões pelo administrador de domínio, você deve ligar para`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   >Se você não é um administrador de domínio e foi-lhe atribuídas permissões pelo administrador de domínio, você deve ligar para `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita os passos anteriores para cada floresta AD em que configurar a funcionalidade.
 
@@ -135,6 +135,8 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
    5. `Enable-AzureADSSO -Enable $false`Ligue.
+   
+   Neste momento, o Seamless SSO está desativado, mas os domínios permanecerão configurados caso queira ativar o SSO sem emenda. Se pretender remover completamente os domínios da configuração SSO sem emenda, ligue para o seguinte cmdlet depois de ter completado o passo 5 acima: `Disable-AzureADSSOForest -DomainFqdn <fqdn>` .
 
    >[!IMPORTANT]
    >Desativar o SSO sem emenda usando o PowerShell não mudará o estado no Azure AD Connect. O SSO sem emenda mostrará como ativado na página **de insusição** do utilizador Change.

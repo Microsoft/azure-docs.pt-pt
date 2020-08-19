@@ -1,21 +1,21 @@
 ---
-title: Tutorial - crie e execute um caderno Jupyter - Azure Notebooks Preview
-description: Aprenda a criar e executar um caderno Jupyter em Azure Notebooks Preview que demonstra o processo de regressão linear na ciência dos dados.
+title: Tutorial - crie e execute um Caderno Jupyter - Pré-visualização de cadernos Azure
+description: Saiba como criar e executar um Caderno Jupyter em Azure Notebooks Preview que demonstra o processo de regressão linear na ciência dos dados.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846917"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589274"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um caderno Jupyter com Python
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Caderno Jupyter com Python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Este tutorial acompanha-o através do processo de utilização de Cadernos Azure para criar um notebook Jupyter completo que demonstra uma simples regressão linear. No decorrer deste tutorial, você se familiariza com o UI do bloco de notas Jupyter, que inclui a criação de diferentes células, células de execução, e apresentando o caderno como uma apresentação de diapositivos.
+Este tutorial acompanha-o através do processo de utilização de Cadernos Azure para criar um Notebook Jupyter completo que demonstra uma simples regressão linear. No decorrer deste tutorial, você se familiariza com o Jupyter Notebook UI, que inclui a criação de diferentes células, células de execução, e apresentando o caderno como uma apresentação de diapositivos.
 
 O caderno completo pode ser encontrado em [Amostras de Cadernos GitHub - Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um caderno vazio para que você possa experimentar criá-lo passo a passo.
 
@@ -62,7 +62,7 @@ O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. O *ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
+1. O * ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
 
     ![Arquivo CSV recentemente criado mostrando na lista de ficheiros do projeto](media/tutorial/csv-file-in-project.png)
 
@@ -219,7 +219,7 @@ Usa-se vários destes comandos à medida que preenche o caderno nas secções qu
 
 ## <a name="create-a-code-cell-with-commands"></a>Criar uma célula de código com comandos
 
-Como a célula markdown anterior explicou, pode incluir comandos diretamente no caderno. Pode utilizar comandos para instalar pacotes, executar caracóis ou wget para recuperar dados, ou qualquer outra coisa. Os cadernos Jupyter funcionam eficazmente dentro de uma máquina virtual Linux, por isso tens o comando Linux completo preparado para trabalhar.
+Como a célula markdown anterior explicou, pode incluir comandos diretamente no caderno. Pode utilizar comandos para instalar pacotes, executar caracóis ou wget para recuperar dados, ou qualquer outra coisa. Os Cadernos Jupyter funcionam eficazmente dentro de uma máquina virtual Linux, por isso tens o comando Linux completo preparado para trabalhar.
 
 1. Introduza os comandos abaixo na célula de código que apareceu depois de ter usado **Run** na célula Markdown anterior. Se não vir uma nova célula, **Insert**crie uma com  >  **insira a célula abaixo** ou utilize o **+** botão na barra de ferramentas.
 
@@ -417,9 +417,9 @@ Se as células de código do seu caderno não se comportarem da forma que espera
 
 Felizmente, pode descarregar o ficheiro *.ipynb* do portátil e depois abri-lo no Código do Estúdio Visual utilizando a extensão Python. A extensão importa diretamente um caderno como um único ficheiro de código, preservando as suas células Markdown em comentários. Uma vez importada o caderno, pode usar o depurador do Código do Estúdio Visual para passar pelo seu código, definir pontos de rutura, examinar o estado, e assim por diante. Depois de fazer correções ao seu código, em seguida, exporta o ficheiro *.ipynb* do Código do Estúdio Visual e envia-o de volta para os Cadernos Azure.
 
-Para mais informações, consulte [debug um caderno Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Código do Estúdio Visual.
+Para mais informações, consulte [Debug a Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Código do Estúdio Visual.
 
-Consulte também [o Visual Studio Code - Suporte jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para funcionalidades adicionais do Código do Estúdio Visual para cadernos Jupyter.
+Consulte também o [Código do Estúdio Visual - Suporte jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para funcionalidades adicionais do Código do Estúdio Visual para Cadernos Jupyter.
 
 ## <a name="next-steps"></a>Passos seguintes
 

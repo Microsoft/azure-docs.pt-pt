@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032855"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586703"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -28,7 +28,7 @@ Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure.](https://
 
 1. No portal Azure, clique em **Criar um recurso.**
 
-2. No Mercado Azure, clique em **Compute**e, em seguida, selecione uma imagem VM.
+2. No Azure Marketplace, clique em **Compute**e, em seguida, selecione uma imagem VM.
 
 3. Configurar o VM de acordo com as instruções [do Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux.](../virtual-machines/linux/quick-create-portal.md)
 
@@ -47,6 +47,9 @@ Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure.](https://
     - [Saiba mais](backup-instant-restore-capability.md) sobre a funcionalidade de restauro instantâneo.
 
       ![Política de backup predefinido](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE e PMK são os métodos de encriptação padrão](backup-encryption.md) para VMs Azure. A Azure Backup suporta cópia de segurança e restauro destes VMs Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup Azure para máquinas virtuais
 

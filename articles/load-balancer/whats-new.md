@@ -4,15 +4,15 @@ description: Saiba quais as novidades com o Azure Load Balancer, como as última
 services: load-balancer
 author: anavinahar
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447035"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586720"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quais as novidades no Azure Load Balancer?
 
@@ -39,7 +39,7 @@ Também pode encontrar as últimas atualizações do Azure Load Balancer e subsc
 
 O grupo de produtos está a trabalhar ativamente em resoluções para as seguintes questões conhecidas:
 
-|Problema |Descrição  |Mitigação  |
+|Problema |Description  |Mitigação  |
 | ---------- |---------|---------|
 | Exportação log Analytics | Log Analytics não pode exportar métricas para balanceadores de carga padrão nem registos de estado da sonda de saúde para balanceador de carga básica  | [Utilize o Azure Monitor para métricas multidimensionais para o seu Balancer de Carga Padrão](load-balancer-standard-diagnostics.md). Embora não seja capaz de utilizar o Log Analytics para monitorização, o Azure Monitor fornece visualização para um conjunto rico de métricas multidimensionais. Pode alavancar o painel de métricas pré-configurado através da sub-lâmina insights do seu Balancer de Carga. Se utilizar o [upgrade](upgrade-basic-standard.md) do Balancer de Carga Básica para standard para monitorização de métricas de nível de produção.
 

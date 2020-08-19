@@ -1,21 +1,21 @@
 ---
 title: Crie e partilhe um caderno Jupyter na pré-visualização de cadernos Azure
-description: Crie e execute rapidamente um caderno Jupyter na Pré-visualização de Cadernos Azure e, em seguida, partilhe esse caderno com outros.
+description: Crie e execute rapidamente um Caderno Jupyter na Pré-visualização de Cadernos Azure e, em seguida, partilhe esse caderno com outros.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849406"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589338"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Criar e partilhar um caderno em Pré-visualização de Cadernos Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Neste quickstart, você cria e executou um caderno Jupyter em Azure Notebooks, em seguida, partilhe esse caderno com outros. O Jupyter permite-lhe combinar facilmente texto markdown, código executável, dados persistentes, gráficos e visualizações numa tela sharable, o caderno. O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação.
+Neste quickstart, você cria e executou um Caderno Jupyter em Cadernos Azure, em seguida, partilhe esse caderno com outros. O Jupyter permite-lhe combinar facilmente texto markdown, código executável, dados persistentes, gráficos e visualizações numa tela sharable, o caderno. AZure Notebooks é um serviço gratuito para desenvolver e executar Cadernos Jupyter na nuvem sem instalação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Nenhum.
@@ -91,7 +91,7 @@ Nenhum.
 
 1. Selecione o ícone de poupança para salvar o seu trabalho:
 
-    ![Guarde o ícone na barra de ferramentas do portátil Jupyter](media/quickstarts/hello-results-save-icon.png)
+    ![Guarde o ícone na barra de ferramentas do Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
 1. Selecione o comando do menu **File**  >  **'Arquivar's Close e Suspender** para parar o servidor e fechar a janela do navegador.
 
@@ -106,4 +106,4 @@ Na página do projeto, também pode utilizar o menu **Partilhar** para obter um 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Criar e executar um Caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

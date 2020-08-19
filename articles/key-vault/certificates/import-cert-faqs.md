@@ -1,78 +1,86 @@
 ---
 title: Perguntas frequentes - Importação de certificado azure Key Vault
-description: Perguntas frequentes - Importação de certificado azure Key Vault
+description: Obtenha respostas para perguntas frequentes sobre a importação de certificados Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056351"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588826"
 ---
-# <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Perguntas frequentes - Importação de Certificado de Cofre chave Azure
+# <a name="importing-azure-key-vault-certificates-faq"></a>Certificação de Azure Key Vault FAQ
+
+Este artigo responde frequentemente a perguntas sobre a importação de certificados Azure Key Vault.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Como posso importar um certificado no Azure Key Vault?
 
-Certificado de importação – Para operação de importação, o cofre-chave Azure aceita dois formatos de certificado PEM e PFX. Embora existam ficheiros PEM apenas com a parte pública, o cofre da chave Azure requer e apenas aceita um PEM ou PFX na pasta de ficheiros e com uma chave privada. Siga [o tutorial para o certificado de importação](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)
+Para uma operação de importação de certificados, a Azure Key Vault aceita dois formatos de ficheiros de certificado: PEM e PFX. Embora existam ficheiros PEM apenas com a parte pública, o Key Vault requer e aceita apenas um ficheiro PEM ou PFX com uma chave privada. Para mais informações, consulte [Importar um certificado para o Key Vault.](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)
 
-### <a name="after-importing-password-protected-certificate-into-the-key-vault-and-then-downloading-it-i-am-not-able-to-see-the-password-associated-with-the-certificate"></a>Depois de importar o certificado protegido de senha para o cofre chave e depois descarregá-lo, não posso ver a senha associada ao certificado?
+### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Depois de importar um certificado protegido por palavra-passe para o Key Vault e depois descarregá-lo, por que não consigo ver a senha que está associada?
     
-O certificado protegido carregado após o armazenamento no cofre da chave não pouparia a palavra-passe associada. Só é preciso uma vez durante a operação de importação. Embora este seja um conceito de design por by-design, você pode sempre obter o certificado como um segredo e converter de Base64 para PFX adicionando a senha anterior através [do Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+Depois de um certificado ser importado e protegido em Key Vault, a sua senha associada não é guardada. A palavra-passe só é necessária uma vez durante a operação de importação. Isto é por design, mas pode sempre obter o certificado como segredo e convertê-lo de Base64 para PFX adicionando a palavra-passe através do [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
-### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>Como posso resolver "Erro de parâmetro grave"? Quais são os formatos de certificado suportados para importação no Key Vault?
+### <a name="how-can-i-resolve-a-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-to-key-vault"></a>Como posso resolver um erro de "mau parâmetro"? Quais são os formatos de certificado suportados para importar para o Key Vault?
 
-Quando está a importar o certificado, tem de se certificar de que a chave está incluída no próprio ficheiro. Se tiver a chave privada separadamente num formato diferente, terá de combinar a chave com o certificado. Algumas autoridades de certificados fornecem certificados em diferentes formatos, por conseguinte, antes de importar o certificado, certifique-se de que estão em formato .pem ou .pfx e que a chave utilizada é RSA ou ECC. Consulte-os para rever [os requisitos dos certificados](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) e [os requisitos-chave dos certificados.](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)
+Quando importa um certificado, tem de se certificar de que a chave está incluída no ficheiro. Se tiver uma chave privada armazenada separadamente num formato diferente, tem de combinar a chave com o certificado. Algumas autoridades de certificados (AA) fornecem certificados noutros formatos. Portanto, antes de importar o certificado, certifique-se de que está em formato de ficheiro PEM ou PFX e que a chave utiliza a encriptação Rivest-Shamir-Adleman (RSA) ou a criptografia de curva elíptica (ECC). 
 
-###  <a name="can-i-import-certificate-using-arm-template"></a>Posso importar certificado usando o modelo ARM?
+Para mais informações, consulte [os requisitos dos certificados](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) e [os requisitos-chave do certificado.](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)
 
-Não, não é possível fazer operações certificadas utilizando modelos ARM. A solução recomendada seria utilizar os métodos de importação de certificados na API ou no CLI ou no PowerShell. Se tiver um certificado de exisitng, então pode importá-lo como um segredo.
+###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>Posso importar um certificado usando um modelo ARM?
 
-### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>Erro “Ocorreu um erro” ao importar o certificado através do Portal. Como posso investigar mais?
+Não, não é possível realizar operações de certificado utilizando um modelo Azure Resource Manager (ARM). Uma solução alternativa recomendada seria utilizar os métodos de importação de certificados na AZure API, no Azure CLI ou no PowerShell. Se tiver um certificado existente, pode importá-lo como um segredo.
+
+### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Quando importo um certificado através do portal Azure, tenho um erro de "Algo correu mal". Como posso investigar mais?
     
-Para visualizar um erro mais descritivo, importe o ficheiro do certificado através do [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) ou [da PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Para visualizar um erro mais descritivo, importe o ficheiro do certificado utilizando [o Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) ou [o PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
-### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Como posso resolver 'Error type: Access denied or user is unauthorized to import certificate'?
+### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Como posso resolver "Error type: Access denied or user is unauthorized to import certificate"?
     
-Esta operação requer a permissão certificados/importar. Depois de navegar até ao local onde se encontra o Key Vault, terá de conceder ao utilizador as permissões adequadas em políticas de acesso. Navegue para as políticas de acesso> cofre > adicionar > Obter permissões de certificado (ou como quiser as permissões) > principal > procurar e, em seguida, adicionar o e-mail do utilizador. [Leia mais sobre as políticas de acesso relacionadas com certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control)
+A operação de importação requer que conceda ao utilizador permissões para importar o certificado ao abrigo das políticas de acesso. Para tal, vá ao cofre de chaves, selecione **Políticas de Acesso**Adicionar Política de  >  **Acesso**  >  **Selecionar Permissões de Certificado**  >  **Principal,** procurar o utilizador e, em seguida, adicionar o endereço de e-mail do utilizador. 
+
+Para obter mais informações sobre as políticas de acesso relacionadas com [certificados, consulte os certificados sobre o Cofre chave de Azure](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
 
 
-### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Como posso resolver 'Error type: Conflict when creating a certificate'?
+### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Como posso resolver "Error type: Conflict when creating a certificate"?
     
-O nome do certificado deve ser único. O certificado com o mesmo nome pode estar em estado de eliminação suave, também, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) no cofre de chaves Azure, se houver outra Chave ou Segredo no Cofre-Chave com o mesmo nome que está a tentar especificar para o seu certificado, ele falhará e terá de remover essa chave ou segredo ou usar um nome diferente para o seu certificado. [ver certificado eliminado](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
+Cada nome de certificado deve ser único. Um certificado com o mesmo nome que outro pode estar num estado de apagação suave. Além disso, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) no Azure Key Vault, se houver outra chave ou segredo no cofre com o mesmo nome que você está tentando especificar para o seu certificado, a criação de certificado falhará e você precisará remover essa chave ou segredo ou usar um nome diferente para o seu certificado. 
 
-### <a name="why-am-i-getting-the-error-type-char-length-is-too-long"></a>Porque é que estou a receber o tipo de erro: o comprimento do char é demasiado longo?
+Para mais informações, consulte [a operação 'Obter CertificadoS' (Certificado Desaubita).](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
+
+### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>Porque estou a receber "Error type: char length is too long"?
+Este erro pode ser causado por uma de duas razões:    
+* O nome do sujeito do certificado está limitado a 200 caracteres.
+* A senha do certificado está limitada a 200 caracteres.
+
+### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Posso importar um certificado caducado para Azure Key Vault?
     
-* O comprimento do nome do sujeito do certificado tem um limite de caracteres de 200 char
-* O comprimento da senha do certificado tem um limite de caracteres de 200 char
+Não, os certificados PFX expirados não podem ser importados para o Key Vault.
 
-### <a name="can-i-import-an-expired-certificate-in-azure-key-vault"></a>Posso importar um certificado caducado no cofre da Chave Azure?
-    
-Não, os certificados PFX expirados não serão importados para o Cofre da Chave Azure.
+### <a name="how-can-i-convert-my-certificate-to-the-proper-format"></a>Como posso converter o meu certificado no formato adequado?
 
-### <a name="how-can-i-convert-my-certificate-to-proper-format"></a>Como posso converter o meu certificado em formato adequado?
-
-Pode solicitar à sua Autoridade de Certificados que forneça o certificado no formato necessário, existindo também ferramentas de terceiros que podem ajudá-lo a converter-se no formato adequado, no entanto, a Microsoft não poderá aconselhar mais sobre como obter o certificado no formato pretendido.
+Pode solicitar à sua AC que forneça o certificado no formato requerido. Existem também ferramentas de terceiros que podem ajudá-lo a converter o certificado no formato adequado.
 
 ### <a name="can-i-import-certificates-from-non-partner-cas"></a>Posso importar certificados de CAs não sócios?
-Sim, pode importar certificados de qualquer AC, mas o cofre-chave não poderá renovar automaticamente esses certificados. Poderá definir notificações por e-mail para ser notificado sobre o termo do certificado.
+Sim, pode importar certificados de qualquer AC, mas o seu cofre-chave não poderá renová-los automaticamente. Pode definir lembretes para ser notificado sobre a expiração do certificado.
 
-### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>Se eu importar um certificado de um parceiro CA, a função de renovação automática ainda funcionará?
-Sim, tem de se certificar de que uma vez carregado especifique a autorotação na política de emissão do certificado. Além disso, as alterações serão refletidas até à versão do próximo ciclo ou certificado.
+### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-autorenewal-feature-still-work"></a>Se eu importar um certificado de um parceiro CA, a função de autorenewal ainda funcionará?
+Yes. Depois de ter carregado o certificado, não se esqueça de especificar a autorotação na política de emissão do certificado. As suas definições permanecerão em vigor até que a versão do próximo ciclo ou certificado seja lançada.
 
-### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Não é possível ver o Certificado de Serviço de Aplicação importado para o Cofre-Chave? 
-Se o certificado foi importado com sucesso, por favor reveja em under secrets blade.
+### <a name="why-cant-i-see-the-app-service-certificate-that-i-imported-to-key-vault"></a>Por que não posso ver o certificado do Serviço de Aplicações que importei para o Key Vault? 
+Se importou o certificado com sucesso, deverá poder confirmá-lo indo ao painel **Secrets.**
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Certificados de cofre de chaves Azure](/azure/key-vault/certificates/about-certificates)
+- [Certificados Azure Key Vault](/azure/key-vault/certificates/about-certificates)

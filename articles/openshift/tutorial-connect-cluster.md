@@ -1,35 +1,35 @@
 ---
-title: Tutorial - Ligue-se a um cluster OpenShift 4 do chapéu vermelho azure
-description: Saiba como ligar um cluster OpenShift do Microsoft Azure Red Hat
+title: Tutorial - Conecte-se a um aglomerado Azure Red Hat OpenShift 4
+description: Saiba como ligar um cluster Microsoft Azure Red Hat OpenShift
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: d7efe781f1ba2beb1fa7dd4fdaaad280fc789de2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204387"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587859"
 ---
-# <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Ligue-se a um cluster OpenShift 4 do chapéu vermelho azure
+# <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Ligue-se a um aglomerado Azure Red Hat OpenShift 4
 
-Neste tutorial, parte dois de três, iráligar-se a um cluster OpenShift 4 do Chapéu Vermelho Azure que executa o OpenShift 4 como utilizador de kubeadmin através da consola web OpenShift. Saiba como:
+Neste tutorial, parte dois de três, você vai ligar-se a um cluster Azure Red Hat OpenShift executando OpenShift 4 como o utilizador kubeadmin através da consola web OpenShift. Saiba como:
 > [!div class="checklist"]
 > * Obtenha `kubeadmin` credenciais para o seu cluster
 > * Instale o CLI OpenShift
-> * Ligue-se a um cluster OpenShift do chapéu vermelho azure usando o CLI OpenShift
+> * Ligue-se a um cluster Azure Red Hat OpenShift utilizando o CLI OpenShift
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Em tutoriais anteriores, foi criado um cluster OpenShift do Chapéu Vermelho Azure. Se não fez estes passos, e gostaria de seguir em frente, comece com [tutorial 1 - Crie um Cluster Openshift 4 do Chapéu Vermelho Azure.](tutorial-create-cluster.md)
+Em tutoriais anteriores, foi criado um cluster Azure Red Hat OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Pode iniciar sessão no `kubeadmin` cluster utilizando o utilizador.  Executar o seguinte comando para `kubeadmin` encontrar a palavra-passe para o utilizador.
+Pode iniciar sessão no cluster utilizando o `kubeadmin` utilizador.  Executar o seguinte comando para encontrar a senha para o `kubeadmin` utilizador.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-A saída de exemplo seguinte `kubeadminPassword`mostra que a palavra-passe estará dentro .
+A saída de exemplo a seguir mostra que a palavra-passe estará em `kubeadminPassword` .
 
 ```json
 {
@@ -46,7 +46,7 @@ A saída de exemplo seguinte `kubeadminPassword`mostra que a palavra-passe estar
 }
 ```
 
-Você pode encontrar o URL da consola cluster executando o seguinte comando, que será como`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Você pode encontrar o URL da consola de cluster executando o seguinte comando, que será semelhante `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -55,19 +55,19 @@ Você pode encontrar o URL da consola cluster executando o seguinte comando, que
     --query "consoleProfile.url" -o tsv
 ```
 
-Lance o URL da consola num `kubeadmin` browser e faça login utilizando as credenciais.
+Lance o URL da consola num browser e faça login usando as `kubeadmin` credenciais.
 
-![Tela de login OpenShift do chapéu vermelho azure](media/aro4-login.png)
+![Ecrã de login Azure Red Hat OpenShift](media/aro4-login.png)
 
 ## <a name="install-the-openshift-cli"></a>Instale o CLI OpenShift
 
-Assim que estiver ligado à Consola Web OpenShift, clique no **?** na parte superior direita e depois nas **Ferramentas da Linha de Comando**. Faça o download adequado à sua máquina.
+Uma vez iniciado sessão na Consola Web OpenShift, clique no **?** no topo direito e, em seguida, em **Ferramentas de Linha de Comando**. Descarregue o desbloqueio apropriado para a sua máquina.
 
-![Tela de login OpenShift do chapéu vermelho azure](media/aro4-download-cli.png)
+![Ecrã de login Azure Red Hat OpenShift](media/aro4-download-cli.png)
 
-Também pode descarregar o mais recente lançamento do <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>CLI apropriado para a sua máquina a partir de .
+Também pode descarregar a versão mais recente do CLI apropriada para a sua máquina a partir de <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
-Se estiver a comandar os comandos da Azure Cloud Shell, descarregue o mais recente OpenShift 4 CLI para Linux.
+Se estiver a executar os comandos no Azure Cloud Shell, descarregue o mais recente OpenShift 4 CLI para Linux.
 
 ```azurecli-interactive
 cd ~
@@ -78,15 +78,15 @@ tar -zxvf openshift-client-linux.tar.gz -C openshift
 echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
 ```
 
-## <a name="connect-using-the-openshift-cli"></a>Conecte-se utilizando o CLI OpenShift
+## <a name="connect-using-the-openshift-cli"></a>Conecte-se usando o CLI OpenShift
 
-Recupere o endereço do servidor DaPI.
+Recupere o endereço do servidor API.
 
 ```azurecli-interactive
 apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.url -o tsv)
 ```
 
-Inicie sessão no servidor API do cluster OpenShift utilizando o seguinte comando. Substitua a ** \<palavra-passe de kubeadmin>** pela palavra-passe que acabou de recuperar.
+Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. **\<kubeadmin password>** Substitua-a pela palavra-passe que acabou de recuperar.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
@@ -98,7 +98,7 @@ Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Obtenha `kubeadmin` credenciais para o seu cluster
 > * Instale o CLI OpenShift
-> * Ligue-se a um cluster OpenShift do chapéu vermelho azure usando o CLI OpenShift
+> * Ligue-se a um cluster Azure Red Hat OpenShift utilizando o CLI OpenShift
 
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]

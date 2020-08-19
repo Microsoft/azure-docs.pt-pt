@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075536"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590392"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -60,6 +60,10 @@ Os conjuntos de dimensionamento não têm custos adicionais. Só tem de pagar os
 Utilize [o Azure Monitor para VMs,](../azure-monitor/insights/vminsights-overview.md)que tem um processo de embarque simples e automatizará a recolha de importantes contadores de desempenho cpu, memória, disco e rede dos VMs no seu conjunto de escala. Também inclui capacidades de monitorização adicionais e visualizações pré-definidas que o ajudam a concentrar-se na disponibilidade e desempenho dos seus conjuntos de escala.
 
 Habilitar a monitorização da [sua aplicação de conjunto de escala de máquina virtual](../azure-monitor/app/azure-vm-vmss-apps.md) com Application Insights para recolher informações detalhadas sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicações e exceções. Verifique ainda a disponibilidade da sua aplicação configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego do utilizador.
+
+## <a name="singapore-data-residency"></a>Residência de dados de Singapura
+
+Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente apenas disponível na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para começar, crie o seu primeiro conjunto de dimensionamento de máquinas virtuais no portal do Azure.

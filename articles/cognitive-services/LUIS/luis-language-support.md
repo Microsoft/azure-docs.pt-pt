@@ -1,7 +1,7 @@
 ---
 title: Suporte linguístico - LUIS
 titleSuffix: Azure Cognitive Services
-description: A LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são apoiadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
+description: O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as funcionalidades estão na mesma paridade de idiomas. Confirme que as funcionalidades que lhe interessam são suportadas na cultura do idioma que está a segmentar. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340203"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588027"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio linguístico e regional ao LUIS
 
-A LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são apoiadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
+O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as funcionalidades estão na mesma paridade de idiomas. Confirme que as funcionalidades que lhe interessam são suportadas na cultura do idioma que está a segmentar. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
 
 ## <a name="multi-language-luis-apps"></a>Aplicativos LUIS multi-linguísticos
 
@@ -62,8 +62,8 @@ O suporte linguístico varia para [entidades pré-construídas](luis-reference-p
 ### <a name="japanese-support-notes"></a>*Notas de apoio japonesas
 
  - Como a LUIS não fornece análise sintática e não vai entender a diferença entre Keigo e japonês informal, é necessário incorporar os diferentes níveis de formalidade como exemplos de formação para as suas aplicações.
-     - Não é o mesmo que o que é.
-     - Não é o mesmo que o que se passa.
+     - でございます não é o mesmo que です.
+     - です não é o mesmo que だ.
 
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
@@ -115,8 +115,8 @@ As seguintes culturas têm versões tokenizer personalizadas:
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Tokenizes palavras dividindo-as usando um tokenizer baseado em aprendizagem automática que tenta quebrar palavras compósitas em seus únicos componentes.<br>Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, é virado para `Ich fahre einen kranken wagen` . Permitindo a marcação `kranken` de e `wagen` independentemente como diferentes entidades.|
 |Alemão<br>`de-de`|1.0.2|Tokenizes palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcada como uma entidade única. |
-|Neerlandês<br>`de-de`|1.0.0|Tokenizes palavras dividindo-as usando um tokenizer baseado em aprendizagem automática que tenta quebrar palavras compósitas em seus únicos componentes.<br>Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, é virado para `Ik ga naar de kleuter school` . Permitindo a marcação `kleuter` de e `school` independentemente como diferentes entidades.|
-|Neerlandês<br>`de-de`|1.0.1|Tokenizes palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcada como uma entidade única. |
+|Neerlandês<br>`nl-nl`|1.0.0|Tokenizes palavras dividindo-as usando um tokenizer baseado em aprendizagem automática que tenta quebrar palavras compósitas em seus únicos componentes.<br>Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, é virado para `Ik ga naar de kleuter school` . Permitindo a marcação `kleuter` de e `school` independentemente como diferentes entidades.|
+|Neerlandês<br>`nl-nl`|1.0.1|Tokenizes palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcada como uma entidade única. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migração entre versões tokenizer

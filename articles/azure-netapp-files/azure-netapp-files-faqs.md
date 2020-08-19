@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134501"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590375"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -54,7 +54,9 @@ Não. A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>O tráfego de rede entre o Azure VM e o armazenamento pode ser encriptado?
 
-O tráfego de dados (tráfego dos volumes NFSv3, NFSv4.1 ou SMBv3 para Azure NetApp Files) não está encriptado. No entanto, o tráfego de um Azure VM (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro como qualquer outro tráfego Azure-VM-para-VM. Este tráfego é local para a rede de centros de dados Azure. 
+O tráfego de dados entre clientes NFSv4.1 e volumes Azure NetApp Files pode ser encriptado usando Kerberos com encriptação AES-256. Consulte [a encriptação NFSv4.1 Kerberos para obter](configure-kerberos-encryption.md) mais detalhes.   
+
+O tráfego de dados entre clientes NFSv3 ou SMBv3 para volumes Azure NetApp Files não está encriptado. No entanto, o tráfego de um Azure VM (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro como qualquer outro tráfego Azure-VM-para-VM. Este tráfego é local para a rede de centros de dados Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>O armazenamento pode ser encriptado em repouso?
 
@@ -125,7 +127,7 @@ O Azure NetApp Files suporta NFSv3 e NFSv4.1. Pode [criar um volume](azure-netap
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como posso permitir o esmagamento de raízes?
 
-Atualmente, o esmagamento de raízes não é suportado.
+Pode especificar se a conta raiz pode aceder ao volume ou não utilizando a política de exportação do volume. Consulte [a política de exportação configurar para um volume NFS](azure-netapp-files-configure-export-policy.md) para obter mais detalhes.
 
 ## <a name="smb-faqs"></a>FAQs sobre o SMB
 
@@ -254,7 +256,7 @@ Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 
 Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

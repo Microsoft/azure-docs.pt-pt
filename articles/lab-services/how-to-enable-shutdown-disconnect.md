@@ -1,34 +1,44 @@
 ---
-title: Permitir o encerramento de VMs na disconnect Azure Lab Services / Microsoft Docs
+title: Configure o encerramento automático de VMs para um laboratório nos Serviços do Laboratório Azure
 description: Saiba como ativar ou desativar o encerramento automático de VMs quando uma ligação remota do ambiente de trabalho estiver desligada.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 0c5c22d5e4a9d66413e37cce095f5497915bd122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445717"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589775"
 ---
-# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Permitir o encerramento automático de VMs na desconexão
-Este artigo mostra-lhe como pode ativar ou desativar o encerramento automático de VMs de laboratório do **Windows 10** (modelo ou aluno) depois de uma ligação remota de ambiente de trabalho ser desligada. Também pode especificar quanto tempo os VMs devem esperar que o utilizador se reconecte antes de desligar automaticamente.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configure o encerramento automático de VMs para um laboratório
+
+Este artigo mostra-lhe como pode configurar o encerramento automático de VMs para um laboratório.
+
+Pode ativar várias funcionalidades de controlo de custos de paragem automática para evitar custos adicionais quando as máquinas virtuais não estão a ser utilizadas ativamente. A combinação das três funcionalidades de paragem e desconexão automáticas que se seguem captura a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
+ 
+* Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativas (apenas para o Windows).
+* Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam (Windows & Linux).
+* Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.
+
+Reveja mais detalhes sobre as funcionalidades de paragem automática no controlo de custos Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings)
 
 Um administrador de conta de laboratório pode configurar esta definição para a conta de laboratório na qual cria laboratórios. Para obter mais informações, consulte [configurar o encerramento automático de VMs na desconexão para uma conta de laboratório](how-to-configure-lab-accounts.md). Como dono de laboratório, pode anular a definição ao criar um laboratório ou depois de o laboratório ser criado. 
 
-## <a name="configure-when-creating-a-lab"></a>Configurar ao criar um laboratório
-No passo 3 da página do assistente de criação de laboratório, pode ativar ou desativar esta funcionalidade e especificar quanto tempo o VM deve esperar que o utilizador se reconecte antes de desligar automaticamente. 
+## <a name="configure-for-the-lab-level"></a>Configuração para o nível de laboratório
 
-![Configurar no momento da criação de laboratório](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+Pode configurar a definição de paragem automática nos Serviços de [Laboratório Azure](https://labs.azure.com/).
 
-## <a name="configure-after-the-lab-is-created"></a>Configurar depois que o laboratório é criado
-Pode configurar esta definição na página **Definições,** tal como mostrado na seguinte imagem: 
+* ao criar um laboratório (em **políticas de laboratório),** ou
+* depois de o laboratório ser criado (em **Definições)**
 
-![Configurar depois que o laboratório é criado](./media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
+> [!div class="mx-imgBorder"]
+> ![Configurar no momento da criação de laboratório](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+
+Certifique-se de rever os detalhes sobre a paragem automática no controlo de custos Do Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings)
 
 > [!WARNING]
 > Se desligar o sistema operativo Windows (OS) num VM antes de desligar uma sessão DE PDR para o VM, a função de autoshutdown não funcionará corretamente.  
 
-## <a name="next-steps"></a>Próximos passos
-Consulte os seguintes artigos:
+## <a name="next-steps"></a>Passos seguintes
 
-- [Painel para laboratórios de sala de aula](use-dashboard.md)
+[Painel para laboratórios de sala de aula](use-dashboard.md)

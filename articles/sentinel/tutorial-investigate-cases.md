@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565247"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566340"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
@@ -37,10 +37,12 @@ Este artigo abrange:
 > * Use o gráfico de investigação
 > * Responder a ameaças
 
-Um incidente pode incluir vários alertas. É uma agregação de todas as provas relevantes para uma investigação específica. Um incidente é criado com base em regras analíticas que criou na página **Analytics.** As propriedades relacionadas com os alertas, como a gravidade e o estado, estão definidas ao nível dos incidentes. Depois de ter deixado o Azure Sentinel saber que tipo de ameaças procura e como encontrá-las, pode monitorizar ameaças detetadas investigando incidentes.
+Um incidente pode incluir vários alertas. É uma agregação de todas as provas relevantes para uma investigação específica. Um incidente é criado com base nas regras de análise que criou na página **Analytics.** As propriedades relacionadas com os alertas, como a gravidade e o estado, estão definidas ao nível dos incidentes. Depois de ter deixado o Azure Sentinel saber que tipo de ameaças procura e como encontrá-las, pode monitorizar ameaças detetadas investigando incidentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra analítica. O gráfico da investigação requer que o seu incidente original inclua entidades.
+- Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra de análise. O gráfico da investigação requer que o seu incidente original inclua entidades.
+
+- Se tiver um utilizador convidado que precise de atribuir incidentes, o utilizador deve ser atribuído ao papel de [Leitor de Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) no seu inquilino Azure AD. Os utilizadores regulares (não convidados) têm esta função atribuída por padrão.
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 
@@ -81,7 +83,7 @@ Para usar o gráfico de investigação:
 1. Selecione um incidente e, em seguida, **selecione Investigar**. Isto leva-o ao gráfico da investigação. O gráfico fornece um mapa ilustrativo das entidades diretamente ligadas ao alerta e cada recurso conectado mais.
 
    > [!IMPORTANT] 
-   > Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra analítica. O gráfico da investigação requer que o seu incidente original inclua entidades.
+   > Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra de análise. O gráfico da investigação requer que o seu incidente original inclua entidades.
 
    ![Ver mapa](media/tutorial-investigate-cases/map1.png)
 
@@ -123,7 +125,7 @@ Depois de escolher a classificação adequada, adicione algum texto descritivo n
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a investigar incidentes usando Azure Sentinel. Continue a tutorial para [responder a ameaças usando livros de jogadas automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Responda às ameaças](tutorial-respond-threats-playbook.md) de automatizar as suas respostas a ameaças.

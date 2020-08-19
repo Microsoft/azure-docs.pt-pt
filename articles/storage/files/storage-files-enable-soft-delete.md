@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528388"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590120"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
@@ -22,6 +22,8 @@ O Azure Storage oferece uma exclusão suave para ações de ficheiros (pré-visu
 As seguintes secções mostram como ativar e utilizar a eliminação suave para ações de ficheiros Azure numa conta de armazenamento existente:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
+
+## <a name="getting-started"></a>Introdução
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Navegue para a sua conta de armazenamento e selecione **Soft delete** in **File service**.
@@ -33,7 +35,13 @@ As seguintes secções mostram como ativar e utilizar a eliminação suave para 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets de eliminação suave estão disponíveis na versão de pré-visualização 2.1.1 do módulo Az.Storage. Para permitir a eliminação suave, tem de atualizar as propriedades de serviço de um cliente de ficheiro. O exemplo a seguir permite a eliminação suave de todas as ações de ficheiros numa conta de armazenamento:
+## <a name="prerequisite"></a>Pré-requisito
+
+Atualmente, os cmdlets soft delete só estão disponíveis nas [versões de pré-visualização 2.1.1](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) e [2.3.1 do](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) módulo Az.Storage. 
+
+## <a name="getting-started"></a>Introdução
+
+Para permitir a eliminação suave, tem de atualizar as propriedades de serviço de um cliente de ficheiro. O exemplo a seguir permite a eliminação suave de todas as ações de ficheiros numa conta de armazenamento:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -98,6 +106,6 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountNa
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais uma forma de proteção e recuperação de dados, consulte o nosso artigo [Visão geral das fotos de partilha para Ficheiros Azure](storage-snapshots-files.md).

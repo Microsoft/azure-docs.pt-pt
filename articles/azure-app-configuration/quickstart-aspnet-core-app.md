@@ -1,6 +1,6 @@
 ---
 title: Quickstart para Configuração de AplicativoS Azure com ASP.NET Core [ Microsoft Docs
-description: Quickstart para usar configuração de aplicativos Azure com aplicações ASP.NET Core
+description: Crie uma aplicação Core ASP.NET com configuração de aplicação Azure para centralizar o armazenamento e gestão das definições de aplicações para uma aplicação core ASP.NET.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: fc2b5829b2978253476ad8cca1438b784c6ad10d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 41675eb1911eede750b5a9cdc19cfe49e4699bac
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209992"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590307"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -246,7 +246,7 @@ Quando solicitado para configurar a porta para pré-visualização, insira '5000
 
 ![Lançamento de app quickstart](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

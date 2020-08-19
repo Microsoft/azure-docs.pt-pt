@@ -7,16 +7,16 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: cc0d969ff6eb76732768dfed2826762920ae9e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81726946"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589015"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 
@@ -204,7 +204,7 @@ Consulte os seguintes parâmetros de configuração.
 7. Criar o alerta 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, criou agora com sucesso um painel de monitorização e alertas configurados para o seu cofre chave! Depois de ter seguido todos os passos acima, deverá receber alertas de e-mail quando o cofre-chave satisfaça os critérios de alerta configurados. Apresentamos um exemplo abaixo. Utilize as ferramentas que criou neste artigo para monitorizar ativamente a saúde do seu cofre de chaves. 
 

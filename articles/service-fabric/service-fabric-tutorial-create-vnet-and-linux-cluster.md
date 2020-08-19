@@ -4,12 +4,12 @@ description: Saiba como implementar um cluster do Service Fabric do Linux numa r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260216"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586925"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementar um cluster de tecido de serviço Linux numa rede virtual Azure
 
@@ -41,7 +41,12 @@ Para Ubuntu 18.04 LTS:
 * [AzureDeploy.json][template2]
 * [AzureDeploy.Parameters.js][parameters2]
 
-A diferença entre os dois modelos é o atributo **vmImageSku** ser definido como "18.04-LTS" e cada número de **nóHandlerVersion** ser definido para 1.1.
+Para Ubuntu 18.04 LTS a diferença entre os dois modelos são 
+* o atributo **vmImageSku** está a ser definido para "18.04-LTS"
+* cada nó de **mão-de-mão Versão** sendo definido para 1.1
+* Recursos Microsoft.ServiceFabric/clusters
+   - **apiVersão** sendo definido para "2019-03-01" ou superior
+   - **vmImage** propriedade sendo definida para "Ubuntu18_04"
 
 Este modelo implementa um cluster seguro de sete máquinas virtuais e três tipos de nós numa rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy.json][template] implementa vários recursos, incluindo os seguintes.
 
@@ -160,7 +165,7 @@ Certifique-se de que está ligado e que o cluster está em bom estado de funcion
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar incorrer em custos.
 

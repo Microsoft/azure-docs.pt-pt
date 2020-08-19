@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810416"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587570"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -65,14 +65,14 @@ O Azure Digital Twins .NET (C#) SDK faz parte do Azure SDK para .NET. É de cód
 > [!NOTE]
 > Para obter informações aprofundadas sobre o desenho da SDK, consulte os [princípios gerais de conceção dos SDKs Azure](https://azure.github.io/azure-sdk/general_introduction.html) e as diretrizes específicas de [design .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-Para utilizar o SDK, inclua o pacote NuGet **Azure.DigitalTwins.Core** com o seu projeto. Você também vai precisar do pacote **Azure.Identidade.**
+Para utilizar o SDK, inclua o pacote NuGet **Azure.DigitalTwins.Core** com o seu projeto. Também necessitará do pacote **Azure.Identity** (versão 1.1.1).
 
 * No Visual Studio, pode adicionar pacotes com o Gestor de Pacotes NuGet (acedido através *de Ferramentas > NuGet Package Manager > Gerir pacotes nuget para solução).* 
 * Utilizando a ferramenta linha de comando .NET, pode executar:
 
     ```cmd/sh
     dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-    dotnet add package Azure.identity
+    dotnet add package Azure.identity --version 1.1.1
     ```
 
 Para obter um walk-through detalhado da utilização das APIs na prática, consulte o [*Tutorial: Código de uma aplicação para clientes*](tutorial-code.md). 

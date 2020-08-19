@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/25/2020
-ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/14/2020
+ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086834"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587315"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ A SQL Managed Instance tem características e limites de recursos que dependem d
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| **Hardware** | Processadores Intel E5-2673 v3 (Haswell) 2.4-GHz, anexados SSD vCore = 1 PP (núcleo físico) | Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake), rápido NVMe SSD, vCore=1 LP (hiper-thread) |
+| **Hardware** | Processadores Intel® E5-2673 v3 (Haswell) 2.4 GHz, anexados SSD vCore = 1 PP (núcleo físico) | Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (Lago cascata) 2,5 GHz processadores, rápido NVMe SSD, vCore=1 LP (hiper-thread) |
 | **Número de vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Memória máxima (relação memória/núcleo)** | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
 | **Memória Max In-Memory OLTP** | Limite de instância: 1-1.5 GB por vCore| Limite de exemplo: 0.8 - 1.65 GB por vCore |
@@ -142,7 +142,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 |Tipo de subscrição| Número máximo de sub-redes sql de instância gerida | Número máximo de unidades vCore* |
 | :---| :--- | :--- |
-|Pay as you go|3|320|
+|Pay-as-you-go|3|320|
 |CSP |8 (15 em algumas regiões**)|960 (1440 em algumas regiões**)|
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|
@@ -150,9 +150,9 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 |Visual Studio Enterprise|2 |64|
 |Plataformas Visual Studio Professional e MSDN|2|32|
 
-\*Nas implementações de planeamento, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço De Finalidade Geral (GP). Por exemplo: 1 GP vCore = 1 vCore unit e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo em função dos limites predefinidos, resumir as unidades vCore em todas as sub-redes da região onde o SQL Managed Instance é implantado e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição. **O número máximo de unidades vCore** é aplicável a cada subscrição de uma região. Não existe limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser inferior ou igual ao **número máximo de unidades vCore**.
+\* Nas implementações de planeamento, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço De Finalidade Geral (GP). Por exemplo: 1 GP vCore = 1 vCore unit e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo em função dos limites predefinidos, resumir as unidades vCore em todas as sub-redes da região onde o SQL Managed Instance é implantado e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição. **O número máximo de unidades vCore** é aplicável a cada subscrição de uma região. Não existe limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser inferior ou igual ao **número máximo de unidades vCore**.
 
-\*\*Os limites de sub-rede e vCore de maiores dimensões estão disponíveis nas seguintes regiões: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central US, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Eua Ocidental 2.
+\*\* Os limites de sub-rede e vCore de maiores dimensões estão disponíveis nas seguintes regiões: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central US, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Eua Ocidental 2.
 
 > [!IMPORTANT]
 > Caso o seu vCore e o limite de sub-rede seja 0, significa que o limite regional padrão para o seu tipo de subscrição não está definido. Também pode utilizar o pedido de aumento de quota para obter acesso por subscrição em região específica seguindo o mesmo procedimento - fornecendo valores de vCore e sub-redes necessários.

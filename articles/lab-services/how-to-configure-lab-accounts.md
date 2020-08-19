@@ -2,28 +2,37 @@
 title: Configure o encerramento automático de VMs nos Serviços de Laboratório Azure
 description: Este artigo descreve como configurar o encerramento automático de VMs na conta de laboratório.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 783e3b310b3ad06f637453f0e1b11f6a78beec3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445819"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589809"
 ---
-# <a name="configure-automatic-shutdown-of-vms-on-disconnect-setting-for-a-lab-account"></a>Configure o encerramento automático de VMs na definição de desconexão para uma conta de laboratório
-Pode ativar ou desativar o encerramento automático dos VMs do laboratório do Windows (modelo ou estudante) depois de uma ligação remota de ambiente de trabalho ser desligada. Também pode especificar quanto tempo os Serviços de Laboratório devem esperar que o utilizador se reconecte antes de desligar automaticamente.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configure o encerramento automático de VMs para uma conta de laboratório
+
+Pode ativar várias funcionalidades de controlo de custos de paragem automática para evitar custos adicionais quando as máquinas virtuais não estão a ser utilizadas ativamente. A combinação das três funcionalidades de paragem e desconexão automáticas que se seguem captura a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
+ 
+- Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativas (apenas para o Windows).
+- Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam (Windows & Linux).
+- Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.
+
+Reveja mais detalhes sobre as funcionalidades de paragem automática no controlo de custos Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings)
 
 ## <a name="enable-automatic-shutdown"></a>Ativar o encerramento automático
 
-1. Na página **'Contas de Laboratório',** selecione **as definições de Laboratório** no menu esquerdo.
-2. Selecione as **máquinas virtuais desligar automaticamente quando os utilizadores desligarem** a opção.
-3. Especifique quanto tempo os Serviços de Laboratório devem esperar que o utilizador se reconecte antes de desligar automaticamente os VMs.
+1. No [portal Azure](https://portal.azure.com/) navegue para a página **de Conta de Laboratório.**
+1. Selecione **as definições** de Laboratório no menu esquerdo.
+1. Selecione a definição de paragem automática que é apropriada para o seu cenário.  
 
-    ![Definição automática de paragem na conta do laboratório](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Definição automática de paragem na conta do laboratório](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    
+    A configuração(s) aplica-se a todos os laboratórios criados na conta de laboratório. Um criador de laboratório (educador) pode anular esta definição ao nível do laboratório. A alteração desta definição na conta do laboratório só afetará os laboratórios que são criados após a alteração.
 
-    Esta definição aplica-se a todos os laboratórios criados na conta do laboratório. Um criador de laboratório (educador) pode anular esta definição ao nível do laboratório. A alteração desta definição na conta do laboratório só afetará os laboratórios que são criados após a alteração.
+    Para desativar a definição, desmarque a caixa de verificação nesta página. 
 
-    Para desativar esta definição, desmarque a caixa de verificação para as **máquinas virtuais de encerramento automática quando os utilizadores desligarem** a opção nesta página. 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
-Para saber como um dono de laboratório pode configurar ou sobrepor esta definição ao nível do laboratório, consulte [este artigo](how-to-enable-shutdown-disconnect.md)
+Para saber como um proprietário de laboratório pode configurar ou sobrepor esta definição ao nível do laboratório, consulte Ativar o [encerramento automático de VMs na desconexão](how-to-enable-shutdown-disconnect.md)

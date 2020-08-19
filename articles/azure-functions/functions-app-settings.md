@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242768"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589305"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -79,7 +79,7 @@ Na versão 2.x e versões posteriores do tempo de execução das Funções, conf
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-Na versão 2.x e versões posteriores do tempo de execução das Funções, as definições de aplicação podem [sobrepor-sehost.jsnas](functions-host-json.md) definições no ambiente atual. Estas sobreposições são expressas como configurações de aplicação denominada `AzureFunctionsJobHost__path__to__setting` . Para obter mais informações, consulte [a host.jssobre valores .](functions-host-json.md#override-hostjson-values)
+Na versão 2.x e versões posteriores do tempo de execução das Funções, as definições de aplicação podem [ sobrepor-sehost.jsnas](functions-host-json.md) definições no ambiente atual. Estas sobreposições são expressas como configurações de aplicação denominada `AzureFunctionsJobHost__path__to__setting` . Para obter mais informações, consulte [a host.jssobre valores .](functions-host-json.md#override-hostjson-values)
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -94,7 +94,7 @@ Cadeia de ligação de conta de armazenamento opcional para armazenar troncos e 
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`significa desativar a página de aterragem predefinida que é mostrada para o URL raiz de uma aplicação de função. A predefinição é `false`.
+`true` significa desativar a página de aterragem predefinida que é mostrada para o URL raiz de uma aplicação de função. A predefinição é `false`.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -106,7 +106,7 @@ Quando esta definição da aplicação é omitida ou definida para `false` , uma
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`significa utilizar o modo de desbloqueio ao compilar o código .NET; `false`significa usar o modo Debug. A predefinição é `true`.
+`true` significa utilizar o modo de desbloqueio ao compilar o código .NET; `false` significa usar o modo Debug. A predefinição é `true`.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -234,8 +234,8 @@ Apenas para consumo & Planos Premium. O caminho do ficheiro para o código e con
 
 O número máximo de casos a que a aplicação de função pode escalar. O padrão não é limite.
 
-> [!NOTE]
-> Esta definição é uma funcionalidade de pré-visualização - e só é fiável se definida para um valor <= 5
+> [!IMPORTANT]
+> Esta definição está em pré-visualização.  Foi adicionada uma propriedade de aplicativo para a escala máxima da [função](./functions-scale.md#limit-scale-out) e é a forma recomendada de limitar a escala.
 
 |Chave|Valor da amostra|
 |---|------------|

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
-ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 08/14/2020
+ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055232"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590069"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,15 +53,15 @@ As principais características da SQL Managed Instance são mostradas na tabela 
 |Funcionalidade | Descrição|
 |---|---|
 | Versão/construção do SQL Server | Motor de base de dados SQL Server (mais recente estável) |
-| Backups automatizados geridos | Sim |
-| Caso incorporado e monitorização e métricas de bases de dados | Sim |
-| Patching automático de software | Sim |
-| As mais recentes funcionalidades do motor da base de dados | Sim |
+| Backups automatizados geridos | Yes |
+| Caso incorporado e monitorização e métricas de bases de dados | Yes |
+| Patching automático de software | Yes |
+| As mais recentes funcionalidades do motor da base de dados | Yes |
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
-| VNet - Implementação do Gestor de Recursos Azure | Sim |
-| VNet - Modelo de implementação clássico | Não |
-| Suporte ao portal | Sim|
+| VNet - Implementação do Gestor de Recursos Azure | Yes |
+| VNet - Modelo de implementação clássico | No |
+| Suporte ao portal | Yes|
 | Serviço de Integração Incorporada (SSIS) | No - SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | No - SSAS é [paaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
 | Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospedeiro SSRS num Azure VM. Embora a SQL Managed Instance não possa executar o SSRS como um serviço, pode hospedar [bases de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatório instalado na Máquina Virtual Azure, utilizando a autenticação do SQL Server. |
@@ -73,8 +73,8 @@ O modelo de compra baseado em vCore para SQL Managed Instance [dá-lhe](../datab
 
 No modelo vCore, pode escolher entre gerações de hardware.
 
-- Os CPUs lógicos **da Gen4** são baseados em processadores Intel E5-2673 v3 (Haswell) 2.4-GHz, SSD anexados, núcleos físicos, 7 GB de RAM por núcleo e tamanhos de cálculo entre 8 e 24 vCores.
-- Os CPUs lógicos **da Gen5** baseiam-se em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake), rápidoS NVMe SSD, núcleo lógico hiper-roscado e tamanhos de computação entre 4 e 80 núcleos.
+- Os CPUs lógicos **da Gen4** são baseados em processadores Intel® E5-2673 v3 (Haswell) 2.4 GHz, SSD anexados, núcleos físicos, 7 GB de RAM por núcleo, e tamanhos de cálculo entre 8 e 24 vCores.
+- Os CPUs lógicos **da Gen5** são baseados em processadores Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (Lago cascata) 2,5 GHz processadores, rápidoS SSD, núcleo lógico hiper roscado e tamanhos de computação entre 4 e 80 núcleos.
 
 Encontre mais informações sobre a diferença entre gerações de hardware nos [limites de recursos sql Managed Instance](resource-limits.md#hardware-generation-characteristics).
 

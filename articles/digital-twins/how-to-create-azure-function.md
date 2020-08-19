@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124311"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589406"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre isto, consulte [*o gatilho da Grelha de Even
 
 A aplicação de função interage com a Azure Digital Twins utilizando a [biblioteca de clientes Azure IoT Digital Twin para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Para utilizar o SDK, terá de incluir os seguintes pacotes no seu projeto:
 * `Azure.DigitalTwins.Core``1.0.0-preview.2`(versão)
-* `Azure.Identity`
+* `Azure.Identity``1.1.1`(versão)
 
 Para a configuração do gasoduto Azure SDK para configurar corretamente para funções Azure, também necessitará:
 * `Azure.Net.Http`
