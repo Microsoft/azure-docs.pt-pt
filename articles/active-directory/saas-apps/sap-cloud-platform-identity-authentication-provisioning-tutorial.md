@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar a autenticação de identidade da plataforma de nuvem SAP para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para fornecimento e desaconsevisionamento automática de contas de utilizadores à Autenticação de Identidade da Plataforma CLOUD SAP.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: f49b5738-c769-403b-8f29-84ddeea7fbf1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 534d75a5b9009f0febee2746179ab7357a4985e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c330d8000825b2e0ccbdab8c5c1cdefa4d3d45c8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732876"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543379"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação de identidade da plataforma de nuvem SAP para o fornecimento automático de utilizadores
 
@@ -163,7 +159,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Segmento / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Segment.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 20061270-c9d2-4ca7-a913-32d6fc67f209
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ceaba9c71f749a80391ef3288bf37350e44e1f9
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 1fa8f6f0382312951905476ad6fee06e180c6f35
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101950"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543150"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutorial: Azure Ative Directy integração única (SSO) com Segmento
 
@@ -85,13 +81,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:`https://app.segment.com`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://app.segment.com`
 
     > [!NOTE]
     > Estes valores são espaços reservados. Você precisa usar o identificador real, URL de resposta e URL de inscrição. Os passos para obter estes valores são descritos mais tarde neste tutorial.
@@ -180,9 +176,9 @@ Quando clicar no azulejo do Segmento no Painel de Acesso, deverá ser automatica
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

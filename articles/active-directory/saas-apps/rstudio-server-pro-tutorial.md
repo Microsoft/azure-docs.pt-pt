@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com RStudio Server Pro Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o RStudio Server Pro.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 457ce95e-bf6e-46b2-85ae-c512687c3158
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1988468ba9cfd056b3b760652fb56f3166431f9d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e3d88404079d3d4285c0011f914f6ad5f76d1743
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87514482"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rstudio-server-pro"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com RStudio Server Pro
 
@@ -83,13 +79,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/metadata`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/metadata`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/acs`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/acs`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.rstudioservices.com`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.rstudioservices.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a equipa de [suporte do RStudio Server Pro para](mailto:support@rstudio.com) obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -108,7 +104,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -144,9 +140,9 @@ Quando clicar no azulejo RStudio Server Pro no Painel de Acesso, deverá ser aut
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

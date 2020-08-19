@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o ServiceNow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507748"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -98,9 +94,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **De Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Em **Iniciar sção no URL,** introduza um URL que utiliza o seguinte padrão:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. Em **Iniciar sção no URL,** introduza um URL que utiliza o seguinte padrão: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
-    b. No **Identificador (ID da entidade)**, introduza um URL que utiliza o seguinte padrão:`https://<instance-name>.service-now.com`
+    b. No **Identificador (ID da entidade)**, introduza um URL que utiliza o seguinte padrão: `https://<instance-name>.service-now.com`
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
@@ -170,9 +166,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Na secção **De Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Para **iniciar s placar no URL,** introduza um URL que utiliza o seguinte padrão:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. Para **iniciar s placar no URL,** introduza um URL que utiliza o seguinte padrão: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
-    b. Para **identificador (ID de entidade)**, introduza um URL que utiliza o seguinte padrão:`https://<instance-name>.service-now.com`
+    b. Para **identificador (ID de entidade)**, introduza um URL que utiliza o seguinte padrão: `https://<instance-name>.service-now.com`
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
@@ -250,7 +246,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. Inscreva-se na sua aplicação ServiceNow como administrador.
 
-       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos:
+       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos.
 
          1. No painel esquerdo, procure a secção **SSO multi-fornecedor** da caixa de pesquisa e selecione **Fornecedores de Identidade**.
 
@@ -296,7 +292,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
              > ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
         
-          1. Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e **selecione Ativar**.
+          1. Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e  **selecione Ativar**.
 
              ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
   
@@ -353,7 +349,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
           > ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
 
-        * Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e **selecione Ativar**.
+        * Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e  **selecione Ativar**.
 
           ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a020163347babfc68ac9aab0514352a35f5831c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72931758"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542943"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderado com listas de imagem personalizadas em C #
 
@@ -34,7 +34,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 A aplicação da consola para este guia simula algumas das tarefas que pode executar com a lista de imagens API.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Inscrever-se nos serviços do Content Moderator
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e campos com os valores do URL final e chave de subscrição. Pode encontrá-los no **separador De arranque rápido** do seu recurso no portal Azure.
+Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize os `AzureEndpoint` campos e os campos com os `CMSubscriptionKey` valores do URL do ponto final e da chave de subscrição. Pode encontrá-las no separador **Início Rápido** do seu recurso no portal Azure.
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Criar um método para adicionar uma coleção de imagens à lista
 
-Adicione o seguinte método à classe **Programa**. Este guia não demonstra como aplicar etiquetas a imagens na lista. 
+Adicione o seguinte método à classe **Programa**. Este guia não demonstra como aplicar tags em imagens da lista. 
 
 ```csharp
 /// <summary>

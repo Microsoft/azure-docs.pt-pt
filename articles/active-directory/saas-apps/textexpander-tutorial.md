@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com TextExpander Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o TextExpander.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 53e6727c-58b6-48dd-95d7-cece80884bd3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aecb235006752096c6040066cb9b96fcfa709363
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ab9cd2e8a5c657b7a71bc6e2996ba99678046e2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167254"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541651"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textexpander"></a>Tutorial: Azure Ative Directory integração única (SSO) com TextExpander
 
@@ -84,9 +80,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://app.textexpander.com/acs/<ORGID>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://app.textexpander.com/acs/<ORGID>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.textexpander.com/acs/<ORGID>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://app.textexpander.com/acs/<ORGID>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente TextExpander](mailto:support@smilesoftware.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -97,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação TextExpander espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---- | --------------- |
     | e-mail | user.email |
     | nomePróprio | user.givenname |
@@ -157,9 +153,9 @@ Quando clicar no azulejo TextExpander no Painel de Acesso, deverá ser automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

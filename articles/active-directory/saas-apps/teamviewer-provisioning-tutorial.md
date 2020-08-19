@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar TeamViewer para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
 description: Saiba como provisão e desa provisionamento automaticamente de contas de utilizador do Azure AD para o TeamViewer.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 73dd5494-f572-42bb-9071-d599361b9bd7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd455f3149fea4240d393d69b2e39b9247edc0a3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7cb83b53b6516de58c99859f3a0d4c9122b78322
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920289"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542178"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configurar o TeamViewer para o fornecimento automático de utilizadores
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Configure Elium para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao Elium.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058496"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544235"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configure Elium para o fornecimento automático de utilizadores
 
@@ -153,6 +149,6 @@ Utilize a secção **Estado Atual** para monitorizar o progresso e seguir links 
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

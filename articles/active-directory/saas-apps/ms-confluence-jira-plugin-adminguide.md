@@ -2,25 +2,21 @@
 title: Guia de administração Atlassian Jira/Confluence - Azure Ative Directory Microsoft Docs
 description: Guia de administração para usar Atlassian Jira e Confluence com Azure Ative Directory (Azure AD)..
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5884685f12c4697558a008287f446e52e5105d3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016790"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543987"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
 
@@ -147,7 +143,7 @@ A imagem a seguir mostra o ecrã de configuração tanto em Jira como confluênc
 
 * **Pretende desativar o WebSudo (desative a sessão de administrador seguro)**:
 
-  * Para jira, as sessões de administrador segura (isto é, confirmação de senha antes de aceder às funções de administração) são ativadas por padrão. Se pretender remover esta capacidade no seu caso Jira, especifique a seguinte linha no seu ficheiro jira-config.properties:`jira.websudo.is.disabled = true`
+  * Para jira, as sessões de administrador segura (isto é, confirmação de senha antes de aceder às funções de administração) são ativadas por padrão. Se pretender remover esta capacidade no seu caso Jira, especifique a seguinte linha no seu ficheiro jira-config.properties: `jira.websudo.is.disabled = true`
 
   * Para a Confluence, siga os passos no [local de apoio à Confluência.](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)
 

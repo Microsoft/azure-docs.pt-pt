@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores com diretório Azure Ative / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desaparamento de contas de utilizador ao ERP da Oracle Fusion.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 08a82be5a11ba7b81cd1939fc5b386c161c43480
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad6b24c4bbfc2e117c010b99247cb8eb9925ff3e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77061204"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543827"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores
 
@@ -173,6 +169,6 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

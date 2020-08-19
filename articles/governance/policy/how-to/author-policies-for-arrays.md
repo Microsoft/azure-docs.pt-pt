@@ -1,14 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matrizes em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas de matriz, avalie o pseudónimo [*] e apedguia elementos com regras de definição de Política de Azure.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3ba5179ca7acc60042d23e88d42a504d4d05f08
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684249"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544592"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matrizes em recursos Azure
 
@@ -183,7 +183,7 @@ Para cada exemplo de condição abaixo, `<field>` substitua por `"field": "Micro
 
 Os seguintes resultados são o resultado da combinação da condição e da regra da política de exemplo e da matriz dos valores existentes acima:
 
-|Condição |Resultado | Scenario |Explicação |
+|Condição |Resultado | Cenário |Explicação |
 |-|-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Nenhumas |Nenhum combina |Um elemento de matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **notEquals** é _falsa_ e o efeito não é acionado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito político |Nenhum combina |Ambos os elementos de matriz avaliam como verdadeiros (10.0.4.1 != 127.0.0.1 e 10.0.4.1 != 192.168.1.1,1), pelo que a condição **notEquals** é _verdadeira_ e o efeito é desencadeado. |
@@ -203,7 +203,7 @@ O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferen
 
 Para mais informações, consulte os exemplos do [apêndice.](../concepts/effects.md#append-examples)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

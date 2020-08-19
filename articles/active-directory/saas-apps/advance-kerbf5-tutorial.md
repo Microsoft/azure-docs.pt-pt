@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única com F5 / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9c5fb47a-1c5d-437a-b4c1-dbf739eaf5e3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e9a112f3f8cb7ba22201f4e5f05f21af30df039
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018657"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542987"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory (AD) integração única (SSO) com F5
 
@@ -89,13 +84,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -118,7 +113,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -188,9 +183,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     >[!Note]
     >Necessitará da Conta delegação de Kerberos para ser criada e especificada. Consulte a secção KCD (consulte o apêndice para referências variáveis)
 
-    • Nome de utilizador Fonte`session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    • Nome de utilizador Fonte  `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    • Origem do Reino do Utilizador`session.logon.last.domain`
+    • Origem do Reino do Utilizador  `session.logon.last.domain`
 
     ![Configuração F5 (Kerberos Avançados)](./media/advance-kerbf5-tutorial/configure11.png)
 
@@ -328,9 +323,9 @@ Quando clicar no azulejo F5 no Painel de Acesso, deverá ser automaticamente ins
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

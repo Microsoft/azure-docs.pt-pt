@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Templafy SAML2 Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Templafy SAML2.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 60c6153e-2d9d-4a56-809d-4a7a9d677c43
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5eee56509eb10a2c51c168d432803af75bf46a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cff461ba2d463e88d0d5ba1943f789614aa5afa9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482705"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541872"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>Tutorial: Azure Ative Directory integração única (SSO) com templafy SAML2
 
@@ -82,7 +78,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<CLIENTSUBDOMAIN>.templafy.com`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<CLIENTSUBDOMAIN>.templafy.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente Templafy SAML2](mailto:support@templafy.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -161,9 +157,9 @@ Quando clicar no azulejo TEMplafy SAML2 no Painel de Acesso, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

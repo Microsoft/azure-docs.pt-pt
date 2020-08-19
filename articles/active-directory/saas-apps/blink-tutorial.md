@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Blink / Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Blink.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6a7c17d6-addc-4df0-bb52-283f7790bca0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04002cb62190addac2c3d71e320501846c873c87
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 089a4a2a8185251850d303fb9b7e9225c82c05f0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799671"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542722"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutorial: Azure Ative Directory integração única (SSO) com Blink
 
@@ -90,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     https://<SUBDOMAIN>.joinblink.com
     ```
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://api.joinblink.com/saml/o-<TENANTID>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://api.joinblink.com/saml/o-<TENANTID>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Blink](https://help.joinblink.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -174,9 +169,9 @@ Quando clicar no azulejo blink no Painel de Acesso, deverá ser automaticamente 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

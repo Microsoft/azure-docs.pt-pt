@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Aha! | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Aha!.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ad955d3d-896a-41bb-800d-68e8cb5ff48d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75b5e0604c4fe9b0c879a89598c0d00ba1ff2f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018429"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542858"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integrar Aha! com O Diretório Ativo Azure
 
@@ -86,9 +81,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<companyname>.aha.io/session/new`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.aha.io/session/new`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<companyname>.aha.io`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<companyname>.aha.io`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contate [Aha! Equipa de apoio](https://www.aha.io/company/contact) ao cliente para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -111,7 +106,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
     1. No campo **Nome**, introduza `B.Simon`.  
     1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
     1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-    1. Clique em **Create** (Criar).
+    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -183,9 +178,9 @@ Quando clicar no Aha! azulejo no Painel de Acesso, deverá ser automaticamente i
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

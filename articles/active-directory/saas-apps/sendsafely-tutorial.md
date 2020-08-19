@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com SendSafely Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o SendSafely.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5ac4d4b9-8e52-4dae-a767-041684dc7db0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e71dc45eb2d8cdc2c016d564efd53a42a44e95
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 36d075ea84ef42be27520a9ad33d8d4b1ffa8218
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85813944"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543130"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendsafely"></a>Tutorial: Azure Ative Directory integração única (SSO) com SendSafely
 
@@ -85,15 +81,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<SENDSAFELY_URL>/auth/saml2/`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SENDSAFELY_URL>/auth/saml2/`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SENDSAFELY_URL>/auth/saml2/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SENDSAFELY_URL>/auth/saml2/`
 
 1. Clique **em Definir URLs adicionais** e execute os seguintes passos se desejar configurar a aplicação no modo iniciado **sp:**
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<SENDSAFELY_URL>/auth/`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<SENDSAFELY_URL>/auth/`
 
-    b. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão:`https://<SENDSAFELY_URL>/auth/saml2/`
+    b. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://<SENDSAFELY_URL>/auth/saml2/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta, URL de inscrição e Estado de retransmissão. Contacte [a equipa de suporte do Cliente SendSafely](mailto:support@sendsafely.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -152,9 +148,9 @@ Quando clicar no azulejo SendSafely no Painel de Acesso, deverá ser automaticam
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

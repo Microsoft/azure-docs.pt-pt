@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Brightspace by Desire2Learn Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Brightspace by Desire2Learn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e14ad53ad613e7cbc6631707b79f607cd39b3791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e212b8c72a8cf7000a2789034f3ee83a5a0c9cda
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018490"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Azure Ative Directory com Brightspace by Desire2Learn
 
@@ -116,7 +111,7 @@ Para configurar o único sign-on Ad Ad ad com Brightspace by Desire2Learn, execu
     https://<companyname>.desire2learn.com/shibboleth-sp
     ```
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente Desire2Learn](https://www.d2l.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -162,7 +157,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

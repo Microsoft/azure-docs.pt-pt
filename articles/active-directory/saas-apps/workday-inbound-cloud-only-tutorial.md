@@ -3,23 +3,19 @@ title: 'Tutorial: Configurar o provisionamento de entrada no Azure Ative Directo
 description: Saiba como configurar o provisionamento de entrada de Workday a Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: fac4f61e-d942-4429-a297-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 6fb80af84379a1a0bc174a7318c8150a98bea95e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041814"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540971"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o Workday para o provisionamento do utilizador Azure AD
 O objetivo deste tutorial é mostrar os passos necessários para a disponibilização de dados dos trabalhadores do Workday para o Azure Ative Directory. 
@@ -111,7 +107,7 @@ As secções seguintes descrevem passos para configurar o fornecimento do utiliz
 
 8. Preencha a secção **credenciais de administração** da seguinte forma:
 
-   * **Nome de utilizador do dia útil** – Introduza o nome de utilizador da conta do sistema de integração workday, com o nome de domínio do inquilino anexado. Deve parecer algo como:username@contoso4
+   * **Nome de utilizador do dia útil** – Introduza o nome de utilizador da conta do sistema de integração workday, com o nome de domínio do inquilino anexado. Deve parecer algo como: username@contoso4
 
    * **Senha do dia de trabalho -** Introduza a palavra-passe da conta do sistema de integração workday
 
@@ -119,9 +115,9 @@ As secções seguintes descrevem passos para configurar o fornecimento do utiliz
    
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>
@@ -156,7 +152,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de Workday 
 
       * Operador: NÃO É NULO
 
-3. No campo **Target Object Actions,** pode filtrar globalmente as ações que são executadas no Azure AD. **Criar** e **Atualizar** são mais comuns.
+3. No campo **Target Object Actions,** pode filtrar globalmente as ações que são executadas no Azure AD. **Criar**  e **Atualizar** são mais comuns.
 
 4. Na secção **de mapeamentos do Atributo,** pode definir como o mapa individual do Dia de Trabalho atribui o mapa aos atributos do Ative Directory.
 
@@ -210,7 +206,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre atributos de trabalho suportados para o provisionamento de entrada](../app-provisioning/workday-attribute-reference.md)
 * [Saiba como configurar o Writeback workday](workday-writeback-tutorial.md)

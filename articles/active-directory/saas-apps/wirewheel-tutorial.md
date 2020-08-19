@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o WireWheel Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o WireWheel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 496c9647-03d5-4f5a-b8d7-6503ba1e94b9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07088e3ebda17e1bf5605009229e7566c070a7ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a38521a0245f476dc2421245cf4fa5fa0c740e26
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038386"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wirewheel"></a>Tutorial: Azure Ative Directory integração única (SSO) com o WireWheel
 
@@ -84,13 +80,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<ENVIRONMENT_NAME>.wirewheel.io/sso/<CUSTOM_IDENTIFIER>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<ENVIRONMENT_NAME>.wirewheel.io/sso/<CUSTOM_IDENTIFIER>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<ENVIRONMENT_NAME>.wirewheel.io/sso/<CUSTOM_IDENTIFIER>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<ENVIRONMENT_NAME>.wirewheel.io/sso/<CUSTOM_IDENTIFIER>`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<ENVIRONMENT_NAME>.wirewheel.io/auth`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<ENVIRONMENT_NAME>.wirewheel.io/auth`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente WireWheel](mailto:support@wirewheel.io) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -149,9 +145,9 @@ Quando clicar no azulejo WireWheel no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

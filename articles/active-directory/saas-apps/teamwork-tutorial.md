@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Teamwork.com Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Teamwork.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62bdc0f23f6769dca9914381a81674e470e695d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad0fa25b07448c291e5c6c0f591b43b8d2f3ba65
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167781"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Diretório Ativo Azure com Teamwork.com
 
@@ -106,7 +101,7 @@ Para configurar o Azure AD com Teamwork.com, execute os seguintes passos:
 
     ![Teamwork.com Informações de assinatura única do domínio e URLs](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<company name>.teamwork.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<company name>.teamwork.com`
 
     b. Na caixa de texto **identifier (Entity ID),** digite o URL:
 

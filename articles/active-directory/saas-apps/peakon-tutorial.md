@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Peakon Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Peakon.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 94f8e80c7c5cb13646fbd284f2a2d7b2f6308614
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017181"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Diretório Ativo Azure com Peakon
 
@@ -108,15 +104,15 @@ Para configurar o Azure AD single sign-on com Peakon, execute os seguintes passo
 
     ![Informações de sign-on de Domínio Peakon e URLs](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://app.peakon.com/saml/<companyid>/metadata`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.peakon.com/saml/<companyid>/assert`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/assert`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     ![Informações de sign-on de Domínio Peakon e URLs](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL:`https://app.peakon.com/login`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.peakon.com/login`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -165,7 +161,7 @@ Para configurar o Azure AD single sign-on com Peakon, execute os seguintes passo
 
     e. Clique no **ícone** para copiar o **URL de resposta (ACS)** e cole na caixa de texto **URL resposta** na secção **de configuração SAML básica** no portal Azure.
 
-    f. Clique em **Guardar**
+    f. Clicar em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -190,7 +186,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

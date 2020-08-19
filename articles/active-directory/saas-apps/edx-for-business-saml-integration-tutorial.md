@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com o edX para integração saml de negócios / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o edX para integração saml de negócios.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e00001b6-a8af-4547-976a-68d1c41d374c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f396b42e7221863c386ce43cc7350cdbdc338f53
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 1e1ec1dc4d6982194fc10a8701629adba2c8b24c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608718"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544318"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutorial: Azure Ative Directy integração única (SSO) com edX para integração SAML de negócios
 
@@ -84,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://courses.edx.org/dashboard?tpa_hint=<INSTANCE_NAME>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://courses.edx.org/dashboard?tpa_hint=<INSTANCE_NAME>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente de integração de negócios SAML](mailto:api-support@edx.org) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -148,9 +144,9 @@ Quando clicar no azulejo edX para integração saml de negócios no Painel de Ac
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

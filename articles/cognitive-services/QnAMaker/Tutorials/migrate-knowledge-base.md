@@ -3,12 +3,12 @@ title: Bases de conhecimento migram - QnA Maker
 description: Migrar uma base de conhecimento requer exportar de uma base de conhecimento, e depois importar para outra.
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e2d6c1795b816d3b7ac046ea4055402b9107e20b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4148431ebb4de288ac517c7c006a925e36c5f460
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343093"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542926"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de conhecimentos utilizando a importação de exportação
 
@@ -22,7 +22,7 @@ Migrar uma base de conhecimento requer exportar de uma base de conhecimento exis
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 * Configurar um novo [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrar uma base de conhecimento da QnA Maker
@@ -67,7 +67,7 @@ Alterações insensíveis a casos (sinónimos) não são importadas automaticame
 
 Não há forma de migrar registos de chat, uma vez que a nova base de conhecimento utiliza Insights de Aplicação para armazenar registos de chat.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Editar uma base de dados de conhecimento](../How-To/edit-knowledge-base.md)

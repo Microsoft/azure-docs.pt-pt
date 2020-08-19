@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Lifesize Cloud Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Lifesize Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a41fe75975537a54ae142034f74a613731736525
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051252"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com a Nuvem Lifesize
 
@@ -111,13 +106,13 @@ Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguint
 
     ![Informações de súmis de nuvem e URLs de tamanho real](common/sp-identifier-relay.png)
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://login.lifesizecloud.com/ls/?acs`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://login.lifesizecloud.com/ls/?acs`
 
-    b. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://login.lifesizecloud.com/<companyname>`
+    b. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://login.lifesizecloud.com/<companyname>`
 
     c. Clique **em URLs adicionais .**
 
-    d. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão:`https://webapp.lifesizecloud.com/?ent=<identifier>`
+    d. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://webapp.lifesizecloud.com/?ent=<identifier>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o Estado de identificação e retransmissão. Contacte a equipa de [suporte do Cliente Lifesize Cloud](https://www.lifesize.com/en/support) para obter os valores de URL de Inscrição e Identifier e pode obter o valor do Estado de Retransmissão a partir da Configuração SSO que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -158,11 +153,11 @@ Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguint
 
     c. Abra o certificado codificado base-64 no bloco de notas descarregado do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o para a caixa de texto **do Certificado X.509.**
   
-    d. Nos mapeamentos do atributo SAML para a caixa de texto do primeiro nome insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    d. Nos mapeamentos do atributo SAML para a caixa de texto do primeiro nome insira o valor como `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    e. No mapeamento do atributo SAML para a caixa de texto **do último nome** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    e. No mapeamento do atributo SAML para a caixa de texto **do último nome** insira o valor como `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
-    f. No mapeamento do atributo SAML para a caixa de texto **de email** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    f. No mapeamento do atributo SAML para a caixa de texto **de email** insira o valor como `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 5. Para verificar a configuração pode clicar no botão **Teste.**
 
@@ -196,7 +191,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

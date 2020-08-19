@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a SAML SSO para jira pela Resolução GmbH Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SAML SSO para a Jira por resolução GmbH.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146577"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Jira por resolução GmbH
 
@@ -106,15 +101,15 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
     ![SAML SSO para Jira por resolução GmbH Domain e URLs informações únicas de súmito](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<server-base-url>/plugins/servlet/samlsso`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<server-base-url>/plugins/servlet/samlsso`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo, se desejar configurar a aplicação no modo **iniciado** SP:
 
     ![SAML SSO para Jira por resolução GmbH Domain e URLs informações únicas de súmito](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<server-base-url>/plugins/servlet/samlsso`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
     > Para o Identificador, URL de resposta e URL de inscrição, substitua **\<server-base-url>** o URL base da sua instância Jira. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure. Se tiver algum problema, contacte-nos na [SAML SSO para a Jira através da resolução da equipa de apoio ao cliente da GmbH.](https://www.resolution.de/go/support)
@@ -275,7 +270,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na SAML SSO para a Ji
 
     ![Adicionar Empregado](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador: <b>BrittaSimon@contoso.com</b> .
+    a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador:  <b>BrittaSimon@contoso.com</b> .
 
     b. Na caixa de texto **'Nome Completo',** escreva o nome completo do utilizador: **Britta Simon**.
 

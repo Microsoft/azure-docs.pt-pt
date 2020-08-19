@@ -2,26 +2,22 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Terraform Enterprise Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Terraform Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: de2bd4d8-bee4-4580-97a4-47c7738babba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0ded683750823894a41f5349765d60e556bb8fa6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea3dc98c6a86b4ce7723790fe048c43d31581000
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016281"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-enterprise"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Terraform Enterprise
 
@@ -84,9 +80,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<TFE HOSTNAME>/session`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<TFE HOSTNAME>/session`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<TFE HOSTNAME>/users/saml/metadata`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<TFE HOSTNAME>/users/saml/metadata`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Da Terraform Enterprise](https://support.hashicorp.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -109,7 +105,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -145,9 +141,9 @@ Quando clicar no azulejo da Empresa Terraform no Painel de Acesso, deverá ser a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

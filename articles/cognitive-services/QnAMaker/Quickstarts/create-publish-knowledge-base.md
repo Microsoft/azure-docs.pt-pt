@@ -3,12 +3,12 @@ title: 'Quickstart: Criar, treinar e publicar base de conhecimento - QnA Maker'
 description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. Este artigo inclui um exemplo de criação de uma base de conhecimento QnA Maker a partir de uma página web simples de FAQ, para responder a perguntas QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340594"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540759"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -17,7 +17,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 > * Um [recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker criado no portal Azure. Lembre-se do seu ID, Subscrição, nome de recurso QnA do Azure Ative que selecionou quando criou o recurso.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Crie a sua primeira base de conhecimento qnA Maker
@@ -42,10 +42,10 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     |Definição|Valor|
     |--|--|
-    |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Assinalado|
+    |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Marcado|
     |**Texto de resposta predefinido**| `Quickstart - default answer not found.`|
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
-    |**Chit-chat**|Selecione **Profissional**|
+    |**Conversa**|Selecione **Profissional**|
 
 1. No **passo 5**, selecione **Criar o seu KB**.
 
@@ -145,7 +145,7 @@ Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou lim
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)
