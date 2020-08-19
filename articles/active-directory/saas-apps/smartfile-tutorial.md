@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o SmartFile Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SmartFile.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 25610bd7-8943-4e04-8cbb-5e90ff3c054d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7297b79dfd376edaa5407dee68b85ccc69c8b860
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49e2ccee92d893a5a74520b286cf416035311f7c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016671"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Tutorial: Integração do Azure Ative Directory com o SmartFile
 
@@ -109,9 +104,9 @@ Para configurar o Azure AD com o SmartFile, execute os seguintes passos:
 
     ![SmartFile Domain e URLs informações únicas de súmis](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.smartfile.com/ftp/login`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.smartfile.com/ftp/login`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`<SUBDOMAIN>.smartfile.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `<SUBDOMAIN>.smartfile.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -157,7 +152,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

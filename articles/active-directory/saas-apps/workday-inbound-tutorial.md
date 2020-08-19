@@ -3,24 +3,19 @@ title: 'Tutorial: Configurar o Dia de Trabalho para o provisionamento automátic
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionamento de contas de utilizador para o Workday.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245352"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527813"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -395,8 +390,8 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
    
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
@@ -499,11 +494,11 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 | ---------- | ---------- | ---------- | ---------- |
 | **TrabalhadorID**  |  EmployeeID | **Sim** | Escrito apenas na criação |
 | **Natalmelível FavoritoData**    |  cn    |   |   Escrito apenas na criação |
-| **SelectUniqueValue( \@ Join(" Join(".", \[ FirstName \] , \[ LastName \] , "contoso.com"), \@ Join(" Join(".", Mid( \[ FirstName, \] 1, \[ LastName), \] "contoso.com"), Join(" \@ Join(".", Mid( \[ FirstName, \] 1, 2), \[ \] LastName), "contoso.com"))**   | userPrincipalName     |     | Escrito apenas na criação 
+| **SelectUniqueValue( \@ Join(" Join(".",  \[ FirstName \] , \[ LastName \] , "contoso.com"), \@ Join(" Join(".", Mid( \[ FirstName, \] 1, \[ LastName), \] "contoso.com"), Join(" \@ Join(".", Mid( \[ FirstName, \] 1, 2), \[ \] LastName), "contoso.com"))**   | userPrincipalName     |     | Escrito apenas na criação 
 | `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Escrito apenas na criação |
 | **Switch( \[ Ative , " \] 0", "True", "1", "False")** |  contadisável      |     | Criar + atualização |
-| **Primeiro Nome**   | nomeDado       |     |    Criar + atualização |
-| **Último Nome**   |   sn   |     |  Criar + atualização |
+| **FirstName**   | nomeDado       |     |    Criar + atualização |
+| **LastName**   |   sn   |     |  Criar + atualização |
 | **Natalmelível FavoritoData**  |  displayName |     |   Criar + atualização |
 | **Empresa**         | empresa   |     |  Criar + atualização |
 | **SupervisãoOrganização**  | departamento  |     |  Criar + atualização |
@@ -515,7 +510,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 | **CountryReferenceTwoLetter**    |  c  |     |         Criar + atualização |
 | **Conferência CountryRegionReference** |  SC     |     | Criar + atualização |
 | **WorkSpaceReference** | físicoDeliveryOfficeName    |     |  Criar + atualização |
-| **CódigoPostal**  |   código postal  |     | Criar + atualização |
+| **PostalCode**  |   código postal  |     | Criar + atualização |
 | **Telefone primaryWorkTelephone**  |  número de telefone   |     | Criar + atualização |
 | **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualização |
 | **Móvel**  |    dispositivo móvel       |     |       Criar + atualização |
@@ -533,7 +528,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no arrendatário do Workday. 
 
@@ -776,7 +771,7 @@ A solução atualmente não suporta a definição de atributos binários, tais c
 
 Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócio, cidade ou país/região.
 
-* Cada atributo Workday é recuperado usando uma expressão API XPATH subjacente, que é configurável em **Atributo Mapping -> Secção Avançada -> Editar lista de atributos para Workday**. Aqui está a expressão padrão XPATH API para Workday *PreferredFirstName*, *PreferredLastName*, *Atributos de Organização de Empresa* e *Supervisão.*
+* Cada atributo Workday é recuperado usando uma expressão API XPATH subjacente, que é configurável em  **Atributo Mapping -> Secção Avançada -> Editar lista de atributos para Workday**. Aqui está a expressão padrão XPATH API para Workday *PreferredFirstName*, *PreferredLastName*, *Atributos de Organização de Empresa* e *Supervisão.*
 
      | Atributo workday | Expressão XPATH da API |
      | ----------------- | -------------------- |
@@ -806,7 +801,7 @@ Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* par
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
-    Uma vez que tenha a expressão certa, edite a tabela De Mapeamentos de Atributos e modifique o mapeamento do atributo *displayName* como mostrado abaixo: ![ DisplayName Mapping](./media/workday-inbound-tutorial/wd_displayname_map.png)
+    Uma vez que tenha a expressão certa, edite a tabela De Mapeamentos de Atributos e modifique o mapeamento do atributo *displayName* como mostrado abaixo:   ![ DisplayName Mapping](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
 * Estendendo o exemplo acima, digamos que gostaria de converter nomes da cidade vindos do Workday em valores de abreviação e depois usá-lo para construir nomes de exibição como *Smith, John (CHI)* ou *Doe, Jane (NYC)*, então este resultado pode ser alcançado usando uma expressão Switch com o atributo *Workday Município* como a variável determinante.
 
@@ -988,7 +983,7 @@ Esta secção abrange erros geralmente vistos com o fornecimento de utilizadores
 
 |#|Cenário de erro |Causas Prováveis|Resolução Recomendada|
 |--|---|---|---|
-|1.| Erro na instalação do agente de provisionamento com mensagem de erro: *O Serviço 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) não foi iniciado. Verifique se tem privilégios suficientes para iniciar o sistema.* | Este erro geralmente aparece se estiver a tentar instalar o agente de provisionamento num controlador de domínio e a política de grupo impede o início do serviço.  Também é visto se tem uma versão anterior do agente em execução e não o desinstalou antes de iniciar uma nova instalação.| Instale o agente de provisionamento num servidor não-DC. Certifique-se de que as versões anteriores do agente estão desinstaladas antes de instalar o novo agente.|
+|1.| Erro na instalação do agente de provisionamento com mensagem de erro:  *O Serviço 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) não foi iniciado. Verifique se tem privilégios suficientes para iniciar o sistema.* | Este erro geralmente aparece se estiver a tentar instalar o agente de provisionamento num controlador de domínio e a política de grupo impede o início do serviço.  Também é visto se tem uma versão anterior do agente em execução e não o desinstalou antes de iniciar uma nova instalação.| Instale o agente de provisionamento num servidor não-DC. Certifique-se de que as versões anteriores do agente estão desinstaladas antes de instalar o novo agente.|
 |2.| O Windows Service 'Microsoft Azure AD Connect Provisioning Agent' encontra-se no estado *inicial* e não muda para o estado *de funcionamento.* | Como parte da instalação, o assistente de agente cria uma conta local (**NT Service \\ AADConnectProvisioningAgent**) no servidor e esta é a conta de início de súm em dia útil utilizada para iniciar o serviço. Se uma política de segurança no seu servidor Windows impedir que as contas locais executem os serviços, encontrará este erro. | Abra a *consola Serviços.* Clique no botão direito no Serviço do Windows 'Microsoft Azure AD Connect Provisioning Agent' e no separador logon especificar a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
 |3.| Ao configurar o agente de provisionamento com o seu domínio AD no degrau *Connect Ative Directory*, o assistente demora muito tempo a tentar carregar o esquema de AD e, eventualmente, a esgotar-se. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | No ecrã do assistente do *Diretório Ativo Connect,* ao mesmo tempo que fornece as credenciais para o seu domínio AD, existe uma opção chamada *Prioridade do controlador de domínio Select*. Utilize esta opção para selecionar um controlador de domínio que esteja no mesmo site que o servidor do agente e certifique-se de que não existem regras de firewall que bloqueiem a comunicação. |
 

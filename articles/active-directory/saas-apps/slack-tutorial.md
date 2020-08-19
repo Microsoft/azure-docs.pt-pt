@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Slack Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Slack.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5e3e2a0e6d50340954600c5a452b6d026e5afc
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: fdea1f3b2d4cff0203951b6ec5ef6b86b62cdf9c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987475"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527560"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Azure Ative Directy integração única (SSO) com Slack
 
@@ -90,9 +86,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://< DOMAIN NAME>.slack.com/sso/saml/start`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://< DOMAIN NAME>.slack.com/sso/saml/start`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL:`https://slack.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL: `https://slack.com`
 
     > [!NOTE]
     > O valor do sinal de URL não é real. Atualizar o valor com o sinal real no URL. Contacte [a equipa de suporte do Cliente Slack](https://slack.com/help/contact) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -106,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Slack espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos. Também deve adicionar o `email` atributo. Se o utilizador não tiver um endereço de **e-mail, mapear o endereço de e-mail** para **user.userprincipalname** e **mapear o e-mail** para **user.userprincipalname**.
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | -----|---------|
     | endereço de e-mail | user.userprincipalname |
     | e-mail | user.userprincipalname |
@@ -204,9 +200,9 @@ Quando clicar no azulejo Slack no Painel de Acesso, deverá ser automaticamente 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
