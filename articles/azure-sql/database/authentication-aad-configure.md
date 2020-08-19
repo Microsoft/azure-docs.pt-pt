@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/17/2020
+ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499182"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551846"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -71,7 +71,9 @@ Ao utilizar o Azure Ative Directory com geo-replicação, o administrador do Azu
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Fornecimento Azure AD administrador (SQL Managed Instance)
 
 > [!IMPORTANT]
-> Só siga estes passos se estiver a atear uma Instância Gerida Azure SQL. Esta operação só pode ser executada por administrador da Global/Empresa ou por um Administrador de Função Privilegiada em Azure AD. Os passos seguintes descrevem o processo de concessão de permissões para utilizadores com diferentes privilégios no diretório.
+> Só siga estes passos se estiver a atear uma Instância Gerida Azure SQL. Esta operação só pode ser executada por administrador da Global/Empresa ou por um Administrador de Função Privilegiada em Azure AD.
+>
+> Na **pré-visualização pública,** pode atribuir o papel **de Leitores** de Diretório a um grupo em Azure AD. Os proprietários do grupo podem então adicionar a identidade de instância gerida como membro deste grupo, o que lhe permitiria providenciar um administrador AD Azure para a SQL Managed Instance. Para obter mais informações sobre esta funcionalidade, consulte o [papel dos Leitores de Diretório no Diretório Ativo Azure para a Azure SQL](authentication-aad-directory-readers-role.md).
 
 O seu SQL Managed Instance precisa de permissões para ler AZure AD para realizar tarefas como a autenticação dos utilizadores através da adesão ao grupo de segurança ou criação de novos utilizadores. Para que isto funcione, você precisa conceder a permissão de SqL Managed Instance para ler Azure AD. Pode fazê-lo utilizando o portal Azure ou o PowerShell.
 
@@ -188,7 +190,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -277,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -410,7 +412,7 @@ Quando cria uma base de dados, esse utilizador recebe a permissão **CONNECT** e
 Uma conta de utilizador de domínio federada que seja importada para um domínio gerido como utilizador externo, deve utilizar a identidade de domínio gerido.
 
 > [!NOTE]
-> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com o tipo E (EXTERNAL_USER) e para grupos com tipo X (EXTERNAL_GROUPS). Para mais informações, consulte [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com o tipo E (EXTERNAL_USER) e para grupos com tipo X (EXTERNAL_GROUPS). Para mais informações, consulte [sys.database_principals.](https://msdn.microsoft.com/library/ms187328.aspx)
 
 ## <a name="connect-to-the-database-using-ssms-or-ssdt"></a>Ligue à base de dados utilizando SSMS ou SSDT  
 
@@ -519,7 +521,7 @@ Para mais informações, consulte [o SQL Server Security Blog](https://blogs.msd
 As seguintes declarações, conecte-se usando a versão 13.1 de sqlcmd, que está disponível no [Centro de Descarregamentos.](https://www.microsoft.com/download/details.aspx?id=53591)
 
 > [!NOTE]
-> `sqlcmd`com o `-G` comando não funciona com identidades do sistema, e requer um login principal do utilizador.
+> `sqlcmd` com o `-G` comando não funciona com identidades do sistema, e requer um login principal do utilizador.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
@@ -528,7 +530,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 ## <a name="troubleshoot-azure-ad-authentication"></a>Ad resolução de problemas Ad
 
-As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Passos seguintes
 

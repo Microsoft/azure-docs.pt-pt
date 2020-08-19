@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 8b74fa39c47f9032e57d2b6630be1a3ef45990a3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185184"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551327"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -127,11 +127,11 @@ Para aprender a alterar o modo de controlo de acesso no portal, com o PowerShell
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite da taxa de volume de ingestão
 
-O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. O limite da taxa de volume pretende proteger os clientes do Azure Monitor de picos de ingestão súbita em ambiente multitenancy. Um limiar de taxa de volume de ingestão predefinido de 500 MB (comprimido) aplica-se aos espaços de trabalho, que é aproximadamente **6 GB/min** não comprimido -- o tamanho real pode variar entre os tipos de dados dependendo do comprimento do tronco e da sua relação de compressão. Este limiar aplica-se a todos os dados ingeridos, quer sejam enviados a partir de recursos Azure utilizando definições de [Diagnóstico,](diagnostic-settings.md) [API do Colecionador de Dados](data-collector-api.md) ou agentes.
+O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos de ingestão súbita em ambiente multitenancy. Um limiar de taxa de volume de ingestão padrão de 500 MB (comprimido) é definido em espaços de trabalho, isto é traduzido para aproximadamente **6 GB/min** não comprimido -- o tamanho real pode variar entre os tipos de dados dependendo do comprimento do tronco e da sua relação de compressão. O limite de taxa de volume aplica-se a todos os dados ingeridos, quer sejam enviados a partir de recursos Azure utilizando definições de [Diagnóstico,](diagnostic-settings.md) [API do Colecionador de Dados](data-collector-api.md) ou agentes.
 
-Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento no seu espaço de trabalho abrindo um pedido de apoio. 
+Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento, abrindo um pedido de apoio. 
 
-Para ser notificado em tal evento no seu espaço de trabalho, crie uma [regra de alerta de registo](alerts-log.md) utilizando a seguinte consulta com base lógica de alerta no número de resultados ralador do que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+Para ser notificado sobre a aplicação ou a obtenção do limite de taxa de volume de ingestão no seu espaço de trabalho, crie uma [regra de alerta de registo](alerts-log.md) utilizando a seguinte consulta com base lógica de alerta sobre o número de resultados mais ralados do que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
 
 A taxa de volume de ingestão atingiu 80% do limiar:
 ```Kusto

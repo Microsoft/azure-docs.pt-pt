@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527001"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551712"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
 
@@ -45,7 +45,7 @@ Crie uma cópia de segurança diária agendada para um Cofre dos Serviços de Re
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
-4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. A lâmina **de reserva Ativada** abre-se.
+4. Na lâmina VM, na secção **Operações,** clique em **Backup**. A lâmina **de reserva Ativada** abre-se.
 5. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
 6. Clique em **Política de cópia de segurança**. Para este exemplo, mantenha as predefinições e clique em **OK**.
 7. No painel **Ativar cópia de segurança**, clique em **Ativar Cópia de Segurança**. Esta ação cria uma cópia de segurança diária, com base na agenda predefinida.

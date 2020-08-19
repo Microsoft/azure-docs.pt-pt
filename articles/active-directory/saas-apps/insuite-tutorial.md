@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com insutimento Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Insuite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b7192c06-19c1-4539-a1e0-9251400abaa7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15dcb403b1caac1f317f840f15cd89a3b496705
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: a201db56d333f0f6b50a1226aa4f99b7dfcf9279
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798498"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Tutorial: Azure Ative Directory integração única (SSO) com insumitação
 
@@ -89,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
     ```
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`DreamArts_insuite_TENANTNAME`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `DreamArts_insuite_TENANTNAME`
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
@@ -155,9 +151,9 @@ Quando clicar no azulejo insumita no Painel de Acesso, deverá ser automaticamen
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

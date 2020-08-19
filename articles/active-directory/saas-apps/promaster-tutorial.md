@@ -2,24 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a ProMaster (by Inlogik) Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ProMaster (por Inlogik).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 348dbd37-dc4f-49df-bb90-53d249d456b3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a1563cc9baff0be844f7a654f8b028356c285b40
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 67b6dc544eeda81bc24cc74088441304b6723006
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800867"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Azure Ative Directory com a ProMaster (por Inlogik)
 

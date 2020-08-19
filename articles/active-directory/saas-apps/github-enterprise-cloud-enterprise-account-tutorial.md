@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com GitHub Enterprise Cloud - Conta Empresarial / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o GitHub Enterprise Cloud - Conta Empresarial.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 544b1e8c-f633-4d9b-92fe-077d4c51885a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c29de2d8150bce590d19f3af474dda87d17a47
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4e23c8a8497459ce7cb3cab3d1469359f80ad846
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084668"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550780"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Tutorial: Azure Ative Directy integração única (SSO) com GitHub Enterprise Cloud - Conta Empresarial
 
@@ -84,13 +80,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://github.com/enterprises/<ENTERPRISE-SLUG>`
+    a. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://github.com/enterprises/<ENTERPRISE-SLUG>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-     Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
+     Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:  `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Contacte [a GitHub Enterprise Cloud - equipa de suporte ao cliente da conta da empresa](mailto:support@github.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -149,9 +145,9 @@ Quando clicar na Nuvem Empresarial GitHub - Telha de Conta Empresarial no Painel
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

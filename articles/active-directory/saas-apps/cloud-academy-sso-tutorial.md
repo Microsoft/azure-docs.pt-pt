@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directory integração única (SSO) com a Cloud Academy - SSO Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Cloud Academy - SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 560c86fb-e25c-4428-a1dd-a5711cfece5c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb118e4d2fa811bf88ff13db84848ebb230ed209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 88e626f9b3069b3b43d525914c017caf763a9047
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294903"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551766"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloud-academy---sso"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Cloud Academy - SSO
 
@@ -84,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:`https://cloudacademy.com/login/enterprise/`
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://cloudacademy.com/login/enterprise/`
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -100,7 +96,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -142,7 +138,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Abra o Certificado descarregado **(Base64)** do portal Azure para o Bloco de Notas e cole o conteúdo na caixa de texto **do Certificado.**
 
-    d. Na caixa de texto **do formato de identificação** do nome, o valor predefinido,`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+    d. Na caixa de texto **do formato de identificação** do nome, o valor predefinido, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
 
 1. Clique no botão **Guardar.**
 
@@ -173,9 +169,9 @@ Quando clicar na Cloud Academy - Azulejo SSO no Painel de Acesso, deverá ser au
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

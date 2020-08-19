@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Form.com Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Form.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 17dc6ef4b1c86e0ae0301783c2c524062e85fb5a
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9fc3677a1b1aa5496bbf9e90ccd5bea9661b5a05
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799279"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Diretório Ativo Azure com Form.com
 
@@ -105,9 +101,9 @@ Para configurar o Azure AD com Form.com, execute os seguintes passos:
 
     ![Form.com Informações de assinatura única do domínio e URLs](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.wa-form.com`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.wa-form.com`
 
-    b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.form.com`
+    b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.form.com`
 
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     

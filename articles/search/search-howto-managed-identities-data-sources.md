@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 48b94b8cd047f62ea13bf4e062254088ea11840e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664901"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553169"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida (pré-visualização)
 
 > [!IMPORTANT] 
-> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente numa pré-visualização pública fechada. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-> Pode solicitar acesso à pré-visualização preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
 
 Um [indexante](search-indexer-overview.md) em Azure Cognitive Search é um crawler que fornece uma maneira de extrair dados da sua fonte de dados para a Pesquisa Cognitiva Azure. Um indexante obtém uma ligação de fonte de dados a partir do objeto de origem de dados que cria. O objeto de origem de dados geralmente inclui credenciais para a fonte de dados-alvo. Por exemplo, o objeto de origem de dados pode incluir uma chave de conta de armazenamento Azure se quiser indexar dados a partir de um recipiente de armazenamento de bolhas.
 
@@ -41,17 +40,17 @@ Ao configurar uma fonte de dados utilizando uma identidade gerida, pode alterar 
 As fontes de dados que se seguem suportam a criação de uma ligação indexante utilizando identidades geridas. 
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
+* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)
 
 As seguintes funcionalidades não suportam atualmente a utilização de identidades geridas para configurar a ligação:
 * Knowledge Store
 * Competências personalizadas
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como configurar uma ligação indexante utilizando identidades geridas:
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
+* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)

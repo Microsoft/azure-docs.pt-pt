@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a EY GlobalOne Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EY GlobalOne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: a4bf1d6e-8af8-49d7-85d2-60f72d3c4633
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a86bb8d2a9785aca3317924ce2a1edc41dfc8a70
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7079ffd5cb2fe643d93dea0f5c9384a7931dc8a6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008683"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550684"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>Tutorial: Integre a EY GlobalOne com o Azure Ative Directory
 
@@ -88,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação EY GlobalOne espera que alguns mais atributos sejam repercutidos na resposta DAL. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |

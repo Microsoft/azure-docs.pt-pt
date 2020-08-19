@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Autotask Endpoint Backup / Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Autotask Endpoint Backup.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9f55319e-895b-4130-8460-71713f25ed04
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d080fd3cac7a0550452908e9e0265bb2ffcb462
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 502717621fb9b228a818b67a09a699a2ac1713f7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500033"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Azure Ative Directory com Backup de Ponto Final autotask
 
@@ -106,9 +101,9 @@ Para configurar o Azure AD com a Autotask Endpoint Backup, execute os seguintes 
 
     ![Autotask Endpoint Backup Domain e URLs informações únicas de súmis](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de [suporte do cliente de backup da Autotask](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -154,7 +149,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

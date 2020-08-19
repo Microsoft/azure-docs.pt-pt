@@ -2,25 +2,20 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Printix Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Printix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 4aea7320-b2d5-49e0-9b63-aeaff0f6fe66
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "62111458"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integração do Diretório Ativo Azure com a Printix
 
@@ -113,7 +108,7 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
 
     ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_url.png)
 
-    Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:`https://<subdomain>.printix.net`
+    Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.printix.net`
 
     > [!NOTE] 
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente Printix](mailto:support@printix.net) para obter o valor. 

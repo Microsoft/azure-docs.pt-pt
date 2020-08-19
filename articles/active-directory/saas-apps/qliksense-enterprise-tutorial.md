@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Qlik Sense Enterprise Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Qlik Sense Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2d4799966e070f7c50c39c350456b594664c9a
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800678"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552361"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integre a Qlik Sense Enterprise com o Azure Ative Directory
 
@@ -83,7 +79,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:`https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
+    a. Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
 
     b. Na caixa de texto **identifier,** digite um URL utilizando um dos seguintes padrões:
 

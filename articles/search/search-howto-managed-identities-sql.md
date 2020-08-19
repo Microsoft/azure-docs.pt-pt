@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559929"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553143"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida (pré-visualização)
 
 > [!IMPORTANT] 
-> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente numa pré-visualização pública fechada. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-> Pode solicitar acesso à pré-visualização preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
 
 Esta página descreve como configurar uma ligação indexante à Base de Dados Azure SQL usando uma identidade gerida em vez de fornecer credenciais na cadeia de ligação de objetos de fonte de dados.
 
@@ -98,10 +97,12 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="5---create-the-data-source"></a>5 - Criar a fonte de dados
 
-Ao indexar a partir de uma base de dados SQL, a fonte de dados deve ter as seguintes propriedades necessárias:
+A [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma Base de Dados Azure SQL usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+
+Ao criar uma fonte de dados utilizando a [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)a fonte de dados deve ter as seguintes propriedades necessárias:
 
 * **nome** é o nome único da fonte de dados dentro do seu serviço de pesquisa.
-* **tipo** é`azuresql`
+* **tipo** é `azuresql`
 * **credenciais**
     * Ao utilizar uma identidade gerida para autenticar, o formato **de credenciais** é diferente do que quando não se usa uma identidade manged. Aqui irá fornecer um nome de Catálogo Inicial ou Base de Dados e um ResourceId que não tenha chave de conta ou senha. O ResourceId deve incluir o ID de subscrição da Base de Dados Azure SQL, o grupo de recursos da Base de Dados SQL e o nome da base de dados SQL. 
     * Formato de cadeia de ligação de identidade gerido:
@@ -122,8 +123,6 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
-
-O portal Azure e o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) também suportam a cadeia de ligação de identidades geridas. O portal Azure requer uma bandeira de recurso que lhe será fornecida quando se inscrever para a pré-visualização usando o link no topo desta página. 
 
 ### <a name="6---create-the-index"></a>6 - Criar o índice
 
@@ -178,7 +177,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting)do indexante .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Saiba mais sobre o indexante Azure SQL:
 * [Indexador do Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

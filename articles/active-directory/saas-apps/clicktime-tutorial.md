@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o ClickTime Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o ClickTime.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0db29309c2f691a1c7811258fee59582643a6e6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256122"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Diretório Ativo Azure com o ClickTime
 
@@ -106,7 +101,7 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
 
     ![Informações de súmis de clickTime e URLs](common/idp-intiated.png)
 
-    a. Na caixa de texto **identifier,** digite um URL:`https://app.clicktime.com/sp/`
+    a. Na caixa de texto **identifier,** digite um URL: `https://app.clicktime.com/sp/`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
@@ -145,7 +140,7 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
    
     c.  Abra o **certificado codificado base-64** descarregado do portal Azure no Bloco de **Notas,** copie o conteúdo e, em seguida, cole-o na caixa de texto **do Certificado X.509.**
    
-    d.  Clique em **Save** (Guardar).
+    d.  Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -229,7 +224,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
     > [!NOTE]
     > Se quiser, pode definir propriedades adicionais do objeto da nova pessoa.
    
-    c.  Clique em **Save** (Guardar).
+    c.  Clique em **Guardar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

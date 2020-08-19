@@ -2,24 +2,21 @@
 title: 'Tutorial: Configure Atlassian Cloud para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizadores para a Atlassian Cloud.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 12e94cfd576ced8c0e2768dd508e7f6f1a0056eb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927475"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549394"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configure nuvem atlassiana para fornecimento automático de utilizadores
 
@@ -50,7 +47,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-atlassian-cloud-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure a Nuvem Atlassiana para apoiar o provisionamento com a Azure AD
 
-1. Navegue para [o Atlassian Organization Manager](https://admin.atlassian.com)> **selecione o diretório de > org**.
+1. Navegue para [o Atlassian Organization Manager](https://admin.atlassian.com)> ** selecione o diretório de > org**.
 
     ![Provisão de nuvens atlassianas](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 

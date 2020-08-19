@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Getabstract Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Getabstract.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7de0dfadd7af4f5baca30a037651b4201278cba
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902172"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Diretório Ativo Azure com o Getabstract
 
@@ -113,15 +109,15 @@ Para configurar o Azure AD single sign-on com Getabstract, execute os seguintes 
 
     a. Na caixa de texto **identifier,** digite um URL:
 
-    Para fase/pre_production:`https://int.getabstract.com`
+    Para fase/pre_production: `https://int.getabstract.com`
 
-    Para produção:`https://www.getabstract.com`
+    Para produção: `https://www.getabstract.com`
 
     b. Na caixa de texto **URL de resposta,** digite um URL:
     
-    Para fase/pre_production:`https://int.getabstract.com/ACS.do`
+    Para fase/pre_production: `https://int.getabstract.com/ACS.do`
     
-    Para produção:`https://www.getabstract.com/ACS.do`
+    Para produção: `https://www.getabstract.com/ACS.do`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -129,9 +125,9 @@ Para configurar o Azure AD single sign-on com Getabstract, execute os seguintes 
     
     Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:
 
-    Para fase/pre_production:`https://int.getabstract.com/portal/<org_username>`
+    Para fase/pre_production: `https://int.getabstract.com/portal/<org_username>`
     
-    Para produção:`https://www.getabstract.com/portal/<org_username>`
+    Para produção: `https://www.getabstract.com/portal/<org_username>`
 
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de inscrição real. Contacte [a equipa de suporte ao Cliente Getabstract](https://www.getabstract.com/en/contact) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

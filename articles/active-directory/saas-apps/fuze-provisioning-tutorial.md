@@ -2,25 +2,21 @@
 title: 'Tutorial: Configure Fuze para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Fuze.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 34718201-4f0e-4260-9af0-b3b70a1e8265
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b552b175074262d961e455a2b46727d0fa656b45
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 08fe2cd87200e1a22f36ab01b58c6cf82fd1f007
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920488"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550828"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutorial: Configure Fuze para o fornecimento automático de utilizadores
 

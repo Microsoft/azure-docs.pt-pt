@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para armazenam
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: c683cbf7802fbf5420ec95d49e2dfda624ce093f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562843"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551800"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e backups no Serviço Azure Kubernetes (AKS)
 
@@ -34,9 +34,9 @@ A tabela que se segue descreve os tipos de armazenamento disponíveis e as suas 
 
 | Caso de utilização | Plugin de volume | Ler/escrever uma vez | Ler apenas muitos | Ler/escrever muitos | Suporte ao servidor do Windows |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configuração partilhada       | Ficheiros do Azure   | Sim | Sim | Sim | Sim |
-| Dados estruturados da aplicação        | Discos do Azure   | Sim | Não  | Não  | Sim |
-| Dados não estruturados, operações do sistema de ficheiros | [BlobFuse][blobfuse] | Sim | Sim | Sim | Não |
+| Configuração partilhada       | Ficheiros do Azure   | Yes | Yes | Yes | Yes |
+| Dados estruturados da aplicação        | Discos do Azure   | Sim | No  | Não  | Yes |
+| Dados não estruturados, operações do sistema de ficheiros | [BlobFuse][blobfuse] | Yes | Yes | Sim | No |
 
 Os dois tipos primários de armazenamento fornecidos para volumes em AKS são apoiados por Discos Azure ou Ficheiros Azure. Para melhorar a segurança, ambos os tipos de armazenamento utilizam encriptação do serviço de armazenamento Azure (SSE) por padrão que encripta os dados em repouso. Os discos não podem ser encriptados utilizando a encriptação do disco Azure ao nível do nó AKS.
 
@@ -88,13 +88,13 @@ Para obter mais informações sobre as opções de classe de armazenamento, cons
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja e apoie os seus dados
 
-**Orientação para as melhores práticas** - Utilize os seus dados utilizando uma ferramenta apropriada para o seu tipo de armazenamento, como Velero ou Azure Site Recovery. Verifique a integridade e segurança dos reforços.
+**Orientação para as melhores práticas** - Faça o backup dos seus dados utilizando uma ferramenta apropriada para o seu tipo de armazenamento, como Velero ou Azure Backup. Verifique a integridade e segurança dos reforços.
 
 Quando as suas aplicações armazenam e consomem dados persistentes em discos ou em ficheiros, é necessário fazer cópias de segurança ou instantâneos regulares desses dados. Os Discos Azure podem utilizar tecnologias instantâneas incorporadas. Pode ser necessário procurar as suas aplicações para lavar as gravações no disco antes de efetuar a operação instantânea. [Velero][velero] pode apoiar volumes persistentes juntamente com recursos e configurações adicionais de cluster. Se não conseguir remover o [estado das suas aplicações,][remove-state]faça o check-up dos dados de volumes persistentes e teste regularmente as operações de restauro para verificar a integridade dos dados e os processos necessários.
 
 Compreenda as limitações das diferentes abordagens às cópias de segurança de dados e se precisar de questionar os seus dados antes do instantâneo. As cópias de segurança de dados não permitem necessariamente restaurar o ambiente de aplicação da implantação do cluster. Para obter mais informações sobre estes cenários, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres na AKS.][best-practices-multi-region]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se nas melhores práticas de armazenamento em AKS. Para obter mais informações sobre o básico de armazenamento em Kubernetes, consulte [conceitos de Armazenamento para aplicações em AKS][aks-concepts-storage].
 

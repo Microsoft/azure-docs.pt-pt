@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o GitHub Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o GitHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 422ef08995a74b172271e165c0ec7be5010969b4
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7153a1279785cfe79d23b2b5ba843ec9f5cd4965
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164784"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550750"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
 
@@ -83,11 +79,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-   a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>/sso`
+   a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://github.com/orgs/<Organization ID>`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>/saml/consume`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://github.com/orgs/<Organization ID>/saml/consume`
 
 
     > [!NOTE]
@@ -225,9 +221,9 @@ Quando clicar no azulejo do GitHub no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

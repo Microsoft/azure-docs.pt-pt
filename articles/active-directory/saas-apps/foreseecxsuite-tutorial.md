@@ -1,61 +1,57 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a ForeSee CX Suite [ Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com ForeSee CX Suite / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ForeSee CX Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5f4b7830-6186-4d17-b77b-504d4192bfde
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fb0ed4a48eaef2168791abbaf94fb8991fa14132
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67550395"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551115"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração de Diretório Ativo Azure com A Suite ForeSee CX
+# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Azure Ative Directory com ForeSee CX Suite
 
-Neste tutorial, aprende-se a integrar a Suite CX do ForeSee com o Azure Ative Directory (Azure AD).
-Integrar a Suite CX ForeSee com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você aprende a integrar a Suite CX do ForeSee com o Azure Ative Directory (Azure AD).
+Integrar a Suite ForeSee CX com Azure AD proporciona-lhe os seguintes benefícios:
 
 * Você pode controlar em Azure AD que tem acesso a ForeSee CX Suite.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no ForeSee CX Suite (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Suite CX foreSee (Sign-on único) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Suite ForeSee CX, precisa dos seguintes itens:
+Para configurar a integração AZure AD com a ForeSee CX Suite, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* ForeSee CX Suite única subscrição ativada
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* ForeSee CX Suite única assinatura ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
 * ForeSee CX Suite suporta **SP** iniciado SSO
 
-* ForeSee CX Suite suporta o fornecimento de utilizadores **justo no tempo**
+* ForeSee CX Suite suporta **provisão do** utilizador Just In Time
 
 ## <a name="adding-foresee-cx-suite-from-the-gallery"></a>Adicionar ForeSee CX Suite da galeria
 
-Para configurar a integração da ForeSee CX Suite em Azure AD, você precisa adicionar ForeSee CX Suite da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da ForeSee CX Suite em Azure AD, você precisa adicionar ForeSee CX Suite da galeria à sua lista de aplicações geridas saaS.
 
 **Para adicionar ForeSee CX Suite da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -63,70 +59,70 @@ Para configurar a integração da ForeSee CX Suite em Azure AD, você precisa ad
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **foreSee CX Suite,** selecione **ForeSee CX Suite** do painel de resultados e, em seguida, clique em adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, **escreva ForeSee CX Suite**, selecione **ForeSee CX Suite** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
      ![ForeSee CX Suite na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o único sign-on azure ad com a ForeSee CX Suite com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no ForeSee CX Suite.
+Nesta secção, você configura e testa Azure AD single sign-on com ForeSee CX Suite com base em um utilizador de teste chamado **Britta Simon**.
+Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Suite CX ForeSee.
 
-Para configurar e testar o único sinal de Azure AD com a Suite ForeSee CX, você precisa completar os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com a ForeSee CX Suite, você precisa completar os seguintes blocos de construção:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure ForeSee CX Suite Single Sign-On](#configure-foresee-cx-suite-single-sign-on)** - para configurar as definições de início de sessão individuais no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create ForeSee CX Suite utilizador](#create-foresee-cx-suite-test-user)** de teste - para ter uma contrapartida de Britta Simon no ForeSee CX Suite que está ligada à representação do utilizador da AD Azure.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o ForeSee CX Suite Single Sign-On](#configure-foresee-cx-suite-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+5. **[Create ForeSee CX Suite test user](#create-foresee-cx-suite-test-user)** - para ter uma contraparte de Britta Simon em ForeSee CX Suite que está ligada à representação AD AD Azure do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sign-on azure ad com a ForeSee CX Suite, execute os seguintes passos:
+Para configurar o Azure AD single sign-on com ForeSee CX Suite, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da ForeSee CX Suite,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **ForeSee CX Suite,** selecione **Single sign-on**.
 
-    ![Configurar um único link de sinalização](common/select-sso.png)
+    ![Configurar link único de inscrição](common/select-sso.png)
 
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
+2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
 
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
+    ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na secção **Basic SAML Configuration,** se tiver ficheiro de **metadados do Prestador**de Serviços, execute os seguintes passos:
+4. Na secção **de Configuração Básica SAML,** se tiver **um ficheiro de metadados do Fornecedor de Serviços,** execute os seguintes passos:
 
-    a. Clique no **ficheiro de metadados de upload**.
+    a. Clique **em Carregar o ficheiro de metadados**.
 
-    ![Upload ficheiro de metadados](common/upload-metadata.png)
+    ![Carregar ficheiro de metadados](common/upload-metadata.png)
 
-    b. Clique no logotipo da **pasta** para selecionar o ficheiro de metadados e clicar em **Carregar**.
+    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
 
-    ![escolher ficheiro de metadados](common/browse-upload-metadata.png)
+    ![escolher arquivo de metadados](common/browse-upload-metadata.png)
 
-    c. Após o ficheiro de metadados ser carregado com sucesso, o valor **do Identificador** é preenchido automaticamente na secção de Configuração SAML Básica.
+    c. Após o carregamento do ficheiro de metadados com sucesso, o valor **do Identificador** é preenchido automaticamente na secção de Configuração BÁSICA SAML.
 
-    ![ForeSee CX Suite Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
+    ![ForeSee CX Suite Domain e URLs informações únicas de súp livre](common/sp-identifier.png)
 
-    a. Na caixa de texto **de URL sign-on,** escreva um URL:`https://cxsuite.foresee.com/`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL: `https://cxsuite.foresee.com/`
 
-    b. Na caixa de texto **Identifier,** escreva um\/URL\<utilizando o seguinte padrão: https: /www.okta.com/saml2/service-provider/ UniqueID>
+    b. Na caixa de texto **identifier,** digite um URL utilizando o seguinte padrão: https: \/ /www.okta.com/saml2/service-provider/\<UniqueID>
 
     > [!Note]
-    > Se o valor do **Identificador** não for automaticamente pollulado, por favor preencha o valor manualmente de acordo com o padrão acima. O valor do identificador não é real. Atualize este valor com o identificador real. Contacte a equipa de suporte do [Cliente CX Suite Para](mailto:support@foresee.com) obter este valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Se o valor **do Identificador** não for automaticamente poluído, por favor preencha o valor manualmente de acordo com o padrão acima. O valor do Identificador não é real. Atualize este valor com o identificador real. Contacte [a equipa de apoio ao cliente da ForeSee CX Suite](mailto:support@foresee.com) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
 6. Na secção **Configurar ForeSee CX Suite,** copie os URL(s) apropriados de acordo com o seu requisito.
 
@@ -134,21 +130,21 @@ Para configurar o único sign-on azure ad com a ForeSee CX Suite, execute os seg
 
     a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
+    b. Identificador de Azure Ad
 
     c. Logout URL
 
-### <a name="configure-foresee-cx-suite-single-sign-on"></a>Configure ForeSee CX Suite Single Sign-On
+### <a name="configure-foresee-cx-suite-single-sign-on"></a>Configurar ForeSee CX Suite Single Sign-On
 
-Para configurar um único sinal no lado da Suite **ForeSee CX,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para [foreSee CX Suite equipe](mailto:support@foresee.com)de suporte . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **da Suite ForeSee CX,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte foreSee CX Suite](mailto:support@foresee.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -156,57 +152,57 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
+    b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que britta Simon utilize um único sign-on Azure, concedendo acesso à Suite ForeSee CX.
+Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Suite CX ForeSee.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **ForeSee CX Suite**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **ForeSee CX Suite**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **ForeSee CX Suite**.
+2. Na lista de candidaturas, selecione **ForeSee CX Suite**.
 
     ![O link ForeSee CX Suite na lista de Aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-foresee-cx-suite-test-user"></a>Criar o utilizador de teste Da Suite CX ForeSee
+### <a name="create-foresee-cx-suite-test-user"></a>Criar utilizador de teste ForeSee CX Suite
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon no ForeSee CX Suite. Trabalhe com a equipa de [suporte do ForeSee CX Suite](mailto:support@foresee.com) para adicionar os utilizadores ou o domínio que deve ser adicionado a uma lista de espera para a plataforma ForeSee CX Suite. Se o domínio for adicionado pela equipa, os utilizadores serão automaticamente aprovisionados na plataforma ForeSee CX Suite. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, você cria um utilizador chamado Britta Simon in ForeSee CX Suite. Trabalhe com a [equipa de suporte do ForeSee CX Suite](mailto:support@foresee.com) para adicionar os utilizadores ou o domínio que deve ser adicionado a uma lista de admissão para a plataforma ForeSee CX Suite. Se o domínio for adicionado pela equipa, os utilizadores serão automaticamente a provisionados na plataforma ForeSee CX Suite. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo ForeSee CX Suite no Painel de Acesso, deve ser automaticamente inscrito na Suite ForeSee CX para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo foreSee CX Suite no Painel de Acesso, deverá ser automaticamente inscrito na Suite CX foreSee para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

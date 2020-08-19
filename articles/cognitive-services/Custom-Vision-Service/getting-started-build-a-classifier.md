@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 954ea8d544baa2538e1b92a9f03b7a48169e7360
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 67632301b534f91c36de837bbfa12f9ec16ed58f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834444"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551357"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Quickstart: Como construir um classificador com Visão Personalizada
 
 Neste arranque rápido, você vai aprender a construir um classificador através do site Da Visão Personalizada. Uma vez construído um modelo de classificador, pode utilizar o serviço De Visão Personalizada para classificação de imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

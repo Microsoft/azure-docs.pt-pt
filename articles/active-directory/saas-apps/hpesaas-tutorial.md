@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a HPE SaaS Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o HPE SaaS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14b7e269fffaf1be4fff0b2f112a5844fd73cdbf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc208e515ccf14e04460608aacbd3a69a9776185
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034368"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: Integração do Azure Ative Directory com o HPE SaaS
 
@@ -106,9 +101,9 @@ Para configurar o Azure AD com hpe saas, execute os seguintes passos:
 
     ![HPE SaaS Domain e URLs informações únicas de súmis](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL como:`https://login.saas.hpe.com/msg`
+    a. Na caixa de texto **URL, digite** um URL como: `https://login.saas.hpe.com/msg`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<subdomain>.saas.hpe.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<subdomain>.saas.hpe.com`
 
     > [!NOTE]
     > O valor do Identificador não é real. Atualize este valor com o identificador real. Contacte [a equipa de suporte do cliente HPE SaaS](https://www.sas.com/en_us/contact.html) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -154,7 +149,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) para ligar várias contas Microsoft Docs'
 description: Saiba como configurar um único sign-on entre a Azure AD e a Amazon Web Services (AWS) (Legacy Tutorial).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6857fba86aebbcfd7b20326e4a4a268467e4fc3
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 20674f5a793267c3a9e2fa078f95cbf96624df13
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272472"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -126,7 +122,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome  | Atributo de origem  | Espaço de Nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|

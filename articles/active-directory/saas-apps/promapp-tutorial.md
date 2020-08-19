@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Nintex Promapp Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Nintex Promapp.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3caf67ef436093e63683c270f7121a2861242aec
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3b4102b4e8dcbd5aa04e354cec0ab91bf139572c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800888"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553483"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Nintex Promapp
 
@@ -101,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na **caixa de URL** sign in, introduza um URL neste padrão:`https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
+    Na **caixa de URL** sign in, introduza um URL neste padrão: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE]
     > Estes valores são espaços reservados. Você precisa usar o identificador real, URL de resposta e URL de inscrição. Contacte a equipa de apoio da [Nintex Promapp](https://www.promapp.com/about-us/contact-us/) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
@@ -181,9 +177,9 @@ Quando clicar no azulejo Nintex Promapp no Painel de Acesso, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

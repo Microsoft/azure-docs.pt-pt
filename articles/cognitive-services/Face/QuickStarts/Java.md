@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: df04a58a143833be8795ccbac2a94f6cf80beb19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8aaf0b25a20f24739bb556583cd020d8f11eaf2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834053"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549529"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início rápido: detetar rostos numa imagem com a API REST e Java
 
 Neste arranque rápido, você usará a API AZure Face REST com Java para detetar rostos humanos numa imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

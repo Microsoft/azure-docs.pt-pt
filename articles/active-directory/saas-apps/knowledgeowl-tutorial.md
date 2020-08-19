@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com KnowledgeOwl Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o KnowledgeOwl.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2ae30996-864d-4872-90bc-f770e1ea159a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e3931baa8bab6f21d0edfefd17b95f7ecf3f7be
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799824"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549896"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutorial: Azure Ative Directory integração única (SSO) com KnowledgeOwl
 
@@ -200,7 +195,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`Introduza a caixa de texto **username/Email.**
     * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`Introduza na caixa de texto **do primeiro nome.**
     * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`Introduza na caixa de texto **do último nome.**
-    * Clique **em Guardar**
+    * Clicar em **Guardar**
 
     i. Clique em **Guardar** na parte inferior da página.
 
@@ -221,9 +216,9 @@ Quando clicar no azulejo KnowledgeOwl no Painel de Acesso, deverá ser automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

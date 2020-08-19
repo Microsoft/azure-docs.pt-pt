@@ -2,26 +2,21 @@
 title: 'Tutorial: Fornecimento de utilizadores para Asana - Azure AD'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Asana.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.reviewer: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: celested
+ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058936"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549471"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar Asana para o fornecimento automático de utilizadores
 
@@ -83,7 +78,7 @@ Esta secção guia-o através da ligação do seu AD AZure à conta de utilizado
 
 1. No portal Azure, selecione **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Asana. Se a ligação falhar, certifique-se de que a sua conta Asana tem permissões de administração e tente novamente o passo **de Ligação** de Teste.
 
-1. Insira o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de provisionamento no **E-mail de Notificação**. Selecione a caixa de verificação por baixo.
+1. Insira o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de provisionamento no  **E-mail de Notificação**. Selecione a caixa de verificação por baixo.
 
 1. Selecione **Guardar**.
 

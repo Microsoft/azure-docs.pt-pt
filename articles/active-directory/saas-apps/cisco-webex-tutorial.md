@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directory integração única (SSO) com Encontros Webex da Cisco Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Cisco Webex Meetings.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6182159275236f023a1647275ed1fb8c8f4112
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 52481eb40a46457a0374c776ee4897c81ebddf7c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905793"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551290"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Azure Ative Directory integração única (SSO) com reuniões webex da Cisco
 
@@ -98,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
     
-    b. Na placa de texto **URL,** digite o URL utilizando o seguinte padrão:` https://<customername>.my.webex.com`
+    b. Na placa de texto **URL,** digite o URL utilizando o seguinte padrão: ` https://<customername>.my.webex.com`
 
 5. A aplicação Cisco Webex Meetings espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
@@ -106,7 +101,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 6. Além de acima, a aplicação Cisco Webex Meetings espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo: 
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------|  --------- |
     |   nome de primeiro nome    | user.givenname |
     |   último nome    | utilizador.sobrenome |
@@ -181,7 +176,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Clique no botão **Exportação** para descarregar o ficheiro de metadados do Fornecedor de Serviços e carregá-lo na secção **de Configuração Básica SAML** no portal Azure.
 
-    d. Na caixa de texto **AuthContextClassRef,** `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` escreva e se quiser ativar o MFA utilizando o Azure AD tipo os dois valores como`urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
+    d. Na caixa de texto **AuthContextClassRef,** `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` escreva e se quiser ativar o MFA utilizando o Azure AD tipo os dois valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
     e. Selecione **Criação de Conta Automática**.
 
@@ -205,9 +200,9 @@ Quando clicar no azulejo cisco Webex Meetings no Painel de Acesso, deverá ser a
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o Infor CloudSuite Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Infor CloudSuite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a2f4f843-00d2-4522-a29d-6496cc5a781a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47a70f2e086c5322e8ecd53cbf352c672528ebc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ce0e1efc037832e1d8a8faaef1560f68c143db63
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798913"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integração do Azure Ative Directory com o Infor CloudSuite
 
