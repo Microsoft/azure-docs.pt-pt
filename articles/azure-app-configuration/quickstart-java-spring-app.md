@@ -1,6 +1,6 @@
 ---
 title: Arranque rápido para aprender a usar a configuração da app Azure
-description: Um quickstart para usar a Configuração de Aplicações Azure com aplicações Java Spring.
+description: Neste arranque rápido, crie uma aplicação Java Spring com Configuração de Aplicação Azure para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 93a2fd89e21dbf4edee29a27bd18f63f2b835aae
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121226"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586458"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Java Spring com Configuração de Aplicação Azure
 
@@ -182,7 +182,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

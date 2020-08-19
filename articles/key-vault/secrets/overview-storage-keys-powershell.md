@@ -1,19 +1,19 @@
 ---
 title: Conta de armazenamento gerida Azure Key Vault - Versão PowerShell
 description: A funcionalidade de conta de armazenamento gerida proporciona uma integração perfeita, entre o Azure Key Vault e uma conta de armazenamento Azure.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 87dc1ccb887638226607a1e398c7532de8d2c94f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8e8479179aa74f2fb2ead41dec28d247de9657c3
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534537"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585105"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -138,7 +138,7 @@ Note que as permissões para contas de armazenamento não estão disponíveis na
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adicione uma conta de armazenamento gerida à sua instância Key Vault
 
-Utilize o cmdlet Azure PowerShell [Add-AzKeyVaagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para criar uma conta de armazenamento gerida na sua instância Key Vault. O `-DisableAutoRegenerateKey` interruptor especifica NÃO para regenerar as chaves da conta de armazenamento.
+Utilize o cmdlet Azure PowerShell [Add-AzKeyVaagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para criar uma conta de armazenamento gerida na sua instância Key Vault. O  `-DisableAutoRegenerateKey` interruptor especifica NÃO para regenerar as chaves da conta de armazenamento.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts

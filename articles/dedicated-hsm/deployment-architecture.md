@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0989c31611b2f42c0219324fa517adc5c216c6c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048559"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586610"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implementação do Azure Dedicated HSM
 
@@ -33,7 +33,7 @@ Os HSMs são distribuídos pelos centros de dados da Microsoft e podem ser facil
 * E.U.A. Leste 2
 * E.U.A. Oeste
 * E.U.A. Centro-Sul
-* Ásia Sudeste
+* Sudeste Asiático
 * Ásia Leste
 * Índia Central
 * Índia do Sul
@@ -63,14 +63,14 @@ Para obter uma elevada disponibilidade, um cliente deve usar dois dispositivos H
 
 Os dispositivos dedicados do HSM são normalmente implantados em suporte a aplicações que precisam de realizar operações de armazenamento de chaves e de recuperação de chaves. Os dispositivos HSM dedicados têm 10 divisórias para suporte independente de aplicações. A localização do dispositivo deve basear-se numa visão holística de todas as aplicações que necessitem de utilizar o serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez determinada a arquitetura de implantação, a maioria das atividades de configuração para implementar essa arquitetura será fornecida por Gemalto. Isto inclui a configuração do dispositivo, bem como cenários de integração de aplicações. Para mais informações, utilize o portal [de apoio ao cliente Gemalto](https://supportportal.gemalto.com/csm/) e descarregue guias de administração e configuração. O site parceiro da Microsoft tem uma variedade de guias de integração.
 Recomenda-se que todos os conceitos-chave do serviço, como a elevada disponibilidade e segurança, por exemplo, sejam bem compreendidos antes do fornecimento de dispositivos ou design e implementação de aplicações.
 Outros tópicos de nível de conceito:
 
-* [Alta Disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)

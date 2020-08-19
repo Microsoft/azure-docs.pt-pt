@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770803"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566289"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -39,7 +39,10 @@ Soluções que devem ser removidas antes de poder desvincular a sua conta de aut
 - Centro de Segurança do Azure
 
 >[!IMPORTANT]
-> - Uma vez ativado num espaço de trabalho, o Azure Sentinel **não suporta atualmente** a deslocação desse espaço de trabalho para outros grupos de recursos ou subscrições. Se precisar de deslocar o espaço de trabalho, contacte [o Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+> **Clientes da Azure Sentinel:**
+> - Uma vez implantado num espaço de trabalho, o Azure Sentinel **não suporta atualmente** a deslocação desse espaço de trabalho para outros grupos de recursos ou subscrições. 
+>
+>   Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. No entanto, isto deve ser eficaz na maioria dos casos, para reiterar, não é apoiado e empreendido por sua conta e risco.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminar soluções no portal Azure
 Utilize o seguinte procedimento para remover as soluções utilizando o portal Azure:
@@ -106,5 +109,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de deslocação, as soluções removidas e a ligação de conta Automation devem ser reconfiguradas para trazer o espaço de trabalho de volta ao seu estado anterior.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](../../azure-resource-manager/management/move-support-resources.md).

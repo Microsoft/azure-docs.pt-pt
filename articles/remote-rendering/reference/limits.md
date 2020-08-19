@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509232"
+ms.locfileid: "88566051"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -46,7 +46,6 @@ Consulte o capítulo [do tamanho do servidor](../reference/vm-sizes.md) para obt
 
 **Ambiente de trabalho do Windows 10**
 
-* UWP/x86 é a única plataforma UWP suportada. UWP/x64 não é suportado.
 * Win32/x64 é a única plataforma Win32 suportada. Win32/x86 não é suportado.
 
 **Hololens 2**

@@ -3,12 +3,12 @@ title: Criptografe discos de SISTEMA utilizando chaves geridas pelo cliente em A
 description: Saiba como encriptar os discos do sistema operativo (OS) utilizando chaves geridas pelo cliente em Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: b9eb401521f6bd81efe3238dc05d07e4554c4f62
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 209ab1f74dce0982af66777f211c41066d53b8f9
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542429"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566204"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografe discos do sistema operativo (OS) utilizando chaves geridas pelo cliente em Azure DevTest Labs
 A encriptação do lado do servidor (SSE) protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. A SSE encripta automaticamente os seus dados armazenados em discos geridos em Azure (OS e discos de dados) em repouso por padrão quando os persiste na nuvem. Saiba mais sobre [encriptação de disco](../virtual-machines/windows/disk-encryption.md) no Azure. 
@@ -28,12 +28,11 @@ A seguinte secção mostra como um proprietário de laboratório pode configurar
 1. Se não tiver um conjunto de encriptação de disco, siga este artigo para [configurar um Cofre de Chaves e um Conjunto de Encriptação de Disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Note os seguintes requisitos para o conjunto de encriptação do disco: 
 
     - O conjunto de encriptação de disco tem de estar **na mesma região e subscrição que o seu laboratório.** 
-    - Certifique-se de que você (proprietário do laboratório) tem pelo menos um acesso ao **nível** do leitor ao conjunto de encriptação do disco que será usado para encriptar discos de sistema OPERATIVO.  
-2. Para que o laboratório manuseie a encriptação de todos os discos de sistema, o dono do laboratório precisa de conceder explicitamente à **identidade atribuída** ao sistema do laboratório a permissão para o conjunto de encriptação do disco. O proprietário do laboratório pode fazê-lo completando os seguintes passos:
+    - Certifique-se de que você (proprietário do laboratório) tem pelo menos um acesso ao **nível** do leitor ao conjunto de encriptação do disco que será usado para encriptar discos de sistema OPERATIVO. 
+2. Para os laboratórios criados antes de 8/1/2020, o dono do laboratório terá de garantir que a identidade atribuída ao sistema de laboratório está ativada. Para tal, o proprietário do laboratório pode ir ao seu laboratório, clicar em **Configuração e políticas,** clicar na lâmina **identidade (preview),** alterar o **Estado** de identidade atribuída do sistema para **on** e clicar em **Guardar**. Para novos laboratórios criados após o sistema de laboratório 8/1/2020, a identidade atribuída será ativada por padrão. 
+3. Para que o laboratório manuseie a encriptação de todos os discos de sistema, o proprietário do laboratório precisa de conceder explicitamente o papel de leitor **de identidade atribuído** ao sistema do laboratório no conjunto de encriptação do disco, bem como o papel de contribuinte de máquina virtual na subscrição do Azure subjacente. O proprietário do laboratório pode fazê-lo completando os seguintes passos:
 
-    > [!IMPORTANT]
-    > É preciso fazer estes passos para laboratórios criados em ou depois de 8/1/2020. Não foram necessárias medidas para os laboratórios que foram criados antes dessa data.
-
+   
     1. Certifique-se de que é membro da função de [Administração](../role-based-access-control/built-in-roles.md#user-access-administrator) do Acesso ao Utilizador ao nível da subscrição do Azure para que possa gerir o acesso do utilizador aos recursos do Azure. 
     1. Na página Conjunto de Encriptação do **Disco,** selecione **Controlo de Acesso (IAM)** no menu esquerdo. 
     1. **Selecione + Adicione** na barra de ferramentas e selecione Adicione uma atribuição de **função**.  
@@ -48,9 +47,7 @@ A seguinte secção mostra como um proprietário de laboratório pode configurar
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Guardar atribuição de funções":::
 3. Adicione a **identidade atribuída** ao sistema do laboratório à função de Contribuinte de Máquina **Virtual** utilizando a página de controlo de acesso a **Subscription**  ->  **subscrição (IAM).** Os degraus são semelhantes aos dos degraus anteriores. 
 
-    > [!IMPORTANT]
-    > É preciso fazer estes passos para laboratórios criados em ou depois de 8/1/2020. Não foram necessárias medidas para os laboratórios que foram criados antes dessa data.
-
+    
     1. Navegue para a página **de Subscrição** no portal Azure. 
     1. Selecione **Controlo de acesso (IAM)** . 
     1. **Selecione +Adicione** na barra de ferramentas e selecione **Adicione uma atribuição de função**. 

@@ -1,7 +1,7 @@
 ---
 title: Amostra de script Azure CLI - Criar uma Loja de Configuração de Aplicativos Azure
 titleSuffix: Azure App Configuration
-description: Use o Script CLI do Azure para criar uma loja de configuração de aplicativos Azure
+description: Crie uma loja de configuração de aplicativos Azure utilizando uma amostra de script Azure CLI. Consulte as ligações de artigos de referência aos comandos utilizados no script.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 17be6dee1d5077a45dd14f403ed6e2c13b1e19b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7b3221c55cef6207ea38ac1375202acd8b8ab4f1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588350"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Criar uma Loja de Configuração de Aplicativos Azure
 

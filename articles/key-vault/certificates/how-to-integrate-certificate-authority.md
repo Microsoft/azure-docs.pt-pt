@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d558b414bfa27b387a559ff6c8fdb5ada32730fc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185643"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588930"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -105,7 +105,7 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzureKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 $issuerName = "DigiCertCA"
 ```
@@ -135,7 +135,7 @@ Para obter mais informações, consulte as operações do [Certificado na refer�
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 - Posso gerar um certificado de wildcard digicert através do KeyVault? 
-   Sim. Depende de como configuraste a tua conta de digicert.
+   Yes. Depende de como configuraste a tua conta de digicert.
 - Se criássemos um certificado EV, como especificar isso? 
    Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
 - Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?

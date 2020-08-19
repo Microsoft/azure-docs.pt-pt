@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d4938d2e4649d62ab656b6854e8176fd82b59a8f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904195"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587740"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -22,13 +22,13 @@ Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar 
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="verify-your-permissions"></a>Verificar as permissões
 
 Para criar um cluster Azure Red Hat OpenShift, verifique as seguintes permissões na sua subscrição Azure, utilizador do Azure Ative Directory ou principal de serviço:
 
-|Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador`az aro create`|Diretor de Serviço passou como`–client-id`|
+|Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador `az aro create`|Diretor de Serviço passou como `–client-id`|
 |----|:----:|:----:|:----:|
 |**Administrador de Acesso do Utilizador**|X|X| |
 |**Contribuinte**|X|X|X|

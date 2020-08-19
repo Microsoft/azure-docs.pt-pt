@@ -1,17 +1,17 @@
 ---
 title: Compreenda a loja de valor-chave da configuração da aplicação Azure
-description: Compreenda como os dados de configuração são armazenados na Configuração da Aplicação Azure.
+description: Compreenda o armazenamento de valor-chave na Configuração da Aplicação Azure, que armazena os dados de configuração como valores-chave. Os valores-chave são uma representação das definições de aplicação.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 9a0ed747ea0c894214a633bdbc8141e95e95b5fb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830041"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586397"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -67,18 +67,18 @@ Use as etiquetas como forma de criar várias versões de um valor-chave. Por exe
 
 Cada valor-chave é identificado exclusivamente pela sua chave mais um rótulo que pode ser `\0` . Consulta uma loja de configuração de aplicações para valores-chave especificando um padrão. A loja de configuração da aplicação devolve todos os valores-chave que correspondem ao padrão, incluindo os valores e atributos correspondentes. Utilize os seguintes padrões-chave nas chamadas DE API rest para a Configuração da Aplicação:
 
-| Chave | Descrição |
+| Chave | Description |
 |---|---|
-| `key`é omitido ou`key=*` | Corresponde a todas as chaves |
+| `key` é omitido ou `key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome chave **abc** |
 | `key=abc*` | Corresponde a nomes-chave que começam com **abc** |
 | `key=abc,xyz` | Corresponde aos nomes-chave **abc** ou **xyz**. Limitado a cinco CSVs |
 
 Também pode incluir os seguintes padrões de etiqueta:
 
-| Etiqueta | Descrição |
+| Etiqueta | Description |
 |---|---|
-| `label`é omitido ou`label=*` | Corresponde a qualquer rótulo, que inclui`\0` |
+| `label` é omitido ou `label=*` | Corresponde a qualquer rótulo, que inclui `\0` |
 | `label=%00` | `\0`Etiqueta de correspondência |
 | `label=1.0.0` | Corresponde a etiqueta **1.0.0** exatamente |
 | `label=1.0.*` | Corresponde às etiquetas que começam com **1.0.** |

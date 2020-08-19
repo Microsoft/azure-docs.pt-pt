@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836773"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565847"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões em Azure Sentinel
 
@@ -59,6 +59,10 @@ Os utilizadores com requisitos de trabalho específicos podem ter de ser atribu�
 - Ligação de fontes de dados ao Azure Sentinel
 
     Para que um utilizador adicione **conectores de dados,** tem de atribuir permissões de escrita ao utilizador no espaço de trabalho do Azure Sentinel. Além disso, note as permissões adicionais necessárias para cada conector, conforme listado na página de conector relevante.
+
+- Utilizadores convidados que atribuem incidentes
+
+    Se um utilizador convidado precisar de ser capaz de atribuir incidentes, então, para além da função Azure Sentinel Responder, o utilizador também terá de ser designado para o papel de Leitor de [Diretórios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Note que este papel *não* é um papel de Azure RBAC, mas um papel **de Diretório Ativo Azure,** e que os utilizadores regulares (não convidados) têm esta função atribuída por padrão. 
 
 Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
 

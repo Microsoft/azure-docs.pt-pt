@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 2b44728d1f5b2a6985e7e636d9e3593b09d009ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1755c2d572b44f1e0d8597a108ca83d429405f25
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212971"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565660"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -311,7 +311,7 @@ public class QueueTriggerDemo {
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `QueueTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a| Deve ser definido para `queueTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção**| n/a | Nofunction.jsapenas *arquivado.* Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` * em*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi descoduada.|
@@ -400,7 +400,7 @@ Quando há várias mensagens de fila à espera, o gatilho da fila recupera um lo
 
 O tamanho do lote e o limiar para obter um novo lote são configuráveis no [host.jsem arquivo](functions-host-json.md#queues). Se pretender minimizar a execução paralela para funções desencadeadas por filas numa aplicação de função, pode definir o tamanho do lote para 1. Esta definição elimina a conusncy apenas desde que a sua aplicação de função seja executado numa única máquina virtual (VM). 
 
-O gatilho da fila impede automaticamente que uma função processe uma mensagem de fila várias vezes; funções não têm de ser escritas para serem idempotentes.
+O gatilho da fila impede automaticamente que uma função processe uma mensagem de fila várias vezes simultaneamente.
 
 ## <a name="hostjson-properties"></a>host.jssobre propriedades
 

@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1b3f03458211e57f51c39cb5ca8da83943280aa8
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: d0607b1adb76fd32ce9f4dc9ebede92c7aa96862
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192014"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588777"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer autenticação key vault com uma política de controlo de acesso
 

@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB SQL Python API, SDK & recursos
 description: Saiba tudo sobre o SQL Python API e SDK incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão do Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 44d9521e9d02195cb1d4ff61fd519f31ce9c0018
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876262"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585989"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
@@ -27,7 +27,8 @@ ms.locfileid: "87876262"
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
+> * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector de faíscas](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -45,6 +46,20 @@ ms.locfileid: "87876262"
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>História do lançamento
+
+### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+
+- Aviso de depreciação adicionado para o modo de indexação "preguiçoso". O backend já não permite criar recipientes com este modo e irá defini-los de forma consistente.
+
+**Novas funcionalidades**
+- Adicionou a capacidade de definir o TTL de armazenamento analítico ao criar um novo recipiente.
+
+**Correções de bugs**
+- Suporte fixo para dicts como entradas para get_client APIs.
+- Compatibilidade python fixa 2/3 em iteradores de consultas.
+- Erro de sugestão de tipo fixo (Emissão #12570).
+- Bug fixo onde os cabeçalhos de opções não foram adicionados à função upsert_item. Edição #11791 - obrigado @aalapatirvbd .
+- Erro fixo levantado quando um ID de não-cadeia é usado num item. Agora levanta typeError em vez de AttributeError (Emissão #11793).
 
 ### <a name="400"></a>4.0.0
 
@@ -81,14 +96,14 @@ ms.locfileid: "87876262"
 
 * Adicionados novos argumentos de palavras-chave de configuração de construtor e por operação:
 
-  * `retry_total`- Tentativas máximas de repetição.
-  * `retry_backoff_max`- O tempo máximo de espera em segundos.
-  * `retry_fixed_interval`- Intervalo de retíria fixo em milissegundos.
-  * `retry_read`- Número máximo de tomadas que lêem tentativas de repetição.
-  * `retry_connect`- Número máximo de tentativas de relagem de erros de ligação.
-  * `retry_status`- Número máximo de tentativas de repetição de códigos de estado de erro.
-  * `retry_on_status_codes`- Uma lista de códigos de estado específicos para voltar a tentar.
-  * `retry_backoff_factor`- Fator para calcular o tempo de espera entre tentativas de repetição.
+  * `retry_total` - Tentativas máximas de repetição.
+  * `retry_backoff_max` - O tempo máximo de espera em segundos.
+  * `retry_fixed_interval` - Intervalo de retíria fixo em milissegundos.
+  * `retry_read` - Número máximo de tomadas que lêem tentativas de repetição.
+  * `retry_connect` - Número máximo de tentativas de relagem de erros de ligação.
+  * `retry_status` - Número máximo de tentativas de repetição de códigos de estado de erro.
+  * `retry_on_status_codes` - Uma lista de códigos de estado específicos para voltar a tentar.
+  * `retry_backoff_factor` - Fator para calcular o tempo de espera entre tentativas de repetição.
 
 ### <a name="400b3"></a>4.0.0b3
 
@@ -98,7 +113,7 @@ ms.locfileid: "87876262"
 
 * A versão 4.0.0b2 é a segunda iteração nos nossos esforços para construir uma biblioteca de clientes que se adapte às melhores práticas linguísticas python.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 * A ligação ao cliente foi adaptada para consumir o gasoduto HTTP definido em `azure.core.pipeline` .
 
@@ -139,13 +154,13 @@ ms.locfileid: "87876262"
 * A hierarquia do erro é agora herdada `azure.core.AzureError` de:
 
   * `HTTPFailure` mudou de nome para `CosmosHttpResponseError`
-  * `JSONParseFailure`foi removido e substituído por`azure.core.DecodeError`
+  * `JSONParseFailure` foi removido e substituído por `azure.core.DecodeError`
   * Erros adicionais adicionados para códigos de resposta específicos:
-    * `CosmosResourceNotFoundError`para o estatuto 404
-    * `CosmosResourceExistsError`para o estatuto 409
-    * `CosmosAccessConditionFailedError`para o estatuto 412
+    * `CosmosResourceNotFoundError` para o estatuto 404
+    * `CosmosResourceExistsError` para o estatuto 409
+    * `CosmosAccessConditionFailedError` para o estatuto 412
 
-* `CosmosClient`pode agora ser executado em um gestor de contexto para lidar com o fecho da ligação ao cliente.
+* `CosmosClient` pode agora ser executado em um gestor de contexto para lidar com o fecho da ligação ao cliente.
 
 * As respostas iteráveis (por exemplo, respostas de consulta e respostas de lista) são agora de tipo `azure.core.paging.ItemPaged` . O método `fetch_next_block` foi substituído por um iterador secundário, acedido pelo `by_page` método.
 

@@ -1,24 +1,24 @@
 ---
 title: 'Quickstart: Construa uma app Python utilizando a conta API API AZure Cosmos DB SQL'
 description: Apresenta um exemplo de código Python que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/11/2020
-ms.author: anfeldma
+ms.date: 08/11/2020
+ms.author: rosouz
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 7014e39492033b241d05cb670083d5b6277fac6e
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 16f1a7d3608b13dd5423205dc75500d76f62d69a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872944"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588158"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API API API AZure Cosmos DB SQL
 
@@ -34,11 +34,19 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente a Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure. Também pode utilizar o [Emulador Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
-- [Python 3.6+](https://www.python.org/downloads/), com o `python` executável no seu `PATH` .
+- Uma conta de Cosmos DB. As suas opções são:
+    * Dentro de uma subscrição ativa do Azure:
+        * [Crie uma Conta Gratuita Azure](https://azure.microsoft.com/free) ou use a subscrição existente 
+        * [Créditos mensais do Estúdio Visual](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+    * Sem uma subscrição ativa do Azure:
+        * [Experimente gratuitamente Azure Cosmos DB,](https://azure.microsoft.com/try/cosmosdb/)um ambiente de testes que dura 30 dias.
+        * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
+- [Python 2.7 ou 3.5.3+](https://www.python.org/downloads/), com o `python` executável no seu `PATH` .
 - [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão Python para Código de Estúdio Visual.](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 - [Git.](https://www.git-scm.com/downloads) 
+- [Azure Cosmos DB SQL API SDK para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -218,7 +226,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

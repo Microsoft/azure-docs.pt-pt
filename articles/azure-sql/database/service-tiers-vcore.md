@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325071"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586822"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ As opções de nível de serviço no modelo vCore incluem Final Geral, Critical 
 
 |-|**Finalidade Geral**|**Critical de negócios**|**Hyperscale**|
 |---|---|---|---|
-|Melhor para|A maioria das cargas de trabalho. Oferece opções de cálculo e armazenamento orientadas para o orçamento, equilibradas e escaláveis. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
+|Melhor para|A maioria das cargas de trabalho. Oferece opções de computação e armazenamento equilibradas, dimensionáveis e orientadas para orçamentos. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
 |Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
 |IOPS e produção (aproximada)|**Base de Dados SQL**: Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)<br/>**SQL Managed Instance**: Ver [visão geral Azure SQL Managed Instance limites de recursos](../managed-instance/resource-limits.md#service-tier-characteristics).|Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)|Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz e a produção dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas em escala de leitura|3 réplicas, 1 [réplica em escala de leitura,](read-scale-out.md)<br/>zona redundante alta disponibilidade (HA)|1 réplica de leitura-escrita, mais 0-4 [réplicas em escala de leitura](read-scale-out.md)|
@@ -102,12 +102,12 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 |Geração de hardware  |Computação  |Memória  |
 |:---------|:---------|:---------|
-|Gen4     |- Processadores Intel E5-2673 v3 (Haswell) 2.4 GHz<br>- Provisão até 24 vCores (1 vCore = 1 núcleo físico)  |- 7 GB por vCore<br>- Provisão até 168 GB|
-|Gen5     |**Cálculo provisionado**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz e Processadores Intel SP-8160 (Skylake)*<br>- Provisão até 80 vCores (1 vCore = 1 hiper-thread)<br><br>**Computação sem servidor**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz e Processadores Intel SP-8160 (Skylake)*<br>- Escala automática até 16 vCores (1 vCore = 1 hiper-thread)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Escala automática até 24 GB por vCore<br>- Escala automática até 48 GB max|
-|Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (Skylake)<br>- Com uma velocidade do relógio turbo de 3,4 GHz e uma velocidade máxima máxima de 3,7 GHz.<br>- Provisão até 72 vCores (1 vCore = 1 hiper-thread)|- 1,9 GB por vCore<br>- Provisão até 136 GB|
-|Série M     |- Processadores Intel Xeon E7-8890 v3 2,5 GHz e Intel Xeon Platinum 8280M 2.7 GHz (Lago cascata)<br>- Provisão até 128 vCores (1 vCore = 1 hiper-thread)|- 29 GB por vCore<br>- Provisão até 3,7 TB|
+|Gen4     |- Processadores Intel® E5-2673 v3 (Haswell) 2.4 GHz<br>- Provisão até 24 vCores (1 vCore = 1 núcleo físico)  |- 7 GB por vCore<br>- Provisão até 168 GB|
+|Gen5     |**Cálculo provisionado**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz, Intel® SP-8160 (Skylake) \* e Intel® 8272CL (Lago cascata) 2,5 \* GHz processadores<br>- Provisão até 80 vCores (1 vCore = 1 hiper-thread)<br><br>**Computação sem servidor**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz e Intel® processadores SP-8160 (Skylake)*<br>- Escala automática até 40 vCores (1 vCore = 1 hiper-thread)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Escala automática até 24 GB por vCore<br>- Escala automática até 120 GB max|
+|Série Fsv2     |- Processadores Intel® 8168 (Skylake)<br>- Com uma velocidade do relógio turbo de 3,4 GHz e uma velocidade máxima máxima de 3,7 GHz.<br>- Provisão até 72 vCores (1 vCore = 1 hiper-thread)|- 1,9 GB por vCore<br>- Provisão até 136 GB|
+|Série M     |- Intel® E7-8890 v3 2,5 GHz e Intel® processadores 8280M 2.7 GHz (Lago cascata)<br>- Provisão até 128 vCores (1 vCore = 1 hiper-thread)|- 29 GB por vCore<br>- Provisão até 3,7 TB|
 
-\*Na visão dinâmica de gestão [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados da Gen5 utilizando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados da Gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
+\* Na [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) visão dinâmica de gestão, a geração de hardware para bases de dados que utilizam processadores Intel® SP-8160 (Skylake) aparece como Gen6, enquanto a geração de hardware para bases de dados utilizando a Intel® 8272CL (Lago de Cascade) aparece como Gen7. Os limites de recursos para todas as bases de dados da Gen5 são os mesmos, independentemente do tipo de processador (Broadwell, Skylake ou Cascade Lake).
 
 Para obter mais informações sobre os limites de recursos, consulte [os limites de recursos para bases de dados individuais (vCore)](resource-limits-vcore-single-databases.md)ou [limites de recursos para piscinas elásticas (vCore)](resource-limits-vcore-elastic-pools.md).
 
@@ -180,7 +180,7 @@ Para mais detalhes, consulte o comando [de atualização az sql mi.](https://doc
 
 ### <a name="hardware-availability"></a>Disponibilidade de hardware
 
-#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a>Gen4/Gen5
+#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a> Gen4/Gen5
 
 O hardware da Gen4 está [a ser eliminado](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) e já não está disponível para novas implementações. Todas as novas bases de dados devem ser implantadas no hardware da Gen5.
 

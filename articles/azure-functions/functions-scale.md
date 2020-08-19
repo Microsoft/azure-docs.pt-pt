@@ -3,14 +3,14 @@ title: Dimensionamento e alojamento de Funções do Azure
 description: Saiba como escolher entre o plano de consumo de funções Azure e o plano Premium.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025833"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587230"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
@@ -86,7 +86,7 @@ Ao executar funções JavaScript num plano de Serviço de Aplicações, deve esc
 
 Executar num Ambiente de Serviço de [Aplicações](../app-service/environment/intro.md) (ASE) permite-lhe isolar totalmente as suas funções e tirar partido de alta escala.
 
-### <a name="always-on"></a><a name="always-on"></a>Sempre ligado
+### <a name="always-on"></a><a name="always-on"></a> Sempre ligado
 
 Se executar um plano de Serviço de Aplicações, deve ativar o **Always on** Setting para que a sua aplicação de função funcione corretamente. Num plano de Serviço de Aplicações, o tempo de funcionamento das funções fica inativo após alguns minutos de inatividade, pelo que apenas os gatilhos HTTP "acordam" as suas funções. Sempre disponível apenas num plano de Serviço de Aplicações. Num plano de Consumo, a plataforma ativa as aplicações de função automaticamente.
 
@@ -144,11 +144,19 @@ Depois de a sua aplicação de função ter estado inativa durante alguns minuto
 
 A escala pode variar em vários fatores, e escalar de forma diferente com base no gatilho e na linguagem selecionada. Há algumas complexidades de comportamentos de escala para estar ciente de:
 
-* Uma única aplicação de função apenas escala para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, por isso não há um limite definido para o número de execuções simultâneas.
+* Uma única aplicação de função apenas escala para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, por isso não há um limite definido para o número de execuções simultâneas.  Pode [especificar uma](#limit-scale-out) escala máxima mais baixa para o acelerador, conforme necessário.
 * Para os gatilhos HTTP, são atribuídas novas instâncias, no máximo, uma vez por segundo.
 * Para os gatilhos não-HTTP, são atribuídas novas instâncias, no máximo, uma vez a cada 30 segundos. A escala é mais rápida quando funciona num [plano Premium.](#premium-plan)
 * Para os gatilhos de Service Bus, utilize _direitos de gestão_ de recursos para a escala mais eficiente. Com os direitos _de escuta,_ o escalonamento não é tão preciso porque o comprimento da fila não pode ser usado para informar decisões de escala. Para saber mais sobre a definição de direitos nas políticas de acesso a autocarros de serviço, consulte [a Política de Autorização de Acesso Partilhado.](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies)
 * Para os gatilhos do Event Hub, consulte a [orientação de escala](functions-bindings-event-hubs-trigger.md#scaling) no artigo de referência. 
+
+### <a name="limit-scale-out"></a>Limite escala para fora
+
+Pode desejar restringir o número de casos a que uma aplicação se estende.  Isto é mais comum em casos em que um componente a jusante como uma base de dados tem uma produção limitada.  Por padrão, as funções do plano de consumo irão aumentar para até 200 instâncias, e as funções de plano premium irão aumentar para até 100 instâncias.  Pode especificar um máximo inferior para uma aplicação específica modificando o `functionAppScaleLimit` valor.  O `functionAppScaleLimit` pode ser definido para 0 ou nulo para sem restrições, ou um valor válido entre 1 e o máximo da aplicação.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Melhores práticas e padrões para apps escaláveis
 
@@ -178,7 +186,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 |**[Plano Premium](#premium-plan)**|Enquanto escala automaticamente com base na procura, use trabalhadores pré-aquecidos para executar aplicações sem atrasos após estar inativo, executar em casos mais poderosos e ligar-se a VNETs. Considere o plano Azure Functions Premium nas seguintes situações, além de todas as funcionalidades do plano de Serviço de Aplicações: <br/>✔ As aplicações de função funcionam continuamente, ou quase continuamente.<br/>✔ Tem um elevado número de pequenas execuções e tem uma nota de execução alta, mas baixa nota de GB segundo no plano de consumo.<br/>✔ Precisa de mais OPÇÕES de CPU ou de memória do que as fornecidas pelo plano de Consumo.<br/>✔ O seu código tem de ser executado mais tempo do que o tempo máximo de execução permitido no plano de Consumo.<br/>✔ Necessita de funcionalidades que só estão disponíveis num plano Premium, como a conectividade da rede virtual.|  
 |**[Plano dedicado](#app-service-plan)**<sup>1</sup>|Executar as suas funções dentro de um plano de Serviço de Aplicações com taxas regulares de plano de serviço de aplicações. Bom ajuste para operações de longo prazo, bem como quando são necessários mais escalões preditivos e custos. Considere um plano de Serviço de Aplicações nas seguintes situações:<br/>✔ Tem VMs existentes e subutilizados que já estão a executar outras instâncias do Serviço de Aplicações.<br/>✔ Pretende fornecer uma imagem personalizada para executar as suas funções.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) é uma funcionalidade de Serviço de Aplicações que fornece um ambiente totalmente isolado e dedicado para executar aplicações de Serviço de Aplicações de forma segura em alta escala. AsE são adequadas para cargas de trabalho de aplicação que requerem: <br/>✔ muito alta escala.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ alta utilização da memória.|  
-| **[Utilizar o Kubernetes](functions-kubernetes-keda.md)** | Kubernetes fornece um ambiente totalmente isolado e dedicado que corre em cima da plataforma Kubernetes.  Kubernetes é apropriado para cargas de trabalho de aplicação que requerem: <br/>✔ requisitos de hardware personalizados.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ Capacidade de funcionar em ambiente híbrido ou multi-nuvem.<br/>✔ Run ao lado das aplicações e serviços existentes da Kubernetes.|  
+| **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes fornece um ambiente totalmente isolado e dedicado que corre em cima da plataforma Kubernetes.  Kubernetes é apropriado para cargas de trabalho de aplicação que requerem: <br/>✔ requisitos de hardware personalizados.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ Capacidade de funcionar em ambiente híbrido ou multi-nuvem.<br/>✔ Run ao lado das aplicações e serviços existentes da Kubernetes.|  
 
 <sup>1</sup> Para limites específicos para as várias opções do plano de Serviço de Aplicações, consulte os limites do [plano do Serviço de Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)
 
@@ -190,7 +198,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 | **[Plano Premium](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Plano dedicado](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[ASE](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
-| **[Utilizar o Kubernetes](functions-kubernetes-keda.md)** | n/a | n/a |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
+| **[Kubernetes](functions-kubernetes-keda.md)** | n/a | n/a |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 
 <sup>1</sup> Linux é o único sistema operativo suportado para a pilha de tempo de execução Python.  
 <sup>2</sup> O Windows é o único sistema operativo suportado para a pilha de tempo de execução PowerShell.   
@@ -205,7 +213,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 | **[Plano Premium](#premium-plan)** | Evento impulsionado. Escale automaticamente, mesmo durante períodos de alta carga. A Azure Functions escala os recursos de CPU e memória adicionando instâncias adicionais do anfitrião funções, com base no número de eventos em que as suas funções são ativadas. |100|
 | **[Plano dedicado](#app-service-plan)**<sup>1</sup> | Manual/autoescala |10-20|
 | **[ASE](#app-service-plan)**<sup>1</sup> | Manual/autoescala |100 |
-| **[Utilizar o Kubernetes](functions-kubernetes-keda.md)**  | Autoescala orientada para eventos para clusters Kubernetes usando [KEDA](https://keda.sh). | Varia &nbsp; por &nbsp; aglomerado.&nbsp;&nbsp;|
+| **[Kubernetes](functions-kubernetes-keda.md)**  | Autoescala orientada para eventos para clusters Kubernetes usando [KEDA](https://keda.sh). | Varia &nbsp; por &nbsp; aglomerado.&nbsp;&nbsp;|
 
 <sup>1</sup> Para limites específicos para as várias opções do plano de Serviço de Aplicações, consulte os limites do [plano do Serviço de Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)
 
@@ -217,7 +225,7 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 | **[Plano Premium](#premium-plan)** | Casos perpetuamente quentes para evitar qualquer arranque a frio. |
 | **[Plano dedicado](#app-service-plan)**<sup>1</sup> | Ao executar um plano dedicado, o anfitrião funções pode funcionar continuamente, o que significa que o arranque a frio não é realmente um problema. |
 | **[ASE](#app-service-plan)**<sup>1</sup> | Ao executar um plano dedicado, o anfitrião funções pode funcionar continuamente, o que significa que o arranque a frio não é realmente um problema. |
-| **[Utilizar o Kubernetes](functions-kubernetes-keda.md)**  | Depende da configuração KEDA. As aplicações podem ser configuradas para correr sempre e nunca ter arranque a frio, ou configuradas para escala a zero, o que resulta em arranque a frio em novos eventos. 
+| **[Kubernetes](functions-kubernetes-keda.md)**  | Depende da configuração KEDA. As aplicações podem ser configuradas para correr sempre e nunca ter arranque a frio, ou configuradas para escala a zero, o que resulta em arranque a frio em novos eventos. 
 
 <sup>1</sup> Para limites específicos para as várias opções do plano de Serviço de Aplicações, consulte os limites do [plano do Serviço de Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)
 
@@ -237,11 +245,11 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 | **[Plano Premium](#premium-plan)** | O plano premium baseia-se no número de segundos e memórias do núcleo utilizados em instâncias necessárias e pré-aquecidas. Pelo menos um caso por plano deve ser sempre aquecido. Este plano proporciona preços mais previsíveis. |
 | **[Plano dedicado](#app-service-plan)**<sup>1</sup> | Você paga o mesmo por aplicações de função em um Plano de Serviço de Aplicações como você faria para outros recursos do Serviço de Aplicações, como aplicações web.|
 | **[ASE](#app-service-plan)**<sup>1</sup> | há uma taxa mensal fixa para um ASE que paga a infraestrutura e não muda com o tamanho do ASE. Além disso, há um custo por app service plano vCPU. Todas as aplicações alojadas num ASE estão na SKU de preços Isolada. |
-| **[Utilizar o Kubernetes](functions-kubernetes-keda.md)**| Paga apenas os custos do seu cluster Kubernetes; nenhuma faturação adicional para funções. A sua aplicação de função funciona como uma carga de trabalho de aplicação em cima do seu cluster, tal como uma aplicação regular. |
+| **[Kubernetes](functions-kubernetes-keda.md)**| Paga apenas os custos do seu cluster Kubernetes; nenhuma faturação adicional para funções. A sua aplicação de função funciona como uma carga de trabalho de aplicação em cima do seu cluster, tal como uma aplicação regular. |
 
 <sup>1</sup> Para limites específicos para as várias opções do plano de Serviço de Aplicações, consulte os limites do [plano do Serviço de Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Quickstart: Criar um projeto Azure Functions utilizando o Código do Estúdio Visual](functions-create-first-function-vs-code.md)
 + [Tecnologias de implantação em Funções Azure](functions-deployment-technologies.md) 

@@ -1,18 +1,18 @@
 ---
 title: Azure App Configuration FAQ
-description: Perguntas frequentes sobre configuração de aplicativos Azure
+description: Leia respostas a perguntas frequentes (FAQ) sobre a Configuração da Aplicação Azure, como a sua diferença do Cofre de Chaves Azure.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348794"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587349"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -41,7 +41,7 @@ Pode criar valores de Configuração de Aplicações que mencionem segredos arma
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>A Configuração da Aplicação encripta os meus dados?
 
-Sim. A Configuração de Aplicativos encripta todos os valores-chave que detém e encripta a comunicação da rede. Os nomes-chave e as etiquetas são usados como índices para recuperar dados de configuração e não são encriptados.
+Yes. A Configuração de Aplicativos encripta todos os valores-chave que detém e encripta a comunicação da rede. Os nomes-chave e as etiquetas são usados como índices para recuperar dados de configuração e não são encriptados.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Como é que a Configuração da Aplicação é diferente das definições do Serviço de Aplicações Azure?
 

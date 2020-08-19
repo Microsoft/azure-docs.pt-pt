@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: e7aa5963f6e26776184de361aaa91f5a3c36ec9e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546626"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Spotinst
 
@@ -75,18 +75,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
+1. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo IDP, complete estes passos:
 
-    a. Verifique **Definir URLs adicionais**.
-
-    b. Na caixa de texto **do Estado de Retransmissão,** digite um valor: `<ID>`
-
-1. Clique **em Definir URLs adicionais** e execute os seguintes passos se desejar configurar a aplicação no modo iniciado **sp:**
-
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > O valor do Estado de Retransmissão não é real. Irá atualizar o valor do Estado de Retransmissão com o valor real do Estado de Retransmissão, que é explicado mais tarde no tutorial.
+   1. Certifique-se de que **o URL de resposta** está definido para: https://console.spotinst.com/auth/saml .
+   1. Em **Relay State**, insira o seu ID da Organização Spotinst, que também pode confirmar no separador **SSO.**
+   1. **A URL de inscrição** deve estar vazia.
 
 1. Clique em **Guardar**.
 

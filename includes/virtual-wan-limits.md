@@ -8,20 +8,24 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0cf30666ab9950459f2a48f8fe271fd770f4efe1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c66aa6a8f0cb0efa231acee44f8fa02169d27b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71839214"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88602515"
 ---
 | Recurso |  Limite |
 | --- | --- |
 | Centros virtuais wan por região | 1  |
 | Centros virtuais wan por wan virtual |Regiões do Azure |
-| Ligações VPN (ramo) por hub |1,000 |
-| Ligações VNet por hub  | 500 |
-| Utilizadores ponto-a-local por hub|10,000 |
-| Produção agregada por Gateway VPN VPN De Wan Virtual |20 Gbps |
+| Ligações VPN (ramo) por hub | 1,000 |
+| Produção agregada por Gateway VPN site-to-site virtual WAN | 20 Gbps |
 | Produção por ligação VPN WAN Virtual (2 túneis) | 2 Gbps com túnel de 1 Gbps/IPsec |
-| Produção agregada por Gateway Virtual WAN ExpressRoute |20 Gbps 
+| Utilizadores ponto-a-local por hub| 10,000 |
+| Entrada agregada por VPN do utilizador WAN Virtual (ponto a local) gateway | 20 Gbps |
+| Produção agregada por Gateway Virtual WAN ExpressRoute | 20 Gbps |
+| Ligações expressRoute Por hub | 4 |
+| Ligações VNet por hub  | 500 menos número total de hubs em WAN Virtual |
+| Produção agregada por Virtual WAN Hub Router | 50 Gbps para o trânsito VNet para VNet |
+| Carga de trabalho VM em todos os VNets ligados a um único hub virtual WAN | 2000 

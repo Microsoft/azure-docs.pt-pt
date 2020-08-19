@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com o Dropbox Business Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Dropbox Business.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67d684b85948a0d153d334a26f6860b4c13ed26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017810"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555744"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio dropbox com o Azure Ative Directory
 
@@ -85,9 +81,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://www.dropbox.com/sso/<id>`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://www.dropbox.com/sso/<id>`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um valor:`Dropbox`
+    b. Na caixa de texto **identifier (Entity ID),** digite um valor: `Dropbox`
 
     > [!NOTE]
     > O valor URL de inscrição anterior não é um valor real. Irá atualizar o valor com o URL de inscrição real, que é explicado mais tarde no tutorial.
@@ -117,7 +113,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
    1. No campo **Nome**, introduza `Britta Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `BrittaSimon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -181,7 +177,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     d. Clique no **link Copy** e cole o valor copiado na caixa de texto URL **de Sign-on** do Domínio de **Negócios dropbox e na secção URLs** no portal Azure.
 
-    e. Clique em **Save** (Guardar).
+    e. Clique em **Guardar**.
 
 ### <a name="create-dropbox-business-test-user"></a>Criar utilizador de teste de negócio dropbox
 

@@ -6,16 +6,16 @@ author: sebansal
 tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 9b7216c36e5dd1ab5e4f65c565bf43cbd17bfbee
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: afab65b22d9487f30da458346bf143a557bec0d8
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173025"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588897"
 ---
 # <a name="export-certificate-from-azure-key-vault"></a>Certificado de exportação do Cofre da Chave Azure
 

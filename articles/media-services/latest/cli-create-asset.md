@@ -3,32 +3,40 @@ title: Faça upload de conteúdo para um ativo Azure Media Services usando Azure
 description: O script da CLI do Azure neste tópico mostra como criar um Recurso dos Serviços de Multimédia para o qual carregar conteúdo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77264416affb582bb709ff747ebaa467927114c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7b362ba30baf13211dc41a6043dcedd05bd506ea
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494898"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585424"
 ---
-# <a name="cli-example-create-an-asset"></a>Exemplo de CLI: criar um recurso
+# <a name="create-an-asset"></a>Criar um Elemento
 
-O script da CLI do Azure neste artigo mostra como criar um Recurso dos Serviços de Multimédia para o qual carregar conteúdo.
+Este artigo mostra como criar um Ativo de Serviços de Mídia.  Utilizará um ativo para deter conteúdo sonoro para codificação e streaming.  Para saber mais sobre os ativos dos Media Services, leia [ativos na Azure Media Services v3](assets-concept.md)
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+Siga os passos na [Criar uma conta de Serviços](./create-account-howto.md) de Comunicação para criar a conta e grupo de recursos necessários para criar um ativo.
+
+## <a name="methods"></a>Métodos
+
+## <a name="cli"></a>[CLI](#tab/cli/)
+
+[!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
+
+## <a name="cli-shell"></a>[Concha CLI](#tab/clishell/)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -36,6 +44,8 @@ O script da CLI do Azure neste artigo mostra como criar um Recurso dos Serviços
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
+---
+
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos Serviços de Mídia](media-services-overview.md)
+[Gerir recursos](manage-asset-concept.md)

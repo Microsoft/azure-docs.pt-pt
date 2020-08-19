@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a MongoDB Cloud Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a MongoDB Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ef392044-235b-4d80-8a33-eeba9b142849
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a502a8273aef3df3488764ea7b01c21c512ba43
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 6a59df062adf9b5c2e511db29cb8601d4a4df70e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800229"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com a MongoDB Cloud
 
@@ -84,13 +80,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão:`https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão: `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão:`https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
+    b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
 1. Selecione **Definir URLs adicionais**e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão:`https://cloud.mongodb.com/sso/<Customer_Unique>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão:  `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Para obter estes valores, contacte a equipa de suporte do [Cliente nuvem MongoDB.](https://support.mongodb.com/) Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

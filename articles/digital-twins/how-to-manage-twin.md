@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506538"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587604"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -37,18 +37,22 @@ Para criar um gémeo digital, é necessário fornecer:
 
 Opcionalmente, pode fornecer valores iniciais para todas as propriedades do twin digital. 
 
-O modelo e os valores iniciais da propriedade são fornecidos através do `initData` parâmetro, que é uma cadeia JSON contendo os dados relevantes.
+O modelo e os valores iniciais da propriedade são fornecidos através do `initData` parâmetro, que é uma cadeia JSON contendo os dados relevantes. Para obter mais informações sobre a estruturação deste objeto, continue para a secção seguinte.
 
 > [!TIP]
 > Após a criação ou atualização de um gémeo, pode haver uma latência de até 10 segundos antes de as alterações se refletirem em [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [mais tarde neste artigo)](#get-data-for-a-digital-twin)não experimenta este atraso, por isso use a chamada da API em vez de consultar os seus gémeos recém-criados se precisar de uma resposta imediata. 
 
-### <a name="initialize-properties"></a>Inicializar propriedades
+### <a name="initialize-model-and-properties"></a>Inicializar modelo e propriedades
 
-A API de criação gémea aceita um objeto que pode ser serializado numa descrição válida do JSON das propriedades gémeas. Ver [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo.
+A API de criação gémea aceita um objeto que é serializado numa descrição válida do JSON das propriedades gémeas. Ver [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo. 
+
+Então, primeiro, você vai criar um objeto de dados para representar o gémeo e seus dados de propriedade. Em seguida, pode usar `JsonSerializer` para passar uma versão serializada disto na chamada da API para o `initdata` parâmetro.
 
 Pode criar um objeto de parâmetro manualmente ou utilizando uma classe de ajudante fornecida. Aqui está um exemplo de cada um.
 
 #### <a name="create-twins-using-manually-created-data"></a>Criar gémeos usando dados criados manualmente
+
+Sem o uso de quaisquer classes de ajudantes personalizadas, pode representar as propriedades de um gémeo `Dictionary<string, object>` num, onde `string` o nome da propriedade e o é um objeto que representa a propriedade e o seu `object` valor.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +72,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### <a name="create-twins-with-the-helper-class"></a>Criar gémeos com a classe de ajudante
 
+A classe de ajudante `BasicDigitalTwin` permite-lhe armazenar campos de propriedade num objeto "twin" mais diretamente. Pode ainda querer construir a lista de propriedades utilizando um `Dictionary<string, object>` , que pode ser adicionado ao objeto gémeo como seu `CustomProperties` diretamente.
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -80,6 +86,13 @@ twin.CustomProperties = props;
 
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
+
+>[!NOTE]
+> `BasicDigitalTwin` objetos vêm com um `Id` campo. Pode deixar este campo vazio, mas se adicionar um valor de ID, tem de corresponder ao parâmetro de ID passado à `CreateDigitalTwin` chamada. Para o exemplo acima, isto pareceria:
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
 
 ## <a name="get-data-for-a-digital-twin"></a>Obtenha dados para um gémeo digital
 

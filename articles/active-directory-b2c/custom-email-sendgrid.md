@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 08/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2716c49c72674b53e52b021972a90cf89bd843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 952659746bbb99108c6177166ad60ad2272cbce6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392946"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584944"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação personalizada de e-mail com SendGrid
 
@@ -220,6 +220,9 @@ Abaixo as transformações de sinistros no interior `<BuildingBlocks>` , adicion
  <ContentDefinition Id="api.localaccountsignup">
     <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
   </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+  </ContentDefinition>
 </ContentDefinitions>
 ```
 
@@ -344,7 +347,7 @@ Tal como acontece com os perfis técnicos da OTP, adicione os seguintes perfis t
 
 ## <a name="make-a-reference-to-the-displaycontrol"></a>Faça uma referência ao DisplayControl
 
-No passo final, adicione uma referência ao DisplayControl que criou. Substitua o seu `LocalAccountSignUpWithLogonEmail` perfil técnico autoafirmado se utilizar uma versão anterior da política Azure AD B2C. Este perfil técnico `DisplayClaims` utiliza-se com uma referência ao DisplayControl.
+No passo final, adicione uma referência ao DisplayControl que criou. Substitua os perfis `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` técnicos existentes e autoafirmados pelos seguintes perfis. Se usou uma versão anterior da política Azure AD B2C. Estes perfis técnicos `DisplayClaims` utilizam-se com uma referência ao DisplayControl.
 
 Para obter mais informações, consulte [o perfil técnico autoafirmado](restful-technical-profile.md) e [o DisplayControl](display-controls.md).
 
@@ -353,22 +356,13 @@ Para obter mais informações, consulte [o perfil técnico autoafirmado](restful
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <DisplayName>Email signup</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-        <Item Key="language.button_continue">Create</Item>
-        
         <!--OTP validation error messages-->
         <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
         <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" />
-      </InputClaims>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -377,17 +371,18 @@ Para obter mais informações, consulte [o perfil técnico autoafirmado](restful
         <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
         <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
       </DisplayClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-        <OutputClaim ClaimTypeReferenceId="objectId" />
-        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-        <OutputClaim ClaimTypeReferenceId="newUser" />
-      </OutputClaims>
-      <ValidationTechnicalProfiles>
-        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-      </ValidationTechnicalProfiles>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
+      <Metadata>
+        <!--OTP validation error messages-->
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
+        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
+      </Metadata>
+      <DisplayClaims>
+        <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+      </DisplayClaims>
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -439,7 +434,7 @@ Para localizado o e-mail, tem de enviar cordas localizadas para a SendGrid ou pa
         <SupportedLanguage>en</SupportedLanguage>
         <SupportedLanguage>es</SupportedLanguage>
       </SupportedLanguages>
-      <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedResources Id="api.custom-email.en">
         <LocalizedStrings>
           <!--Email template parameters-->
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
@@ -448,7 +443,7 @@ Para localizado o e-mail, tem de enviar cordas localizadas para a SendGrid ou pa
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedResources Id="api.custom-email.es">
         <LocalizedStrings>
           <!--Email template parameters-->
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
@@ -463,16 +458,25 @@ Para localizado o e-mail, tem de enviar cordas localizadas para a SendGrid ou pa
 1. Adicione referências aos elementos LocaisResources atualizando o elemento [Definitions de Conteúdo.](contentdefinitions.md)
 
     ```XML
-    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
-      <LocalizedResourcesReferences MergeBehavior="Prepend">
-        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-      </LocalizedResourcesReferences>
-    </ContentDefinition>
+    <ContentDefinitions>
+      <ContentDefinition Id="api.localaccountsignup">
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="api.localaccountpasswordreset">
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+    </ContentDefinitions>
     ```
 
-1. Por fim, adicione após a transformação de pedidos de entrada para o perfil técnico LocalAccountSignUpWithLogonEmail.
+1. Por fim, adicione a seguinte forma de entrada alegações de transformação para os `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` perfis técnicos.
 
     ```XML
     <InputClaimsTransformations>
@@ -480,7 +484,7 @@ Para localizado o e-mail, tem de enviar cordas localizadas para a SendGrid ou pa
     </InputClaimsTransformations>
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
 

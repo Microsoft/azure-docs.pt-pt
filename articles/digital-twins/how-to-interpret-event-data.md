@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510033"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587638"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -30,7 +30,7 @@ Em geral, as notificações são compostas por duas partes: o cabeçalho e o cor
 
 Os cabeçalhos de mensagens de notificação são representados com pares de valor-chave. Dependendo do protocolo utilizado (MQTT, AMQP ou HTTP), os cabeçalhos de mensagens serão serializados de forma diferente. Esta secção discute informações gerais de cabeçalho para mensagens de notificação, independentemente do protocolo específico e da serialização escolhidas.
 
-Algumas notificações estão em conformidade com a norma CloudEvents. A conformidade com o CloudEvents é a seguinte.
+Algumas notificações estão em conformidade com a norma [CloudEvents.](https://cloudevents.io/) A conformidade com o CloudEvents é a seguinte.
 * As notificações emitidas pelos dispositivos continuam a seguir as especificações existentes para notificações
 * As notificações processadas e emitidas pelo IoT Hub continuam a seguir as especificações existentes para notificação, exceto quando o IoT Hub opta por apoiar os Eventos CloudEvents, como através da Grade de Eventos
 * Notificações emitidas por [gémeos digitais](concepts-twins-graph.md) com [um modelo](concepts-models.md) em conformidade com CloudEvents
@@ -103,11 +103,11 @@ As notificações do ciclo de vida são desencadeadas quando:
 
 Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID do gémeo digital |
@@ -189,11 +189,11 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 
 Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
-| Nome    | Valor |
+| Name    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID da relação, como `<twinID>/relationships/<relationshipID>` |
@@ -245,11 +245,11 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 Aqui estão os campos no corpo de uma notificação digital de mudança de gémeos.
 
-| Nome    | Valor |
+| Name    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está em conformidade com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID do gémeo digital |

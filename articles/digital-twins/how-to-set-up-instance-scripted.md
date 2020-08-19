@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 82ddba67a6bd9fcc56b74c3f830663228feb945b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009703"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588000"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -47,7 +47,7 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
 
-    Navegue para o _**ficheirodeploy.ps1**_ na sua máquina e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
+    Navegue para o _** ficheirodeploy.ps1**_ na sua máquina e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
 
 3. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. À medida que o script passa pelos passos de configuração automatizados, ser-lhe-á pedido que passe nos seguintes valores:
     * Por exemplo: o ID de *subscrição* da sua subscrição Azure para usar
@@ -110,6 +110,8 @@ Para verificar se o seu caso foi criado, aceda à [página Azure Digital Twins](
 
 > [!NOTE]
 > Lembre-se que o script atribui atualmente esta função necessária ao mesmo utilizador que executa o script a partir de Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
+>
+> Também pode usar o portal ou o CLI para refazer a sua própria atribuição de funções se houver problemas com a configuração escrita.
 
 ### <a name="verify-app-registration"></a>Verificar registo de aplicativos
 

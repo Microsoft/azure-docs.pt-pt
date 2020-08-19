@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043874"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566272"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Segurança avançada de dados para máquinas SQL (Pré-visualização)
 
@@ -72,7 +72,7 @@ Ambos são descritos abaixo.
 
     [![Página de preços do Centro de Segurança com pacotes opcionais](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    A Segurança avançada de dados para servidores SQL em máquinas será ativada em todos os servidores SQL ligados ao espaço de trabalho selecionado. A proteção estará totalmente ativa após o primeiro reinício do SQL Server. 
+    A Segurança avançada de dados para servidores SQL em máquinas será ativada em todos os servidores SQL ligados ao espaço de trabalho selecionado. A proteção estará totalmente ativa após o primeiro reinício da instância SQL Server.
 
     >[!TIP] 
     > Para criar um novo espaço de trabalho, siga as instruções no [Criar um espaço de trabalho Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
@@ -127,7 +127,7 @@ Os alertas de segurança estão disponíveis na página de alerta do Security Ce
     [Saiba mais sobre como gerir e responder a alertas.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para material relacionado, consulte o seguinte artigo:
 
