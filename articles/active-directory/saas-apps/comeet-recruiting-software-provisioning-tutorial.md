@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador com o Azure Ative Directory [ Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desa provisionar contas de utilizadores ao Comeet Recruiting Software.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5165c3f03d51403a978ad3574306bc27d931e1d7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058342"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536897"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador
 
@@ -102,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino** e **o Token Secreto** da conta do seu Comeet Recruiting Software, conforme descrito no Passo 6.
 
-6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para **Comeet > Definições > Autenticação > Microsoft Azure**, e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
+6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para  **Comeet > Definições > Autenticação > Microsoft Azure**, e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
 
     ![Fornecimento de software de recrutamento de comeet](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
@@ -151,7 +147,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

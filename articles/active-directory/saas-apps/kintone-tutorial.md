@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Kintone Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kintone.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b473502f740717fb0426d09261c1f1107144d047
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799847"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Diretório Ativo Azure com a Kintone
 
@@ -105,7 +101,7 @@ Para configurar o Azure AD single sign-on com Kintone, execute os seguintes pass
 
     ![Kintone Domain e URLs informações únicas de súming](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<companyname>.kintone.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.kintone.com`
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     

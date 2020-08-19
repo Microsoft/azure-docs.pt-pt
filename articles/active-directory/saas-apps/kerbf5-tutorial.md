@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure AD integração única com F5 / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b48b8c1282f90788846b9dc3b64a5ea1ee018a3c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017453"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -150,13 +145,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -179,7 +174,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -223,7 +218,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Além disso, irá necessitar de **Certificado SSL para o nome de anfitrião da aplicação. Navegue para a Gestão de Certificados > sistema > Gestão de Certificados de Tráfego > Lista de Certificados SSL**. **Selecione Importar** do canto direito. **O Tipo de Importação** será **PKCS 12(IIS)**. Especifique um **Nome chave** (será referenciado mais tarde no config) e o especifique o ficheiro PFX. Especifique a **palavra-passe** para o PFX. Clique **em Importar.**
 
     >[!NOTE]
-    >No exemplo, o nosso nome de aplicativo `Kerbapp.superdemo.live` é, estamos usando um Certificado wild card o nosso nome de chave é`WildCard-SuperDemo.live`
+    >No exemplo, o nosso nome de aplicativo `Kerbapp.superdemo.live` é, estamos usando um Certificado wild card o nosso nome de chave é `WildCard-SuperDemo.live`
 
     ![Configuração F5 (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
  
@@ -252,7 +247,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
  
     ![Configuração F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
-1. No ecrã de definições de sinais únicos, selecione **Ative O Sign-On único**. Sob **o tipo de sinal único selecionado,** escolha **Kerberos.** Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Name** under **Username Source** (esta variável que definiu usando mapeamento de reclamações no AD Azure). Selecione **mostrar definição avançada**. Sob **o reino de Kerberos digite** o Nome de Domínio. No **Nome da Conta/Palavra-Passe de Conta** Especifique a conta e a senha da delegação APM. Especificar o IP do controlador de domínio no campo **KDC.** Clique **em Guardar & Seguinte**.
+1. No ecrã de definições de sinais únicos, selecione **Ative O Sign-On único**. Sob **o tipo de sinal único selecionado,** escolha **Kerberos.** Substitua **session.saml.last.Identity**  por **session.saml.last.attr.name.Name** under **Username Source** (esta variável que definiu usando mapeamento de reclamações no AD Azure). Selecione **mostrar definição avançada**. Sob **o reino de Kerberos digite** o Nome de Domínio. No **Nome da Conta/Palavra-Passe de Conta** Especifique a conta e a senha da delegação APM. Especificar o IP do controlador de domínio no campo **KDC.** Clique **em Guardar & Seguinte**.
 
     ![Configuração F5 (Kerberos)](./media/kerbf5-tutorial/configure09.png)   
 
@@ -284,7 +279,7 @@ Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) par
 
 1. No separador Principal, clique em **Política de Acesso > servidores AAA > Ative Directory**. O ecrã da lista de servidores de diretório ativo abre.
 
-2. Clique em **Create** (Criar). O ecrã de propriedades do Novo Servidor abre.
+2. Clique em **Criar**. O ecrã de propriedades do Novo Servidor abre.
 
 3. No campo **Nome,** escreva um nome único para o servidor de autenticação.
 
@@ -347,7 +342,7 @@ Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) par
 1. Para configurar o SAML SP, navegue para **Access > Federation > PRESTADOR de Serviços SAML > Serviços SP Locais** e clique em **Criar**. Complete as seguintes informações e clique **em OK**.
 
     * Nome do tipo: KerbApp200SAML
-    * ID de entidade*:https://kerb-app.com.cutestat.com
+    * ID de entidade*: https://kerb-app.com.cutestat.com
     * Definições de nomes sp
     * Regime: https
     * Anfitrião: kerbapp200.superdemo.live
@@ -487,9 +482,9 @@ Quando clicar no azulejo F5 no Painel de Acesso, deverá ser automaticamente ins
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

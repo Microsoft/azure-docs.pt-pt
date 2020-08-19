@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Diretório Ativo Azure com Deputado / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Adjunto.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 798468f1e8ef62f5ccf8cdd451b643ecdbe255bc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799328"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Diretório Ativo Azure com o Adjunto
 
@@ -150,7 +145,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
     ![Informações de assinatura única de domínio e URLs](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<your-subdomain>.<region>.deputy.com`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<your-subdomain>.<region>.deputy.com`
 
     >[!NOTE]
     > O sufixo da região adjunta é opcional, ou deve usar um destes: au ! na / eu [como ] a [af ] a [ent-au ] ent-na [ ent-eu ] ent-as [ ent-as ] ent-la - ent-af ! ent-an
@@ -186,7 +181,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
    
     b. Abra o certificado codificado Base64 descarregado do portal Azure no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **do Certificado OpenSSL.**
    
-    c. Na caixa de texto URL SSO SAML, escreva`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. Na caixa de texto URL SSO SAML, escreva `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
     d. Na caixa de texto URL SSO SAML, `<your subdomain>` substitua-a pelo seu subdomínio.
    
