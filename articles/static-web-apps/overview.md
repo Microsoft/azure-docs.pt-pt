@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835787"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565711"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>O que é Azure Static Web Apps Preview?
 
@@ -32,10 +32,10 @@ Com aplicações web estáticas, os ativos estáticos são separados de um servi
 
 - **Hospedagem web** para conteúdo estático como HTML, CSS, JavaScript e imagens.
 - **Suporte integrado da API** fornecido pela Azure Functions.
-- **Integração gitHub de primeira parte** onde alterações de repositório desencadeiam construções e implementações.
+- **Integração gitHub de primeira classe** onde alterações de repositórios desencadeiam construções e implementações.
 - Conteúdo estático **distribuído globalmente,** colocando o conteúdo mais próximo dos seus utilizadores.
 - **Certificados SSL gratuitos,** que são automaticamente renovados.
-- **Domínios personalizados** \* para fornecer personalizações de marca à sua app.
+- **Domínios personalizados** para fornecer personalizações de marca à sua aplicação.
 - **Modelo de segurança sem emenda** com um proxy invertido ao chamar APIs, que não requer configuração CORS.
 - **Integrações de fornecedores de autenticação** com Azure Ative Directory, Facebook, Google, GitHub e Twitter.
 - Definição e atribuições **de funções de função de autorização personalizável.**
@@ -44,11 +44,9 @@ Com aplicações web estáticas, os ativos estáticos são separados de um servi
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>O que pode fazer com aplicações web estáticas
 
-- **Construa aplicações JavaScript modernas** com quadros e bibliotecas como [Angular](getting-started.md#tabpanel_CeZOj-G++Q_angular), [React,](getting-started.md#tabpanel_CeZOj-G++Q_react) [Svelte,](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/) [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) com um back-end [Azure Functions.](apis.md)
+- **Construa aplicações JavaScript modernas** com quadros e bibliotecas como [Angular](getting-started.md?tabs=angular), [React,](getting-started.md?tabs=react) [Svelte,](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/) [Vue](getting-started.md?tabs=react) com um back-end [Azure Functions.](apis.md)
 - **Publique sites estáticos** com quadros como [Gatsby,](publish-gatsby.md) [Hugo,](publish-hugo.md) [VuePress.](publish-vuepress.md)
 - **Implementar aplicações web** com quadros como [Next.js](deploy-nextjs.md) e [Nuxt.js](deploy-nuxtjs.md).
-
-\*Os registos de domínio Apex não são suportados durante a pré-visualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 

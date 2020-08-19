@@ -2,24 +2,29 @@
 title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2020
-ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 08/18/2020
+ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262794"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585338"
 ---
-# <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
+# <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas
 
-Este artigo descreve como fazer backup e restaurar máquinas virtuais (VMs) do Windows ou Linux Azure com discos encriptados utilizando o serviço [Azure Backup.](backup-overview.md)
+Este artigo descreve como fazer backup e restaurar máquinas virtuais (VMs) do Windows ou Linux Azure com discos encriptados utilizando o serviço [Azure Backup.](backup-overview.md) Para obter mais informações, consulte [a encriptação das cópias de segurança VM da Azure](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-Se quiser saber mais sobre como o Azure Backup interage com os VMs Azure antes de começar, reveja estes recursos:
+## <a name="encryption-using-platform-managed-keys"></a>Encriptação utilizando chaves geridas pela plataforma
 
-- [Reveja](backup-architecture.md#architecture-built-in-azure-vm-backup) a arquitetura de backup Azure VM.
-- [Saiba mais](backup-azure-vms-introduction.md) Backup Azure VM e a extensão Azure Backup.
+Por predefinição, todos os discos dos seus VMs são automaticamente encriptados em repouso utilizando teclas geridas pela plataforma (PMK) que utilizam [encriptação do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Pode fazer backup destes VMs utilizando o Azure Backup sem quaisquer ações específicas necessárias para suportar a encriptação na sua extremidade. Para obter mais informações sobre encriptação com chaves geridas pela plataforma, [consulte este artigo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
 
-## <a name="encryption-support"></a>Suporte de encriptação
+![Discos encriptados](./media/backup-encryption/encrypted-disks.png)
+
+## <a name="encryption-using-customer-managed-keys"></a>Encriptação com chaves geridas pelo cliente
+
+Quando encripta discos com teclas geridas por medida (CMK), a chave utilizada para encriptar os discos é armazenada no Cofre da Chave Azure e é gerida por si. Encriptação do Serviço de Armazenamento (SSE) utilizando CMK difere da encriptação de encriptação do disco Azure (ADE). A ADE utiliza as ferramentas de encriptação do sistema operativo. A SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Para obter mais informações sobre encriptação de discos geridos com chaves geridas pelo cliente, consulte [este artigo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+
+## <a name="encryption-support-using-ade"></a>Suporte de encriptação usando ADE
 
 O Azure Backup suporta a cópia de segurança dos VMs Azure que têm os seus discos DE/S/Data encriptados com encriptação do disco Azure (ADE). O ADE utiliza o BitLocker para encriptação de VMs do Windows e a função dm-crypt para Os VMs Do Linux. O ADE integra-se com o Azure Key Vault para gerir chaves e segredos de encriptação de discos. As chaves de encriptação da chave do cofre do cofre (KEKs) podem ser usadas para adicionar uma camada adicional de segurança, encriptando segredos de encriptação antes de escrevê-las no Key Vault.
 
@@ -27,8 +32,8 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 
 **Tipo de disco da VM** | **ADE (BEK/dm-cripta)** | **ADE e KEK**
 --- | --- | ---
-**Não gerido** | Sim | Sim
-**Gerido**  | Sim | Sim
+**Não gerido** | Yes | Yes
+**Gerido**  | Yes | Yes
 
 - Saiba mais sobre [ADE,](../security/fundamentals/azure-disk-encryption-vms-vmss.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para encriptação do disco Azure VM.
@@ -119,11 +124,6 @@ Para definir permissões:
 1. Selecione **políticas de acesso**Adicionar Política de  >  **Acesso**.
 
     ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
-
-1. **Selecione o principal**e, em seguida, **escreva Gestão de Backup**.
-1. Selecione **o serviço de gestão de**  >  **cópias de segurança .**
-
-    ![Seleção de serviço de backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 1. In **Add access policy**  >  **Configure from template (opcional)**, selecione **Azure Backup**.
     - As permissões necessárias são preenchidas para **permissões chave** e **permissões secretas.**

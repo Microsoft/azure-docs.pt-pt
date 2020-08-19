@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Predictix Ordering / Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre O Diretório Ativo Azure e Predictix Ordering.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2fe2f976-e97f-4368-9695-3e1624409e8b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ab66dc7bc2aea249e105df20652c0f5904e294d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 0eec8d9d88b286e386bd310c98d03737e56e05b2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800264"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integração do Diretório Ativo Azure com a Predictix Ordering
 
@@ -66,7 +62,7 @@ Para configurar a integração do Predictix Ordering em Azure AD, precisa adicio
 
 4. Na caixa de pesquisa, insira **o Pedido De Predictix**. Selecione **Predictix Encomendar** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
 
-     ![Resultados de pesquisa](common/search-new-app.png)
+     ![Resultados da pesquisa](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 

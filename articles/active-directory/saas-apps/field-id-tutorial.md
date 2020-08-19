@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com Field iD Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Field ID.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cb778239-dda9-4c5d-ba82-37d2a798978d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c90674ccbbbece59efe34986f320d0a18080399b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: a9ace754a75d63bc24bea91dd6c88a3d004fd0eb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764116"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555100"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutorial: Azure Ative Directory integração única (SSO) com iD de campo
 
@@ -82,9 +78,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-   a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão:`https://<tenantname>.fieldid.com/fieldid`
+   a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid`
 
-   b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão:`https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
+   b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a [equipa de suporte de ID do Campo](mailto:support@ecompliance.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -141,7 +137,7 @@ Quando selecionar o azulejo field iD no Painel de Acesso, deverá ser automatica
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

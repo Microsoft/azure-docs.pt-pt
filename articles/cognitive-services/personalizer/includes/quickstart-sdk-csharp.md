@@ -8,12 +8,12 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 07/30/2020
-ms.openlocfilehash: 41665193ab78f4d29785171ef3fee9a7ce1d9cea
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: fdae79912e6fe3bf2f7d55b7405cb7883e484c47
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246415"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88602506"
 ---
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
@@ -143,7 +143,7 @@ Adicione os seguintes métodos, que [obtêm as escolhas de conteúdo,](#get-food
 
 ## <a name="request-the-best-action"></a>Solicite a melhor ação
 
-Para completar o pedido rank, o programa pede às preferências do utilizador para criar uma `currentContent` das escolhas de conteúdo. O processo pode criar conteúdo para excluir das ações, mostradas como `excludeActions` . O pedido rank precisa das ações e suas funcionalidades, funcionalidades atualescontexto, exclusões Deacções, e um ID de evento único, para receber a resposta.
+Para completar o pedido rank, o programa pede às preferências do utilizador para criar uma `currentContext` das escolhas de conteúdo. O processo pode criar conteúdo para excluir das ações, mostradas como `excludeActions` . O pedido rank precisa das ações e suas funcionalidades, funcionalidades atualescontexto, exclusões Deacções, e um ID de evento único, para receber a resposta.
 
 Este quickstart tem características de contexto simples de hora do dia e preferência alimentar do utilizador. Nos sistemas de produção, determinar e [avaliar](../concept-feature-evaluation.md) [ações e características](../concepts-features.md) pode ser uma questão não trivial.
 

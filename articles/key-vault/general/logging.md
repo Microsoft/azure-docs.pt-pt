@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 263568ef53ec2353bf00ebcd5b48a212f0f1eb2d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192791"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585921"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -265,7 +265,7 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
 
 A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | **Hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |

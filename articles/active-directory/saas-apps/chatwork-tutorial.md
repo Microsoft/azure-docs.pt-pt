@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 9f43498ec6a80776f31cd45e80be6d786c2ae863
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529377"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586261"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Tutorial: Azure Ative Directory integração única (SSO) com Chatwork
 
@@ -83,7 +83,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente Chatwork](mailto:info@support.chatwork.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de login privado que definiu após **a configuração do Chatwork SSO**.
+
+1. A aplicação chatwork espera que o valor do atributo **Unique User Identifier** corresponda ao endereço de e-mail registado no Chatwork. O atributo é mapeado para **user.principalname** por padrão. Se o nome principal for diferente do endereço de e-mail, mapear o  **Identificador Único do Utilizador** para **user.mail**.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -125,11 +127,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-chatwork-sso"></a>Configurar chatwork SSO
 
-Para configurar um único sign-on no lado **do Chatwork,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipe de [suporte chatwork](mailto:info@support.chatwork.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **do Chatwork,** leia o Guia de [Administração chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) e configufique uma definição de Chatwork.
 
 ### <a name="create-chatwork-test-user"></a>Criar utilizador de teste de Chatwork
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Chatwork. Trabalhe com a [equipa de suporte chatwork](mailto:info@support.chatwork.com) para adicionar os utilizadores na plataforma Chatwork. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Chatwork. Aceda ao [Guia de Administração chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) e adicione o utilizador na plataforma Chatwork.
 
 ## <a name="test-sso"></a>Teste SSO 
 

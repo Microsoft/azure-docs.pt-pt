@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directory Single sign-on (SSO) integração com a Cornerstone OnDemand / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Cornerstone OnDemand.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fb9f10dbe9b5018ce0a5d02bcb668b09cd5e5a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d01f2235f65cefd893f0dd3291ad98a9ee391eab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902308"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555947"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com a Cornerstone OnDemand
 
@@ -86,9 +82,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<company>.csod.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<company>.csod.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<company>.csod.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<company>.csod.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte a [equipa de suporte do Cliente Cornerstone OnDemand](mailto:moreinfo@csod.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -154,9 +150,9 @@ Quando clicar no azulejo Stonestone OnDemand no Painel de Acesso, deverá ser au
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

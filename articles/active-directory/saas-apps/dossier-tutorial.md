@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Diretório Ativo Azure com Dossier Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Dossier.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7a5fec92-9c01-4ced-99b2-a10e28fc028e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ef57db315fa29a70a604f180671091a5b372f316
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799979"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Diretório Ativo Azure com Dossier
 
@@ -112,7 +108,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Dossier, execute
     https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
     ```
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`Dossier/<CLIENTNAME>`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `Dossier/<CLIENTNAME>`
 
     > [!NOTE]
     > Para o valor do identificador deve estar no formato ou em `Dossier/<CLIENTNAME>` qualquer valor personalizado do utilizador.

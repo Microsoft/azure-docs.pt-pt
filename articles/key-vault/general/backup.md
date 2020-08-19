@@ -7,15 +7,15 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386270"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585938"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
 
@@ -118,6 +118,6 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ligue [o registo e a monitorização](https://docs.microsoft.com/azure/key-vault/general/logging) do Key Vault.

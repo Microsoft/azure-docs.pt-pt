@@ -7,15 +7,15 @@ manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 4df934f38a8fb657fa4a8de5922d96197a3d02cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061105"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585479"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
 
@@ -68,7 +68,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Description|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure|
 |Chave-alvo|RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o Cofre Azure-Key HSM|
@@ -89,7 +89,7 @@ Um KEK é uma chave RSA gerada num Cofre de Chaves HSM. O KEK é utilizado para 
 O KEK deve ser:
 - Uma chave RSA-HSM (2.048-bit; 3.072-bit; ou 4.096-bit)
 - Gerado no mesmo cofre-chave onde pretende importar a chave-alvo
-- Criado com as principais operações permitidas definidas para`import`
+- Criado com as principais operações permitidas definidas para `import`
 
 > [!NOTE]
 > O KEK deve ter a "importação" como única operação-chave permitida. A «importação» é mutuamente exclusiva com todas as outras operações-chave.

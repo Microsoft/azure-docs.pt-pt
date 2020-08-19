@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564539"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566255"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 
@@ -39,7 +39,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 - Podem ser necessárias permissões adicionais para ligar fontes de dados específicas.
 - Azure Sentinel é um serviço pago. Para obter informações sobre preços consulte [Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
-## <a name="enable-azure-sentinel"></a>Ativar sentinela Azure<a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Ativar sentinela Azure <a name="enable"></a>
 
 1. Inicie sessão no Portal do Azure. Certifique-se de que a subscrição na qual o Azure Sentinel é criado está selecionada.
 
@@ -58,7 +58,10 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
    > - O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região de GA de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto as regiões da China e Alemanha (Soberana). Os dados gerados pelo Azure Sentinel (como incidentes, marcadores e regras de alerta, que podem conter alguns dados dos clientes provenientes destes espaços de trabalho) são guardados na Europa (para espaços de trabalho localizados na Europa), na Austrália (para espaços de trabalho localizados na Austrália), ou nos EUA orientais (para espaços de trabalho localizados em qualquer outra região).
 
    >[!IMPORTANT]
-   > - Uma vez que o Azure Sentinel tenha sido ativado num espaço de trabalho, a mudança desse espaço de trabalho para outros grupos de recursos ou subscrições não é suportada. Se precisar de deslocar o espaço de trabalho, contacte [o Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+   >
+   > - Uma vez implantado num espaço de trabalho, o Azure Sentinel **não suporta atualmente** a deslocação desse espaço de trabalho para outros grupos de recursos ou subscrições. 
+   >
+   >   Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. No entanto, isto deve ser eficaz na maioria dos casos, para reiterar, não é apoiado e empreendido por sua conta e risco.
 
 1. **Selecione Add Azure Sentinel**.
   

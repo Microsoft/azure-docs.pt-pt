@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2e741b0501f5e5cc37a6fea781dc1a5ede4fb1c2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207151"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585021"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
 
@@ -57,6 +57,9 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 1. Para **tecla**, introduza *TestApp:Definições:Sentinela*. Para **Valor,** insira 1. Deixe **o rótulo** e o **conteúdo** em branco.
 
 1. Selecione **Aplicar**.
+
+    > [!NOTE]
+    > Se não estiver a usar uma chave sentinela, terá de registar manualmente todas as chaves que pretende ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 
@@ -159,6 +162,9 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     }
     ```
     ---
+
+    > [!TIP]
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [padrões de opções em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Atualize o `Configure` método, adicionando o `UseAzureAppConfiguration` middleware para permitir que as definições de configuração registadas para atualização sejam atualizadas enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
@@ -339,7 +345,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançamento de app quickstart atualizada localmente](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

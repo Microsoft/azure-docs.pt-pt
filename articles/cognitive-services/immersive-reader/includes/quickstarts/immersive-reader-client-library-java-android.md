@@ -10,18 +10,18 @@ ms.topic: include
 ms.date: 06/10/2020
 ms.custom: devx-track-java, devx-track-javascript
 ms.author: dylankil
-ms.openlocfilehash: 5ea35d6da2e76d5eacc76829c9da93f82a842271
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 63a7e7756eee80b8d57c168890ba3613bbd11f01
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88602542"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
 Neste arranque rápido, você constrói uma aplicação Android de raiz e integra o Leitor Imersivo. Uma amostra completa deste arranque rápido está disponível [no GitHub.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1dd38f0360a4471124497d8357481283cd98383c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827253"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566306"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -66,7 +66,7 @@ Para aplicações lógicas que necessitem de acesso direto aos recursos numa red
 > [!NOTE]
 > As aplicações lógicas que funcionam num ISE e os seus conectores, independentemente do local onde esses conectores funcionam, seguem um plano de preços fixos em relação ao plano de preços baseado no consumo. Para obter mais informações, consulte [o modelo de preços de Apps Lógicas](../logic-apps/logic-apps-pricing.md) e detalhes de preços de Apps [Lógicas.](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-| Etiqueta | Exemplo | Descrição |
+| Etiqueta | Exemplo | Description |
 |-------|---------|-------------|
 | **CORE** | ![Conector ISE exemplo](./media/apis-list/example-core-connector.png) | Os gatilhos incorporados e as ações com esta etiqueta funcionam no mesmo ISE que as suas aplicações lógicas. |
 | **ISE** | ![Conector ISE exemplo](./media/apis-list/example-ise-connector.png) | Os conectores geridos com esta etiqueta funcionam no mesmo ISE que as suas aplicações lógicas. Se tiver um sistema no local ligado a uma rede virtual Azure, um ISE permite que as suas aplicações lógicas acedam diretamente a esse sistema sem o [portal de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Em vez disso, pode utilizar o conector **ISE** do sistema, se disponível, uma ação HTTP ou um [conector personalizado.](#custom) Para sistemas no local que não tenham conectores **ISE,** utilize o portal de dados no local. Para rever os conectores ISE disponíveis, consulte [os conectores ISE](#ise-connectors). |
@@ -121,7 +121,7 @@ A Logic Apps fornece ações integradas para trabalhar com as saídas de dados e
 | Nome | Descrição |
 |------|-------------|
 | [![Operações de dados de ][data-operations-icon]<br> **ícones incorporados**][data-operations-doc] | Realizar operações com dados: <p>- **Compor**: Criar uma única saída a partir de múltiplas entradas com vários tipos. <br>- **Criar tabela CSV**: Criar uma tabela de valor separado em vírgula (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz a partir de itens em outra matriz que satisfaça os seus critérios. <br>- **Junte-se:** Crie uma cadeia de todos os itens numa matriz e separe esses itens com olimdidor especificado. <br>- **Parse JSON**: Crie fichas fáceis de utilizar a partir de propriedades e seus valores em conteúdo JSON para que possa utilizar essas propriedades no seu fluxo de trabalho. <br>- **Selecione:** Crie uma matriz com objetos JSON transformando itens ou valores noutra matriz e mapeando esses itens para propriedades especificadas. |
-| ![Ícone incorporado][date-time-icon]<br>**Data Hora** | Executar operações com tempotando: <p>- **Adicione ao tempo**: Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário**: Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual**: Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura**: Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo**: Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo**: Subtrair um número de unidades de tempo de um relógio. |
+| ![Ícone incorporado][date-time-icon]<br>**Hora da data** | Executar operações com tempotando: <p>- **Adicione ao tempo**: Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário**: Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual**: Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura**: Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo**: Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo**: Subtrair um número de unidades de tempo de um relógio. |
 | [![Variáveis de ][variables-icon]<br> **ícones incorporados**][variables-doc] | Realizar operações com variáveis: <p>- **Apêndice à variável de matriz**: Insira um valor como o último item numa matriz armazenada por uma variável. <br>- **Apêndice à variável de corda**: Insira um valor como o último caracter numa corda armazenada por uma variável. <br>- **Variável de decremento**: Diminua uma variável por um valor constante. <br>- **Variável incremento**: Aumente uma variável por um valor constante. <br>- **Inicializar variável**: Criar uma variável e declarar o seu tipo de dados e valor inicial. <br>- **Variável definida**: Atribua um valor diferente a uma variável existente. |
 |||
 
@@ -407,6 +407,10 @@ Para chamar APIs que executam código personalizado ou não estão disponíveis 
 ## <a name="block-creating-connections"></a>Bloquear a criação de ligações
 
 Se a sua organização não permitir a ligação a recursos específicos utilizando os seus conectores em Azure Logic Apps, pode [bloquear a capacidade de criar essas ligações](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicações lógicas utilizando a [Azure Policy.](../governance/policy/overview.md) Para obter mais informações, consulte [as ligações do Bloco criadas por conectores específicos em Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
+## <a name="get-ready-for-deployment"></a>Prepare-se para a implantação
+
+Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, pode [inspecionar o grupo de recursos da sua aplicação lógica utilizando o portal Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) ou descarregar a sua [aplicação lógica de Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

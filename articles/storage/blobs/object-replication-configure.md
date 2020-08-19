@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540601"
+ms.locfileid: "88566068"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configure a replicação do objeto para as bolhas de bloco (pré-visualização)
 
@@ -45,7 +45,7 @@ Para criar uma política de replicação no portal Azure, siga estes passos:
 
 1. Navegue para a conta de armazenamento de fontes no portal Azure.
 1. No **serviço Blob**, selecione **a replicação do objeto.**
-1. **Selecione Configurar a replicação**.
+1. Selecione **Configurar regras de replicação**.
 1. Selecione a conta de subscrição e armazenamento de destino.
 1. Na secção **de pares de contentores,** selecione um recipiente de origem a partir da conta de origem e um contentor de destino a partir da conta de destino. Pode criar até 10 pares de contentores por política de replicação.
 

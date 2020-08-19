@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Dados do Periscópio Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Periscope Data.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 128c4d1699e6e243a5c1c1573892efa516adade1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800822"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Diretório Ativo Azure com dados do Periscópio
 
@@ -112,7 +108,7 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
     https://app.periscopedata.com/app/<SITENAME>
     ```
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://app.periscopedata.com/<SITENAME>/sso`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > O valor do sinal de URL não é real. Atualizar os valores com o sinal real no URL. Contacte a [equipa de suporte do Cliente de Dados do Periscope](mailto:support@periscopedata.com) para obter este valor e o valor do Identificador que obtém da secção **Configure Periscope Data Single Sign-On,** que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

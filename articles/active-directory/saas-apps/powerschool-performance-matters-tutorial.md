@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Powerschool Performance Matters / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Powerschool Performance Matters.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3e6fb0e7-d7c1-4eea-9bc1-69be1daadc45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 5097292ba722567e16c4573d46a70edb326c3ab5
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: c2b030998a17eca493bc64d6bf33b628b6ac6807
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800737"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Tutorial: Integração do Diretório Ativo Azure com Questões de Desempenho da Powerschool
 
@@ -151,7 +147,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     a. No campo **Nome,** **insira BrittaSimon**.
   
-    b. No campo **nome do utilizador,** escreva**brittasimon@yourcompanydomain.extension**  
+    b. No campo **nome do utilizador,** escreva **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.

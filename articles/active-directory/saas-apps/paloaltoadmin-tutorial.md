@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com a Palo Alto Networks - Admin UI / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Palo Alto Networks - Admin UI.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbfa16223484928dda1004011d2e92295edd8b89
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8bd41034d6d4cfa444ae4c0711fd46cb2924d009
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297262"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Diretório Ativo Azure com a Palo Alto Networks - Admin UI
 
@@ -93,11 +89,11 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Admin UI, exe
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://<Customer Firewall FQDN>/php/login.php`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<Customer Firewall FQDN>/php/login.php`
 
-    b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:`https://<Customer Firewall FQDN>:443/SAML20/SP`
+    b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão: `https://<Customer Firewall FQDN>:443/SAML20/SP`
 
-    c. Na caixa de texto **URL de resposta,** digite o URL do Serviço de Apoio ao Consumidor de Afirmação (ACS) no seguinte formato:`https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    c. Na caixa de texto **URL de resposta,** digite o URL do Serviço de Apoio ao Consumidor de Afirmação (ACS) no seguinte formato: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a Palo Alto Networks - Equipa de suporte ao cliente da Admin UI](https://support.paloaltonetworks.com/support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -117,7 +113,7 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Admin UI, exe
 
     | Name |  Atributo de origem|
     | --- | --- |
-    | o nome de utilizador | user.userprincipalname |
+    | nome de utilizador | user.userprincipalname |
     | adminrole | customadmin |
     | | |
 
@@ -204,7 +200,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A janela "SAML Identity Provider Server Profile"](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-    a. Na caixa **URL do Fornecedor de Identidade SLO,** substitua o URL SLO anteriormente importado pelo seguinte URL:`https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+    a. Na caixa **URL do Fornecedor de Identidade SLO,** substitua o URL SLO anteriormente importado pelo seguinte URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
   
     b. Selecione **OK**.
 

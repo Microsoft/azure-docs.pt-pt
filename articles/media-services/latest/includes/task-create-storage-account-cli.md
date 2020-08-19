@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: d8d156dda71c0f5e9bcc1663dd820e5195b7f72d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: HT
+ms.openlocfilehash: 313c8ea9046deea953b4143f1a0264f81da38764
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539154"
+ms.locfileid: "88602278"
 ---
 <!-- ### Create a storage account -->
 
@@ -19,13 +19,9 @@ Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de
 Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundárias** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas para **Fins gerais v2** (GPv2) ou **Fins gerais v1** (GPv1). As contas apenas de blobs não são permitidas como **Principais**. Se quiser saber mais sobre as contas de armazenamento, veja [Opções de contas de Armazenamento do Azure](../../../storage/common/storage-account-overview.md). 
 
 Neste exemplo, criamos uma conta LRS Standard para Fins Gerais v2. Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . No entanto, ao escolher um SKU para produção deve considerar, `--sku Standard_RAGRS` que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account?view=azure-cli-latest)
- 
+
 O comando seguinte cria uma conta de Armazenamento que será associada à conta dos Serviços de Multimédia. No script abaixo, pode substituir `storageaccountforams` pelo seu valor. `amsResourceGroup` deve corresponder ao valor que deu para o grupo de recursos no passo anterior. O nome da conta de armazenamento deve ter um comprimento inferior a 24.
 
 ```azurecli
-az storage account create --name storageaccountforams \  
-  --kind StorageV2 \
-  --sku Standard_LRS \
-  -l westus2 \
-  -g amsResourceGroup
+az storage account create --name storageaccountforams --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```

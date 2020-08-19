@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com PagerDuty Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o PagerDuty.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 330066a950165d3424ca7900493ac89ce746b309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2bc486987dd25d899728af4861c0b71ef14d9f4a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904552"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554094"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Tutorial: Azure Ative Directory integração única (SSO) com PagerDuty
 
@@ -85,11 +81,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<tenant-name>.pagerduty.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://<tenant-name>.pagerduty.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<tenant-name>.pagerduty.com`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [a equipa de suporte do Cliente PagerDuty](https://www.pagerduty.com/support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -198,9 +194,9 @@ Quando clicar no azulejo PagerDuty no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

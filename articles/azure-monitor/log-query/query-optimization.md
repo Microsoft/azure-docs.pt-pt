@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416320"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565728"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos onde você pode melhorar dramaticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -73,8 +73,8 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
-| summarize count() by FileHash, FilePath
 | where FileHash != "" and FilePath !startswith "%SYSTEM32"  // Problem: irrelevant results are filtered after all processing and parsing is done
+| summarize count() by FileHash, FilePath
 ```
 ```Kusto
 //more efficient
@@ -84,6 +84,7 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
+| where FileHash != "" and FilePath !startswith "%SYSTEM32"  // exact removal of results. Early filter is not accurate enough
 | summarize count() by FileHash, FilePath
 | where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
@@ -438,6 +439,6 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação de referência para a língua de consulta kusto.](/azure/kusto/query/)

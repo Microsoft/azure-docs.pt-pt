@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Datahug Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Datahug.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2ef4211cab0dd778295c71a39a32305d074765
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367653"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Diretório Ativo Azure com Datahug
 
@@ -106,15 +101,15 @@ Para configurar o Azure AD com datahug, execute os seguintes passos:
 
     ![Datahug Domain e URLs informações únicas de súls](common/idp-intiated.png)
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://apps.datahug.com/identity/<uniqueID>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
     ![Datahug Domain e URLs informações únicas de súls](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL:`https://apps.datahug.com/`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://apps.datahug.com/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente Datahug](https://www.sap.com/corporate/en/company/office-locations.html) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -131,7 +126,7 @@ Para configurar o Azure AD com datahug, execute os seguintes passos:
 
     b. Selecione **SHA-1** do algoritmo de **assinatura.**
     
-    c. Clique **em Guardar**
+    c. Clicar em **Guardar**
 
     ![Opção de assinatura de communifire](./media/datahug-tutorial/tutorial_datahug_signingoption.png)
 

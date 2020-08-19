@@ -2,26 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Domo Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Domo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a791fb2e40e46c1081dbb50a85af780d45f528e
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 27ea1c0b488802f7085c38ae7dd64cfa14476fd2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799535"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555841"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-domo"></a>Tutorial: Azure Ative Directory integração única (SSO) com Domo
 
@@ -83,7 +78,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<companyname>.domo.com`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.domo.com`
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
 
@@ -158,9 +153,9 @@ Quando clicar no azulejo Domo no Painel de Acesso, deverá ser automaticamente i
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbc06b657525880f22bd5fb38e902f906d438c9c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089503"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565915"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Quickstart: Construir a sua primeira aplicação web estática
 
@@ -98,7 +98,7 @@ Assim que assinar com o GitHub, insira as informações do repositório.
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Próximo botão de construção":::
 
 > [!NOTE]
->  Se não vir nenhum repositório, poderá ter de autorizar aplicações web estáticas Azure no GitHub. Navegue no seu repositório GitHub e vá a **Definições > Aplicações > Aplicações OAuth Autorizadas**, selecione **Azure Static Web Apps**, e, em seguida, selecione **Grant**. Para repositórios de organização, você deve ser um proprietário da organização para conceder as permissões.
+>  Se não vir nenhum repositório, poderá ter de autorizar aplicações web estáticas Azure no GitHub. Navegue na página inicial do [GitHub](https://github.com) e clique na imagem da sua conta para abrir o menu suspenso. Clique em **Definições,** em seguida, **aplicações > aplicações OAuth autorizadas > Azure Static Web Apps**, e finalmente selecione **Grant**. Para repositórios de organização, você deve ser um proprietário da organização para conceder as permissões.
 
 ### <a name="build"></a>Compilar
 

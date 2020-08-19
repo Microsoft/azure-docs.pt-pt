@@ -1,20 +1,20 @@
 ---
 title: SQL API Python exemplos para Azure Cosmos DB
 description: Encontre exemplos de Python no GitHub para tarefas comuns em Azure Cosmos DB, incluindo operações CRUD.
-author: SnehaGunda
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
-ms.date: 05/20/2020
-ms.author: sngun
+ms.date: 08/11/2020
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 6602d757e210837aadadd431b27bb7cf76f06715
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 34257281470f051f3d385aa729ca5a4f3591e61c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873352"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586255"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB
 
@@ -33,16 +33,19 @@ As soluções de amostra que fazem operações CRUD e outras operações comuns 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-- Pode [ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): a sua subscrição do Visual Studio dá-lhe créditos todos os meses que pode utilizar em serviços pagos do Azure.
-
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-Também precisa do [SDK do Python](sql-api-sdk-python.md).
-
-   > [!NOTE]
-   > Cada amostra é independente, configura-se automaticamente e limpa-se em seguida. As amostras emitem várias chamadas para `CosmosClient.CreateContainer` . Cada vez que isto é feito, a sua subscrição é cobrada por uma hora de utilização. Para obter mais informações sobre a faturação do Azure Cosmos DB, veja [Preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- Uma conta de Cosmos DB. As suas opções são:
+    * Dentro de uma subscrição ativa do Azure:
+        * [Crie uma Conta Gratuita Azure](https://azure.microsoft.com/free) ou use a subscrição existente 
+        * [Créditos mensais do Estúdio Visual](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+    * Sem uma subscrição ativa do Azure:
+        * [Experimente gratuitamente Azure Cosmos DB,](https://azure.microsoft.com/try/cosmosdb/)um ambiente de testes que dura 30 dias.
+        * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
+- [Python 2.7 ou 3.5.3+](https://www.python.org/downloads/), com o `python` executável no seu `PATH` .
+- [Visual Studio Code](https://code.visualstudio.com/).
+- A [extensão Python para Código de Estúdio Visual.](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
+- [Git.](https://www.git-scm.com/downloads) 
+- [Azure Cosmos DB SQL API SDK para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## <a name="database-examples"></a>Exemplos de base de dados
 
@@ -62,12 +65,12 @@ A amostra [container_management.py](https://github.com/Azure/azure-sdk-for-pytho
 
 | Tarefa | Referência da API |
 | --- | --- |
-| [Consulta para um recipiente](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |base de dados.query_containers |
-| [Criar um contentor](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |base de dados.create_container |
-| [Listar todos os contentores numa base de dados](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |base de dados.list_containers |
-| [Obtenha um recipiente pelo seu ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |base de dados.get_container_client |
+| [Consulta para um recipiente](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |database.query_containers |
+| [Criar um contentor](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |database.create_container |
+| [Listar todos os contentores numa base de dados](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |database.list_containers |
+| [Obtenha um recipiente pelo seu ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |database.get_container_client |
 | [Gerir a produção do contentor a provisionada](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L166-L192) |container.read_offer, container.replace_throughput|
-| [Eliminar um contentor](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |base de dados.delete_container |
+| [Eliminar um contentor](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |database.delete_container |
 
 ## <a name="item-examples"></a>Exemplos de itens
 
@@ -94,5 +97,5 @@ A amostra [index_management.py](https://github.com/Azure/azure-sdk-for-python/bl
 | [Utilize indexação manual com itens específicos indexados](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L204-L263) | documentos. IndexingDirective.Include |
 | [Excluir caminhos da indexação](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L266-L336) |Definir caminhos para excluir em `IndexingPolicy` propriedade |
 | [Utilizar índices de intervalo em cadeias](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L401-L485) | Defina a política de indexação com índices de gama no tipo de dados de cadeia. `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
-| [Realizar uma transformação de índice](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |base de dados.replace_container (utilizar a política de indexação atualizada)|
+| [Realizar uma transformação de índice](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |database.replace_container (utilizar a política de indexação atualizada)|
 | [Use digitalizações quando só existe índice de haxixe no caminho](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L339-L398) | definir o `enable_scan_in_query=True` e ao consultar os `enable_cross_partition_query=True` itens |

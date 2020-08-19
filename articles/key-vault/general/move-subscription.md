@@ -7,16 +7,16 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b95cecdc5470e50830371b7a6556f9526dae7591
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099581"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585786"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -39,7 +39,7 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
 
 Alguns diretores de serviço (utilizadores e aplicações) estão ligados a um inquilino específico. Se você mudar o seu cofre chave para uma subscrição em outro inquilino, há a chance de que você não será capaz de restaurar o acesso a um diretor de serviço específico. Verifique se todos os diretores de serviço essenciais existem no inquilino para onde você está movendo o seu cofre chave.
 
-## <a name="design-considerations"></a>Considerações de conceção
+## <a name="design-considerations"></a>Considerações de design
 
 A sua organização pode ter implementado a Política Azure com aplicação ou exclusões ao nível da subscrição. Pode haver um conjunto diferente de atribuições de política na subscrição onde o seu cofre-chave existe atualmente e a subscrição para onde está a mover o cofre principal. Um conflito nos requisitos políticos tem o potencial de quebrar as suas aplicações.
 

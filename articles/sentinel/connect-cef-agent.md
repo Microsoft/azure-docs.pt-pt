@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 832bf1dd06d550f82090a336bc4cceac8cd8a9be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7d7c7b7236841835866ccb7786e7e4eab767c1f
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038193"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565592"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passo 1: Implementar o reencaminhador de registo
 
@@ -48,6 +48,16 @@ Neste passo, designará e configurará a máquina Linux que irá encaminhar os r
      `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
 
 1. Enquanto o script está em execução, verifique se não recebe nenhum erro ou mensagens de aviso.
+
+> [!NOTE]
+> **Usando a mesma máquina para encaminhar mensagens simples de Syslog *e* CEF**
+>
+> Se planeia utilizar esta máquina de encaminhar o reencaminhador de registos para encaminhar [mensagens Syslog,](connect-syslog.md) bem como CEF, então, para evitar a duplicação de eventos nas tabelas Syslog e CommonSecurityLog:
+>
+> 1. Em cada máquina de origem que envia registos para o reencaminhador no formato CEF, tem de editar o ficheiro de configuração Syslog para remover as instalações que estão a ser utilizadas para enviar mensagens CEF. Desta forma, as instalações que são enviadas no CEF também não serão enviadas em Syslog. Consulte [o Configure Syslog no agente Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) para obter instruções detalhadas sobre como fazê-lo.
+>
+> 1. Tem de executar o seguinte comando nessas máquinas para desativar a sincronização do agente com a configuração Syslog em Azure Sentinel. Isto garante que a alteração de configuração efetuada no passo anterior não seja substituída.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 Continue a [passo 2: Configure a sua solução de segurança para encaminhar mensagens CEF](connect-cef-solution-config.md) .
 

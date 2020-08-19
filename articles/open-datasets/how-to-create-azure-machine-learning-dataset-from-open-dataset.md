@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 54408b20ebba60de2e1a696e5bd9b06f55e860ba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513230"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584884"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,7 +75,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-Neste exemplo, a classe Diabetes `opendatasets` só está disponível como `TabularDataset` um , daí o uso de `get_tabular_dataset()`
+Neste exemplo, a classe Diabetes `opendatasets` só está disponível como `TabularDataset` um, daí o uso de `get_tabular_dataset()` .
 
 ```python
 
@@ -98,7 +98,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-with-the-studio"></a>Criar conjuntos de dados com o estúdio
 
-Também pode criar conjuntos de dados a partir de conjuntos de dados abertos com o [estúdio Azure Machine Learning](https://ml.azure.com), uma interface web consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade.
+Também pode criar conjuntos de dados Azure Machine Learning a partir de Azure Open Datasets com o [estúdio Azure Machine Learning](https://ml.azure.com), uma interface web consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade.
 
 > [!Note]
 > Os conjuntos de dados criados através do estúdio Azure Machine Learning estão automaticamente registados no espaço de trabalho.
@@ -111,7 +111,7 @@ Também pode criar conjuntos de dados a partir de conjuntos de dados abertos com
 
     ![Escolha conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto **de dados de feriados públicos,** você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
+1. Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto **de dados de feriados públicos,** você filtra o período de tempo para um ano e o código do país apenas para os EUA. Consulte o [Catálogo de Conjuntos de Dados Azure Open](https://azure.microsoft.com/services/op[en-datasets/catalog/) para obter detalhes de dados, tais como descrições de campo e intervalos de datas. Selecione **Criar**.
 
     ![Definir params de conjunto de dados e criar conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

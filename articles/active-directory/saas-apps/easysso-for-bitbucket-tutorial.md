@@ -2,25 +2,21 @@
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com easySSO para BitBucket Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EasySSO para o BitBucket.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3ed96e97-b590-4dca-8d00-36288444c641
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946785f02461706d1d3675d089c19d68816fb8ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd15798e9b642f3abc617c0fa224c530d90b5dd6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077105"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555576"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutorial: Azure Ative Directy integração única (SSO) com easySSO para BitBucket
 
@@ -84,13 +80,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado **IdP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão:`https://<server-base-url>/plugins/servlet/easysso/saml`
+    a. Na caixa de texto **identifier,** digite um URL que utiliza o seguinte padrão: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão:`https://<server-base-url>/plugins/servlet/easysso/saml`
+    b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
 1. Selecione **Definir URLs adicionais**e faça o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
 
-    - Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão:`https://<server-base-url>/login.jsp`
+    - Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão: `https://<server-base-url>/login.jsp`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a [equipa de apoio easySSO](mailto:support@techtime.co.nz) para obter estes valores em caso de dúvida. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

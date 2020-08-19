@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322844"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566153"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recolher dados de fontes baseadas em Linux utilizando o Syslog
 
@@ -86,6 +86,8 @@ Para obter mais informações, consulte [fontes de dados do Syslog no Azure Moni
 1. Pode utilizar os parâmetros de consulta descritos na [utilização de funções em consultas de registo do Azure Monitor](../azure-monitor/log-query/functions.md) para analisar as suas mensagens Syslog. Em seguida, pode guardar a consulta como uma nova função Log Analytics e usá-la como um novo tipo de dados.
 
 > [!NOTE]
+> **Usando a mesma máquina para encaminhar mensagens simples de Syslog *e* CEF**
+>
 >
 > Pode utilizar a máquina de [reencaminhamento cef](connect-cef-agent.md) existente para recolher e encaminhar registos de fontes simples do Syslog. No entanto, deve executar os seguintes passos para evitar o envio de eventos em ambos os formatos para Azure Sentinel, pois isso resultará na duplicação de eventos.
 >

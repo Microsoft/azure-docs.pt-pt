@@ -6,15 +6,15 @@ author: ShaneBala-keyvault
 manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 094eb784244f74fe75bf456b01c9a85457b28ba3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6ec784048d2c30d215fe046ccda39ef6f8a3daa5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191514"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585547"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -40,7 +40,7 @@ Para obter informações específicas de referência do Cofre de Chaves para Pow
 
 As operações key Vault são geridas separadamente através de permissões de controlo de acesso baseado em funções (RBAC) da seguinte forma:
 
-| Operação | Descrição | Permissão do utilizador |
+| Operação | Description | Permissão do utilizador |
 |:--|:--|:--|
 |Lista|Listas eliminadas cofres-chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
