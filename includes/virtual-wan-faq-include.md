@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7411b4c000569693335cb0438fe186b290750247
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88602456"
+ms.locfileid: "88604689"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -119,7 +119,7 @@ As soluções de conectividade definida pelo software gerem, normalmente, os res
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou a usar não estiver na lista de parceiros do Wan Virtual? Ainda posso usá-lo para ligar ao Azure Virtual WAN VPN?
 
-Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo para os pontos finais Azure VPN. Isto implica automatizar etapas como 'branch information upload', 'IPsec e configuração' e 'conectividade'. Uma vez que o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado de tomar manualmente a configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
+Sim, desde que o dispositivo suporte iPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo para os pontos finais Azure VPN. Isto implica automatizar etapas como 'branch information upload', 'IPsec e configuração' e 'conectividade'. Como o seu dispositivo não é de um ecossistema parceiro Virtual WAN, terá de fazer o levantamento pesado de tomar manualmente a configuração Azure e atualizar o seu dispositivo para configurar a conectividade IPsec.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
 
@@ -215,7 +215,7 @@ O tráfego segue o padrão: dispositivo de ramo ->ISP->Microsoft rede edge->Micr
 
 Yes. Uma ligação à Internet e dispositivo físico que suporta o IPsec, de preferência dos nossos [parceiros integrados virtual WAN.](../articles/virtual-wan/virtual-wan-locations-partners.md) Opcionalmente, pode gerir manualmente a configuração e conectividade com o Azure a partir do seu dispositivo preferido.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso permitir a rota predefinidora (0.0.0.0/0) numa ligação (VPN, ExpressRoute ou Rede Virtual):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso permitir a rota predefinidora (0.0.0.0/0) numa ligação (VPN, ExpressRoute ou Rede Virtual)?
 
 Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local se a bandeira estiver 'Activada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um site ou um circuito ExpressRoute estão ligados a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual. A rota predefinida não tem origem no hub Virtual WAN; a rota padrão é propagada se já for aprendida pelo hub Virtual WAN como resultado da implantação de uma firewall no centro, ou se outro site conectado tiver um túnel forçado habilitado.
 
@@ -239,26 +239,27 @@ Quando vários circuitos ExpressRoute estão ligados a um hub virtual, o peso do
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Será que a Virtual WAN prefere o ExpressRoute em vez da VPN para a saída de tráfego do Azure
 
-Yes 
+Yes.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Quando um hub Virtual WAN tem um circuito ExpressRoute e um Site VPN ligado a ele, o que faria com que uma rota de ligação VPN fosse preferida em vez do ExpressRoute?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>Quando um hub Virtual WAN tem um circuito ExpressRoute e um Site VPN ligado a ele, o que faria com que uma rota de ligação VPN fosse preferida em vez do ExpressRoute?
 
-Quando um circuito ExpressRoute está ligado ao Virtual Hub, os routers de borda da Microsoft são o primeiro nó para a comunicação entre as instalações e o Azure. Estes routers de borda comunicam com os gateways Virtual WAN ExpressRoute que, por sua vez, aprendem rotas a partir do router Virtual Hub que controla todas as rotas entre quaisquer gateways em VIRTUAL WAN. Os routers de borda da Microsoft processam rotas Virtual Hub ExpressRoute com maior preferência pelas rotas aprendidas a partir das instalações. Devido a qualquer razão se a ligação VPN se tornar o meio principal para o hub Virtual aprender rotas (por exemplo, cenários de failover entre ExpressRoute e VPN) , a menos que o VPN Site tenha um comprimento de AS mais longo, o Virtual Hub continuará a partilhar rotas aprendidas VPN com o ExpressRoute Gateway, fazendo com que os Routers Microsoft Edge prefiram rotas VPN sobre rotas no local. 
+Quando um circuito ExpressRoute está ligado ao hub virtual, os routers de borda da Microsoft são o primeiro nó para a comunicação entre as instalações e o Azure. Estes routers de borda comunicam com os gateways Virtual WAN ExpressRoute que, por sua vez, aprendem rotas a partir do router de hub virtual que controla todas as rotas entre quaisquer gateways em VIRTUAL WAN. Os routers de borda da Microsoft processam rotas de hub virtual ExpressRoute com maior preferência sobre as rotas aprendidas a partir das instalações. Devido a qualquer razão, se a ligação VPN se tornar o meio principal para o hub virtual aprender rotas (por exemplo, cenários de failover entre ExpressRoute e VPN), a menos que o VPN Site tenha um comprimento DE CAMINHO MAIS longo, o hub virtual continuará a partilhar rotas aprendidas VPN com o gateway ExpressRoute, fazendo com que os routers microsoft Edge prefiram rotas VPN sobre as rotas nas instalações.
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Quando dois hubs (hub 1 e 2) estão ligados e há um circuito ExpressRoute ligado como um laço a ambos os centros, qual é o caminho para um VNet ligado ao hub 1 alcançar um VNet ligado no centro 2?
 
-O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do hub-para-hub para a conectividade VNet-to-VNet. No entanto, isto não é encorajado numa configuração wan virtual. A equipa virtual wan está a trabalhar numa correção para permitir a preferência pelo hub-to-hub sobre o caminho ExpressRoute. A recomendação é que vários circuitos ExpressRoute (diferentes fornecedores) se conectem a um hub e utilizem a conectividade hub-to-hub fornecida pela Virtual WAN para fluxos de tráfego inter-região.
+O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do hub-para-hub para a conectividade VNet-to-VNet. No entanto, isto não é encorajado numa configuração wan virtual. A equipa virtual WAN está a trabalhar numa correção para permitir a preferência pelo hub-to-hub sobre o caminho ExpressRoute. A recomendação é que vários circuitos ExpressRoute (diferentes fornecedores) se conectem a um hub e utilizem a conectividade hub-to-hub fornecida pela Virtual WAN para fluxos de tráfego inter-região.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
 
 O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado.
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Qual é a versão API recomendada para ser usada por scripts automatizando várias funcionalidades De WAN Virtual?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual é a versão API recomendada para ser usada por scripts automatizando várias funcionalidades de WAN Virtual?
 
 É necessária uma versão mínima de 05-01-2020 (1 de maio de 2020). 
 
-### <a name="any-virtual-wan-limits"></a>Algum limite de WAN virtual?
-Limites virtuais de WAN: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
+### <a name="are-there-any-virtual-wan-limits"></a>Existem limites de WAN virtuais?
+
+Consulte a secção [de limites DE WAN Virtual](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) na página de limites de subscrição e serviço.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
 

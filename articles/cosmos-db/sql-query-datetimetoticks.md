@@ -4,20 +4,20 @@ description: Saiba mais sobre a função do sistema SQL DateTimeToTicks em Azure
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: a6fcff691ee5278ed0a9e1c132f8ecebbee9431c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227244"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605134"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
 
-Converte o Tempo de Data especificado para carraças. Um único carrapato representa cem nanossegundos ou um décimo-milionésimo de segundo.
-  
+Converte o Tempo de Data especificado para carraças. Um único carrapato representa cem nanossegundos ou um décimo-milionésimo de segundo. 
+
 ## <a name="syntax"></a>Sintaxe
   
 ```sql
@@ -31,7 +31,7 @@ DateTimeToTicks (<DateTime>)
 
 ## <a name="return-types"></a>Tipos de retorno
 
-Devolve um valor inteiro positivo.
+Devolve um valor numérico assinado, o número atual de carrapatos de 100 nanosegundos que decorreram desde a época Unix. Por outras palavras, dateTimeToTicks devolve o número de tiques de 100-nanosegundos que decorreram desde as 00:00:00 quinta-feira, 1 de janeiro de 1970.
 
 ## <a name="remarks"></a>Observações
 
@@ -69,7 +69,7 @@ SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de data e hora Azure Cosmos DB](sql-query-date-time-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

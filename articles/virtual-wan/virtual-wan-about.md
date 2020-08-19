@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 451e1581350bb1d38580d00ffd24c781bc30242d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507586"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604704"
 ---
-# <a name="about-azure-virtual-wan"></a>Sobre Azure Virtual WAN
+# <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
 Azure Virtual WAN é um serviço de networking que reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Estas funcionalidades incluem conectividade de ramo (através da automatização de conectividade a partir de dispositivos Parceiros WAN Virtuais, tais como SD-WAN ou VPN CPE), conectividade VPN site-to-site, conectividade VPN (ponto a local), conectividade privada (ExpressRoute), conectividade intra-nuvem (conectividade transitiva para redes virtuais), interconectividade VPN ExpressRoute, encaminhamento, firewall Azure e encriptação para conectividade privada. Não é preciso ter todos estes casos de utilização para começar a usar WAN Virtual. Pode simplesmente começar com apenas um caso de uso e, em seguida, ajustar a sua rede à medida que evolui.
 
@@ -102,11 +102,11 @@ Cada router de hub virtual suporta uma produção agregada até 50 Gbps. A conec
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Conectividade de trânsito entre VPN e ExpressRoute
 
-A WAN virtual permite a conectividade de trânsito entre a VPN e a ExpressRoute. Isto implica que sites ligados a VPN ou utilizadores remotos podem comunicar com sites ligados ao ExpressRoute. Há também um pressuposto implícito de que a **bandeira de ramo-a-ramo** está ativada. Esta bandeira pode ser localizada nas definições Azure Virtual WAN no portal Azure. Toda a gestão de rotas é fornecida pelo router de hub virtual, que também permite a conectividade de trânsito entre redes virtuais.
+A WAN virtual permite a conectividade de trânsito entre a VPN e a ExpressRoute. Isto implica que sites ligados a VPN ou utilizadores remotos podem comunicar com sites ligados ao ExpressRoute. Existe também um pressuposto implícito de que a **bandeira branch-to-branch** está ativada e o BGP é suportado nas ligações VPN e ExpressRoute. Esta bandeira pode ser localizada nas definições Azure Virtual WAN no portal Azure. Toda a gestão de rotas é fornecida pelo router de hub virtual, que também permite a conectividade de trânsito entre redes virtuais.
 
 ### <a name="custom-routing"></a><a name="routing"></a>Encaminhamento personalizado
 
-O WAN virtual fornece melhorias avançadas de encaminhamento. Capacidade de configurar tabelas de rotas personalizadas, otimizar o encaminhamento de rede virtual com associação de rotas e propagação, logicamente agrupar tabelas de rotas com etiquetas e simplificar inúmeros cenários de encaminhamento de aparelhos virtuais de rede ou de serviços partilhados.
+O WAN virtual fornece melhorias avançadas de encaminhamento. Capacidade de configurar tabelas de rotas personalizadas, otimizar o encaminhamento de rede virtual com associação de rotas e propagação, logicamente agrupar tabelas de rotas com etiquetas e simplificar inúmeros cenários de encaminhamento de aparelhos virtuais de rede (NVA) ou de encaminhamento de serviços partilhados.
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Peering VNet global
 
@@ -120,17 +120,21 @@ A Azure Virtual WAN fornece a capacidade de encriptar o seu tráfego ExpressRout
 
 Para obter informações sobre a localização, consulte os [parceiros e locais do Virtual WAN.](virtual-wan-locations-partners.md)
 
-## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelas de rotas em WANs virtuais básicas e padrão
+## <a name="route-tables-for-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelas de rota para WANs virtuais básicas e padrão
 
-As tabelas de rotas têm agora características de associação e propagação. Uma tabela de rotas pré-existente é uma tabela de rotas que não tem estas funcionalidades. Se tiver rotas pré-existentes no Hub Encaminhamento e quiser utilizar as novas capacidades, considere o seguinte:
+As tabelas de rotas têm agora características de associação e propagação. Uma tabela de rotas pré-existente é uma tabela de rotas que não tem estas funcionalidades. Se tiver rotas pré-existentes no encaminhamento do hub e quiser utilizar as novas capacidades, considere o seguinte:
 
-* **Clientes Standard Virtual WAN com rotas pré-existentes no hub virtual**: Para utilizar novas capacidades de tabela de rotas, por favor, aguarde até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure).
+* **Clientes STANDARD VIRTUAL WAN com rotas pré-existentes no hub virtual**: Para utilizar novas capacidades de tabela de rotas, por favor, aguarde até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de Encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure).
 
 * **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Ver as últimas atualizações de funcionalidades
+
+Subscreva o feed RSS e veja as últimas atualizações de funcionalidades DE WAN virtuais na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN)
 
 ## <a name="next-steps"></a>Passos seguintes
 

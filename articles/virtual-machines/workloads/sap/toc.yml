@@ -108,6 +108,8 @@
           href: sap-hana-high-availability.md
         - name: Configurar a Replicação do Sistema SAP HANA no RHEL
           href: sap-hana-high-availability-rhel.md
+        - name: Configurar a Replicação do Sistema SAP HANA com o ANF no RHEL
+          href: sap-hana-high-availability-netapp-files-red-hat.md
         - name: Resolver problemas de dimensionamento do SAP HANA e do Pacemaker no SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: Escalamento horizontal do SAP HANA com o nó em modo de espera com o Azure NetApp Files no SLES

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563206"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605727"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
@@ -47,7 +47,7 @@ A imagem a seguir mostra como uma partição física acolhe uma ou mais divisór
 > [!NOTE]
 > Atualmente, não é possível o fornecimento de produção numa base de dados da Azure Cosmos nas contas onde [as chaves geridas pelo cliente](how-to-setup-cmk.md) estão ativadas.
 
-Quando fornece o rendimento numa base de dados Azure Cosmos, o resultado é partilhado em todos os contentores (chamados contentores de base de dados partilhados) na base de dados. Uma exceção é se especificar uma produção prevista em contentores específicos na base de dados. A partilha da produção de nível de base de dados entre os seus contentores é análoga à hospedagem de uma base de dados num conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a produção prevista numa base de dados, consulte a [produção de Configure prevista numa base de dados do Azure Cosmos.](how-to-provision-database-throughput.md) Para aprender a configurar a produção de autoescalação numa base de dados, consulte [a produção de escala automática da Provision](how-to-provision-autoscale-throughput.md).
+Quando fornece o rendimento numa base de dados Azure Cosmos, o resultado é partilhado em todos os contentores (chamados contentores de base de dados partilhados) na base de dados. A única exceção ocorre se tiver especificado um débito aprovisionado em contentores específicos na base de dados. A partilha da produção de nível de base de dados entre os seus contentores é análoga à hospedagem de uma base de dados num conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a produção prevista numa base de dados, consulte a [produção de Configure prevista numa base de dados do Azure Cosmos.](how-to-provision-database-throughput.md) Para aprender a configurar a produção de autoescalação numa base de dados, consulte [a produção de escala automática da Provision](how-to-provision-autoscale-throughput.md).
 
 A definição de produção numa base de dados Azure Cosmos garante que recebe sempre o resultado previsto para essa base de dados. Como todos os contentores dentro da base de dados partilham a produção a forjada, a Azure Cosmos DB não fornece quaisquer garantias de produção previsíveis para um determinado contentor nessa base de dados. A parte da produção que um recipiente específico pode receber depende de:
 
@@ -96,7 +96,7 @@ Pode combinar os dois modelos. É permitido o fornecimento de produção na base
 
 Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar o rendimento previsto. Não existe limite para a produção máxima prevista que possa configurar na base de dados ou no contentor. 
 
-Para estimar o [rendimento mínimo previsto](concepts-limits.md#storage-and-throughput) de uma base de dados ou de um contentor, encontrará o máximo de:
+Para estimar o [rendimento mínimo previsto](concepts-limits.md#storage-and-database-operations) de uma base de dados ou de um contentor, encontrará o máximo de:
 
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s
@@ -124,7 +124,7 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 |Produção máxima por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
 |Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [divisórias lógicas.](partition-data.md)
 * Saiba como providenciar o [padrão (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).

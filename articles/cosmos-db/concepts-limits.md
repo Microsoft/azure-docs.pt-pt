@@ -5,37 +5,40 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391847"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605776"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
 Este artigo fornece uma descrição geral das quotas predefinidas oferecidas a diferentes recursos no Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>Armazenamento e produção
+## <a name="storage-and-database-operations"></a>Operações de armazenamento e base de dados
 
-Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados na sua conta [criando bases de dados, contentores e itens.](databases-containers-items.md) Pode provistirá a produção a nível de contentores ou a nível de base de dados em termos de unidades de [pedido (RU/s ou RUs)](request-units.md). O quadro que se segue enumera os limites de armazenagem e produção por contentor/base de dados.
+Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados na sua conta [criando bases de dados, contentores e itens.](databases-containers-items.md)
+
+### <a name="provisioned-throughput"></a>Débito aprovisionado
+
+Pode provistirá a produção a nível de contentores ou a nível de base de dados em termos de unidades de [pedido (RU/s ou RUs)](request-units.md). O quadro que se segue enumera os limites de armazenagem e produção por contentor/base de dados.
 
 | Recurso | Limite predefinido |
 | --- | --- |
 | RUs máximos por contentor[(modo dedicado a produção)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | RUs máximo por base de dados[(modo de produção partilhado)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| RUs máximo por chave de partição (lógica) | 10,000 |
-| Armazenamento máximo em todos os itens por chave de partição (lógica)| 20 GB |
+| RUs máximo por partição (lógica) | 10,000 |
+| Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
 | Armazenamento máximo por contentor | Ilimitado |
 | Armazenamento máximo por base de dados | Ilimitado |
-| Tamanho máximo do anexo por Conta (a função de anexo está a ser amortizada) | 2 GB |
+| Tamanho máximo do anexo por Conta (a função de anexo está a ser depreciada) | 2 GB |
 | RUs mínimos exigidos por 1 GB | 10 RU/s |
 
 > [!NOTE]
 > Para conhecer as melhores práticas de gestão de cargas de trabalho que tenham chaves de partição que requerem limites mais elevados para armazenamento ou produção, consulte [Criar uma chave de partição sintética](synthetic-partition-keys.md).
->
 
 Um recipiente Cosmos (ou base de dados de produção partilhada) deve ter um rendimento mínimo de 400 RU/s. À medida que o recipiente cresce, a produção mínima suportada também depende dos seguintes fatores:
 
@@ -47,7 +50,6 @@ A produção atual e mínima de um contentor ou de uma base de dados pode ser re
 
 > [!NOTE]
 > Em alguns casos, poderá reduzir a produção para menos de 10%. Utilize a API para obter os RUs mínimos exatos por recipiente.
->
 
 Em resumo, aqui estão os limites mínimos previstos para a RU. 
 
@@ -58,6 +60,18 @@ Em resumo, aqui estão os limites mínimos previstos para a RU.
 | RUs mínimos por contentor dentro de uma base de dados de produção partilhada | 100 |
 
 Cosmos DB suporta a escala elástica de produção (RUs) por contentor ou base de dados através dos SDKs ou portal. Cada recipiente pode escalar sincronizadamente e imediatamente dentro de uma escala de 10 a 100 vezes, entre valores mínimos e máximos. Se o valor de produção solicitado estiver fora do alcance, o dimensionamento é realizado de forma assíncronea. A escala assíncrona pode demorar minutos a horas a ser concluída, dependendo do rendimento solicitado e do tamanho do armazenamento de dados no recipiente.  
+
+### <a name="serverless"></a>Sem servidor
+
+[O Serverless](serverless.md) permite-lhe utilizar os seus recursos DB Azure Cosmos de forma baseada no consumo. O quadro que se segue enumera os limites de armazenamento e de rebendação por contentor/base de dados.
+
+| Recurso | Limite |
+| --- | --- |
+| MÁXIMO RU/s por contentor | 5000 |
+| Roção máxima de RU/s por (lógica) | 5000 |
+| Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
+| Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
+| Armazenamento máximo por contentor | 50 GB |
 
 ## <a name="control-plane-operations"></a>Operações de avião de controlo
 
@@ -75,12 +89,22 @@ Cosmos DB retira automaticamente os backups dos seus dados em intervalos regular
 
 ## <a name="per-account-limits"></a>Limites por conta
 
+### <a name="provisioned-throughput"></a>Débito aprovisionado
+
 | Recurso | Limite predefinido |
 | --- | --- |
 | Número máximo de bases de dados | Ilimitado |
 | Número máximo de contentores por base de dados com produção partilhada |25 |
 | Número máximo de contentores por base de dados ou conta com produção dedicada  |ilimitado |
 | Número máximo de regiões | Sem limite (todas as regiões Azure) |
+
+### <a name="serverless"></a>Sem servidor
+
+| Recurso | Limite |
+| --- | --- |
+| Número máximo de bases de dados | Ilimitado |
+| Número máximo de contentores por conta  | 100 |
+| Número máximo de regiões | 1 (Qualquer região azul) |
 
 ## <a name="per-container-limits"></a>Limites por contentor
 
@@ -89,13 +113,13 @@ Dependendo da API que utilizar, um recipiente Azure Cosmos pode representar uma 
 | Recurso | Limite predefinido |
 | --- | --- |
 | Comprimento máximo da base de dados ou nome do contentor | 255 |
-| Procedimentos máximos armazenados por contentor | 100<sup>*</sup>|
-| UDFs máximos por contentor | 25<sup>*</sup>|
-| Número máximo de caminhos na política de indexação| 100<sup>*</sup>|
-| Número máximo de chaves únicas por recipiente|10<sup>*</sup>|
-| Número máximo de caminhos por restrição única da chave|16<sup>*</sup>|
+| Procedimentos máximos armazenados por contentor | 100 <sup>*</sup>|
+| UDFs máximos por contentor | 25 <sup>*</sup>|
+| Número máximo de caminhos na política de indexação| 100 <sup>*</sup>|
+| Número máximo de chaves únicas por recipiente|10 <sup>*</sup>|
+| Número máximo de caminhos por restrição única da chave|16 <sup>*</sup>|
 
-<sup>*</sup>Pode aumentar qualquer um destes limites por contentor contactando o Suporte Azure.
+<sup>*</sup> Pode aumentar qualquer um destes limites por contentor contactando o Suporte Azure.
 
 ## <a name="per-item-limits"></a>Limites por artigo
 
@@ -122,7 +146,7 @@ A Azure Cosmos DB suporta [a CRUD e opera operações de consulta](/rest/api/cos
 | Recurso | Limite predefinido |
 | --- | --- |
 | Tempo máximo de execução para uma única operação (como uma execução de procedimento armazenado ou uma única recuperação de página de consulta)| 5 seg |
-| Tamanho máximo do pedido (por exemplo, procedimento armazenado, CRUD)| 2 MB |
+| Tamanho máximo do pedido (por exemplo, procedimento armazenado, CRUD)| 2 MB |
 | Tamanho máximo de resposta (por exemplo, consulta paginada) | 4 MB |
 | Número máximo de operações num lote transacional | 100 |
 
@@ -149,7 +173,7 @@ Consulte o artigo [de Autoscale](provision-throughput-autoscale.md#autoscale-lim
 | RU/s mínimos que o sistema pode escalar para | `0.1 * Tmax`|
 | RU/s corrente o sistema é dimensionado para  |  `0.1*Tmax <= T <= Tmax`, com base na utilização|
 | RU/s de faturação mínima por hora| `0.1 * Tmax` <br></br>A faturação é feita por hora, onde você é cobrado para o mais alto RU/s o sistema escalado em hora, ou `0.1*Tmax` , o que for maior. |
-| Mínimo autoscale max RU/s para um recipiente  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`arredondado para 1000 RU/s mais próximo |
+| Mínimo autoscale max RU/s para um recipiente  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` arredondado para 1000 RU/s mais próximo |
 | Mínimo de autoescala max RU/s para uma base de dados  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arredondado para 1000 RU/s mais próximo. <br></br>Note se a sua base de dados tem mais de 25 contentores, o sistema aumenta o máximo de autoescala mínima RU/s por 1000 RU/s por recipiente adicional. Por exemplo, se tiver 30 contentores, o máximo de autoescala mais baixo que pode definir é de 9000 RU/s (balanças entre 900 - 9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
@@ -159,14 +183,14 @@ Cosmos DB suporta consulta de itens usando [SQL](how-to-sql-query.md). O quadro 
 | Recurso | Limite predefinido |
 | --- | --- |
 | Comprimento máximo de consulta SQL| 256 KB |
-| JoiNs máximos por consulta| 5<sup>*</sup>|
-| UDFs máximos por consulta| 10<sup>*</sup>|
+| JoiNs máximos por consulta| 5 <sup>*</sup>|
+| UDFs máximos por consulta| 10 <sup>*</sup>|
 | Pontos máximos por polígono| 4096 |
 | Caminhos máximos incluídos por contentor| 500 |
 | Caminhos máximos excluídos por contentor| 500 |
 | Propriedades máximas num índice composto| 8 |
 
-<sup>*</sup>Pode aumentar estes limites de consulta SQL contactando o Suporte Azure.
+<sup>*</sup> Pode aumentar estes limites de consulta SQL contactando o Suporte Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Limites específicos da API de MongoDB
 
@@ -180,7 +204,7 @@ A tabela que se segue lista os limites específicos do suporte de recurso MongoD
 | Tempo máximo de execução para as operações do MongoDB| 30 |
 | Intervalo de ligação inativo para o fecho da ligação lateral do servidor* | 30 minutos |
 
-\*Recomendamos que as aplicações do cliente ajustem o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para O Azure LoadBalancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Este timeout garantirá que as ligações ociosas não sejam fechadas por um equilibrador de carga intermédio entre a máquina do cliente e a Azure Cosmos DB.
+\* Recomendamos que as aplicações do cliente ajustem o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para O Azure LoadBalancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Este timeout garantirá que as ligações ociosas não sejam fechadas por um equilibrador de carga intermédio entre a máquina do cliente e a Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Experimente cosmos DB Limites livres
 
@@ -205,13 +229,13 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 | Número de contas de nível livre por subscrição do Azure | 1 |
 | Duração do desconto de nível livre | Vida inteira da conta. Deve optar durante a criação de conta. |
 | MÁXIMO RU/s grátis | 400 RU/s |
-| Armazenamento máximo gratuito | 5 GB |
+| Armazenamento máximo gratuito | 5 GB |
 | Número máximo de bases de dados de produção partilhadas | 5 |
 | Número máximo de contentores numa base de dados de produção partilhada | 25 <br>Nas contas de nível livre, o RU/s mínimo para uma base de dados de produção partilhada com até 25 contentores é de 400 RU/s. |
 
   Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB, [distribuição global](distribute-data-globally.md) e [partição](partitioning-overview.md) e [produção a provisionada.](request-units.md)
 

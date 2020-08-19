@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460104"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604520"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerir o Agente de mobilidade 
 
@@ -26,8 +26,9 @@ Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação 
 ## <a name="update-mobility-service-from-azure-portal"></a>Atualizar o serviço de mobilidade a partir do portal Azure
 
 1. Antes de começar, certifique-se de que o servidor de configuração, os servidores de processo de escala e quaisquer servidores-alvo principais que fazem parte da sua implementação são atualizados antes de atualizar o Serviço de Mobilidade em máquinas protegidas.
-2. No portal abra o cofre > **itens replicados**.
-3. Se o servidor de configuração for a versão mais recente, vê uma notificação onde se lê "A nova atualização do agente de replicação de recuperação do Site está disponível. Clique para instalar."
+    1. A partir de [9.36 versão,](https://support.microsoft.com/help/4578241/) para SUSE Linux Enterprise Server 11 SP4, certifique-se de que o mais recente instalador está [disponível no servidor de configuração e servidor de processo de escala](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. No portal abra o cofre > **itens replicados**.
+1. Se o servidor de configuração for a versão mais recente, vê uma notificação onde se lê "A nova atualização do agente de replicação de recuperação do Site está disponível. Clique para instalar."
 
      ![Janela de itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 

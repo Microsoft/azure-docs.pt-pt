@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Limites de capacidade
       href: capacity-limits.md
+    - name: Gestão de custos para laboratórios
+      href: cost-management-guide.md
     - name: Cenários
       items:
         - name: Utilizar o Lab Services para lecionar as aulas
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Gerir laboratórios numa conta de laboratório
           href: manage-labs.md
-        - name: Configurar o encerramento automático de VMs
+        - name: Configurar o encerramento automático de VMs para uma conta de laboratório
           href: how-to-configure-lab-accounts.md
         - name: Adicionar um criador do laboratório
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Especificar informações de suporte (proprietário de conta de laboratório)
           href: lab-account-owner-support-information.md
-        - name: Gestão de custos para laboratórios
-          href: cost-management-guide.md
     - name: Criar e configurar laboratórios de sala de aula (educador)
       items:
         - name: Criar e gerir laboratórios de sala de aula
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Ativar a ligação de ambiente de trabalho remoto para Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Ativar encerramento automático ao desligar
+        - name: Configurar o encerramento automático de VMs para um laboratório
           href: how-to-enable-shutdown-disconnect.md
         - name: Ativar a virtualização aninhada numa VM de modelo
           items:

@@ -5,39 +5,32 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/19/2020
+ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523541"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605261"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
 
-O modelo de preços do Azure Cosmos DB simplifica a gestão e o planeamento de custos. Com o Azure Cosmos DB, paga pelo débito aprovisionado e pelo armazenamento consumido.
+O modelo de preços do Azure Cosmos DB simplifica a gestão e o planeamento de custos. Com a Azure Cosmos DB, paga pelas operações que realiza na base de dados e pelo armazenamento consumido pelos seus dados.
 
-* **Produção prevista**: [A produção proviscizada](how-to-choose-offer.md) (também designada por produção reservada) garante um elevado desempenho em qualquer escala. Você especifica a produção (RU/s) que você precisa, e Azure Cosmos DB dedica os recursos necessários para garantir a produção configurada. É cobrado de hora a hora para o rendimento máximo previsto por uma hora. Pode provisões manualmente ou utilizar [a escala automática.](provision-throughput-autoscale.md)
+- **Operações de base de dados**: A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
+
+  - **Produção prevista**: [A produção proviscizada](set-throughput.md) (também designada por produção reservada) garante um elevado desempenho em qualquer escala. Especifica a produção de que necessita nas [Unidades](request-units.md) de Pedido por segundo (RU/s), e a Azure Cosmos DB dedica os recursos necessários para garantir a produção configurada. Pode [provistirá a produção numa base de dados ou num contentor.](set-throughput.md) Com base nas suas necessidades de carga de trabalho, pode escalar a produção para cima/para baixo a qualquer momento ou utilizar [a autoescala](provision-throughput-autoscale.md) (embora exista um rendimento mínimo exigido numa base de dados ou num recipiente para garantir as SLAs). É cobrado de hora a hora para o rendimento máximo previsto por uma hora.
 
    > [!NOTE]
-   > Como o modelo de produção a provisionado dedica recursos ao seu contentor ou base de dados, será cobrado pelo rendimento a provisionado, mesmo que não faça nenhuma carga de trabalho.
+   > Como o modelo de produção a provisionado dedica recursos ao seu contentor ou base de dados, será cobrado pelo rendimento que a provisionou, mesmo que não execute nenhuma carga de trabalho.
 
-* **Armazenamento consumido**: É faturado uma taxa fixa para a quantidade total de armazenamento (GBs) consumida para os dados e os índices por uma hora.
+  - **Serverless**: Em modo [sem servidor,](serverless.md) não é necessário prever qualquer produção na criação de recursos na sua conta Azure Cosmos. No final do seu período de faturação, é cobrado a quantidade de Unidades de Pedido que foi consumida pelas suas operações de base de dados.
 
-A produção prevista, especificada como [Unidades de Pedido](request-units.md) por segundo (RU/s), permite-lhe ler ou escrever dados em contentores ou bases de dados. Pode [provistirá a produção numa base de dados ou num contentor.](set-throughput.md) Com base nas suas necessidades de carga de trabalho, pode escalar a produção para cima/para baixo a qualquer momento. O preço do Azure Cosmos DB é elástico e é proporcional à produção que configura numa base de dados ou num recipiente. Os valores mínimos de produção e armazenamento e os incrementos de escala proporcionam uma gama completa de preços vs. espectro de elasticidade a todos os segmentos de clientes, desde recipientes de pequena escala a recipientes em larga escala. Cada base de dados ou contentor é faturado de hora a hora para o rendimento previsto nas unidades de 100 RU/s, com um mínimo de 400 RU/s, e armazenamento consumido em GBs. Ao contrário do rendimento previsto, o armazenamento é faturado numa base de consumo. Isto é, não tens de reservar nenhum armazém com antecedência. É cobrado apenas pelo armazenamento que consome.
+- **Armazenamento**: É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora. O armazenamento é cobrado numa base de consumo, por isso não tem de reservar qualquer armazenamento com antecedência. É cobrado apenas pelo armazenamento que consome.
 
-Para mais informações, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [compreenda a sua conta DB Azure Cosmos](understand-your-bill.md).
+O modelo de preços em Azure Cosmos DB é consistente em todas as APIs. Para mais informações, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/), [compreendendo a sua conta de DB Azure Cosmos](understand-your-bill.md) e [como o modelo de preços DB da Azure Cosmos é rentável para os clientes.](total-cost-ownership.md)
 
-O modelo de preços em Azure Cosmos DB é consistente em todas as APIs. Para saber mais, consulte [como o modelo de preços da Azure Cosmos DB é rentável para os clientes.](total-cost-ownership.md) Há uma produção mínima necessária numa base de dados ou num contentor para garantir as SLAs e pode aumentar ou diminuir a produção prevista para cada 100 RU/s.
-
-Se colocar a sua conta DB Azure Cosmos numa região não governamental nos EUA, atualmente o preço mínimo para a base de dados e a produção baseada em contentores é de aproximadamente $24/mês. O preço varia consoante a região que está a usar, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter informações mais recentes sobre preços. Se a sua carga de trabalho utilizar vários contentores, pode ser otimizado para o custo utilizando o nível de base de dados, porque o nível de base de dados permite-lhe ter qualquer número de contentores numa base de dados que partilhem a produção entre os contentores. O quadro que se segue resume a produção prevista e os custos para diferentes entidades:
-
-|**Entidade**  | **Produção mínima** |**Incrementos de escala** |**Âmbito de provisionamento** |
-|---------|---------|---------|-------|
-|Base de Dados    | 400 RU/s    | 100 RU/s   |O rendimento é reservado para a base de dados e é partilhado por contentores dentro da base de dados |
-|Contentor     | 400 RU/s   | 100 RU/s  |A produção está reservada para um recipiente específico |
-
-Como mostrado na tabela anterior, a produção mínima em Azure Cosmos DB começa a um preço de aproximadamente $24/mês. Se começar com o rendimento mínimo e aumentar ao longo do tempo para suportar as suas cargas de trabalho de produção, os seus custos aumentarão suavemente, nos incrementos de aproximadamente $6/mês. O preço varia consoante a região que está a usar, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter informações mais recentes sobre preços. O modelo de preços em Azure Cosmos DB é elástico e há um aumento suave ou diminuição do preço à medida que escala ou desce.
+Se implementar a sua conta DB Azure Cosmos para uma região não governamental nos EUA, existe um preço mínimo tanto para a base de dados como para a produção baseada em contentores no modo de produção forerado. Não há preço mínimo no modo sem servidor. O preço varia consoante a região que está a usar, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter informações mais recentes sobre preços.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimentar o Azure Cosmos DB gratuitamente
 
@@ -53,11 +46,11 @@ A Azure Cosmos DB oferece muitas opções para os desenvolvedores para ele gratu
 
 ## <a name="pricing-with-reserved-capacity"></a>Preços com capacidade reservada
 
-A [capacidade reservada da](cosmos-db-reserved-capacity.md) Azure Cosmos ajuda-o a economizar dinheiro, pré-pagando os recursos DB da Azure Cosmos durante um ano ou três anos. Pode reduzir significativamente os seus custos com compromissos iniciais de um ano ou três anos e poupar entre 20 a 65% de descontos em comparação com o preço normal. A capacidade reservada da Azure Cosmos ajuda-o a baixar os custos, pré-pagando a produção provisida (RU/s) por um período de um ano ou três anos e obtém um desconto sobre a produção provisida. 
+A [capacidade reservada da](cosmos-db-reserved-capacity.md) Azure Cosmos ajuda-o a economizar dinheiro ao utilizar o modo de produção a provisionado, pré-pagando os recursos DB da Azure Cosmos durante um ano ou três anos. Pode reduzir significativamente os seus custos com compromissos iniciais de um ano ou três anos e poupar entre 20 a 65% de descontos em comparação com o preço normal. A capacidade reservada da Azure Cosmos ajuda-o a baixar os custos, pré-pagando a produção provisida (RU/s) por um período de um ano ou três anos e obtém um desconto sobre a produção provisida. 
 
 A capacidade reservada proporciona um desconto de faturação e não afeta o estado de runtime dos recursos do Azure Cosmos DB. A capacidade reservada está disponível de forma consistente para todas as APIs, que incluem MongoDB, Cassandra, SQL, Gremlin e Azure Tables e todas as regiões em todo o mundo. Você pode saber mais sobre a capacidade reservada em [Prepay para recursos DB Azure Cosmos com](cosmos-db-reserved-capacity.md) artigo de capacidade reservada e comprar capacidade reservada a partir do [portal Azure.](https://portal.azure.com/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode aprender mais sobre a otimização dos custos dos seus recursos DB Azure Cosmos nos seguintes artigos:
 

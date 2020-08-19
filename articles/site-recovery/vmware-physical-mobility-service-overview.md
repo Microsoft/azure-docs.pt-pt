@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131796"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604738"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade de VMware VMs e servidores físicos
 
@@ -37,6 +37,7 @@ A instalação push é parte integrante do trabalho que é executado a partir do
 
 - Certifique-se de que todos os [pré-requisitos de](vmware-azure-install-mobility-service.md) instalação de impulsos estão cumpridos.
 - Certifique-se de que todas as configurações do servidor satisfazem os critérios na [matriz de Suporte para a recuperação de desastres de VMware VMs e servidores físicos para a Azure](vmware-physical-azure-support-matrix.md).
+- A partir de [9.36 versão,](https://support.microsoft.com/help/4578241/) para SUSE Linux Enterprise Server 11 SP4, certifique-se de que o mais recente instalador está [disponível no servidor de configuração e servidor de processo de escala](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
 
 O fluxo de trabalho de instalação push é descrito nas seguintes secções:
 
@@ -129,7 +130,7 @@ Durante uma instalação push do serviço mobility, são executadas as seguintes
 
 Definição | Detalhes
 --- | ---
-Sintaxe | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Registos de configuração | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 `/InstallLocation`| Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade (qualquer pasta).
@@ -140,9 +141,9 @@ Registos de configuração | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstalle
 
 Definição | Detalhes
 --- | ---
-Sintaxe | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
+Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Registos de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
-`/CSEndPoint` | Parâmetro obrigatório. `<CSIP>`especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
+`/CSEndPoint` | Parâmetro obrigatório. `<CSIP>` especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 `/PassphraseFilePath` |  Obrigatório. Localização da frase. Utilize qualquer unc válido ou caminho de arquivo local.
 
 ### <a name="linux-machine"></a>Máquina Linux
@@ -170,7 +171,7 @@ Registos de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAge
 
 Definição | Detalhes
 --- | ---
-Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 `-d` | Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade: `/usr/local/ASR` .
 `-v` | Obrigatório. Especifica a plataforma na qual o serviço Mobility está instalado. <br/> **VMware** para VMware VMs/servidores físicos. <br/> **Azure** para Azure VMs.
@@ -180,14 +181,14 @@ Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 Definição | Detalhes
 --- | ---
-Sintaxe | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
-`-i` | Parâmetro obrigatório. `<CSIP>`especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
+Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+`-i` | Parâmetro obrigatório. `<CSIP>` especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 `-P` |  Obrigatório. Percurso de ficheiro completo do ficheiro no qual a palavra-passe é guardada. Utilize qualquer pasta válida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual Azure
 
 - **VMs do Windows**: Da versão 9.7.0.0 do serviço mobility, o [agente Azure VM](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço Mobility. Isto garante que quando a máquina falha em Azure, o Azure VM satisfaz o pré-requisito de instalação do agente para a utilização de qualquer extensão VM.
-- **Linux VMs**: O [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve ser instalado manualmente no Azure VM após a falha.
+- **Linux VMs**: O  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve ser instalado manualmente no Azure VM após a falha.
 
 ## <a name="locate-installer-files"></a>Localizar ficheiros de instaladores
 
@@ -204,7 +205,7 @@ Ficheiro instalador | Sistema operativo (apenas 64 bits)
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Inclui SP2 e SP3.
-`Microsoft-ASR_UA_version_SLES11-SP3-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP3
+[Para ser descarregado e colocado nesta pasta manualmente](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
@@ -212,6 +213,20 @@ Ficheiro instalador | Sistema operativo (apenas 64 bits)
 `Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Descarregue o mais recente instalador de agentes de mobilidade para o servidor SUSE 11 SP3
+
+Como **pré-requisito para atualizar ou proteger as máquinas SUSE Linux Enterprise Server 11 SP3** a partir da [versão 9.36:](https://support.microsoft.com/help/4578241/)
+
+1. Certifique-se de que o mais recente instalador de agentes de mobilidade é descarregado do Microsoft Download Center e colocado no repositório de instaladores push no servidor de configuração e em todos os servidores de processos de escala
+2. [Descarregue](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) o instalador de agente SUSE Linux Enterprise Server 11 SP3.
+3. Navegue para o servidor de configuração, copie o instalador de agente SUSE Linux Enterprise Server 11 SP3 nos seguintes caminhos
+    1. INSTALL_DIR\home\svsystems\pushinstallsvc\repositório
+    1.  INSTALL_DIR\home\svsystems\admin\web\sw pastas
+4. Agora, navegue para servidores de processo de escala associados & copiar o instalador em ambos os caminhos mencionados no 3º passo.
+5. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
+    1. C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório
+    1. C:\Ficheiros de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\admin\web\sw path
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Instale a instalação push para o serviço mobility](vmware-azure-install-mobility-service.md).

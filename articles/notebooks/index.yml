@@ -9,12 +9,12 @@ metadata:
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 0065b8b609ca9ef29365127333ad1a39f3327c1b
-  ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+  ms.openlocfilehash: 456cd23308c7258b59fa8dad628e9f09f6afc0e2
+  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/09/2020
-  ms.locfileid: "86181425"
+  ms.lasthandoff: 08/19/2020
+  ms.locfileid: "88586958"
 landingContent:
 - title: Acerca do Azure Notebooks
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: azure-notebooks-samples.md
   - linkListType: get-started
     links:
-    - text: Aceder ao Azure Notebooks
+    - text: Aceder aos ficheiros do Azure Notebooks
       url: https://notebooks.azure.com/
 - title: Introdução ao Azure Notebooks
   linkLists:

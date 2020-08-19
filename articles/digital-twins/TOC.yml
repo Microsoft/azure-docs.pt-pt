@@ -172,6 +172,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: Validador DTDL (exemplo)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+        - name: Exemplo de integração do DPS e do Hub IoT
+          href: 'https://github.com/Azure-Samples/digital-twins-iothub-integration'
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell

@@ -4,14 +4,14 @@ description: Saiba como escolher entre a produção padrão (manual) a provision
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116813"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605212"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre produção padrão (manual) e autoescala aussida 
 
@@ -37,7 +37,10 @@ A tabela a seguir mostra uma comparação de alto nível entre a norma (manual) 
 ## <a name="understand-your-traffic-patterns"></a>Compreenda os seus padrões de tráfego
 
 ### <a name="new-applications"></a>Novas aplicações ###
-Se estiver a construir uma nova aplicação e ainda não conhecer o seu padrão de tráfego, talvez queira começar no ponto de entrada RU/s (ou ru/s mínimo) para evitar o excesso de provisionamento no início. Ou, se tiver uma pequena aplicação que não precisa de alta escala, pode querer providenciar apenas o ponto de entrada mínimo RU/s para otimizar o custo. Em ambos os casos, tanto a escala normal (manual) como a autoescala são adequadas. Eis o que deve considerar:
+
+Se estiver a construir uma nova aplicação e ainda não conhecer o seu padrão de tráfego, talvez queira começar no ponto de entrada RU/s (ou ru/s mínimo) para evitar o excesso de provisionamento no início. Ou, se tiver uma pequena aplicação que não precisa de alta escala, pode querer providenciar apenas o ponto de entrada mínimo RU/s para otimizar o custo. Para pequenas aplicações com um tráfego de baixa expecto esperado, também pode considerar o modo de capacidade [sem servidor.](throughput-serverless.md)
+
+Quer planeie utilizar o padrão (manual) ou a autoescala, eis o que deve considerar:
 
 Se forrê a norma (manual) RU/s no ponto de entrada de 400 RU/s, não poderá consumir acima de 400 RU/s, a menos que altere manualmente a produção. Você será cobrado por 400 RU/s na taxa de produção padrão (manual) a provisionada, por hora.
 
@@ -66,7 +69,7 @@ Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de**autoes
 > [!NOTE]
 > Quando utiliza a produção padrão (manual) prevista, a métrica **de produção de provisionamento** refere-se ao que você como utilizador definiu. Quando utiliza a produção de autoescala, esta métrica refere-se ao RU/s para o qual o sistema é atualmente dimensionado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [calculadora RU](https://cosmos.azure.com/capacitycalculator/) para estimar a produção de novas cargas de trabalho.
 * Utilize [o Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para monitorizar as cargas de trabalho existentes.
 * Saiba como providenciar a [produção de autoescalação numa base de dados ou contentor Azure Cosmos](how-to-provision-autoscale-throughput.md).

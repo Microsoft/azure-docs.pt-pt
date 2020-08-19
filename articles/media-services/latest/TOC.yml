@@ -71,9 +71,6 @@
       items:
         - name: Elementos
           href: assets-concept.md
-        - name: Gerir recursos
-          href: manage-asset-concept.md
-          displayName: 'name, naming, file name, upload, output, download'
     - name: Processar ficheiros
       items:
         - name: Transformações e tarefas
@@ -222,20 +219,14 @@
   items:
     - name: Introdução
       items:
-        - name: Criar uma conta
+        - name: Encontrar a sua subscrição do Azure
+          href: how-to-set-azure-subscription.md
+        - name: Criar uma conta dos Media Services
           href: create-account-howto.md
           displayName: 'portal, cli, storage'
-        - name: Repor as credenciais de conta
-          href: cli-reset-account-credentials.md
         - name: API de acesso
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Dimensionar unidades reservadas de multimédia
-          href: media-reserved-units-cli-how-to.md
-        - name: Criar um recurso
-          href: cli-create-asset.md
-    - name: Guias para programadores
-      items:
         - name: Desenvolver com REST
           items:
             - name: Ligar com Postman
@@ -250,6 +241,15 @@
               href: configure-connect-nodejs-howto.md
             - name: Ligar com Python
               href: configure-connect-python-howto.md
+        - name: Repor as credenciais da conta
+          href: cli-reset-account-credentials.md
+    - name: Criar e gerir recursos
+      items:
+        - name: Criar um recurso
+          href: cli-create-asset.md
+        - name: Gerir recursos
+          href: manage-asset-concept.md
+          displayName: 'name, naming, file name, upload, output, download'
     - name: Carregar conteúdo
       items:
         - name: De HTTPS
@@ -282,6 +282,8 @@
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Codificar com uma transformação personalizada
+        - name: Dimensionar unidades reservadas de multimédia
+          href: media-reserved-units-cli-how-to.md
           items:
             - name: Com o .NET
               displayName: 'encode, encoding, custom, transform'

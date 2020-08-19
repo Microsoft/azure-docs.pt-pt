@@ -13,19 +13,19 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: daccc4195877ad18441640f562556d97a04b10f0
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
+  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87386491"
+  ms.lasthandoff: 08/17/2020
+  ms.locfileid: "88262607"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
     itemType: overview
     url: ./general/overview.md
   - title: Alterações importantes à eliminação recuperável
-    itemType: overview
+    itemType: whats-new
     url: ./general/soft-delete-change.md
   - title: Autenticação
     itemType: overview
@@ -89,6 +89,23 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Ver mais
+  - title: Bibliotecas de cliente
+    links:
+    - url: ./general/client-libraries.md
+      itemType: reference
+      text: Bibliotecas de cliente do Azure Key Vault
+    - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      itemType: reference
+      text: Biblioteca de Cliente .NET
+    - url: /python/api/overview/azure/key-vault-index?view=azure-python
+      itemType: reference
+      text: Biblioteca de Cliente Python
+    - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+      itemType: reference
+      text: Biblioteca de Cliente Java
+    - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      itemType: reference
+      text: Biblioteca de Cliente Node.js
   - title: Key Vault com Armazenamento
     links:
     - url: ./secrets/overview-storage-keys.md

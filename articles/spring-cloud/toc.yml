@@ -47,6 +47,8 @@
       href: ./policy-samples.md
 - name: Conceitos
   items:
+    - name: Compreender a aplicação e a implementação
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Compreender quotas e limites
       href: spring-cloud-quotas.md
     - name: Compreender métricas

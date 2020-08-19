@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035115"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604403"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -50,8 +50,8 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 1 | Título de oferta |<ul><li>Deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. O título não pode ser modificado depois de publicado.</li><li>Descreve a oferta de solução.</li><li>Corresponde à promoção online da solução no site do parceiro. | Contém palavras de pesquisa de chaves. |
 | 2 | Informação técnica: Configuração |<ul><li>Para software como aplicações de serviço (SaaS), escolha se deseja apenas listar a sua app ou para permitir que os clientes comprem a sua app através do Azure.</li><li>Selecione o texto que pretende no botão de aquisição da sua oferta: *Free,* *Free Trial*ou *Contacte-me.*</li><li>Na janela pop-up, selecione apenas um produto aplicável se a sua aplicação utilizar a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
 | 3 | Unidade de teste | Selecione *Sim* ou *Não* | O cliente pode facilmente entender quais são os próximos passos: <ol><li>Tente o julgamento.</li><li>Compre agora.</li><li>Contacte via e-mail ou número de telefone para providenciar POC, Avaliação ou Briefing.</li></ol> |
-| 4 | Detalhes da montra: Resumo da oferta | Aparece na página de pesquisa da sua aplicação e tem um máximo de 100 caracteres. | |
-| 5 | Detalhes da montra: Indústrias | Indústrias (máx. 2): Selecione as indústrias a que a sua aplicação está mais alinhada e aplicável. | |
+| 4 | Detalhes da loja online: Apresentar resumo | Aparece na página de pesquisa da sua aplicação e tem um máximo de 100 caracteres. | |
+| 5 | Detalhes da loja online: Indústrias | Indústrias (máx. 2): Selecione as indústrias a que a sua aplicação está mais alinhada e aplicável. | |
 | 6 | Descrição da oferta | <ul><li>É permitido html simples, \<p> incluindo, , , , , , , , e \<em> \<ul> \<li> \<ol> tags de cabeçalho. Um máximo de 3000 caracteres.</li><li>Contém 2-3 parágrafos.</li><li>A oferta de soluções é facilmente entendida num ápice.</li><li>A descrição é abrangente e captura o público-alvo, tipo de utilizador, e por que é valioso (proposta de valor).</li><li>Está na forma narrativa do parágrafo, com frases curtas que são fáceis de entender. | <ul><li>A indústria-alvo está delineada (se relevante).</li><li>Boa formatação de estilo, com cada título de parágrafo tendo uma única frase ou frase resumindo o conteúdo que segue e usando pontos de bala, quando apropriado, para enfatizar os principais benefícios. O objetivo é que o leitor compreenda a oferta num ápice num formato fácil de visualizar e não tenha de ler parágrafos.</li><li>Há espaçamento entre cada parágrafo. Parece uma brochura de carro. Ou seja, é abrangente e descreve a oferta simplesmente, sem jargão técnico. | 
 | 7 | Artefactos de marketing | Os logótipos são apresentados corretamente. | <ul><li>Logotipos: Pequenos (48 x 48 pixels), Médios (90 x 90 pixels) e Grandes (entre 216 x 216 e 350 x 350 pixels).</li><li>Screenshot (máx. 5): Requer um . Imagem de PNG com uma resolução de 1280x720 pixels. |
 | 8 | Categorias e indústrias | <ul><li>As categorias combinam com as capacidades de oferta de soluções.</li><li>Selecione pelo menos um item na janela pop-up.</li><li>Não selecione categorias que a solução não se encaixe.</li><li>Indústria ideal, ou todas as indústrias selecionadas (se não as indústrias ideais). | Um máximo de 3 categorias selecionadas, se aplicável. |

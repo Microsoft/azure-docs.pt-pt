@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166727"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604756"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta SaaS no mercado comercial
 
@@ -30,7 +30,7 @@ Para começar a criar software como um Serviço (SaaS) oferece no mercado comerc
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> Após a publicação de uma oferta, as edições feitas no Partner Center só aparecem nas montras depois de republicarem a oferta. Certifique-se de que é sempre republicante depois de escorção.
+> Após a publicação de uma oferta, as edições feitas no Partner Center só aparecem nas lojas online depois de republicarem a oferta. Certifique-se de que é sempre republicante depois de escorção.
 
 ## <a name="new-offer"></a>Nova oferta
 
@@ -185,7 +185,7 @@ A sua oferta será publicada no AppSource ou no Azure Marketplace, dependendo da
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
 - Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
 
-Consulte a lista completa de categorias e subcategorias aplicáveis a cada Montra em [Ofertas Listando As Melhores Práticas.](../gtm-offer-listing-best-practices.md)
+Consulte a lista completa de categorias e subcategorias aplicáveis a cada loja online em [Ofertas Listando As Melhores Práticas.](../gtm-offer-listing-best-practices.md)
 
 ### <a name="industries"></a>Indústrias
 
@@ -269,11 +269,11 @@ Este campo é obrigatório.
 
 - **Política de Privacidade** (obrigatório) – Ligue-se à política de privacidade da sua organização. Você é responsável por garantir que a sua app cumpre as leis e regulamentos de privacidade, e por fornecer uma política de privacidade válida
 - **CSP Program Marketing Materials** (opcional) – Forneça uma ligação aos materiais de marketing se optar por alargar a sua oferta ao programa [Cloud Solution Provider (CSP).](../cloud-solution-providers.md) A CSP alarga a sua oferta a um leque mais alargado de clientes qualificados, permitindo aos parceiros da CSP agregar, comercializar e revender a sua oferta. Estes revendedores precisarão de acesso a materiais para comercializar a sua oferta. Para mais informações, consulte [os Serviços Go-To-Market.](https://partner.microsoft.com/reach-customers/gtm)
-- **Links Úteis** (opcional) – Documentos complementares opcionais sobre a sua aplicação ou serviços relacionados listados através da prestação de um **Título** e **URL.** Adicione links úteis adicionais clicando **+ Adicione um URL**.
+- **Links Úteis** (opcional) – Documentos complementares opcionais sobre a sua aplicação ou serviços relacionados listados através da prestação de um **Título** e **URL.** Adicione links úteis adicionais clicando  **+ Adicione um URL**.
 
 #### <a name="contact-information"></a>Informações de contacto
 
-- **Contactos** – Para cada contacto com o cliente, forneça um **nome**de colaborador, **número de telefone**e endereço de **e-mail** (estes *não serão* apresentados publicamente). É necessário **um URL de suporte** para o grupo de contacto de **suporte** (este *será* apresentado publicamente).
+- **Contactos** – Para cada contacto com o cliente, forneça um  **nome**de colaborador,  **número de telefone**e endereço de **e-mail** (estes *não serão* apresentados publicamente). É necessário **um URL de suporte**  para o grupo de contacto de **suporte** (este *será* apresentado publicamente).
 
   - **Contacto de apoio** (obrigatório) – Para questões gerais de apoio.
   - **Contacto de engenharia** (obrigatório) – Para questões técnicas.
@@ -282,14 +282,14 @@ Este campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatórios) – Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** – Carregar imagens de logotipo em formato PNG:
+- **Imagens**  – Carregar imagens de logotipo em formato PNG:
 
   - **Pequeno** (48 x 48 pixels, necessário)
   - **Médio** (90 x 90 pixels, necessário)
   - **Grande** (216 x 216 pixels, necessário)
   - **Largo** (255 x 115 pixels) (opcional)
 
-   Estes três tamanhos de logotipo são usados em diferentes lugares nas montras:
+   Estes três tamanhos de logotipo são usados em diferentes lugares nas lojas online:
 
    -   O logótipo Small (48 x 48 pixels) aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa. 
    -   O logótipo Medium (90 x 90 pixels) aparece quando cria um novo recurso no Microsoft Azure.

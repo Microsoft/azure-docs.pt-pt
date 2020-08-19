@@ -232,6 +232,8 @@
       href: ../extensions/troubleshoot.md
     - name: Instalar o agente offline da VM do Windows
       href: install-vm-agent-offline.md
+    - name: Resolver problemas do agente de VM do Windows
+      href: windows-azure-guest-agent.md
 - name: Cópia de segurança e restauro
   items:
     - name: Resolver falhas de cópia de segurança na VM do Azure

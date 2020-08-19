@@ -6,6 +6,11 @@
       href: overview.md
     - name: Arquivos de dados suportados
       href: supported-data-stores.md
+- name: Guias de Início Rápido
+  items:
+    - name: Criar partilha de dados - Modelo do Resource Manager
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Tutoriais
   expanded: true
   items:

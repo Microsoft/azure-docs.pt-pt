@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170297"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605106"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Selecione uma série de colunas pelo nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não houver correspondência para uma coluna, toda a saída é um valor NU. O valor devolvido requer funções de conversão de tipo (toDate, toString, ...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
@@ -354,7 +346,7 @@ Duração em milissegundos por número de horas.
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Com base numa condição, aplica-se um valor ou outro. Se outro não for especificado, é considerado NU. Ambos os valores devem ser compatíveis (numérico, corda...).* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+Com base numa condição, aplica-se um valor ou outro. Se outro não for especificado, é considerado NU. Ambos os valores devem ser compatíveis (numérico, corda...). * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
@@ -505,7 +497,7 @@ ___
 A esquerda escolte a corda pelo estofamento fornecido até ter um certo comprimento. Se a corda for igual ou superior ao comprimento, então é aparada ao comprimento.  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
-*''lpad', 8, '<>') - > '<><dumbo'``  
+* ''lpad', 8, '<>') - > '<><dumbo'``  
 ___
 ### <code> ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -968,7 +960,7 @@ ___
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o valor do ano de uma data.  
 * ``year(toDate('2012-8-8')) -> 2012``  
-##Funções agregadas As seguintes funções só estão disponíveis em transformações agregadas, pivôs, não-governamentais e de janelas.
+## Funções agregadas As seguintes funções só estão disponíveis em transformações agregadas, pivôs, não-governamentais e de janelas.
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1161,7 +1153,7 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base num critério, obtém-se a variação imparcial de uma coluna.  
 * ``varianceSampleIf(region == 'West', sales)``  
-##Funções da janela As seguintes funções só estão disponíveis em transformações de janelas.
+## Funções da janela As seguintes funções só estão disponíveis em transformações de janelas.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>

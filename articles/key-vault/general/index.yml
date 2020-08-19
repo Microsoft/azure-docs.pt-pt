@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ff7af5ead7cc14deb974700e7bf6f3553f2e71f7
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: ada202a8683b64144f2adacc759b9461472e4a31
+  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87387749"
+  ms.lasthandoff: 08/17/2020
+  ms.locfileid: "88262573"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -62,6 +62,20 @@ landingContent:
       url: managed-identity.md
     - text: Utilizar uma política de acesso
       url: group-permissions-for-apps.md
+- title: Bibliotecas de cliente
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Bibliotecas de cliente do Azure Key Vault
+      url: client-libraries.md
+    - text: Biblioteca de Cliente .NET
+      url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - text: Biblioteca de Cliente Python
+      url: /python/api/overview/azure/key-vault-index?view=azure-python
+    - text: Biblioteca de Cliente Java
+      url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+    - text: Biblioteca de Cliente Node.js
+      url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

@@ -3,12 +3,12 @@ title: Configure o encerramento automático de VMs nos Serviços de Laboratório
 description: Este artigo descreve como configurar o encerramento automático de VMs na conta de laboratório.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589809"
+ms.locfileid: "88603881"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configure o encerramento automático de VMs para uma conta de laboratório
 
@@ -35,4 +35,4 @@ Reveja mais detalhes sobre as funcionalidades de paragem automática no controlo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como um proprietário de laboratório pode configurar ou sobrepor esta definição ao nível do laboratório, consulte Ativar o [encerramento automático de VMs na desconexão](how-to-enable-shutdown-disconnect.md)
+Para saber como um dono de laboratório pode configurar ou sobrepor esta definição ao nível do laboratório, consulte [o encerramento automático de VMs para um laboratório](how-to-enable-shutdown-disconnect.md)

@@ -4,15 +4,15 @@ description: Saiba mais sobre as funções do sistema SQL de data e hora no Azur
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/09/2020
+ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 460abbc0b2a2f277aaeed57c5b938de530696776
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 1ea838224f9d91b000100d5fa9308289619fd963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224956"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605191"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funções de data e hora (Azure Cosmos DB)
 
@@ -20,7 +20,7 @@ As funções de data e hora permitem-lhe executar as operações de datetime e t
 
 ## <a name="functions-to-obtain-the-date-and-time"></a>Funções para obter a data e hora
 
-As seguintes funções escalar permitem obter a data e hora utc atuais em duas formas: uma cadeia que está em conformidade com o formato ISO 8601 ou um timetamp numérico cujo valor é a época Unix em milissegundos:
+As seguintes funções escalar permitem-lhe obter a data e hora atuais do UTC em três formas: uma cadeia que está em conformidade com o formato ISO 8601, um carimbo de tempo numérico cujo valor é o número de milissegundos que decorreram desde a época unix, ou carrapatos numéricos cujo valor é o número de 100 tiques nanosegundos que decorreram desde a época unix :
 
 * [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
 * [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
@@ -28,15 +28,18 @@ As seguintes funções escalar permitem obter a data e hora utc atuais em duas f
 
 ## <a name="functions-to-work-with-datetime-values"></a>Funções para trabalhar com valores de DataTime
 
-As seguintes funções permitem manipular facilmente os valores do DateTime:
+As seguintes funções permitem manipular facilmente o DateTime, o relógio e os valores do tiquetaque:
 
 * [DataTimeAdd](sql-query-datetimeadd.md)
 * [DataTimediff](sql-query-datetimediff.md)
-* [DataTimeFromParts](sql-query-datetimefromparts.md)
+* [DateTimeFromParts](sql-query-datetimefromparts.md)
 * [DataTimePart](sql-query-datetimepart.md)
-* [DataTimeToTicks](sql-query-datetimetoticks.md)
+* [DateTimeToTicks](sql-query-datetimetoticks.md)
+* [DataTimeToTimestamp](sql-query-datetimetotimestamp.md)
+* [Hora do Tiquetaque](sql-query-tickstodatetime.md)
+* [TempotampToDateTime](sql-query-timestamptodatetime.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

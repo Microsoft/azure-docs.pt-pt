@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2020
+ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cee26f9c1674030903e8be6dac80f6615317a67
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 538ea1746e92b3ec7d45f06031cfdc965e286d7a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551672"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603852"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -88,6 +88,7 @@ Para obter informações sobre a integração dos serviços Azure em componentes
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 08/18/2020: Lançamento de [HA para escala SAP HANA com ANF em RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 08/17/2020: Adicionar informações sobre a utilização da Recuperação do Site Azure para mover os sistemas SAP NetWeaver de instalações para Azure no artigo [Azure Virtual Machines planejamento e implementação para SAP NetWeaver](./planning-guide.md)
 - 08/14/2020: Adicionar conselhos de configuração de disco para Db2 no artigo [IBM Db2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: Adicionar RHEL 7.6 em [Sistemas Operativos Compatíveis para HANA Grandes Instâncias](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) como sistema operativo disponível para unidades HLI do tipo I

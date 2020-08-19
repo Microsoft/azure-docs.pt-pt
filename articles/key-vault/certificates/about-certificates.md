@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 38ae6bec99498440d7bf7e68e2d5c397e696192a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115665"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604896"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
@@ -84,7 +84,8 @@ Quando um certificado Key Vault é criado de raiz, uma política precisa de ser 
 A um nível elevado, uma política de certificados contém as seguintes informações (as suas definições podem ser encontradas [aqui):](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)  
 
 -   Propriedades do certificado X509: Contém nome de sujeito, nomes alternativos sujeitos e outras propriedades usadas para criar um pedido de certificado x509.  
--   Principais propriedades: contém o tipo de chave, comprimento da chave, exportável e reuseKeyOnRenewal. Estes campos instruem o cofre de chaves sobre como gerar uma chave.  
+-   Principais propriedades: contém o tipo de chave, comprimento da chave, exportável e reuseKeyOnRenewal. Estes campos instruem o cofre de chaves sobre como gerar uma chave. 
+     - Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui)](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype) 
 -   Propriedades secretas: contém propriedades secretas, tais como o tipo de conteúdo de segredo endereçada para gerar o valor secreto, para recuperar o certificado como um segredo.  
 -   Ações vitalícias: contém ações vitalícias para o Certificado KV. Cada ação vitalícia contém:  
 

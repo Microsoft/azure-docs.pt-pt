@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7ef9d87db1981c7721c2398e858404c2527dd274
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167900"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605787"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -99,7 +99,7 @@ Em seguida, guarde as suas credenciais no arquivo do seu `App.config` projeto. N
 ```
 
 > [!NOTE]
-> A versão mais recente do Emulador de Armazenamento Azure não suporta ficheiros Azure. A sua cadeia de ligação tem de visar uma Conta de Armazenamento do Azure na cloud, para funcionar com os Ficheiros do Azure.
+> As versões mais recentes do Emulador de Armazenamento Azure e do emulador de código aberto Azurite não suportam ficheiros Azure. A sua cadeia de ligação tem de visar uma Conta de Armazenamento do Azure na cloud, para funcionar com os Ficheiros do Azure.
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
