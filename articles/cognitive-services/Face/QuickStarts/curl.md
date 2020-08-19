@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fea75e94e6a96e3fc223670536e7c05e271fa901
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833832"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88539343"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Quickstart: Detetar rostos numa imagem utilizando a API face REST e o cURL
 
 Neste arranque rápido, você usará a API AZure Face REST com cURL para detetar rostos humanos numa imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

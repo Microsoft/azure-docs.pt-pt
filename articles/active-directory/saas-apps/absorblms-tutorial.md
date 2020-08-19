@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Ative Directory com Absorb LMS Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Absorb LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d5dbd5c831b4e3cf2ab63796165dc6bad005a5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59fb36765ad3cd584af4d6459cd78e2886d0edce
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905844"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Diretório Ativo Azure com Absorver LMS
 
@@ -111,15 +106,15 @@ Para configurar o Azure AD com um único sinal de absorção de LMS, execute os 
 
     Se estiver a utilizar **Absorva 5 - UI** utilize a seguinte configuração:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://company.myabsorb.com/account/saml`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/account/saml`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://company.myabsorb.com/account/saml`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/account/saml`
 
     Se estiver a utilizar **o Absorb 5 - New Learner Experience,** utilize a seguinte configuração:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente absorver LMS](https://support.absorblms.com/hc/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

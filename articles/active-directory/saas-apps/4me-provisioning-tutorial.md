@@ -2,25 +2,21 @@
 title: 'Tutorial: Configurar 4me para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizador a 4me.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: beb580a02e1db80cf2d74f8167a98c9ead170810
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018694"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538762"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configurar 4me para o provisionamento automático do utilizador
 
@@ -122,7 +118,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para 4me**.
 
