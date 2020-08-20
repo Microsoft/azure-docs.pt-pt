@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003577"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612406"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -88,7 +88,7 @@ Aqui está uma lista completa das operações e [correspondentes chamadas API de
 | ADTEventRoutesOperação | Microsoft.DigitalTwins/eventroutes/write | Rotas do Evento Adicionar API |
 |  | Microsoft.DigitalTwins/eventroutes/read | Rotas de eventos obter por Id e APIs listar |
 |  | Microsoft.DigitalTwins/eventroutes/delete | Rotas do evento Eliminar API |
-|  | Microsoft.DigitalTwins/eventroutes/action | Egress de um evento para um serviço de Ponto Final (não uma chamada da API) |
+|  | Microsoft.DigitalTwins/eventroutes/action | Falha ao tentar publicar eventos para um serviço de ponto final (não uma chamada da API) |
 | ADTDigitalTwinsOperação | Microsoft.DigitalTwins/digitaltwins/write | Gémeos Digitais Adicionar, Adicionar Relacionamento, Atualização, Componente de Atualização |
 |  | Microsoft.DigitalTwins/digitaltwins/read | Gémeos Digitais Obter Por Id, Obter Componente, Obter Relacionamento por ID, Lista de Relacionamentos De Entrada, Relacionamentos de Lista |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Gémeos Digitais Delete, Excluir Relacionamento |

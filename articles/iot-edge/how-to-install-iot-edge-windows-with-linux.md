@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3a23e0c2546da55f977d589eb38607994d3902b
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80133168"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611794"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Use ioT Edge no Windows para executar recipientes Linux
 
@@ -34,7 +34,7 @@ Utilize esta secção para analisar se o seu dispositivo Windows pode suportar o
 
 Azure IoT Edge com recipientes Linux pode funcionar em qualquer versão do Windows que satisfaça os [requisitos para o Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Se pretender instalar o IoT Edge numa máquina virtual, ative a virtualização aninhada e aloque pelo menos 2 GB de memória. A forma como ativa a virtualização aninhada é diferente dependendo do hipervisor ou da sua utilização. Para o Hyper-V, as máquinas virtuais de geração 2 têm uma virtualização aninhada ativada por padrão. Para o VMWare, existe um alternância para ativar a funcionalidade na sua máquina virtual.
+Se pretender instalar o IoT Edge numa máquina virtual, ative a virtualização aninhada e aloque pelo menos 2 GB de memória. A forma como ativa a virtualização aninhada é diferente dependendo do hipervisor ou da sua utilização. Para o Hyper-V, as máquinas virtuais de geração 2 têm uma virtualização aninhada ativada por padrão. Para o VMware, existe um alternância para ativar a funcionalidade na sua máquina virtual.
 
 ### <a name="prepare-the-container-engine"></a>Prepare o motor do recipiente
 
@@ -88,7 +88,7 @@ Pode ler mais sobre as diferentes opções e parâmetros de instalação no arti
 
 6. Quando solicitado, forneça a cadeia de ligação do dispositivo que recuperou no passo 1. A cadeia de ligação do dispositivo associa o dispositivo físico a um ID do dispositivo no IoT Hub.
 
-   A cadeia de ligação do dispositivo assume o seguinte formato e não deve incluir aspas:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   A cadeia de ligação do dispositivo assume o seguinte formato e não deve incluir aspas: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Verifique a instalação bem sucedida
 

@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando ferrament
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209977"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612814"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as Funções do Azure com o Visual Studio  
 
@@ -88,7 +88,7 @@ O seu código também pode ler os valores de definições de aplicações de fun
 
 ## <a name="configure-the-project-for-local-development"></a>Configure o projeto para o desenvolvimento local
 
-O tempo de execução das Funções utiliza uma conta de Armazenamento Azure internamente. Para todos os tipos de gatilho que não http e webhooks, desloque a `Values.AzureWebJobsStorage` chave para uma cadeia de ligação de conta Azure Storage válida. A sua aplicação de função também pode usar o [emulador de armazenamento Azure](../storage/common/storage-use-emulator.md) para a `AzureWebJobsStorage` definição de ligação que é exigida pelo projeto. Para utilizar o emulador, deite o valor de `AzureWebJobsStorage` `UseDevelopmentStorage=true` . Altere esta definição para uma cadeia de ligação de conta de armazenamento real antes de ser implantada.
+O tempo de execução das Funções utiliza uma conta de Armazenamento Azure internamente. Para todos os tipos de gatilho que não http e webhooks, desloque a `Values.AzureWebJobsStorage` chave para uma cadeia de ligação de conta Azure Storage válida. A sua aplicação de função também pode usar o [Emulador de Armazenamento Azure](../storage/common/storage-use-emulator.md) para a `AzureWebJobsStorage` definição de ligação que é exigida pelo projeto. Para utilizar o emulador, deite o valor de `AzureWebJobsStorage` `UseDevelopmentStorage=true` . Altere esta definição para uma cadeia de ligação de conta de armazenamento real antes de ser implantada.
 
 Para definir o fio de ligação da conta de armazenamento:
 

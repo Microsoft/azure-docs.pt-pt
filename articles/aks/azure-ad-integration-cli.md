@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfcbf214c374f449a04139ce7bf4fbb6853ed524
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612423"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integre o Azure Ative Directy com o Serviço Azure Kubernetes utilizando o Azure CLI (legado)
 
@@ -27,6 +27,7 @@ Para obter o roteiro completo da amostra utilizado neste artigo, consulte [as am
 ## <a name="the-following-limitations-apply"></a>Aplicam-se as seguintes limitações:
 
 - O Azure AD só pode ser ativado no cluster ativado pelo RBAC.
+- A integração do legado AD AD só pode ser ativada durante a criação de clusters.
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -176,7 +177,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se o utilizador que concede a ligação RBAC estiver no mesmo inquilino AD Azure, atribua permissões com base no *nome de utilizadorPrincipalName*. Se o utilizador estiver num inquilino AD Azure diferente, consultar e utilizar a propriedade *objectId.*
 
-Crie um manifesto YAML nomeado `basic-azure-ad-binding.yaml` e cole os seguintes conteúdos. Na última linha, substitua *userPrincipalName_or_objectId* pela saída de ID upn ou objeto do comando anterior:
+Crie um manifesto YAML nomeado `basic-azure-ad-binding.yaml` e cole os seguintes conteúdos. Na última linha, substitua *userPrincipalName_or_objectId*  pela saída de ID upn ou objeto do comando anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -244,7 +245,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * Definiu o ID ou UPN do objeto apropriado, dependendo se a conta de utilizador está no mesmo inquilino AD AZure ou não.
 * O utilizador não é membro de mais de 200 grupos.
-* Segredo definido no registo de candidatura para servidor corresponde ao valor configurado usando`--aad-server-app-secret`
+* Segredo definido no registo de candidatura para servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passos seguintes
 

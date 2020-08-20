@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007781"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612644"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
 
@@ -51,7 +51,7 @@ Por predefinição, as aplicações e os desktops em execução em configuraçõ
 1. Ligue-se ao ambiente de trabalho do VM utilizando uma conta com privilégios de administrador local.
 2. Abra o menu Iniciar e escreva "gpedit.msc" para abrir o Editor de Política do Grupo.
 3. Navegue na árvore para **configurar o computador**  >  **Modelos administrativos**  >  **Windows Componentes**  >  **Remotos desktop Services**Remote Desktop Session  >  **Host**Remote  >  **Session Environment**.
-4. Selecione a política **Utilize o adaptador gráfico padrão de hardware para todas as sessões de Serviços de Ambiente de Trabalho Remoto** e desementa esta política para **ativar** a renderização de GPU na sessão remota.
+4. Selecione os **adaptadores gráficos de hardware para todas as sessões de Serviços de Ambiente de Trabalho Remoto** e desementa esta política para **ativar** a renderização de GPU na sessão remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Codificação de quadros acelerados pela GPU
 

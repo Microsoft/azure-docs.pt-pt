@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585338"
+ms.locfileid: "88611301"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas
 
@@ -69,7 +69,7 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 1. Em **Backup goal**Onde está a sua carga de trabalho a  >  **correr?** **Azure**
 1. Em O que pretende fazer **Virtual machine**para fazer **o back-up?** Em seguida, **selecione Backup**.
 
-      ![Lâmina de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Painel de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. Na **política de backup**Escolha a política de  >  **backup,** selecione a política que pretende associar ao cofre. Em seguida, selecione **OK**.
     - Uma política de backup especifica quando as cópias de segurança são tomadas e quanto tempo estão armazenadas.

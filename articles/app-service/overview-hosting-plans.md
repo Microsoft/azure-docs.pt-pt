@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141589"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611454"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -65,11 +65,11 @@ Para obter informações sobre a escala de uma aplicação, consulte [a contagem
 
 Esta secção descreve como as aplicações do Serviço de Aplicações são faturadas. Para obter informações detalhadas sobre preços específicos da região, consulte [o Preço do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/).
 
-Com exceção do nível **gratuito,** um plano de Serviço de Aplicações tem uma taxa horária nos recursos de computação que utiliza.
+Com exceção do **nível gratuito,** um plano de Serviço de Aplicações tem uma taxa sobre os recursos computacionáveis que utiliza.
 
-- No nível **Partilhado,** cada aplicação recebe uma quota de minutos de CPU, pelo que _cada aplicação_ é cobrada de hora em hora para a quota do CPU.
-- Nos níveis de computação dedicados (**Básico,** **Standard,** **Premium**, **Premium, PremiumV2),** o plano de Serviço de Aplicações define o número de instâncias VM para as aplicações são dimensionados, pelo que _cada instância VM_ no plano de Serviço de Aplicações tem uma taxa horária. Estas instâncias VM são cobradas da mesma forma independentemente de quantas aplicações estão a ser executadas nelas. Para evitar tarifas inesperadas, consulte [Clean up a App Service plan](app-service-plan-manage.md#delete).
-- No nível **isolado,** o Ambiente de Serviço de Aplicações define o número de trabalhadores isolados que executam as suas apps, e _cada trabalhador_ é cobrado de hora a hora. Além disso, há uma taxa base de hora a hora para o funcionamento do próprio Ambiente de Serviço de Aplicações.
+- No nível **Partilhado,** cada aplicação recebe uma quota de minutos de CPU, pelo que _cada aplicação_ é cobrada pela quota do CPU.
+- Nos níveis de computação dedicados (**Básico,** **Standard,** **Premium**, **Premium, PremiumV2),** o plano de Serviço de Aplicações define o número de instâncias VM a que as aplicações são dimensionados, pelo que _cada instância VM_ no plano de Serviço de Aplicações é cobrada. Estas instâncias VM são cobradas da mesma forma independentemente de quantas aplicações estão a ser executadas nelas. Para evitar tarifas inesperadas, consulte [Clean up a App Service plan](app-service-plan-manage.md#delete).
+- No nível **isolado,** o Ambiente de Serviço de Aplicações define o número de trabalhadores isolados que executam as suas apps, e _cada trabalhador_ é cobrado. Além disso, há uma taxa de selo plana para a execução do próprio Ambiente de Serviço de Aplicações.
 
 Não é cobrado por usar as funcionalidades do Serviço de Aplicações que estão disponíveis para si (configurar domínios personalizados, certificados TLS/SSL, slots de implementação, backups, etc.). As exceções são:
 

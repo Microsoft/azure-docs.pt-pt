@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225976"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607532"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
@@ -35,12 +35,13 @@ Como o Emulador Azure Cosmos proporciona um ambiente emulsionado em execução n
 
 * Atualmente o Data Explorer no emulador suporta clientes para a API SQL. A visão e operações do Data Explorer para APIs DB Azure Cosmos, tais como MongoDB, Tabela, Gráfico e ApIs cassandra não estão totalmente suportados.
 * O Emulador Azure Cosmos suporta apenas uma única conta fixa e uma chave-mestre bem conhecida. A regeneração da chave não é possível no Emulador Azure Cosmos, no entanto a chave padrão pode ser alterada usando a opção de linha de comando.
+* O Emulador Azure Cosmos suporta uma conta Azure Cosmos no modo [de produção a provisionado;](set-throughput.md) atualmente não suporta uma conta Azure Cosmos em modo [sem servidor.](serverless.md)
 * O Emulador Azure Cosmos não é um serviço escalável e não suporta um grande número de contentores.
 * O Emulador Azure Cosmos não oferece [diferentes níveis de consistência Azure Cosmos DB](consistency-levels.md).
 * O Emulador Azure Cosmos não oferece [replicação multi-região.](distribute-data-globally.md)
 * Como a sua cópia do Azure Cosmos Emulator pode nem sempre estar atualizada com as mudanças mais recentes no serviço DB Azure Cosmos, deve consultar o planejador de [capacidades DB da Azure Cosmos](https://www.documentdb.com/capacityplanner) para estimar com precisão as necessidades de produção (RUs) da sua aplicação.
 * Ao utilizar o Emulador Azure Cosmos, por padrão, pode criar até 25 recipientes de tamanho fixo (apenas suportados com recurso a Azure Cosmos DB SDKs), ou 5 recipientes ilimitados utilizando o Emulator Azure Cosmos. Para obter mais informações sobre como alterar este valor, veja [Definir o valor de PartitionCount](#set-partitioncount).
-* O emulador suporta o tamanho máximo de propriedade de 254 caracteres.
+* O emulador suporta o tamanho máximo da propriedade de 254 caracteres.
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 
@@ -89,7 +90,7 @@ O Data Explorer indica se está disponível uma nova atualização para transfer
 
 ## <a name="authenticating-requests"></a>Autenticar pedidos
 
-Tal como acontece com a Azure Cosmos DB na nuvem, todos os pedidos que fizer contra o Emulador Azure Cosmos devem ser autenticados. O Azure Cosmos Emulator suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação de chaves master. Esta conta e chave são as únicas credenciais permitidas para uso com o Emulator Azure Cosmos. São:
+Tal como acontece com a Azure Cosmos DB na nuvem, todos os pedidos que fizer contra o Emulador Azure Cosmos devem ser autenticados. O Azure Cosmos Emulator suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação de chaves master. Esta conta e chave são as únicas credenciais permitidas para uso com o Emulator Azure Cosmos. A saber:
 
 ```bash
 Account name: localhost:<port>
@@ -318,7 +319,7 @@ Eis um resumo dos comandos para controlar o emulador a partir do PowerShell:
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Sintaxe**
+**Syntax**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -328,7 +329,7 @@ Devolve um dos seguintes valores de ServiceControllerStatus: ServiceControllerSt
 
 ### `Start-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -338,7 +339,7 @@ Inicia o emulador. Por predefinição, o comando aguarda até que o emulador est
 
 ### `Stop-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -348,7 +349,7 @@ Para o emulador. Por predefinição, este comando aguarda até que o emulador se
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
@@ -562,7 +563,7 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar o emulador local para desenvolvimento local gratuito. Pode agora avançar para o próximo tutorial e aprender a exportar certificados emuladores TLS/SSL.
 

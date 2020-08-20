@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262675"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611845"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -87,7 +87,7 @@ Uma vez que os discos tenham sido desmontados, recebes uma mensagem. Pode levar 
 No Linux, após a ligação ao ponto de recuperação ser cortada, o SO não remove automaticamente os caminhos de montagem correspondentes. Os caminhos de montagem existem como volumes "órfãos" e são visíveis, mas lançam um erro quando acedem/escrevem os ficheiros. Podem ser removidos manualmente. O script, quando executado, identifica quaisquer volumes existentes a partir de quaisquer pontos de recuperação anteriores e limpa-os mediante consentimento.
 
 > [!NOTE]
-> Certifique-se de que a ligação está fechada depois de restaurados os ficheiros necessários. Isto é importante, especialmente no cenário em que a máquina em que o script é executado também está configurado para cópia de segurança. Caso a ligação ainda esteja aberta, a cópia de segurança subsequente poderá falhar com um erro "UserErrorUnableToOpenMount". Isto acontece porque as unidades/volumes montados são assumidos como disponíveis e quando acedidos podem falhar porque o armazenamento subjacente, ou seja, o servidor-alvo iSCSI pode não estar disponível. A limpeza da ligação removerá estas unidades/volumes e, portanto, não estarão disponíveis durante a cópia de segurança.
+> Certifique-se de que a ligação está fechada depois de restaurados os ficheiros necessários. Isto é importante, especialmente no cenário em que a máquina em que o script é executado também está configurado para cópia de segurança. Caso a ligação ainda esteja aberta, a cópia de segurança subsequente poderá falhar com um erro "UserErrorUnableToOpenMount". Isto acontece porque as unidades/volumes montados são assumidos como disponíveis e quando acedidos podem falhar porque o armazenamento subjacente, ou seja, o servidor-alvo iSCSI pode não estar disponível. A limpeza da ligação removerá estas unidades/volumes e, para que não estejam disponíveis durante a cópia de segurança.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selecionando a máquina certa para executar o script
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Não utilize 'montagem-a'. Este comando monta todos os dispositivos descritos em '/etc/fstab'. Isto pode significar que os dispositivos duplicados podem ser montados. Os dados podem ser redirecionados para dispositivos criados pelo script, que não persistem nos dados, e, portanto, podem resultar na perda de dados.
+> Não utilize 'montagem-a'. Este comando monta todos os dispositivos descritos em '/etc/fstab'. Isto pode significar que os dispositivos duplicados podem ser montados. Os dados podem ser redirecionados para dispositivos criados pelo script, que não persistem os dados, pelo que podem resultar na perda de dados.
 
 #### <a name="for-raid-arrays"></a>Para matrizes RAID
 

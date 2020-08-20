@@ -4,12 +4,12 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531834"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611811"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
@@ -24,7 +24,7 @@ O novo modelo para Instant Restore fornece as seguintes melhorias de funcionalid
 * Suporta tamanhos de disco até 32 TB. A redimensionamento dos discos não é recomendada pela Cópia de Segurança Azure.
 * Suporta discos SSD standard juntamente com discos HDD standard e discos Premium SSD.
 * Capacidade de utilizar uma conta de armazenamento original de VMs não gerido (por disco), ao restaurar. Esta capacidade existe mesmo quando o VM tem discos que são distribuídos por contas de armazenamento. Acelera as operações de restauro para uma grande variedade de configurações de VM.
-* Para a cópia de segurança dos VM que estão a utilizar discos premium não geridos em contas de armazenamento, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para cópias de segurança após a conclusão da primeira cópia de segurança.
+* Para a cópia de segurança dos VM que estão a utilizar discos premium não geridos em contas de armazenamento, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para cópias de segurança depois de o primeiro backup estar completo.
 
 ## <a name="whats-new-in-this-feature"></a>Quais as novidades nesta funcionalidade
 
@@ -42,10 +42,10 @@ Por predefinição, as imagens são mantidas por dois dias. Esta funcionalidade 
 ## <a name="feature-considerations"></a>Considerações de recurso
 
 * As imagens são armazenadas juntamente com os discos para impulsionar a criação de pontos de recuperação e acelerar as operações de restauro. Como resultado, você verá os custos de armazenamento que correspondem a instantâneos tirados durante este período.
-* As imagens incrementais são armazenadas como bolhas de página. Todos os utilizadores que usam discos não geridos são cobrados para os instantâneos armazenados na sua conta de armazenamento local. Uma vez que as coleções de pontos de restauração utilizadas pelas cópias de segurança Geridas VM utilizam instantâneos blob no nível de armazenamento subjacente, para discos geridos verá os custos correspondentes ao preço do instantâneo blob e são incrementais.
+* As imagens incrementais são armazenadas como bolhas de página. Todos os utilizadores que usam discos não geridos são cobrados para os instantâneos armazenados na sua conta de armazenamento local. Uma vez que as coleções de pontos de restauração utilizadas pelas cópias de segurança Geridas VM utilizam instantâneos blob no nível de armazenamento subjacente, para discos geridos verás custos correspondentes ao preço do snapshot blob e são incrementais.
 * Para as contas de armazenamento premium, os instantâneos recolhidos para pontos de recuperação instantâneas contam para o limite de 10-TB do espaço atribuído.
-* Obtém-se a capacidade de configurar a retenção instantânea com base nas necessidades de restauro. Dependendo da exigência, pode definir a retenção de instantâneo para um mínimo de um dia na lâmina de política de backup, conforme explicado abaixo. Isto irá ajudá-lo a economizar custos para a retenção de instantâneos se não realizar restauros frequentemente.
-* É uma atualização direcional única, uma vez atualizado para restaurar o Instant, não pode voltar atrás.
+* Obtém-se a capacidade de configurar a retenção instantânea com base nas necessidades de restauro. Dependendo da exigência, pode definir a retenção de instantâneo para um mínimo de um dia no painel de política de backup, conforme explicado abaixo. Isto irá ajudá-lo a economizar custos para a retenção de instantâneos se não realizar restauros frequentemente.
+* É um upgrade direcional. Uma vez atualizado para restaurar o Instant, não pode voltar.
 
 >[!NOTE]
 >Com esta atualização de restauro instantâneo, a duração de retenção instantânea de todos os clientes (**novos e existentes ambos incluídos**) será definida como um valor padrão de dois dias. No entanto, pode definir a duração de acordo com o seu requisito para qualquer valor entre 1 a 5 dias.
@@ -61,7 +61,7 @@ Os instantâneos incrementais são armazenados na conta de armazenamento do VM, 
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-No portal Azure, pode ver um campo adicionado na lâmina de **segurança VM** sob a secção **De Restauro Instantâneo.** Pode alterar a duração da retenção instantânea a partir da lâmina de **backup VM** para todos os VMs associados à política de backup específica.
+No portal Azure, pode ver um campo adicionado no painel **de segurança VM** sob a secção **De Restauro Instantâneo.** Pode alterar a duração da retenção instantânea a partir do painel de **segurança VM** para todos os VMs associados à política de backup específica.
 
 ![Capacidade de Restauro Instantâneo](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -106,11 +106,11 @@ Se o tipo de recuperação for "instantâneo e abóbada", a restauração será 
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>O que acontece se eu selecionar o período de retenção do ponto de restauração (Nível 2) inferior ao período de retenção do instantâneo (Tier1) ?
 
-O novo modelo não permite eliminar o ponto de restauro (Tier2) a menos que o instantâneo (Tier1) seja eliminado. Recomendamos o período de retenção do ponto de restauração do ponto de programação (Tier2) superior ao período de retenção do instantâneo.
+O novo modelo não permite apagar o ponto de restauro (Tier2) a menos que o instantâneo (Tier1) seja eliminado. Recomendamos o período de retenção do ponto de restauração do ponto de programação (Tier2) superior ao período de retenção do instantâneo.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Porque é que o meu instantâneo existe mesmo depois do período de retenção definido na política de backup?
 
-Se o ponto de recuperação tiver instantâneo e este for o mais recente RP disponível, é mantido até ao momento em que houver uma próxima cópia de segurança bem sucedida. Isto de acordo com a política de "recolha de lixo" (GC) hoje desenhada que determina que pelo menos um RP mais recente esteja sempre presente no caso de todos os backups mais longe no fracasso devido a um problema no VM. Em cenários normais, os RPs são limpos no máximo 24 horas após a sua expiração.
+Se o ponto de recuperação tiver instantâneo e este for o mais recente RP disponível, é mantido até ao próximo backup bem sucedido. Isto de acordo com a política de "recolha de lixo" (GC) hoje desenhada que determina que pelo menos um RP mais recente esteja sempre presente no caso de todos os backups mais longe no fracasso devido a um problema no VM. Em cenários normais, os RPs são limpos no máximo 24 horas após a sua expiração.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade De Restauro Instantâneo. Pode ser desativado?
 

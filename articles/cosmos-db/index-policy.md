@@ -4,14 +4,14 @@ description: Aprenda a configurar e alterar a política de indexação padrão p
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077599"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607523"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -30,15 +30,15 @@ AZure Cosmos DB suporta dois modos de indexação:
 - **Nenhum**: A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave pura sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após a conclusão das operações a granel, o modo de índice pode ser definido como Consistente e depois monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até estar concluído.
 
 > [!NOTE]
-> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação preguiçosa executa atualizações ao índice a um nível de prioridade muito inferior quando o motor não está a fazer qualquer outro trabalho. Isto pode resultar em resultados de consulta **inconsistentes ou incompletos.** Se planeia consultar um recipiente Cosmos, não deve selecionar uma indexação preguiçosa. Em junho de 2020, introduzimos uma alteração que já não permite definir novos contentores para o modo de indexação preguiçoso. Se a sua conta DB Azure Cosmos já tiver pelo menos um recipiente com indexação preguiçosa, esta conta está automaticamente isenta da alteração. Também pode solicitar uma isenção contactando o [suporte da Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação preguiçosa executa atualizações ao índice a um nível de prioridade muito inferior quando o motor não está a fazer qualquer outro trabalho. Isto pode resultar em resultados de consulta **inconsistentes ou incompletos.** Se planeia consultar um recipiente Cosmos, não deve selecionar uma indexação preguiçosa. Em junho de 2020, introduzimos uma alteração que já não permite definir novos contentores para o modo de indexação preguiçoso. Se a sua conta DB Azure Cosmos já tiver pelo menos um recipiente com indexação preguiçosa, esta conta está automaticamente isenta da alteração. Também pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor](serverless.md) que não suporta indexação preguiçosa).
 
 Por predefinição, a política de indexação está definida para `automatic` . É conseguido colocando a `automatic` propriedade na política de indexação para `true` . Configurar esta propriedade para `true` permitir que a Azure CosmosDB indexe automaticamente os documentos à medida que estão escritos.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos imobiliários
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Incluindo e excluindo caminhos imobiliários
 
 Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos indexados, pode reduzir substancialmente a latência e a carga RU das operações de escrita. Estes caminhos são definidos seguindo [o método descrito na secção de visão geral de indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
-- um caminho que conduz a um valor escalar (string ou número) termina com`/?`
+- um caminho que conduz a um valor escalar (string ou número) termina com `/?`
 - os elementos de uma matriz são endereçados em conjunto através da `/[]` notação (em vez `/0` de, `/1` etc.)
 - o `/*` wildcard pode ser usado para combinar com quaisquer elementos abaixo do nó
 
@@ -60,9 +60,9 @@ Tomando o mesmo exemplo novamente:
 
 - o `headquarters` caminho é `employees``/headquarters/employees/?`
 
-- o `locations` `country` caminho é`/locations/[]/country/?`
+- o `locations` `country` caminho é `/locations/[]/country/?`
 
-- o caminho para qualquer coisa sob `headquarters` é`/headquarters/*`
+- o caminho para qualquer coisa sob `headquarters` é `/headquarters/*`
 
 Por exemplo, podemos incluir o `/headquarters/employees/?` caminho. Este caminho garantiria que indexamos a propriedade dos colaboradores, mas não indexariamos json adicional aninhado dentro desta propriedade.
 
@@ -81,11 +81,11 @@ Qualquer política de indexação tem de incluir o caminho da raiz `/*` como um 
 
 Ao incluir e excluir caminhos, poderá encontrar os seguintes atributos:
 
-- `kind`pode ser `range` `hash` ou. A funcionalidade do índice de gama fornece toda a funcionalidade de um índice de haxixe, pelo que recomendamos a utilização de um índice de gama.
+- `kind` pode ser `range` `hash` ou. A funcionalidade do índice de gama fornece toda a funcionalidade de um índice de haxixe, pelo que recomendamos a utilização de um índice de gama.
 
-- `precision`é um número definido ao nível do índice para caminhos incluídos. Um valor `-1` de indica a máxima precisão. Recomendamos sempre definir este valor para `-1` .
+- `precision` é um número definido ao nível do índice para caminhos incluídos. Um valor `-1` de indica a máxima precisão. Recomendamos sempre definir este valor para `-1` .
 
-- `dataType`pode ser `String` `Number` ou. Isto indica os tipos de propriedades JSON que serão indexadas.
+- `dataType` pode ser `String` `Number` ou. Isto indica os tipos de propriedades JSON que serão indexadas.
 
 Quando não especificadas, estas propriedades terão os seguintes valores predefinidos:
 
@@ -261,6 +261,9 @@ As seguintes considerações são utilizadas na criação de índices compósito
 
 A política de indexação de um contentor pode ser atualizada a qualquer momento [utilizando o portal Azure ou um dos SDKs suportados](how-to-manage-indexing-policy.md). Uma atualização da política de indexação desencadeia uma transformação do índice antigo para o novo, que é realizado online e no local (pelo que não é consumido nenhum espaço adicional de armazenamento durante a operação). O índice da velha política é eficientemente transformado para a nova política sem afetar a disponibilidade de escrita, a disponibilidade de leitura ou a produção prevista no contentor. A transformação do índice é uma operação assíncronea, e o tempo que leva para completar depende da produção prevista, do número de itens e do seu tamanho.
 
+> [!IMPORTANT]
+> A transformação do índice é uma operação que consome [Unidades de Pedido.](request-units.md) As unidades de pedido consumidas por uma transformação de índice não são atualmente faturadas se estiver a utilizar recipientes [sem servidor.](serverless.md) Estas Unidades de Pedido serão faturadas assim que o servidor não estiver disponível.
+
 > [!NOTE]
 > É possível acompanhar o progresso da transformação do índice [utilizando um dos SDKs.](how-to-manage-indexing-policy.md)
 
@@ -284,7 +287,7 @@ Para cenários em que não é necessário indexar nenhum caminho imobiliário, m
 
 - um modo de indexação definido para Consistente, e
 - nenhum caminho incluído, e
-- `/*`como o único caminho excluído.
+- `/*` como o único caminho excluído.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922321"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612525"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -79,8 +79,8 @@ Aqui está o que é suportado se quiser apoiar as máquinas Linux:
 --- | ---
 **Backup direto da máquina de acesso ao local que está a executar o Linux** | Não suportado. O agente MARS só pode ser instalado em máquinas Windows.
 **Usando a extensão do agente para apoiar o Azure VM que está a executar o Linux** | Backup consistente com aplicações utilizando [scripts personalizados.](backup-azure-linux-app-consistent.md)<br/><br/> Recuperação ao nível do ficheiro.<br/><br/> Restaurar criando um VM a partir de um ponto de recuperação ou disco.
-**Usando o DPM para apoiar máquinas no local que executam o Linux** | Cópia de segurança consistente de ficheiros de VMs de hóspedes Linux em Hyper-V e VMWare.<br/><br/> Restauração VM de VM E VMWare Linux Guest VMs.
-**Utilização de MABS para apoiar máquinas no local que executam o Linux** | Cópia de segurança consistente de ficheiros de VMs de hóspedes Linux em Hyper-V e VMWare.<br/><br/> VM restauração de VM e VMWare Linux convidados VMS.
+**Usando o DPM para apoiar máquinas no local que executam o Linux** | Cópia de segurança consistente de ficheiros de VMs de hóspedes Linux em Hyper-V e VMware.<br/><br/> Restauração VM de VMware Linux Guest VMs.
+**Utilização de MABS para apoiar máquinas no local que executam o Linux** | Cópia de segurança consistente de ficheiros de VMs de hóspedes Linux em Hyper-V e VMware.<br/><br/> VM restauração de VM e VMware Linux convidados VMS.
 **Utilização de MABS ou DPM para apoiar os VMs Linux Azure** | Não suportado.
 
 ## <a name="daylight-saving-time-support"></a>Suporte de horário de verão
@@ -113,10 +113,10 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Máquinas Windows no local sem DPM/MABS** | ![Sim][green] | ![Sim][green]
-**VMs do Azure** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows no local sem DPM/MABS** | ![Yes][green] | ![Yes][green]
+**VMs do Azure** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com DPM** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com MABS** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Suporte à compressão
 
@@ -129,7 +129,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 **Backup direto das máquinas Windows no local** | ND | ![Sim][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
-**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
+**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
@@ -149,10 +149,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
-| Agente MARS/Nas instalações | Não                                                           | N/D               |
-| SQL /SAP HANA          | Não                                                           | N/D               |
-| AFS                    | Não                                                           | N/D               |
+| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
+| Agente MARS/Nas instalações | No                                                           | N/D               |
+| SQL /SAP HANA          | No                                                           | N/D               |
+| AFS                    | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passos seguintes
 

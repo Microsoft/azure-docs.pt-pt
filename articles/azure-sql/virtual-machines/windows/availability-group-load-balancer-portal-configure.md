@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a83755a08a3579484796cd56623cb3401d03d874
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284290"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612559"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configure um equilibrador de carga para um sql servidor sempre em grupo de disponibilidade em Máquinas Virtuais Azure
 
@@ -71,6 +71,7 @@ Primeiro, crie o equilibrador de carga.
    | --- | --- |
    | **Nome** |Um nome de texto que representa o equilibrador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
+   | **SKU** |**Standard**: Obrigatório se as suas instâncias SQL estiverem num conjunto de disponibilidade diferente do equilibrador de carga. </br> **Básico**: Opção predefinição. |
    | **Rede virtual** |Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |

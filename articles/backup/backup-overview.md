@@ -1,15 +1,15 @@
 ---
-title: O que é o Azure Backup?
+title: O que é o Backup do Azure?
 description: Fornece uma visão geral do serviço Azure Backup, e como contribui para a sua estratégia de continuidade e recuperação de desastres (BCDR).
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513528"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611233"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço Azure Backup?
 
@@ -19,7 +19,7 @@ O serviço Azure Backup fornece soluções simples, seguras e económicas que lh
 
 ## <a name="what-can-i-back-up"></a>O que posso fazer?
 
-- No local - Use **ficheiros,** pastas, estado do sistema utilizando o [agente Microsoft Azure Recovery Services (MARS).](backup-support-matrix-mars-agent.md) Ou use o agente DPM ou Azure Backup Server (MABS) para proteger vMs no local[(Hiper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMWare)](backup-azure-backup-server-vmware.md)e [outras cargas de trabalho no local](backup-mabs-protection-matrix.md)
+- No local - Use **ficheiros,** pastas, estado do sistema utilizando o [agente Microsoft Azure Recovery Services (MARS).](backup-support-matrix-mars-agent.md) Ou use o agente DPM ou Azure Backup Server (MABS) para proteger vMs no local[(Hiper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMware)](backup-azure-backup-server-vmware.md)e [outras cargas de trabalho no local](backup-mabs-protection-matrix.md)
 - **VMs**  -  Azure [Faça o backup de VMs inteiros do Windows/Linux](backup-azure-vms-introduction.md) (utilizando extensões de cópia de segurança) ou faça cópias de segurança de ficheiros, pastas e estado do sistema utilizando o [agente MARS](backup-azure-manage-mars.md).
 - **Ações da**  -  Azure Files [Faça o back up Azure File ações para uma conta de armazenamento](backup-afs.md)
 - **Servidor SQL em VMs**  -   Azure [Fazer o back bases de dados do SQL Server em execução em VMs Azure](backup-azure-sql-database.md)
@@ -46,7 +46,7 @@ A Azure Backup oferece estes principais benefícios:
   - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
   - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja](backup-architecture.md) a arquitetura e os componentes para diferentes cenários de backup.
 - [Verifique os](backup-support-matrix.md) requisitos de suporte e limitações para a cópia de segurança e para [a cópia de segurança da Azure VM](backup-support-matrix-iaas.md).

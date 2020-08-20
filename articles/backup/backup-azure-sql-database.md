@@ -3,12 +3,12 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922902"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612542"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -27,7 +27,7 @@ Esta solução aproveita as APIs nativas do SQL para obter cópias de segurança
 
 * Assim que especificar o SQL Server VM que pretende proteger e consultar as bases de dados, o serviço Azure Backup instalará uma extensão de backup de carga de trabalho na extensão do VM pela extensão do `AzureBackupWindowsWorkload` nome.
 * Esta extensão é constituída por um coordenador e um plugin SQL. Enquanto o coordenador é responsável por desencadear fluxos de trabalho para várias operações como configurar backup, backup e restauro, o plugin é responsável pelo fluxo real de dados.
-* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup aproveita a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMemberbership**. Se isto [ocorrer, siga estas instruções](#set-vm-permissions).
+* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup aproveita a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto [ocorrer, siga estas instruções](#set-vm-permissions).
 * Assim que acionar a proteção de configuração nas bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com os horários de backup e outros detalhes da política, que a extensão cache localmente no VM.
 * Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor SQL utilizando O VDI.  
 * O plugin envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de paragem. Os dados são encriptados e armazenados pelo serviço Azure Backup em contas de armazenamento.
@@ -51,7 +51,7 @@ Antes de começar, verifique o seguinte:
 * Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para descobrir bases de dados na máquina virtual. Esta conta é usada para uma cópia de segurança e restauro e requer permissões de sysadmin SQL.
 * Descobre bases de dados que estão a funcionar num VM, a Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta deve ser uma súmia pública no SQL.
 
-Se não criou o SQL Server VM no Mercado Azure ou se estiver no SQL 2008 e 2008 R2, poderá receber um erro **de nomeação userErrorSQLNoSysadminMembership.**
+Se não criou o SQL Server VM no Azure Marketplace ou se estiver no SQL 2008 e 2008 R2, poderá receber um erro **de nomeação userErrorSQLNoSysadminMembership.**
 
 Para obter permissões no caso de **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 

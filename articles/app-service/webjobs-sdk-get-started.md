@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212859"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612491"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -188,7 +188,7 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de ligação d
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-O emulador de armazenamento Azure que funciona localmente não tem todas as funcionalidades de que o WebJobs SDK precisa. Assim, nesta secção você cria uma conta de armazenamento em Azure e configura o projeto para usá-lo. Se já tem uma conta de armazenamento, salte para o passo 6.
+O Emulador de Armazenamento Azure que funciona localmente não tem todas as funcionalidades de que o WebJobs SDK precisa. Assim, nesta secção você cria uma conta de armazenamento em Azure e configura o projeto para usá-lo. Se já tem uma conta de armazenamento, salte para o passo 6.
 
 1. Abra **o Server Explorer** no estúdio Visual e inscreva-se no Azure. Clique com o botão direito no nó **Azure** e, em seguida, **selecione Connect to Microsoft Azure Subscription**.
 
@@ -327,13 +327,13 @@ Nesta secção, faz as seguintes tarefas para configurar o registo de Insights d
 
 1. Na caixa **'Cordas de Ligação',** adicione a seguinte entrada.
 
-   |Name  |cadeia de conexão  |Tipo de base de dados|
+   |Nome  |cadeia de conexão  |Tipo de base de dados|
    |---------|---------|------|
    |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
 
 1. Se a caixa **'Definições de Aplicação'** não tiver uma chave de instrumentação de Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a aplicação do Serviço de Aplicações.)
 
-   |Name  |Valor  |
+   |Nome  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {chave de instrumentação} |
 

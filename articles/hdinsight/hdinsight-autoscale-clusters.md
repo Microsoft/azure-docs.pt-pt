@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185813"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612712"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -72,14 +72,14 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
-| Versão | Spark | Hive | LLAP | O HBase | Kafka | Tempestade | ML |
+| Versão | Spark | Hive | LLAP | HBase | Kafka | Tempestade | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
 
-\*Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
+\* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
 ## <a name="get-started"></a>Introdução
 
@@ -225,7 +225,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Description |
+| Estado do cluster | Descrição |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
@@ -258,6 +258,26 @@ Os trabalhos de corrida continuarão. Os postos de trabalho pendentes aguardarã
 ### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
 
 Não reduza o seu aglomerado para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente.  Para obter mais informações, consulte [Ficar preso no modo de segurança.](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
+
+### <a name="llap-daemons-count"></a>Contagem de Daemons LLAP
+
+No caso de agrupamentos LLAP habilitados para autoescala, o evento de escala automática para cima/para baixo também escala o número de daemons LLAP para o número de nós de trabalhadores ativos. Mas esta mudança no número de daemões não persiste na **num_llap_nodes** config em Ambari. Se os serviços da Hive forem reiniciados manualmente, então o número de daemons LLAP será reposto de acordo com o config em Ambari.
+
+Vamos levar o cenário abaixo:
+1. Um cluster habilitado para a autoescala LLAP é criado com 3 nós de trabalhadores e a autoescala baseada em carga é ativada com nós mínimos de trabalhador como 3 e nós máximos de trabalhador como 10.
+2. Os daemons LLAP contam config de acordo com a configuração LLAP e Ambari é 3, uma vez que o cluster foi criado com 3 nós de trabalhadores.
+3. Em seguida, uma autoescalação é acionada devido à carga no cluster, o cluster é agora dimensionado para 10 nós.
+4. A verificação de autoescalação em execução a intervalos regulares nota que a contagem de daemons LLAP é 3, mas o número de nó de trabalhador ativo é de 10, o processo de autoescalação irá agora aumentar a contagem de daemon LLAP para 10, mas esta alteração não persiste no Ambari Config - num_llap_nodes.
+5. A autoescala está agora desativada.
+6. O cluster conta agora com 10 nós operários e 10 daemons LLAP.
+7. O serviço LLAP é reiniciado manualmente.
+8. Durante o reinício, verifica o num_llap_nodes config na configuração LLAP e nota o valor como 3, pelo que gira 3 instâncias de daemons, mas o número de nóiros é de 10. Há agora um desfasamento entre os dois.
+
+Quando isto acontece, precisamos de alterar manualmente a **configuração num_llap_node (Número de nós(s) para a execução do daemon Hive LLAP) em advanced hive-interactive-env** para corresponder à contagem atual do nó do trabalhador ativo.
+
+**Nota**
+
+Eventos de autoescala não alteram as **consultas concurrentes totais totais da** Hive em Ambari. Isto significa que o Serviço Interativo Hive Server 2 **pode lidar apenas com o número de consultas simultâneas em qualquer momento, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga/horário**. A recomendação geral é definir este config para o cenário de utilização máxima para evitar a intervenção manual. No entanto, deve-se estar ciente de que **a fixação de um valor elevado para o máximo total de consultas simultâneas config pode falhar o reinício do serviço hive Server 2 Interactive se o número mínimo de nós de trabalhadores não conseguir acomodar o número determinado de Tez Ams (igual ao Total Máximo Total De consultas conig)**
 
 ## <a name="next-steps"></a>Passos seguintes
 

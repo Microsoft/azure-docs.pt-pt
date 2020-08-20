@@ -3,12 +3,12 @@ title: Configurar configurações de diagnóstico de abóbada em escala
 description: Configurar definições de diagnóstico de log analytics para todos os cofres num determinado âmbito utilizando a Política Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498054"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612508"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
 
@@ -36,15 +36,15 @@ Para atribuir a política para cofres no âmbito exigido, siga os passos abaixo:
 2. Selecione **Definições** no menu esquerdo para obter uma lista de todas as políticas incorporadas em todos os Recursos Azure.
 3. Filtrar a lista para **categoria=Monitorização.** Localizar a política denominada **[Pré-visualização]: Implementar definições de diagnóstico para cofre de serviços de recuperação para registar espaço de trabalho para categorias específicas de recursos**.
 
-    ![Lâmina de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Painel de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Clique no nome da apólice. Será redirecionado para a definição detalhada para esta política.
+4. Selecione o nome da apólice. Será redirecionado para a definição detalhada para esta apólice.
 
     ![Definição detalhada da política](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Clique no botão **Atribuir** na parte superior da lâmina. Isto redireciona-o para a lâmina **''Atribuir'.**
+5. Selecione o botão **Atribuir** na parte superior do painel. Isto redireciona-o para o painel **de Política de Atribuição.**
 
-6. Em **Basics**, clique nos três pontos junto ao campo **Âmbito.** Isto abre uma lâmina de contexto certa onde pode selecionar a subscrição para a política a aplicar. Também pode selecionar opcionalmente um grupo de recursos, de modo a que a política seja aplicada apenas para cofres num determinado grupo de recursos.
+6. Em **Basics**, selecione os três pontos junto ao campo **Scope.** Isto abre um painel de contexto certo onde pode selecionar a subscrição para a política a aplicar. Também pode selecionar opcionalmente um grupo de recursos, de modo a que a política seja aplicada apenas para cofres num determinado grupo de recursos.
 
     ![Básicos de atribuição de políticas](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Para atribuir a política para cofres no âmbito exigido, siga os passos abaixo:
     * **Nome do Perfil** - O nome que será atribuído às definições de diagnóstico criadas pela política.
     * **Log Analytics Workspace** - O espaço de trabalho do Log Analytics ao qual deve ser associada a definição de diagnóstico. Os dados de diagnóstico de todos os cofres no âmbito da atribuição de política serão empurrados para o espaço de trabalho especificado de LA.
 
-    * **Nome da etiqueta de exclusão (opcional) e valor da etiqueta de exclusão (opcional)** - Pode optar por excluir os cofres que contenham um determinado nome e valor da atribuição de políticas. Por exemplo, se **não** pretender que seja adicionada uma definição de diagnóstico aos cofres que tenham uma etiqueta 'isTest' definida para o valor 'sim', deve introduzir 'isTest' no campo **'Nome de identificação'** e 'sim' no campo **'Valor de Etiqueta de Exclusão'.** Se algum (ou ambos) destes dois campos ficarem vazios, a política será aplicada a todos os cofres relevantes, independentemente das etiquetas que contenham.
+    * **Nome da etiqueta de exclusão (opcional) e valor da etiqueta de exclusão (opcional)** - Pode optar por excluir os cofres que contenham um determinado nome e valor da atribuição de políticas. Por exemplo, se **não** quiser adicionar uma definição de diagnóstico aos cofres que tenham uma etiqueta 'isTest' definida para o valor 'sim', deve introduzir 'isTest' no campo **'Nome de Identificação de Exclusão'** e 'sim' no campo **'Valor de Etiqueta de Exclusão'.** Se algum (ou ambos) destes dois campos ficarem vazios, a política será aplicada a todos os cofres relevantes, independentemente das etiquetas que contenham.
 
     ![Parâmetros de atribuição de políticas](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,18 +61,18 @@ Para atribuir a política para cofres no âmbito exigido, siga os passos abaixo:
 
     ![Remediação de atribuição de políticas](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Navegue no **separador 'Revisão+Criar'** e clique em **Criar.**
+9. Navegue no **separador 'Rever+Criar'** e selecione **Criar.**
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>Em que condições a tarefa de reparação se aplicará a um cofre?
 
 A tarefa de reparação é aplicada a cofres que não estão em conformidade de acordo com a definição da política. Um cofre não é conforme se satisfizer uma das seguintes condições:
 
 * Não há definição de diagnóstico para o cofre.
-* As definições de diagnóstico estão presentes para o cofre, mas nenhuma das definições tem **todos os** eventos específicos do Recurso ativados com LA como destino, e **recursos específicos** selecionados no toggle.
+* As definições de diagnóstico estão presentes para o cofre, mas nenhuma das definições tem **todos os** eventos específicos de recursos ativados com LA como destino, e recursos **específicos** selecionados no toggle.
 
 Assim, mesmo que um utilizador tenha um cofre com o evento AzureBackupReport ativado no modo AzureDiagnostics (que é suportado por Relatórios de Cópia de Segurança), a tarefa de remediação continuará a aplicar-se a este cofre, uma vez que o modo específico de Recursos é a forma recomendada de criar definições de diagnóstico, [avançando.](./backup-azure-diagnostic-events.md#legacy-event)
 
-Além disso, se um utilizador tiver um cofre com apenas um subconjunto dos seis eventos específicos de Recursos ativados, a tarefa de remediação será aplicada a este cofre, uma vez que os Relatórios de Backup funcionarão como esperado apenas se todos os seis eventos específicos de recursos estiverem ativados.
+Além disso, se um utilizador tiver um cofre com apenas um subconjunto dos seis eventos específicos de recursos ativados, a tarefa de remediação será aplicada a este cofre, uma vez que os Relatórios de Backup funcionarão como esperado apenas se todos os seis eventos específicos de recursos estiverem ativados.
 
 > [!NOTE]
 >

@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807592"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612474"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
@@ -63,7 +63,7 @@ Se a sua organização utilizar um serviço de federação para iniciar sedutaç
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Ativar SSO sem emenda AD AD para dispositivos de nível inferior do Windows
 
-Se a sua organização utilizar a Sincronização de Hash password ou a autenticação pass-through para iniciar sedutação no Azure AD, ative o SSO sem emenda AD Ad Ad Ad com esse método de entrada para autenticar dispositivos de nível inferior do Windows: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
+Se a sua organização utilizar a Sincronização de Hash password ou a autenticação pass-through para iniciar sedutação no Azure AD, ative o SSO sem emenda AD Ad Ad Ad com esse método de entrada para autenticar dispositivos de nível inferior do Windows:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Desconfie da política AD do Azure para dispositivos de nível inferior do Windows
 
@@ -76,9 +76,9 @@ Para registar dispositivos de nível inferior do Windows, é necessário certifi
 
 ## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Adicione o ponto final AD AD do Windows a dispositivos de nível inferior ao Windows
 
-Adicione o ponto final de autenticação do dispositivo AZure AD às zonas intranet locais nos dispositivos de nível inferior do Windows para evitar indicações de certificado ao autenticar os dispositivos:`https://device.login.microsoftonline.com` 
+Adicione o ponto final de autenticação do dispositivo AZure AD às zonas intranet locais nos dispositivos de nível inferior do Windows para evitar indicações de certificado ao autenticar os dispositivos: `https://device.login.microsoftonline.com` 
 
-Se estiver a utilizar [o Seamless SSO,](how-to-connect-sso.md)também ative "Permitir atualizações da barra de estado através do script" nessa zona e adicione o seguinte ponto final:`https://autologon.microsoftazuread-sso.com` 
+Se estiver a utilizar [o Seamless SSO,](how-to-connect-sso.md)também ative "Permitir atualizações da barra de estado através do script" nessa zona e adicione o seguinte ponto final: `https://autologon.microsoftazuread-sso.com` 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar o Microsoft Workplace Adere aos dispositivos de nível inferior do Windows
 
@@ -88,8 +88,5 @@ Este instalador cria uma tarefa programada no sistema do dispositivo que funcion
 
 Para obter informações sobre como permitir a junção híbrida Azure AD para dispositivos individuais, consulte [validação controlada da ad híbrida Azure](../devices/hybrid-azuread-join-control.md).
 
-> [!NOTE]
-> As definições de política para 2012 R2 estão na **Configuração do Computador > Políticas > Modelos Administrativos > componentes do Windows > Workplace Join > automaticamente no local de trabalho junte-se aos computadores clientes.**
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Configurar a redução do dispositivo](how-to-connect-device-writeback.md)

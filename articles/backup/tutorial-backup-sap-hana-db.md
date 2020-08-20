@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810212"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611828"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -39,7 +39,7 @@ Certifique-se de que faz o seguinte antes de configurar backups:
 * Executar o script de configuração de backup SAP HANA (script pré-registo) na máquina virtual onde o HANA está instalado, como utilizador principal. [Este guião](https://aka.ms/scriptforpermsonhana) prepara o sistema HANA para cópias de segurança. Consulte a secção [O que o script de pré-registo faz](#what-the-pre-registration-script-does) para saber mais sobre o script pré-registo.
 
 >[!NOTE]
->O script de pré-registo instala o **compat-unixODBC234** para cargas de trabalho SAP HANA em execução em RHEL (7.4, 7.6 e 7.7) e **unixODBC** para RHEL 8.1. [Este pacote está localizado no RHEL para SAP HANA (para RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  Para a imagem Azure Marketplace RHEL, o repo seria **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
+>O script de pré-registo instala o **compat-unixODBC234** para cargas de trabalho SAP HANA em execução em RHEL (7.4, 7.6 e 7.7) e **unixODBC** para RHEL 8.1. [Este pacote está localizado no RHEL para SAP HANA (para RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  Para uma imagem Azure Marketplace RHEL, o repo seria **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## <a name="set-up-network-connectivity"></a>Configurar conectividade de rede
 
@@ -71,7 +71,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
-1. Clique **em Adicionar** para salvar a regra de segurança de saída recém-criada.
+1. Clique **em Adicionar**  para salvar a regra de segurança de saída recém-criada.
 
 Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
@@ -111,8 +111,8 @@ Executar o script de pré-registo executa as seguintes funções:
 * O script adiciona uma chave para **a hdbuserstore** para AZUREWLBACKUPHANAUSER para o plug-in de backup HANA para lidar com todas as operações (consultas de base de dados, operações de restauro, configuração e backup de execução).
 
 >[!NOTE]
-> Pode passar explicitamente a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites) como parâmetro para o script de pré-registo:`-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
->Para saber que outros parâmetros o script aceita, use o comando`bash msawb-plugin-config-com-sap-hana.sh --help`
+> Pode passar explicitamente a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites) como parâmetro para o script de pré-registo: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Para saber que outros parâmetros o script aceita, use o comando `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Para confirmar a criação da chave, executar o comando HDBSQL na máquina HANA com credenciais SIDADM:
 

@@ -4,12 +4,12 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079354"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611250"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
 
@@ -17,7 +17,7 @@ As preocupações com questões de segurança, como malware, ransomware e intrus
 
 - **Prevenção**. Uma camada adicional de autenticação é adicionada sempre que é realizada uma operação crítica como alterar uma palavra-passe. Esta validação destina-se a garantir que tais operações só podem ser realizadas por utilizadores que tenham credenciais Azure válidas.
 - **Alertando**. Uma notificação por e-mail é enviada para o administrador de subscrição sempre que uma operação crítica como a eliminação de dados de backup é realizada. Este e-mail garante que o utilizador é notificado rapidamente sobre tais ações.
-- **Recuperação**. Os dados de cópia de segurança eliminados são retidos por mais 14 dias a contar da data da eliminação. Isto garante a recuperabilidade dos dados dentro de um determinado período de tempo, pelo que não há perda de dados mesmo que um ataque aconteça. Além disso, um maior número de pontos mínimos de recuperação são mantidos para proteger contra dados corruptos.
+- **Recuperação**. Os dados de cópia de segurança eliminados são retidos por mais 14 dias a contar da data da eliminação. Isto garante a recuperabilidade dos dados dentro de um determinado período de tempo, por isso não há perda de dados mesmo que um ataque aconteça. Além disso, um maior número de pontos mínimos de recuperação são mantidos para proteger contra dados corruptos.
 
 > [!NOTE]
 > As funcionalidades de segurança não devem ser ativadas se estiver a utilizar a infraestrutura como cópia de segurança VM de serviço (IaaS). Estas funcionalidades ainda não estão disponíveis para a cópia de segurança da IaaS VM, pelo que permitir-lhes não terá qualquer impacto. As funcionalidades de segurança só devem ser ativadas se estiver a utilizar: <br/>
@@ -40,18 +40,18 @@ Se estiver a criar um cofre dos Serviços de Recuperação, pode utilizar todas 
     ![Screenshot do portal Azure Navegue opção](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     É apresentada a lista dos cofres dos serviços de recuperação. A partir desta lista, selecione um cofre. O dashboard do cofre selecionado é aberto.
-3. A partir da lista de itens que aparecem debaixo do cofre, em **Definições,** clique em **Propriedades**.
+3. Da lista de itens que aparecem debaixo do cofre, em **Definições**, selecione **Properties**.
 
     ![Screenshot das opções de cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Em **Definições de Segurança**, clique em **Atualização**.
+4. Em **Definições de Segurança**, selecione **Update**.
 
     ![Screenshot das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
-    O link de atualização abre a lâmina **Definições de Segurança,** que fornece um resumo das funcionalidades e permite-lhe ative-las.
+    O link de atualização abre o painel **de Definições de Segurança,** que fornece um resumo das funcionalidades e permite-lhe ative-las.
 5. Da lista de drop-down **já configuraste a autenticação multi-factor Azure?** [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) Se estiver ativado, é-lhe pedido que autente para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) enquanto faz a sessão no portal Azure.
 
    Quando executa operações críticas em Backup, tem de introduzir um PIN de segurança, disponível no portal Azure. Ativar a autenticação multi-factor Azure adiciona uma camada de segurança. Apenas os utilizadores autorizados com credenciais Azure válidas, e autenticados a partir de um segundo dispositivo, podem aceder ao portal Azure.
-6. Para guardar as definições de segurança, selecione **'Ativar** e clique em Guardar ' **'Guardar'** Pode selecionar **Ativar** apenas depois de selecionar um valor da lista **de autenticação multi-factor Azure configurada no** passo anterior.
+6. Para guardar as definições de segurança, selecione **Ative** e selecione **Guardar**. Pode selecionar **Ativar** apenas depois de selecionar um valor da lista **de autenticação multi-factor Azure configurada no** passo anterior.
 
     ![Screenshot das definições de segurança](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -61,17 +61,17 @@ A cópia de segurança retém dados de cópias de segurança eliminados por mais
 
 Para os utilizadores **de agentes dos Serviços de Recuperação da Azure:**
 
-1. Se o computador onde estavam a ocorrer cópias de segurança ainda estiver disponível, re-proteger as fontes de dados eliminadas e utilizar os [dados de Recuperação para a mesma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) nos Serviços de Recuperação do Azure, para recuperar de todos os antigos pontos de recuperação.
+1. Se o computador onde estavam a ocorrer cópias de segurança ainda estiver disponível, reproteja as fontes de dados eliminadas e utilize os [dados de Recuperação para a mesma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) nos Serviços de Recuperação do Azure, para recuperar de todos os antigos pontos de recuperação.
 2. Se este computador não estiver disponível, utilize [a Recover para uma máquina alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) para utilizar outro computador Azure Recovery Services para obter estes dados.
 
 Para os utilizadores **do Servidor de Backup Azure:**
 
-1. Se o servidor onde estavam a acontecer cópias de segurança ainda estiver disponível, re-proteger as fontes de dados eliminadas e utilizar a funcionalidade **'Recuperar Dados'** para recuperar de todos os antigos pontos de recuperação.
-2. Se este servidor não estiver disponível, utilize [os dados de Recuperação de outro Servidor de Backup Azure](backup-azure-alternate-dpm-server.md) para utilizar outra instância do Servidor de Backup Azure para obter estes dados.
+1. Se o servidor onde estavam a acontecer cópias de segurança ainda estiver disponível, reprotete as fontes de dados eliminadas e utilize a funcionalidade **'Recuperar Dados'** para recuperar de todos os antigos pontos de recuperação.
+2. Se este servidor não estiver disponível, utilize [os dados de Recuperação de outro Servidor de Backup Azure](backup-azure-alternate-dpm-server.md) para utilizar outra instância do Azure Backup Server para obter estes dados.
 
 Para os utilizadores **do Gestor de Proteção de Dados:**
 
-1. Se o servidor onde estavam a acontecer cópias de segurança ainda estiver disponível, re-proteger as fontes de dados eliminadas e utilizar a funcionalidade **'Recuperar Dados'** para recuperar de todos os antigos pontos de recuperação.
+1. Se o servidor onde estavam a acontecer cópias de segurança ainda estiver disponível, reprotete as fontes de dados eliminadas e utilize a funcionalidade **'Recuperar Dados'** para recuperar de todos os antigos pontos de recuperação.
 2. Se este servidor não estiver disponível, utilize [o Add External DPM](backup-azure-alternate-dpm-server.md) para utilizar outro servidor do Data Protection Manager para obter estes dados.
 
 ## <a name="prevent-attacks"></a>Prevenir ataques
@@ -80,7 +80,7 @@ Foram adicionadas verificações para garantir que apenas utilizadores válidos 
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticação para realização de operações críticas
 
-Como parte da adição de uma camada extra de autenticação para operações críticas, é solicitado que introduza um PIN de segurança quando efetuar **a Proteção stop com as** operações de Eliminação de dados e Alteração **passphrase.**
+Como parte da adição de uma camada extra de autenticação para operações críticas, é solicitado que introduza um PIN de segurança quando efetuar **a Proteção stop com as** operações de Eliminação de dados e Alteração **Passphrase.**
 
 > [!NOTE]
 >
@@ -90,7 +90,7 @@ Para receber este PIN:
 
 1. Inicie sessão no portal do Azure.
 2. Navegue para o **cofre dos serviços de recuperação**  >  **Propriedades de**  >  **configurações**.
-3. Em **Pin de segurança,** clique em **Gerar**. Isto abre uma lâmina que contém o PIN a ser introduzido na interface de utilizador do agente Azure Recovery Services.
+3. Em **Pin de segurança,** selecione **Gerar**. Isto abre um painel que contém o PIN a ser introduzido na interface de utilizador do agente Azure Recovery Services.
     Este PIN é válido por apenas cinco minutos, e é gerado automaticamente após esse período.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Manter um intervalo mínimo de retenção
@@ -112,7 +112,7 @@ Os recursos de segurança mencionados neste artigo fornecem mecanismos de defesa
 
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-| Mudança de política |A política de apoio não pôde ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, recaia a operação depois de algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |**Causa:**<br/>Este erro ocorre quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e está na versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deverá definir o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia-a-dia, quatro semanas para semanalmente, três semanas para mensal ou um ano para o ano) para proceder com atualizações relacionadas com a política. Opcionalmente, a abordagem preferida seria atualizar o agente de backup, o Azure Backup Server e/ou DPM UR para alavancar todas as atualizações de segurança. |
+| Mudança de política |A política de apoio não pôde ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, recaia a operação depois de algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |**Causa:**<br/>Este erro ocorre quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e está na versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deverá definir o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia-a-dia, quatro semanas para semanalmente, três semanas para mensal ou um ano para o ano) para proceder com atualizações relacionadas com a política. Opcionalmente, uma abordagem preferida seria atualizar o agente de backup, O Azure Backup Server e/ou DPM UR para alavancar todas as atualizações de segurança. |
 | Alterar a frase de passe |PIN de segurança introduzido está incorreto. (ID: 100130) Forneça o PIN de segurança correto para completar esta operação. |**Causa:**<br/> Este erro ocorre quando introduz PIN de segurança inválido ou expirado durante a operação crítica (como alterar a palavra-passe). <br/>**Ação recomendada:**<br/> Para completar a operação, tem de introduzir PIN de segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre dos Serviços de Recuperação > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a palavra-passe. |
 | Alterar a frase de passe |A operação falhou. ID: 120002 |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta alterar a palavra-passe e está na versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a palavra-passe, tem primeiro de atualizar o agente de backup para a versão mínima 2.0.9052, servidor Azure Backup para atualização mínima 1 e/ou DPM para o mínimo DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de descarregamento abaixo), então introduza PIN de segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre dos Serviços de Recuperação > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a palavra-passe. |
 

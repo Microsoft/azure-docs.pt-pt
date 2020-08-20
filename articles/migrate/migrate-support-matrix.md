@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte par
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022723"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612117"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 
@@ -34,7 +34,7 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 O suporte específico da ferramenta é resumido na tabela.
 
-**Ferramenta** | **Avaliar** | **Migrate** 
+**Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
 Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](tutorial-prepare-vmware.md) [VMs hiper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
 Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-migrate-vmware.md) [Hiper-VMs](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
@@ -45,7 +45,7 @@ Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-mig
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar bases de dados do SQL Server. | ND
 [DMS](../dms/dms-overview.md) | ND | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura virtual de ambiente de trabalho (VDI) | ND
-[Movere](https://www.movere.io/) | Avaliar VMWare VMs, VMs Hiper-V, Xen VMs, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho em nuvem pública | ND
+[Movere](https://www.movere.io/) | Avaliar VMware VMs, VMs Hiper-V, Xen VMs, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho em nuvem pública | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | VMS migram VMWare, VMs hiper-V, Xen VMs, VMs KVM, máquinas físicas, cargas de trabalho em nuvem pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avaliar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avaliar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública e bases de dados do SQL Server. | ND

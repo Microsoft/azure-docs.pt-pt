@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192367"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612389"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -36,7 +36,7 @@ Utilizando estas ferramentas pode:
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão gratuito|
 |Funções e permissões necessárias:|**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -57,7 +57,29 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 
 1. A partir da área "Export target", escolha onde quer que os dados guardados. Os dados podem ser guardados num alvo numa subscrição diferente (por exemplo, numa instância Central do Centro de Eventos ou num espaço de trabalho central do Log Analytics).
 
-1. Clique em **Guardar**.
+1. Selecione **Guardar**.
+
+
+## <a name="setting-up-continuous-export-via-the-rest-api"></a>Criação de exportação contínua através da API REST
+
+A funcionalidade de exportação contínua pode ser configurada e gerida através do Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Utilize esta API para criar ou atualizar automatizações para exportação para qualquer um dos seguintes destinos possíveis:
+
+- Hub de Eventos do Azure
+- Área de trabalho do Log Analytics
+- Azure Logic Apps 
+
+A API fornece funcionalidade adicional não disponível a partir do portal Azure, por exemplo:
+
+* **Maior volume** - A API permite criar múltiplas configurações de exportação numa única subscrição. A página **de Exportação Contínua** no portal UI do Security Center suporta apenas uma configuração de exportação por subscrição.
+
+* **Características adicionais** - A API oferece parâmetros adicionais que não são mostrados na UI. Por exemplo, pode adicionar tags ao seu recurso de automatização, bem como definir a sua exportação com base num conjunto mais alargado de propriedades de alerta e recomendação do que as oferecidas na página **de Exportação Contínua** no portal UI do Security Center.
+
+* **Âmbito mais focado** - A API proporciona um nível mais granular para o âmbito das suas configurações de exportação. Ao definir uma exportação com a API, pode fazê-lo ao nível do grupo de recursos. Se estiver a utilizar a página **de Exportação Contínua** no portal UI do Security Center, tem de defini-la ao nível da subscrição.
+
+    > [!TIP]
+    > Se tiver configurado várias configurações de exportação utilizando a API, ou se tiver usado parâmetros apenas para API, essas funcionalidades extra não serão apresentadas na UI do Centro de Segurança. Em vez disso, haverá um banner informando-o de que existem outras configurações.
+
+Saiba mais sobre as automatizações API na [documentação REST API](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
 
 
@@ -109,7 +131,7 @@ O Azure Monitor fornece uma experiência de alerta unificada para uma variedade 
 
 Para visualizar alertas e recomendações do Security Center no Azure Monitor, configure uma regra de alerta baseada em consultas de Log Analytics (Alerta de Registo):
 
-1. Na página **alertas** do Azure Monitor, clique em **Nova regra de alerta**.
+1. Na página **alertas** do Monitor Azure, selecione **Nova regra de alerta**.
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -126,12 +148,25 @@ Verá agora novos alertas ou recomendações do Azure Security Center (dependend
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Exportação manual de alertas de segurança
 
-Para fazer o download de um relatório CSV para alertas ou recomendações, abra a página **alertas** de Segurança ou **Recomendações** e clique no botão **de relatório do Relatório CSV de descarregamento.**
+Para fazer o download de um relatório CSV para alertas ou recomendações, abra a página **alertas** de Segurança ou **Recomendações** e selecione o botão **de relatório de CSV de descarregamento.**
 
 [![Descarregue dados de alerta como um ficheiro CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > Estes relatórios contêm alertas e recomendações para recursos das subscrições atualmente selecionadas.
+
+
+
+## <a name="faq---continuous-export"></a>FAQ - Exportação contínua
+
+### <a name="what-are-the-costs-involved-in-exporting-data"></a>Quais são os custos envolvidos na exportação de dados?
+
+Não há qualquer custo para permitir uma exportação contínua. Os custos podem ser incorridos para a ingestão e retenção de dados no seu espaço de trabalho Log Analytics, dependendo da sua configuração lá. 
+
+Saiba mais sobre [os preços do espaço de trabalho Log Analytics.](https://azure.microsoft.com/pricing/details/monitor/)
+
+Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

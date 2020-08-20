@@ -3,18 +3,18 @@ title: Ativar automaticamente a cópia de segurança no momento da criação da 
 description: Um artigo que descreve como usar a Política Azure para permitir automaticamente a cópia de segurança para todos os VMs criados num determinado âmbito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514225"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612678"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 
 Uma das principais responsabilidades de um Administrador de Backup ou Compliance numa organização é garantir que todas as máquinas críticas de negócio sejam apoiadas com a retenção adequada.
 
-Hoje em dia, o Azure Backup fornece uma política incorporada (usando a Política Azure) que pode ser atribuída a **todos os VMs Azure em um local especificado dentro de um grupo de subscrição ou recursos**. Quando esta política é atribuída a um determinado âmbito, todos os novos VMs criados nesse âmbito são automaticamente configurados para cópia de segurança para um **cofre existente no mesmo local e subscrição**. O utilizador pode especificar o cofre e a política de retenção à qual os VMs de retenção devem ser associados.
+Hoje em dia, o Azure Backup fornece uma política incorporada (usando a Política Azure) que pode ser atribuída a **todos os VMs Azure em um local especificado dentro de um grupo de subscrição ou recursos**. Quando esta política é atribuída a um determinado âmbito, todos os novos VMs criados nesse âmbito são automaticamente configurados para cópia de segurança para um **cofre existente no mesmo local e subscrição**. O utilizador pode especificar o cofre e a política de retenção à qual os VMs apoiados devem estar associados.
 
 ## <a name="supported-scenarios"></a>Cenários Suportados
 
@@ -32,19 +32,19 @@ Hoje em dia, o Azure Backup fornece uma política incorporada (usando a Polític
 
 Para atribuir a apólice ao âmbito exigido, siga os passos abaixo:
 
-1. Inscreva-se no Portal Azure e navegue para o **Painel de Política.**
-2. Selecione **Definições** no menu esquerdo para obter uma lista de todas as políticas incorporadas em todos os Recursos Azure.
-3. Filtrar a lista para **categoria=backup**. Verá a lista filtrada para uma única política chamada "Configurar backup em VMs de um local para um Cofre Central existente no mesmo local".
+1. Inscreva-se no portal Azure e navegue para o **Painel de Política.**
+1. Selecione **Definições** no menu esquerdo para obter uma lista de todas as políticas incorporadas em todos os Recursos Azure.
+1. Filtrar a lista para **categoria=backup**. Verá a lista filtrada para uma única política chamada "Configurar a cópia de segurança em VMs de um local para um Cofre Central existente no mesmo local".
 ![Painel de Política](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. Clique no nome da apólice. Será redirecionado para a definição detalhada para esta política.
-![Lâmina de definição de política](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Clique no botão **Atribuir** na parte superior da lâmina. Isto redireciona-o para a lâmina **''Atribuir'.**
-6. Em **Basics**, clique nos três pontos junto ao campo **Âmbito.** Isto abre uma lâmina de contexto certa onde pode selecionar a subscrição para a política a aplicar. Também pode selecionar opcionalmente um grupo de recursos, de modo a que a política seja aplicada apenas para VMs num determinado grupo de recursos.
+1. Selecione o nome da apólice. Será redirecionado para a definição detalhada para esta apólice.
+![Painel de definição de política](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. Selecione o botão **Atribuir** na parte superior do painel. Isto redireciona-o para o painel **de Política de Atribuição.**
+1. Em **Basics**, selecione os três pontos junto ao campo **Scope.** Isto abre um painel de contexto certo onde pode selecionar a subscrição para a política a aplicar. Também pode selecionar opcionalmente um grupo de recursos, de modo a que a política seja aplicada apenas para VMs num determinado grupo de recursos.
 ![Básicos de atribuição de políticas](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. No separador **Parâmetros,** escolha uma localização a partir do drop-down e selecione a política de cofre e backup à qual os VMs no âmbito devem estar associados.
+1. No separador **Parâmetros,** escolha uma localização a partir do drop-down e selecione a política de cofre e backup à qual os VMs no âmbito devem estar associados.
 ![Parâmetros de atribuição de políticas](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Certifique-se de que **o Efeito** está definido para implementarifNotExists.
-9. Navegar para **Revisão+criar** e clicar **Criar.**
+1. Certifique-se de que **o Efeito** está definido para implementarifNotExists.
+1. Navegar para **Rever+criar** e selecionar **Criar.**
 
 > [!NOTE]
 >

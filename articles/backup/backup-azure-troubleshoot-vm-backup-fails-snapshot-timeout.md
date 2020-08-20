@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585565"
+ms.locfileid: "88611862"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -31,7 +31,7 @@ As falhas de backup mais comuns podem ser auto-resolvidas seguindo as etapas de 
 - **Certifique-se de que o serviço de Agente Convidado Azure VM é iniciado e atualizado:**
   - Num VM do Windows:
     - Navegue para **serviços.msc** e certifique-se de que **o serviço de Agente Convidado VM do Windows Azure** está em funcionamento. Além disso, certifique-se de que a [versão mais recente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) está instalada. Para saber mais, consulte [os problemas dos agentes convidados do Windows VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - O Agente VM Azure é instalado por predefinição em qualquer VM do Windows implantado a partir da imagem do Mercado Azure a partir do portal, PowerShell, Interface de Linha de Comando ou um modelo de Gestor de Recursos Azure. Poderá ser necessária uma [instalação manual do Agente](../virtual-machines/extensions/agent-windows.md#manual-installation) quando criar uma imagem VM personalizada que seja implantada no Azure.
+    - O Agente VM Azure é instalado por predefinição em qualquer VM do Windows implantado a partir de uma imagem do Mercado Azure a partir do portal, PowerShell, Interface de Linha de Comando ou um modelo de Gestor de Recursos Azure. Poderá ser necessária uma [instalação manual do Agente](../virtual-machines/extensions/agent-windows.md#manual-installation) quando criar uma imagem VM personalizada que seja implantada no Azure.
     - Reveja a matriz de suporte para verificar se o VM funciona no [sistema operativo Windows suportado](backup-support-matrix-iaas.md#operating-system-support-windows).
   - Em Linux VM,
     - Certifique-se de que o serviço de Agente Convidado Azure VM está a funcionar executando o comando `ps-e` . Além disso, certifique-se de que a [versão mais recente](../virtual-machines/extensions/update-linux-agent.md) está instalada. Para saber mais, consulte [os problemas do agente convidado Linux VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).

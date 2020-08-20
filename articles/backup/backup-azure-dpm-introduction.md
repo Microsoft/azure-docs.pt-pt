@@ -3,12 +3,12 @@ title: Prepare o servidor DPM para fazer o back-ups
 description: Neste artigo, aprenda a preparar-se para backups do System Center Data Protection Manager (DPM) para a Azure, utilizando o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263270"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612661"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
 
@@ -182,4 +182,4 @@ Certifique-se de que o ficheiro de credenciais do cofre está disponível num lo
 Se encontrar um erro de credencial de cofre inválido (por exemplo, "Credenciais de abóbada inválidas fornecidas") o ficheiro é corrompido ou não tem as mais recentes credenciais associadas ao serviço de recuperação.
 
 - Recave a operação depois de descarregar um novo ficheiro de credencial de cofre do portal.
-- Este erro é normalmente visto quando seleciona na opção **de credencial de abóbada de descarregamento** no portal Azure, duas vezes em rápida sucessão. Neste caso, apenas o segundo ficheiro de credencial de cofre é válido.
+- Este erro é normalmente visto quando seleciona a opção **de credencial de abóbada de descarregamento** no portal Azure, duas vezes em rápida sucessão. Neste caso, apenas o segundo ficheiro de credencial de cofre é válido.

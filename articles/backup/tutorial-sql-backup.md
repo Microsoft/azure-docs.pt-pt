@@ -3,12 +3,12 @@ title: Tutorial - Restruda as bases de dados do SQL Server para O Azure
 description: Neste tutorial, aprenda a fazer backup de uma base de dados do SQL Server que funciona num Azure VM para um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513337"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612457"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Ressarça uma base de dados do SQL Server num VM Azure
 
@@ -53,7 +53,7 @@ O Azure Backup faz uma série de coisas quando configura a cópia de segurança 
 * Para descobrir bases de dados na máquina virtual, o Azure Backup cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é usada para cópia de segurança e restauro, e requer permissões de sysadmin SQL.
 * O Azure Backup aproveita a conta **NT AUTHORITY\SYSTEM** para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL.
 
-Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMemberbership**. Se isto [ocorrer, siga estas instruções](backup-azure-sql-database.md#set-vm-permissions).
+Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto [ocorrer, siga estas instruções](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Verifique as diretrizes de nomeação da base de dados para a Azure Backup
 
@@ -104,7 +104,7 @@ Descubra bases de dados em execução no VM.
     * A Azure Backup instala a extensão **AzureBackupWindowsWorkload** na VM. Nenhum agente está instalado na base de dados SQL.
     * A Azure Backup cria a conta de serviço **NT Service\AzureWLBackupPluginSvc** no VM.
       * Todas as operações de backup e restauro utilizam a conta de serviço.
-      * **O serviço NT\AzureWLBackupPluginSvc** necessita de permissões sysadmin SQL. Todos os VMs do Servidor SQL criados no Azure Marketplace vêm com a **instalação sqlIaaSExtension.** A extensão **AzureBackupWindowsWorkload** utiliza a **extensão SQLIaaSExtension** para obter automaticamente as permissões necessárias.
+      * **O serviço NT\AzureWLBackupPluginSvc** necessita de permissões sysadmin SQL. Todos os VMs do SQL Server criados no Azure Marketplace vêm com a **instalação sqlIaaSExtension.** A extensão **AzureBackupWindowsWorkload** utiliza a **extensão SQLIaaSExtension** para obter automaticamente as permissões necessárias.
     * Se não criou o VM a partir do mercado, então o VM não tem a **SqlIaaSExtension** instalada, e a operação de descoberta falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga as [instruções](backup-azure-sql-database.md#set-vm-permissions) para corrigir este problema.
 
         ![Selecione o VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
@@ -117,7 +117,7 @@ Configure a cópia de segurança da seguinte forma:
 
    ![Selecione Configurar Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Clique **em Configurar backup,** **aparece a itens selecionador para a** lâmina de reserva. Isto lista todos os grupos de disponibilidade registados e servidores SQL autónomos. Expanda o chevron para a esquerda da fila para ver todas as bases de dados desprotegidas nesse caso ou sempre em AG.  
+2. Selecione **Configurar a cópia de segurança,** aparecem os **itens selecionador** para o painel de segurança. Isto lista todos os grupos de disponibilidade registados e servidores SQL autónomos. Expanda o chevron para a esquerda da fila para ver todas as bases de dados desprotegidas nesse caso ou sempre em AG.  
 
     ![Exibindo todas as instâncias do SQL Server com bases de dados autónomas](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,11 +129,11 @@ Configure a cópia de segurança da seguinte forma:
 
      * Em alternativa, pode ativar a proteção automática em todo o caso ou grupo Always On Availability selecionando a opção **ON** na correspondente redução na coluna **AUTOPROTECT.** A funcionalidade de proteção automática não só permite a proteção em todas as bases de dados existentes de uma só vez, como também protege automaticamente quaisquer novas bases de dados que venham a ser adicionadas a esse caso ou ao grupo de disponibilidade no futuro.  
 
-4. Clique **em OK** para abrir a lâmina de política de **reserva.**
+4. Selecione **OK** para abrir o painel **de política de backup.**
 
     ![Ativar a proteção automática no grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Na **política de backup**, selecione uma política e, em seguida, clique em **OK**.
+5. Na **política de backup,** selecione uma política e, em seguida, selecione **OK**.
 
    * Selecione a política predefinitiva: HourlyLogBackup.
    * Escolha uma política de backup existente previamente criada para o SQL.
@@ -161,8 +161,8 @@ Uma política de backup define quando as cópias de segurança são tomadas e qu
 
 Para criar uma política de backup:
 
-1. No cofre, clique nas **políticas de backup**  >  **Adicionar**.
-2. No menu **Adicionar,** clique **no SQL Server em Azure VM** para definir o tipo de política.
+1. No cofre, selecione **políticas de backup**  >  **Adicionar**.
+2. No menu **Adicionar,** selecione **SQL Server em Azure VM** para definir o tipo de política.
 
    ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -171,7 +171,7 @@ Para criar uma política de backup:
 
    * Para **diariamente,** selecione o fuso horário e hora quando o trabalho de reserva começar.
    * Tem de executar uma cópia de segurança completa, uma vez que não pode desligar a opção **Full Backup.**
-   * Clique **em Full Backup** para ver a política.
+   * Selecione **Full Backup** para ver a política.
    * Não é possível criar cópias de segurança diferenciais para cópias de segurança diárias.
    * Para **o Weekly**, selecione o dia da semana, hora e fuso horário quando o trabalho de reserva começar.
 
@@ -214,13 +214,13 @@ Para criar uma política de backup:
 ## <a name="run-an-on-demand-backup"></a>Faça uma cópia de segurança a pedido
 
 1. No cofre dos Serviços de Recuperação, escolha itens de reserva.
-2. Clique em "SQL in Azure VM".
-3. Clique à direita numa base de dados e escolha "Backup now".
+2. Selecione "SQL in Azure VM".
+3. Clique com o direito numa base de dados e escolha "Backup now".
 4. Escolha o tipo de cópia de segurança (Full/Diferencial/Log/Copy Only Full) e Compressão (Ativar/Desativar)
 5. Selecione OK para iniciar a cópia de segurança.
 6. Monitorize o trabalho de backup indo ao cofre dos Serviços de Recuperação e escolhendo "Backup Jobs".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou o portal do Azure para:
 

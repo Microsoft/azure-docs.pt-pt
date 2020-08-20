@@ -3,12 +3,12 @@ title: Tipos de Recursos Suportados através da Azure Resource Health Microsoft 
 description: Tipos de Recursos Suportados através da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: b6420283f3d3c07182faa2cb2a82ba7b2d784055
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272659"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611947"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos Azure
 Abaixo está uma lista completa de todos os cheques executados através da saúde de recursos por tipos de recursos.
@@ -46,7 +46,7 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |Verificações executadas|
 |---|
-|<ul><li>O Serviço cloud está a funcionar?</li><li>O arranque do hospedeiro OS já foi concluído?</li><li>O recipiente da máquina virtual é a provisionado e alimentado?</li><li>Existe conectividade de rede entre o hospedeiro e a conta de armazenamento?</li><li>O arranque do so convidado terminou?</li><li>Há manutenção planeada?</li><li>O hardware do anfitrião está degradado e prevê-se que falhe em breve?</li></ul>|
+|<ul><li>A implantação de slots de produção é saudável em todas as instâncias de função?</li><li>O papel é saudável em todos os seus casos de VM?</li><li>Qual é o estado de saúde de cada VM dentro de um papel de um serviço de nuvem?</li><li>A alteração de estado em VM deveu-se à operação iniciada pela plataforma ou pelo cliente?</li><li>O arranque do so convidado terminou?</li><li>Há manutenção planeada?</li><li>O hardware do anfitrião está degradado e prevê-se que falhe em breve?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/contas
 |Verificações executadas|

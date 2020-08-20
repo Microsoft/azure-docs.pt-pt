@@ -13,12 +13,12 @@ ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6cf9f7a005a80ab34e05ee293c20209e9d0b3f01
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258589"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612321"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -233,6 +233,7 @@ As respostas de erro serão como:
 | `interaction_required` | Não standard, como a especificação OIDC exige apenas no `/authorize` ponto final. O pedido requer interação do utilizador. Por exemplo, é necessário um passo adicional de autenticação. | Reda o `/authorize` pedido com os mesmos âmbitos. |
 | `temporarily_unavailable` | O servidor está temporariamente demasiado ocupado para lidar com o pedido. | Recandidutar o pedido depois de um pequeno atraso. A aplicação do cliente pode explicar ao utilizador que a sua resposta está atrasada devido a uma condição temporária. |
 |`consent_required` | O pedido requer o consentimento do utilizador. Este erro não é padrão, uma vez que normalmente só é devolvido no `/authorize` ponto final de acordo com as especificações do OIDC. Devolvido quando `scope` um parâmetro foi usado no fluxo de resgate de código que a aplicação do cliente não tem permissão para solicitar.  | O cliente deve enviar o utilizador de volta para o `/authorize` ponto final com o âmbito correto para desencadear o consentimento. |
+|`invalid_scope` | O âmbito solicitado pela app é inválido.  | Atualizar o valor do parâmetro de âmbito no pedido de autenticação para um valor válido. |
 
 > [!NOTE]
 > As aplicações de página única podem receber um `invalid_request` erro que indique que o resgate de token de origem cruzada só é permitido para o tipo de cliente 'Aplicação de página única'.  Isto indica que o reorientação uri utilizado para solicitar o token não foi marcado como um `spa` URI de redirecionamento.  Reveja as etapas de registo de [pedidos](#redirect-uri-setup-required-for-single-page-apps) sobre como ativar este fluxo.
