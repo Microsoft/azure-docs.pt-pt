@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827661"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649776"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual Ubuntu Linux usando um modelo ARM
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
+:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
 
 
 Vários recursos são definidos no modelo:
@@ -79,7 +79,7 @@ O portal do Azure é utilizado para implementar o modelo. Além do portal Azure,
 Pode utilizar o portal Azure para verificar o VM e outros recursos que foram criados. Depois de concluída a implementação, selecione **Ir ao grupo de recursos** para ver o VM e outros recursos.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e todos os recursos do grupo de recursos. 
 

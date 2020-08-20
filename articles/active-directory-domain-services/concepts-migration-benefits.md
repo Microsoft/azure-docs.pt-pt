@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
-ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcc1202c08be905cf08513f38e79a8a7674e01
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734933"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650133"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implementação clássico para gestor de recursos nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -48,7 +48,7 @@ Após a migração, o Azure AD DS fornece muitas funcionalidades que só estão 
 
 Domínios geridos que utilizam um modelo de implementação do Gestor de Recursos ajudam-no a manter-se atualizado com as novas funcionalidades mais recentes. Não existem novas funcionalidades disponíveis para domínios geridos que utilizem o modelo de implementação Classic.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte os [Serviços de Domínio Ad Azure Migrate Azure do modelo de rede virtual Clássico ao Gestor de Recursos.][howto-migrate]
 
@@ -63,4 +63,4 @@ Para começar, consulte os [Serviços de Domínio Ad Azure Migrate Azure do mode
 [availability-zones]: ../availability-zones/az-overview.md
 [howto-migrate]: migrate-from-classic-vnet.md
 [attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds
-[managed-disks]: ../virtual-machines/windows/managed-disks-overview.md
+[managed-disks]: ../virtual-machines/managed-disks-overview.md

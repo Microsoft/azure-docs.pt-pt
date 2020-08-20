@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 520754c08fc9bf89949739987b41974eccdcd29d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cd9e539e01e8e11d866186552ab3b8dde7e03f91
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292135"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654774"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais Lsv2 da série Linux
 
 As máquinas virtuais da série Lsv2 suportam uma variedade de cargas de trabalho que necessitam de alta E/S e produção no armazenamento local através de uma vasta gama de aplicações e indústrias.  A série Lsv2 é ideal para big data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais, incluindo Cassandra, MongoDB, Cloudera e Redis.
 
@@ -83,7 +83,7 @@ Os cenários que apagam de forma segura os dados para proteger o cliente incluem
 - O VM torna-se insalubre e tem de servir a cicatrização a outro nó devido a um problema de hardware.
 - Um pequeno número das operações de manutenção planeadas que exigem que o VM seja realojado para outro hospedeiro para manutenção.
 
-Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastres para discos Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastres para discos Azure IaaS](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -97,7 +97,7 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
    A regulação rq_affinity é um pequeno ajuste quando se utiliza as operações máximas de entrada/saída máximas por segundo (IOPS). Uma vez que tudo o resto está funcionando bem, então tente definir rq_affinity para 0 para ver se faz diferença.
 
 * **Preciso de alterar as definições de blk_mq?**  
-   RHEL/CentOS 7.x utiliza automaticamente blk-mq para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A definição scsi_mod.use_blk_mq é apenas para SCSI e foi utilizada durante a pré-visualização Lsv2 porque os dispositivos NVMe eram visíveis nos VMs convidados como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, pelo que a definição de blk-mq SCSI é irrelevante.
+   RHEL/CentOS 7.x utiliza automaticamente blk-mq para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A definição scsi_mod.use_blk_mq destina-se apenas a SCSI e foi utilizada durante a pré-visualização Lsv2 porque os dispositivos NVMe eram visíveis nos VMs convidados como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, pelo que a definição de blk-mq SCSI é irrelevante.
 
 * **Preciso de mudar de "fio"?**  
    Para obter o máximo IOPS com uma ferramenta de medição de desempenho como 'fio' nos tamanhos L64v2 e L80v2 VM, de definido "rq_affinity" a 0 em cada dispositivo NVMe.  Por exemplo, esta linha de comando definirá "rq_affinity" a zero para todos os 10 dispositivos NVMe num L80v2 VM:

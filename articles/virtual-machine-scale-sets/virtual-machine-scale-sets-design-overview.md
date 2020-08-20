@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080510"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648569"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escalas
 Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre quais são os conjuntos de escala de máquina virtual, consulte a [visão geral dos conjuntos de escala de máquinas virtuais](./overview.md).
@@ -42,7 +42,7 @@ Algumas funcionalidades estão atualmente apenas disponíveis em VMs:
 ## <a name="storage"></a>Armazenamento
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escala com discos geridos Azure
-Conjuntos de escala podem ser criados com [discos geridos Azure](../virtual-machines/windows/managed-disks-overview.md) em vez de contas tradicionais de armazenamento Azure. Os Discos Geridos proporcionam os seguintes benefícios:
+Conjuntos de escala podem ser criados com [discos geridos Azure](../virtual-machines/managed-disks-overview.md) em vez de contas tradicionais de armazenamento Azure. Os Discos Geridos proporcionam os seguintes benefícios:
 - Não é preciso pré-criar um conjunto de contas de armazenamento Azure para os VMs definidos na escala.
 - Pode definir [discos de dados anexados](virtual-machine-scale-sets-attached-disks.md) para os VMs no seu conjunto de escala.
 - Os conjuntos de escala podem ser configurados para [suportar até 1.000 VMs num conjunto](virtual-machine-scale-sets-placement-groups.md). 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659735"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649850"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 
@@ -56,7 +56,7 @@ Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResour
     ```
 
     > [!NOTE]
-    > Quando expande um disco gerido, o tamanho atualizado é arredondado para o tamanho do disco gerido mais próximo. Para obter uma tabela dos tamanhos e níveis de discos geridos disponíveis, consulte [a Visão Geral dos Discos Geridos Azure - Preços e Faturação](../windows/managed-disks-overview.md).
+    > Quando expande um disco gerido, o tamanho atualizado é arredondado para o tamanho do disco gerido mais próximo. Para obter uma tabela dos tamanhos e níveis de discos geridos disponíveis, consulte [a Visão Geral dos Discos Geridos Azure - Preços e Faturação](../managed-disks-overview.md).
 
 1. Inicie o seu VM com [arranque az vm](/cli/azure/vm#az-vm-start). O exemplo a seguir começa o VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup*:
 
@@ -140,6 +140,6 @@ Para utilizar um disco expandido, expanda a partição subjacente e o sistema de
     /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Se precisar de armazenamento adicional, também pode [adicionar discos de dados a um Linux VM](add-disk.md). 
 * Para obter mais informações sobre encriptação de disco, consulte [Azure Disk Encryption para Linux VMs](disk-encryption-overview.md).

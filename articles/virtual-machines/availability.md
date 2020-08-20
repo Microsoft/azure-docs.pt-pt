@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 583e4d3a45d31b9c386b542d42d8e749b0c36bc1
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830653"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650218"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 
@@ -47,7 +47,7 @@ Esta abordagem garante que, pelo menos, uma instância da aplicação permanece 
 
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de escala de máquinas virtuais 
 
-Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de escala proporcionam uma elevada disponibilidade para as suas aplicações e permitem-lhe gerir, configurar e atualizar muitos VMs. Recomendamos que sejam criados dois ou mais VMs dentro de uma escala definida para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para a escala em si, você só paga por cada instância VM que você cria. Quando um único VM está a utilizar [SSDs premium Azure,](./windows/disks-types.md#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados. Máquinas virtuais num conjunto de escala podem ser implantadas em vários domínios de atualização e domínios de avarias para maximizar a disponibilidade e a resiliência a falhas devido a interrupções no centro de dados e eventos de manutenção planeados ou não planeados. Máquinas virtuais em um conjunto de escala também podem ser implantadas numa única zona de Disponibilidade, ou regionalmente. As opções de implantação da zona de disponibilidade podem diferir com base no modo de orquestração.
+Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de escala proporcionam uma elevada disponibilidade para as suas aplicações e permitem-lhe gerir, configurar e atualizar muitos VMs. Recomendamos que sejam criados dois ou mais VMs dentro de uma escala definida para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para a escala em si, você só paga por cada instância VM que você cria. Quando um único VM está a utilizar [SSDs premium Azure,](./disks-types.md#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados. Máquinas virtuais num conjunto de escala podem ser implantadas em vários domínios de atualização e domínios de avarias para maximizar a disponibilidade e a resiliência a falhas devido a interrupções no centro de dados e eventos de manutenção planeados ou não planeados. Máquinas virtuais em um conjunto de escala também podem ser implantadas numa única zona de Disponibilidade, ou regionalmente. As opções de implantação da zona de disponibilidade podem diferir com base no modo de orquestração.
 
 **Domínios de avaria e domínios de atualização**
 
@@ -55,7 +55,7 @@ Os conjuntos de escala de máquina virtual simplificam o design para uma alta di
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs dentro de um datacenter que permite ao Azure entender como a sua aplicação é construída para fornecer redundância e disponibilidade. Recomendamos que sejam criados dois ou mais VMs dentro de um conjunto de disponibilidade para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para o próprio Conjunto de Disponibilidade, só paga por cada instância VM que cria. Quando um único VM está a utilizar [SSDs premium Azure,](./windows/disks-types.md#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados.
+Um conjunto de disponibilidade é um agrupamento lógico de VMs dentro de um datacenter que permite ao Azure entender como a sua aplicação é construída para fornecer redundância e disponibilidade. Recomendamos que sejam criados dois ou mais VMs dentro de um conjunto de disponibilidade para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para o próprio Conjunto de Disponibilidade, só paga por cada instância VM que cria. Quando um único VM está a utilizar [SSDs premium Azure,](./disks-types.md#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados.
 
 Num conjunto de disponibilidade, os VMs são automaticamente distribuídos por estes domínios de avaria. Esta abordagem limita o impacto de potenciais falhas de hardware físico, indisponibilidade de rede ou falhas de energia.
 

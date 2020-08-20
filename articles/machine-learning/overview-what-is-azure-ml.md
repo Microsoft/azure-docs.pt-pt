@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 01061ce1099588029410531793279572d112f382
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850360"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650116"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -43,7 +43,7 @@ As previsões ou predições de machine learning podem tornar as aplicações e 
 A Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e cientistas de dados precisam para os seus fluxos de trabalho de aprendizagem automática, incluindo:
 + O [designer Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) (pré-visualização): módulos de arrastar-n-drop para construir as suas experiências e, em seguida, implementar gasodutos.
 
-+ Cadernos Jupyter: use os [nossos cadernos de exemplo](https://aka.ms/aml-notebooks) ou crie os seus próprios cadernos para aproveitar as nossas amostras <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">de SDK para as</a> amostras de Python para a sua aprendizagem automática. 
++ Cadernos Jupyter: use os [nossos cadernos de exemplo](https://github.com/Azure/MachineLearningNotebooks) ou crie os seus próprios cadernos para aproveitar as nossas amostras <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">de SDK para as</a> amostras de Python para a sua aprendizagem automática. 
 
 + Scripts r ou cadernos nos quais você usa o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever o seu próprio código, ou usar os módulos R no designer.
 
@@ -88,7 +88,7 @@ Para treino e implantação sem código ou de baixo código, tente:
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementar & gestão do ciclo de vida
 Quando tiver o modelo certo, pode facilmente usá-lo num serviço web, num dispositivo IoT ou na Power BI. Para mais informações, consulte o artigo sobre [como implementar e onde](how-to-deploy-and-where.md).
 
-Em seguida, pode gerir os seus modelos implantados utilizando o [Azure Machine Learning SDK para Python,](https://aka.ms/aml-sdk) [o estúdio Azure Machine Learning](https://ml.azure.com)ou o [CLI de aprendizagem automática](reference-azure-machine-learning-cli.md).
+Em seguida, pode gerir os seus modelos implantados utilizando o [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) [o estúdio Azure Machine Learning](https://ml.azure.com)ou o [CLI de aprendizagem automática](reference-azure-machine-learning-cli.md).
 
 Estes modelos podem ser consumidos e as previsões de retorno em [tempo real](how-to-consume-web-service.md) ou [assíncrona](how-to-use-parallel-run-step.md) em grandes quantidades de dados.
 

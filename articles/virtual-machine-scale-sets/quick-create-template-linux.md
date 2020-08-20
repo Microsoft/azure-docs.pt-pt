@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: bb23a47b702237cad55ded2fa46400eba0997264
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082850"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648637"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Quickstart: Criar uma balança de máquina virtual Linux definida com um modelo ARM
 
@@ -24,7 +24,7 @@ Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conju
 
 Os modelos ARM permitem-lhe implantar grupos de recursos relacionados. Num único modelo, pode criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicações e configurar regras de dimensionamento automático. Com a utilização de parâmetros e variáveis, este modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos de dimensionamento adicionais. Pode implementar modelos através do portal do Azure, da CLI do Azure ou do Azure PowerShell ou a partir de pipelines de integração contínua/entrega contínua (CI/CD).
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -34,9 +34,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json" range="1-330" highlight="176-264":::
+:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json":::
 
 Estes recursos são definidos no modelo:
 
@@ -48,7 +48,7 @@ Estes recursos são definidos no modelo:
 
 ### <a name="define-a-scale-set"></a>Definir um conjunto de dimensionamento
 
-A parte realçada é a definição de recursos definidos em escala. Para criar um dimensionamento com um modelo, tem de definir os recursos adequados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
+Para criar um dimensionamento com um modelo, tem de definir os recursos adequados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
 
 | Propriedade                     | Descrição da propriedade                                  | Valor de modelo de exemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -121,7 +121,7 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um conjunto de escala Linux com um modelo ARM e usou a Extensão de Script Personalizado para instalar um servidor web python básico nas instâncias VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642287"
+ms.locfileid: "88649062"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise em Azure HDInsight
 
@@ -58,7 +58,7 @@ O seguinte cenário de amostra ilustra como usar *o SparkCruise* para otimizar a
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-O `analyze` comando analisa os planos de consulta e cria uma representação tabular da carga de trabalho. Em seguida, o `views` comando identifica expressões de subplano comuns e seleciona expressões de subplano interessantes para futuras materialização e reutilização. A saída é um ficheiro de feedback que contém anotações para futuras consultas spark SQL. 
+O `analyze` comando analisa os planos de consulta e cria uma representação tabular da carga de trabalho. Esta tabela de carga de trabalho pode ser consultada usando o caderno *WorkloadInsights* incluído no repositório [de amostras de sparkcruise HDInsight.](https://github.com/Azure-Samples/azure-sparkcruise-samples) Em seguida, o `views` comando identifica expressões de subplano comuns e seleciona expressões de subplano interessantes para futuras materialização e reutilização. A saída é um ficheiro de feedback que contém anotações para futuras consultas spark SQL. 
 
 O `show` comando apresenta uma saída como o seguinte texto:
 

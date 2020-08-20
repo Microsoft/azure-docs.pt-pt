@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f05804785435824970d90410d9a1c9490a3d6c06
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73620566"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654723"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o CLI Azure
 Se a sua máquina virtual Linux (VM) encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida `/etc/fstab` que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o CLI Azure para ligar o seu disco rígido virtual a outro Linux VM para corrigir eventuais erros e, em seguida, recriar o seu VM original. 
@@ -37,7 +37,7 @@ O processo de resolução de problemas é o seguinte:
 Para executar estes passos de resolução de problemas, precisa do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e iniciado numa conta Azure utilizando [o login az](/cli/azure/reference-index).
 
 > [!Important]
-> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../linux/managed-disks-overview.md) 
+> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../managed-disks-overview.md) 
 
 Nos exemplos seguintes, substitua os nomes dos parâmetros pelos seus próprios valores, tais como `myResourceGroup` `myVM` .
 
@@ -205,6 +205,6 @@ az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
 az vm start -n myVM -g myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se tiver problemas de ligação ao seu VM, consulte [as ligações SSH de resolução de problemas a um VM Azure](troubleshoot-ssh-connection.md). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num Linux VM](troubleshoot-app-connection.md).
 

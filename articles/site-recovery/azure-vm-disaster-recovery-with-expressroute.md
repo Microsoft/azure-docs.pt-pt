@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654383"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar ExpressRoute com recuperação de desastres para VMs Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como integrar o Azure ExpressRoute com [Azure Site Recovery
 
 A Recuperação do Site permite a recuperação de desastres dos VMs Azure replicando os dados Azure VM para a Azure.
 
-- Se os VMs do Azure utilizarem [discos geridos aZure,](../virtual-machines/windows/managed-disks-overview.md)os dados VM são replicados num disco gerido replicado na região secundária.
+- Se os VMs do Azure utilizarem [discos geridos aZure,](../virtual-machines/managed-disks-overview.md)os dados VM são replicados num disco gerido replicado na região secundária.
 - Se os VMs do Azure não utilizarem discos geridos, os dados VM são replicados numa conta de armazenamento Azure.
 - Os pontos finais de replicação são públicos, mas o tráfego de replicação de VMs Azure não atravessa a internet.
 
@@ -85,7 +85,7 @@ Normalmente, as implementações das empresas têm cargas de trabalho divididas 
 
 ![No local-a-Azure com ExpressRoute antes do failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Região.** As aplicações são implementadas na região da Ásia Oriental de Azure.
+- **Região**. As aplicações são implementadas na região da Ásia Oriental de Azure.
 - **Falou vNets.** As aplicações são implementadas em dois vNets falados:
     - **Fonte vNet1**: 10.1.0.0/24.
     - **Fonte vNet2**: 10.2.0.0/24.
@@ -215,6 +215,6 @@ Depois de recuperar os VMs e completar a conectividade, o ambiente de recuperaç
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o uso de [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover da aplicação.

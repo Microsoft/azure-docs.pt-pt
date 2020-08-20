@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2c1b9bb8d8fa1e7b82bebfa31963be19d9024af
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837096"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648501"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Memória otimizada Dv2 e Série Dsv2
 
@@ -66,7 +66,7 @@ Atualizações de preservação da memória: Suportadas
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
 <sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM série DSv2 pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos.  Para mais detalhes, consulte [Design para obter um desempenho elevado.](./windows/premium-storage-performance.md)
-<sup>2</sup> Instance é isolado para o hardware baseado em Intel Haswell e dedicado a um único cliente.  
+<sup>2</sup>  Instance é isolado para o hardware baseado em Intel Haswell e dedicado a um único cliente.  
 <sup>3</sup> tamanhos de núcleo limitados disponíveis.  
 <sup>4</sup> 25000 Mbps com Rede Acelerada.
 
@@ -83,7 +83,7 @@ Atualizações de preservação da memória: Suportadas
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passos seguintes

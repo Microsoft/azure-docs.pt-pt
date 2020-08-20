@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119859"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649624"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Quickstart: Criar um registo de contentores geo-replicado utilizando um modelo ARM
 
@@ -21,7 +21,7 @@ Este quickstart mostra como criar uma instância de registo de contentores Azure
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
@@ -31,9 +31,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). O modelo estabelece um registo e uma réplica regional adicional.
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). O modelo estabelece um registo e uma réplica regional adicional.
 
-:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
+:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json":::
 
 Os seguintes recursos são definidos no modelo:
 
@@ -84,7 +84,7 @@ Utilize o portal Azure ou uma ferramenta como o Azure CLI para rever as propried
 
 Quando já não precisar deles, elimine o grupo de recursos, o registo e a réplica do registo. Para tal, vá ao portal Azure, selecione o grupo de recursos que contém o registo e, em seguida, **selecione Delete resource group**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um registo de contentores Azure com um modelo ARM e configura uma réplica de registo noutro local. Continue os tutoriais do Registo do Contentor de Azure para uma olhada mais profunda no ACR.
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 64f1de178e2b1e1692ddad316e6c1c1d20517b78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835838"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654757"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -87,7 +87,7 @@ Atualizações de preservação da memória: Não suportadas
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passos seguintes

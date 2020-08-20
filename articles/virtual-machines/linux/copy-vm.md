@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: ec8fd91dc768b44b027c96efead6924782eb0f75
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368613"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654417"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Crie uma cópia de um Linux VM utilizando discos Azure CLI e Managed
 
@@ -43,7 +43,7 @@ az vm deallocate \
 
 Para copiar um VM, cria-se uma cópia do disco rígido virtual subjacente. Este processo cria um disco rígido virtual especializado (VHD) como um Disco Gerido que contém a mesma configuração e configurações que o VM de origem.
 
-Para mais informações sobre Managed Disks do Azure, veja [Azure Managed Disks Overview (Descrição geral dos Managed Disks do Azure)](../windows/managed-disks-overview.md). 
+Para mais informações sobre Managed Disks do Azure, veja [Azure Managed Disks Overview (Descrição geral dos Managed Disks do Azure)](../managed-disks-overview.md). 
 
 1.  Listar cada VM e o nome do seu disco de oss com [a lista az vm](/cli/azure/vm#az-vm-list). O exemplo a seguir lista todos os VMs do grupo de recursos denominado *myResourceGroup:*
     

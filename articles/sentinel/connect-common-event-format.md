@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: b7f03c11b53c6dc61fad6b916e7c08086917b416
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 51e6c74a8b80b94ca552645cfbb76bd4e162a62b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565745"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650065"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -44,7 +44,7 @@ Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem o
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/linux/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
+Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
 
 Para utilizar a comunicação TLS entre a solução de segurança e a máquina Syslog, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: [Encriptar o tráfego de syslog com TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [encriptar as mensagens de registo com TLS -syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 

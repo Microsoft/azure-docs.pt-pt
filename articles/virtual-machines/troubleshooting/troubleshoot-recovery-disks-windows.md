@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1c7b6ee73513c7e51e3bb18c3835a1d395a4c516
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63d5e4bcc57a734fc5ea455da7c2db940a4b8ec3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028266"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654689"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolução de problemas de um VM do Windows, fixando o disco OS a um VM de recuperação utilizando a Azure PowerShell
 Se a sua máquina virtual Do Windows (VM) em Azure encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicação falhada que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o Azure PowerShell para ligar o disco a outro VM do Windows para corrigir eventuais erros e, em seguida, reparar o seu VM original. 
 
 > [!Important]
-> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../windows/managed-disks-overview.md) 
+> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../managed-disks-overview.md) 
 
  
 

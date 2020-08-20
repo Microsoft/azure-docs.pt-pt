@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e4d5f2527c0ab8ff4026b93fd2250e324244634e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d6f9d69f04444c01f35437e5300c3033daed5ea
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829242"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648450"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e Dsv3
 
@@ -87,7 +87,7 @@ Atualizações de preservação da memória: Suportadas
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76756254"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654808"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Metas de escalabilidade e desempenho para contas de armazenamento de blob de página premium
 
@@ -25,7 +25,7 @@ ms.locfileid: "76756254"
 Uma conta de armazenamento de página blob de desempenho premium é otimizada para operações de leitura/escrita. Este tipo de conta de armazenamento confirma um disco não gerido para uma máquina virtual Azure.
 
 > [!NOTE]
-> A Microsoft recomenda a utilização de discos geridos com máquinas virtuais Azure (VMs) se possível. Para obter mais informações sobre discos geridos, consulte [a visão geral do armazenamento do disco Azure para os VMs do Windows](../../virtual-machines/windows/managed-disks-overview.md).
+> A Microsoft recomenda a utilização de discos geridos com máquinas virtuais Azure (VMs) se possível. Para obter mais informações sobre discos geridos, consulte [a visão geral do armazenamento do disco Azure para VMs](../../virtual-machines/managed-disks-overview.md).
 
 As contas de armazenamento de blob de página premium têm os seguintes alvos de escalabilidade:
 
@@ -39,11 +39,11 @@ As contas de armazenamento de blob de página premium têm os seguintes alvos de
 
 Uma conta blob de página premium é uma conta de uso geral configurada para o desempenho premium. Recomenda-se a utilização geral das contas de armazenamento v2.
 
-Se estiver a utilizar contas de armazenamento de blob de página premium para discos não geridos e a sua aplicação exceder os objetivos de escalabilidade de uma única conta de armazenamento, então a Microsoft recomenda migrar para discos geridos. Para obter mais informações sobre discos geridos, consulte [a visão geral do armazenamento do disco Azure para Windows VMs](../../virtual-machines/windows/managed-disks-overview.md) ou [visão geral do armazenamento do disco Azure para os VMs Do Linux](../../virtual-machines/linux/managed-disks-overview.md).
+Se estiver a utilizar contas de armazenamento de blob de página premium para discos não geridos e a sua aplicação exceder os objetivos de escalabilidade de uma única conta de armazenamento, então a Microsoft recomenda migrar para discos geridos. Para obter mais informações sobre discos geridos, consulte [a visão geral do armazenamento do disco Azure para VMs](../../virtual-machines/managed-disks-overview.md).
 
 Se não conseguir migrar para discos geridos, então construa a sua aplicação para utilizar várias contas de armazenamento e dividir os seus dados através dessas contas de armazenamento. Por exemplo, se pretender anexar discos de 51-TB através de vários VMs, espalhe-os por duas contas de armazenamento. 35 TB é o limite para uma única conta de armazenamento premium. Certifique-se de que uma única conta de armazenamento de desempenho premium nunca tenha mais de 35 TB de discos a provisionados.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md)
 - [Metas de escalabilidade para contas de armazenamento de blocos premium](../blobs/scalability-targets-premium-block-blobs.md)
