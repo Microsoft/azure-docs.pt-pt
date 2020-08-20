@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923837"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607213"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -36,14 +36,12 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga pública (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[SKUs do Balancer de Carga Azure](skus.md)**.
 
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
-
-Pode criar um equilibrador de carga pública ou um equilibrador interno de carga. 
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
@@ -244,7 +242,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Subrede | **myBackendSubnet** |
     | IP público | Selecione **Nenhuma**. |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
-    | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
+    | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas  **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
     | **Balanceamento de carga**  |
     | Colocar esta máquina virtual por trás de uma solução de equilíbrio de carga existente? | Selecione **Sim** |
     | **Definições de equilíbrio de carga** |
@@ -289,7 +287,7 @@ Para obter mais informações sobre as ligações de saída, consulte [as ligaç
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Introduza **o meu OutboundRule**. |
-    | Endereço IP frontend | Selecione **Criar novo**. </br> Em **Nome**, insira **LoadBalancerFrontEndOutbound**. </br> Selecione **endereço IP** ou **prefixo IP**. </br> **Selecione Criar novos** no endereço IP **público** ou **prefixo IP público.** </br> Para nome, insira **myPublicIPOutbound** ou **myPublicIPPrefixOutbound**. </br> Selecione **Adicionar**.|
+    | Endereço IP frontend | Selecione **Criar novo**. </br> Em **Nome**, insira **LoadBalancerFrontEndOutbound**. </br> Selecione **endereço IP** ou **prefixo IP**. </br> **Selecione Criar novos** no endereço IP **público** ou **prefixo IP público.** </br> Para nome, insira  **myPublicIPOutbound** ou **myPublicIPPrefixOutbound**. </br> Selecione **Adicionar**.|
     | Tempo de 20 minutos (minutos) | Mova o slider para **15 minutos**.|
     | TCP Reset | Selecione **Ativado**.|
     | Conjunto de back-end | Selecione **Criar novo**. </br> Insira **o myBackendPoolOutbound** em **nome**. </br> Selecione **Adicionar**. |
@@ -317,14 +315,12 @@ Para obter mais informações sobre as ligações de saída, consulte [as ligaç
 
 8. Selecione **Guardar**.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga pública (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[SKUs do Balancer de Carga Azure](skus.md)**.
 
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
-
-Pode criar um equilibrador de carga pública ou um equilibrador interno de carga. 
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
@@ -445,7 +441,7 @@ Crie uma sonda de estado de funcionamento com o nome **myHealthProbe**, para mon
     | Nome | Insira **o myHealthProbe**. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira **80**.|
-    | Caminho | Inserir**/** |
+    | Caminho | Inserir **/** |
     | Intervalo | Introduza **15** para o número de **intervalos** em segundos entre tentativas de sonda. |
     | Limiar com funcionamento incorreto | Selecione **2** para o número de **falhas de sonda insalubres** ou falhas de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
 
@@ -530,7 +526,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Subrede | Selecione **myBackendSubnet** |
     | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
-    | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
+    | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas  **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
     | **Balanceamento de carga**  |
     | Colocar esta máquina virtual por trás de uma solução de equilíbrio de carga existente? | Selecione **Não** |
  

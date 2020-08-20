@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 08/19/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56a5d8607ac2472ba4ef4bdb090468691c93de6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 474e6c96be810192d3c4e1ada1ab2e0391a5d4f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505015"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606490"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configure identidades geridas para recursos Azure em um Azure VM usando PowerShell
 
@@ -48,10 +48,10 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
 
 1. Consulte um dos seguintes Quickstarts Azure VM, completando apenas as secções necessárias ("Iniciar ação com Azure", "Criar grupo de recursos", "Criar grupo de networking", "Criar o VM").
 
-    Quando chegar à secção "Criar o VM", faça uma ligeira modificação na sintaxe cmdlet [New-AzVMConfig.](/powershell/module/az.compute/new-azvm) Certifique-se de adicionar um `-AssignIdentity:$SystemAssigned` parâmetro para a disponibilização do VM com a identidade atribuída ao sistema, por exemplo:
+    Quando chegar à secção "Criar o VM", faça uma ligeira modificação na sintaxe cmdlet [New-AzVMConfig.](/powershell/module/az.compute/new-azvm) Certifique-se de adicionar um `-IdentityType SystemAssigned` parâmetro para a disponibilização do VM com a identidade atribuída ao sistema, por exemplo:
 
     ```powershell
-    $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
+    $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
@@ -69,11 +69,11 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    Connect-AzAccount
    ```
 
-2. Primeiro, recupere as propriedades VM utilizando o `Get-AzVM` cmdlet. Em seguida, para ativar uma identidade gerida atribuída pelo sistema, utilize o `-AssignIdentity` interruptor no cmdlet [Update-AzVM:](/powershell/module/az.compute/update-azvm)
+2. Primeiro, recupere as propriedades VM utilizando o `Get-AzVM` cmdlet. Em seguida, para ativar uma identidade gerida atribuída pelo sistema, utilize o `-IdentityType` interruptor no cmdlet [Update-AzVM:](/powershell/module/az.compute/update-azvm)
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
 
 

@@ -1,32 +1,32 @@
 ---
 title: Comparando o Microsoft AppSource e o Azure Marketplace
-description: Este artigo explica as diferenças entre as lojas comerciais da Microsoft - Microsoft AppSource e Azure Marketplace.
+description: Este artigo explica as diferenças entre as lojas online do mercado comercial da Microsoft - Microsoft AppSource e Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121814"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607471"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparando o Microsoft AppSource e o Azure Marketplace
 
-O mercado comercial da Microsoft inclui [o Microsoft AppSource](https://appsource.microsoft.com) e [o Azure Marketplace.](https://azuremarketplace.microsoft.com) Cada montra serve requisitos exclusivos do cliente e diferentes públicos-alvo, para que possa certificar-se de que a sua solução ou serviço está disponível para os clientes certos.
+O mercado comercial da Microsoft inclui [o Microsoft AppSource](https://appsource.microsoft.com) e [o Azure Marketplace.](https://azuremarketplace.microsoft.com) Cada loja online serve requisitos exclusivos do cliente e diferentes públicos-alvo, para que possa certificar-se de que a sua solução ou serviço está disponível para os clientes certos.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Compreender as diferenças entre montras
+## <a name="understanding-the-differences-between-online-stores"></a>Compreender as diferenças entre lojas online
 
-Para escolher uma montra, primeiro identifique o público-alvo para a sua oferta. Se estiver a direcionar o público em várias montras, pode publicar uma vez para vender em várias lojas.
+Para escolher uma loja online, identifique primeiro o público-alvo para a sua oferta. Se estiver a direcionar o público em várias lojas online, pode publicar uma vez para vender em várias lojas.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | Profissionais e Desenvolvedores de TI | Utilizadores empresariais e decisores empresariais |
 
-A tabela a seguir descreve os benefícios da utilização de uma montra:
+A tabela que se segue descreve os benefícios da utilização de uma loja online:
 
 | Benefícios | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
@@ -36,6 +36,6 @@ A tabela a seguir descreve os benefícios da utilização de uma montra:
 | **Vários tipos de nuvens** | Publique soluções para a nuvem pública e para as instalações utilizando os seguintes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nuvens regionais, incluindo a China e a Alemanha</li></ul> | Atualmente, não apoia Azure Stack, Governo Azure, ou nuvens regionais. |
 | **Apresentação em contexto aos clientes** | Disponibilize a sua solução na experiência Azure in-portal para pesquisa contextual. Utilize as aplicações Virtual machine e Azure: Opções de publicação de modelos de solução. | Contacte mais clientes através da experiência in-app para produtos da Microsoft como Dynamics 365, Power BI e Office 365. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja o [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)

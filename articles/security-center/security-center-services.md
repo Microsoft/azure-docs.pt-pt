@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258611"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607122"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -91,13 +91,13 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 
 | Endpoint Protection| Plataformas | Instalação do Centro de Segurança | Deteção do Centro de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016 ou mais tarde| Não, Incorporado no SO| Sim |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Sim |
-| Trend Micro – Segurança Profunda | Família Windows Server  | Não | Sim |
-| Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família linux servidor  | Não | Sim, é o seu **\*** |
-| Sophos V9+| Família linux servidor  | Não | Sim, é o seu  **\***  |
+| Microsoft Defender Antivírus| Windows Server 2016 ou mais tarde| Não, Incorporado no SO| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Yes |
+| Trend Micro – Segurança Profunda | Família Windows Server  | Não | Yes |
+| Symantec v12.1.1100+| Família Windows Server  | Não | Yes |
+| McAfee v10+ | Família Windows Server  | Não | Yes |
+| McAfee v10+ | Família linux servidor  | No | Sim, é o seu **\*** |
+| Sophos V9+| Família linux servidor  | No | Sim, é o seu  **\***  |
 
  **\*** O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 

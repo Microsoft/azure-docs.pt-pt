@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036577"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607331"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
@@ -120,11 +120,11 @@ Os editores de marketplace comercial são responsáveis por apoiar o seu softwar
 
 Durante o processo de publicação, é-lhe dado acesso a uma pré-visualização da sua oferta. O acesso é restrito aos utilizadores que especifica no **separador Pré-visualização,** e a oferta não pode ser vista por mais ninguém. Pode comprar uma pré-visualização e testar o processo, mas será cobrado o valor total de acordo com a configuração da sua oferta.
 
-Para concluir uma compra a um preço muito baixo, sugerimos a publicação de um plano privado que seja visível por si sozinho e a um preço que pode aceitar como custo de teste. Um preço de $0,00 é suportado mas não refletirá toda a experiência, como uma subscrição paga faria, por isso recomendamos definir o preço em $1,00.
+Para concluir uma compra a um preço baixo, sugerimos a publicação de um plano privado que seja visível por si sozinho e a um preço que pode aceitar como custo de teste. Um preço de $0,00 é suportado mas não refletirá toda a experiência, como uma subscrição paga faria, por isso recomendamos definir o preço em $1,00.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>O que são pistas do mercado comercial e o que devo fazer com elas?
 
-À medida que os clientes utilizam as suas ofertas nas lojas Microsoft AppSource e Azure Marketplace, a informação é capturada. Depois de os clientes terem demonstrado interesse suficiente, é criada uma vantagem e uma oportunidade é enviada para o sistema à sua escolha. Os editores que são bem sucedidos com o mercado comercial muitas vezes perseguem pistas, desenvolvem relações e transformam o interesse em negócios.
+À medida que os clientes utilizam as suas ofertas nas lojas online Do Microsoft AppSource e Azure Marketplace, a informação é capturada. Depois de os clientes terem demonstrado interesse suficiente, é criada uma vantagem e uma oportunidade é enviada para o sistema à sua escolha. Os editores que são bem sucedidos com o mercado comercial muitas vezes perseguem pistas, desenvolvem relações e transformam o interesse em negócios.
 
 Para mais informações, consulte [os leads do Cliente da sua oferta de mercado.](partner-center-portal/commercial-marketplace-get-customer-leads.md)
 
@@ -140,7 +140,7 @@ As ofertas são apresentadas aos clientes através de experiências no produto, 
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>A minha oferta pode aparecer tanto no Microsoft AppSource como no Azure Marketplace?
 
-O Microsoft AppSource é o destino para soluções de negócios e indústria, e o Azure Marketplace foi concebido para soluções de TI e desenvolvedores. As ofertas estão disponíveis em cada uma das montras com base nas categorias e indústrias que selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os utilizadores de ambas as lojas, pode aparecer em ambas.
+O Microsoft AppSource é o destino para soluções de negócios e indústria, e o Azure Marketplace foi concebido para soluções de TI e desenvolvedores. As ofertas estão disponíveis em cada uma das lojas online com base em categorias e indústrias que selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os utilizadores de ambas as lojas online, pode aparecer em ambas.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>O que é o programa Cloud Solution Provider?
 

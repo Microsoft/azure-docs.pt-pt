@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74186455"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606524"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar máquina de origem para a instalação de push de agente de mobilidade
 
@@ -59,12 +59,13 @@ Em cada máquina Linux que pretende proteger, faça o seguinte:
 11. No **separador 'Gerir Contas',** selecione **'Adicionar'.**
 12. Adicione a conta que criou.
 13. Introduza as credenciais que utiliza para ativar a replicação para um computador.
+1. Passo adicional para atualizar ou proteger as máquinas SUSE Linux Enterprise Server 11 SP3. [Certifique-se de que a versão mais recente está disponível no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivírus em máquinas replicadas
 
 Se as máquinas que pretende replicar tiverem um software antivírus ativo em funcionamento, certifique-se de que exclui a pasta de instalação do serviço mobility das operações antivírus *(C:\ProgramData\ASR\agent*). Isto garante que a replicação funciona como esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de instalado o Serviço de Mobilidade, no portal Azure, selecione **+ Replicar** para começar a proteger estes VMs. Saiba mais sobre a replicação de [VMware VMware](vmware-azure-enable-replication.md) e [servidores físicos](physical-azure-disaster-recovery.md#enable-replication).
 

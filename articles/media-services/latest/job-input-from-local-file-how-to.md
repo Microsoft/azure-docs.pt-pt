@@ -3,20 +3,20 @@ title: Crie uma entrada de trabalho da Azure Media Services a partir de um fiche
 description: Este artigo demonstra como criar uma entrada de trabalho da Azure Media Services a partir de um ficheiro local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: juliako
-ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4d7e6d9daa5d30c5cbf5b198a147564d0c05c074
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001133"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607233"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de trabalho a partir de um arquivo local
 
@@ -25,7 +25,6 @@ Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 * [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
-* Rever [gerir ativos](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>amostra .NET
 

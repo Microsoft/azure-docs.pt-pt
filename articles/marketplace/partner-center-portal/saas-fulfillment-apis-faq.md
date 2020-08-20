@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304416"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606798"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -63,13 +63,13 @@ A resposta à `Resolve` API inclui a oferta e a informação do plano associada 
 >[!Note]
 >Pode bloquear as desvalorizações se não quiser suportar caminhos de conversão específicos.
 
-A sequência abaixo capta o fluxo quando um cliente Azure muda de plano na experiência SaaS:
+A sequência abaixo capta o fluxo quando um cliente Azure altera um plano na experiência SaaS:
 
 ![Fluxo de mudança de plano de cliente](media/saas-metering-service-integration-flow-b.png)
 
-A sequência abaixo capta o fluxo quando um cliente Azure muda o plano na montra da Microsoft
+A sequência abaixo capta o fluxo quando um cliente Azure altera um plano na loja online da Microsoft:
 
-![Fluxo de mudança de plano de frente de loja do cliente](media/saas-metering-service-integration-flow-c.png)
+![Fluxo de mudança de plano de loja online do cliente](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>Como pode o utilizador Azure cancelar a subscrição do plano associado à subscrição do Azure?
 
@@ -79,9 +79,9 @@ A sequência abaixo capta o fluxo quando um cliente Azure não subscreve a ofert
 
 ![O cliente desinscreve-se na experiência SaaS](media/saas-metering-service-integration-flow-d.png)
 
-A sequência abaixo captura o fluxo quando o utilizador Azure não se subscreve na montra da Microsoft:
+A sequência abaixo captura o fluxo quando o utilizador Azure não subscreve a loja online da Microsoft:
 
-![Cliente desinscreve-se na montra da Microsoft](media/saas-metering-service-integration-flow-e.png)
+![Cliente desinscreve-se na loja online da Microsoft](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

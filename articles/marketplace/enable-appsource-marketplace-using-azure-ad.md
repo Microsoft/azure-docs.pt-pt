@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323269"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607411"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre a sua listagem de marketplace comercial com o Azure Ative Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323269"
 
 ## <a name="azure-ad-benefits"></a>Benefícios da AD Azure
 
-Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar catálogos de listagem de lojas. Estas ações exigem que os clientes inscrevam-se no produto. A integração AZURE AD proporciona os seguintes benefícios:
+Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar catálogos de listagem de lojas online. Estas ações exigem que os clientes inscrevam-se no produto. A integração AZURE AD proporciona os seguintes benefícios:
 
 - Envolvimento mais rápido e uma experiência de cliente otimizada
 - SSO (SSO) único para milhões de utilizadores empresariais
@@ -33,12 +33,12 @@ As várias [opções de listagem de](determine-your-listing-type.md) mercado com
 
 | Tipo de oferta    | Azure AD SSO necessário para contactar-me?  | Azure AD SSO necessário para julgamento? | Azure AD SSO necessário para test drive?  | Azure AD SSO necessário para a Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Máquina Virtual | N/D | Não | Não | Não |
+| Máquina Virtual | N/D | No | No | No |
 | Azure Apps (modelo de solução)  | N/D | N/D | N/D | N/D |
-| Aplicativos geridos  | N/D | N/D | N/D | Não |
-| SaaS  | Não | Sim | Sim | Sim |
-| Contentores  | N/D | N/D | N/D | Não |
-| Serviços de Consultoria  | Não | N/D | N/D | N/D |
+| Aplicativos geridos  | N/D | N/D | N/D | No |
+| SaaS  | Não | Yes | Yes | Yes |
+| Contentores  | N/D | N/D | N/D | No |
+| Serviços de Consultoria  | No | N/D | N/D | N/D |
 
 Para obter mais informações sobre os requisitos técnicos da SaaS, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](./azure-ad-saas.md)
 
@@ -56,8 +56,8 @@ Durante a autenticação, a Azure AD envia um símbolo para a sua app ou oferta.
 
 Quando utiliza o AZure AD para ativar a autenticação de um clique na sua aplicação ou listagem de testes, você:
 
-- Dinamize a experiência do cliente do Marketplace para a sua listagem de testes.
-- Mantenha a sensação de uma experiência no produto mesmo quando o utilizador é redirecionado do Marketplace para o seu domínio ou ambiente de teste.
+- Dinamize a experiência do cliente do mercado comercial até à sua listagem de testes.
+- Mantenha a sensação de uma experiência no produto mesmo quando o utilizador é redirecionado do mercado comercial para o seu domínio ou ambiente de teste.
 - Reduza a probabilidade de abandono quando os utilizadores são redirecionados porque não existem passos adicionais de inscrição.
 - Reduzir as barreiras de implantação para a grande população de utilizadores de AD Azure.
 
@@ -67,12 +67,12 @@ Quando utiliza o AZure AD para ativar a autenticação de um clique na sua aplic
 
 Utilize a Azure AD para apoiar as seguintes ações:
 
-- Registe a sua aplicação numa das montras do Marketplace. Ver [registo de App](../active-directory/develop/quickstart-register-app.md) ou [certificação AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) para mais informações.
+- Registe a sua aplicação numa das lojas online do mercado comercial. Ver [registo de App](../active-directory/develop/quickstart-register-app.md) ou [certificação AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) para mais informações.
 - Ative a funcionalidade de suporte multitenancy no AZure AD para obter uma experiência de teste de um clique.
 
 Se você é novo em usar Azure AD federado único sinal, tome estes passos:
 
-1. Registe a sua aplicação no Marketplace.
+1. Registe a sua aplicação no mercado comercial.
 1. Desenvolver SSO com Azure AD utilizando [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) ou [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Ativar a funcionalidade de suporte multitenancy no Azure AD para proporcionar uma experiência de teste de um clique.
 
@@ -89,7 +89,7 @@ Utilize a Azure AD para apoiar uma das seguintes ações:
 
 Se ainda não o fez, 
 
-- [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.
+- [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado comercial.
 
 Para se registar no Partner Center, comece a criar uma nova oferta ou a trabalhar numa existente:
 

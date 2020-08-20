@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168019"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607200"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -54,7 +54,7 @@ Uma vez que uma oferta tenha sido certificada e publicada, os clientes podem ser
 
 ## <a name="deploying-private-offers"></a>Implantação de ofertas privadas
 
-As ofertas privadas só são detetáveis através do [portal Azure](https://azure.microsoft.com/features/azure-portal/) e não são mostradas no [Microsoft AppSource](https://appsource.microsoft.com/) ou [no Azure Marketplace.](https://azuremarketplace.microsoft.com) Para saber mais sobre a publicação nas diferentes lojas comerciais, consulte [Determine a sua opção de publicação.](./determine-your-listing-type.md)
+As ofertas privadas só são detetáveis através do [portal Azure](https://azure.microsoft.com/features/azure-portal/) e não são mostradas no [Microsoft AppSource](https://appsource.microsoft.com/) ou [no Azure Marketplace.](https://azuremarketplace.microsoft.com) Para saber mais sobre a publicação nas diferentes lojas online do mercado comercial, consulte [Determine a sua opção de publicação.](./determine-your-listing-type.md)
 
 Uma vez assinado no portal Azure, os clientes podem selecionar o elemento de navegação Marketplace para aceder às suas ofertas privadas. As ofertas privadas também aparecerão nos resultados da pesquisa e podem ser implementadas através da linha de comando e dos modelos do Azure Resource Manager como qualquer outra oferta.
 

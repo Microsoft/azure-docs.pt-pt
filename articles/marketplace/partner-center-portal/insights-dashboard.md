@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323286"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607153"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel de insights de mercado no Partner Center
 
-Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise web do marketplace que permite aos editores medir o envolvimento do cliente nas respetivas páginas de detalhes do produto listadas nas lojas de marketplace comercial: Microsoft AppSource e Azure Marketplace.
+Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise web do marketplace que permite aos editores medir o envolvimento do cliente nas respetivas páginas de detalhes do produto listadas nas lojas online do mercado comercial: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard de Informações do Marketplace
 
@@ -42,11 +42,11 @@ A latência máxima entre os utilizadores que visitam ofertas no Azure Marketpla
 
 Ver métricas de mercado comercial de várias maneiras:
 
-- Separadores de fachada
+- Separadores de lojas online
 - Filtros de página
 - Filtros de data
 
-**Separadores de fachada**: Pode ver as métricas das suas ofertas separadamente através dos separadores appSource & Azure Marketplace. Selecione a(s) oferta(s) da lista de abandono da oferta no direito de ver uma visualização das métricas para a(s) oferta(s) selecionadas. Por predefinição, todas as ofertas são selecionadas.
+**Separados de lojas online**: Pode ver as métricas das suas ofertas separadamente através dos separadores appSource & Azure Marketplace. Selecione a(s) oferta(s) da lista de abandono da oferta no direito de ver uma visualização das métricas para a(s) oferta(s) selecionadas. Por predefinição, todas as ofertas são selecionadas.
 
 ![Parceiro Center Insights dashboard oferta lista de dropdown](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ O mapa de calor inclui as seguintes capacidades:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Visitas de página versus tendência única de visitantes
 
-As colunas abaixo representam a contagem de visitas mensais de páginas, que são exibidas no eixo Y (eixo no lado esquerdo da tabela). A linha de tendência representa a tendência mensal dos visitantes únicos, que é exibida no eixo Y secundário (eixo no lado direito da tabela), para as suas ofertas publicadas nas montras: Azure Marketplace e AppSource.
+As colunas abaixo representam a contagem de visitas mensais de páginas, que são exibidas no eixo Y (eixo no lado esquerdo da tabela). A linha de tendência representa a tendência mensal dos visitantes únicos, que é exibida no eixo Y secundário (eixo no lado direito da tabela), para as suas ofertas publicadas nas lojas online: Azure Marketplace e AppSource.
 
 ![Visitas de página do Partner Center Insights versus tendência única dos visitantes](./media/insights-page-vists-unique-visitors.png)
 

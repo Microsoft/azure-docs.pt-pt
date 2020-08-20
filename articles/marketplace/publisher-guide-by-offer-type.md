@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119723"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607265"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -22,7 +22,7 @@ Antes de poder criar uma oferta, e depois de [decidir uma opção de publicaçã
 
 Um único tipo de oferta pode ser configurado de diferentes formas para permitir diferentes opções de publicação, chamadas à ação, provisionamento ou preços. A opção de publicação e configuração do tipo de oferta também alinham-se com a elegibilidade da oferta e os requisitos técnicos.
 
-Certifique-se de rever a montra e oferecer requisitos de elegibilidade do tipo e os requisitos técnicos de publicação antes de criar a sua oferta.
+Certifique-se de rever a loja online e oferecer requisitos de elegibilidade do tipo e os requisitos técnicos de publicação antes de criar a sua oferta.
 
 ## <a name="list-of-offer-types"></a>Lista de tipos de ofertas
 
@@ -42,7 +42,7 @@ Os tipos de oferta do Azure Marketplace estão listados na tabela abaixo.
 
 Para obter informações sobre os requisitos de inscrição única, listando opções e tipos de oferta, consulte [**os requisitos AD da Azure**](./enable-appsource-marketplace-using-azure-ad.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade no artigo correspondente para o seu tipo de oferta (secções seguintes) para finalizar a seleção e configuração da sua oferta.
-- Reveja os padrões de publicação por montra, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.
+- Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

@@ -1,22 +1,22 @@
 ---
 title: Detalhes do pagamento por região - Mercado comercial da Microsoft
-description: Saiba como o tempo estimado para transferir pagamentos, e as montras da Microsoft a partir das quais pode receber pagamentos, variar dependendo do seu país/região e do tipo de conta de pagamento.
+description: Saiba como o tempo estimado para transferir pagamentos, e as lojas online da Microsoft a partir das quais pode receber pagamentos, variar dependendo do seu país/região e do tipo de conta de pagamento.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327332"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607287"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limiares, métodos e períodos de tempo de pagamento
 
-O tempo estimado para transferir pagamentos, e as montras de onde pode receber pagamentos, pode variar dependendo do seu país/região e do tipo de conta de pagamento. Este artigo descreve os métodos de pagamento suportados em cada país e região.
+O tempo estimado para transferir pagamentos, e as lojas online de onde pode receber pagamentos, pode variar dependendo do seu país/região e do tipo de conta de pagamento. Este artigo descreve os métodos de pagamento suportados em cada país e região.
 
 Para qualquer país e região, pagamos usando ACH/SEPA ou transferência bancária. Alguns países e regiões também apoiam o PayPal como um método de pagamento.
 
@@ -40,158 +40,158 @@ Estes são os países e regiões em que os métodos de pagamento acima referidos
 
 | País/Região | Azure Marketplace | Loja, Publicidade, Misturador e Minecraft | Office | Pagamentos PayPal  |
 | --- | --- | --- | --- | --- |
-| Afeganistão | Sim | Sim | Não | Não |
-| Albânia | Sim | Sim | Sim | Sim |
-| Argélia | Sim | Sim | Sim | Sim |
-| Andorra | Não | Não | Sim | Sim |
-| Angola | Sim | Sim | Sim | Não |
-| Antígua e Barbuda | Sim | Sim | Não | Sim |
-| Argentina | Sim | Sim | Sim | Sim |
-| Arménia | Sim | Sim | Não | Não |
-| Austrália | Sim | Sim | Sim | Sim |
-| Áustria | Sim | Sim | Sim | Sim |
-| Azerbaijão | Sim | Sim | Sim | Não |
-| Barém | Sim | Sim | Sim | Sim |
-| Bangladesh | Sim | Sim | Sim | Não |
-| Bielorrússia | Sim | Sim | Sim | Não |
-| Bélgica | Sim | Sim | Sim | Sim |
-| Benim | Sim | Sim | Sim | Não |
-| Bolívia | Sim | Sim | Sim | Não |
-| Bósnia e Herzegovina | Sim | Sim | Sim | Sim |
-| Botsuana | Sim | Sim | Não | Sim |
-| Brasil | Sim | Sim | Sim | Sim |
-| Bulgária | Sim | Sim | Sim | Sim |
-| Burkina Faso | Sim | Sim | Sim | Não |
-| Burundi | Sim | Sim | Sim | Não |
-| Camboja | Sim | Sim | Sim | Não |
-| Camarões | Sim | Sim | Sim | Não |
-| Canadá | Sim | Sim | Sim | Sim |
-| República Centro-Africana | Sim | Sim | Sim | Não |
-| Chade | Sim | Sim | Sim | Não |
-| Chile | Sim | Sim | Sim | Sim |
-| China | Não | Sim | Sim | Sim |
-| Colômbia | Sim | Sim | Sim | Sim |
-| Comoros | Sim | Sim | Não | Não |
-| República Democrática do Congo | Sim | Sim | Sim | Não |
-| Congo, República da | Sim | Sim | Sim | Não |
-| Costa Rica | Sim | Sim | Sim | Sim |
-| Costa do Marfim (Côte d’Ivoire) | Sim | Sim | Sim | Não |
-| Croácia | Sim | Sim | Sim | Não |
-| Chipre | Sim | Sim | Sim | Sim |
-| República Checa | Sim | Sim | Sim | Sim |
-| Dinamarca | Sim | Sim | Sim | Sim |
-| Dominica | Sim | Sim | Não | Sim |
-| República Dominicana | Sim | Sim | Sim | Sim |
-| Equador | Sim | Sim | Sim | Sim |
-| Egito | Sim | Sim | Sim | Sim |
-| Salvador | Sim | Sim | Sim | Sim |
-| Eritreia | Sim | Sim | Sim | Não |
-| Estónia | Sim | Sim | Sim | Sim |
-| Etiópia | Sim | Sim | Sim | Não |
-| Ilhas Fiji | Sim | Sim | Não | Não |
-| Finlândia | Sim | Sim | Sim | Sim |
-| França | Sim | Sim | Sim | Sim |
-| Geórgia | Sim | Sim | Sim | Sim |
-| Alemanha | Sim | Sim | Sim | Sim |
-| Gana | Sim | Sim | Sim | Não |
-| Grécia | Sim | Sim | Sim | Sim |
-| Guatemala | Sim | Sim | Sim | Sim |
-| Guiné | Sim | Sim | Sim | Não |
-| Haiti | Sim | Sim | Sim | Não |
-| Honduras | Sim | Sim | Sim | Sim |
-| RAE de Hong Kong | Sim | Sim | Sim | Sim |
-| Hungria | Sim | Sim | Sim | Sim |
-| Islândia | Sim | Sim | Sim | Não |
-| Índia | Sim | Sim | Sim | Sim |
-| Indonésia | Sim | Sim | Sim | Sim |
-| Iraque | Sim | Sim | Não | Não |
-| Irlanda | Sim | Sim | Sim | Sim |
-| Israel | Sim | Sim | Sim | Sim |
-| Itália | Sim | Sim | Sim | Sim |
-| Jamaica | Sim | Sim | Sim | Sim |
-| Japão | Sim | Sim | Sim | Sim |
-| Jordânia | Sim | Sim | Sim | Sim |
-| Cazaquistão | Sim | Sim | Sim | Sim |
-| Quénia | Sim | Sim | Sim | Sim |
-| Coreia (Sul) | Sim | Sim | Sim | Não |
-| Koweit | Sim | Sim | Sim | Sim |
-| Quirguistão | Não | Não | Sim | Não |
-| Laos | Sim | Sim | Sim | Não |
-| Letónia | Sim | Sim | Sim | Não |
-| Líbano | Sim | Sim | Não | Não |
-| Libéria | Sim | Sim | Sim | Não |
-| Listenstaine | Sim | Sim | Sim | Sim |
-| Lituânia | Sim | Sim | Sim | Não |
-| Luxemburgo | Sim | Sim | Sim | Sim |
-| Macedónia | Não | Sim | Sim | Não |
-| Madagáscar | Sim | Sim | Sim | Não |
-| Maláui | Sim | Sim | Sim | Sim |
-| Malásia | Sim | Sim | Sim | Sim |
-| Mali | Sim | Sim | Sim | Não |
-| Malta | Sim | Sim | Sim | Sim |
-| Maurícias | Sim | Sim | Não | Sim |
-| México | Sim | Sim | Sim | Sim |
-| Mónaco | Sim | Sim | Não | Não |
-| Mongólia | Sim | Sim | Sim | Não |
-| Montenegro | Sim | Sim | Sim | Não |
-| Marrocos | Sim | Sim | Sim | Não |
-| Moçambique | Sim | Sim | Sim | Sim |
-| Nepal | Sim | Sim | Sim | Não |
-| Holanda | Sim | Sim | Sim | Sim |
-| Nova Zelândia | Sim | Sim | Sim | Sim |
-| Nicarágua | Sim | Sim | Sim | Sim |
-| Níger | Sim | Sim | Sim | Não |
-| Nigéria | Sim | Sim | Sim | Não |
-| Noruega | Sim | Sim | Sim | Sim |
-| Omã | Sim | Sim | Sim | Sim |
-| Paquistão | Sim | Sim | Sim | Não |
-| Panamá | Sim | Sim | Sim | Sim |
-| Paraguai | Sim | Sim | Sim | Não |
-| Peru | Sim | Sim | Sim | Sim |
-| Filipinas | Sim | Sim | Sim | Sim |
-| Polónia | Sim | Sim | Sim | Sim |
-| Portugal | Sim | Sim | Sim | Sim |
-| Porto Rico | Não | Não | Sim | Não |
-| Catar | Sim | Sim | Sim | Sim |
-| Roménia | Sim | Sim | Sim | Não |
-| Rússia | Sim | Sim | Não | Sim |
-| Ruanda | Sim | Sim | Sim | Não |
-| São Vicente e Granadinas | Não | Sim | Não | Não |
-| Arábia Saudita | Sim | Sim | Sim | Sim |
-| Senegal | Sim | Sim | Sim | Não |
-| Sérvia | Sim | Sim | Sim | Não |
-| Serra Leoa | Sim | Sim | Sim | Não |
-| Singapura | Sim | Sim | Sim | Sim |
-| Eslováquia | Sim | Sim | Sim | Sim |
-| Eslovénia | Sim | Sim | Sim | Sim |
-| Somália | Sim | Sim | Sim | Não |
-| África do Sul | Sim | Sim | Sim | Sim |
-| Espanha | Sim | Sim | Sim | Sim |
-| Sri Lanca | Sim | Sim | Sim | Não |
-| Suécia | Sim | Sim | Sim | Sim |
-| Suíça | Sim | Sim | Sim | Não |
-| Taiwan | Não | Sim | Sim | Sim |
-| Tajiquistão | Sim | Sim | Não | Não |
-| Tanzânia | Sim | Sim | Sim | Não |
-| Tailândia | Sim | Sim | Sim | Sim |
-| Timor-Leste | Sim | Sim | Sim | Não |
-| Togo | Sim | Sim | Sim | Não |
-| Tonga | Sim | Sim | Não | Não |
-| Trindade e Tobago | Sim | Sim | Sim | Sim |
-| Tunísia | Sim | Sim | Sim | Não |
-| Turquia | Sim | Sim | Sim | Não |
-| Turquemenistão | Sim | Sim | Não | Não |
-| Uganda | Sim | Sim | Sim | Não |
-| Ucrânia | Sim | Sim | Não | Não |
-| Emirados Árabes Unidos | Sim | Sim | Sim | Sim |
-| Reino Unido | Sim | Sim | Sim | Sim |
-| Estados Unidos da América | Sim | Sim | Sim | Sim |
-| Uruguai | Sim | Sim | Sim | Sim |
-| Usbequistão | Sim | Sim | Não | Não |
-| Venezuela | Sim | Sim | Sim | Sim |
-| Vietname | Sim | Sim | Sim | Sim |
-| Zâmbia | Sim | Sim | Sim | Não |
-| Zimbabué | Sim | Sim | Sim | Não |
+| Afeganistão | Yes | Sim | No | No |
+| Albânia | Yes | Yes | Yes | Yes |
+| Argélia | Yes | Yes | Yes | Yes |
+| Andorra | No | Não | Yes | Yes |
+| Angola | Yes | Yes | Sim | No |
+| Antígua e Barbuda | Yes | Sim | Não | Yes |
+| Argentina | Yes | Yes | Yes | Yes |
+| Arménia | Yes | Sim | No | No |
+| Austrália | Yes | Yes | Yes | Yes |
+| Áustria | Yes | Yes | Yes | Yes |
+| Azerbaijão | Yes | Yes | Sim | No |
+| Barém | Yes | Yes | Yes | Yes |
+| Bangladesh | Yes | Yes | Sim | No |
+| Bielorrússia | Yes | Yes | Sim | No |
+| Bélgica | Yes | Yes | Yes | Yes |
+| Benim | Yes | Yes | Sim | No |
+| Bolívia | Yes | Yes | Sim | No |
+| Bósnia e Herzegovina | Yes | Yes | Yes | Yes |
+| Botsuana | Yes | Sim | Não | Yes |
+| Brasil | Yes | Yes | Yes | Yes |
+| Bulgária | Yes | Yes | Yes | Yes |
+| Burkina Faso | Yes | Yes | Sim | No |
+| Burundi | Yes | Yes | Sim | No |
+| Camboja | Yes | Yes | Sim | No |
+| Camarões | Yes | Yes | Sim | No |
+| Canadá | Yes | Yes | Yes | Yes |
+| República Centro-Africana | Yes | Yes | Sim | No |
+| Chade | Yes | Yes | Sim | No |
+| Chile | Yes | Yes | Yes | Yes |
+| China | Não | Yes | Yes | Yes |
+| Colômbia | Yes | Yes | Yes | Yes |
+| Comoros | Yes | Sim | No | No |
+| República Democrática do Congo | Yes | Yes | Sim | No |
+| Congo, República da | Yes | Yes | Sim | No |
+| Costa Rica | Yes | Yes | Yes | Yes |
+| Costa do Marfim (Côte d’Ivoire) | Yes | Yes | Sim | No |
+| Croácia | Yes | Yes | Sim | No |
+| Chipre | Yes | Yes | Yes | Yes |
+| República Checa | Yes | Yes | Yes | Yes |
+| Dinamarca | Yes | Yes | Yes | Yes |
+| Dominica | Yes | Sim | Não | Yes |
+| República Dominicana | Yes | Yes | Yes | Yes |
+| Equador | Yes | Yes | Yes | Yes |
+| Egito | Yes | Yes | Yes | Yes |
+| Salvador | Yes | Yes | Yes | Yes |
+| Eritreia | Yes | Yes | Sim | No |
+| Estónia | Yes | Yes | Yes | Yes |
+| Etiópia | Yes | Yes | Sim | No |
+| Ilhas Fiji | Yes | Sim | No | No |
+| Finlândia | Yes | Yes | Yes | Yes |
+| França | Yes | Yes | Yes | Yes |
+| Geórgia | Yes | Yes | Yes | Yes |
+| Alemanha | Yes | Yes | Yes | Yes |
+| Gana | Yes | Yes | Sim | No |
+| Grécia | Yes | Yes | Yes | Yes |
+| Guatemala | Yes | Yes | Yes | Yes |
+| Guiné | Yes | Yes | Sim | No |
+| Haiti | Yes | Yes | Sim | No |
+| Honduras | Yes | Yes | Yes | Yes |
+| RAE de Hong Kong | Yes | Yes | Yes | Yes |
+| Hungria | Yes | Yes | Yes | Yes |
+| Islândia | Yes | Yes | Sim | No |
+| Índia | Yes | Yes | Yes | Yes |
+| Indonésia | Yes | Yes | Yes | Yes |
+| Iraque | Yes | Sim | No | No |
+| Irlanda | Yes | Yes | Yes | Yes |
+| Israel | Yes | Yes | Yes | Yes |
+| Itália | Yes | Yes | Yes | Yes |
+| Jamaica | Yes | Yes | Yes | Yes |
+| Japão | Yes | Yes | Yes | Yes |
+| Jordânia | Yes | Yes | Yes | Yes |
+| Cazaquistão | Yes | Yes | Yes | Yes |
+| Quénia | Yes | Yes | Yes | Yes |
+| Coreia (Sul) | Yes | Yes | Sim | No |
+| Koweit | Yes | Yes | Yes | Yes |
+| Quirguistão | No | Não | Sim | No |
+| Laos | Yes | Yes | Sim | No |
+| Letónia | Yes | Yes | Sim | No |
+| Líbano | Yes | Sim | No | No |
+| Libéria | Yes | Yes | Sim | No |
+| Listenstaine | Yes | Yes | Yes | Yes |
+| Lituânia | Yes | Yes | Sim | No |
+| Luxemburgo | Yes | Yes | Yes | Yes |
+| Macedónia | Não | Yes | Sim | No |
+| Madagáscar | Yes | Yes | Sim | No |
+| Maláui | Yes | Yes | Yes | Yes |
+| Malásia | Yes | Yes | Yes | Yes |
+| Mali | Yes | Yes | Sim | No |
+| Malta | Yes | Yes | Yes | Yes |
+| Maurícias | Yes | Sim | Não | Yes |
+| México | Yes | Yes | Yes | Yes |
+| Mónaco | Yes | Sim | No | No |
+| Mongólia | Yes | Yes | Sim | No |
+| Montenegro | Yes | Yes | Sim | No |
+| Marrocos | Yes | Yes | Sim | No |
+| Moçambique | Yes | Yes | Yes | Yes |
+| Nepal | Yes | Yes | Sim | No |
+| Holanda | Yes | Yes | Yes | Yes |
+| Nova Zelândia | Yes | Yes | Yes | Yes |
+| Nicarágua | Yes | Yes | Yes | Yes |
+| Níger | Yes | Yes | Sim | No |
+| Nigéria | Yes | Yes | Sim | No |
+| Noruega | Yes | Yes | Yes | Yes |
+| Omã | Yes | Yes | Yes | Yes |
+| Paquistão | Yes | Yes | Sim | No |
+| Panamá | Yes | Yes | Yes | Yes |
+| Paraguai | Yes | Yes | Sim | No |
+| Peru | Yes | Yes | Yes | Yes |
+| Filipinas | Yes | Yes | Yes | Yes |
+| Polónia | Yes | Yes | Yes | Yes |
+| Portugal | Yes | Yes | Yes | Yes |
+| Porto Rico | No | Não | Sim | No |
+| Catar | Yes | Yes | Yes | Yes |
+| Roménia | Yes | Yes | Sim | No |
+| Rússia | Yes | Sim | Não | Yes |
+| Ruanda | Yes | Yes | Sim | No |
+| São Vicente e Granadinas | Não | Sim | No | No |
+| Arábia Saudita | Yes | Yes | Yes | Yes |
+| Senegal | Yes | Yes | Sim | No |
+| Sérvia | Yes | Yes | Sim | No |
+| Serra Leoa | Yes | Yes | Sim | No |
+| Singapura | Yes | Yes | Yes | Yes |
+| Eslováquia | Yes | Yes | Yes | Yes |
+| Eslovénia | Yes | Yes | Yes | Yes |
+| Somália | Yes | Yes | Sim | No |
+| África do Sul | Yes | Yes | Yes | Yes |
+| Espanha | Yes | Yes | Yes | Yes |
+| Sri Lanca | Yes | Yes | Sim | No |
+| Suécia | Yes | Yes | Yes | Yes |
+| Suíça | Yes | Yes | Sim | No |
+| Taiwan | Não | Yes | Yes | Yes |
+| Tajiquistão | Yes | Sim | No | No |
+| Tanzânia | Yes | Yes | Sim | No |
+| Tailândia | Yes | Yes | Yes | Yes |
+| Timor-Leste | Yes | Yes | Sim | No |
+| Togo | Yes | Yes | Sim | No |
+| Tonga | Yes | Sim | No | No |
+| Trindade e Tobago | Yes | Yes | Yes | Yes |
+| Tunísia | Yes | Yes | Sim | No |
+| Turquia | Yes | Yes | Sim | No |
+| Turquemenistão | Yes | Sim | No | No |
+| Uganda | Yes | Yes | Sim | No |
+| Ucrânia | Yes | Sim | No | No |
+| Emirados Árabes Unidos | Yes | Yes | Yes | Yes |
+| Reino Unido | Yes | Yes | Yes | Yes |
+| Estados Unidos da América | Yes | Yes | Yes | Yes |
+| Uruguai | Yes | Yes | Yes | Yes |
+| Usbequistão | Yes | Sim | No | No |
+| Venezuela | Yes | Yes | Yes | Yes |
+| Vietname | Yes | Yes | Yes | Yes |
+| Zâmbia | Yes | Yes | Sim | No |
+| Zimbabué | Yes | Yes | Sim | No |
 | | |
 
 ## <a name="next-step"></a>Próximo passo

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498026"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607378"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -32,7 +32,7 @@ Será contactado por um membro da equipa de Prémios quando a sua oferta for tra
 
 Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace comercial, desbloqueia maiores benefícios por nível.
 
-O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado comercial como plataforma.
+O requisito mínimo para publicar nas lojas online é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado comercial como plataforma.
 
 Você terá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
@@ -87,7 +87,7 @@ Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor d
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2021.
+\* O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2021.
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards.](https://aka.ms/marketplacerewards)
 

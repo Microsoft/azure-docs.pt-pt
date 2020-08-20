@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035183"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606885"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
@@ -44,7 +44,7 @@ Uma vez configurado o seu destino principal corretamente e tiver atingido a Publ
 
 Uma vez que a configuração técnica esteja em vigor, você deve incorporar estes leads nas suas vendas correntes & estratégia de marketing e processos operacionais. Estamos interessados em compreender melhor o seu processo global de vendas e queremos trabalhar em estreita colaboração consigo no fornecimento de leads de alta qualidade e dados suficientes para o tornar bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar os leads que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se estiver interessado em fornecer feedback e sugestões para que a sua equipa de vendas tenha mais sucesso com a Marketplace Leads.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Erros comuns de configuração de chumbo durante a publicação no Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Erros comuns de configuração de chumbo durante a publicação no Partner Center
 
 **Não consegui guardar a vantagem para a Dynamics CRM. Verifique as definições da conta CrM Dynamics. LastCRMError: Incapaz de iniciar sposição na Dynamics CRM, LastCRMException:** 
 

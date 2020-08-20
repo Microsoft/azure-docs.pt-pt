@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797870"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607449"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
 
@@ -22,7 +22,7 @@ As ofertas de serviços de consultoria são compromissos específicos do cliente
 
 ## <a name="compare-consulting-services"></a>Comparar serviços de consultoria
 
-As lojas de marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas com o público e produtos na nuvem para ajudar os clientes a encontrar o que precisam. Cada montra tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento editorial. Para saber mais sobre a diferença entre as duas montras, consulte [Comparar o Microsoft AppSource e o Azure Marketplace.](comparing-appsource-azure-marketplace.md)
+As lojas online de marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas com o público e produtos na nuvem para ajudar os clientes a encontrar o que precisam. Cada loja online tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento editorial. Para saber mais sobre a diferença entre as duas lojas online, consulte [Comparar o Microsoft AppSource e o Azure Marketplace.](comparing-appsource-azure-marketplace.md)
 
 As ofertas de serviços de consultoria baseadas em Dynamics 365, Power Apps e Power BI são elegíveis para serem listadas no AppSource. Para mais informações, descarregue o ficheiro PDF de [serviços de consultoria microsoft AppSource.](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)
 
@@ -34,7 +34,7 @@ Serviços de consultoria e ofertas de serviços geridos baseados no Microsoft Az
 > Os serviços de consultoria no AppSource devem focar-se em ofertas para utilizadores com experiência na entrega de soluções de qualidade para a Dynamics 365, Power BI ou Power Apps.
  
 > [!TIP]
-> Para publicar na loja Azure Marketplace, na lista de down-down **do Produto Primário** do Centro de Parceiros, selecione **Azure**.
+> Para publicar no Azure Marketplace, na lista de down-down **do Produto Primário do** Centro de Parceiros, selecione **Azure**.
 >
 > Para publicar no AppSource, na lista de down-down **do Produto Primário do** Centro de Parceiros, selecione **Dynamics 365,** **Power BI**ou **Power Apps**.
 
@@ -86,12 +86,12 @@ Os parceiros integradores de sistemas podem apresentar ofertas de serviços de c
 Comece por [registar a](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informação da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Torne-se um editor no mercado.](become-publisher.md) 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Prepare os seus artefactos editoriais
-Antes de se registar, pode começar a recolher e preparar o conteúdo que ajudará a sua listagem a articular o valor do seu serviço e solução para o seu cliente-alvo.
+Antes de se registar, pode começar a recolher e preparar o conteúdo que ajudará a sua listagem a articular o valor do seu serviço e solução para o seu cliente-alvo. 
 
 |Configuração para novas editoras  |
 |---------|
 |ID do MPN     |
-|Logotipos da empresa: 48 x 48 pixels (opcional), 216 x 216 pixels – 350 x 350 pixels (obrigatórios)  |
+|Logotipos da empresa (48 x 48, 216 x 216 pixels)     |
 |Destino principal     |
 ||
 
@@ -150,7 +150,7 @@ Exemplos:
 
 Após a equipa de revisão de conteúdos rever as descrições da sua oferta e oferecer resumos, aplicarão os seguintes critérios:
 
-|Tipo de oferta  |Obrigatório |Recomendado  |
+|Tipo de oferta  |Necessário |Recomendado  |
 |---------|---------|---------|
 |**Avaliação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou multi-semanas e articule o que o cliente pode esperar.      |    Otimize o resumo da sua oferta com as suas palavras-chave SEO de topo.     |
 |**Briefing**    |   Articular o que o cliente pode esperar. Lembre-se, *o briefing* deve ser fornecido pessoalmente. Se estiver a prestar um serviço virtual, escolha um tipo de oferta diferente.    |  Otimize o resumo da sua oferta com as suas palavras-chave SEO de topo.       |

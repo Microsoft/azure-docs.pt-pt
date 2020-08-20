@@ -5,20 +5,27 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964588"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606915"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 
-Como um serviço de base de dados totalmente gerido na nuvem, a Azure Cosmos DB simplifica a faturação cobrando apenas para o rendimento provisitado e armazenamento consumido. Não existem taxas adicionais de licença, hardware, custos de utilidade ou custos de instalação em comparação com as alternativas no local ou alternativas hospedadas pelo IaaS. Quando se considera as capacidades multi-regiões da Azure Cosmos DB, o serviço de base de dados proporciona uma redução substancial dos custos em comparação com as soluções existentes no local ou iaaS.
+Como um serviço de base de dados totalmente gerido na nuvem, a Azure Cosmos DB simplifica a faturação cobrando apenas para as suas operações de base de dados e armazenamento consumido. Não existem taxas adicionais de licença, hardware, custos de utilidade ou custos de instalação em comparação com as alternativas no local ou alternativas hospedadas pelo IaaS. Quando se considera as capacidades multi-regiões da Azure Cosmos DB, o serviço de base de dados proporciona uma redução substancial dos custos em comparação com as soluções existentes no local ou iaaS.
 
-Com a Azure Cosmos DB, você é cobrado de hora a hora com base na produção a provisionada e no armazenamento consumido. Para o rendimento previsto, a unidade de faturação é de 100 RU/seg por hora, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre os preços. Para o armazenamento consumido, você é cobrado por 1 GB de armazenamento por mês, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) mais recente.
+- **Operações de base de dados**: A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
+
+  - **Produção prevista**: É cobrado de hora em hora para o rendimento máximo previsto para uma determinada hora, em incrementos de 100 RU/s.
+  - **Serverless**: É cobrado por hora a quantidade total de Unidades de Pedido consumidas pelas suas operações de base de dados.
+
+- **Armazenamento**: É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora.
+
+Consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as últimas informações sobre preços.
 
 Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes apresentados na fatura mensal. Os números mostrados nos exemplos poderão ser diferentes se os seus contentores do Azure Cosmos tiverem uma quantidade diferente de débito aprovisionado, se estiverem em várias regiões ou se forem executados durante um período diferente ao longo de um mês. Todos os exemplos deste artigo calculam a fatura com base nas informações de preços mostradas na [página de preços.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
@@ -27,7 +34,7 @@ Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes aprese
 
 ## <a name="billing-examples"></a>Exemplos de faturação
 
-### <a name="billing-example---throughput-on-a-container-full-month"></a>Exemplo de faturação - produção num contentor (mês inteiro)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>Exemplo de faturação - produção a provisionada num contentor (mês inteiro)
 
 * Vamos supor que você configura uma produção de 1.000 RU/seg em um recipiente, e existe por 24 horas * 30 dias para o mês = 720 horas no total.  
 
@@ -39,13 +46,21 @@ Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes aprese
 
 * A fatura mensal total mostrará 7.200 unidades (de 100 RUs), que custarão $57,60.
 
-### <a name="billing-example---throughput-on-a-container-partial-month"></a>Exemplo de faturação - produção num contentor (mês parcial)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>Exemplo de faturação - produção a provisionada num contentor (mês parcial)
 
 * Vamos assumir que criamos um contentor com produção de 2.500 RU/seg. O contentor vive durante 24 horas ao longo do mês (por exemplo, apagamo-lo 24 horas depois de o criarmos).  
 
 * Em seguida, veremos 600 unidades na fatura (2.500 RU/sec / 100 RU/sec/unidade * 24 horas). O custo será de $4,80 (600 unidades * $0,008/unidade).
 
 * A conta total do mês será de $4,80.
+
+### <a name="billing-example---serverless-container"></a>Exemplo de faturação - recipiente sem servidor
+
+* Vamos supor que criamos um recipiente sem servidor. 
+
+* Ao longo de um mês, emitimos pedidos de base de dados consumindo um total de 500.000 Unidades de Pedido. O custo será de $0.125 (500.000 * $0,25/milhão).
+
+* A conta total do mês será de $0.125.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Taxa de faturação se o tamanho do armazenamento mudar
 
@@ -55,7 +70,7 @@ A capacidade de armazenamento é faturada em unidades da quantidade máxima hor�
 
 É cobrado a taxa fixa por cada hora que o contentor ou base de dados existe, independentemente da utilização ou se o contentor ou base de dados estiver ativo por menos de uma hora. Por exemplo, se criar um contentor ou base de dados e o eliminar 5 minutos depois, a sua conta incluirá uma hora.
 
-### <a name="billing-rate-when-throughput-on-a-container-or-database-scales-updown"></a>Taxa de faturação quando a produção num contentor ou numa base de dados escala para cima/para baixo
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>Taxa de faturação quando provisida em um contentor ou escalas de base de dados para cima/para baixo
 
 Se aumentar a produção proviscizada às 9:30 da manhã de 400 RU/seg para 1.000 RU/seg e, em seguida, menor produção provisida às 10:45 am de volta para 400 RU/seg, você será cobrado por duas horas de 1.000 RU/sec. 
 
@@ -75,7 +90,7 @@ Se aumentar a produção proviscizada para um contentor ou um conjunto de conten
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exemplo de conta de produção dedicada":::
 
-### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemplo de faturação: contentores com modo de produção partilhado
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>Exemplo de faturação: contentores com modo de produção partilhado (a provisionado)
 
 * Se criar uma conta Azure Cosmos no Leste dos EUA 2 com duas bases de dados Azure Cosmos (com um conjunto de contentores que partilham a produção ao nível da base de dados) com o rendimento previsto de 50-K RU/sec e 70-K RU/sec, respectivamente, teria um rendimento total provisto de 120 K RU/sec.  
 
@@ -97,7 +112,7 @@ Pode adicionar/remover regiões do Azure em qualquer parte do mundo à sua conta
 
 Vamos supor que tens um contentor Azure Cosmos no Oeste dos EUA. O contentor é criado com produção 10K RU/seg e armazena 1 TB de dados este mês. Vamos supor que adicione três regiões (Leste dos EUA, Norte da Europa e Ásia Oriental) à sua conta Azure Cosmos, cada uma com o mesmo armazenamento e produção. A sua fatura mensal total será (assumindo 30 dias num mês). A sua conta seria a seguinte: 
 
-|**Item** |**Utilização (mês)** |**Tarifa** |**Custo Mensal** |
+|**Item** |**Utilização (mês)** |**Rate** (Taxa) |**Custo Mensal** |
 |---------|---------|---------|-------|
 |Conta de produção de contentores no Oeste dos EUA      | 10K RU/seg * 24 * 30    |$0,008 por 100 RU/seg por hora   |$576|
 |Conta de produção para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental       | 3 * 10K RU/seg * 24 * 30    |$0,008 por 100 RU/seg por hora  |$1.728|
@@ -111,7 +126,7 @@ Vamos supor que tens um contentor Azure Cosmos no Oeste dos EUA. O contentor é 
 
 Vamos supor que crias um contentor Azure Cosmos no Oeste dos EUA. O contentor é criado com produção 10K RU/seg e armazena 1 TB de dados este mês. Vamos supor que você adiciona três regiões (Eua Leste, Norte da Europa e Ásia Oriental), cada uma com o mesmo armazenamento e produção e você quer a capacidade de escrever para os contentores em todas as regiões associadas à sua conta Azure Cosmos. A sua fatura mensal total será (assumindo 30 dias num mês) da seguinte forma:
 
-|**Item** |**Utilização (mês)**|**Tarifa** |**Custo Mensal** |
+|**Item** |**Utilização (mês)**|**Rate** (Taxa) |**Custo Mensal** |
 |---------|---------|---------|-------|
 |Conta de produção de contentores nos EUA Ocidentais (todas as regiões são writable)       | 10K RU/seg * 24 * 30    |$0,016 por 100 RU/seg por hora    |$1.152 |
 |Conta de produção para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental (todas as regiões são writable)        | (3 + 1) * 10K RU/seg * 24 * 30    |$0,016 por 100 RU/seg por hora   |$4.608 |
@@ -247,7 +262,7 @@ Vamos considerar outro exemplo, onde quer estimar proactivamente a sua conta ant
 |Tipo de operação| Pedidos/seg| Avg. RU/pedido| RUs necessários|
 |----|----|----|----|
 |Escrita| 100 | 5 | 500|
-|Leitura| 400| 1| 400|
+|Ler| 400| 1| 400|
 
 Total RU/seg: 500 + 400 = 900 Custo horário: 900/100 * $0.008 = $0.072 Custo Mensal Esperado para Produção (assumindo 31 dias): $0,072 * 24 * 31 = $53,57
 

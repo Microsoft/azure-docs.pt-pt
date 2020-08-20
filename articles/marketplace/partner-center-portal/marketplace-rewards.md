@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496020"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606753"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -27,7 +27,7 @@ Será contactado por um membro da equipa de Prémios quando a sua oferta for tra
 
 Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace, desbloqueia maiores benefícios por nível.
 
-O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma.
+O requisito mínimo para publicar nas lojas online é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma.
 
 Você terá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 

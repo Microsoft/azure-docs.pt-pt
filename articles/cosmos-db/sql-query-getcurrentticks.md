@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 6b3cd5ab5849c33172e4a629c79fb792b82f1255
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227369"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606946"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 
-Devolve a data e hora atuais, medido em carraças.
+Devolve o número de carrapatos de 100-nanosegundos que decorreram desde as 00:00 de quinta-feira, 1 de janeiro de 1970.
   
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
   
 ```sql
 GetCurrentTicks ()
@@ -26,9 +26,11 @@ GetCurrentTicks ()
 
 ## <a name="return-types"></a>Tipos de retorno
 
-Devolve um valor inteiro positivo.
+Devolve um valor numérico assinado, o número atual de carrapatos de 100 nanosegundos que decorreram desde a época Unix. Por outras palavras, a GetCurrentTicks devolve o número de 100 tiques nanosegundos que decorreram desde as 00:00:00 de quinta-feira, 1 de janeiro de 1970.
 
 ## <a name="remarks"></a>Observações
+
+GetCurrentTicks é uma função não determinística. O resultado devolvido é UTC (Tempo Universal Coordenado).
 
 Esta função do sistema não utilizará o índice.
 
@@ -48,7 +50,7 @@ SELECT GetCurrentTicks() AS CurrentTimeInTicks
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de data e hora Azure Cosmos DB](sql-query-date-time-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Visão geral da Azure ExpressRoute: Ligue-se sobre uma ligação privada'
+title: 'Visão geral do Azure ExpressRoute: Conecte-se sobre uma ligação privada'
 description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: mialdrid
@@ -7,17 +7,17 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75770956"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607118"
 ---
-# <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
-O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure e o Office 365.
+# <a name="what-is-azure-expressroute"></a>O que é o Azure ExpressRoute?
+O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure e o Office 365.
 
-A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isto permite que as ligações ExpressRoute ofereçam mais fiabilidade, velocidades mais rápidas, tardios consistentes e maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
+A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isto permite que as ligações ExpressRoute ofereçam mais fiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
 ![Visão geral da ligação ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -39,9 +39,9 @@ Para obter mais informações, consulte as [ExpressRoute FAQ (FAQs do ExpressRou
 A Microsoft utiliza o BGP, um protocolo de encaminhamento dinâmico padrão da indústria para trocar rotas entre a sua rede no local, as instâncias no Azure e os endereços públicos da Microsoft. Estabelecemos várias sessões BGP com a sua rede para diferentes perfis de tráfego. Pode obter mais detalhes no artigo [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundância
-Cada circuito ExpressRoute consiste em duas ligações a dois routers de borda Microsoft Enterprise (MSEEs) num [Local ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) a partir do fornecedor de conectividade/borda da sua rede. A Microsoft necessita de uma ligação BGP dupla a partir do fornecedor de conectividade/periferia da sua rede – um para cada MSEE. Pode optar por não implementar dispositivos redundantes/circuitos Ethernet na sua parte. No entanto, os fornecedores de conectividade utilizam dispositivos redundantes para verificar que as ligações são entregues à Microsoft de forma redundante. Uma configuração de conectividade redundante de Camada 3 é um requisito para que o nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
+Cada circuito ExpressRoute consiste em duas ligações a dois routers de borda microsoft Enterprise (MSEEs) numa [Localização ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) a partir do fornecedor de conectividade/borda da sua rede. A Microsoft necessita de uma ligação BGP dupla a partir do fornecedor de conectividade/periferia da sua rede – um para cada MSEE. Pode optar por não implementar dispositivos redundantes/circuitos Ethernet na sua parte. No entanto, os fornecedores de conectividade utilizam dispositivos redundantes para verificar que as ligações são entregues à Microsoft de forma redundante. Uma configuração de conectividade redundante de Camada 3 é um requisito para que o nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
-### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços em nuvem da Microsoft
+### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços da Microsoft Cloud
 As ligações ExpressRoute permitem o acesso aos seguintes serviços:
 * Serviços do Microsoft Azure
 * Serviços do Microsoft Office 365
@@ -57,11 +57,11 @@ Pode ligar-se à Microsoft a partir de uma das nossas [localizações de peering
 
 Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados na Europa do Norte e na Europa Ocidental. Consulte o artigo [Parceiros ExpressRoute e localizações peering](expressroute-locations.md) para obter uma descrição geral das regiões geopolíticas, as regiões associadas na nuvem Microsoft, e as localizações de peering ExpressRoute correspondentes.
 
-### <a name="global-connectivity-with-expressroute-premium"></a>Conectividade global com o ExpressRoute Premium
-Pode permitir ao [ExpressRoute Premium](expressroute-faqs.md) estender a conectividade através das fronteiras geopolíticas. Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados em todas as regiões pelo mundo (exceto clouds nacionais). Pode aceder aos serviços implementados na América do Sul ou Austrália da mesma forma que acede às regiões da Europa do Norte e Europa Ocidental.
+### <a name="global-connectivity-with-expressroute-premium"></a>Conectividade global com ExpressRoute Premium
+Pode permitir ao [ExpressRoute Premium](expressroute-faqs.md) alargar a conectividade através das fronteiras geopolíticas. Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, terá acesso a todos os serviços cloud da Microsoft alojados em todas as regiões pelo mundo (exceto clouds nacionais). Pode aceder aos serviços implementados na América do Sul ou Austrália da mesma forma que acede às regiões da Europa do Norte e Europa Ocidental.
 
 ### <a name="local-connectivity-with-expressroute-local"></a>Conectividade local com ExpressRoute Local
-Pode transferir os dados de forma eficaz, permitindo ao [SKU local](expressroute-faqs.md) se conseguir levar os seus dados para uma localização ExpressRoute perto da região deAzure desejada. Com o Local, o transfer de Dados está incluído na carga portuária ExpressRoute. 
+Pode transferir dados de forma eficaz, permitindo ao [SKU local](expressroute-faqs.md) se conseguir levar os seus dados para uma localização ExpressRoute perto da região de Azure desejada. Com o Local, a transferência de dados está incluída na taxa portuária ExpressRoute. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Na conectividade local com Alcance Global do ExpressRoute
 Pode ativar o Alcance Global do ExpressRoute para trocar dados entre os sites no local ao ligar os seus circuitos do ExpressRoute. Por exemplo, se tiver um datacenter privado na Califórnia ligado ao ExpressRoute em Silicon Valley e outro datacenter privado no Texas ligado ao ExpressRoute em Dallas, com o Alcance Global do ExpressRoute, pode ligar os datacenters privados em conjunto através de dois circuitos do ExpressRoute. O tráfego em vários datacenters irá percorrer a rede da Microsoft.
@@ -89,8 +89,8 @@ Pode comprar circuitos ExpressRoute para uma vasta gama de larguras de banda. As
 
 * 50 Mbps
 * 100 Mbps
-* 200 Mbps
-* 500 Mbps
+* 200 Mbps
+* 500 Mbps
 * 1 Gbps
 * 2 Gbps
 * 5 Gbps
@@ -121,5 +121,5 @@ Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](
 * Configurar a ligação do ExpressRoute.
   * [Criar e modificar um circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Criar e modificar o peering de um circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
-  * [Ligar uma rede virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Ligar uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.

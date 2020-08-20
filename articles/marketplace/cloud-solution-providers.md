@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082815"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607493"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa fornecedor de solução de nuvem
 
-Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [lojas web de marketplace comercial,](comparing-appsource-azure-marketplace.md)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
+Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [lojas online de marketplace comercial,](comparing-appsource-azure-marketplace.md)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
 
 Pode configurar ofertas novas ou existentes para disponibilidade no programa CSP numa base de opt-in, o que permite aos parceiros da CSP vender os seus produtos e criar soluções agregadas para os clientes.
 
@@ -166,7 +166,7 @@ Se a sua oferta for atualmente **Opção 3: Sem parceiros no programa CSP,** pod
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Partilha de vendas e materiais de apoio com parceiros no programa CSP
 
-Para ajudar os parceiros no programa Cloud Solution Provider a representar mais eficazmente a sua oferta e a envolver-se com a sua organização, tem de submeter materiais de vendas e suporte que estarão disponíveis para os revendedores. Estes recursos não serão expostos aos clientes nas montras do mercado.
+Para ajudar os parceiros no programa Cloud Solution Provider a representar mais eficazmente a sua oferta e a envolver-se com a sua organização, tem de submeter materiais de vendas e suporte que estarão disponíveis para os revendedores. Estes recursos não serão expostos aos clientes nas lojas online.
 
 ### <a name="partner-center-csp-channel"></a>Canal CSP do Centro Parceiro
 

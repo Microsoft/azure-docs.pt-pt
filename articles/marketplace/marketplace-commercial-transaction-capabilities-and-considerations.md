@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503570"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607343"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -133,8 +133,8 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 
 |Contas da Microsoft  | $100,00 por mês  |
 |---------|---------|
-|Microsoft paga-lhe 80% do custo da sua licença <br> \*A Microsoft paga-lhe 90% do custo da sua licença por quaisquer aplicações SaaS qualificadas   |   $80,00 por mês <br> \*$90,00 por mês    |
-|Microsoft mantém 20% do custo da sua licença <br> \*A Microsoft mantém 10% do custo da sua licença para quaisquer aplicações SaaS qualificadas.  |  $20,00 por mês <br> \*$10,00     |
+|Microsoft paga-lhe 80% do custo da sua licença <br> \* A Microsoft paga-lhe 90% do custo da sua licença por quaisquer aplicações SaaS qualificadas   |   $80,00 por mês <br> \* $90,00 por mês    |
+|Microsoft mantém 20% do custo da sua licença <br> \* A Microsoft mantém 10% do custo da sua licença para quaisquer aplicações SaaS qualificadas.  |  $20,00 por mês <br> \* $10,00     |
 
 Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender SaaS, VMs, Apps Geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
@@ -191,4 +191,4 @@ A opção de publicação de transações só está disponível para utilizaçã
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
-- Reveja os padrões de publicação por montra, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.
+- Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

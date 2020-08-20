@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166693"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606183"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -103,7 +103,7 @@ Para conhecer os requisitos de publicação de cada plano de aplicação, consul
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 >[!NOTE]
->Depois de uma oferta ser publicada, as edições que fizer no Partner Center não aparecerão nas montras até que volte a publicar a oferta. Certifique-se de que sempre reeditou a oferta depois de fazer alterações.
+>Depois de uma oferta ser publicada, as edições que fizer no Partner Center não aparecerão nas lojas online até que volte a publicar a oferta. Certifique-se de que sempre reeditou a oferta depois de fazer alterações.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -202,7 +202,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -555,7 +555,7 @@ Para ativar uma unidade de teste, selecione a caixa **de verificação de unidad
 Para permitir que a Unidade de Teste seja implantada em seu nome, crie e forneça uma assinatura Azure separada e única (não necessária para as unidades de teste Power BI).
 
 * **ID de subscrição Azure** (obrigatório para o Azure Resource Manager e aplicações Lógica) – Introduza o ID de subscrição para garantir o acesso aos serviços de conta Azure para reportar e faturar o uso de recursos. Recomendamos que considere [criar uma subscrição Azure separada](../../billing/billing-create-subscription.md) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador apresentará o seu ID de subscrição (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu url de nome de domínio em: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+* **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu url de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nome do inquilino Azure AD** (obrigatório para Dynamic 365) – Insira o seu nome Azure Ative Directory (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o nome do seu inquilino será listado no nome da sua conta.
 * **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu de navegação à esquerda, selecione **registos de aplicações**, em seguida, procure o número **de ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure Ative Directory application cliente secret** (obrigatório) – Insira o [segredo do seu cliente de](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu de navegação à esquerda, selecione **registos de Aplicações**e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184997"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607013"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuição de Linux endossada em Azure
 
@@ -26,11 +26,11 @@ Os parceiros fornecem imagens Linux no Azure Marketplace. A Microsoft trabalha c
 
 ## <a name="supported-distributions-and-versions"></a>Distribuições e versões apoiadas
 
-A tabela que se segue lista as distribuições e versões Linux que são suportadas no Azure. Consulte [o Support for Linux images no Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) para obter informações mais detalhadas sobre suporte ao Linux e tecnologia de código aberto em Azure.
+A tabela que se segue lista as distribuições e versões Linux que são suportadas no Azure. Para obter mais informações, consulte [Suporte para imagens Linux no Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
-Os controladores linux Integration Services (LIS) para Hyper-V e Azure são módulos de kernel que a Microsoft contribui diretamente para o kernel linux a montante. Alguns condutores lis são incorporados no núcleo da distribuição por padrão. As distribuições mais antigas baseadas na Red Hat Enterprise (RHEL)/CentOS estão disponíveis como um download separado na [Versão 4.2 dos Serviços de Integração Linux para Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Consulte [os requisitos do kernel linux](create-upload-generic.md#linux-kernel-requirements) para obter mais informações sobre os condutores da LIS.
+Os controladores linux Integration Services (LIS) para Hyper-V e Azure são módulos de kernel que a Microsoft contribui diretamente para o kernel linux a montante. Alguns condutores lis são incorporados no núcleo da distribuição por padrão. As distribuições mais antigas baseadas na Red Hat Enterprise (RHEL)/CentOS estão disponíveis como um download separado na [Versão 4.2 dos Serviços de Integração Linux para Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Para mais informações, consulte [os requisitos do kernel do Linux.](create-upload-generic.md#linux-kernel-requirements)
 
-O Agente Azure Linux já está pré-instalado nas imagens do Azure Marketplace e está tipicamente disponível a partir do repositório de pacotes da distribuição. O código-fonte pode ser encontrado no [GitHub.](https://github.com/azure/walinuxagent)
+O Agente Azure Linux já está pré-instalado em imagens do Azure Marketplace e está tipicamente disponível a partir do repositório de pacotes da distribuição. O código-fonte pode ser encontrado no [GitHub.](https://github.com/azure/walinuxagent)
 
 | Distribuição | Versão | Controladores | Agente |
 | --- | --- | --- | --- |
@@ -39,14 +39,14 @@ O Agente Azure Linux já está pré-instalado nas imagens do Azure Marketplace e
 | Debian por Credativ |8.x, 9.x |Em kernel |Pacote: Em repo sob "waagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Recipiente de carro chato Linux by Kinvolk| Estável, Edge| | |
 | Oráculo Linux por Oráculo |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux por Chapéu Vermelho |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux por Chapéu Vermelho](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES para SAP 11.x, 12.x, 15.x <br/> [SUSE Public Cloud Image Lifecycle](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Em kernel |Pacote:<p> por 11 em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>para 12 incluídos no Módulo "Nuvem Pública" em "python-azure-agent"<br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE by SUSE |openSUSE Leap 15.x |Em kernel |Pacote: Em [Nuvem:Ferramentas](https://build.opensuse.org/project/show/Cloud:Tools) repo em "python-azure-agent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu por Canônico |Ubuntu Server e Pro. 16.x, 18.x, 20.x<p>Informações sobre suporte alargado para Ubuntu 12.04 e 14.04 podem ser consultadas aqui: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |Em kernel |Pacote: Em repo sob "walinuxagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Cadência de atualização de imagem
 
-O Azure exige que os editores das distribuições de Linux endossadas atualizem regularmente as suas imagens no Azure Marketplace com as mais recentes correções e correções de segurança, numa cadência trimestral ou mais rápida. Imagens atualizadas no Azure Marketplace estão disponíveis automaticamente para os clientes como novas versões de uma imagem SKU. Mais informações sobre como encontrar imagens Linux: [Encontre imagens Linux VM no Azure Marketplace](./cli-ps-findimage.md).
+O Azure exige que os editores das distribuições de Linux endossadas atualizem regularmente as suas imagens no Azure Marketplace com as mais recentes correções e correções de segurança, numa cadência trimestral ou mais rápida. As imagens atualizadas no Mercado estão disponíveis automaticamente para os clientes como novas versões de uma imagem SKU. Mais informações sobre como encontrar imagens Linux: [Encontre imagens Linux VM no Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Núcleos afinados a azulados
 
@@ -93,7 +93,7 @@ A estratégia da Oracle é oferecer um vasto portfólio de soluções para nuven
 
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
-A Red Hat ajuda mais de 90% das empresas da Fortune 500 a resolver desafios de negócio, alinhar as suas estratégias de TI e negócios e preparar-se para o futuro da tecnologia. A Red Hat fá-lo fornecendo soluções seguras através de um modelo de negócio aberto e de um modelo de subscrição acessível e previsível.
+A Red Hat ajuda mais de 90% das empresas da Fortune 500 a resolver desafios de negócio, alinhar as suas estratégias de TI e negócios e preparar-se para o futuro da tecnologia. A Red Hat consegue-o fornecendo soluções seguras através de um modelo de negócio aberto e de um modelo de subscrição acessível e previsível.
 
 ### <a name="suse"></a>SUSE
 

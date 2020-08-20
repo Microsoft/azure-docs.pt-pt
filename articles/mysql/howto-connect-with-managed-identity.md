@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120581"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606498"
 ---
-# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conecte-se com identidade gerida à base de dados Azure para o MySQL
+# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Ligar à Base de Dados do Azure para MySQL com a Identidade Gerida
 
-Este artigo mostra-lhe como usar uma identidade atribuída ao utilizador para uma Máquina Virtual Azure (VM) para aceder a uma Base de Dados Azure para servidor MySQL. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe fazer a autenticação em serviços que suportam a autenticação do Azure AD, sem ser necessário inserir as credenciais no seu código. Saiba como:
+Este artigo mostra-lhe como usar uma identidade atribuída ao utilizador para uma Máquina Virtual Azure (VM) para aceder a uma Base de Dados Azure para servidor MySQL. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe fazer a autenticação em serviços que suportam a autenticação do Azure AD, sem ser necessário inserir as credenciais no seu código. 
 
-> [!div class="checklist"]
-> * Conceda o acesso do seu VM a uma Base de Dados Azure para servidor MySQL
-> * Criar um utilizador na base de dados que represente a identidade atribuída pelo utilizador do VM
-> * Obtenha um token de acesso usando a identidade VM e use-o para consultar uma Base de Dados Azure para o servidor MySQL
-> * Implementar a recuperação de fichas numa aplicação de exemplo C#
+Saiba como:
+
+- Conceda o acesso do seu VM a uma Base de Dados Azure para servidor MySQL
+- Criar um utilizador na base de dados que represente a identidade atribuída pelo utilizador do VM
+- Obtenha um token de acesso usando a identidade VM e use-o para consultar uma Base de Dados Azure para o servidor MySQL
+- Implementar a recuperação de fichas numa aplicação de exemplo C#
 
 > [!IMPORTANT]
 > A ligação com identidade gerida só está disponível para o MySQL 5.7 e mais recente.
@@ -83,7 +84,7 @@ Esta recuperação simbólica é feita fazendo um pedido HTTP `http://169.254.16
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(que recuperou mais cedo)
+* `client_id` = `CLIENT_ID` (que recuperou mais cedo)
 
 Você receberá de volta um resultado JSON que contém um `access_token` campo - este valor de texto longo é o token de acesso de identidade gerida, que deve usar como palavra-passe ao ligar à base de dados.
 
@@ -203,6 +204,6 @@ Connected!
 MySQL version: 5.7.27
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja os conceitos globais de [autenticação do Azure Ative Directory com Azure Database for MySQL](concepts-azure-ad-authentication.md)

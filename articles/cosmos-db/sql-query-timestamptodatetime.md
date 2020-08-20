@@ -1,32 +1,38 @@
 ---
-title: GetCurrentDateTime em linguagem de consulta DB Azure Cosmos
-description: Saiba mais sobre a função do sistema SQL GetCurrentDateTime em Azure Cosmos DB.
-author: ginamr
+title: TimestampToDateTime in Azure Cosmos DB linguagem de consulta
+description: Saiba mais sobre a função do sistema SQL TimestampToDateTime em Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.author: girobins
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: ec0b8ccaceed4abe3dd2784463f507f3bc76d890
+ms.openlocfilehash: 9d4b5179ea08d5d6eca03422db7dfc7c8c4b5c3e
 ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606953"
+ms.locfileid: "88608839"
 ---
-# <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
+# <a name="timestamptodatetime-azure-cosmos-db"></a>TimetampToDateTime (Azure Cosmos DB)
 
-Devolve a data e hora atuais da UTC (Hora Universal Coordenada) como uma cadeia ISO 8601.
+Converte o valor do tempotamp especificado para uma DataTime.
   
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
   
 ```sql
-GetCurrentDateTime ()
+TimestampToDateTime (<Timestamp>)
 ```
 
+## <a name="arguments"></a>Argumentos
+
+*Timestamp*  
+
+Um valor numérico assinado, o número atual de milissegundos que decorreram desde a época Unix. Ou seja, o número de milissegundos que decorreram desde as 00:00 de quinta-feira, 1 de janeiro de 1970.
+
 ## <a name="return-types"></a>Tipos de retorno
-  
-  Devolve o valor atual da cadeia DE UTC 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` onde:
+
+Devolve a data e hora da UTC o valor da corda ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` onde:
   
   |Formato|Descrição|
   |-|-|
@@ -44,24 +50,22 @@ GetCurrentDateTime ()
 
 ## <a name="remarks"></a>Observações
 
-GetCurrentDateTime é uma função não determinística. O resultado devolvido é UTC. Precisão é de 7 dígitos, com uma precisão de 100 nanosegundos.
-
-Esta função do sistema não utilizará o índice.
+TimetampToDateTime regressará `undefined` se o valor da hora especificada for inválido.
 
 ## <a name="examples"></a>Exemplos
   
-O exemplo a seguir mostra como obter a hora de data utc atual usando a função GetCurrentDateTime() incorporada.
-  
+O exemplo a seguir converte a tabela de tempos para uma DataTime:
+
 ```sql
-SELECT GetCurrentDateTime() AS currentUtcDateTime
-```  
-  
- Aqui está um conjunto de resultados de exemplo.
-  
+SELECT TimestampToDateTime(1594227912345) AS DateTime
+```
+
 ```json
-[{
-  "currentUtcDateTime": "2019-05-03T20:36:17.1234567Z"
-}]  
+[
+    {
+        "DateTime": "2020-07-08T17:05:12.3450000Z"
+    }
+]
 ```  
 
 ## <a name="next-steps"></a>Passos seguintes

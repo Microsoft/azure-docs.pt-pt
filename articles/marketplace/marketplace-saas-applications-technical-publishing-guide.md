@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9f488675e4f2437982e2426da73b4db1a713905d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280941"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607291"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação de ofertas de aplicações SaaS
 
@@ -21,16 +21,16 @@ Pode publicar aplicações SaaS no mercado comercial com três chamadas diferent
 
 ## <a name="offer-overview"></a>Oferta geral  
 
-As aplicações SaaS estão disponíveis no Microsoft AppSource e no Azure Marketplace.  Ambas as lojas de apoio lista, teste e ofertas de transações.
+As aplicações SaaS estão disponíveis no Microsoft AppSource e no Azure Marketplace.  Ambas as lojas online apoiam lista, teste e ofertas de transações.
 
 **Lista:**  A opção de publicação de Listagem é constituída por um tipo de oferta De contacto Me e é utilizada quando uma participação ao nível de Trial ou Transação não é viável. O benefício desta abordagem é que permite que os editores com uma solução no mercado comecem imediatamente a receber pistas que podem ser transformadas em negócios para aumentar o seu negócio.  
-**Ensaio/Transação:**  O cliente tem a opção de comprar ou solicitar diretamente um teste para a sua solução. Proporcionar uma experiência trial aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorem a sua solução antes de comprar. Com uma experiência Trial, terá melhores hipóteses de promoção nas montras, e deverá esperar mais e mais pistas mais ricas dos compromissos com os clientes. Os ensaios devem incluir apoio gratuito pelo menos durante o período experimental.  
+**Ensaio/Transação:**  O cliente tem a opção de comprar ou solicitar diretamente um teste para a sua solução. Proporcionar uma experiência trial aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorem a sua solução antes de comprar. Com uma experiência Trial, terá melhores hipóteses de promoção nas lojas online, e deverá esperar mais e mais pistas mais ricas dos compromissos com os clientes. Os ensaios devem incluir apoio gratuito pelo menos durante o período experimental.  
 
 | Oferta de apps SaaS | Requisitos empresariais | Requisitos Técnicos |  
 | --- | --- | --- |  
-| **Contacte-nos** | Sim | Não |  
-| **Power BI / Dinâmica** | Sim | Sim (Integração AD AD) |  
-| **Aplicativos SaaS**| Sim | Sim (Integração AD AD) |     
+| **Contacte-nos** | Sim | No |  
+| **Power BI / Dinâmica** | Yes | Sim (Integração AD AD) |  
+| **Aplicativos SaaS**| Yes | Sim (Integração AD AD) |     
 
 ## <a name="saas-list"></a>Lista SaaS
 
@@ -38,7 +38,7 @@ A chamada à ação para uma listagem saas sem julgamento e sem funcionalidade d
 
 Não é necessário configurar o Azure Ative Directory para listar uma aplicação SaaS. 
 
-|Requirements  |Detalhes  |
+|Requisitos  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 
@@ -48,7 +48,7 @@ Não é necessário configurar o Azure Ative Directory para listar uma aplicaç�
 Você fornece uma solução ou app usando um teste baseado em software-as-a-service (SaaS). As ofertas de ensaio gratuito podem ser apresentadas como uma conta experimental de utilização limitada ou de duração limitada. 
 
 
-|Requirements  |Detalhes  |
+|Requisitos  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 |A sua aplicação está ativada pela AAD     |   O cliente será re-direcionado para o seu domínio e irá transagir diretamente com o cliente       |
