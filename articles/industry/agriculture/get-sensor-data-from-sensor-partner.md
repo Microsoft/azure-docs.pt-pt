@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508792"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649164"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenha dados de sensores de parceiros de sensores
 
@@ -87,6 +87,10 @@ Siga os passos abaixo para gerar as informações acima:
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. O nome de Endpoint da API datahub deve estar em minúsculas.
+> 2. Se estiver a copiar o url de nome do site farmbeats para Datahub API Endpoint, certifique-se de que não existe um corte de fuga (/).
 
 9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente**e Cadeia de **Conexão EventHub**.
 

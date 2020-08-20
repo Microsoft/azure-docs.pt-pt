@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290039"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652105"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -76,7 +76,7 @@ Utilizando **a Azure Machine Learning,** pode conceber e executar as suas experi
 
 1. **Escolha se deseja utilizar o Python SDK ou a experiência web do estúdio**: Saiba mais sobre a paridade entre o Python [SDK e](#parity)a experiência web do estúdio.
 
-   * Para experiência limitada ou sem código, experimente a experiência web do estúdio Azure Machine Learning em[https://ml.azure.com](https://ml.azure.com/)  
+   * Para experiência limitada ou sem código, experimente a experiência web do estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
    * Para desenvolvedores de Python, confira o [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
 
     [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
@@ -138,7 +138,7 @@ Ative esta definição com:
 
 + Python SDK: Especificar `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` no seu objeto [AutoMLConfig.](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) Saiba mais sobre [a capacitação da participação.](how-to-configure-auto-features.md) 
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Modelos de conjunto
+## <a name="ensemble-models"></a><a name="ensemble"></a> Modelos de conjunto
 
 A aprendizagem automática suporta modelos conjuntos, que são ativados por padrão. A aprendizagem do conjunto melhora os resultados da aprendizagem automática e o desempenho preditivo, combinando vários modelos em oposição à utilização de modelos individuais. As iterações do conjunto aparecem como as iterações finais da sua corrida. A aprendizagem automática de máquinas utiliza métodos de votação e empilhamento para combinar modelos:
 
@@ -202,15 +202,13 @@ Por exemplo, a construção de um modelo __para cada instância ou indivíduo__ 
 * Manutenção preditiva para centenas de poços de petróleo
 * Adaptação de uma experiência para utilizadores individuais.
 
-Para mais informações, consulte o [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) no GitHub.
-
 ## <a name="automl-in-azure-machine-learning"></a>AutoML em Aprendizagem automática Azure
 
 Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
 
 * Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
-* Para clientes de experiência de código limitada/sem código, estúdio Azure Machine Learning em[https://ml.azure.com](https://ml.azure.com/)  
+* Para clientes de experiência de código limitada/sem código, estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
 
 <a name="parity"></a>
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284307"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651187"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
 
@@ -194,7 +194,7 @@ A tabela a seguir mostra as definições para estas duas máquinas:
 | **Tamanho** |DS1_V2 |
 | **Armazenamento** | **Utilizar discos geridos**  -  **Sim, é o seu** |
 | **Rede virtual** |autoHAVNET |
-| **Sub-rede** |admin |
+| **Sub-rede** |administração |
 | **Endereço IP público** |*O mesmo nome do VM* |
 | **Grupo de segurança de rede** |*O mesmo nome do VM* |
 | **Conjunto de disponibilidade** |conjunto de adavailability </br>**Domínios de avarias**:2 </br>**Atualização de domínios**:2|
@@ -328,7 +328,7 @@ Depois de o servidor terminar as alterações de configuração, reinicie o serv
 
 No portal Azure, em rede virtual, altere o Servidor DNS para incluir o endereço IP do controlador de domínio secundário. Esta definição permite o despedimento do serviço DNS.
 
-### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a>Configurar as contas de domínio
+### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a> Configurar as contas de domínio
 
 Nos próximos passos, configura as contas do Ative Directory. A tabela a seguir mostra as contas:
 
@@ -380,7 +380,7 @@ Antes de prosseguir, considere as seguintes decisões de design.
 
 * **Armazenamento - Discos Geridos Azure**
 
-   Para o armazenamento de máquinas virtuais, utilize discos geridos Azure. A Microsoft recomenda discos geridos para máquinas virtuais SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para obter informações adicionais, veja [Azure Managed Disks Overview](../../../virtual-machines/linux/managed-disks-overview.md) (Descrição Geral do Managed Disks). Para obter detalhes sobre discos geridos num conjunto de disponibilidade, consulte [Use Managed Disks para VMs num conjunto de disponibilidade](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para o armazenamento de máquinas virtuais, utilize discos geridos Azure. A Microsoft recomenda discos geridos para máquinas virtuais SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para obter informações adicionais, veja [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md) (Descrição Geral do Managed Disks). Para obter detalhes sobre discos geridos num conjunto de disponibilidade, consulte [Use Managed Disks para VMs num conjunto de disponibilidade](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Rede - Endereços IP privados na produção**
 
@@ -496,7 +496,7 @@ Repita os passos no outro SQL Server VM.
   >
 
 
-## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a>Configure a firewall em cada SQL Server VM
+## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configure a firewall em cada SQL Server VM
 
 A solução requer que as seguintes portas TCP sejam abertas na firewall:
 

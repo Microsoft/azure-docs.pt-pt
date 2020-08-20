@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
-ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/19/2020
+ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475554"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650898"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
@@ -47,7 +47,7 @@ Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determin
 
 * Quando seleciona transformações individuais, recebe feedback adicional no painel da direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente são os dados distribuídos por divisórias) e kurtose (quão espinhosos são os dados).
 
-* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. São:
+* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. A saber:
 
   * Computação: Utiliza a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a aterra na Pia
   * Derivado: A coluna é uma nova coluna que gerou no seu fluxo, isto é, não estava presente na Fonte
@@ -76,6 +76,10 @@ Também pode ver um timing detalhado para cada passo de transformação de parti
          ]
 }
 ```
+
+### <a name="post-processing-time"></a>Tempo de processamento pós-processamento
+
+Quando selecionar um ícone de transformação de pia no seu mapa, o painel de slide-in à direita mostrará um ponto de dados adicional chamado "tempo de processamento pós-processamento" na parte inferior. Esta é a quantidade de tempo gasto a executar o seu trabalho no cluster Spark *depois de* os seus dados terem sido carregados, transformados e escritos. Desta vez pode incluir o fecho de piscinas de ligação, paragem do condutor, eliminação de ficheiros, ficheiros de açagaçamento, etc. Quando executa ações no seu fluxo como "move ficheiros" e "saída para um único ficheiro", provavelmente verá um aumento no valor do tempo de processamento pós-processamento.
   
 ## <a name="monitor-icons"></a>Ícones do monitor
 

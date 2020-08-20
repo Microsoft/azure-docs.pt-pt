@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067941"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652462"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -51,7 +51,7 @@ Pode usar este comando para iniciar o ponto final de streaming
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Siga os passos deste artigo para obter credenciais para aceder às APIs do Serviço de Mídia: [aceda às APIs do Serviço de Mídia](../latest/access-api-howto.md#use-the-azure-portal).
+Siga os passos deste artigo para obter credenciais para aceder às APIs do Serviço de Mídia: [aceda às APIs do Serviço de Mídia](../latest/access-api-howto.md?tabs=portal) e selecione o separador Portal.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Criar e utilizar a conta de utilizador local para implantação
 Para executar o módulo Live Video Analytics no módulo IoT Edge crie uma conta de utilizador local com o mínimo de privilégios possível. Como exemplo, execute os seguintes comandos na sua máquina Linux:
@@ -168,7 +168,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     * {resourceGroupName} - este é o grupo de recursos a que pertence a sua conta De Serviço de Mídia
     * {AMS-account-name} - este é o nome da sua conta de Media Services
     
-    Para obter os outros valores, consulte [a API dos Serviços de Media access Azure](../latest/access-api-howto.md#use-the-azure-portal)Media.  
+    Para obter os outros valores, consulte [a API dos Serviços de Media do Access Azure](../latest/access-api-howto.md?tabs=portal) e selecione o separador Portal.  
     * aadTenantId - esta é a identificação do seu inquilino e é a mesma que o "AadTenantId" do link acima.
     * aadServicePrincipalAppId - este é o ID da aplicação principal do serviço para a sua Conta de Serviço de Mídia e é o mesmo que o "AadClientId" do link acima.
     * aadServicePrincipalSecret - esta é a palavra-passe do principal serviço e é a mesma que o "AadSecret" do link acima.

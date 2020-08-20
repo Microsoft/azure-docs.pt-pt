@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9f63b4215e9b4a67a439e47501876d237a6d3c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fe7210ad52c756f140144f04e3b747c0bfcd00c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320923"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650320"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Azure Machine Learning usando estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ print(run.get_portal_url())
 >
 > Da mesma forma, pode escrever quaisquer registos da sua corrida de treino para a `./logs` pasta. Para utilizar a integração do [TensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) da Azure Machine Learning certifique-se de que escreve os seus registos TensorBoard nesta pasta. Enquanto a sua execução estiver em andamento, poderá lançar o TensorBoard e transmitir estes registos.  Mais tarde, também poderá restaurar os registos de qualquer uma das suas execuções anteriores.
 >
-> Por exemplo, para descarregar um ficheiro escrito para a pasta *de saídas* para a sua máquina local após o seu treino remoto:`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
+> Por exemplo, para descarregar um ficheiro escrito para a pasta *de saídas* para a sua máquina local após o seu treino remoto: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
 ### <a name="distributed-training-and-custom-docker-images"></a>Treino distribuído e imagens personalizadas do Docker
 
@@ -113,10 +113,10 @@ O código acima expõe ao construtor os seguintes novos `Estimator` parâmetros:
 
 Parâmetro | Descrição | Predefinição
 --|--|--
-`custom_docker_image`| Nome da imagem que pretende usar. Apenas forneça imagens disponíveis em repositórios públicos de estivadores (neste caso, Docker Hub). Para utilizar uma imagem de um repositório privado de estivador, use o parâmetro do `environment_definition` construtor. [Veja o exemplo.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb) | `None`
+`custom_docker_image`| Nome da imagem que pretende usar. Apenas forneça imagens disponíveis em repositórios públicos de estivadores (neste caso, Docker Hub). Para utilizar uma imagem de um repositório privado de estivador, use o parâmetro do `environment_definition` construtor.| `None`
 `node_count`| Número de nós para usar para o seu trabalho de treino. | `1`
 `process_count_per_node`| Número de processos (ou "trabalhadores") para executar em cada nó. Neste caso, utilize as `2` GPUs disponíveis em cada nó.| `1`
-`distributed_training`| [Objeto MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) para lançamento de formação distribuída usando backend MPI.  | `None`
+`distributed_training`| [Objeto MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) para lançamento de formação distribuída usando backend MPI.  | `None`
 
 
 Por fim, submeta o trabalho de formação:
@@ -140,8 +140,6 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Para obter mais informações, consulte [a integração do Git para a Azure Machine Learning.](concept-train-model-git-integration.md)
 
 ## <a name="examples"></a>Exemplos
-Para um caderno que mostre o básico de um padrão estimador, consulte:
-* [como usar-azureml/training-with-deep-learning/how-to-use-estimador](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 Para um caderno que treina um modelo de aprendizagem de scikit utilizando o estimador, consulte:
 * [tutoriais/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)

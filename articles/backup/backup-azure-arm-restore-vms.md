@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263015"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651153"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -184,7 +184,7 @@ A região secundária restaurará a experiência do utilizador será semelhante 
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Restaurar VMs e discos não geridos como geridos
 
-É-lhe dada a opção de restaurar [discos não geridos](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos geridos](../virtual-machines/windows/managed-disks-overview.md) durante a restauração. Por predefinição, os VM/discos não geridos são restaurados como VMs/discos não geridos. No entanto, se optar por restaurar como VMs/discos geridos, agora é possível fazê-lo. Estes restauros não são desencadeados da fase instantânea, mas apenas da fase do cofre. Esta funcionalidade não está disponível para VMs encriptados não geridos.
+É-lhe dada a opção de restaurar [discos não geridos](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos geridos](../virtual-machines/managed-disks-overview.md) durante a restauração. Por predefinição, os VM/discos não geridos são restaurados como VMs/discos não geridos. No entanto, se optar por restaurar como VMs/discos geridos, agora é possível fazê-lo. Estes restauros não são desencadeados da fase instantânea, mas apenas da fase do cofre. Esta funcionalidade não está disponível para VMs encriptados não geridos.
 
 ![Restaurar como discos geridos](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

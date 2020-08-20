@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547414"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652207"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547414"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -533,7 +533,7 @@ Ao implementar serviços ou VMs em Azure, a implantação de VHDs e VM Images s�
 
 desempenhou um papel importante no planeamento de uma implantação da SAP em Azure. Era sua para gerir o número de discos persistidos dentro de uma conta de armazenamento. Precisava de gerir as contas de armazenamento e eventualmente criar novas contas de armazenamento para criar discos mais persistidos.
 
-Nos últimos anos, a introdução de discos geridos pela [Azure](../../windows/managed-disks-overview.md) aliviou-o dessas tarefas. A recomendação para implementações SAP é alavancar os discos geridos pela Azure em vez de gerir as contas de armazenamento da Azure. Os discos geridos azure distribuirão discos em diferentes contas de armazenamento, de modo que os limites das contas de armazenamento individuais não sejam ultrapassados.
+Nos últimos anos, a introdução de discos geridos pela [Azure](../../managed-disks-overview.md) aliviou-o dessas tarefas. A recomendação para implementações SAP é alavancar os discos geridos pela Azure em vez de gerir as contas de armazenamento da Azure. Os discos geridos azure distribuirão discos em diferentes contas de armazenamento, de modo que os limites das contas de armazenamento individuais não sejam ultrapassados.
 
 Dentro de uma conta de armazenamento, você tem um tipo de conceito de pasta chamado "recipientes" que pode ser usado para agrupar certos discos em recipientes específicos.
 
@@ -804,7 +804,7 @@ Os requisitos para preparar o seu próprio Disco VM Azure são:
 
 * Originalmente, o VHD que contém o sistema operativo poderia ter um tamanho máximo de apenas 127 GB. Esta limitação foi eliminada no final de março de 2015. Agora, o VHD que contém o sistema operativo pode ter até 1 TB de tamanho como qualquer outro Azure Storage hospedado VHD também.
 * Tem de estar no formato VHD fixo. VHDs dinâmicos ou VHDs em formato VHDx ainda não são suportados no Azure. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
-* Os VHDs, que são montados no VM e devem ser montados novamente em Azure para o VM também precisam estar num formato VHD fixo. Leia [este artigo (Linux)](../../linux/managed-disks-overview.md) e [este artigo (Windows)](../../windows/managed-disks-overview.md)para limites de tamanho dos discos de dados. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
+* Os VHDs, que são montados no VM e devem ser montados novamente em Azure para o VM também precisam estar num formato VHD fixo. Leia [este artigo](../../managed-disks-overview.md) para limites de tamanho dos discos de dados. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
 * Adicione outra conta local com privilégios de administrador, que pode ser usada pelo suporte da Microsoft ou que pode ser atribuída como contexto para serviços e aplicações a funcionar até que o VM seja implementado e utilizadores mais apropriados possam ser usados.
 * Adicione outras contas locais, uma vez que estas podem ser necessárias para o cenário de implantação específico.
 
@@ -831,7 +831,7 @@ Os requisitos para preparar a sua própria Imagem Azure VM são:
 
 * Originalmente, o VHD que contém o sistema operativo poderia ter um tamanho máximo de apenas 127 GB. Esta limitação foi eliminada no final de março de 2015. Agora, o VHD que contém o sistema operativo pode ter até 1 TB de tamanho como qualquer outro Azure Storage hospedado VHD também.
 * Tem de estar no formato VHD fixo. VHDs dinâmicos ou VHDs em formato VHDx ainda não são suportados no Azure. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
-* Os VHDs, que são montados no VM e devem ser montados novamente em Azure para o VM também precisam estar num formato VHD fixo. Leia [este artigo (Linux)](../../windows/managed-disks-overview.md) e [este artigo (Windows)](../../linux/managed-disks-overview.md) para limites de tamanho dos discos de dados. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
+* Os VHDs, que são montados no VM e devem ser montados novamente em Azure para o VM também precisam estar num formato VHD fixo. Leia [este artigo](../../managed-disks-overview.md) para limites de tamanho dos discos de dados. Os VHDs dinâmicos serão convertidos em VHDs estáticos quando carregar o VHD com comandos PowerShell ou CLI
 * Adicione outras contas locais, uma vez que estas podem ser necessárias para o cenário de implantação específico.
 * Se a imagem contiver uma instalação do SAP NetWeaver e se renomear o nome do anfitrião a partir do nome original no ponto da implantação do Azure, é aconselhável copiar as versões mais recentes do DVD do GESTOR de Provisionamento de Software SAP no modelo. Isto permitir-lhe-á utilizar facilmente a funcionalidade SAP fornecida para adaptar o nome de hospedeiro alterado e/ou alterar o SID do sistema SAP dentro da imagem VM implantada assim que uma nova cópia é iniciada.
 

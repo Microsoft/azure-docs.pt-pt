@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 86de6f94dc5bf44836fad37680a439d26d66ce6d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f9ef048fa7cc4b795f409326988e3276743b6992
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837079"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648960"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
@@ -97,7 +97,7 @@ Atualizações de preservação da memória: Suportadas
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passos seguintes

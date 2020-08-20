@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506435"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649691"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -243,7 +243,7 @@ De acordo com a orientação de boas práticas DT 2.0, a produção de IO do dis
 
 É necessário anexar vários discos Azure ao DT 2.0 VM e criar uma raid de software (striping) ao nível de SO para atingir o limite máximo de produção de disco por VM. Um único disco Azure não pode fornecer a produção para atingir o limite máximo de VM a este respeito. O armazenamento Azure Premium é obrigatório para executar DT 2.0. 
 
-- Detalhes sobre os tipos de discos Azure disponíveis podem ser encontrados [aqui](../../windows/disks-types.md)
+- Detalhes sobre os tipos de discos Azure disponíveis podem ser encontrados [aqui](../../disks-types.md)
 - Detalhes sobre a criação de raid de software via mdadm podem ser encontrados [aqui](../../linux/configure-raid.md)
 - Detalhes sobre a configuração da LVM para criar um volume listrado para a produção máxima podem ser encontrados [aqui](../../linux/configure-lvm.md)
 

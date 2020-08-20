@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: a4cd39186eb55cb03bd97994baa1898e196fb3c2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 03863171cb05c0557611fb8cd3c0ade667e7d79e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082816"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650082"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>Quickstart: Criar uma balança de máquina virtual do Windows definida com um modelo ARM
 
@@ -24,7 +24,7 @@ Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conju
 
 Os modelos ARM permitem-lhe implantar grupos de recursos relacionados. Num único modelo, pode criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicações e configurar regras de dimensionamento automático. Com a utilização de parâmetros e variáveis, este modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos de dimensionamento adicionais. Pode implementar modelos através do portal Azure, Azure CLI, Azure PowerShell ou de gasodutos de integração contínua/entrega contínua (CI/CD).
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json" range="1-397" highlight="236-325":::
+:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 
 Estes recursos são definidos nestes modelos:
 
@@ -48,7 +48,7 @@ Estes recursos são definidos nestes modelos:
 
 ### <a name="define-a-scale-set"></a>Definir um conjunto de dimensionamento
 
-A parte realçada é a definição de recursos definidos em escala. Para criar um dimensionamento com um modelo, tem de definir os recursos adequados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
+Para criar um dimensionamento com um modelo, tem de definir os recursos adequados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
 
 | Propriedade                     | Descrição da propriedade                                  | Valor de modelo de exemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -125,7 +125,7 @@ Quando já não é necessário, pode utilizar o [Remove-AzResourceGroup](/powers
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um conjunto de escala do Windows com um modelo ARM e utilizou a extensão DSC powerShell para instalar uma aplicação básica ASP.NET nas instâncias VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 

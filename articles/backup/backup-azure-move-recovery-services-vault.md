@@ -4,12 +4,12 @@ description: Instruções sobre como mover o cofre de serviços de recuperação
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612576"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650918"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -141,7 +141,7 @@ Para passar para uma nova subscrição, forneça o `--destination-subscription-i
 ## <a name="post-migration"></a>Pós-migração
 
 1. Definir/verificar os controlos de acesso dos grupos de recursos.  
-2. A funcionalidade de relatório e monitorização de backup precisa de ser configurada novamente para o posto de abóbada que o movimento completa. A configuração anterior perder-se-á durante a operação de movimento.
+2. A funcionalidade de relatório e monitorização de backup precisa de ser configurada novamente para o cofre após o movimento estar concluído. A configuração anterior perder-se-á durante a operação de movimento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

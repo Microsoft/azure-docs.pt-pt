@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510237"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650620"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ Em geral, a instalação e configuração do Windows, Linux e DBMS são essencia
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estrutura de armazenamento de um VM para implantações RDBMS
 Para acompanhar este capítulo, leia e compreenda as informações apresentadas [neste capítulo][deployment-guide-3] do Guia de [Implantação.][deployment-guide] Você precisa entender e saber sobre as diferentes VM-Series e as diferenças entre o armazenamento padrão e premium antes de ler este capítulo. 
 
-Para saber mais sobre o Azure Storage for Azure VMs, consulte:
-
-- [Introdução a discos geridos para VMs do Azure Windows](../../windows/managed-disks-overview.md).
-- [Introdução a discos geridos para VMs Azure Linux](../../linux/managed-disks-overview.md).
+Para saber mais sobre o Azure Storage for Azure VMs, consulte [Introdução aos discos geridos para VMs Azure](../../managed-disks-overview.md).
 
 Numa configuração básica, recomendamos geralmente uma estrutura de implantação onde o sistema operativo, dBMS e eventuais binários SAP estão separados dos ficheiros de base de dados. Recomendamos que os sistemas SAP que funcionam em máquinas virtuais Azure tenham o VHD base, ou disco, instalado com o sistema operativo, executáveis de sistemas de gestão de bases de dados e executáveis SAP. 
 

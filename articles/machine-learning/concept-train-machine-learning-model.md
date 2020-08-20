@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876908"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651765"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -90,7 +90,7 @@ Os oleodutos de aprendizagem automática podem utilizar os métodos de treino an
 * [Tutorial: Use gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)
 * [Exemplos: Exemplos do Jupyter Notebook para oleodutos de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemplos: Pipeline com aprendizagem automática de máquinas](https://aka.ms/pl-automl)
-* [Exemplos: Pipeline com estimadores](https://aka.ms/pl-estimator)
+* [Exemplos: Pipeline com estimadores](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Entenda o que acontece quando se submete um trabalho de formação
 
@@ -108,7 +108,7 @@ O ciclo de vida de formação Azure consiste em:
     1. Se não for encontrado, o sistema constrói uma nova imagem (que será em cache e registada com o espaço de trabalho ACR)
 1. Baixar o ficheiro do projeto zipped para armazenamento temporário no nó de computação
 1. Desapertar o ficheiro do projeto
-1. A execução do nó computativo`python <entry script> <arguments>`
+1. A execução do nó computativo `python <entry script> <arguments>`
 1. Guardar registos, ficheiros de modelos e outros ficheiros escritos `./outputs` para a conta de armazenamento associada ao espaço de trabalho
 1. Escalonamento do cálculo, incluindo a remoção do armazenamento temporário 
 

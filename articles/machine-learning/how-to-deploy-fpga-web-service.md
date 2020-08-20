@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 0c78245a64fa9bcb7faef2c07973d1d7b5080e76
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843101"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648790"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são matrizes de portão programáveis em campo (FPGA) e como implementar
 
@@ -163,7 +163,7 @@ Utilize o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/py
    print(feature_tensor.shape)
    ```
 
-1. Adicione um classificador. Este classificador foi treinado no conjunto de dados ImageNet.  Exemplos para a aprendizagem de transferência e formação os seus pesos personalizados estão disponíveis no conjunto de cadernos de [amostras.](https://aka.ms/aml-notebooks)
+1. Adicione um classificador. Este classificador foi treinado no conjunto de dados ImageNet.  Exemplos para a aprendizagem de transferência e formação os seus pesos personalizados estão disponíveis no conjunto de cadernos de [amostras.](https://github.com/Azure/MachineLearningNotebooks)
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -389,7 +389,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Elimine o seu serviço web, imagem e modelo (deve ser feito por esta ordem uma vez que existem dependências).
 
@@ -405,7 +405,7 @@ converted_model.delete()
 
 Confira estes cadernos, vídeos e blogs:
 
-+ Vários [cadernos de amostras](https://aka.ms/aml-accel-models-notebooks)
++ Vários [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
 + Para garantir os seus serviços web FPGA, consulte o documento [secure web services.](how-to-secure-web-service.md)
 + [Hardware de hiperescala: ML em escala em cima de Azure + FPGA: Build 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 + [Dentro da nuvem configurável baseada na Microsoft FPGA (vídeo)](https://channel9.msdn.com/Events/Build/2017/B8063)

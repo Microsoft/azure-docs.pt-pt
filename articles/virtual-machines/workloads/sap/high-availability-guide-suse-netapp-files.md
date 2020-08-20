@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 75573cb49bcc0aca206ad8f13f060121e70a0621
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: dd245ddfa7f6be90e37bacc0797a3af4adc8bb96
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760622"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650439"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
 
@@ -163,7 +163,7 @@ A arquitetura SAP Netweaver apresentada neste artigo utiliza um único pool de c
    7. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
 
    
-Neste exemplo, utilizamos ficheiros Azure NetApp para todos os sistemas de ficheiros SAP Netweaver para demonstrar como os Ficheiros Azure NetApp podem ser utilizados. Os sistemas de ficheiros SAP que não precisam de ser montados através de NFS também podem ser implantados como [armazenamento de disco Azure](../../windows/disks-types.md#premium-ssd) . Neste <b>exemplo, o A-E</b> deve estar nos Ficheiros Azure NetApp e <b>f-g</b> (isto é, /usr/seiva/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) pode ser implantado como armazenamento de disco Azure. 
+Neste exemplo, utilizamos ficheiros Azure NetApp para todos os sistemas de ficheiros SAP Netweaver para demonstrar como os Ficheiros Azure NetApp podem ser utilizados. Os sistemas de ficheiros SAP que não precisam de ser montados através de NFS também podem ser implantados como [armazenamento de disco Azure](../../disks-types.md#premium-ssd) . Neste <b>exemplo, o A-E</b> deve estar nos Ficheiros Azure NetApp e <b>f-g</b> (isto é, /usr/seiva/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) pode ser implantado como armazenamento de disco Azure. 
 
 ### <a name="important-considerations"></a>Considerações importantes
 
@@ -320,7 +320,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
       > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
       > [!IMPORTANT]
-      > Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
+      > Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir o parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -439,7 +439,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A]** Configurar`autofs`
+2. **[A]** Configurar `autofs`
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -556,7 +556,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   Se a instalação não criar uma sub-dobragem em /usr/seiva/**QAS**/ASCS**00,** tente definir o proprietário e o grupo da pasta ASCS**00** e retentou novamente. 
+   Se a instalação não criar uma sub-dobragem em /usr/seiva/**QAS**/ASCS**00,** tente definir o proprietário e o grupo da pasta ASCS**00**  e retentou novamente. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>

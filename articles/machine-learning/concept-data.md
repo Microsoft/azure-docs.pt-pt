@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875307"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651799"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -118,5 +118,4 @@ Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md)
 ## <a name="next-steps"></a>Passos seguintes 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
-+ Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://aka.ms/dataset-tutorial)
-+ Para exemplos de deriva de dados, consulte este [tutorial de deriva de dados.](https://aka.ms/datadrift-notebook)
++ Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

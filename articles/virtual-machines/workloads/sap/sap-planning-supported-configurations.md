@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833339"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648994"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho SAP em cenários de máquinas virtuais do Azure suportados
 Projetar a arquitetura de sistemas SAP NetWeaver, Business one `Hybris` ou S/4HANA em Azure abre uma série de oportunidades diferentes para várias arquiteturas e ferramentas para usar para chegar a uma implementação escalável, eficiente e altamente disponível. Embora dependente do sistema operativo ou DBMS utilizado, existem restrições. Além disso, nem todos os cenários que são apoiados no local são apoiados da mesma forma em Azure. Este documento conduzirá através das configurações de não alta disponibilidade suportadas e configurações e arquiteturas de alta disponibilidade utilizando exclusivamente VMs Azure. Para cenários apoiados com [HANA Large Instances](./hana-overview-architecture.md), consulte o artigo [Cenários suportados para HANA Grandes Instâncias](./hana-supported-scenario.md). 
@@ -160,7 +160,7 @@ Os Serviços Centrais SAP são um segundo ponto único de falha da sua configura
     - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)
 - Pacemaker no sistema operativo Red Hat com a quota NFS hospedado num `glusterfs` cluster. Detalhes podem ser encontrados nos artigos
     - [Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
-    - [`GlusterFS`em Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md)
+    - [`GlusterFS` em Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md)
 - Pacemaker no sistema operativo Red Hat com ações NFS hospedadas em [Ficheiros Azure NetApp](https://azure.microsoft.com/services/netapp/). Os detalhes são descritos no artigo
     - [Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-rhel-netapp-files.md)
 
@@ -215,7 +215,7 @@ Um cluster multi-SID com o servidor de replicação enqueue schematicamente pare
 Os cenários de escala SAP HANA são suportados para um subconjunto dos VMs Azure certificados HANA como listados no diretório de [hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Todos os VMs marcados com "Sim" na coluna 'Clustering' podem ser utilizados para a escala de OLAP ou S/4HANA. As configurações sem standby são suportadas com os tipos de Armazenamento Azure de: 
 
 - Armazenamento Azure Premium, incluindo acelerador Azure Write para o volume /hana/log
-- [Disco Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Disco Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 As configurações de escala SAP HANA para OLAP ou S/4HANA com nó(s) de espera são exclusivamente suportadas com NFS partilhadas em Ficheiros Azure NetApp.

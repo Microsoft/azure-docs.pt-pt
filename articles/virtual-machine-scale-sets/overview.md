@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590392"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648671"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -40,7 +40,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
 
 - **Funciona em grande escala**
     - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens VM personalizadas, o limite é de 600 VM.
-    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [discos geridos Azure](../virtual-machines/windows/managed-disks-overview.md).
+    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [discos geridos Azure](../virtual-machines/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferenças entre máquinas virtuais e conjuntos de dimensionamento

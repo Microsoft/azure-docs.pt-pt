@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507833"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652190"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Azure Virtual Machines
 
@@ -45,7 +45,7 @@ O primeiro cenário mostrado é um cenário em que o Azure Backup Service está 
 
 O Azure Backup integra-se e é certificado como solução de backup para SAP HANA utilizando a interface PRÓPRIA SAP HANA chamada [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para obter mais detalhes sobre a solução, as suas capacidades e as regiões Azure onde está disponível, leia o artigo [Matriz de suporte para cópia de segurança das bases de dados SAP HANA em VMs Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Para mais detalhes e princípios sobre o serviço de backup Azure para HANA, leia o artigo [Sobre a base de dados SAP HANA em VMs Azure](../../../backup/sap-hana-db-about.md). 
 
-A segunda possibilidade de alavancar o serviço Azure Backup é criar uma cópia de segurança consistente da aplicação utilizando imagens de disco do Azure Premium Storage. Outros armazenamentos Azure certificados pela HANA, como [o disco Azure Ultra](../../linux/disks-enable-ultra-ssd.md) e os [Ficheiros Azure NetApp](https://azure.microsoft.com/services/netapp/) não estão a suportar este tipo de instantâneo através do serviço Azure Backup. Ler estes artigos:
+A segunda possibilidade de alavancar o serviço Azure Backup é criar uma cópia de segurança consistente da aplicação utilizando imagens de disco do Azure Premium Storage. Outros armazenamentos Azure certificados pela HANA, como [o disco Azure Ultra](../../disks-enable-ultra-ssd.md) e os [Ficheiros Azure NetApp](https://azure.microsoft.com/services/netapp/) não estão a suportar este tipo de instantâneo através do serviço Azure Backup. Ler estes artigos:
 
 - [Planear a sua infraestrutura de cópias de segurança de VMs no Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Cópia de segurança consistente com aplicações de VMs Linux do Azure](../../../backup/backup-azure-linux-app-consistent.md) 
@@ -146,6 +146,6 @@ O artigo DA SAP HANA [que planeia a sua Estratégia de Backup e Recuperação](h
 A SAP HANA oferece encriptação de dados e registo. Se os dados e o registo SAP HANA não forem encriptados, então as cópias de segurança não são encriptadas por padrão. No entanto, o SAP HANA oferece uma encriptação de backup separada, como documentado na [Encriptação de Backup SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/5f837a57ce5e468d9db21c8683bc84da.html). Se estiver a executar versões mais antigas do SAP HANA, poderá ter de verificar se a encriptação de backup já fazia parte da funcionalidade fornecida.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [SAP HANA Azure Backup no nível](sap-hana-backup-file-level.md) de ficheiro descreve a opção de backup baseada em ficheiros.
 * Para aprender a estabelecer uma elevada disponibilidade e plano para a recuperação de desastres da SAP HANA em Azure (grandes instâncias), ver [SAP HANA (grandes instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md).

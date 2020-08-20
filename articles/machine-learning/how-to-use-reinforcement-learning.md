@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847640"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650830"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -34,7 +34,7 @@ Neste artigo você vai aprender a:
 > * Submeter uma experiência para começar uma corrida
 > * Ver resultados
 
-Este artigo baseia-se no [exemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que pode ser encontrado no [repositório gitHub](https://aka.ms/azureml-rl-notebooks)do azure machine learning .
+Este artigo baseia-se no [exemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que pode ser encontrado no [repositório gitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)do azure machine learning .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Execute este código em qualquer um dos seguintes ambientes. Recomendamos que ex
      - Saiba como clonar cadernos de amostras em [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
          - Clone a pasta **como usar-azureml** em vez de **tutoriais**
      - Executar o caderno de configuração de rede virtual localizado `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` em portas de rede abertas utilizadas para a aprendizagem de reforço distribuído.
-     - Executar o caderno de amostras`/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
+     - Executar o caderno de amostras `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
  - O seu próprio servidor de cadernos Jupyter
 
@@ -71,11 +71,11 @@ O processo de iteração através da simulação e da reconversão de um DNN é 
 
 A Azure Machine Learning fornece o enquadramento para gerir estas complexidades para escalar as suas cargas de trabalho RL.
 
-## <a name="set-up-the-environment"></a>Configurar o ambiente
+## <a name="set-up-the-environment"></a>Configure o ambiente
 
 Configurar o ambiente RL local carregando os pacotes Python necessários, inicializando o seu espaço de trabalho, criando uma experiência e especificando uma rede virtual configurada.
 
-### <a name="import-libraries"></a>Bibliotecas de importação
+### <a name="import-libraries"></a>Importar bibliotecas
 
 Importe os pacotes Python necessários para executar o resto deste exemplo.
 
@@ -433,4 +433,4 @@ Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://aka.ms/azureml-rl-notebooks)
+Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)

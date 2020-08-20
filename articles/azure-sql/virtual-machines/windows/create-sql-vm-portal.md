@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8b16551abf5b52a9b848988a50fe556d364907b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669295"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652021"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Como utilizar o portal Azure para a provisionar uma máquina virtual Windows com o SQL Server
 
@@ -34,7 +34,7 @@ Utilize este guia para criar o seu próprio SQL Server VM. Ou, use-o como refer�
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a>Imagens de galeria de máquinas virtuais do SQL Server
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> Imagens de galeria de máquinas virtuais do SQL Server
 
 Quando criar uma máquina virtual SQL Server, pode selecionar uma de várias imagens pré-configuradas da galeria de máquinas virtuais. Os seguintes passos demonstram como selecionar uma das imagens do SQL Server 2017.
 
@@ -104,7 +104,7 @@ No **separador Discos,** configuure as opções do disco.
 * Em **Avançado**, selecione **Sim** sob a utilização de **Discos Geridos**.
 
    > [!NOTE]
-   > A Microsoft recomenda o Managed Disks para o SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para mais informações, consulte [a visão geral dos discos geridos aZure](../../../virtual-machines/windows/managed-disks-overview.md). Para obter informações específicas sobre os discos geridos em conjuntos de disponibilidade, veja [Use managed disks for VMs in availability set](../../../virtual-machines/windows/manage-availability.md) (Utilizar discos geridos em VMs num conjunto de disponibilidade).
+   > A Microsoft recomenda o Managed Disks para o SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para mais informações, consulte [a visão geral dos discos geridos aZure](../../../virtual-machines/managed-disks-overview.md). Para obter informações específicas sobre os discos geridos em conjuntos de disponibilidade, veja [Use managed disks for VMs in availability set](../../../virtual-machines/windows/manage-availability.md) (Utilizar discos geridos em VMs num conjunto de disponibilidade).
 
 ![Definições de disco VM SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
@@ -137,7 +137,7 @@ No separador de definições do **SQL Server,** configurar definições específ
 
 - [Conetividade](#connectivity)
 - [Autenticação](#authentication)
-- [Integração do Cofre de Chaves do Azure](#azure-key-vault-integration)
+- [Integração do Cofre chave Azure](#azure-key-vault-integration)
 - [Configuração de armazenamento](#storage-configuration)
 - [Remendação automatizada](#automated-patching)
 - [Backup automatizado](#automated-backup)
@@ -177,7 +177,7 @@ Se preferir não ativar a autenticação do servidor SQL, pode utilizar a conta 
 
 ### <a name="azure-key-vault-integration"></a>Integração do Cofre de Chaves do Azure
 
-Para armazenar segredos de segurança no Azure para encriptação, selecione **as definições do SQL Server**e desloque-se até à **integração do cofre de chaves Azure**. **Selecione Ative** e preencha as informações solicitadas. 
+Para armazenar segredos de segurança no Azure para encriptação, selecione **as definições do SQL Server**e desloque-se até à  **integração do cofre de chaves Azure**. **Selecione Ative** e preencha as informações solicitadas. 
 
 ![Integração do Cofre de Chaves do Azure](./media/create-sql-vm-portal/azure-sqlvm-akv.png)
 
@@ -257,7 +257,7 @@ Pode monitorizar a implementação a partir do portal do Azure. O botão **Notif
 > [!NOTE]
 > Um exemplo de tempo para o Azure implementar um SQL Server VM: Um teste SQL Server VM abastado na região leste dos EUA com definições padrão leva aproximadamente 12 minutos para ser concluído. Poderá experimentar tempos de implantação mais rápidos ou mais lentos com base na sua região e configurações selecionadas.
 
-## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Abra o VM com desktop remoto
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a> Abra o VM com desktop remoto
 
 Utilize os seguintes passos para ligar à máquina virtual sql Server com o Protocolo de Ambiente de Trabalho Remoto (RDP):
 
@@ -267,7 +267,7 @@ Depois de ligar à máquina virtual do SQL Server, pode iniciar o SQL Server Man
 
 O acesso ao computador permite-lhe alterar diretamente as definições do SQL Server e da máquina com base nos seus requisitos. Por exemplo, pode configurar as definições da firewall ou alterar as definições de configuração do SQL Server.
 
-## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a>Ligue-se ao SQL Server remotamente
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> Ligue-se ao SQL Server remotamente
 
 Nesta passagem, selecionou o acesso **público** para a máquina virtual e **a Autenticação do Servidor SQL.** Estas definições configuraram automaticamente a máquina virtual para permitir ligações ao SQL Server a partir de qualquer cliente através da Internet (partindo do princípio de que tem o início de sessão SQL correto).
 
@@ -282,6 +282,6 @@ As seguintes secções mostram como ligar através da internet à sua instância
   > Este exemplo utiliza a porta comum 1433. No entanto, este valor terá de ser modificado se uma porta diferente (como 1401) tiver sido especificada durante a implantação do SQL Server VM. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para outras informações sobre como utilizar o SQL Server no Azure, consulte o artigo [SQL Server em Virtual Machines do Azure](sql-server-on-azure-vm-iaas-what-is-overview.md) e as [Perguntas Mais Frequentes](frequently-asked-questions-faq.md).

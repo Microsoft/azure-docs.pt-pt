@@ -3,12 +3,12 @@ title: Reprodução de gravações de vários dias - Azure
 description: Neste tutorial, você aprenderá a usar APIs do Azure Media Service para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433653"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649096"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reprodução de gravações de vários dias  
 
@@ -40,7 +40,7 @@ Recomenda-se que leia as seguintes páginas de documentação:
 
 ## <a name="run-the-sample"></a>Executar o exemplo 
 
-Como parte do tutorial da [CVR,](continuous-video-recording-tutorial.md)teria criado uma conta de Media Service. Para este tutorial, terá de ter acesso completo à API a essa conta. Pode utilizar os passos em [Obter credenciais para aceder à API dos Serviços de Mídia](../latest/access-api-howto.md#use-the-azure-portal) para criar um principal serviço. Você deve ser capaz de obter um bloco JSON do portal Azure que se parece com isto:
+Como parte do tutorial da [CVR,](continuous-video-recording-tutorial.md)teria criado uma conta de Media Service. Para este tutorial, terá de ter acesso completo à API a essa conta. Pode utilizar os passos em [Obter credenciais para aceder à API dos Serviços de Mídia](../latest/access-api-howto.md?tabs=portal) para criar um principal serviço. Você deve ser capaz de obter um bloco JSON do portal Azure que se parece com isto:
 
 ```
 {
@@ -57,7 +57,7 @@ Como parte do tutorial da [CVR,](continuous-video-recording-tutorial.md)teria cr
 }
 ```
 
-Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta contém os ficheiros necessários para este tutorial. Abra o ficheiro appsettings.json e copie o seu conteúdo num novo ficheiro, appsettings.development.json. Faça as seguintes edições para este último ficheiro:
+Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta contém os ficheiros necessários para este tutorial. Abra a appsettings.jsem ficheiro e copie o seu conteúdo num novo ficheiro, appsettings.development.jsligado. Faça as seguintes edições para este último ficheiro:
 
 ```
   "AMS" : {
@@ -87,7 +87,7 @@ O Leitor de Ativos AMS pede-lhe que introduza o nome de um ativo do Media Servic
 
 Ao escrever o nome do ativo e bater, o código do jogador carregará o URL de streaming. Para mais informações, consulte [Como-a-Guia: Reprodução de gravações](playback-recordings-how-to.md). Se, como recomendado, ainda estiver a gravar para o ativo, o leitor irá detetar isso e tentará fazer a reprodução para a parte mais recente do vídeo gravado. Pode ver a horatamp (em UTC) na parte superior esquerda do leitor. Na imagem abaixo, note como o botão "Live" é selecionado.
 
-![Transmitir em fluxo](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
+![Fluxo](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  
 No lado direito do leitor, pode ver os controlos para navegar no arquivo. Os anos, meses e datas deste controlo são preenchidos utilizando a API dos Media disponível documentada em [Como-Guia: Reprodução de gravações](playback-recordings-how-to.md).
 Quando expandir o dia, se tiver deixado o Tutorial CVR funcionar durante várias horas, verá um resultado como este:

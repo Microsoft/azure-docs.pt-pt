@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 570e2798cf2ae5a20d55973622cca9344ea4a4a3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2548f002b2006b5d241c323ae880704bbe95301e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837147"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649929"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -81,7 +81,7 @@ Os tamanhos da série Dasv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passos seguintes
 

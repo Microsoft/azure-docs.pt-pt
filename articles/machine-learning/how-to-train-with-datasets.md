@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849340"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651221"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,7 +90,7 @@ Este código cria um objeto estimador genérico, `est` que especifica
 
 * Um diretório de guiões para os seus scripts. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
 * O guião de treino, *train_titanic.py.*
-* O conjunto de dados de entrada para o treino, `titanic_ds` . `as_named_input()`é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído `titanic` no seu script de treino. 
+* O conjunto de dados de entrada para o treino, `titanic_ds` . `as_named_input()` é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído `titanic` no seu script de treino. 
 * O alvo do cálculo para a experiência.
 * A definição ambiental para a experiência.
 
@@ -115,7 +115,7 @@ O exemplo a seguir cria um Dataset de Ficheiros e monta o conjunto de dados para
 
 ### <a name="create-a-filedataset"></a>Criar um Conjunto de Dados de Ficheiros
 
-O exemplo a seguir cria um Dataset de Ficheiros não registado a partir de urls web. Saiba mais sobre [como criar conjuntos de dados a](https://aka.ms/azureml/howto/createdatasets) partir de outras fontes.
+O exemplo a seguir cria um Dataset de Ficheiros não registado a partir de urls web. Saiba mais sobre [como criar conjuntos de dados a](how-to-create-register-datasets.md) partir de outras fontes.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -201,7 +201,7 @@ Quando **descarrega** um conjunto de dados, todos os ficheiros referenciados pel
 
 Se o seu script processar todos os ficheiros referenciados pelo conjunto de dados e o seu disco de computação puder encaixar no conjunto de dados completo, recomenda-se o download para evitar a sobrecarga de dados de streaming dos serviços de armazenamento. Se o tamanho dos dados exceder o tamanho do disco computacional, o download não é possível. Para este cenário, recomendamos a montagem, uma vez que apenas os ficheiros de dados utilizados pelo seu script são carregados no momento do processamento.
 
-O seguinte código monta `dataset` para o diretório temporário em`mounted_path`
+O seguinte código monta `dataset` para o diretório temporário em `mounted_path`
 
 ```python
 import tempfile

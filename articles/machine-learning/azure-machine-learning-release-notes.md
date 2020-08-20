@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: d93e01cdec79f739367dc219d81028c1abc2d66e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508214"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652071"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -1080,7 +1080,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
 ### <a name="azure-machine-learning-sdk-for-python-v1072"></a>Azure Machine Learning SDK para Python v1.0.72
 
 + **Novas funcionalidades**
-  + Monitores de conjuntos de dados adicionados através do pacote [**azureml-datadrift,**](https://docs.microsoft.com/python/api/azureml-datadrift) permitindo monitorizar conjuntos de dados de séries de tempo para deriva de dados ou outras alterações estatísticas ao longo do tempo. Os alertas e eventos podem ser desencadeados se forem detetados desvios ou se forem satisfeitas outras condições nos dados. Consulte a [nossa documentação](https://aka.ms/datadrift) para mais detalhes.
+  + Monitores de conjuntos de dados adicionados através do pacote [**azureml-datadrift,**](https://docs.microsoft.com/python/api/azureml-datadrift) permitindo monitorizar conjuntos de dados de séries de tempo para deriva de dados ou outras alterações estatísticas ao longo do tempo. Os alertas e eventos podem ser desencadeados se forem detetados desvios ou se forem satisfeitas outras condições nos dados. Consulte a [nossa documentação](how-to-monitor-datasets.md) para mais detalhes.
   + Anunciando duas novas edições (também referidas como um SKU intercambiavelmente) em Azure Machine Learning. Com esta versão, pode agora criar um espaço de trabalho básico ou enterprise Azure Machine Learning. Todos os espaços de trabalho existentes serão incumpridos para a edição Basic, e você pode ir ao portal Azure ou ao estúdio para atualizar o espaço de trabalho a qualquer momento. Pode criar um espaço de trabalho Básico ou Empresarial a partir do portal Azure. Por favor leia a [nossa documentação](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) para saber mais. A partir do SDK, a edição do seu espaço de trabalho pode ser determinada usando a propriedade "sku" do seu objeto de espaço de trabalho.
   + Também fizemos melhorias no Azure Machine Learning Compute - agora pode ver métricas para os seus clusters (como nós totais, nós de corrida, quota de núcleo total) no Azure Monitor, além de visualizar registos de diagnóstico para depuração. Além disso, também pode ver corridas em execução ou fila no seu cluster e detalhes como os IPs dos vários nós no seu cluster. Pode vê-las no portal ou utilizando funções correspondentes no SDK ou CLI.
 
@@ -1328,7 +1328,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
   + **azureml-core**
     + Capacidade adicional de recuperar o URL SAS para modelar no armazenamento através do objeto do modelo. Ex: model.get_sas_url()
     + Introduzir `run.get_details()['datasets']` para obter conjuntos de dados associados à execução submetida
-    + Adicione API `Dataset.Tabular.from_json_lines_files` para criar um Separador De Dados a partir de ficheiros JSON Lines. Para saber mais sobre estes dados tabulares nos ficheiros da JSON Lines no TabularDataset, visite https://aka.ms/azureml-data para obter documentação.
+    + Adicione API `Dataset.Tabular.from_json_lines_files` para criar um Separador De Dados a partir de ficheiros JSON Lines. Para saber mais sobre estes dados tabulares nos ficheiros da JSON Lines no TabularDataset, visite [este artigo](how-to-create-register-datasets.md) para obter documentação.
     + Adicionados campos de tamanho VM adicionais (DISCO DE SO, número de GPUs) à função supported_vmsizes ()
     + Acrescentou campos adicionais à função list_nodes () para mostrar a execução, o IP privado e público, a porta, etc.
     + Capacidade de especificar um novo campo durante o fornecimento de clusters -- remotelogin_port_public_access que pode ser configurado para ativar ou desativar dependendo se você gostaria de deixar a porta SSH aberta ou fechada no momento da criação do cluster. Se não o especificar, o serviço abrirá ou fechará inteligentemente a porta dependendo se está a implantar o cluster dentro de um VNet.
@@ -1367,8 +1367,8 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK para Python v1.0.62
 
 + **Novas funcionalidades**
-  + Introduziu o `timeseries`  traço no SeparadorDataset. Este traço permite uma filtragem de tempo fácil nos dados de um SeparadorDataset, como por exemplo, a recolha de todos os dados entre um intervalo de tempo ou os dados mais recentes. Para saber mais sobre isso, o `timeseries`  traço no TabularDataset, visite https://aka.ms/azureml-data para documentação ou para um https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb portátil.
-  + Formação ativada com SeparadorDataset e FileDataset. Visite https://aka.ms/dataset-tutorial um caderno de exemplo.
+  + Introduziu o `timeseries`  traço no SeparadorDataset. Este traço permite uma filtragem de tempo fácil nos dados de um SeparadorDataset, como por exemplo, a recolha de todos os dados entre um intervalo de tempo ou os dados mais recentes.  https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb por exemplo, um caderno.
+  + Formação ativada com SeparadorDataset e FileDataset. 
 
   + **azureml-train-core**
       + Adicionado `Nccl` e apoio no `Gloo` estimador PyTorch
@@ -1446,7 +1446,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Azure Machine Learning SDK para Python v1.0.60
 
 + **Novas funcionalidades**
-  + Introduzido FileDataset, que faz referência a ficheiros únicos ou múltiplos nas suas datastores ou urls públicos. Os ficheiros podem ser de qualquer formato. O FileDataset fornece-lhe a capacidade de descarregar ou montar os ficheiros no seu cálculo. Para saber mais sobre o FileDataset, https://aka.ms/file-dataset visite.
+  + Introduzido FileDataset, que faz referência a ficheiros únicos ou múltiplos nas suas datastores ou urls públicos. Os ficheiros podem ser de qualquer formato. O FileDataset fornece-lhe a capacidade de descarregar ou montar os ficheiros no seu cálculo. 
   + Pipeline Yaml Suporte adicionado para PythonScript Step, Adla Step, Databricks Step, DataTransferStep e AzureBatch Step
 
 + **Correções e melhorias de bugs**
@@ -1722,7 +1722,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.

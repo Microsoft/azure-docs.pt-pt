@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e0cb9492f6e0b52cb0816d16be5d67d3b92cfe56
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849663"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651408"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,7 +127,7 @@ O Azure Machine Learning Compute pode ser reutilizado através de corridas. O c�
 
 Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](#submit)
 
- ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Reduza o custo do seu cluster de cálculo
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reduza o custo do seu cluster de cálculo
 
 Também pode optar por utilizar [VMs de baixa prioridade](concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Estes VMs não têm disponibilidade garantida e podem ser antecipados durante a utilização. Um trabalho preventivo é reiniciado, não retomado. 
 
@@ -181,8 +181,6 @@ As instâncias computacional podem executar empregos de forma segura num [ambien
     run = experiment.submit(config=src)
     ```
 
-Para obter mais comandos úteis para a instância compute, consulte o portátil [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este caderno também está disponível na pasta **Amostras** do estúdio em *treino/treino-on-computeinstance*.
-
 Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](#submit)
 
 
@@ -201,7 +199,7 @@ Utilize a Máquina Virtual Azure Data Science (DSVM) como O VM Azure de eleiçã
     > 
     > O Azure Machine Learning também requer que a máquina virtual tenha um __endereço IP público.__
 
-1. **Anexar:** Para anexar uma máquina virtual existente como alvo de computação, tem de fornecer o ID, o nome de utilizador e a palavra-passe para a máquina virtual. O ID de recursos do VM pode ser construído usando o ID de subscrição, nome de grupo de recursos e nome VM usando o seguinte formato de cadeia:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
+1. **Anexar:** Para anexar uma máquina virtual existente como alvo de computação, tem de fornecer o ID, o nome de utilizador e a palavra-passe para a máquina virtual. O ID de recursos do VM pode ser construído usando o ID de subscrição, nome de grupo de recursos e nome VM usando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
  
    ```python
@@ -243,7 +241,7 @@ Azure HDInsight é uma plataforma popular para análise de big data. A plataform
     
     Após a criação do cluster, conecte-se com o nome de hospedeiro \<clustername> -ssh.azurehdinsight.net, onde \<clustername> está o nome que forneceu para o cluster. 
 
-1. **Anexar:** Para anexar um cluster HDInsight como alvo de computação, tem de fornecer o ID, o nome de utilizador e a palavra-passe do cluster HDInsight. O ID de recursos do cluster HDInsight pode ser construído usando o ID de subscrição, nome de grupo de recursos e nome de cluster HDInsight usando o seguinte formato de cadeia:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
+1. **Anexar:** Para anexar um cluster HDInsight como alvo de computação, tem de fornecer o ID, o nome de utilizador e a palavra-passe do cluster HDInsight. O ID de recursos do cluster HDInsight pode ser construído usando o ID de subscrição, nome de grupo de recursos e nome de cluster HDInsight usando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute

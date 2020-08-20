@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808632"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650881"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -175,7 +175,7 @@ A Azure Backup requer movimento de dados da sua carga de trabalho para o cofre d
 
 * *Backup Azure VM* - toda a comunicação e transferência de dados necessárias entre o armazenamento e o serviço Azure Backup acontece dentro da rede Azure sem necessidade de aceder à sua rede virtual. Assim, a cópia de segurança dos VMs Azure colocados dentro de redes seguras não requer que você permita o acesso a quaisquer IPs ou FQDNs.
 
-* *As bases de dados SAP HANA em Azure VM, bases de dados do SQL Server em Azure VM* - requer conectividade ao serviço de Backup Azure, Azure Storage e Azure Ative Directory. Isto pode ser conseguido utilizando pontos finais privados ou permitindo o acesso aos endereços IP públicos necessários ou FQDNs. Não permitir a conectividade adequada aos serviços Azure necessários pode levar a falhas em operações como a descoberta de bases de dados, configurar backup, realizar backups e restaurar dados. Para obter uma orientação completa da rede enquanto utiliza as tags NSG, firewall Azure e HTTP Proxy, consulte estes artigos [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) e [SAP HANA.](./backup-azure-sap-hana-database.md#establish-network-connectivity)
+* *As bases de dados SAP HANA em Azure VM, bases de dados do SQL Server em Azure VM* - requer conectividade ao serviço de Backup Azure, Azure Storage e Azure Ative Directory. Isto pode ser conseguido utilizando pontos finais privados ou permitindo o acesso aos endereços IP públicos necessários ou FQDNs. Não permitir a conectividade adequada aos serviços Azure necessários pode levar a falhas em operações como a descoberta de bases de dados, configurar backup, realizar backups e restaurar dados. Para obter uma orientação completa da rede durante a utilização de tags NSG, firewall Azure e HTTP Proxy, consulte estes artigos [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) e [SAP HANA.](./backup-azure-sap-hana-database.md#establish-network-connectivity)
 
 * *Híbrido* - o agente MARS (Microsoft Azure Recovery Services) requer acesso à rede para todas as operações críticas - instalar, configurar, fazer backup e restaurar. O agente MARS pode ligar-se ao serviço Azure Backup sobre a [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) utilizando o espreitamento público (disponível para circuitos antigos) e o esprevamento da Microsoft, utilizando [pontos finais privados](install-mars-agent.md#private-endpoints) ou através de [proxy/firewall com controlos de acesso apropriados](install-mars-agent.md#verify-internet-access).
 
@@ -189,7 +189,7 @@ O Azure [Private Endpoint](../private-link/private-endpoint-overview.md) é uma 
 
 ## <a name="governance-considerations"></a>Considerações de governação
 
-A governação em Azure é implementada principalmente com [a Azure Policy](../governance/policy/overview.md) e [a Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [A Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições políticas para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões corporativos. [A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite-lhe acompanhar o uso da nuvem e as despesas para os seus recursos Azure e outros fornecedores de nuvem. Além disso, as seguintes ferramentas como [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) e [Azure Advisor](../advisor/advisor-overview.md) desempenham um papel importante no processo de gestão de custos.
+A governação em Azure é implementada principalmente com [a Azure Policy](../governance/policy/overview.md) e [a Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [A Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições políticas para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões corporativos. [A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite-lhe acompanhar o uso da nuvem e as despesas para os seus recursos Azure e outros fornecedores de nuvem. Além disso, as seguintes ferramentas como [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) e [Azure Advisor](../advisor/advisor-overview.md)  desempenham um papel importante no processo de gestão de custos.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup suporta dois cenários-chave através da política de Azure incorporada
 

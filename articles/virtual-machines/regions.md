@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284732"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650558"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões das máquinas virtuais no Azure
 
@@ -75,11 +75,11 @@ A tabela seguinte fornece uma descrição geral rápida das diferenças entre os
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados em vários locais. |Não |Sim |Sim |Sim |
-| Os dados podem ser lidos a partir da localização secundária e da localização principal. |Não |Não |Não |Sim |
+| Os dados são replicados em vários locais. |Não |Yes |Yes |Yes |
+| Os dados podem ser lidos a partir da localização secundária e da localização principal. |No |No |Não |Yes |
 | Número de cópias dos dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Pode ler mais sobre as [opções de replicação de Armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](./windows/managed-disks-overview.md).
+Pode ler mais sobre as [opções de replicação de Armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](./managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
 Os preços podem variar consoante o tipo de armazenamento e disponibilidade que selecionou.

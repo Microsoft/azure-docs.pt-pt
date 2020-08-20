@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547329"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648739"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Permitir o registo em ações de treino do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -70,8 +70,6 @@ Também pode utilizar o mesmo parâmetro na `wait_for_completion` função na ex
 run.wait_for_completion(show_output=True)
 ```
 
-Para obter um caderno de amostras completo que utilize registos ScriptRunConfigs, consulte [Train a model localmente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
-
 ## <a name="native-python-logging"></a>Registo nativo de Python
 
 Alguns registos no SDK podem conter um erro que o instrui a definir o nível de registo para DEBUG. Para definir o nível de registo, adicione o seguinte código ao seu script.
@@ -88,9 +86,7 @@ O Azure Machine Learning também pode registar informações de outras fontes du
 Para obter informações sobre métricas de registo no designer de aprendizagem automática Azure (pré-visualização), consulte [como registar métricas no designer (pré-visualização)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
-Os seguintes cadernos demonstram conceitos neste artigo:
-* [como usar-azureml/training/train-in-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [como usar-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+O seguinte caderno demonstra conceitos neste artigo:
 * [como usar-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

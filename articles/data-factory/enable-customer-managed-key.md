@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 9caa4690fa6b9d6c473bb8863acdcbbe15a37fba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570035"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650587"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Encrypt Azure Data Factory com chaves geridas pelo cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-A Azure Data Factory encripta dados em repouso, incluindo definições de entidades, quaisquer dados em cache enquanto as execuções estão em andamento, e dados em cache para visualização de dados. Por padrão, os dados são encriptados com uma chave gerida aleatoriamente pela Microsoft que é atribuída exclusivamente à sua fábrica de dados. Para obter garantias de segurança adicionais, pode agora ativar Bring Your Own Key (BYOK) com a funcionalidade de chaves geridas pelo cliente na Azure Data Factory. Quando especifica uma chave gerida pelo cliente, a Data Factory utiliza __a__ chave do sistema de fábrica e a CMK para encriptar os dados do cliente. Faltar qualquer um dos dois resultaria em Negação de Acesso a dados e fábrica.
+A Azure Data Factory encripta dados em repouso, incluindo definições de entidades e quaisquer dados em cache enquanto as execuções estão em andamento. Por padrão, os dados são encriptados com uma chave gerida aleatoriamente pela Microsoft que é atribuída exclusivamente à sua fábrica de dados. Para obter garantias de segurança adicionais, pode agora ativar Bring Your Own Key (BYOK) com a funcionalidade de chaves geridas pelo cliente na Azure Data Factory. Quando especifica uma chave gerida pelo cliente, a Data Factory utiliza __a__ chave do sistema de fábrica e a CMK para encriptar os dados do cliente. Faltar qualquer um dos dois resultaria em Negação de Acesso a dados e fábrica.
 
 O Azure Key Vault é necessário para armazenar chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O cofre-chave e a Fábrica de Dados devem estar no mesmo inquilino do Azure Ative Directory (Azure AD) e na mesma região, mas podem estar em subscrições diferentes. Para mais informações sobre o Azure Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
@@ -76,7 +76,7 @@ Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode
 
     ![Screenshot Obter Key URI do Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Lançar portal Azure Data Factory, e usando a barra de navegação à esquerda, salte para a página inicial da Data Factory
+1. Lançar portal Azure Data Factory, e usando a barra de navegação à esquerda, saltar para o Portal de Gestão de Fábricas de Dados
 
 1. Clique no ícone da __chave manged cliente__
 

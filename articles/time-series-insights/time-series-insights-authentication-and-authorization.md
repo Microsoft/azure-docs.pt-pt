@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cea08022b992395862fcf75e0592efd54c805a98
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168036"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649130"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -85,7 +85,7 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 
    1. Em C#, o seguinte código pode adquirir o token em nome da aplicação. Para obter uma amostra completa de como consultar dados de um ambiente Gen1, leia [os dados de consulta utilizando C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        Consulte o [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo para aceder ao código C#. 
 
    1. O token pode então ser passado no `Authorization` cabeçalho quando a aplicação chama a AZure Time Series Insights API.
 
@@ -117,8 +117,8 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 > [!IMPORTANT]
 > O símbolo deve ser emitido exatamente para o `https://api.timeseries.azure.com/` recurso (também conhecido como o "público" do token).
 
-> * O [seu Carteiro](https://www.getpostman.com/) **AuthURL** será, portanto,:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
-> * `https://api.timeseries.azure.com/`é válido, mas `https://api.timeseries.azure.com` não é.
+> * O [seu Carteiro](https://www.getpostman.com/) **AuthURL** será, portanto,: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * `https://api.timeseries.azure.com/` é válido, mas `https://api.timeseries.azure.com` não é.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 

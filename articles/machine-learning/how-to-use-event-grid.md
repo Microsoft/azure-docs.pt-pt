@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319495"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650422"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
@@ -199,7 +199,7 @@ Este exemplo mostra como usar a grelha de eventos com uma App Azure Logic para d
 
 Antes de começar, execute as seguintes ações:
 
-* Crie um monitor de conjunto de dados para detetar a [deriva de dados]( https://aka.ms/datadrift) num espaço de trabalho
+* Crie um monitor de conjunto de dados para detetar a [deriva de dados](how-to-monitor-datasets.md) num espaço de trabalho
 * Criar um [oleoduto Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)publicado.
 
 Neste exemplo, um simples oleoduto Data Factory é usado para copiar ficheiros numa loja de bolhas e executar um pipeline de Machine Learning publicado. Para obter mais informações sobre este cenário, veja como configurar um passo de [Machine Learning na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

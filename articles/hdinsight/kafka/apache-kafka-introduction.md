@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77672179"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651340"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é Apache Kafka em Azure HDInsight
 
@@ -25,21 +25,21 @@ Seguem-se as características específicas do Kafka no HDInsight:
 
 * A Microsoft fornece um Contrato de Nível de Serviço (SLA) de 99,9% de tempo de atividade do Kafka. Para obter mais informações, veja o documento [Informações do SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* Utiliza os Managed Disks do Azure como arquivo de cópias de segurança do Kafka. Os Managed Disks podem fornecer até 16 TB de armazenamento por mediador Kafka. Para obter informações sobre a configuração de discos geridos com Kafka no HDInsight, consulte [Aumentar a escalabilidade de Apache Kafka no HDInsight](apache-kafka-scalability.md).
+* Utiliza os Managed Disks do Azure como arquivo de cópias de segurança do Kafka. Os Managed Disks podem fornecer até 16 TB de armazenamento por mediador Kafka. Para obter informações sobre a configuração de discos geridos com Kafka em HDInsight, consulte [Aumentar a escalabilidade de Apache Kafka em HDInsight](apache-kafka-scalability.md).
 
-    Para obter mais informações sobre os discos geridos, consulte [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obter mais informações sobre os discos geridos, consulte [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 * O Kafka foi concebido com uma única vista dimensional de um bastidor. O Azure separa um bastidor em duas dimensões: Domínios de Atualização (UD) e Domínios de Falha (FD). A Microsoft oferece ferramentas que reequilibram as réplicas e partições do Kafka em UDs e FDs.
 
-    Para mais informações, consulte [A elevada disponibilidade com Apache Kafka no HDInsight](apache-kafka-high-availability.md).
+    Para mais informações, consulte [Alta disponibilidade com Apache Kafka em HDInsight.](apache-kafka-high-availability.md)
 
 * O HDInsight permite-lhe alterar o número de nós de trabalho (que alojam o mediador Kafka) após a criação do cluster. O escalonamento pode ser executado a partir do portal do Azure, do Azure PowerShell e de outras interfaces de gestão do Azure. Para o Kafka, deve reequilibrar as réplicas de partições após as operações de dimensionamento. Reequilibrar partições permite ao Kafka tirar partido do novo número de nós de trabalho.
 
-    Para mais informações, consulte [A elevada disponibilidade com Apache Kafka no HDInsight](apache-kafka-high-availability.md).
+    Para mais informações, consulte [Alta disponibilidade com Apache Kafka em HDInsight.](apache-kafka-high-availability.md)
 
-* Os registos do Monitor Azure podem ser utilizados para monitorizar o Kafka no HDInsight. O Azure Monitor regista informações de nível de máquina virtual, tais como métricas de disco e NIC, e métricas JMX de Kafka.
+* Os registos do Monitor Azure podem ser utilizados para monitorizar Kafka em HDInsight. Os registos do Azure Monitor superam informações de nível de máquina virtual, tais como métricas de disco e NIC, e métricas JMX de Kafka.
 
-    Para mais informações, consulte [os registos do Apache Kafka no HDInsight](apache-kafka-log-analytics-operations-management.md).
+    Para obter mais informações, consulte [os registos de Apache Kafka em HDInsight](apache-kafka-log-analytics-operations-management.md).
 
 ## <a name="apache-kafka-on-hdinsight-architecture"></a>Apache Kafka na arquitetura HDInsight
 
@@ -55,30 +55,30 @@ Registos de partição de tópicos em mediadores. Quando consumir registos, pode
 
 A replicação é utilizada para duplicar as partições nos nós, ao proteger contra interrupções do nó (mediador). A partição assinalada com *(L)* no diagrama é a partição líder dessa partição específica. O tráfico do produtor é encaminhado para o líder de cada nó mediante a utilização do estado gerido pelo ZooKeeper.
 
-## <a name="why-use-apache-kafka-on-hdinsight"></a>Porquê usar o Apache Kafka no HDInsight?
+## <a name="why-use-apache-kafka-on-hdinsight"></a>Porquê usar Apache Kafka na HDInsight?
 
 Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no HDInsight:
 
-|Utilizar |Descrição |
+|Utilização |Descrição |
 |---|---|
-|Replicação de dados apache kafka|Kafka fornece o utilitário MirrorMaker, que replica dados entre os clusters kafka. Para obter informações sobre a utilização do MirrorMaker, consulte [tópicos Replicate Apache Kafka com Apache Kafka no HDInsight](apache-kafka-mirroring.md).|
-|Padrão de mensagens de subscrição de publicação|Kafka fornece um Produtor API para publicar registos a um tópico kafka. A API de Consumidor é utilizada ao subscrever um tópico. Para mais informações, consulte [Start with Apache Kafka no HDInsight](apache-kafka-get-started.md).|
-|Processamento de fluxos|Kafka é frequentemente usado com Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark. Para mais informações, consulte [Start with Apache Kafka no HDInsight](apache-kafka-get-started.md).|
-|Dimensionamento horizontal|As divisórias kafka fluem através dos nós do cluster HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos. Para mais informações, consulte [Start with Apache Kafka no HDInsight](apache-kafka-get-started.md).|
-|Entrega em encomenda|Dentro de cada divisória, os registos são armazenados no fluxo na ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem. Para mais informações, consulte [Start with Apache Kafka no HDInsight](apache-kafka-get-started.md).|
-|Mensagens|Uma vez que suporta o padrão de mensagens de subscrição de publicação, Kafka é frequentemente usado como corretor de mensagens.|
-|Rastreio de atividades|Uma vez que Kafka fornece registos em ordem, pode ser usado para rastrear e recriar atividades. Por exemplo, ações do utilizador num site ou numa aplicação.|
-|Agregação|Utilizando o processamento de fluxo, pode agregar informações de diferentes streams para combinar e centralizar a informação em dados operacionais.|
+|Replicação dos dados de Apache Kafka|Kafka fornece o utilitário MirrorMaker, que replica dados entre clusters Kafka. Para obter informações sobre a utilização do MirrorMaker, consulte [os tópicos De Replicar Apache Kafka com Apache Kafka em HDInsight](apache-kafka-mirroring.md).|
+|Padrão de mensagens de subscrição de publicação|Kafka fornece uma API de produtor para publicar registos para um tema Kafka. A API de Consumidor é utilizada ao subscrever um tópico. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|
+|Processamento de fluxos|Kafka é frequentemente usado com Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|
+|Dimensionamento horizontal|As divisórias kafka fluem através dos nós no aglomerado HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|
+|Entrega em encomenda|Dentro de cada divisória, os registos são armazenados no fluxo na ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem. Para obter mais informações, consulte [Start with Apache Kafka em HDInsight](apache-kafka-get-started.md).|
+|Mensagens|Uma vez que suporta o padrão de mensagem de publicação- subscrição, Kafka é frequentemente usado como um corretor de mensagens.|
+|Rastreio de atividade|Uma vez que a Kafka fornece registos in-order, pode ser usado para rastrear e recriar atividades. Por exemplo, ações do utilizador num site ou numa aplicação.|
+|Agregação|Utilizando o processamento de fluxo, pode agregar informações de diferentes fluxos para combinar e centralizar a informação em dados operacionais.|
 |Transformação|Utilizando o processamento de fluxo, pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 
-* [Quickstart: Crie Apache Kafka no HDInsight](apache-kafka-get-started.md)
+* [Quickstart: Criar Apache Kafka em HDInsight](apache-kafka-get-started.md)
 
-* [Use Kafka com procuração REST](rest-proxy.md)
+* [Use Kafka com proxy REST](rest-proxy.md)
 
-* [Tutorial: Use Apache Spark com Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Tutorial: Use Apache Spark com Apache Kafka em HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
 * [Tutorial: Utilizar o Apache Storm com Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
