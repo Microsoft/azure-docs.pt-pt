@@ -3,18 +3,18 @@ title: Documentação da Pré-visualização do Azure Notebooks
 summary: No dia 9 de outubro de 2020, o site de pré-visualização pública do Azure Notebooks será descontinuado e substituído por serviços integrados do Visual Studio, Azure e GitHub. Saiba mais sobre as opções à sua disposição e sobre as outras experiências de bloco de notas da Microsoft em https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Documentação da Pré-visualização do Azure Notebooks
-  description: Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado da Pré-visualização do Azure Notebooks.
+  description: Saiba como criar, executar e partilhar Jupyter Notebooks através do serviço de Pré-visualização alojado do Azure Notebooks.
   ms.service: azure-notebooks
   ms.topic: landing-page
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 456cd23308c7258b59fa8dad628e9f09f6afc0e2
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: cdc98d01a4fae5e4b09af001ec65dd7a29c34c0f
+  ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88586958"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88640281"
 landingContent:
 - title: Acerca do Azure Notebooks
   linkLists:
@@ -38,17 +38,17 @@ landingContent:
       url: /learn/modules/analyze-climate-data-with-azure-notebooks/
   - linkListType: tutorial
     links:
-    - text: Criar e executar um Jupyter notebook com Python
+    - text: Criar e executar um Jupyter Notebook com o Python
       url: tutorial-create-run-jupyter-notebook.md
   - linkListType: quickstart
     links:
     - text: Iniciar sessão e definir um ID de utilizador
       url: quickstart-sign-in-azure-notebooks.md
-    - text: Criar e partilhar um bloco de notas
+    - text: Criar e partilhar um Notebook
       url: quickstart-create-share-jupyter-notebook.md
-    - text: Clonar um bloco de notas
+    - text: Clonar um Notebook
       url: quickstart-clone-jupyter-notebook.md
-    - text: Migrar um bloco de notas Jupyter local
+    - text: Migrar um Jupyter Notebook local
       url: quickstart-migrate-local-jupyter-notebook.md
     - text: Criar um projeto com um ambiente personalizado
       url: quickstart-create-jupyter-notebook-project-environment.md
@@ -64,7 +64,7 @@ landingContent:
       url: work-with-project-data-files.md
     - text: Criar e clonar projetos
       url: create-clone-jupyter-notebooks.md
-    - text: Aceder a dados da cloud num bloco de notas
+    - text: Aceder a dados da cloud num Notebook
       url: access-data-resources-jupyter-notebooks.md
-    - text: Instalar pacotes num bloco de notas
+    - text: Instalar pacotes num Notebook
       url: install-packages-jupyter-notebook.md

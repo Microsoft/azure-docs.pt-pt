@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121794"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640973"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -37,7 +37,7 @@ Utilize esta localização de pedido no Carteiro juntamente com a chave principa
 
 ## <a name="get-the-functions-master-key"></a>Obtenha a chave principal da função
 
-1. Navegue para a sua função no portal Azure e selecione **Teclas de função**. Em seguida, selecione a chave de função que pretende copiar. 
+1. Navegue para a sua aplicação de função no [portal Azure,](https://portal.azure.com)selecione **'App Keys'** e, em seguida, a `_master` chave. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Localize a chave principal para copiar." border="true":::
 
@@ -50,7 +50,7 @@ Utilize esta localização de pedido no Carteiro juntamente com a chave principa
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Veja os registos para ver os resultados dos testes da chave principal." border="true":::
 
 > [!CAUTION]  
-> Devido às permissões elevadas na sua aplicação de função concedida pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la numa aplicação.
+> Devido às permissões elevadas na sua aplicação de função concedida pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la numa aplicação. A chave só deve ser enviada para um ponto final HTTPS.
 
 ## <a name="call-the-function"></a>Ligue para a função
 
@@ -69,7 +69,7 @@ Abra o Carteiro e siga estes passos:
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Configurações do corpo do carteiro." border="true":::
 
-1. Selecione **Enviar**.
+1. Selecione **Send** (Enviar).
         
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envie um pedido com o Carteiro." border="true":::
 
@@ -79,7 +79,7 @@ Abra o Carteiro e siga estes passos:
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Veja os registos para ver os resultados dos testes da chave principal." border="true":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Estratégias para testar o seu código nas Funções do Azure](./functions-test-a-function.md)
 - [Grelha de evento de função Azure desencadeia depuração local](./functions-debug-event-grid-trigger-local.md)

@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678074"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640417"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O discurso-a-texto do serviço de discurso, também conhecido como reconhecimento de voz, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas neste texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviços de <a href="./speech-translation.md" target="_blank">tradução <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e <a href="./text-to-speech.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> texto-a-fala.</a> Para obter uma lista completa das línguas disponíveis de voz para texto, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
 
@@ -30,6 +28,8 @@ Com um texto de referência adicional como entrada, o serviço de voz a texto ta
 > [!NOTE]
 > Bing Speech foi desativado a 15 de outubro de 2019. Se as suas aplicações, ferramentas ou produtos estiverem a utilizar as APIs do Discurso de Bing, criámos guias para o ajudar a migrar para o serviço Desemaçamento.
 > - [Migrar do Discurso de Bing para o serviço de fala](how-to-migrate-from-bing-speech.md)
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started-with-speech-to-text"></a>Começar com discurso-a-texto
 
@@ -59,9 +59,13 @@ O código de amostra para o SDK de discurso está disponível no GitHub. Estas a
 
 Além do modelo padrão de serviço de fala, pode criar modelos personalizados. A personalização ajuda a superar barreiras de reconhecimento de voz, tais como estilo de fala, vocabulário e ruído de fundo, ver [Discurso Personalizado.](how-to-custom-speech.md) As opções de personalização variam de acordo com o idioma/local, consulte [idiomas suportados](supported-languages.md) para verificar o suporte.
 
+## <a name="batch-transcription"></a>Transcrição em lote
+
+A transcrição do lote é um conjunto de operações de API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros áudio com uma assinatura de acesso partilhado (SAS) URI e receber assincronamente os resultados da transcrição. Consulte o [como fazer para](batch-transcription.md) obter mais informações sobre como usar a API de transcrição do lote.
+
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
 - [Obtenha o Discurso SDK](speech-sdk.md)

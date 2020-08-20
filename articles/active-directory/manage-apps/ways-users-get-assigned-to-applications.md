@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 516bffa7057f8fee3b8e38d46f3b2da905880044
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762977"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639941"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir utilizadores a aplicações
 
@@ -44,9 +44,9 @@ Para que um utilizador aceda a uma aplicação, deve primeiro ser-lhe atribuído
 
     * O grupo [de todos os utilizadores](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  Um administrador permite o Acesso a [Aplicações self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um utilizador adicione uma aplicação utilizando a funcionalidade **App De** Adicionar Painel de Acesso à [Aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **sem aprovação do negócio**
+3.  Um administrador permite o Acesso a [Aplicações self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um utilizador adicione uma aplicação usando a funcionalidade [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Add App** sem **aprovação do negócio**
 
-4.  Um administrador permite o Acesso a [Aplicações self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um utilizador adicione uma aplicação utilizando a funcionalidade **App App do** Painel de Acesso à [Aplicação,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) mas apenas w**aprovação prévia de um conjunto selecionado de aprovadores de negócios**
+4.  Um administrador permite o Acesso a [Aplicações self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um utilizador adicione uma aplicação utilizando a funcionalidade [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Add App,** mas apenas w**aprovação prévia de um conjunto selecionado de aprovadores de negócios**
 
 5.  Um administrador permite que a [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) permita que um utilizador se junte a um grupo a que uma aplicação é atribuída **sem aprovação do negócio**
 
@@ -60,5 +60,5 @@ Para que um utilizador aceda a uma aplicação, deve primeiro ser-lhe atribuído
 
 10. Um utilizador [consente com uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) por si mesmo, inscrevendo-se na aplicação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

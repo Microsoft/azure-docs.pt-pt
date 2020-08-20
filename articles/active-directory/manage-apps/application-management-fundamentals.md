@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760274"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642440"
 ---
 # <a name="application-management-best-practices"></a>Gestão de aplicações boas práticas
 
@@ -33,8 +33,8 @@ Este artigo contém recomendações e boas práticas para gerir aplicações no 
 | Consulte a galeria de aplicações AZure AD para obter aplicações  | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas que são ativadas com um único sign-on da Enterprise (SSO). Para obter orientação de configuração específica de aplicações, consulte a [Lista de tutoriais de aplicações SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
 | Utilizar SSO federado baseado em SAML  | Quando uma aplicação o suporta, utilize SSO federado, baseado em SAML com Azure AD em vez de SSO e ADFS baseados em palavra-passe.  | 
 | Utilize SHA-256 para a assinatura do certificado  | A Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Utilize SHA-256 a menos que a aplicação exija SHA-1 (ver [opções](certificate-signing-options.md) de assinatura de certificado e [problema de inscrição de pedidos](application-sign-in-problem-application-error.md).)  | 
-| Exigir atribuição do utilizador  | Por predefinição, os utilizadores podem aceder às suas aplicações empresariais sem serem atribuídos às mesmos. No entanto, se a aplicação expor as funções, ou se pretender que a aplicação apareça no painel de acesso de um utilizador, exija a atribuição do utilizador. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)  | 
-| Implementar o painel de acesso my Apps aos seus utilizadores | O painel de [acesso](end-user-experiences.md) é um portal baseado na Web que fornece `https://myapps.microsoft.com` aos utilizadores um único ponto de entrada para as suas aplicações baseadas na nuvem atribuídas. À medida que são adicionadas capacidades adicionais como a gestão do grupo e o reset da palavra-passe de autosserviço, os utilizadores podem encontrá-los no painel de acesso. Consulte [a implementação de um painel de acesso.](access-panel-deployment-plan.md)
+| Exigir atribuição do utilizador  | Por predefinição, os utilizadores podem aceder às suas aplicações empresariais sem serem atribuídos às mesmos. No entanto, se a aplicação expor as funções, ou se pretender que a aplicação apareça nas Minhas Apps de um utilizador, requer a atribuição do utilizador. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)  | 
+| Implementar as minhas apps para os seus utilizadores | [My Apps](end-user-experiences.md) at é um portal baseado na `https://myapps.microsoft.com` web que fornece aos utilizadores um único ponto de entrada para as suas aplicações baseadas na nuvem atribuídas. À medida que são adicionadas capacidades adicionais como a gestão do grupo e o reset da palavra-passe de autosserviço, os utilizadores podem encontrá-los nas Minhas Apps. Ver [Plan My Apps implementação](access-panel-deployment-plan.md).
 | Utilizar atribuição de grupo  | Se incluído na sua subscrição, atribua grupos a uma aplicação para que possa delegar a gestão de acesso contínua ao proprietário do grupo. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)   | 
 | Estabelecer um processo de gestão de certificados | O prazo máximo de vida de um certificado de assinatura é de três anos. Para prevenir ou minimizar a interrupção devido à expiração de um certificado, utilize funções e listas de distribuição de e-mails para garantir que as notificações de alteração relacionadas com certificados são monitorizadas de perto. |
 

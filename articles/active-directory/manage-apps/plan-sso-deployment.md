@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054805"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642389"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -235,11 +235,11 @@ Utilize sempre a função com o menor número de permissões disponíveis para r
 
 | Persona| Funções | Papel de AD AZure (se necessário) |
 |--------|-------|-----------------------------|
-| Administração de mesa de ajuda | Suporte de nível 1 | Nenhuma |
+| Administração de mesa de ajuda | Suporte de nível 1 | Nenhum |
 | Administrador de identidade | Configurar e depurar quando as questões impactam Azure AD | Administrador global |
-| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 | Administradores de infraestruturas | Cert proprietário de capotamento | Administrador global |
-| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 
 Recomendamos a [utilização de Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerir as suas funções para fornecer auditoria, controlo e revisão de acesso adicionais para utilizadores com permissões de diretório.
 
@@ -285,7 +285,7 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 - [Problemas de sessão a partir de um portal personalizado](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemas ao iniciar sessão no painel de acesso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemas de sessão a partir de My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Erro na página de início de sessão da aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1ffb5ec0b39c5331afbc55d99268d9a3997e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764456"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641182"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar soluções de acesso remoto
 
@@ -34,21 +34,21 @@ Utilize esta tabela para entender como o Gateway de Gestão de Ameaças (TMG), O
 
 | Funcionalidade | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticação de certificados | Sim | Sim | - | - |
-| Publicar seletivamente aplicativos de navegador | Sim | Sim | Sim | Sim |
-| Pré-autorização e inscrição única | Sim | Sim | Sim | Sim | 
-| Firewall de camada 2/3 | Sim | Sim | - | - |
-| Capacidades de procuração avançadas | Sim | - | - | - |
-| Capacidades VPN | Sim | Sim | - | - |
-| Rico apoio ao protocolo | - | Sim | Sim, se atropelando HTTP | Sim, se passar por HTTP ou através do Gateway de Desktop Remoto |
-| Serve como servidor de procuração ADFS | - | Sim | Sim | - |
-| Um portal para acesso a aplicações | - | Sim | - | Sim |
-| Tradução da ligação do corpo de resposta | Sim | Sim | - | Sim | 
-| Autenticação com cabeçalhos | - | Sim | - | Sim, com o PingAccess | 
-| Segurança em escala de nuvem | - | - | - | Sim | 
-| Acesso Condicional | - | Sim | - | Sim |
-| Sem componentes na zona desmilitarizada (DMZ) | - | - | - | Sim |
-| Sem ligações de entrada | - | - | - | Sim |
+| Autenticação de certificados | Yes | Yes | - | - |
+| Publicar seletivamente aplicativos de navegador | Yes | Yes | Yes | Yes |
+| Pré-autorização e inscrição única | Yes | Yes | Yes | Yes | 
+| Firewall de camada 2/3 | Yes | Yes | - | - |
+| Capacidades de procuração avançadas | Yes | - | - | - |
+| Capacidades VPN | Yes | Yes | - | - |
+| Rico apoio ao protocolo | - | Yes | Sim, se atropelando HTTP | Sim, se passar por HTTP ou através do Gateway de Desktop Remoto |
+| Serve como servidor de procuração ADFS | - | Yes | Yes | - |
+| Um portal para acesso a aplicações | - | Yes | - | Yes |
+| Tradução da ligação do corpo de resposta | Yes | Yes | - | Yes | 
+| Autenticação com cabeçalhos | - | Yes | - | Sim, com o PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Yes | 
+| Acesso Condicional | - | Yes | - | Yes |
+| Sem componentes na zona desmilitarizada (DMZ) | - | - | - | Yes |
+| Sem ligações de entrada | - | - | - | Yes |
 
 Para a maioria dos cenários, recomendamos o Azure AD Application Proxy como a solução moderna. O Proxy da Aplicação Web é apenas preferido em cenários que requerem um servidor proxy para AD FS, e não é possível utilizar domínios personalizados no Azure Ative Directory. 
 
@@ -59,9 +59,9 @@ A Azure AD Application Proxy oferece benefícios únicos quando comparados com p
    - Funcionalidades como Acesso Condicional e Autenticação Multi-Factor são fáceis de ativar
 - Sem componentes na zona desmilitarizada
 - Não são necessárias ligações de entrada
-- Um painel de acesso a que os seus utilizadores podem recorrer para todas as suas aplicações, incluindo o O365, as aplicações Integradas AD AD e as suas aplicações web no local. 
+- Uma página my apps a que os seus utilizadores podem ir para todas as suas aplicações, incluindo O365, Azure AD integrado aplicações SaaS e suas aplicações web no local. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize a Aplicação AZure AD para fornecer acesso remoto seguro a aplicações no local](application-proxy.md)

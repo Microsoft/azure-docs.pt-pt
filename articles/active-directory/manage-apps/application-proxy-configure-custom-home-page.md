@@ -16,16 +16,16 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764881"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642066"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Desconfiem de uma página inicial personalizada para aplicações publicadas utilizando o Azure AD Application Proxy
 
-Este artigo discute como configurar uma aplicação para direcionar um utilizador para uma página inicial personalizada. Quando publica uma aplicação com Application Proxy, define um URL interno, mas às vezes não é essa a página que um utilizador deve ver primeiro. Desaprote uma página inicial personalizada para que um utilizador obtenha a página certa quando aceder à aplicação. Um utilizador irá ver a página inicial personalizada que definiu, independentemente de aceder à aplicação a partir do Painel de Acesso ao Diretório Ativo Azure ou do lançador de aplicações Office 365.
+Este artigo discute como configurar uma aplicação para direcionar um utilizador para uma página inicial personalizada. Quando publica uma aplicação com Application Proxy, define um URL interno, mas às vezes não é essa a página que um utilizador deve ver primeiro. Desaprote uma página inicial personalizada para que um utilizador obtenha a página certa quando aceder à aplicação. Um utilizador irá ver a página inicial personalizada que definiu, independentemente de aceder à aplicação a partir do Azure Ative Directory My Apps ou do launcher da aplicação Microsoft 365.
 
 Quando um utilizador lança a aplicação, é direcionada por padrão ao URL de domínio raiz para a aplicação publicada. A página de aterragem é tipicamente definida como o URL da página inicial. Utilize o módulo Azure AD PowerShell para definir um URL de página inicial personalizado quando pretender que um utilizador de aplicações aterre numa página específica dentro da app.
 
@@ -37,7 +37,7 @@ Aqui está um cenário que explica por que a sua empresa definiria uma página i
 - Em vez disso, pretende definir como URL de página inicial, para `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` que um utilizador externo veja primeiro a página de início de s início.
 
 > [!NOTE]
-> Quando dá acesso aos utilizadores a aplicações publicadas, as aplicações são apresentadas no [Painel de Acesso AD AD do Azure](../user-help/my-apps-portal-end-user-access.md) e no lançador de [aplicações office 365.](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)
+> Quando dá acesso aos utilizadores a aplicações publicadas, as aplicações são apresentadas nas [Minhas Apps](../user-help/my-apps-portal-end-user-access.md) e no [launcher da aplicação Office 365.](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -59,7 +59,7 @@ Para alterar o URL da página inicial da sua aplicação através do portal AD A
 1. Selecione **Azure Ative Directory**e, em seguida, **registos de Aplicações**. A lista de aplicações registadas aparece.
 1. Escolha a sua aplicação na lista. Aparece uma página que mostra os detalhes da aplicação registada.
 1. Under **Manage**, selecione **Branding**.
-1. Atualize o **URL da página inicial** com o seu novo caminho.
+1. Atualize o **URL da página inicial**  com o seu novo caminho.
 
    ![Página de marcação para uma aplicação registrada mostrando o campo URL da página inicial](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
 
@@ -178,7 +178,7 @@ Crie o URL da página inicial e atualize a sua aplicação com esse valor. Conti
 > [!NOTE]
 > Quaisquer alterações que fizer à aplicação podem redefinir o URL da página inicial. Se o URL da página inicial reiniciar, repita os passos nesta secção para o repor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)

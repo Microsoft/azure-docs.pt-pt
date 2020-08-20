@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447065"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639856"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral das portas de alta disponibilidade
 
@@ -92,7 +92,7 @@ Pode configurar *um* recurso público Standard Load Balancer para os recursos de
 ## <a name="limitations"></a>Limitações
 
 - As regras de equilíbrio de carga das portas HA estão disponíveis apenas para o Balanceador de Carga Padrão interno.
-- A combinação de uma regra de equilíbrio de carga das portas HA e uma regra de equilíbrio de carga das portas não HA que indique a mesma configuração de backend,a não ser que ambos tenham IP flutuante ativado.
+- A combinação de uma regra de equilíbrio de carga das portas HA e uma regra de equilíbrio de carga das portas não HA que indiquem a mesma configuração de ipconfiguration de backend **não** é suportada numa única configuração IP frontend, a menos que ambos tenham IP flutuante ativado.
 - Os fragmentos de IP existentes serão reencaminhados pelas regras de equilíbrio de carga dos portos ha para o mesmo destino que o primeiro pacote.  A fragmentação ip de um pacote UDP ou TCP não é suportada.
 - A simetria de fluxo (principalmente para cenários de NVA) é suportada com instância de backend e uma única configuração NIC (e única configuração IP) apenas quando usada como mostrado no diagrama acima e usando regras de equilíbrio de carga das portas HA. Não é fornecido em nenhum outro cenário. Isto significa que dois ou mais recursos do Balancer de Carga e respetivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e o diagrama dos [aparelhos virtuais da rede](#nva). Quando estiver a utilizar vários NICs ou a fazer sanduiches no NVA entre um Balanceador de Carga público e interno, a simetria de fluxo não está disponível.  Poderá trabalhar em torno disto através da fonte NAT'ing o fluxo de entrada para o IP do aparelho para permitir que as respostas cheguem no mesmo NVA.  No entanto, recomendamos vivamente a utilização de um único NIC e a utilização da arquitetura de referência mostrada no diagrama acima.
 

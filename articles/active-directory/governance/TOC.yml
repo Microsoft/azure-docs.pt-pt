@@ -86,6 +86,8 @@
               href: entitlement-management-request-access.md
     - name: Revisões de acesso
       items:
+        - name: Planear a implementação da Revisão de acesso
+          href: deploy-access-reviews.md
         - name: Pacotes de acesso
           items:
             - name: Criar uma revisão de acesso

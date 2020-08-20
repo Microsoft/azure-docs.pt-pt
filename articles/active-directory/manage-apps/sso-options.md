@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3352bb13602947f08cc974d63308f2d802b144e7
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612355"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642100"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
 
 O sign-on único proporciona muitos benefícios em relação aos métodos tradicionais de inscrição.
 
-- **Com uma única solução,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Após a sessão, o utilizador pode lançar aplicações a partir do portal Office 365 ou do painel de acesso Azure AD MyApps. Os administradores podem centralizar a gestão da conta de utilizador e adicionar ou remover automaticamente o acesso do utilizador a aplicações com base na adesão ao grupo.
+- **Com uma única solução,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Após a sessão, o utilizador pode lançar aplicações a partir do portal Office 365 ou my Apps. Os administradores podem centralizar a gestão da conta de utilizador e adicionar ou remover automaticamente o acesso do utilizador a aplicações com base na adesão ao grupo.
 
 - **Sem uma única sincê-in,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sôs-se em cada aplicação. O pessoal de TI precisa de criar e atualizar contas de utilizador para cada aplicação, como o Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para iniciar súm na súmia de cada aplicação.
 
@@ -123,7 +123,7 @@ As palavras-passe de cada aplicação podem ser geridas pelo administrador AD Az
 
 Quando o administrador da AD Azure gere as credenciais:  
 
-- O utilizador não precisa de reiniciar ou lembrar-se do nome de utilizador e da palavra-passe. O utilizador pode aceder à aplicação clicando nela no seu painel de acesso ou através de um link fornecido.
+- O utilizador não precisa de reiniciar ou lembrar-se do nome de utilizador e da palavra-passe. O utilizador pode aceder à aplicação clicando nela nas suas Apps Ou através de um link fornecido.
 - O administrador pode fazer tarefas de gestão nas credenciais. Por exemplo, o administrador pode atualizar o acesso à aplicação de acordo com os membros do grupo de utilizadores e o estado do funcionário.
 - O administrador pode usar credenciais administrativas para fornecer acesso a aplicações partilhadas entre muitos utilizadores. Por exemplo, o administrador pode permitir que todos os que possam aceder a uma aplicação tenham acesso a uma aplicação de partilha de redes sociais ou de partilha de documentos.
 

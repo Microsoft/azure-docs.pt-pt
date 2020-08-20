@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009123"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641029"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional
 
@@ -55,9 +55,9 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**
-1. Em **Condições**, selecione **aplicações do Cliente (pré-visualização)**.
+1. Em **Condições**, selecione **aplicativos clientes**.
    1. **Desconfigure** para **Sim**.
-   1. Selecione **aplicativos móveis e clientes de desktop** e **clientes de autenticação moderna.**
+   1. Selecione **aplicativos móveis e clientes de desktop** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
    - **Requerer a política de proteção de aplicações (pré-visualização)**
@@ -76,10 +76,9 @@ Para a política de acesso condicional neste passo, configuure os seguintes comp
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365 Exchange Online**.
-1. Em **Condições:**
-   1. **Aplicativos de cliente (pré-visualização)**:
-      1. **Desconfigure** para **Sim**.
-      1. Selecione **aplicativos móveis e clientes de desktop** e **clientes Exchange ActiveSync**.
+1. Em **Condições,** selecione **aplicativos clientes:**
+   1. **Desconfigure** para **Sim**.
+   1. Selecione **clientes Exchange ActiveSync** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Grant access**, Require app protection **policy**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar e ativar a sua política.
@@ -107,9 +106,9 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**
-1. Em **Condições**, selecione **aplicações do Cliente (pré-visualização)**.
+1. Em **Condições**, selecione **aplicativos clientes**.
    1. **Desconfigure** para **Sim**.
-   1. Selecione **Browser**.
+   1. Selecione **Browser** e desmarcar todo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
    - **Requerer a política de proteção de aplicações (pré-visualização)**
@@ -140,9 +139,9 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**
-1. Em **Condições**, selecione **aplicações do Cliente (pré-visualização)**.
+1. Em **Condições**, selecione **aplicativos clientes**.
    1. **Desconfigure** para **Sim**.
-   1. Selecione **aplicativos móveis e clientes de desktop** e **clientes de autenticação moderna.**
+   1. Selecione **aplicativos móveis e clientes de desktop** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
    - **Requerer a política de proteção de aplicações (pré-visualização)**
@@ -159,10 +158,9 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365 Exchange Online**.
-1. Em **Condições:**
-   1. **Aplicativos de cliente (pré-visualização)**:
-      1. **Desconfigure** para **Sim**.
-      1. Selecione **aplicativos móveis e clientes de desktop** e **clientes Exchange ActiveSync**.
+1. Em **Condições,** selecione **aplicativos clientes:**
+   1. **Desconfigure** para **Sim**.
+   1. Selecione **clientes Exchange ActiveSync** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Grant access**, Require app protection **policy**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar e ativar a sua política.

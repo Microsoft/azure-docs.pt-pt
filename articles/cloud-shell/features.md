@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea11dddd83651e233f008197ffa23a3becd978de
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538178"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642355"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
 
@@ -57,7 +57,7 @@ PowerShell em Cloud Shell contém uma construção privada do módulo Exchange O
 
 ![Screenshot de uma Azure Cloud Shell executando os comandos Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
- Execute `Get-Command -Module tmp_*`
+ Executar `Get-Command -Module tmp_*`
 > [!NOTE]
 > O nome do módulo deve começar `tmp_` por, se tiver módulos instalados com o mesmo prefixo, os seus cmdlets também serão lançados. 
 
@@ -69,7 +69,7 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Name   |
+|Categoria   |Nome   |
 |---|---|
 |Ferramentas Linux            |bash<br> zsh<br> sh<br> tmux<br> cavar<br>               |
 |Ferramentas do Azure            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -84,14 +84,14 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 
 |Linguagem   |Versão   |
 |---|---|
-|.NET Core  |2.2.402       |
-|Go         |1.9        |
+|.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
+|Ir         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (padrão)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Bash em Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell Quickstart](quickstart-powershell.md) <br>
 [Saiba mais sobre a Azure CLI](https://docs.microsoft.com/cli/azure/) <br>

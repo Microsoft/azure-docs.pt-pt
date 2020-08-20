@@ -8,12 +8,12 @@ ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 249c678fb6d55f01a9f06e4e1db5f41fa85a700f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e282e3a7e6efc5c989955a5a6b96030b3054b446
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553075"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641913"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Quickstart: Criar um servidor - modelo ARM
 
@@ -27,14 +27,14 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**: aceda à [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-* **Azure Active Directory**: a sua subscrição tem de estar associada a um inquilino do Azure Active Directory. E tem de ter sessão iniciada no Azure com uma conta nesse Azure Active Directory. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+* **Assinatura Azure**: Visite [o Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
+* **Azure Active Directory**: a sua subscrição tem de estar associada a um inquilino do Azure Active Directory. E tem de ter sessão iniciada no Azure com uma conta nesse Azure Active Directory. Para saber mais, veja [Authentication and user permissions](analysis-services-manage-users.md) (Permissões de autenticação e utilizador).
 
 ## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
 
 Um único recurso [Microsoft.AnalysisServices/servidores](/azure/templates/microsoft.analysisservices/servers) com uma regra de firewall é definido no modelo.
 
@@ -78,7 +78,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize o portal Azure CLI ou a Azure PowerShell para eliminar o grupo de recursos e o recurso do servidor.
 

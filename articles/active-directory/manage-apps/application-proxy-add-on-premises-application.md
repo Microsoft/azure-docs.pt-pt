@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7d94b8604b2f947463dd760ca7baf25f19a15a26
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212804"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642151"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -188,7 +188,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
 
     | Campo | Descrição |
     | :---- | :---------- |
-    | **Nome** | O nome da aplicação que aparecerá no painel de acesso e no portal Azure. |
+    | **Nome** | O nome da aplicação que vai aparecer nas Minhas Apps e no portal Azure. |
     | **URL interno** | O URL para aceder à aplicação a partir de dentro da sua rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Desta forma, pode publicar diferentes sites no mesmo servidor que diferentes aplicações, e dar a cada um o seu próprio nome e regras de acesso.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se a sua aplicação estiver em https: \/ /yourapp/app e utilizar imagens localizadas em https: \/ /yourapp/media, então deve publicar https: \/ /yourapp/ como o caminho. Este URL interno não tem de ser a página de aterragem que os seus utilizadores vêem. Para obter mais informações, consulte [definir uma página inicial personalizada para aplicações publicadas.](application-proxy-configure-custom-home-page.md) |
     | **URL Externo** | O endereço para os utilizadores acederem à aplicação de fora da sua rede. Se não quiser utilizar o domínio proxy de aplicação predefinido, leia sobre [domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md).|
     | **Pré Autenticação** | Como a Aplicação Proxy verifica os utilizadores antes de lhes dar acesso à sua aplicação.<br><br>**Azure Ative Directory** - Application Proxy redireciona os utilizadores para iniciar súm na Azure AD, que autentica as suas permissões para o diretório e aplicação. Recomendamos manter esta opção como padrão para que possa tirar partido das funcionalidades de segurança Azure AD, como acesso condicional e autenticação multi-factor. **O Azure Ative Directory** é necessário para monitorizar a aplicação com a Microsoft Cloud Application Security.<br><br>**Passthrough** - Os utilizadores não têm de autenticar contra a AZure AD para aceder à aplicação. Ainda pode configurar requisitos de autenticação no backend. |
@@ -234,7 +234,7 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 

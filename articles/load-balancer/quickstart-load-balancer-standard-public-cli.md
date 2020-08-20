@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: c80b4e57c94737778d8e6f63804d95f4d1b35fb0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95f8466944d4131b3356f44d65171bf1b6cc7a82
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501802"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640808"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
@@ -52,7 +52,7 @@ Criar um grupo de recursos com [a criação de grupo az:](https://docs.microsoft
 ```
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um equilibrador de carga (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -593,7 +593,7 @@ Adicione as máquinas virtuais à piscina de saída com [a az network nic ip-con
    --lb-name myLoadBalancer
 ```
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**

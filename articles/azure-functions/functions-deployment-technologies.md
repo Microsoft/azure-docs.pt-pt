@@ -4,16 +4,16 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905130"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641964"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
-Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Azure Functions para a Azure. Este artigo fornece uma visão geral dos métodos de implementação disponíveis para si e recomendações para o melhor método a utilizar em vários cenários. Também fornece uma lista exaustiva de detalhes e detalhes fundamentais sobre as tecnologias de implantação sub-lyng. 
+Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Azure Functions para a Azure. Este artigo fornece uma visão geral dos métodos de implementação disponíveis para si e recomendações para o melhor método a utilizar em vários cenários. Fornece também uma lista exaustiva de detalhes e detalhes fundamentais sobre as tecnologias de implantação subjacentes. 
 
 ## <a name="deployment-methods"></a>Métodos de implantação
 
@@ -202,7 +202,13 @@ A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edi�
 | PowerShell (Pré-visualização) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>A edição do portal é ativada apenas para desativações HTTP e Timer para Funções no Linux utilizando planos Premium e Dedicados.
+<sup>*</sup> A edição do portal é ativada apenas para desativações HTTP e Timer para Funções no Linux utilizando planos Premium e Dedicados.
+
+## <a name="deployment-behaviors"></a>Comportamentos de implantação
+
+Quando se faz uma implantação, todas as execuções existentes são autorizadas a completar ou a esgotar-se, após o que o novo código é carregado para iniciar pedidos de processamento.
+
+Se precisar de mais controlo sobre esta transição, deve utilizar slots de implantação.
 
 ## <a name="deployment-slots"></a>Blocos de implementação
 

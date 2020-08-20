@@ -9,12 +9,12 @@ ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.openlocfilehash: 098d82e6521a4a355ac31809937b589f984816f2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 760406b738d2aa95ef086941850814f4bf39fbb4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027176"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639873"
 ---
 # <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-an-arm-template"></a>Tutorial: Implementar um espaço de trabalho de aprendizagem de máquinas Azure usando um modelo ARM
 
@@ -24,7 +24,7 @@ Este tutorial irá mostrar-lhe como criar um espaço de trabalho de aprendizagem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-machine-learning-create%2Fazuredeploy.json)
 
@@ -36,9 +36,9 @@ Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a ut
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
-:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json" range="1-258" highlight="224-254":::
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
 
 Os seguintes recursos são definidos no modelo:
 
@@ -70,7 +70,7 @@ Quando executar o comando acima, insira:
 Para ver o seu espaço de trabalho Azure ML:
 
 1. Aceda a https://portal.azure.com.
-1. Inicia sessão.
+1. Inicie sessão.
 1. Escolha o espaço de trabalho que acabou de criar.
 
 Você verá a página inicial do Azure Machine Learning:
@@ -90,7 +90,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um espaço de trabalho Azure Machine Learning a partir de um modelo ARM. Se quiser explorar a Azure Machine Learning, continue com o tutorial.
 

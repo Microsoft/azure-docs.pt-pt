@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083182"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640740"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -68,7 +68,7 @@ O quadro que se segue lista os limites que atualmente se aplicam a cada regra de
 Existem atualmente dois métodos disponíveis para criar um DCR:
 
 - [Utilize o portal Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de recolha de dados e associá-la a uma ou mais máquinas virtuais.
-- Editar diretamente a regra de recolha de dados em JSON e submeter usando a API REST.
+- Editar diretamente a regra de recolha de dados em JSON e [submeter-se através da API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Regra de recolha de dados de amostra
 A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o agente da Azure Management e tem os seguintes detalhes:

@@ -16,14 +16,14 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358833"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640655"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Quando você tem um inquilino existente
+# <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
 A maioria dos tópicos para como usar o Azure AD Connect assume que você começa com um novo inquilino AD AZure e que não há utilizadores ou outros objetos lá. Mas se você começou com um inquilino AZure AD, povoou-o com utilizadores e outros objetos, e agora quer usar Connect, então este tópico é para você.
 
 ## <a name="the-basics"></a>Noções básicas
@@ -74,5 +74,5 @@ Alguns clientes começam com uma solução apenas em nuvem com Azure AD e não t
 
 Se a única razão pela qual planeia adicionar AD no local é para suportar LOBs (aplicações Line-of-Business), então talvez deva considerar usar os serviços de [domínio AD AZure](../../active-directory-domain-services/index.yml) em vez disso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

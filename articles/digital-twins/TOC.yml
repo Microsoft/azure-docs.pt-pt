@@ -22,6 +22,8 @@
       href: concepts-twins-graph.md
     - name: Linguagem da consulta
       href: concepts-query-language.md
+    - name: Unidades de Consulta
+      href: concepts-query-units.md
     - name: Integração noutros serviços
       href: concepts-integration.md
     - name: Rotas de eventos

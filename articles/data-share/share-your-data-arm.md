@@ -6,15 +6,15 @@ ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 87b91d353b6d9f64f28892feed92c44ceafc2598
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575700"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640927"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>Tutorial: Partilhar dados utilizando modelos de partilha de dados e gestor de recursos do Azure
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Quickstart: Partilhar dados utilizando modelos de partilha de dados e gestor de recursos do Azure
 
 Saiba como configurar uma nova Azure Data Share a partir de uma conta de armazenamento Azure utilizando o modelo Azure Resource Manager e comece a partilhar os seus dados com clientes e parceiros fora da sua organização Azure. Para obter uma lista das lojas de dados suportadas, consulte [as lojas de dados suportadas no Azure Data Share](./supported-data-stores.md).
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar uma partilha de dados Azure e convidar os destinatários. Para saber mais sobre como um consumidor de dados pode aceitar e receber uma partilha de dados, continue a aceitar e receber o tutorial [de dados.](subscribe-to-data-share.md)
+Neste arranque rápido, aprendeu a criar uma partilha de dados Azure e a convidar os destinatários. Para saber mais sobre como um consumidor de dados pode aceitar e receber uma partilha de dados, continue a aceitar e receber o tutorial [de dados.](subscribe-to-data-share.md)

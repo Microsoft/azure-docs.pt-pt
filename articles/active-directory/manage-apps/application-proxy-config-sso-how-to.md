@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764949"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642134"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar um único sign-on para uma aplicação de procuração de aplicação
 
@@ -49,9 +49,9 @@ Cada uma destas opções pode ser encontrada indo para a sua aplicação em "Apl
 
 Nesta página, também vê uma opção adicional de Início de Sômtenção: Iniciar Sôm. Esta opção também é suportada pela Application Proxy. No entanto, esta opção não adiciona um único sinal de inscrição à aplicação. Dito isto, a aplicação pode já ter um único sign-on implementado usando outro serviço, como os Serviços da Federação de Diretórios Ativos. 
 
-Esta opção permite que um administrador crie um link para uma aplicação que os utilizadores primeiro aterram ao aceder à aplicação. Por exemplo, se houver uma aplicação configurada para autenticar utilizadores que utilizem os Serviços da Federação de Diretório Ativo 2.0, um administrador pode utilizar a opção "Linked Sign-On" para criar uma ligação com ele no painel de acesso.
+Esta opção permite que um administrador crie um link para uma aplicação que os utilizadores primeiro aterram ao aceder à aplicação. Por exemplo, se houver uma aplicação configurada para autenticar utilizadores que utilizem os Serviços da Federação de Diretório Ativo 2.0, um administrador pode utilizar a opção "Linked Sign-On" para criar um link para o mesmo nas Minhas Apps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Abóbada de senha para um único sinal com Proxy de aplicação](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Delegação Restrita para um único sign-on com Proxy de aplicação](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Autenticação baseada em cabeçalho para um único sign-on com Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 

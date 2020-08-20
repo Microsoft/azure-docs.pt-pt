@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 0e106f3ea8a5de80f4961a1d591d31abdbe2ca86
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876296"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642321"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho através do serviço Microsoft Genomics
 
@@ -55,9 +55,9 @@ Você precisa instalar tanto Python como o cliente Microsoft Genomics Python `ms
 O cliente Microsoft Genomics Python é compatível com Python 2.7.12 ou uma versão posterior de 2.7.xx. 2.7.14 é a versão sugerida. Pode encontrar a transferência [aqui](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Python 3.x não é compatível com Python 2.7.xx.  `msgen`é uma aplicação Python 2.7. Ao `msgen` correr, certifique-se de que o seu ambiente Python ativo está a utilizar uma versão de 2.7.xx do Python. Pode ter erros ao tentar usar `msgen` com uma versão 3.x de Python.
+> Python 3.x não é compatível com Python 2.7.xx.  `msgen` é uma aplicação Python 2.7. Ao `msgen` correr, certifique-se de que o seu ambiente Python ativo está a utilizar uma versão de 2.7.xx do Python. Pode ter erros ao tentar usar `msgen` com uma versão 3.x de Python.
 
-### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Instale o cliente Microsoft Genomics Python`msgen`
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Instale o cliente Microsoft Genomics Python `msgen`
 
 Utilize `pip` python para instalar o cliente Microsoft Genomics `msgen` . As seguintes instruções assumem que python2.x já está no seu caminho do sistema. Se tiver problemas com `pip` a instalação não sendo reconhecida, tem de adicionar Python e a sub-dobra de scripts ao seu caminho do sistema.
 
@@ -125,7 +125,7 @@ Se quiser executar o GATK4, desa um `process_name` parâmetro para `gatk4` .
 
 Por predefinição, o serviço Genomics produz ficheiros VCF. Se quiser uma saída de gVCF em vez de uma saída de VCF (equivalente a `-emitRefConfidence` GATK 3.x e `emit-ref-confidence` em GATK 4.x), adicione o `emit_ref_confidence` parâmetro à sua *config.txt* e desafaça-a para , como mostrado na `gvcf` figura anterior.  Para voltar a alterar para a saída de VCF, retire-o do ficheiro *config.txt* ou desfase `emit_ref_confidence` o parâmetro para `none` . 
 
-`bgzip`é uma ferramenta que comprime o ficheiro vcf ou gvcf, e `tabix` cria um índice para o ficheiro comprimido. Por predefinição, o serviço Genomics funciona `bgzip` seguido por `tabix` saída ".g.vcf", mas não executa estas ferramentas por defeito para a saída ".vcf". Quando executado, o serviço produz ficheiros ".gz" (saída bgzip) e ".tbi" (saída tabix). O argumento é um booleano, que é definido como falso por padrão para a saída ".vcf", e para ser verdadeiro por padrão para a saída ".g.vcf". Para utilizar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (executar bgzip e tabix) ou `false` . Para utilizar este argumento no ficheiro *config.txt,* adicione `bgzip_output: true` ou adicione ao `bgzip_output: false` ficheiro.
+`bgzip` é uma ferramenta que comprime o ficheiro vcf ou gvcf, e `tabix` cria um índice para o ficheiro comprimido. Por predefinição, o serviço Genomics funciona `bgzip` seguido por `tabix` saída ".g.vcf", mas não executa estas ferramentas por defeito para a saída ".vcf". Quando executado, o serviço produz ficheiros ".gz" (saída bgzip) e ".tbi" (saída tabix). O argumento é um booleano, que é definido como falso por padrão para a saída ".vcf", e para ser verdadeiro por padrão para a saída ".g.vcf". Para utilizar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (executar bgzip e tabix) ou `false` . Para utilizar este argumento no ficheiro *config.txt, * adicione `bgzip_output: true` ou adicione ao `bgzip_output: false` ficheiro.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Envie o seu fluxo de trabalho para o serviço Microsoft Genomics utilizando o `msgen` cliente Python
 
@@ -144,4 +144,4 @@ Uma vez concluído o seu fluxo de trabalho, pode visualizar os ficheiros de saí
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você carregou dados de entrada de amostras para o armazenamento Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do `msgen` cliente Python. Para saber mais sobre outros tipos de ficheiros de entrada que podem ser utilizados com o serviço Microsoft Genomics, consulte as seguintes páginas: [FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar este tutorial usando o nosso [exemplo de portátil Azure,](https://aka.ms/genomicsnotebook) descarregando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de portátil como [o Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) para abrir o ficheiro e passar por ele.
+Neste artigo, você carregou dados de entrada de amostras para o armazenamento Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do `msgen` cliente Python. Para saber mais sobre outros tipos de ficheiros de entrada que podem ser utilizados com o serviço Microsoft Genomics, consulte as seguintes páginas: [FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar este tutorial usando o nosso [exemplo Azure Notebooks,](https://aka.ms/genomicsnotebook) descarregando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de portátil como [o Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) para abrir o ficheiro e passar por ele.

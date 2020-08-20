@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171866"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640587"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -117,6 +117,28 @@ Erro 50004: "Não é possível ligar-se a um hospedeiro ou cluster porque o nome
     3. Adicione o endereço IP e o nome de anfitrião em seguida. Repita para cada hospedeiro ou cluster onde vê este erro.
     4. Guarde e feche o ficheiro hosts.
     5. Verifique se o aparelho pode ligar-se aos anfitriões, utilizando a aplicação de gestão do aparelho. Após 30 minutos, deverá ver as últimas informações destes anfitriões no portal Azure.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Erro 60001: Não é possível ligar-se ao servidor 
+
+- Certifique-se de que existe conectividade do aparelho para o servidor
+- Se for um servidor linux, certifique-se de que a autenticação baseada em palavras-passe está ativada utilizando os seguintes passos:
+    1. Inicie sessão na máquina linux e abra o ficheiro de configuração ssh utilizando o comando 'vi /etc/ssh/sshd_config'
+    2. Desfaça a opção "PasswordAuthentication" para sim. Guarde o ficheiro.
+    3. Reiniciar o serviço ssh executando "serviço sshd restart"
+- Se for um servidor de janelas, certifique-se de que a porta 5985 está aberta para permitir chamadas remotas de WMI.
+- Se estiver a descobrir um servidor GCP linux e a utilizar um utilizador de raiz, utilize os seguintes comandos para alterar a definição padrão para o início de sessão de raiz
+    1. Inicie sessão na máquina linux e abra o ficheiro de configuração ssh utilizando o comando 'vi /etc/ssh/sshd_config'
+    2. Defina a opção "PermitRootLogin" para sim.
+    3. Reiniciar o serviço ssh executando "serviço sshd restart"
+
+## <a name="error-no-suitable-authentication-method-found"></a>Erro: Não foi encontrado nenhum método de autenticação adequado
+
+Certifique-se de que a autenticação baseada em palavras-passe está ativada no servidor linux utilizando os seguintes passos:
+    1. Inicie sessão na máquina linux e abra o ficheiro de configuração ssh utilizando o comando 'vi /etc/ssh/sshd_config'
+    2. Desfaça a opção "PasswordAuthentication" para sim. Guarde o ficheiro.
+    3. Reiniciar o serviço ssh executando "serviço sshd restart"
+
 
 ## <a name="discovered-vms-not-in-portal"></a>VMs descobertos não no portal
 

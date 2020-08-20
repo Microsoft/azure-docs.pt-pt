@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c66c1fc9a9b93d5b4d3af0440ec3fdc276a9b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763419"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640451"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Ative Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicações de linha de negócios (LoB) para o Azure Ative Directory (AD). O público pretendido é o Ative Directory/Office 365 administradores globais.
@@ -58,7 +58,7 @@ Eis o que você, o administrador global, precisa de fazer para ajudar os desenvo
 Configure as regras de acesso por aplicação às suas aplicações SaaS. Por exemplo, pode exigir MFA ou apenas permitir o acesso aos utilizadores em redes fidedignas. Os detalhes para tal estão disponíveis no documento [que configura as regras de acesso.](../conditional-access/app-based-mfa.md)
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configure a app para exigir a atribuição do utilizador e atribuir aos utilizadores
-Por predefinição, os utilizadores podem aceder às aplicações sem serem atribuídos. No entanto, se a aplicação expor as funções ou se pretender que a aplicação apareça no painel de acesso de um utilizador, deverá requerer a atribuição do utilizador.
+Por predefinição, os utilizadores podem aceder às aplicações sem serem atribuídos. No entanto, se a aplicação expor funções ou se pretender que a aplicação apareça nas Minhas Apps de um utilizador, deverá requerer a atribuição do utilizador.
 
 Se você é um assinante do Azure AD Premium ou do Enterprise Mobility Suite (EMS), recomendamos vivamente a utilização de grupos. A atribuição de grupos à aplicação permite-lhe delegar a gestão de acesso em curso ao proprietário do grupo. Pode criar o grupo ou pedir ao responsável da sua organização que crie o grupo utilizando o seu centro de gestão de grupos.
 

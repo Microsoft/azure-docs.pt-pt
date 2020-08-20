@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 18ca9244f818fa745725f13d79a23c1a232e01ed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c41207bedbea96c76f0a9a6ffd45ea6efa09138b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545391"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641777"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
@@ -80,7 +80,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
@@ -89,7 +89,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 | sondagensIntervalInS | 3600 | string |
 | certificadoStoreName | MY | string |
 | linkOnRenewal | false | boolean |
-| certificaStoreLocalização  | Barata local | string |
+| certificaStoreLocalização  | LocalMachine ou CurrentUser (sensível a casos) | string |
 | requerinitialSync | true | boolean |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |

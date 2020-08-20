@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321280"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639907"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -26,6 +26,7 @@ As métricas personalizadas do Azure Monitor estão em vigor na pré-visualizaç
 
 As métricas personalizadas podem ser enviadas para o Azure Monitor através de vários métodos:
 - Instrumente a sua aplicação utilizando o Azure Application Insights SDK e envie telemetria personalizada para o Azure Monitor. 
+- Instale o Agente monitor Azure (Preview) no seu [Windows ou Linux Azure VM](azure-monitor-agent-overview.md) e utilize uma [regra de recolha de dados](data-collection-rule-azure-monitor-agent.md) para enviar contadores de desempenho para as métricas do Monitor Azure.
 - Instale a extensão do Windows Azure Diagnostics (WAD) no seu [Azure VM,](collect-custom-metrics-guestos-resource-manager-vm.md) [conjunto de balanças de máquinas virtuais,](collect-custom-metrics-guestos-resource-manager-vmss.md) [VM clássico](collect-custom-metrics-guestos-vm-classic.md)ou [serviços clássicos da Cloud](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e envie contadores de desempenho para o Azure Monitor. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) no seu Azure Linux VM e envie métricas utilizando o plug-in de saída do Azure Monitor.
 - Envie métricas personalizadas [diretamente para a API do Monitor Azure,](./metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .

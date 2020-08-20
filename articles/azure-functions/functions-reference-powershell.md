@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207414"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642219"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -128,7 +128,7 @@ Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -382,14 +382,14 @@ Quando cria uma aplicação de função utilizando ferramentas, como o Código d
 * Autenticação automática de MSI para Azure.
 * A capacidade de ligar os pseudónimos Azure `AzureRM` PowerShell PowerShell, se quiser.
 
-## <a name="powershell-version"></a>Versão PowerShell
+## <a name="powershell-versions"></a>Versões PowerShell
 
-A tabela a seguir mostra a versão PowerShell utilizada por cada versão principal do tempo de execução das Funções:
+A tabela a seguir mostra as versões PowerShell suportadas por cada versão principal do tempo de execução das Funções e a versão .NET necessária:
 
-| Versão de funções | Versão PowerShell                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5.1 (bloqueado pelo tempo de execução) |
-| 2.x               | PowerShell Core 6                              |
+| Versão de funções | Versão PowerShell                               | Versão .NET  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3.x (recomendado) | PowerShell 7 (recomendado)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Pode ver a versão atual imprimindo `$PSVersionTable` a partir de qualquer função.
 

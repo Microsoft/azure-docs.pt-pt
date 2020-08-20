@@ -15,22 +15,22 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a59343d4eafaa0e11f56636daa7471e748abf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763147"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640757"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações de autosserviço
 
-Antes que os seus utilizadores possam auto-descobrir aplicações a partir do painel de acesso my apps, é necessário permitir o acesso da **aplicação Self-service** a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. Esta funcionalidade está disponível para aplicações que foram adicionadas a partir da [Galeria AD AZure](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ou foram adicionadas através do [consentimento do utilizador ou administração.](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) 
+Antes que os seus utilizadores possam auto-descobrir aplicações a partir das suas Apps, é necessário permitir o acesso da **aplicação Self-service** a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. Esta funcionalidade está disponível para aplicações que foram adicionadas a partir da [Galeria AD AZure](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ou foram adicionadas através do [consentimento do utilizador ou administração.](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) 
 
 Esta funcionalidade é uma ótima maneira de economizar tempo e dinheiro como um grupo de TI, e é altamente recomendado como parte de uma implementação de aplicações modernas com o Azure Ative Directory.
 
 Através desta funcionalidade, pode:
 
--   Deixe que os utilizadores auto-descubram as aplicações do painel de [acesso my Apps](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
+-   Deixe que os utilizadores auto-descubram aplicações das [Minhas Apps](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
 
 -   Adicione esses utilizadores a um grupo pré-configurado para que possa ver quem solicitou acesso, remover o acesso e gerir as funções que lhes foram atribuídas.
 
@@ -38,7 +38,7 @@ Através desta funcionalidade, pode:
 
 -   Configurar opcionalmente até 10 indivíduos que possam aprovar o acesso a esta aplicação.
 
--   Opcionalmente, permitir que um aprovador de negócios estabeleça as palavras-passe que os utilizadores podem utilizar para iniciar seduções à aplicação, a partir do Painel de Acesso à [Aplicação](https://myapps.microsoft.com/)do aprovador da empresa.
+-   Opcionalmente, permitir que um aprovador de negócios estabeleça as palavras-passe que os utilizadores podem utilizar para iniciar sôm na aplicação, desde as [Minhas Apps](https://myapps.microsoft.com/)do aprovador de negócios.
 
 -   Opcionalmente, atribua automaticamente os utilizadores autosserviço atribuídos a uma função de aplicação diretamente.
 
@@ -79,7 +79,7 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 
 11. Clique no botão **Guardar** na parte superior do painel para terminar.
 
-Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para o painel de [acesso my Apps](https://myapps.microsoft.com/) e clicar no botão adicionar **aplicações de self-service** para encontrar as aplicações que estão habilitados com acesso ao self-service. Os aprovadores de negócios também vêem uma notificação no seu [painel de acesso às Minhas Apps.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação.
+Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para as suas [Apps My](https://myapps.microsoft.com/) e clicar no botão **Adicionar aplicações de self-service** para encontrar as aplicações que estão habilitados com acesso ao autosserviço. Os aprovadores de negócios também vêem uma notificação nas suas [Aplicações My.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)

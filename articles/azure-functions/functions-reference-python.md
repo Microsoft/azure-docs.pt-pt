@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 776355ce981ba5cc2a24bfe473da2f55427eadf6
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850751"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642202"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -21,7 +21,7 @@ Para projetos de amostra de função autónoma em Python, consulte as [amostras 
 
 A Azure Functions espera que uma função seja um método apátrida na sua escrita Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no `__init__.py` ficheiro. Também pode [especificar um ponto de entrada alternativo.](#alternate-entry-point)
 
-Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida nofunction.js*no* ficheiro. Por exemplo, o _function.jsabaixo_ descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
+Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida nofunction.js* no* ficheiro. Por exemplo, o  _function.jsabaixo_ descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -48,7 +48,7 @@ Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/a
 
 ## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
 
-Pode alterar o comportamento predefinido de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades nofunction.js`entryPoint` *no* ficheiro. Por exemplo, o _function.jsabaixo_ indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
+Pode alterar o comportamento predefinido de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades nofunction.js`entryPoint` * no* ficheiro. Por exemplo, o _function.jsabaixo_ indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
 
 ```json
 {
@@ -87,7 +87,6 @@ A pasta principal do projeto \_ \_ \_ \_ (app) pode conter os seguintes ficheiro
 * *requirements.txt*: Contém a lista de pacotes que o sistema instala ao publicar no Azure.
 * *host.jsem:* Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se executa localmente. Para saber mais, veja [host.js.](functions-host-json.md)
 * *.funcignore*: (Opcional) declara ficheiros que não devem ser publicados no Azure.
-* *.gitignore*: (Opcional) declara ficheiros que são excluídos de um repo git, como local.settings.js.
 * *Dockerfile*: (Opcional) utilizado ao publicar o seu projeto num [recipiente personalizado](functions-create-function-linux-custom-image.md).
 
 Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (function.js).
@@ -351,11 +350,11 @@ def main(req: azure.functions.HttpRequest,
 
 A classe [**Contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes atributos de corda:
 
-`function_directory`O diretório em que a função está a funcionar.
+`function_directory` O diretório em que a função está a funcionar.
 
-`function_name`Nome da função.
+`function_name` Nome da função.
 
-`invocation_id`Identificação da invocação da função atual.
+`invocation_id` Identificação da invocação da função atual.
 
 ## <a name="global-variables"></a>Variáveis globais
 
@@ -472,7 +471,7 @@ Também pode utilizar credenciais básicas de autenticação com os seus URLs de
 
 #### <a name="install-local-packages"></a>Instalar pacotes locais
 
-Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas ferramentas, pode disponibilizá-los para a sua aplicação colocando-os na \_ \_ app \_ \_ /.python_packages diretório. Antes de publicar, executar o seguinte comando para instalar as dependências localmente:
+Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas ferramentas, pode disponibilizá-los para a sua aplicação colocando-os na \_ \_ \_ \_ app/.python_packages diretório. Antes de publicar, executar o seguinte comando para instalar as dependências localmente:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt

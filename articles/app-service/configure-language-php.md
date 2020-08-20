@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 306afb2bfba7c222798bbfd1bef334387b6f9771
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 440815d7d24cde9708c214bf407a2dd9206a1706
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080084"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642049"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configure um aplicativo PHP para o Azure App Service
 
@@ -119,7 +119,7 @@ Comprometa todas as alterações e implemente o seu código utilizando o Git, ou
 
 Se pretender que o Serviço de Aplicações execute ferramentas de automação populares no tempo de implementação, como Grunt, Bower ou Gulp, precisa de fornecer um [script de implementação personalizado.](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) O Serviço de Aplicações executa este script quando implementa com o Git, ou com [a implementação zip](deploy-zip.md) com automatização de construção ativada. 
 
-Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências *empackage.js.* Por exemplo:
+Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências * empackage.js.* Por exemplo:
 
 ```json
 "dependencies": {
@@ -206,7 +206,7 @@ Se implementar a sua aplicação utilizando pacotes Git ou zip com automatizaç�
 1. Execute `php composer.phar install`.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
 
 O exemplo a seguir especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -276,8 +276,8 @@ Se preferir não utilizar a reescrita *.htaccess*, pode implementar a aplicaçã
 No Serviço de Aplicações, a [rescisão de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibristas de carga de rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação precisar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o `X-Forwarded-Proto` cabeçalho.
 
 ```php
-if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
-  // Do something when HTTPS is used
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+// Do something when HTTPS is used
 }
 ```
 
@@ -288,7 +288,7 @@ As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação 
 Se precisar de alterar a sua instalação PHP, pode alterar qualquer uma das [php.ini diretivas](https://www.php.net/manual/ini.list.php) seguindo estes passos.
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas não PHP_INI_SYSTEM
@@ -403,7 +403,7 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza php.ini diretivas](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 Para permitir extensões adicionais, seguindo estes passos:
@@ -428,7 +428,7 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza php.ini diretivas](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 Para permitir extensões adicionais, seguindo estes passos:

@@ -4,12 +4,12 @@ description: 'Quickstart: Criar um espaço de nomes de Centros de Eventos com um
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 445a52593e95074d9941a1592d688de7eea9c006
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dbec62c182fe804ba45cae2f9e40c189b9bc0279
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522045"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641131"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Quickstart: Criar um centro de eventos usando um modelo ARM
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 Os recursos definidos no modelo incluem:
 
@@ -88,7 +88,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você criou um espaço de nomes de Event Hubs, e um centro de eventos no espaço de nomes. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:**
 

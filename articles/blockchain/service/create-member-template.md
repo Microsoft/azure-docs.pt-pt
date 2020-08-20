@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
 ms.date: 07/16/2020
-ms.openlocfilehash: fb7f91a0670d99170656c0c3a2c1b73d96095762
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513035"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642015"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo ARM
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
-:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="1-84" highlight="52-80":::
+:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json":::
 
 Recursos azuis definidos no modelo:
 
@@ -39,7 +39,7 @@ Recursos azuis definidos no modelo:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione o seguinte link para iniciar seduca e abra um modelo.
+1. Selecione a ligação seguinte para iniciar sessão no Azure e abrir um modelo.
 
     [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
@@ -75,7 +75,7 @@ Para eliminar o grupo de recursos:
 1. No portal Azure, navegue para o **grupo De recursos** no painel de navegação esquerdo e selecione o grupo de recursos que pretende eliminar.
 2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação introduzindo o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você lançou um membro do Azure Blockchain Service e um novo consórcio. Experimente o próximo quickstart para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para se ligar a um membro do Serviço Azure Blockchain.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 843094a58868e7751f1fa2dbee70535f2192ae62
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850173"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639754"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -27,7 +27,7 @@ Neste tutorial, você anda ajuda um condutor cuja bateria de veículo elétrico 
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Crie e execute um caderno Jupyter em [Cadernos Azure](https://docs.microsoft.com/azure/notebooks) na nuvem.
+> * Crie e execute um ficheiro De Caderno Jupyter em [Cadernos Azure](https://docs.microsoft.com/azure/notebooks) na nuvem.
 > * Ligue para Azure Maps REST APIs em Python.
 > * Procure uma gama acessível com base no modelo de consumo do veículo elétrico.
 > * Procure postos de carregamento de veículos elétricos dentro do alcance acessível, ou isochrone.
@@ -45,9 +45,9 @@ Para obter a chave de subscrição primária da sua conta, siga as instruções 
 
 Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
-## <a name="create-an-azure-notebook"></a>Criar um caderno Azure
+## <a name="create-an-azure-notebooks-project"></a>Criar um projeto de Cadernos Azure
 
-Para acompanhar este tutorial, você precisa criar um projeto de portátil Azure e baixar e executar o arquivo de caderno Jupyter. O ficheiro do portátil contém código Python, que implementa o cenário neste tutorial. Para criar um projeto de caderno Azure e enviar o documento do caderno Jupyter para ele, faça os seguintes passos:
+Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e baixar e executar o arquivo Jupyter Notebook. O ficheiro Jupyter Notebook contém código Python, que implementa o cenário neste tutorial. Para criar um projeto Azure Notebooks e enviar o documento do Jupyter Notebook para ele, faça os seguintes passos:
 
 1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para obter mais informações, consulte [Quickstart: Inicie e descreva um ID do utilizador](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. No topo da sua página de perfil público, selecione **My Projects**.
@@ -64,25 +64,25 @@ Para acompanhar este tutorial, você precisa criar um projeto de portátil Azure
 
 1. Selecione **Criar**.
 
-1. Após a criação do seu projeto, descarregue este [ficheiro de documento de portátil Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório de cadernos Azure Maps Jupyter.](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
+1. Após a criação do seu projeto, descarregue este [ficheiro de documento jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. Na lista de projetos na página **My Projects,** selecione o seu projeto e, em seguida, selecione **Upload** para carregar o ficheiro de documento do portátil jupyter. 
+1. Na lista de projetos na página **My Projects,** selecione o seu projeto e, em seguida, selecione **Upload** para carregar o ficheiro de documento do Jupyter Notebook. 
 
-    ![carregar caderno](./media/tutorial-ev-routing/upload-notebook.png)
+    ![carregar Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 1. Faça o upload do ficheiro a partir do seu computador e, em seguida, selecione **Feito**.
 
-1. Depois de o upload ter terminado com sucesso, o seu ficheiro é apresentado na sua página do projeto. Clique duas vezes no ficheiro para abri-lo como um caderno Jupyter.
+1. Depois de o upload ter terminado com sucesso, o seu ficheiro é apresentado na sua página do projeto. Clique duas vezes no ficheiro para abri-lo como um Caderno Jupyter.
 
-Tente compreender a funcionalidade que é implementada no ficheiro do portátil. Executar o código, no ficheiro do caderno, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação para o portátil.
+Tente entender a funcionalidade que é implementada no ficheiro Jupyter Notebook. Executar o código, no ficheiro do Caderno Jupyter, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação Jupyter Notebook.
 
   ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
-Para executar o código no caderno, instale pacotes ao nível do projeto fazendo os seguintes passos:
+Para executar o código no Jupyter Notebook, instale pacotes ao nível do projeto fazendo os seguintes passos:
 
-1. Descarregue o ficheiro [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório de cadernos Azure Maps Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, faça o upload para o seu projeto.
+1. Descarregue o ficheiro [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, faça o upload para o seu projeto.
 1. No painel de instrumentos do projeto, selecione **Definições de Projeto**. 
 1. No painel **de Definições** do Projeto, selecione o **separador Ambiente** e, em seguida, selecione **Adicionar**.
 1. Em **Etapas de Configuração do Ambiente,** faça o seguinte:   

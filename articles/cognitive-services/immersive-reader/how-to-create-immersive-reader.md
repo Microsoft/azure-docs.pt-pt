@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 66a2fde47f71536661431959b957246e28c81d6a
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042019"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639817"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Crie um recurso imersivo do Leitor e configuure a autenticação do Azure Ative Directory
 
@@ -44,7 +44,8 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
         $unused = ''
@@ -93,12 +94,13 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -155,6 +157,7 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
       -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
       -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
+      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_Expiration>'
     ```
 
     | Parâmetro | Comentários |
@@ -168,7 +171,12 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
     | ResourceGroupLocation |Se o seu grupo de recursos não existir, precisa fornecer um local para criar o grupo. Para encontrar uma lista de locais, `az account list-locations` corra. Utilize a propriedade *do nome* (sem espaços) do resultado devolvido. Este parâmetro é opcional se o seu grupo de recursos já existir. |
     | Nome AADAppDisplay |O nome de visualização da aplicação do Azure Ative Directory. Se não for encontrada uma aplicação AD Azure existente, será criada uma nova com este nome. Este parâmetro é opcional se a aplicação AD Azure já existir. |
     | AADAppIdentifierUri |O URI para a aplicação AD Azure. Se não for encontrada uma aplicação AD AZure existente, será criada uma nova com este URI. Por exemplo, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |Uma palavra-passe que criará que será usada mais tarde para autenticar ao adquirir um token para lançar o Leitor Imersivo. A palavra-passe deve ter pelo menos 16 caracteres de comprimento, conter pelo menos 1 carácter especial e conter pelo menos 1 caracteres numéricos. |
+    | AADAppClientSecret |Uma palavra-passe que criará que será usada mais tarde para autenticar ao adquirir um token para lançar o Leitor Imersivo. A palavra-passe deve ter pelo menos 16 caracteres de comprimento, conter pelo menos 1 carácter especial e conter pelo menos 1 caracteres numéricos. Para gerir os segredos dos clientes da aplicação Azure AD depois de ter criado este recurso visite https://portal.azure.com e vá ao Home -> Azure Ative Directory -> Registos de aplicações -> `[AADAppDisplayName]` -> Certificados e Segredos -> secção de Segredos de Cliente (como mostra abaixo a imagem "Gerencie os seus segredos de aplicação AZure AD"). |
+    | AADAppClientSecretExpiration |A data ou data após a qual o seu `[AADAppClientSecret]` expirará (por exemplo, '2020-12-31T11:59:59+00:00' ou '2020-12-31'). |
+
+    Gerencie os seus segredos de aplicação AZure AD
+
+    ![Certificados e segredos do Portal Azure](./media/client-secrets-blade.png)
 
 1. Copie a saída JSON num ficheiro de texto para utilização posterior. A saída deve parecer-se com a seguinte.
 
@@ -181,7 +189,7 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [Node.js arranque rápido](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais pode fazer com o SDK do leitor imersivo usando Node.js
 * Veja o [tutorial do Android](./tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android

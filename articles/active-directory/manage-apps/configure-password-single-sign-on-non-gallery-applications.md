@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459390"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640553"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurar o sign-on único baseado em palavra-passe
 
@@ -29,7 +29,7 @@ O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as 
 
 - Aplicações de suporte que requerem vários campos de entrada para aplicações que requerem mais do que apenas o nome de utilizador e os campos de palavra-passe para iniciar seduções
 
-- Personalize as etiquetas do nome de utilizador e dos campos de palavra-passe que os seus utilizadores vêem no Painel de Acesso à [Aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando introduzem as suas credenciais
+- Personalize as etiquetas do nome de utilizador e dos campos de palavra-passe que os seus utilizadores vêem nas [Minhas Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando introduzem as suas credenciais
 
 - Permita que os seus utilizadores forneçam os seus próprios nomes de utilizador e palavras-passe para quaisquer contas de aplicação existentes que estejam a digitar manualmente.
 
@@ -71,7 +71,7 @@ Se a tentativa de análise do AD do Azure falhar, pode configurar a inscrição 
    ![Configuração manual do único sinal baseado em palavra-passe](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Selecione **campos de inscrição de captura**. Uma página de estado de captura abre num novo separador, mostrando que a **captura de metadados**de mensagem está atualmente em andamento .
 
-4. Se a caixa **de extensão do painel de acesso aparecer** num novo separador, selecione Instal **Now** para instalar a extensão do navegador de extensão de acesso seguro das **minhas aplicações.** (A extensão do navegador requer Microsoft Edge, Chrome ou Firefox.) Em seguida, instale, lance e ative a extensão e refresque a página do estado de captura.
+4. Se a caixa **de extensão de aplicações minhas** aparecer num novo separador, selecione **Instal Now** para instalar a extensão do navegador **Deresso de Sudeste De aplicações Seguras.** (A extensão do navegador requer Microsoft Edge, Chrome ou Firefox.) Em seguida, instale, lance e ative a extensão e refresque a página do estado de captura.
 
    A extensão do navegador abre então outro separador que exibe o URL introduzido.
 5. No separador com o URL introduzido, passe pelo processo de inscrição. Preencha o nome de utilizador e os campos de senha e tente iniciar seduca. (Não é preciso fornecer a senha correta.)

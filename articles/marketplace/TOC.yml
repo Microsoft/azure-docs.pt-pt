@@ -8,7 +8,7 @@
     - name: Descrição geral e benefícios do marketplace comercial
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'Um marketplace, duas lojas'
+        - name: 'Um marketplace, duas lojas online'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Opções e considerações sobre publicação
           href: ./determine-your-listing-type.md

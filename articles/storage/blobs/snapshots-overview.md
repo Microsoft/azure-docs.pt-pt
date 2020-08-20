@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055773"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640604"
 ---
 # <a name="blob-snapshots"></a>Snapshots blob
 
 Uma foto é uma versão só de leitura de uma bolha que é tirada num ponto do tempo.
 
 > [!NOTE]
-> A versão blob (pré-visualização) oferece uma forma alternativa de manter cópias históricas de uma bolha. Para obter mais informações, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
+> A versão blob (pré-visualização) oferece uma forma alternativa de manter versões anteriores de uma bolha. Para obter mais informações, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Sobre fotos blob
 
@@ -33,7 +33,7 @@ Uma imagem instantânea de uma bolha é idêntica à sua bolha de base, exceto q
 > Todas as fotos partilham o URI da bolha da base. A única distinção entre a bolha de base e o instantâneo é o valor **de DateTime** anexado.
 >
 
-Uma bolha pode ter várias fotos. As imagens persistem até serem explicitamente eliminadas, independentemente ou como parte da operação Delete Blob para a bolha de base. Pode enumerar os instantâneos associados à bolha de base para rastrear as suas imagens atuais.
+Uma bolha pode ter várias fotos. As imagens persistem até serem explicitamente eliminadas, independentemente ou como parte de uma operação [Delete Blob](/rest/api/storageservices/delete-blob) para a bolha de base. Pode enumerar os instantâneos associados à bolha de base para rastrear as suas imagens atuais.
 
 Quando se cria uma imagem instantânea de uma bolha, as propriedades do sistema da bolha são copiadas para o instantâneo com os mesmos valores. Os metadados da bolha de base também são copiados para o instantâneo, a menos que especifique metadados separados para a imagem quando o criar. Depois de criar uma imagem, pode ler, copiar ou apagar, mas não pode modificá-la.
 
@@ -51,15 +51,15 @@ A lista a seguir inclui pontos-chave a ter em conta ao criar um instantâneo.
 
 - A sua conta de armazenamento incorre em encargos para blocos ou páginas únicos, quer estejam na bolha ou na fotografia. A sua conta não incorre em encargos adicionais para instantâneos associados a uma bolha até atualizar a bolha em que estão baseadas. Depois de atualizar a bolha de base, diverge das suas fotos. Quando isto acontece, é cobrado pelos blocos ou páginas únicos em cada bolha ou instantâneo.
 - Quando se substitui um bloco dentro de uma bolha de bloco, esse bloco é posteriormente carregado como um bloco único. Isto é verdade mesmo que o bloco tenha o mesmo ID do bloco e os mesmos dados que tem no instantâneo. Depois de o bloco ser cometido novamente, diverge da sua contraparte em qualquer instantâneo, e será cobrado pelos seus dados. O mesmo se aplica a uma página numa bolha de página que é atualizada com dados idênticos.
-- Substituindo uma bolha de blocos chamando o método [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], ou [UploadFromByteArray][dotnet_UploadFromByteArray] o método substitui todos os blocos na bolha. Se tiver uma foto associada a essa bolha, todos os blocos na bolha da base e instantâneo agora divergem, e serão carregados por todos os blocos em ambas as bolhas. Isto é verdade mesmo que os dados na bolha de base e no instantâneo permaneçam idênticos.
+- Atualizar uma bolha de bloco chamando um método que sobrepor todo o conteúdo da bolha substituirá todos os blocos na bolha. Se tiver uma foto associada a essa bolha, todos os blocos na bolha da base e instantâneo agora divergem, e serão carregados por todos os blocos em ambas as bolhas. Isto é verdade mesmo que os dados na bolha de base e no instantâneo permaneçam idênticos.
 - O serviço Azure Blob não tem meios para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e comprometido é tratado como único, mesmo que tenha os mesmos dados e o mesmo ID do bloco. Como os encargos acumulam-se para blocos únicos, é importante considerar que atualizar uma bolha que tem um instantâneo resulta em blocos únicos adicionais e custos adicionais.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Minimizar o custo com a gestão de instantâneos
+### <a name="minimize-costs-with-snapshot-management"></a>Minimizar custos com gestão de instantâneos
 
 Recomendamos que se gere cuidadosamente as suas fotos para evitar custos adicionais. Pode seguir estas boas práticas para ajudar a minimizar os custos incorridos pelo armazenamento das suas fotos:
 
 - Elimine e re-crie instantâneos associados a uma bolha sempre que atualizar a bolha, mesmo que esteja a atualizar dados idênticos, a menos que o design da sua aplicação exija que mantenha instantâneos. Ao eliminar e recriar as imagens da bolha, pode garantir que a bolha e os instantâneos não divergem.
-- Se estiver a manter instantâneos para uma bolha, evite ligar [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], ou [UploadFromByteArray][dotnet_UploadFromByteArray] para atualizar a bolha. Estes métodos substituem todos os blocos na bolha, fazendo com que a sua bolha de base e as suas imagens diverjam significativamente. Em vez disso, atualize o menor número possível de blocos utilizando os métodos [PutBlock][dotnet_PutBlock] e [PutBlockList][dotnet_PutBlockList].
+- Se estiver a manter instantâneos para uma bolha, evite ligar métodos que substituam toda a bolha quando atualizar a bolha. Em vez disso, atualize o menor número possível de blocos para manter os custos baixos.
 
 ### <a name="snapshot-billing-scenarios"></a>Cenários de faturação instantânea
 
@@ -85,9 +85,12 @@ No cenário 3, a bolha base foi atualizada, mas o instantâneo não. O bloco 3 f
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos. Este cenário pode ocorrer se estiver a utilizar um método de atualização como [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][uploadFromStream][dotnet_UploadFromStream], ou [UploadFromByteArray][dotnet_UploadFromByteArray], porque estes métodos substituem todos os conteúdos de uma bolha.
+No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos.
 
 ![Recursos de armazenamento Azure](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+
+> [!TIP]
+> Evite ligar métodos que substituam toda a bolha e, em vez disso, atualize os blocos individuais para manter os custos baixos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

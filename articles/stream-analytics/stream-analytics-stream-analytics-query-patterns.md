@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: edb84810b7391242e9ac90b1502c18f9af4e4698
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 0eabe147563ee712e20e57aafc1029daf2a8610a
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433173"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641046"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
 
@@ -863,10 +863,10 @@ Por exemplo, um multibanco está a ser monitorizado em tempo real para falhas, d
 
 ```SQL
 SELECT *
-FROM intput TIMESTAMP BY time OVER ATM_id
+FROM input TIMESTAMP BY time OVER ATM_id
 MATCH_RECOGNIZE (
-    PARTITON BY ATM_id
     LIMIT DURATION(minute, 1)
+    PARTITON BY ATM_id
     MEASURES
         First(Warning.ATM_id) AS ATM_id,
         First(Warning.Operation_Id) AS First_Warning_Operation_id,
@@ -934,7 +934,7 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

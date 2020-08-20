@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/15/2020
-ms.openlocfilehash: 192673ab2e21046f7af75887ffe13f47420dfbf3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7d11b9e699ec4cba59d2af9e411692cbce35278
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496779"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640179"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Quickstart: Implementar a Pesquisa Cognitiva utilizando um modelo ARM
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json":::
 
 O recurso Azure definido neste modelo:
 
@@ -59,7 +59,7 @@ Quando a sua implementação estiver concluída, pode aceder ao seu novo grupo d
 
 Outros quickstarts e tutoriais de Pesquisa Cognitiva baseiam-se neste arranque rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, pode desejar deixar este recurso no lugar. Quando já não é necessário, pode eliminar o grupo de recursos, que elimina o serviço de Pesquisa Cognitiva e recursos relacionados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou um serviço de Pesquisa Cognitiva usando um modelo ARM e validou a implementação. Para saber mais sobre a Pesquisa Cognitiva e O Gestor de Recursos Azure, continue para os artigos abaixo.
 

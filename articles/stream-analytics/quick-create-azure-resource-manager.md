@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 26ae0f5add40125b5e9c1ce9451583040322314b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043551"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641896"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM
 
@@ -23,7 +23,7 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
@@ -35,9 +35,9 @@ Para completar este artigo, precisa:
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
-:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json" range="1-66" highlight="41-60":::
+:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json":::
 
 O recurso Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs:](/azure/templates/microsoft.streamanalytics/streamingjobs)criar um trabalho Azure Stream Analytics.
 
@@ -108,7 +108,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou um trabalho Azure Stream Analytics usando um modelo ARM e validou a implementação. Avance para o próximo artigo para aprender a exportar um modelo ARM para um trabalho existente usando o Código VS.
 

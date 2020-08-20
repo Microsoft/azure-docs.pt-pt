@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459339"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641981"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o início de sessão ligado
 
 Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. No guia quickstart, você configura SSO baseado em SAML. Outra opção é **o Linked**. Este artigo entra em mais detalhes sobre a opção ligada.
 
-A opção **Linked** permite configurar o local alvo quando um utilizador seleciona a aplicação no portal [My Apps](https://myapplications.microsoft.com/) ou Office 365 da sua organização.
+A opção **Linked** permite configurar o local alvo quando um utilizador seleciona a aplicação no portal [My Apps](https://myapps.microsoft.com/) ou Office 365 da sua organização.
 
 Alguns cenários comuns em que a opção de ligação é valiosa incluem:
 - Adicione um link a uma aplicação web personalizada que atualmente utiliza a federação, como o Ative Directory Federation Services (AD FS).
@@ -35,7 +35,7 @@ Alguns cenários comuns em que a opção de ligação é valiosa incluem:
 
 Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. No arranque rápido, onde configurar um único sign-on, também encontrará a opção **Linked.** 
 
-A opção **Linked** não fornece funcionalidade de inscrição através do Azure AD. A opção simplesmente define a localização para onde os utilizadores serão enviados quando selecionarem a aplicação nas [Minhas Apps](https://myapplications.microsoft.com/) ou no launcher da aplicação Microsoft 365.
+A opção **Linked** não fornece funcionalidade de inscrição através do Azure AD. A opção simplesmente define a localização para onde os utilizadores serão enviados quando selecionarem a aplicação nas [Minhas Apps](https://myapps.microsoft.com/) ou no launcher da aplicação Microsoft 365.
 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 
@@ -48,7 +48,7 @@ A opção **Linked** não fornece funcionalidade de inscrição através do Azur
 
 Para definir um link para uma aplicação, selecione **Linked** na página **de sign-on único.** Em seguida, introduza o link e **selecione Guardar**. Precisa de um lembrete de onde encontrar estas opções? Confira a [série quickstart](view-applications-portal.md).
  
-Depois de configurar uma aplicação, atribua-lhe utilizadores e grupos. Quando atribuímos os utilizadores, pode controlar quando a aplicação aparece nas [Minhas Apps](https://myapplications.microsoft.com/) ou no launcher da aplicação Microsoft 365.
+Depois de configurar uma aplicação, atribua-lhe utilizadores e grupos. Quando atribuímos os utilizadores, pode controlar quando a aplicação aparece nas [Minhas Apps](https://myapps.microsoft.com/) ou no launcher da aplicação Microsoft 365.
 
 ## <a name="next-steps"></a>Passos seguintes
 

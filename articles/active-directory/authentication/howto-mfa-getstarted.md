@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757609"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641080"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure
 
@@ -35,7 +35,7 @@ Para ver rapidamente a autenticação multi-factor do Azure em ação e depois v
 
 Antes de iniciar uma implementação da Autenticação Multi-Factor Azure, existem itens pré-requisitos que devem ser considerados.
 
-| Scenario | Pré-requisito |
+| Cenário | Pré-requisito |
 | --- | --- |
 | Ambiente de identidade **apenas** em nuvem com autenticação moderna | **Sem tarefas pré-requisitos adicionais** |
 | **Cenários de** identidade híbrida | [O Azure AD Connect](../hybrid/whatis-hybrid-identity.md) é implantado e as identidades dos utilizadores são sincronizadas ou federadas com os serviços de domínio do Diretório Ativo no local com o Azure Ative Directory. |
@@ -76,7 +76,7 @@ As políticas de acesso condicional impõem o registo, exigindo que os utilizado
 
 [A Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribui com uma política de registo e políticas automatizadas de deteção e reparação de riscos para a história de autenticação multi-factor Azure. As políticas podem ser criadas para forçar alterações de palavra-passe quando há uma ameaça de identidade comprometida ou exigir MFA quando uma entrada é considerada arriscada pelos [seguintes eventos:](../reports-monitoring/concept-risk-events.md)
 
-* Credenciais vazadas
+* Fuga de credenciais
 * Inícios de sessão de endereços IP anónimos
 * Deslocação impossível para localizações atípicas
 * Inícios de sessão de localizações desconhecidas
@@ -108,6 +108,9 @@ Recomendamos que as organizações utilizem o Acesso Condicional para definir a 
 ## <a name="plan-authentication-methods"></a>Métodos de autenticação do plano
 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que pretendem disponibilizar para os utilizadores. É importante permitir mais do que um único método de autenticação para que os utilizadores tenham um método de backup disponível no caso do seu método principal estar indisponível. Estão disponíveis os seguintes métodos para os administradores permitirem:
+
+> [!TIP]
+> A Microsoft recomenda a utilização da aplicação móvel como o método principal para a autenticação multi-factor Azure para a melhor segurança e experiência do utilizador.
 
 ### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
 
@@ -342,11 +345,11 @@ Agora que planeou a sua solução, pode implementar seguindo os passos abaixo:
 1. Configure a sua política de registo de MFA
    1. [MFA combinado e SSPR](howto-registration-mfa-sspr-combined.md)
    1. Com [Proteção de Identidade](../identity-protection/howto-mfa-policy.md)
-1. Envie comunicações de utilizadores e faça com que os utilizadores se inscrevam em[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Envie comunicações de utilizadores e faça com que os utilizadores se inscrevam em [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Acompanhe quem está matriculado.](#identify-non-registered-users)
 
 > [!TIP]
-> Utilizadores de nuvem do governo podem inscrever-se em[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Utilizadores de nuvem do governo podem inscrever-se em [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Gerir a sua solução
 
@@ -362,7 +365,7 @@ A Azure Multi-Factor Authentication fornece relatórios através do portal Azure
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo de autenticação multi-factor Azure de resolução de problemas](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no Microsoft Support Center.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver a autenticação multi-factor Azure em ação, complete o seguinte tutorial:
 

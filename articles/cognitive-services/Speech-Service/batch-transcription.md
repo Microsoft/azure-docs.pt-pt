@@ -1,5 +1,5 @@
 ---
-title: O que é transcrição de lote - Serviço de fala
+title: Como utilizar a transcrição do lote - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A transcrição do lote é ideal se quiser transcrever uma grande quantidade de áudio no armazenamento, como a Azure Blobs. Ao utilizar a API de REST dedicada, pode apontar para ficheiros áudio com uma assinatura de acesso partilhado (SAS) URI e receber assincronamente transcrições.
 services: cognitive-services
@@ -10,20 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214051"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640162"
 ---
-# <a name="what-is-batch-transcription"></a>O que é transcrição do lote?
+# <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
 A transcrição do lote é um conjunto de operações de API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros áudio com uma assinatura de acesso partilhado (SAS) URI e receber assincronamente os resultados da transcrição. Com a nova API v3.0, tem a opção de transcrever um ou mais ficheiros áudio, ou processar um recipiente de armazenamento inteiro.
 
 A transcrição assíncronosa de discurso a texto é apenas uma das características. Pode utilizar a transcrição do lote REST APIs para ligar para os seguintes métodos:
-
-
 
 |    Operação de Transcrição de Lote                                             |    Método    |    REST API Call                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -46,22 +44,16 @@ Ao lado da API de fácil utilização, não precisa de implementar pontos finais
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="subscription-key"></a>Chave de Subscrição
-
 Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chave de subscrição a partir do [portal Azure](https://portal.azure.com) seguindo o nosso [guia Iniciar .](get-started.md)
 
 >[!NOTE]
 > É necessária uma subscrição padrão (S0) para o serviço de fala para a transcrição do lote. As teclas de subscrição gratuitas (F0) não funcionam. Para mais informações, consulte [os preços e os limites.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 
-### <a name="custom-models"></a>Modelos personalizados
-
 Se pretende personalizar modelos, siga os passos na [personalização acústica](how-to-customize-acoustic-models.md) e [personalização linguística.](how-to-customize-language-model.md) Para utilizar os modelos criados na transcrição do lote, precisa da localização do modelo. Pode recuperar a localização do modelo quando inspeciona os detalhes do modelo `self` (propriedade). Um ponto final personalizado não é *necessário* para o serviço de transcrição do lote.
 
-## <a name="the-batch-transcription-api"></a>A API de Transcrição de Lote
+## <a name="batch-transcription-api"></a>API de transcrição de lote
 
-### <a name="supported-formats"></a>Formatos suportados
-
-A API de Transcrição de Lote suporta os seguintes formatos:
+A API de transcrição do lote suporta os seguintes formatos:
 
 | Formato | Codec | Bits por amostra | Taxa de amostra             |
 |--------|-------|---------|---------------------------------|
@@ -185,7 +177,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
 
 A transcrição do lote suporta [o armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para ler transcrições de áudio e escrita para armazenamento.
 
-## <a name="the-batch-transcription-result"></a>O resultado da transcrição do lote
+## <a name="batch-transcription-result"></a>Resultado da transcrição do lote
 
 Para cada áudio de entrada, está a ser criado um ficheiro de resultados de transcrição. Pode obter a lista de ficheiros de resultados ligando para [obter ficheiros de transcrições](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Este método devolve uma lista de ficheiros de resultados para esta transcrição. Para encontrar o ficheiro de transcrição de um ficheiro de entrada específico, filtre todos os ficheiros devolvidos com `kind`  ==  `Transcription` e `name`  ==  `{originalInputName.suffix}.json` .
 
@@ -251,7 +243,7 @@ Cada resultado da transcrição arquiva o seu formato:
 }
 ```
 
-O resultado contém estas formas:
+O resultado contém os seguintes formulários:
 
 :::row:::
    :::column span="1":::
@@ -289,9 +281,9 @@ O resultado contém estas formas:
       A forma de exibição do texto reconhecido. Estão incluídas a pontuação e a capitalização adicionadas.
 :::row-end:::
 
-## <a name="speaker-separation-diarization"></a>Separação de altifalantes (Diarização)
+## <a name="speaker-separation-diarization"></a>Separação de altifalantes (diarização)
 
-A diarização é o processo de separação dos altifalantes numa peça de áudio. O nosso pipeline Batch suporta a diarização e é capaz de reconhecer dois altifalantes em gravações de canais mono. A funcionalidade não está disponível em gravações estéreo.
+A diarização é o processo de separação dos altifalantes numa peça de áudio. O pipeline do lote suporta a diarização e é capaz de reconhecer dois altifalantes em gravações de canais mono. A funcionalidade não está disponível em gravações estéreo.
 
 A saída da transcrição com a diarização ativada contém uma `Speaker` entrada para cada frase transcrita. Se a diarização não for utilizada, a propriedade `Speaker` não está presente na saída JSON. Para a diarização apoiamos duas vozes, para que os altifalantes sejam identificados como `1` ou `2` .
 
@@ -317,7 +309,7 @@ Os tempos de tempo do nível de palavra devem ser ativados como indicam os parâ
 
 ## <a name="best-practices"></a>Melhores práticas
 
-O serviço de transcrição pode lidar com um grande número de transcrições submetidas. Pode consultar o estado das suas transcrições através de uma `GET` [transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)na Get . Ligue Para apagar regularmente a [transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) do serviço assim que tiver recuperado os resultados. Alternativamente definir `timeToLive` a propriedade para um valor razoável para garantir uma eventual eliminação dos resultados.
+O serviço de transcrição do lote pode lidar com um grande número de transcrições submetidas. Pode consultar o estado das suas transcrições através de uma `GET` [transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)na Get . Ligue Para apagar regularmente a [transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) do serviço assim que tiver recuperado os resultados. Alternativamente definir `timeToLive` a propriedade para um valor razoável para garantir uma eventual eliminação dos resultados.
 
 ## <a name="sample-code"></a>Código de exemplo
 

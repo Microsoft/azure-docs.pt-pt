@@ -2,26 +2,21 @@
 title: Proxy Proxy de aplicação de resolução de problemas Microsoft Docs
 description: Cobre como resolver erros no Azure AD Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848447"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640859"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de Aplicações e as mensagens de erro
 
@@ -84,12 +79,13 @@ Esta lista cobre erros que os utilizadores finais podem encontrar quando tentam 
 | Esta aplicação corporativa não pode ser acedida agora. Por favor, tente de novo mais tarde... O conector está esgotado. | O utilizador poderá ter este erro ao tentar aceder à aplicação que publicou se não estiver devidamente definida para esta aplicação no lado do local. Certifique-se de que os seus utilizadores têm as permissões adequadas, conforme definido para esta aplicação backend na máquina de acesso. |
 | Esta aplicação corporativa não pode ser acedida. Não está autorizado a aceder a esta aplicação. A autorização falhou. Certifique-se de que o utilizador tem uma licença para o Azure Ative Directory Premium. | O seu utilizador poderá obter este erro ao tentar aceder à aplicação que publicou se não tiverem sido explicitamente atribuídas a uma licença Premium pelo administrador do assinante. Aceda ao separador Ative Directory **Licenses** do assinante e certifique-se de que este utilizador ou grupo de utilizadores é atribuído a uma licença Premium. |
 | Não foi possível encontrar um servidor com o nome de anfitrião especificado. | O seu utilizador poderá obter este erro ao tentar aceder à aplicação que publicou se o domínio personalizado da aplicação não estiver configurado corretamente. Certifique-se de que carregou um certificado para o domínio e configura o registo de DNS corretamente seguindo os passos em [Trabalhar com domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md) |
+|Proibido: Esta aplicação corporativa não pode ser acedida ou o utilizador não pôde ser autorizado. Certifique-se de que o utilizador está definido no seu AD no local e que o utilizador tem acesso à aplicação no seu AD no local. | Isto pode ser um problema com o acesso à informação de autorização, ver [Algumas aplicações e APIs requerem acesso à informação de autorização em objetos de conta]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). Em resumo, adicione a conta da máquina de conector proxy da aplicação ao grupo de domínio "Windows Authorization Access Group" para resolver. |
 
 ## <a name="my-error-wasnt-listed-here"></a>O meu erro não foi listado aqui.
 
 Se encontrar um erro ou problema com o Azure AD Application Proxy que não esteja listado neste guia de resolução de problemas, gostaríamos de saber. Envie um e-mail para a nossa equipa de [comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro que encontrou.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Ativar o Proxy de Aplicações para O Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 * [Publicar aplicações com o Proxy da Aplicação](application-proxy-add-on-premises-application.md)
 * [Ativar um único sinal](application-proxy-configure-single-sign-on-with-kcd.md)

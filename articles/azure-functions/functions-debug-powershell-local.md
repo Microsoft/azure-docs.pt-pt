@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082992"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642236"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debug PowerShell Azure Funções localmente
 
@@ -235,13 +235,23 @@ Pode invocar novamente a mesma função (usando `Invoke-RestMethod` por exemplo)
 
 Tenha em mente os seguintes problemas ao depurar o seu código funções.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`pode fazer o seu depurgger quebrar em um lugar inesperado
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` pode fazer o seu depurgger quebrar em um lugar inesperado
 
 A extensão PowerShell `Debug-Runspace` utiliza, por sua vez, a funcionalidade powerShell. `BreakAll` Esta funcionalidade diz ao PowerShell para parar no primeiro comando que for executado. Este comportamento dá-lhe a oportunidade de definir pontos de rutura dentro do espaço de execução depurado.
 
 O tempo de execução do Azure Functions executa alguns comandos antes de invocar o seu `run.ps1` script, por isso é possível que o depurador acabe por quebrar dentro do `Microsoft.Azure.Functions.PowerShellWorker.psm1` ou `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
 Se esta rutura acontecer, passe o `continue` ou o comando para passar por cima deste ponto de `c` rutura. Depois para no ponto de rutura esperado.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se tiver dificuldades durante a depuragem, deve verificar o seguinte:
+
+| Marcar | Ação |
+|------|------|
+| Fugir `func --version` do terminal. Se tiver um erro que `func` não possa ser encontrado, as Ferramentas Core (func.exe) podem estar ausentes da `path` variável local.| [Reinstalar ferramentas principais](functions-run-local.md#v2).|  
+| No Código do Estúdio Visual, o terminal predefinido precisa de ter acesso a func.exe. Certifique-se de que não está a utilizar um terminal predefinido que não tenha Ferramentas Core instaladas, como o Subsistema Windows para Linux (WSL).  | Deite a camada predefinida no Código do Estúdio Visual para o PowerShell 7 (recomendado) ou para o Windows PowerShell 5.1.|
+  
 
 ## <a name="next-steps"></a>Passos seguintes
 

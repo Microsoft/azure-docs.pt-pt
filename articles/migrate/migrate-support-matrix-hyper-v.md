@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420962"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641828"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -34,7 +34,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Anfitrião Hyper-V**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster.<br/><br/> O anfitrião Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. A instalação do núcleo do servidor do Windows Server 2016 e do Windows Server 2012 R2 também são suportados. <br/>Não pode avaliar as VMs localizadas em sistemas anfitriões Hyper-V com o Windows Server 2012.
+| **Anfitrião Hyper-V**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster.<br/><br/> O anfitrião Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. A instalação do núcleo do servidor destes sistemas operativos também é suportada. <br/>Não pode avaliar as VMs localizadas em sistemas anfitriões Hyper-V com o Windows Server 2012.
 | **Permissões**           | Precisa de permissões de administrador no anfitrião Do Hiper-V. <br/> Se não quiser atribuir permissões de Administrador, crie uma conta de utilizador local ou de domínio e adicione a conta de utilizador a estes grupos- Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores do Monitor de Desempenho. |
 | **Comunicação remota do PowerShell**   | [A remoing PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve ser ativada em cada hospedeiro Hiper-V. |
 | **Réplica do Hyper-V**       | Se utilizar réplicas Hyper-V (ou tiver vários VMs com os mesmos identificadores VM) e descobrir tanto os VMs originais como replicados usando Azure Migrate, a avaliação gerada por Azure Migrate pode não ser exata. |
@@ -62,7 +62,7 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 
 **Dispositivo** | **Ligação**
 --- | ---
-**Aparelho** | Ligações de entrada na porta TCP 3389 para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão do aparelho utilizando o URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
+**Aparelho** | Ligações de entrada na porta TCP 3389 para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão do aparelho utilizando o URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
 **Hospedeiro/cluster hiper-V** | Ligação de entrada na porta WinRM 5985 (HTTP) para retirar metadados e dados de desempenho para VMs hiper-V usando uma sessão de Modelo de Informação Comum (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
@@ -81,6 +81,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Preparar para avaliação de VM hiper-V](tutorial-prepare-hyper-v.md)

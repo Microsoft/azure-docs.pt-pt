@@ -3,12 +3,12 @@ title: Suporte para avaliação do servidor físico em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação do servidor físico com a Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423784"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640128"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -34,7 +34,7 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implementação de servidor físico**       | O servidor físico pode ser autónomo ou implantado num cluster. |
-| **Permissões**           | **Janelas:** Utilize uma conta de domínio para máquinas unidas a domínios e uma conta local para máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho. <br/><br/> **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir. |
+| **Permissões**           | **Janelas:** Utilize uma conta de domínio para máquinas unidas a domínios e uma conta local para máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho. <br/><br/> **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir. <br/> Em alternativa, certifique-se de que as capacidades necessárias são definidas utilizando os seguintes comandos. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
 | **Sistema operativo** | Todos os sistemas operativos, com exceção do Windows Server 2003 e do SUSE Linux, podem ser avaliados para migração. |
 
 
@@ -53,7 +53,7 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 
 **Dispositivo** | **Ligação**
 --- | ---
-**Aparelho** | Ligações de entrada na porta TCP 3389, para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368, para aceder remotamente à aplicação de gestão do aparelho utilizando o URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
+**Aparelho** | Ligações de entrada na porta TCP 3389, para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368, para aceder remotamente à aplicação de gestão do aparelho utilizando o URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
 **Servidores físicos** | **Janelas:** Ligação de entrada na porta WinRM 5985 (HTTP) para puxar metadados de configuração e desempenho dos servidores do Windows. <br/><br/> **Linux:**  Ligações de entrada na porta 22 (TCP), para puxar metadados de configuração e desempenho dos servidores Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
@@ -72,6 +72,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare-se para a avaliação do servidor físico.](tutorial-prepare-physical.md)

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543474"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639839"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -25,7 +25,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 |Propriedade  |Descrição |
 |---------|---------|
 |Nome    |    Um nome único dentro do grupo de recursos.      |
-|Subrede    |  A sub-rede para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter os requisitos da sub-rede, consulte a secção Limitações neste artigo.         |
+|Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter os requisitos da sub-rede, consulte a secção Limitações neste artigo.         |
 |Recurso de ligação privada    |   O recurso de ligação privada para ligar usando iD ou pseudónimo de recurso, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado a este recurso.       |
 |Subresource-alvo   |      O subresource para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
 |Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controlo de acesso baseado em funções (RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem RBAC, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
@@ -47,6 +47,7 @@ Aqui estão alguns detalhes chave sobre os pontos finais privados:
  
 - Vários pontos finais privados podem ser criados nas mesmas sub-redes ou diferentes dentro da mesma rede virtual. Existem limites para o número de pontos finais privados que pode criar numa subscrição. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
+- A subscrição do recurso de ligação privada também deve ser registada no fornecedor de recursos Micosoft.Network. Para mais informações, consulte [os Fornecedores de Recursos Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
  
 ## <a name="private-link-resource"></a>Recurso de ligação privada 
@@ -132,11 +133,11 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar um ponto de final privado para base de dados SQL utilizando o Portal](create-private-endpoint-portal.md)
-- [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
-- [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)
-- [Criar um ponto final privado para conta de armazenamento utilizando o Portal](create-private-endpoint-storage-portal.md)
-- [Criar um ponto final privado para conta Azure Cosmos usando portal](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Criar um ponto de final privado para base de dados SQL utilizando o Portal ](create-private-endpoint-portal.md)
+- [Criar um ponto final privado para base de dados SQL utilizando PowerShell ](create-private-endpoint-powershell.md)
+- [Criar um ponto final privado para base de dados SQL utilizando CLI ](create-private-endpoint-cli.md)
+- [Criar um ponto final privado para conta de armazenamento utilizando o Portal ](create-private-endpoint-storage-portal.md)
+- [Criar um ponto final privado para conta Azure Cosmos usando portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie o seu próprio serviço de Ligação Privada utilizando a Azure PowerShell](create-private-link-service-powershell.md)
 - [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando o Portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando CLI](../postgresql/howto-configure-privatelink-cli.md)

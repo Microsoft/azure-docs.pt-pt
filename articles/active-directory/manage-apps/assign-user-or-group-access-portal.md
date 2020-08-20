@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799507"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642032"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou um grupo a uma aplicação empresarial no Azure Ative Directory
 
-Este artigo mostra-lhe como atribuir utilizadores ou grupos a aplicações empresariais no Azure Ative Directory (Azure AD), quer dentro do portal Azure, quer através da utilização do PowerShell. Quando atribui um utilizador a uma aplicação, a aplicação aparece no painel de [acesso my apps](https://myapps.microsoft.com/) do utilizador para facilitar o acesso. Se a aplicação expor funções, também pode atribuir uma função específica ao utilizador.
+Este artigo mostra-lhe como atribuir utilizadores ou grupos a aplicações empresariais no Azure Ative Directory (Azure AD), quer dentro do portal Azure, quer através da utilização do PowerShell. Quando atribui um utilizador a uma aplicação, a aplicação aparece nas [Minhas Apps](https://myapps.microsoft.com/) do utilizador para facilitar o acesso. Se a aplicação expor funções, também pode atribuir uma função específica ao utilizador.
 
 Para um maior controlo, certos tipos de aplicações empresariais podem ser configuradas para exigir a [atribuição do utilizador](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Quando for necessária a atribuição do utilizador, apenas os utilizadores que 
 
 Quando a atribuição não for *necessária*, seja porque definiu esta opção para **Nº** ou porque a aplicação utiliza outro modo SSO, qualquer utilizador poderá aceder à aplicação se tiver uma ligação direta com a aplicação ou o URL de Acesso ao **Utilizador** na página **Propriedades** da aplicação. 
 
-Esta definição não afeta se uma aplicação aparece ou não no painel de acesso das Minhas Apps. As aplicações aparecem nos painéis de acesso my apps dos utilizadores depois de ter atribuído um utilizador ou grupo à aplicação. Para obter antecedentes, consulte [Gerir o acesso às aplicações.](what-is-access-management.md)
+Esta definição não afeta se uma aplicação aparece ou não nas Minhas Apps. As aplicações aparecem nos painéis de acesso my apps dos utilizadores depois de ter atribuído um utilizador ou grupo à aplicação. Para obter antecedentes, consulte [Gerir o acesso às aplicações.](what-is-access-management.md)
 
 
 Para exigir a atribuição do utilizador para uma aplicação:
@@ -161,7 +161,7 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Saiba mais sobre o acesso do utilizador final às aplicações](end-user-experiences.md)
-- [Planeie uma implementação de painel de acesso AD AZure](access-panel-deployment-plan.md)
+- [Planeie uma implementação de Azure AD My Apps](access-panel-deployment-plan.md)
 - [Gerir o acesso a apps](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Passos seguintes

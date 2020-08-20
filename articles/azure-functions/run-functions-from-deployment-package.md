@@ -3,12 +3,12 @@ title: Executar as suas Funções Azure a partir de um pacote
 description: Faça com que o tempo de execução das Funções Azure execute as suas funções montando um ficheiro pacote de implementação que contenha os ficheiros de projetos de aplicações de função.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214234"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639890"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar as suas Funções Azure a partir de um ficheiro de pacote
 
@@ -50,6 +50,9 @@ O seguinte mostra uma aplicação de função configurada para ser executada a p
 ## <a name="integration-with-zip-deployment"></a>Integração com implantação zip
 
 [A implementação][Zip deployment for Azure Functions] zip é uma funcionalidade do Azure App Service que permite implementar o seu projeto de aplicação de função para o `wwwroot` diretório. O projeto é embalado como um ficheiro de implantação .zip. As mesmas APIs podem ser utilizadas para implantar a sua embalagem na `d:\home\data\SitePackages` pasta. Com o `WEBSITE_RUN_FROM_PACKAGE` valor de definição de aplicação `1` de , as APIs de implementação zip copiam o seu pacote para a `d:\home\data\SitePackages` pasta em vez de extrair os ficheiros para `d:\home\site\wwwroot` . Também cria o `packagename.txt` ficheiro. Após um reinício, a embalagem é montada `wwwroot` como um sistema de ficheiros apenas de leitura. Para obter mais informações sobre a colocação de zíper, consulte [a implementação zip para funções Azure](deployment-zip-push.md).
+
+> [!NOTE]
+> Quando ocorre uma implementação, é ativada uma reiniciada aplicação de função. Antes de recomeçar, todas as execuções de funções existentes são permitidas para completar ou sair do tempo. Para saber mais, consulte [os comportamentos de Implementação.](functions-deployment-technologies.md#deployment-behaviors)
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Adicionar a definição de WEBSITE_RUN_FROM_PACKAGE
 

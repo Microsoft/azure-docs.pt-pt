@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de173d6dc25610cd397cd719fe4c1c9db33a02f6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168204"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641845"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: Baixar e lançar notas
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84168204"
 |   |   |
 |---|---|
 |**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Amostra**|[Amostra API da tabela cosmos DB .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Sample**|[Amostra API da tabela cosmos DB .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Início rápido**|[Início rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Quadro atual suportado**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -40,7 +40,15 @@ A série 2.0.0 assume a dependência do [Microsoft.Azure.Cosmos,](https://www.nu
 * pré-visualização inicial de 2.0.0 Table SDK que assume a dependência do [Microsoft.Azure.Cosmos,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)com melhorias de desempenho e consolidação de espaço de nome para cosmos DB ponto final. A API pública continua a mesma.
 
 ## <a name="release-notes-for-100-series"></a>Notas de lançamento para série 1.0.0
-Série 1.0.0 assume a dependência [deMicrosoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+Série 1.0.0 assume a dependência [ deMicrosoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="108"></a><a name="1.0.8"></a>1.0.8
+* Adicione suporte para definir propriedade TTL se for o ponto final cosmosdb 
+* Honra redação política no tempo limite e missão cancelada exceção
+* Corrigir a exceção intermitente cancelada vista nas aplicações asp .net
+* Corrigir azure armazenamento de mesa recuperar do modo de localização de ponto final secundário
+* Versão `Microsoft.Azure.DocumentDB.Core` de atualização da dependência para 2.11.2 que corrige exceção intermitente de referência nulo
+* Atualizar `Odata.Core` versão de dependência a 7.6.4 que corrige conflito de compatibilidade com concha azul
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Melhoria do desempenho ao definir o nível de traço padrão da Tabela SDK para SourceLevels.Off, que pode ser optado através de app.config
@@ -115,5 +123,5 @@ Esta biblioteca padrão .NET [Microsoft.Azure.cosmos.Table](https://www.nuget.or
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre a API da Tabela DB AZure Cosmos, consulte [Introdução à Tabela DB API da Azure Cosmos](table-introduction.md).

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 10d51102b49a15cfb6893de9da616a836663829e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d00fa5cf475eb2311bfa4b6f7dbe7dba70d080fd
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213445"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642338"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função no Azure com o Visual Studio Code
 
@@ -60,9 +60,9 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ O [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)  
++ O [.NET Core SDK 3.1](https://www.microsoft.com/net/download)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + O [Kit de Desenvolvimento java,](https://aka.ms/azure-jdks)versão 8.
@@ -180,7 +180,7 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
     ![Resposta da função no browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando continuar até ao próximo passo, [adicione uma fila de armazenamento Azure à sua função,](functions-add-output-binding-storage-queue-vs-code.md)terá de manter todos os seus recursos no lugar para se basear no que já fez.
 
