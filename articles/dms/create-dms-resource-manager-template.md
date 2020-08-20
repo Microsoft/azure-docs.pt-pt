@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537450"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661185"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Quickstart: Criar exemplo de Serviço de Migração de Bases de Dados Azure usando o modelo ARM
 
@@ -35,7 +35,7 @@ O modelo Azure Database Migration Service ARM requer o seguinte:
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
+:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Três recursos Azure são definidos no modelo: 
 
@@ -109,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Para outras formas de implantar o Serviço de Migração da Base de Dados Azure, consulte: 
 - [Portal do Azure](quickstart-create-data-migration-service-portal.md)

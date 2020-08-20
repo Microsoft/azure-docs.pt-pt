@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: ed908c4711812302fffac2e1ce59d2196426b74c
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 47c203eaea0c3fc2a39267ed78eb603c4836cd2b
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185864"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660286"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para o servidor MySQL
 
@@ -48,7 +48,7 @@ Irá criar uma Base de Dados do Azure para o servidor MySQL com um conjunto defi
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
+:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json":::
 
 O modelo define cinco recursos Azure:
 
@@ -181,7 +181,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 
@@ -219,4 +219,4 @@ echo "Press [ENTER] to continue ..."
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo ARM, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

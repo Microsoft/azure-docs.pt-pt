@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640162"
+ms.locfileid: "88660879"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
-A transcrição do lote é um conjunto de operações de API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros áudio com uma assinatura de acesso partilhado (SAS) URI e receber assincronamente os resultados da transcrição. Com a nova API v3.0, tem a opção de transcrever um ou mais ficheiros áudio, ou processar um recipiente de armazenamento inteiro.
+A transcrição do lote é um conjunto de operações de API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros áudio usando um URI típico ou uma assinatura de acesso partilhado (SAS) URI e receber assincronamente os resultados da transcrição. Com a API v3.0, pode transcrever um ou mais ficheiros áudio ou processar um recipiente de armazenamento inteiro.
 
-A transcrição assíncronosa de discurso a texto é apenas uma das características. Pode utilizar a transcrição do lote REST APIs para ligar para os seguintes métodos:
+Pode utilizar a transcrição do lote REST APIs para ligar para os seguintes métodos:
 
 |    Operação de Transcrição de Lote                                             |    Método    |    REST API Call                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -33,14 +33,12 @@ A transcrição assíncronosa de discurso a texto é apenas uma das característ
 |    Obtém a transcrição identificada pela identificação dada.                        |    GET       |    speechtotext/v3.0/transcriptions/{id}       |
 |    Obtém os ficheiros de resultados da transcrição identificados pela identificação dada.    |    GET       |    speechtotext/v3.0/transcriptions/{id}/files |
 
-
-
-
 Pode rever e testar a API detalhada, que está disponível como [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Os trabalhos de transcrição de lote são programados com a melhor base de esforço. Atualmente, não há estimativa para quando um emprego muda para o estado de funcionamento. Sob a carga normal do sistema, deve acontecer em minutos. Uma vez no estado de execução, a transcrição real é processada mais rapidamente do que o áudio em tempo real.
+Esta API não requer pontos finais personalizados e não tem requisitos de concordância.
 
-Ao lado da API de fácil utilização, não precisa de implementar pontos finais personalizados e não tem quaisquer requisitos de concordância a observar.
+Os trabalhos de transcrição de lote são programados com a melhor base de esforço.
+Não se pode estimar quando um trabalho vai mudar para o estado de funcionamento, mas deve acontecer dentro de minutos sob a carga normal do sistema. Uma vez no estado de funcionamento, a transcrição ocorre mais rapidamente do que a velocidade de reprodução de tempo de funcionamento áudio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +59,8 @@ A API de transcrição do lote suporta os seguintes formatos:
 | MP3    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
 | OGG    | OPUS  | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
 
-Para os fluxos de áudio estéreo, os canais esquerdo e direito são divididos durante a transcrição. Para cada canal, está a ser criado um ficheiro de resultados JSON. Os tempos gerados por expressão permitem ao desenvolvedor criar uma transcrição final ordenada.
+Para os fluxos de áudio estéreo, os canais esquerdo e direito são divididos durante a transcrição. Está a ser criado um ficheiro de resultados JSON para cada canal.
+Para criar uma transcrição final ordenada, use os tempos gerados por expressão.
 
 ### <a name="configuration"></a>Configuração
 
@@ -93,7 +92,7 @@ Os parâmetros de configuração são fornecidos como JSON (processamento de um 
 }
 ```
 
-Para utilizar modelos treinados personalizados em transcrições de lotes, podem ser referenciados como mostrado abaixo:
+O seguinte JSON especifica um modelo treinado personalizado para usar numa transcrição de lote:
 
 ```json
 {
@@ -128,42 +127,42 @@ Utilize estas propriedades opcionais para configurar a transcrição:
       `profanityFilterMode`
    :::column-end:::
    :::column span="2":::
-      Especifica como lidar com a profanação nos resultados do reconhecimento. Os valores aceites são `None` para desativar a filtragem da profanação, `Masked` para substituir a profanação por asteriscos, `Removed` para remover toda a profanação do resultado, ou `Tags` para adicionar etiquetas de "profanação". A predefinição é `Masked`.
+      Opcional, predefinições a `Masked` . Especifica como lidar com a profanação nos resultados do reconhecimento. Os valores aceites são `None` para desativar a filtragem da profanação, `Masked` para substituir a profanação por asteriscos, `Removed` para remover toda a profanação do resultado, ou `Tags` para adicionar etiquetas de "profanação".
 :::row-end:::
 :::row:::
    :::column span="1":::
       `punctuationMode`
    :::column-end:::
    :::column span="2":::
-      Especifica como lidar com a pontuação nos resultados do reconhecimento. Os valores aceites são `None` para desativar a pontuação, `Dictated` para implicar uma pontuação explícita (falada), `Automatic` para deixar o descodificador lidar com a pontuação, ou `DictatedAndAutomatic` para usar a pontuação ditada e automática. A predefinição é `DictatedAndAutomatic`.
+      Opcional, predefinições a `DictatedAndAutomatic` . Especifica como lidar com a pontuação nos resultados do reconhecimento. Os valores aceites são `None` para desativar a pontuação, `Dictated` para implicar uma pontuação explícita (falada), `Automatic` para deixar o descodificador lidar com a pontuação, ou `DictatedAndAutomatic` para usar a pontuação ditada e automática.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `wordLevelTimestampsEnabled`
    :::column-end:::
    :::column span="2":::
-      Especifica se os tempos de tempo de palavra devem ser adicionados à saída. Os valores aceites são `true` para permitir que os tempos de nível de palavras e `false` (o valor predefinido) o desativem.
+      Opcional, `false` por defeito. Especifica se os tempos de tempo de palavra devem ser adicionados à saída.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `diarizationEnabled`
    :::column-end:::
    :::column span="2":::
-      Especifica que a análise de diarização deve ser efetuada na entrada, que se espera que seja um canal mono contendo duas vozes. Os valores aceites estão `true` a permitir a diarização e `false` (o valor predefinido) a desativá-la. Também requer ser `wordLevelTimestampsEnabled` definido como verdadeiro.
+      Opcional, `false` por defeito. Especifica que a análise de diarização deve ser efetuada na entrada, que se espera que seja um canal mono contendo duas vozes. Nota: Requer `wordLevelTimestampsEnabled` que se esteja definido para `true` .
 :::row-end:::
 :::row:::
    :::column span="1":::
       `channels`
    :::column-end:::
    :::column span="2":::
-      Um conjunto opcional de números de canal para processar. Aqui, um subconjunto dos canais disponíveis no ficheiro áudio pode ser especificado para ser processado `0` (por exemplo, apenas). Se não for especificado, os canais `0` e `1` são transcritos como padrão.
+      Opcional, `0` e `1` transcrito por defeito. Uma série de números de canal para processar. Aqui, um subconjunto dos canais disponíveis no ficheiro áudio pode ser especificado para ser processado `0` (por exemplo, apenas).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Uma duração opcional para apagar automaticamente as transcrições após a conclusão da transcrição. O `timeToLive` que é útil nas transcrições de processamento em massa para garantir que serão eventualmente eliminadas (por `PT12H` exemplo). Se não for especificada ou `PT0H` definida, a transcrição não será apagada automaticamente.
+      Opcional, sem eliminação por defeito. Uma duração para apagar automaticamente as transcrições após a conclusão da transcrição. O `timeToLive` que é útil nas transcrições de processamento em massa para garantir que serão eventualmente eliminadas (por exemplo, durante `PT12H` 12 horas).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -175,43 +174,44 @@ Utilize estas propriedades opcionais para configurar a transcrição:
 
 ### <a name="storage"></a>Armazenamento
 
-A transcrição do lote suporta [o armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para ler transcrições de áudio e escrita para armazenamento.
+A transcrição do lote pode ler áudio a partir de um URI de internet e pode ler áudio ou escrever transcrições usando [o armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Resultado da transcrição do lote
 
-Para cada áudio de entrada, está a ser criado um ficheiro de resultados de transcrição. Pode obter a lista de ficheiros de resultados ligando para [obter ficheiros de transcrições](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Este método devolve uma lista de ficheiros de resultados para esta transcrição. Para encontrar o ficheiro de transcrição de um ficheiro de entrada específico, filtre todos os ficheiros devolvidos com `kind`  ==  `Transcription` e `name`  ==  `{originalInputName.suffix}.json` .
+Para cada entrada áudio, é criado um ficheiro de resultados de transcrição.
+A operação [de ficheiros de transcrições get](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) devolve uma lista de ficheiros de resultados para esta transcrição. Para encontrar o ficheiro de transcrição de um ficheiro de entrada específico, filtre todos os ficheiros devolvidos com `kind`  ==  `Transcription` e `name`  ==  `{originalInputName.suffix}.json` .
 
-Cada resultado da transcrição arquiva o seu formato:
+Cada ficheiro de resultados de transcrição tem este formato:
 
 ```json
 {
-  "source": "...",                                                 // the sas url of a given contentUrl or the path relative to the root of a given container
-  "timestamp": "2020-06-16T09:30:21Z",                             // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
-  "durationInTicks": 41200000,                                     // total audio duration in ticks (1 tick is 100 nanoseconds)
-  "duration": "PT4.12S",                                           // total audio duration, ISO 8601 encoded duration
-  "combinedRecognizedPhrases": [                                   // concatenated results for simple access in single string for each channel
+  "source": "...",                      // sas url of a given contentUrl or the path relative to the root of a given container
+  "timestamp": "2020-06-16T09:30:21Z",  // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
+  "durationInTicks": 41200000,          // total audio duration in ticks (1 tick is 100 nanoseconds)
+  "duration": "PT4.12S",                // total audio duration, ISO 8601 encoded duration
+  "combinedRecognizedPhrases": [        // concatenated results for simple access in single string for each channel
     {
-      "channel": 0,                                                // channel number of the concatenated results
+      "channel": 0,                     // channel number of the concatenated results
       "lexical": "hello world",
       "itn": "hello world",
       "maskedITN": "hello world",
       "display": "Hello world."
     }
   ],
-  "recognizedPhrases": [                                           // results for each phrase and each channel individually
+  "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",                              // recognition state, e.g. "Success", "Failure"
-      "channel": 0,                                                // channel number of the result
-      "offset": "PT0.07S",                                         // offset in audio of this phrase, ISO 8601 encoded duration 
-      "duration": "PT1.59S",                                       // audio duration of this phrase, ISO 8601 encoded duration
-      "offsetInTicks": 700000.0,                                   // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
-      "durationInTicks": 15900000.0,                               // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "channel": 0,                     // channel number of the result
+      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
+      "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
+      "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
+      "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
       
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
-          "confidence": 0.898652852,                               // confidence value for the recognition of the whole phrase
-          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
+          "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
+          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
@@ -247,7 +247,7 @@ O resultado contém os seguintes formulários:
 
 :::row:::
    :::column span="1":::
-      **Formulário**
+      **Campo**
    :::column-end:::
    :::column span="2":::
       **Conteúdo**
@@ -285,9 +285,9 @@ O resultado contém os seguintes formulários:
 
 A diarização é o processo de separação dos altifalantes numa peça de áudio. O pipeline do lote suporta a diarização e é capaz de reconhecer dois altifalantes em gravações de canais mono. A funcionalidade não está disponível em gravações estéreo.
 
-A saída da transcrição com a diarização ativada contém uma `Speaker` entrada para cada frase transcrita. Se a diarização não for utilizada, a propriedade `Speaker` não está presente na saída JSON. Para a diarização apoiamos duas vozes, para que os altifalantes sejam identificados como `1` ou `2` .
+A saída da transcrição com a diarização ativada contém uma `Speaker` entrada para cada frase transcrita. Se a diarização não for utilizada, a `Speaker` propriedade não está presente na saída JSON. Para a diarização apoiamos duas vozes, para que os altifalantes sejam identificados como `1` ou `2` .
 
-Para solicitar a diarização, basta adicionar o parâmetro relevante no pedido HTTP, conforme mostrado abaixo.
+Para solicitar a diarização, adicione definir o `diarizationEnabled` imóvel para `true` gostar do pedido HTTP mostra abaixo.
 
  ```json
 {
@@ -315,7 +315,7 @@ O serviço de transcrição do lote pode lidar com um grande número de transcri
 
 As amostras completas estão disponíveis no [repositório de amostras gitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
 
-Por favor, atualize o código da amostra com as informações de subscrição, a região de serviço, o SAS URI apontando para o ficheiro áudio para transcrever, e localização do modelo no caso de pretender utilizar um modelo personalizado.
+Atualize o código de amostra com as informações de subscrição, região de serviço, URI apontando para o ficheiro áudio para transcrever e localização do modelo se estiver a utilizar um modelo personalizado.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
 
@@ -325,16 +325,14 @@ O código de amostra define o cliente e submete o pedido de transcrição. Em se
 
 Para obter todos os detalhes sobre as chamadas anteriores, consulte o nosso [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Para a amostra completa mostrada aqui, vá ao [GitHub](https://aka.ms/csspeech/samples) na `samples/batch` subdiretória.
 
-Tome nota da configuração assíncronea para publicar áudio e receber o estado de transcrição. O cliente que cria é um cliente .NET HTTP. Há um `PostTranscriptions` método para enviar os detalhes do ficheiro áudio e um `GetTranscriptions` método para receber os estados. `PostTranscriptions` devolve uma pega, e `GetTranscriptions` usa-a para criar uma pega para obter o estado de transcrição.
+Esta amostra utiliza uma configuração assíncronea para publicar áudio e receber o estado de transcrição.
+O `PostTranscriptions` método envia os detalhes do ficheiro áudio e o método recebe os `GetTranscriptions` estados.
+`PostTranscriptions` devolve uma pega, e `GetTranscriptions` usa-a para criar uma pega para obter o estado de transcrição.
 
-O código de amostra atual não especifica um modelo personalizado. O serviço utiliza o modelo de base para transcrever o ficheiro ou ficheiros. Para especificar o modelo, pode passar o mesmo método que a referência do modelo para o modelo personalizado.
+Este código de amostra não especifica um modelo personalizado. O serviço utiliza o modelo de base para transcrever o ficheiro ou ficheiros. Para especificar o modelo, pode passar o mesmo método que a referência do modelo para o modelo personalizado.
 
 > [!NOTE]
 > Para transcrições de base, não é necessário declarar o ID para o modelo de base.
-
-## <a name="download-the-sample"></a>Transferir o exemplo
-
-Pode encontrar a amostra no `samples/batch` diretório do [repositório de amostras GitHub.](https://aka.ms/csspeech/samples)
 
 ## <a name="next-steps"></a>Passos seguintes
 

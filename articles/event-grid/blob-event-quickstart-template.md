@@ -3,12 +3,12 @@ title: Enviar eventos de armazenamento Blob para o ponto final da web - modelo
 description: Utilize a Grelha de Eventos Azure e um modelo de Gestor de Recursos Azure para criar uma conta de armazenamento Blob e subscreva os seus eventos. Envie os eventos para um Webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460444"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661270"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Route Blob eventos de armazenamento para o ponto final web usando um modelo ARM
 
@@ -41,7 +41,7 @@ Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto f
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Dois recursos Azure são definidos no modelo:
 
@@ -51,7 +51,7 @@ Dois recursos Azure são definidos no modelo:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione o seguinte link para iniciar seduca e abra um modelo. O modelo cria um cofre chave e um segredo.
+1. Selecione a ligação seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre chave e um segredo.
 
     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
@@ -77,7 +77,7 @@ Quando envia o ficheiro para o armazenamento da Azure Blob, o Event Grid envia u
 
 ![Ver resultados](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
 ).
@@ -87,6 +87,6 @@ Quando já não for necessário, [elimine o grupo de recursos](../azure-resource
 Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte os seguintes artigos:
 
 * [Documentação do Gestor de Recursos Azure](../azure-resource-manager/index.yml)
-* [Definir recursos em modelos de Gestor de Recursos Azure](/azure/templates/)
-* [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+* [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/)
+* [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelos de grelha de eventos Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

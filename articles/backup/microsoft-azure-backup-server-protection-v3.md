@@ -3,12 +3,12 @@ title: O que o Azure Backup Server V3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Serve V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611981"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661287"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção V3 RTM do servidor de backup Azure
 
@@ -32,9 +32,9 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |Servidores (32 e 64 bits)|Windows Server 2012/2012 com SP1 – Datacenter e Standard|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal<br /><br />O Azure Backup Server deve estar a funcionar pelo menos no Windows Server 2012 R2 para proteger volumes desativados do Windows Server 2012.|
 |Servidores (32 e 64 bits)|Windows Server 2012/2012 com SP1 – Datacenter e Standard|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro<br /><br />O Azure Backup Server deve estar a funcionar pelo menos no Windows Server 2012 R2 para proteger volumes desativados do Windows Server 2012.|
 |Servidores (32 e 64 bits)|Windows Server 2012/2012 com SP1 – Datacenter e Standard|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal<br /><br />O Azure Backup Server deve estar a funcionar pelo menos no Windows Server 2012 R2 para proteger volumes desativados do Windows Server 2012.|
-|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2<br />Tem de executar o SP1 e instalar o [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
-|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2<br />Tem de executar o SP1 e instalar o [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partilha, pasta, ficheiro|
-|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMWare)<br /> <br /> Azure Stack|V3, V2<br />Tem de executar o SP1 e instalar o [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
+|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2<br />Você precisa estar executando SP1 e instalar [o Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
+|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2<br />Você precisa estar executando SP1 e instalar [o Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partilha, pasta, ficheiro|
+|Servidores (32 e 64 bits)|Windows Server 2008 R2 SP1 – Standard e Enterprise|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMWare)<br /> <br /> Azure Stack|V3, V2<br />Você precisa estar executando SP1 e instalar [o Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |Servidores (32 e 64 bits)|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|Não suportado|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |Servidores (32 e 64 bits)|Windows Server 2008 SP2|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |Servidores (32 e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|

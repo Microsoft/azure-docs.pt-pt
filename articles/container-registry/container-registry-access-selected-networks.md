@@ -2,13 +2,13 @@
 title: Configurar o acesso ao registo público
 description: Configurar regras IP para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523830"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660930"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 Opcionalmente, desative o ponto final público do registo. A desativação do ponto final público substitui todas as configurações de firewall. Por exemplo, é melhor desativar o acesso público a um registo protegido numa rede virtual utilizando [o Private Link](container-registry-private-link.md).
 
+> [!NOTE]
+> Se o registo for criado numa rede virtual com um ponto final de [serviço,](container-registry-vnet.md)desativar o acesso ao ponto final público do registo também desativa o acesso ao registo dentro da rede virtual.
+
 ### <a name="disable-public-access---cli"></a>Desativar o acesso público - CLI
 
-Para desativar o acesso público utilizando o Azure CLI, execute [a atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
-
-> [!NOTE]
-> O `public-network-enabled` argumento requer Azure CLI 2.6.0 ou mais tarde. 
+Para desativar o acesso público utilizando o Azure CLI, execute [a atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . O `public-network-enabled` argumento requer Azure CLI 2.6.0 ou mais tarde. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false
@@ -102,14 +102,14 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![Acesso público de todas as redes][acr-access-all-networks]
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 Se uma regra de rede pública for definida, ou o acesso público ao registo for negado, as tentativas de login no registo a partir de uma rede pública não permitida falharão. O acesso ao cliente por trás de um representante HTTPS também falhará se não for definida uma regra de acesso para o proxy. Verá uma mensagem de erro semelhante a `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Looks like you don't have access to registry` .
 
 Estes erros também podem ocorrer se utilizar um proxy HTTPS que é permitido por uma regra de acesso à rede, mas o proxy não está devidamente configurado no ambiente do cliente. Verifique se tanto o seu cliente Docker como o daemon do Docker estão configurados para comportamento de procuração. Para mais informações, consulte [http/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) na documentação do Docker.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

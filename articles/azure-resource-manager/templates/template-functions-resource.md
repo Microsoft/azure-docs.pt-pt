@@ -3,12 +3,12 @@ title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372387"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661406"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -34,12 +34,12 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |cadeia |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
-| resourceType |Sim |cadeia |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |cadeia |Nome do recurso. |
-| recursoName2 |Não |cadeia |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -112,11 +112,11 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |cadeia |Identificador único para o recurso. |
-| apiVersion |Sim |cadeia |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
-| funçõesValues |Não |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
+| recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
+| apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
+| funçõesValues |No |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -166,8 +166,8 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/base de dadosAcontas | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/base de dadosAcontas | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/base de dadosAcontas | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/base de dadosAcontas | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domínios | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -324,10 +324,10 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |cadeia |Espaço de nome do fornecedor |
-| resourceType |Não |cadeia |O tipo de recurso dentro do espaço de nome especificado. |
+| providerNamespace |Yes |string |Espaço de nome do fornecedor |
+| resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -399,11 +399,11 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |cadeia |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |cadeia |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
-| 'Cheio' |Não |cadeia |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
+| recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
+| apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
+| 'Cheio' |No |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -458,7 +458,7 @@ A função de referência só pode ser utilizada nas propriedades de uma defini�
 
 Não é possível utilizar a função de referência para definir o valor da `count` propriedade num ciclo de cópia. Pode utilizar para definir outras propriedades no loop. A referência está bloqueada para a propriedade da contagem porque essa propriedade deve ser determinada antes da função de referência ser resolvida.
 
-Para utilizar a função de referência ou qualquer função de lista* na secção de saídas de um modelo aninhado, deve definir ```expressionEvaluationOptions``` a avaliação [do âmbito interno](linked-templates.md#expression-evaluation-scope-in-nested-templates) ou utilizar um modelo ligado em vez de um modelo aninhado.
+Para utilizar a função de referência ou qualquer função de lista* na secção de saídas de um modelo aninhado, deve definir  ```expressionEvaluationOptions``` a avaliação [do âmbito interno](linked-templates.md#expression-evaluation-scope-in-nested-templates) ou utilizar um modelo ligado em vez de um modelo aninhado.
 
 Se utilizar a função **de referência** num recurso que esteja implantado condicionalmente, a função é avaliada mesmo que o recurso não seja implantado.  Obtém-se um erro se a função **de referência** se referir a um recurso que não existe. Utilize a função **se** funcionar para se certificar de que a função só é avaliada quando o recurso está a ser implantado. Consulte a [função se](template-functions-logical.md#if) for para um modelo de amostra que utiliza se e referenciar com um recurso implantado condicionalmente.
 
@@ -492,7 +492,7 @@ Ao construir uma referência totalmente qualificada a um recurso, a ordem de com
 
 Por exemplo:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não é correto
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não é correto
 
 Para simplificar a criação de qualquer ID de recurso, utilize as `resourceId()` funções descritas neste documento em vez da `concat()` função.
 
@@ -722,13 +722,13 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
-| resourceGroupName |Não |cadeia |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
-| resourceType |Sim |cadeia |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |cadeia |Nome do recurso. |
-| recursoName2 |Não |cadeia |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
+| resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -918,12 +918,12 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
-| resourceType |Sim |cadeia |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |cadeia |Nome do recurso. |
-| recursoName2 |Não |cadeia |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1000,11 +1000,11 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |cadeia |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |cadeia |Nome do recurso. |
-| recursoName2 |Não |cadeia |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 

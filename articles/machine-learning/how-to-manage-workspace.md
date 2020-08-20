@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c852d416b73ba29b22efe63996835deac3a5277d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167679"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659760"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,8 @@ Para criar um espaço de trabalho, precisa de uma subscrição do Azure. Se não
    ---|---
    Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. 
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. Precisa de *um colaborador* ou de um *papel proprietário* para utilizar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning.](how-to-assign-roles.md)
+   Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
    Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
    Edição do espaço de trabalho | Selecione **Basic** ou **Enterprise**.  Esta edição do espaço de trabalho determina as funcionalidades a que terá acesso e preços. Saiba mais sobre [as ofertas de edição Básica e Empresarial.](overview-what-is-azure-ml.md#sku) 
 
@@ -64,7 +65,7 @@ Para criar um espaço de trabalho, precisa de uma subscrição do Azure. Se não
 
 1. Se estiver a criar uma [instância computacional,](tutorial-1st-experiment-sdk-setup.md#azure)ignore este passo.
 
-1. Se pretender utilizar código no seu ambiente local que faça referência a este espaço de trabalho, selecione **Baixar config.jsna** secção **visão geral** do espaço de trabalho.  
+1. Se pretender utilizar código no seu ambiente local que faça referência a este espaço de trabalho, selecione  **Baixar config.jsna** secção **visão geral** do espaço de trabalho.  
 
    ![Baixar config.jsem](./media/how-to-manage-workspace/configure.png)
    
@@ -104,11 +105,11 @@ Você pode atualizar o seu espaço de trabalho da edição Basic para a edição
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-No [portal Azure,](https://portal.azure.com/) **selecione Delete** na parte superior do espaço de trabalho que pretende eliminar.
+No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte superior do espaço de trabalho que pretende eliminar.
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Apagar espaço de trabalho":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

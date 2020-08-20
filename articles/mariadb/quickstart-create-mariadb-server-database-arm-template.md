@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: cc79002adef4555a7a159238b7087ba7c20be7a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 108233892a89e6f6288e05476e37460a58b52b0e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120274"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660551"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para servidor MariaDB
 
@@ -48,7 +48,7 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de recur
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
+:::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json":::
 
 O modelo define cinco recursos Azure:
 
@@ -175,7 +175,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 
@@ -212,4 +212,4 @@ read -p "Press [ENTER] to continue: "
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo ARM, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -2,13 +2,13 @@
 title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 08/17/2020
+ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023521"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660500"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
@@ -28,6 +28,8 @@ A importação de imagem para um registo de contentores Azure tem os seguintes b
 
 * Quando importa imagens multi-arquitetura (como imagens oficiais do Docker), imagens para todas as arquiteturas e plataformas especificadas na lista de manifestos são copiadas.
 
+* O acesso à fonte e aos registos-alvo não tem de usar os pontos finais públicos dos registos.
+
 Para importar imagens de contentores, este artigo requer que você execute o Azure CLI em Azure Cloud Shell ou localmente (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
 > [!NOTE]
@@ -38,7 +40,7 @@ Para importar imagens de contentores, este artigo requer que você execute o Azu
 
 Se ainda não tiver um registo de contentores Azure, crie um registo. Para etapas, consulte [Quickstart: Crie um registo de contentores privados utilizando o Azure CLI](container-registry-get-started-azure-cli.md).
 
-Para importar uma imagem para um registo de contentores Azure, a sua identidade deve ter permissões de escrita para o registo-alvo (pelo menos função de contribuinte). Consulte [as funções e permissões do Registo do Contentor Azure](container-registry-roles.md). 
+Para importar uma imagem para um registo de contentores Azure, a sua identidade deve ter permissões de escrita para o registo-alvo (pelo menos papel de contribuinte, ou um papel personalizado que permita a ação importImage). Consulte [as funções e permissões do Registo do Contentor Azure](container-registry-roles.md#custom-roles). 
 
 ## <a name="import-from-a-public-registry"></a>Importação de um registo público
 
@@ -85,9 +87,11 @@ az acr import \
 
 Pode importar uma imagem de outro registo de contentores Azure utilizando permissões integradas do Azure Ative Directory.
 
-* A sua identidade deve ter permissões do Azure Ative Directory para ler a partir do registo de origem (função de leitor) e para escrever para o registo-alvo (função de contribuinte).
+* A sua identidade deve ter permissões do Azure Ative Directory para ler a partir do registo de origem (função do leitor) e para importar para o registo-alvo (função de contribuinte, ou um [papel personalizado](container-registry-roles.md#custom-roles) que permite a ação de importagensImage).
 
 * O registo pode ser na mesma ou numa subscrição Azure diferente no mesmo inquilino ative directory.
+
+* [O acesso público](container-registry-access-selected-networks.md#disable-public-network-access) ao registo de origem pode ser desativado. Se o acesso público for desativado, especifique o registo de origem por ID de recurso em vez de pelo nome do servidor de login do registo.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importação de um registo na mesma subscrição
 
@@ -98,6 +102,16 @@ az acr import \
   --name myregistry \
   --source mysourceregistry.azurecr.io/aci-helloworld:latest \
   --image aci-helloworld:latest
+```
+
+O exemplo seguinte importa a `aci-helloworld:latest` imagem para *o miogredistria* a partir de uma *miocidância* de registo de origem em que o acesso ao ponto final público do registo é desativado. Forneça o ID de recurso do registo de origem com o `--registry` parâmetro. Note que o `--source` parâmetro especifica apenas o repositório de origem e a etiqueta, e não o nome do servidor de login do registo.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source aci-helloworld:latest \
+  --image aci-helloworld:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 O exemplo a seguir importa uma imagem por manifesta digest (haxixe SHA-256, representada como `sha256:...` ) em vez de por etiqueta:
@@ -146,7 +160,7 @@ az acr import \
   --password <password>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre a importação de imagens de contentores para um registo de contentores Azure a partir de um registo público ou outro registo privado. Para opções adicionais de importação de imagem, consulte a referência do comando [de importação az acr.][az-acr-import] 
 

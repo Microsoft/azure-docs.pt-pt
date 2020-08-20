@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264045"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659471"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Problemas de resolução de janelas Azure Guest Agent
 
@@ -102,7 +102,7 @@ O Windows Azure Guest Agent tem uma funcionalidade de atualização automática.
 
 1. Mova quaisquer pastas que sejam chamadas Pacotes ou GuestAgent para a pasta OLD.
 
-1. Descarregue e instale a versão mais recente do pacote de instalação do agente a partir [daqui.](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409) Tem de ter direitos de administrador para completar a instalação.
+1. Descarregue e instale a versão mais recente do pacote de instalação do agente a partir [daqui.](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409) Tem de ter direitos de administrador para completar a instalação.
 
 1. Instale o Agente Convidado utilizando o seguinte comando:
 

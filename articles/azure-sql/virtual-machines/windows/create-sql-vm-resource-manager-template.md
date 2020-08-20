@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003870"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660212"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Quickstart: Criar VM do servidor SQL usando um modelo ARM
 
@@ -37,7 +37,7 @@ O modelo SQL Server VM ARM requer o seguinte:
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
 
 Os cinco recursos Azure são definidos no modelo: 
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Para outras formas de implementar um SQL Server VM, consulte: 
 - [Portal do Azure](create-sql-vm-portal.md)

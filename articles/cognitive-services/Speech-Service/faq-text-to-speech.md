@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: f647727c01bbddafe3b10877af3e1d5652bedd29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06fda777cbebd8034ac4fd9254a4bd172d011a4
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833592"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661508"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Texto para Discurso frequentemente perguntas
 
@@ -59,9 +59,9 @@ Fornecemos serviços adicionais para ajudá-lo a preparar scripts para a gravaç
 
 **P: Os meus pedidos são acelerados?**
 
-**A**: A API REST limita os pedidos a 25 por 5 segundos para as assinaturas padrão. O nível livre (F0) é limitado a 20 pedidos por minuto.
+**R**: Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

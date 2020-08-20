@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136988"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661355"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
 
 O portal Azure inclui um visualizador de recursos Kubernetes (pré-visualização) para facilitar o acesso aos recursos de Kubernetes no seu cluster Azure Kubernetes Service (AKS). Visualizar recursos de Kubernetes a partir do portal Azure reduz a troca de contexto entre o portal Azure e a `kubectl` ferramenta de linha de comando, racionalizando a experiência para visualizar e editar os recursos de Kubernetes. O visualizador de recursos inclui atualmente vários tipos de recursos, tais como implementações, cápsulas e conjuntos de réplicas.
 
 A vista de recursos de Kubernetes do portal Azure substitui o addon do [dashboard AKS][kubernetes-dashboard], que está definido para depreciação.
+
+>[!NOTE]
+>A capabilty não é suportada em [clusters privados do Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/aks/private-clusters)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -78,7 +81,7 @@ Para os clusters existentes, poderá ser necessário ativar a vista de recursos 
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Mensagem do portal Azure para ativar a visualização do recurso Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como aceder aos recursos da Kubernetes para o seu cluster AKS. Consulte [as Implementações e os manifestos yaml][deployments] para uma compreensão mais profunda dos recursos do cluster e dos ficheiros YAML que são acedidos com o visualizador de recursos Kubernetes.
 

@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 4175792875b3bb60572ef9aa520b1fb09e00bbba
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2c1ae6bd69a87ad0ae941fba66785344d91e8268
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503026"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660842"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL usando um modelo ARM
 
@@ -38,7 +38,7 @@ Uma única base de dados tem um conjunto definido de computação, memória, IO 
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json":::
 
 Estes recursos são definidos no modelo:
 
@@ -69,7 +69,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 Para consultar a base de dados, consulte [consultar a base de dados.](single-database-create-quickstart.md#query-the-database)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Mantenha este grupo de recursos, servidor e base de dados única se quiser ir aos [próximos passos](#next-steps). Os próximos passos mostram-lhe como conectar e consultar a sua base de dados utilizando diferentes métodos.
 

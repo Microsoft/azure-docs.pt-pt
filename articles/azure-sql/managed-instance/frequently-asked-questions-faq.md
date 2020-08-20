@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210509"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661423"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Para otimizar o desempenho do armazenamento, consulte [as melhores práticas de 
 Não, o armazenamento de cópias de segurança não é deduzido do seu espaço de armazenamento de instância gerida. O armazenamento de backup é independente do espaço de armazenamento de instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter a cópia de segurança das bases de dados do seu caso, configurando até 35 dias. Para mais informações, consulte [cópias de segurança automatizadas.](../database/automated-backups-overview.md)
 
 **Como posso ver quando as cópias de segurança automáticas são feitas no meu caso gerido?**
+
 Para acompanhar quando foram realizadas cópias de segurança automatizadas em Caso Gerido, consulte [como rastrear a cópia de segurança automatizada para uma Instância Gerida Azure SQL](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **O apoio a pedido é apoiado?**
+
 Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
 
 **A restauração nativa (de ficheiros .bak) para Instância Gerida é suportada?**
+
 Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro .bak para o armazenamento de blob Azure e execute os comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)
 
 ## <a name="business-continuity"></a>Continuidade do negócio
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (substituir 'teste' pelo nome de login pretendido e ajustar os valores de política e de expiração)
+
+
+## <a name="service-updates"></a>Atualizações de serviço
+
+**O que é um evento de manutenção planeado para a SQL Managed Instance?**
+
+Ver [Plano para eventos de manutenção do Azure em SqL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Feedback e suporte do Azure
 

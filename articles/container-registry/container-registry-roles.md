@@ -2,17 +2,17 @@
 title: Papéis e permissões Azure
 description: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
 ms.topic: article
-ms.date: 12/02/2019
-ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/17/2020
+ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920080"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661389"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registo de Contentores de Azure
 
-O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/index.yml) para atribuir permissões específicas aos utilizadores, principais de serviços ou outras identidades que necessitem de interagir com um registo. 
+O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/index.yml) para atribuir permissões específicas aos utilizadores, principais de serviços ou outras identidades que necessitem de interagir com um registo. Também pode definir [funções personalizadas](#custom-roles) com permissões de grãos finos para um registo para diferentes operações.
 
 | Função/Permissão       | [Gestor de Recursos de Acesso](#access-resource-manager) | [Criar/apagar registo](#create-and-delete-registry) | [Imagem de empurrar](#push-image) | [Imagem de puxar](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Mudar políticas](#change-policies) |   [Assinar imagens](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -70,7 +70,7 @@ A capacidade de assinar imagens, normalmente atribuídas a um processo automatiz
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Tal como acontece com outros recursos Azure, pode criar as suas próprias [funções personalizadas](../role-based-access-control/custom-roles.md) com permissões de grãos finos para o Registo de Contentores Azure. Em seguida, atribua as funções personalizadas aos utilizadores, principais de serviço ou outras identidades que precisem de interagir com um registo. 
+Tal como acontece com outros recursos Azure, pode criar [funções personalizadas](../role-based-access-control/custom-roles.md) com permissões de grãos finos para o Registo do Contentor de Azure. Em seguida, atribua as funções personalizadas aos utilizadores, principais de serviço ou outras identidades que precisem de interagir com um registo. 
 
 Para determinar quais as permissões a aplicar a uma função personalizada, consulte a lista de [ações](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)do Microsoft.ContainerRegistry , reveja as ações permitidas das [funções ACR incorporadas,](../role-based-access-control/built-in-roles.md)ou executar o seguinte comando:
 
@@ -82,6 +82,36 @@ Para definir um papel personalizado, consulte [Passos para criar um papel person
 
 > [!IMPORTANT]
 > Numa função personalizada, o Registo de Contentores Azure não suporta atualmente wildcards como `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` que concedem acesso a todas as ações correspondentes. Especifique qualquer ação necessária individualmente no papel.
+
+### <a name="example-custom-role-to-import-images"></a>Exemplo: Papel personalizado para importar imagens
+
+Por exemplo, o seguinte JSON define as ações mínimas para um papel personalizado que permite [importar imagens](container-registry-import-images.md) para um registo.
+
+```json
+{
+   "assignableScopes": [
+     "/subscriptions/<optional, but you can limit the visibility to one or more subscriptions>"
+   ],
+   "description": "Can import images to registry",
+   "Name": "AcrImport",
+   "permissions": [
+     {
+       "actions": [
+         "Microsoft.ContainerRegistry/registries/push/write",
+         "Microsoft.ContainerRegistry/registries/pull/read",
+         "Microsoft.ContainerRegistry/registries/read",
+         "Microsoft.ContainerRegistry/registries/importImage/action"
+       ],
+       "dataActions": [],
+       "notActions": [],
+       "notDataActions": []
+     }
+   ],
+   "roleType": "CustomRole"
+ }
+```
+
+Para criar ou atualizar uma função personalizada utilizando a descrição JSON, utilize o modelo [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)ou outras ferramentas Azure. Adicione ou remova atribuições de funções para um papel personalizado da mesma forma que gere atribuições de papéis para funções Azure incorporadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

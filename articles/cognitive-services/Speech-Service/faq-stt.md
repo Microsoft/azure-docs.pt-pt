@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921029"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661525"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -75,7 +75,7 @@ Se tiver adaptado e implementado um modelo com V1.0 de base, essa implantação 
 
 **P: Os meus pedidos são acelerados?**
 
-**A**: A API REST limita os pedidos a 25 por 5 segundos. Os detalhes podem ser encontrados nas nossas páginas para [falar para texto](speech-to-text.md).
+**R**: Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.md)
 
 **P: Como sou cobrado por áudio de dois canais?**
 
@@ -85,52 +85,14 @@ Se tiver adaptado e implementado um modelo com V1.0 de base, essa implantação 
 > Se tiver mais preocupações de privacidade que o proíbam de utilizar o serviço de discurso personalizado, contacte um dos canais de suporte.
 
 ## <a name="increasing-concurrency"></a>Aumento da concordância
+Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.md)
 
-**P: E se eu precisar de maior concordância para o meu modelo implantado do que o que é oferecido no portal?**
-
-**R**: Pode escalar o seu modelo em incrementos de 20 pedidos simultâneos.
-
-Com as informações necessárias, crie um pedido de apoio no [portal de suporte Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Não publique a informação em nenhum dos canais públicos (GitHub, Stackoverflow, ...) mencionados na [página de suporte](support.md).
-
-Para aumentar a concordância para um ***modelo personalizado,*** precisamos das seguintes informações:
-
-- A região onde o modelo é implantado,
-- O ID do ponto final do modelo implantado:
-  - Cheguei ao Portal da [Fala Personalizada,](https://aka.ms/customspeech)
-  - assinar (se necessário),
-  - selecione o seu projeto e implementação,
-  - selecione o ponto final para o aumento da concordância para,
-  - copiar o `Endpoint ID` .
-
-Para aumentar a concordância para um ***modelo base,*** precisamos das seguintes informações:
-
-- A região do seu serviço,
-
-e quer
-
-- um símbolo de acesso para a sua subscrição (ver [aqui),](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)
-
-ou
-
-- o ID de recursos para a sua subscrição:
-  - Vá ao [portal Azure,](https://portal.azure.com)
-  - selecione `Cognitive Services` na caixa de pesquisa,
-  - a partir dos serviços exibidos escolha o serviço de Discurso que deseja aumentar a conusncy para,
-  - exibir o `Properties` para este serviço,
-  - copiar o completo `Resource ID` .
-  
-**P: Aumentar o meu limite de concordância aumenta o meu custo?**
-
-**R:** Não, o custo baseia-se na utilização. O aumento da concordância não conduz a custos mais elevados. Consulte [a](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) nossa página de preços para obter detalhes sobre o custo. 
-  
->[!NOTE]
->[Os contentores](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) não necessitam de aumentos para limites de concordância, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão alojados.
 
 ## <a name="importing-data"></a>Importar dados
 
 **P: Qual é o limite do tamanho de um conjunto de dados, e por que é o limite?**
 
-**R**: O limite atual para um conjunto de dados é de 2 GB. O limite deve-se à restrição do tamanho de um ficheiro para upload HTTP.
+**R**: O limite deve-se à restrição do tamanho de um ficheiro para upload HTTP. Consulte [quotas e limites de serviços de](speech-services-quotas-and-limits.md) fala para o limite real.
 
 **P: Posso fechar os meus ficheiros de texto para poder carregar um ficheiro de texto maior?**
 
@@ -198,11 +160,11 @@ ou
 
 **P: Que experiências de fala são melhoradas pelo Modelo de Inquilino?**
 
-**A:** Quando o Modelo de Inquilino está habilitado, criado e publicado, é utilizado para melhorar o reconhecimento de quaisquer aplicações empresariais construídas através do serviço Speech; que também passam um token AAD de utilizador indicando a adesão à empresa.
+**A:** Quando o Modelo de Inquilino está habilitado, criado e publicado, é utilizado para melhorar o reconhecimento de quaisquer aplicações empresariais construídas através do serviço Speech; que também passam um token AD do utilizador Azure indicando a adesão à empresa.
 
 As experiências de discurso incorporadas no Office 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2bf360d9b09be4db84d0ff00b1a777fe8b188ea
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652207"
+ms.locfileid: "88661338"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -365,7 +365,7 @@ O ponto de entrada para a carga de trabalho sap na documentação do Azure [enco
 
 As seguintes Notas SAP estão relacionadas com o tema da SAP sobre Azure:
 
-| Número de nota | Título |
+| Número de nota | Title |
 | --- | --- |
 | [1928533] |Aplicações SAP em Azure: Produtos suportados e Dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -1803,7 +1803,7 @@ Existem dois tipos de eventos da plataforma Azure que podem afetar a disponibili
 * Os eventos de manutenção planeada são atualizações periódicas feitas pela Microsoft na plataforma Azure subjacente para melhorar a fiabilidade, o desempenho e a segurança gerais da infraestrutura da plataforma na qual as suas máquinas virtuais são executadas.
 * Os eventos de manutenção não planeada ocorrem quando o hardware ou a infraestrutura física subjacente à máquina virtual falharam de alguma forma. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas estruturais. Quando tal falha for detetada, a plataforma Azure migrará automaticamente a sua máquina virtual do servidor físico pouco saudável que hospeda a sua máquina virtual para um servidor físico saudável. Estes eventos são raros, mas também podem provocar o reinício da máquina virtual.
 
-Mais detalhes podem ser encontrados nesta documentação: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Para mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows em Azure](../../windows/manage-availability.md) e [Disponibilidade de máquinas virtuais Linux em Azure.](../../linux/manage-availability.md)
 
 #### <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -1811,7 +1811,7 @@ Os dados na sua Conta de Armazenamento Microsoft Azure são sempre replicados pa
 
 Uma vez que o Azure Storage está a manter três imagens dos dados por padrão, RAID5 ou RAID1 em vários discos Azure não são necessários.
 
-Mais detalhes podem ser encontrados neste artigo: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Para mais detalhes, consulte [a redundância do Azure Storage](../../../storage/common/storage-redundancy.md).
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Utilizando o reinício da infraestrutura Azure VM para alcançar uma maior disponibilidade de aplicações SAP
 

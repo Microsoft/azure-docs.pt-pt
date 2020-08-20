@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0b611babebd12c8c1c0a9ea5a357e8a7d6064fe3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064456"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660636"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Quickstart: Crie um espaço de nome de ônibus de serviço e uma fila usando um modelo ARM
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
 
-:::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
+:::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json":::
 
 Os recursos definidos no modelo incluem:
 
@@ -70,7 +70,7 @@ Para executar a implementação automaticamente, clique no seguinte botão: Crie
     ![Grupo de recursos - espaço de nome](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. Selecione o espaço de nomes da lista para ver a página **Service Bus Namespace.** 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 1. No portal Azure, navegue na página do **grupo De recursos** para o seu grupo de recursos.
 2. Selecione **Eliminar grupo de recursos**, na barra de ferramentas. 

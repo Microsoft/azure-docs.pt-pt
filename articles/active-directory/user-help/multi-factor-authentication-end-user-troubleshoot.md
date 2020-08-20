@@ -9,15 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 754d456f557b6c9500cdb64ee01a42124a18ab9c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+metadata ms.custom: contperfq1
+ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036679"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661442"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e a conta escolar ou profissional
 
@@ -31,14 +32,10 @@ Quando o 2FV está ligado, o seu inserção na conta requer uma combinação dos
 
 2FV é mais seguro do que apenas uma senha, porque 2FV requer algo que _você sabe_ mais algo que _você tem_. Nenhum hacker tem o seu telemóvel físico.
 
-<center>
-
-![Imagem de métodos de autenticação conceptual](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
 >Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente AD AZure na [documentação AD Azure](https://docs.microsoft.com/azure/active-directory).
->
->Este conteúdo destina-se também apenas a ser utilizado com o seu trabalho ou conta escolar, que é a conta que lhe é fornecida pela sua organização (por exemplo, alain@contoso.com ). Se estiver a ter problemas com a verificação de dois fatores e com a sua conta pessoal da Microsoft, que é uma conta que criou para si (por exemplo, danielle@outlook.com ), consulte [a verificação de dois fatores dentro ou fora para a sua conta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
+
+Este conteúdo destina-se a ajudá-lo com o seu trabalho ou conta escolar, que é a conta que lhe é fornecida pela sua organização (por exemplo, dritan@contoso.com ). Se estiver a ter problemas com a verificação de dois fatores numa conta pessoal da Microsoft, que é uma conta que criou para si (por exemplo, danielle@outlook.com ), consulte [a verificação de dois fatores dentro ou fora para a sua conta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Não tenho o meu telemóvel comigo.
 
@@ -71,7 +68,7 @@ Experimente isto. | Informação de orientação
 --------- | ------------
 Reinicie o seu dispositivo móvel | Às vezes, o seu dispositivo só precisa de ser atualizado. Quando reinicia o seu dispositivo, todos os processos e serviços de fundo terminam. O reinício também desliga os componentes do núcleo do seu dispositivo. Qualquer serviço ou componente é atualizado quando reinicia o seu dispositivo.
 Verifique se as suas informações de segurança estão corretas | Certifique-se de que as informações do seu método de verificação de segurança são precisas, especialmente os seus números de telefone. Se colocar o número de telefone errado, todos os seus alertas irão para esse número incorreto. Felizmente, esse utilizador não poderá fazer nada com os alertas, mas também não o ajudará a entrar na sua conta. Para se certificar de que as suas informações estão corretas, consulte as instruções no artigo [de definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md)
-Verifique se as suas notificações estão ligadas | Certifique-se de que o seu dispositivo móvel tem notificações ligadas. Certifique-se de que são permitidos os seguintes modos de notificação: <br/><br/> &bull;Chamadas telefónicas <br/> &bull;A sua aplicação de autenticação <br/> &bull;A sua aplicação de mensagens de texto <br/><br/> Certifique-se de que estes modos criam um alerta _visível_ no seu dispositivo.
+Verifique se as suas notificações estão ligadas | Certifique-se de que o seu dispositivo móvel tem notificações ligadas. Certifique-se de que são permitidos os seguintes modos de notificação: <br/><br/> &bull; Chamadas telefónicas <br/> &bull; A sua aplicação de autenticação <br/> &bull; A sua aplicação de mensagens de texto <br/><br/> Certifique-se de que estes modos criam um alerta _visível_ no seu dispositivo.
 Certifique-se de que tem um sinal de dispositivo e ligação à Internet | Certifique-se de que as suas chamadas telefónicas e mensagens de texto estão a chegar ao seu dispositivo móvel. Peça a um amigo que lhe ligue e envie uma mensagem de texto para se certificar de que recebe os dois. Se não receber a chamada ou texto, verifique primeiro se o seu dispositivo móvel está ligado. Se o seu dispositivo estiver ligado, mas ainda não estiver a receber a chamada ou a mensagem, provavelmente há um problema com a sua rede. Precisa de falar com o seu fornecedor. Se tiver frequentemente problemas relacionados com o sinal, recomendamos que instale e utilize a [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) no seu dispositivo móvel. A aplicação autenticadora pode gerar códigos de segurança aleatórios para iniciar sing-in, sem necessitar de qualquer sinal de telemóvel ou ligação à Internet.
 Desligar Não perturbe | Certifique-se de que não ligou a função **Não perturbe** o seu dispositivo móvel. Quando esta funcionalidade é ligada, as notificações não são permitidas para alertá-lo no seu dispositivo móvel. Consulte o manual do seu dispositivo móvel para obter instruções sobre como desligar esta função.
 Desbloquear números de telefone | Nos Estados Unidos, as chamadas de voz da Microsoft vêm dos seguintes números: +1 (866) 539 4191, +1 (855) 330 8653 e +1 (877) 668 6536.

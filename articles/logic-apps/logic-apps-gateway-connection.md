@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/18/2020
+ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386185"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661202"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
-Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, precisa de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/apis-list.md#on-premises-connectors) disponíveis nas Apps Azure Logic.
+Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, precisa de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/apis-list.md#on-premises-connectors) disponíveis nas Apps Azure Logic. A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
 Este artigo mostra como criar o seu recurso de gateway Azure para um gateway previamente [instalado no seu computador local.](../logic-apps/logic-apps-gateway-install.md) Para mais informações sobre o portal, consulte [como funciona o portal.](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)
 
@@ -31,7 +31,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
 
 <a name="supported-connections"></a>
 
-## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
+## <a name="supported-data-sources"></a>Origens de dados suportadas
 
 Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conectores no local](../connectors/apis-list.md#on-premises-connectors) para estas fontes de dados:
 
@@ -48,7 +48,7 @@ Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conecto
 * SQL Server
 * Teradata
 
-A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil. Embora o gateway em si não incorra em custos adicionais, o [modelo de preços de Aplicações Lógicas](../logic-apps/logic-apps-pricing.md) aplica-se a estes conectores e outras operações em Azure Logic Apps.
+Também pode criar [conectores personalizados](../logic-apps/custom-connector-overview.md) que se ligam a fontes de dados através de HTTP ou HTTPS utilizando REST ou SOAP. Embora o gateway em si não incorra em custos adicionais, o [modelo de preços de Aplicações Lógicas](../logic-apps/logic-apps-pricing.md) aplica-se a estes conectores e outras operações em Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -175,7 +175,7 @@ Para criar um recurso de gateway diferente, ligue a instalação do gateway a um
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários comuns para apps lógicas](./logic-apps-examples-and-scenarios.md)

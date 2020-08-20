@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537309"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659590"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -117,24 +117,6 @@ Embora seja necessário especificar a duração de retenção para cópia de seg
 
 Para obter mais informações, consulte [os tipos de backup do SQL Server](backup-architecture.md#sql-server-backup-types).
 
-## <a name="unregister-a-sql-server-instance"></a>Desregralar uma instância do Servidor SQL
-
-Desativar uma instância do SQL Server depois de desativar a proteção, mas antes de eliminar o cofre:
-
-1. No painel de instrumentos do cofre, em **Manage**, selecione **Infraestrutura de backup**.  
-
-   ![Selecione infraestrutura de backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. Em **Servidores de Gestão**, selecione **Servidores Protegidos**.
-
-   ![Selecione Servidores Protegidos](./media/backup-azure-sql-database/protected-servers.png)
-
-3. Em **Servidores Protegidos,** selecione o servidor para não registar. Para apagar o cofre, tem de não registar todos os servidores.
-
-4. Clique com o botão direito no servidor protegido e selecione **Unregister**.
-
-   ![Selecione Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>Alterar a política
 
 Modificar a política para alterar a frequência de backup ou o intervalo de retenção.
@@ -160,12 +142,32 @@ Pode corrigir a versão de política para todos os itens impactados num clique:
 
   ![Corrigir política inconsistente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>Desregralar uma instância do Servidor SQL
+
+Desativar uma instância do SQL Server depois de desativar a proteção, mas antes de eliminar o cofre:
+
+1. No painel de instrumentos do cofre, em **Manage**, selecione **Infraestrutura de backup**.  
+
+   ![Selecione infraestrutura de backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. Em **Servidores de Gestão**, selecione **Servidores Protegidos**.
+
+   ![Selecione Servidores Protegidos](./media/backup-azure-sql-database/protected-servers.png)
+
+3. Em **Servidores Protegidos,** selecione o servidor para não registar. Para apagar o cofre, tem de não registar todos os servidores.
+
+4. Clique com o botão direito no servidor protegido e selecione **Unregister**.
+
+   ![Selecione Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Re-registrar extensão no SQL Server VM
 
-Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razão ou outra. Nesses casos, todas as operações desencadeadas no VM começarão a falhar. Poderá então ser necessário voltar a registar a extensão no VM. **Re-registar** a operação reinstala a extensão de backup da carga de trabalho no VM para que as operações continuem.
+Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razão ou outra. Nesses casos, todas as operações desencadeadas no VM começarão a falhar. Poderá então ser necessário voltar a registar a extensão no VM. A operação **de re-registo** reinstala a extensão de backup da carga de trabalho no VM para que as operações continuem. Pode encontrar esta opção em **Infraestrutura de Backup** no Cofre do Serviço de Recuperação.
 
-Utilize esta opção com cuidado; quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode resultar em todos os postos de trabalho em curso falharem. Verifique gentilmente se há um ou mais [dos sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadear a operação de re-registo.
+![Servidores protegidos em infraestrutura de backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 
-## <a name="next-steps"></a>Próximos passos
+Utilize esta opção com cuidado. Quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode fazer com que todos os empregos em curso falhem. Verifique se existem um ou mais [dos sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadear a operação de re-registo.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [as cópias de segurança de resolução de problemas numa base de dados do SQL Server](backup-sql-server-azure-troubleshoot.md).

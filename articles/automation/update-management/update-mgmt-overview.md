@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450463"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660913"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -168,9 +168,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -180,7 +180,7 @@ A Atualização Gestão verifica máquinas geridas para dados utilizando as segu
 
 * Cada máquina Linux - Update Management faz uma varredura a cada hora.
 
-A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações para analisar a utilização dos dados, consulte [Gerir o uso e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
+A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
 
 ## <a name="network-planning"></a><a name="ports"></a>Planeamento de rede
 
