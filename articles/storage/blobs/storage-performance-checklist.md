@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40814ca54d31ff1fff6e3bd773564748392bf5b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495136"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654077"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -64,7 +64,7 @@ Para obter mais informações sobre os alvos de escalabilidade para o serviço d
 
 Se estiver a aproximar-se do número máximo de contas de armazenamento permitidas para uma determinada combinação subscrição/região, avalie o seu cenário e determine se alguma das seguintes condições se aplica:
 
-- Está a utilizar contas de armazenamento para armazenar discos não geridos e adicionar esses discos às suas máquinas virtuais (VMs)? Para este cenário, a Microsoft recomenda a utilização de discos geridos. Os discos geridos escalam para si automaticamente e sem a necessidade de criar e gerir contas de armazenamento individuais. Para mais informações, consulte [discos geridos introdução ao Azure](../../virtual-machines/windows/managed-disks-overview.md)
+- Está a utilizar contas de armazenamento para armazenar discos não geridos e adicionar esses discos às suas máquinas virtuais (VMs)? Para este cenário, a Microsoft recomenda a utilização de discos geridos. Os discos geridos escalam para si automaticamente e sem a necessidade de criar e gerir contas de armazenamento individuais. Para mais informações, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md)
 - Está a utilizar uma conta de armazenamento por cliente, para efeitos de isolamento de dados? Para este cenário, a Microsoft recomenda a utilização de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage permite-lhe agora atribuir funções Azure por cada contentor. Para obter mais informações, consulte [o Acesso ao Grant ao blob Azure e aos dados de fila com o RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md).
 - Está a utilizar várias contas de armazenamento para aumentar as operações de entrada, saída, E/S por segundo (IOPS) ou capacidade? Neste cenário, a Microsoft recomenda que aproveite os limites acrescidos para as contas de armazenamento para reduzir o número de contas de armazenamento necessárias para a sua carga de trabalho, se possível. Contacte [o Suporte Azure](https://azure.microsoft.com/support/options/) para solicitar limites acrescidos para a sua conta de armazenamento. Para obter mais informações, consulte [anunciar contas de armazenamento de maior escala.](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
 

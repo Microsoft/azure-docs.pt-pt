@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263304"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654230"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -92,7 +92,7 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
   - Esta opção impedirá todos os futuros trabalhos de reserva de proteção.
   - O serviço Azure Backup continuará a reter todos os pontos de recuperação existentes.  
   - Poderá restaurar os dados de reposição para pontos de recuperação não passados.
-  - Se decidir retomar a proteção, poderá utilizar a opção *de agendamento de backup de re-activação.* Posteriormente, os dados seriam retidos com base na nova política de retenção.
+  - Se decidir retomar a proteção, poderá utilizar a opção *de agendamento de backup de re-activação.* Depois disso, os dados serão mantidos com base na nova política de retenção.
 - **Parar a proteção e eliminar dados de cópia de segurança**.
   - Esta opção impedirá que todos os futuros trabalhos de backup protejam os seus dados e apaguem todos os pontos de recuperação.
   - Receberá um e-mail de alerta de dados de cópia de segurança com uma mensagem *Os seus dados para este item de Cópia de Segurança foram eliminados. Estes dados estarão temporariamente disponíveis durante 14 dias, após o qual serão permanentemente eliminados* e recomendados ação *Reprotetetar o item Backup no prazo de 14 dias para recuperar os seus dados.*

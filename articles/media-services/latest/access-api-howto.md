@@ -3,7 +3,7 @@ title: Começar com a autenticação AD AZure
 description: Saiba como aceder à autenticação do Azure Ative Directory (Azure AD) para consumir a Azure Media Services API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.author: inhenkel
+ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035812"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654842"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia  
 
@@ -38,9 +38,9 @@ Este artigo descreve passos para obter credenciais para aceder à API dos Servi�
 - Uma conta do Azure. Se não tem conta, comece com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
 - Uma conta dos Media Services. Para obter mais informações, consulte [criar uma conta Azure Media Services utilizando o portal Azure](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
+## <a name="portal"></a>[Portal](#tab/portal/)
 
-### <a name="api-access"></a>Acesso a API 
+### <a name="api-access"></a>Acesso a API
 
 A página **de acesso API** permite selecionar o método de autenticação que pretende utilizar para ligar à API. A página também fornece os valores necessários para se ligar à API.
 
@@ -70,7 +70,7 @@ Esta opção poderia ser usada para autenticar um empregado ou membro de um Dire
 
 Copie as suas credenciais para ligar a sua aplicação de utilizador a partir da secção **API de Serviços de Comunicação Social.** Pode obter valores de texto ou copiar os blocos JSON ou XML.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

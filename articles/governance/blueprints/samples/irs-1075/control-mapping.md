@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostras de amostras de INFRAS 1075
 description: Controlo do mapeamento da amostra de planta do IRS 1075. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 05/13/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: ce753ff1a7c6dd0029f3d6ee773ae40ab4cc78e9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b7208a475d35674cc1abb6932a04681a11f7e89b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920777"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653754"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do IRS 1075
 

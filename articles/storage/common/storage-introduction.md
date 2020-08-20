@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133785"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653805"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -30,10 +30,10 @@ A plataforma Azure Storage é a solução de armazenamento em nuvem da Microsoft
 A plataforma Azure Storage inclui os seguintes serviços de dados:
 
 - [Blobs do Azure](../blobs/storage-blobs-introduction.md): um arquivo de objetos extremamente dimensionável para texto e dados binários. Também inclui suporte para análise de big data através da Data Lake Storage Gen2.
-- [Ficheiros do Azure](../files/storage-files-introduction.md): partilhas de ficheiros geridos para a cloud ou implementações locais.
+- [Ficheiros Azure](../files/storage-files-introduction.md): Partilhas de ficheiros geridas para implementações em nuvem ou no local.
 - [Filas do Azure](../queues/storage-queues-introduction.md): arquivo de mensagens para mensagens fiáveis entre componentes da aplicação.
 - [Tabelas do Azure](../tables/table-storage-overview.md): um arquivo do NoSQL para armazenamento sem esquemas de dados estruturados.
-- [Discos Azure](../../virtual-machines/windows/managed-disks-overview.md): Volumes de armazenamento ao nível do bloco para VMs Azure.
+- [Discos Azure](../../virtual-machines/managed-disks-overview.md): Volumes de armazenamento ao nível do bloco para VMs Azure.
 
 Cada serviço é acedido através de uma conta de armazenamento. Para começar a utilizar, veja [Criar uma conta de armazenamento](storage-account-create.md).
 
@@ -41,7 +41,7 @@ Cada serviço é acedido através de uma conta de armazenamento. Para começar a
 
 A tabela seguinte compara Ficheiros, Blobs, Discos, Filas e Tabelas, e mostra cenários de exemplo para cada um.
 
-| Funcionalidade | Description | Quando utilizar |
+| Funcionalidade | Descrição | Quando utilizar |
 |--------------|-------------|-------------|
 | **Ficheiros do Azure** |Oferece partilhas de ficheiros em nuvem totalmente geridas que pode aceder a partir de qualquer lugar através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria.<br><br>Pode montar partilhas de ficheiros Azure a partir de implementações de Windows, Linux e macOS no local. | Pretende "levantar e deslocar" uma aplicação para a nuvem que já utiliza as APIs do sistema de ficheiros nativo para partilhar dados entre ele e outras aplicações em execução no Azure.<br/><br/>Pretende substituir ou complementar servidores de ficheiros no local ou dispositivos NAS.<br><br> Pretende armazenar ferramentas de desenvolvimento e depuragem que precisam de ser acedidas a partir de muitas máquinas virtuais. |
 | **Blobs do Azure** | Permite que os dados não estruturados sejam armazenados e acedidos a uma escala massiva em blobs de blocos.<br/><br/>Também suporta [a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluções de análise de big data da empresa. | Pretende que a sua aplicação suporte cenários de streaming e acesso aleatório.<br/><br/>Pretende aceder aos dados da aplicação a partir de qualquer lugar.<br/><br/>Você quer construir um lago de dados da empresa em Azure e realizar grandes análises de dados. |
@@ -51,7 +51,7 @@ A tabela seguinte compara Ficheiros, Blobs, Discos, Filas e Tabelas, e mostra ce
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
 
-O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar grandes quantidades de dados não estruturados, como dados de texto ou binários.
+O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar grandes quantidades de dados não estruturados, como dados de texto ou binários.
 
 O armazenamento de blobs é ideal para:
 
@@ -67,7 +67,7 @@ Para obter mais informações sobre o armazenamento blob, consulte [Introdução
 
 ## <a name="azure-files"></a>Ficheiros do Azure
 
-O serviço [Ficheiros do Azure](../files/storage-files-introduction.md) permite configurar partilhas de ficheiros de rede de elevada disponibilidade que podem ser acedidas através do protocolo SMB (Server Message Block) padrão. Isto significa que múltiplas VMs podem partilhar os mesmos ficheiros com acesso de leitura e de escrita. Também pode ler os ficheiros através da interface REST ou das bibliotecas de cliente de armazenamento.
+[O Azure Files](../files/storage-files-introduction.md) permite-lhe configurar ações de ficheiros de rede altamente disponíveis que podem ser acedidas utilizando o protocolo padrão do Bloco de Mensagens do Servidor (SMB). Isto significa que múltiplas VMs podem partilhar os mesmos ficheiros com acesso de leitura e de escrita. Também pode ler os ficheiros com a interface REST ou as bibliotecas de cliente de armazenamento.
 
 A única coisa que distingue os Ficheiros do Azure dos ficheiros numa partilha de ficheiros empresarial é o facto de o utilizador poder aceder aos ficheiros a partir de qualquer parte do mundo através de um URL que aponta para o ficheiro e inclui um token de assinatura de acesso partilhado (SAS). Pode gerar tokens SAS; estes permitem o acesso específico a um recurso privado durante um período de tempo específico.
 
@@ -85,7 +85,7 @@ Algumas funcionalidades de SMB não são aplicáveis à nuvem. Para obter mais i
 
 ## <a name="queue-storage"></a>Armazenamento de filas
 
-O serviço Filas do Azure é utilizado para armazenar e obter mensagens. As mensagens das filas podem ter até 64 KB de tamanho, ao passo que as filas podem conter milhões de mensagens. Geralmente, as filas são utilizadas para armazenar listas de mensagens que vão ser processadas de forma assíncrona.
+O serviço Fila do Azure é utilizado para armazenar e obter mensagens. As mensagens das filas podem ter até 64 KB de tamanho, ao passo que as filas podem conter milhões de mensagens. Geralmente, as filas são utilizadas para armazenar listas de mensagens que serão processadas de forma assíncrona.
 
 Por exemplo, imaginemos que quer dar aos seus clientes a capacidade de carregar imagens e que quer igualmente criar miniaturas de cada uma delas. Pode fazer com que os clientes esperem até criar as miniaturas enquanto carregam as imagens. Uma alternativa é utilizar uma fila. Quando o cliente terminar o upload, escreva uma mensagem para a fila. Em seguida, crie um função das Função do Azure para obter a mensagem da fila e criar as miniaturas. Cada uma das partes envolvidas neste processamento pode ser dimensionada à parte, dando-lhe mais controlo para a otimizar para a sua utilização.
 
@@ -101,7 +101,7 @@ Para obter mais informações sobre o Armazenamento de tabelas, veja [Descriçã
 
 Um disco gerido aZure é um disco rígido virtual (VHD). Pode pensar nisso como um disco físico num servidor no local, mas virtualizado. Os discos geridos pelo Azure são armazenados como bolhas de página, que são um objeto de armazenamento IO aleatório em Azure. Chamamos um disco gerido 'gerido' porque é uma abstração sobre bolhas de página, recipientes blob e contas de armazenamento Azure. Com discos geridos, tudo o que tens de fazer é providenciar o disco, e o Azure trata do resto.
 
-Para obter mais informações sobre discos geridos, consulte [discos geridos Introdução ao Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Para obter mais informações sobre discos geridos, consulte [discos geridos Introdução ao Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 

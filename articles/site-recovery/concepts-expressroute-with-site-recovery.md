@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46db5f7d3e5d3844fb297e512d8d701e6da79de9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700890"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654315"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com recuperação do local de Azure
 
-O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.
+O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, como o Microsoft Azure, o Office 365 e o Dynamics 365.
 
 Este artigo descreve como pode usar a Azure ExpressRoute com Azure Site Recovery para recuperação de desastres e migração.
 
@@ -50,7 +50,7 @@ O cenário combinado está representado no seguinte diagrama: ![ On-to-Azure com
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Azure to Azure replicação com ExpressRoute
 
-A recuperação do local de azure permite a recuperação de desastres de [máquinas virtuais Azure](azure-to-azure-architecture.md). Dependendo se as suas máquinas virtuais Azure utilizam [discos geridos Azure,](../virtual-machines/windows/managed-disks-overview.md)os dados de replicação são enviados para uma conta de Armazenamento Azure ou réplica de Disco Gerido na região de Azure alvo. Embora os pontos finais de replicação sejam públicos, o tráfego de replicação para a replicação de VM Azure, por padrão, não atravessa a Internet, independentemente da região de Azure em que a rede virtual de origem existe. Pode sobrepor a rota do sistema padrão da Azure para o prefixo de endereço 0.0.0.0/0 com uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para um aparelho virtual de rede no local (NVA), mas esta configuração não é recomendada para a replicação da Recuperação do Local. Se estiver a utilizar rotas personalizadas, deverá [criar um ponto final de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) na sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite Azure.
+A recuperação do local de azure permite a recuperação de desastres de [máquinas virtuais Azure](azure-to-azure-architecture.md). Dependendo se as suas máquinas virtuais Azure utilizam [discos geridos Azure,](../virtual-machines/managed-disks-overview.md)os dados de replicação são enviados para uma conta de Armazenamento Azure ou réplica de Disco Gerido na região de Azure alvo. Embora os pontos finais de replicação sejam públicos, o tráfego de replicação para a replicação de VM Azure, por padrão, não atravessa a Internet, independentemente da região de Azure em que a rede virtual de origem existe. Pode sobrepor a rota do sistema padrão da Azure para o prefixo de endereço 0.0.0.0/0 com uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para um aparelho virtual de rede no local (NVA), mas esta configuração não é recomendada para a replicação da Recuperação do Local. Se estiver a utilizar rotas personalizadas, deverá [criar um ponto final de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) na sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite Azure.
 
 Para a recuperação de desastres Azure VM, por padrão, o ExpressRoute não é necessário para a replicação. Depois de as máquinas virtuais falharem na região de Azure alvo, pode aceder-lhes através de [um esprevamento privado.](../expressroute/expressroute-circuit-peerings.md#privatepeering) Note que os preços de transferência de dados se aplicam independentemente do modo de replicação de dados em todas as regiões do Azure.
 
@@ -58,7 +58,7 @@ Se já está a utilizar o ExpressRoute para ligar do seu datacenter no local aos
 
 Você pode replicar máquinas virtuais Azure para qualquer região de Azure dentro do mesmo cluster geográfico que detalhado [aqui.](../site-recovery/azure-to-azure-support-matrix.md#region-support) Se a região de Azure, alvo escolhida, não estiver dentro da mesma região geopolítica que a fonte, poderá ser necessário viabilizar o ExpressRoute Premium. Para mais detalhes, consulte as [localizações do ExpressRoute](../expressroute/expressroute-locations.md) e [os preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [os circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - Saiba mais sobre [os domínios de encaminhamento ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Saiba mais sobre [as localizações do ExpressRoute.](../expressroute/expressroute-locations.md)

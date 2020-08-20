@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065238"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654502"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -36,7 +36,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um equilibrador de carga interno (Standard SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -65,7 +65,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Name             | Insira **myVNet**                                    |
+    | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
@@ -112,12 +112,12 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
-    | Subrede  | Selecione **myBackendSubnet** criado no passo anterior. |
+    | Sub-rede  | Selecione **myBackendSubnet** criado no passo anterior. |
     | Atribuição de endereços IP | Selecione **Dynamic**. |
     | Zona de disponibilidade | Selecione **Zona redundante** |
 
@@ -202,7 +202,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
 >[!NOTE]
->As máquinas virtuais no pool de backend não terão conectividade de internet de saída com esta configuração. </br> Para obter mais informações sobre o fornecimento de conectividade de saída consulte: </br> **[Ligações de saída no Azure](load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balançador de carga apenas de saída](egress-only.md)** </br> **[O que é Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>As máquinas virtuais no pool de backend não terão conectividade de internet de saída com esta configuração. </br> Para obter mais informações sobre o fornecimento de conectividade de saída consulte: </br> **[Ligações de saída no Azure](load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga só de saída](egress-only.md)** </br> **[O que é Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
@@ -247,7 +247,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
-    | Subrede | **myBackendSubnet** |
+    | Sub-rede | **myBackendSubnet** |
     | IP público | Aceite o padrão do **myVM-ip**. </br> IP será automaticamente um SKU IP padrão na Zona 1. |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> Selecione **OK** |
@@ -275,12 +275,12 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2|
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Nome |  **myVM2** |
     | Zona de disponibilidade | **2** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga interno (SKU Básico)](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -309,7 +309,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Name             | Insira **myVNet**                                    |
+    | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
@@ -356,12 +356,12 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Basic** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
-    | Subrede  | Selecione **myBackendSubnet** criado no passo anterior. |
+    | Sub-rede  | Selecione **myBackendSubnet** criado no passo anterior. |
     | Atribuição de endereços IP | Selecione **Dynamic**. |
 
 3. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
@@ -415,7 +415,7 @@ Crie uma sonda de estado de funcionamento com o nome **myHealthProbe**, para mon
     | Nome | Insira **o myHealthProbe**. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira **80**.|
-    | Caminho | Inserir**/** |
+    | Caminho | Inserir **/** |
     | Intervalo | Introduza **15** para o número de **intervalos** em segundos entre tentativas de sonda. |
     | Limiar com funcionamento incorreto | Selecione **2** para o número de **falhas de sonda insalubres** ou falhas de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
 
@@ -499,7 +499,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
-    | Subrede | Selecione **myBackendSubnet** |
+    | Sub-rede | Selecione **myBackendSubnet** |
     | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> Selecione **OK** |
@@ -523,7 +523,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2 |
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Nome |  **myVM2** |
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
@@ -579,7 +579,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
-    | Subrede | **myBackendSubnet** |
+    | Sub-rede | **myBackendSubnet** |
     | IP público | Selecione **Nenhuma**. |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **MyNSG** criado no passo anterior.|
@@ -651,7 +651,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
    
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue o Balancer e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
 

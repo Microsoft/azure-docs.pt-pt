@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082261"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653516"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -133,7 +133,7 @@ ms.locfileid: "87082261"
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Resolução de problemas Extensão Azure para SAP - Suporte de contato)
 [deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Resolução de problemas Extensão Azure para SAP - Executar o script de configuração)
 [deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Resolução de problemas Extensão Azure para SAP - Reimplantação após sysprep)
-[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Resolução de problemas Extensão Azure para SAP - Corrigir ligação à internet)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Resolução de problemas Extensão Azure para SAP - Corrigir ligação à internet)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configurar extensão VM)
@@ -256,7 +256,7 @@ ms.locfileid: "87082261"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -549,7 +549,7 @@ Usa diferentes passos para criar uma imagem privada para o Linux do que para cri
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Para preparar uma imagem Linux que pode utilizar para implantar várias máquinas virtuais, algumas definições de Linux devem ser abstraadas ou generalizadas nos VM no local. Podes usar `waagent -deprovision` para fazer isto. Para obter mais informações, consulte [Capture a linux virtual machine que funciona no Azure][virtual-machines-linux-capture-image] e no guia de utilizador do [agente Azure Linux][virtual-machines-linux-agent-user-guide-command-line-options].
+> Para preparar uma imagem Linux que pode utilizar para implantar várias máquinas virtuais, algumas definições de Linux devem ser abstraadas ou generalizadas nos VM no local. Podes usar `waagent -deprovision`  para fazer isto. Para obter mais informações, consulte [Capture a linux virtual machine que funciona no Azure][virtual-machines-linux-capture-image] e no guia de utilizador do [agente Azure Linux][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
@@ -1169,7 +1169,7 @@ Se o controlo anterior não tiver sido bem sucedido, efetue estes controlos adic
 
    b.  Executar `ps -ax | grep waagent`
 
-   **Resultado esperado**: Apresenta uma entrada semelhante a:`python /usr/sbin/waagent -daemon`
+   **Resultado esperado**: Apresenta uma entrada semelhante a: `python /usr/sbin/waagent -daemon`
 
 1. Certifique-se de que a extensão Azure para SAP está instalada e em funcionamento.
 
@@ -1179,7 +1179,7 @@ Se o controlo anterior não tiver sido bem sucedido, efetue estes controlos adic
 
    b. Executar `ps -ax | grep AzureEnhanced`
 
-   **Resultado esperado**: Apresenta uma entrada semelhante a:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+   **Resultado esperado**: Apresenta uma entrada semelhante a: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Instale o Agente anfitrião SAP, conforme descrito na Nota [SAP 1031096,]e verifique a saída de `saposcol` .
 
@@ -1203,7 +1203,7 @@ Esta verificação garante que todas as métricas de desempenho que aparecem den
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Faça a verificação de prontidão num VM do Windows
 
 1. Inscreva-se na máquina virtual Azure (não é necessário utilizar uma conta de administração).
-1. Abra um navegador web e navegue parahttp://127.0.0.1:11812/azure4sap/metrics
+1. Abra um navegador web e navegue para http://127.0.0.1:11812/azure4sap/metrics
 1. O navegador deve exibir ou descarregar um ficheiro XML que contenha os dados de monitorização da sua máquina virtual. Se não for esse o caso, certifique-se de que a Extensão Azure para SAP está instalada.
 
 ##### <a name="check-the-content-of-the-xml-file"></a>Verifique o conteúdo do ficheiro XML
@@ -1234,7 +1234,7 @@ Se o controlo anterior não tiver sido bem sucedido, efetue estes controlos adic
 
    b.  Executar `ps -ax | grep waagent`
 
-   **Resultado esperado**: Apresenta uma entrada semelhante a:`python /usr/sbin/waagent -daemon`
+   **Resultado esperado**: Apresenta uma entrada semelhante a: `python /usr/sbin/waagent -daemon`
 
 1. Certifique-se de que a extensão Azure para SAP está instalada e em funcionamento.
 
@@ -1244,7 +1244,7 @@ Se o controlo anterior não tiver sido bem sucedido, efetue estes controlos adic
 
    b. Executar `ps -ax | grep AzureEnhanced`
 
-   **Resultado esperado**: Apresenta uma entrada semelhante a:`/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
+   **Resultado esperado**: Apresenta uma entrada semelhante a: `/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
 
 1. Instale o Agente anfitrião SAP, conforme descrito na Nota [SAP 1031096,]e verifique a saída de `saposcol` .
 

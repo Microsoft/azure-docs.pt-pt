@@ -3,18 +3,18 @@ title: Faça upload do ficheiro VHD para Azure DevTest Labs usando o Storage Exp
 description: Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480767"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654519"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Nos Laboratórios Azure DevTest, os ficheiros VHD podem ser usados para criar imagens personalizadas, que são usadas para alojamento de máquinas virtuais. Este artigo ilustra como usar o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para enviar um ficheiro VHD para a conta de armazenamento de um laboratório. Uma vez carregado o seu ficheiro VHD, a [secção passos seguintes](#next-steps) lista alguns artigos que ilustram como criar uma imagem personalizada a partir do ficheiro VHD carregado. Para obter mais informações sobre discos e VHDs em Azure, consulte [Introdução a discos geridos](../virtual-machines/linux/managed-disks-overview.md)
+Nos Laboratórios Azure DevTest, os ficheiros VHD podem ser usados para criar imagens personalizadas, que são usadas para alojamento de máquinas virtuais. Este artigo ilustra como usar o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para enviar um ficheiro VHD para a conta de armazenamento de um laboratório. Uma vez carregado o seu ficheiro VHD, a [secção passos seguintes](#next-steps) lista alguns artigos que ilustram como criar uma imagem personalizada a partir do ficheiro VHD carregado. Para obter mais informações sobre discos e VHDs em Azure, consulte [Introdução a discos geridos](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
@@ -110,7 +110,7 @@ Os passos seguintes acompanham-no através do upload de um ficheiro VHD para a D
 
         ![Estado do ficheiro de upload][10]  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando o portal Azure](devtest-lab-create-template.md)
 - [Crie uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

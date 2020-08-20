@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 08/18/2020
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 15217d4cb9a904f9f41725143d4ae98e9fce0035
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: bf77d1b4297c62e71f4fc227162ba2f6d1a387bd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589973"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654400"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes (AKS) usando um modelo ARM
 
@@ -76,7 +76,7 @@ Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos pa
 
 O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-aks/).
 
-:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json":::
 
 Para obter mais amostras de AKS, consulte o site [de modelos de arranque rápido AKS.][aks-quickstart-templates]
 

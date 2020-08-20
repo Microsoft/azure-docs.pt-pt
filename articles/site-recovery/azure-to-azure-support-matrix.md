@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607050"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653652"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -206,8 +206,8 @@ Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco t
 
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) sobre discos VM.
-Disco temporário | Não suportado | O disco temporário está sempre excluído da replicação.<br/><br/> Não guarde dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
+Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/managed-disks-overview.md) sobre discos VM.
+Disco temporário | Não suportado | O disco temporário está sempre excluído da replicação.<br/><br/> Não guarde dados persistentes no disco temporário. [Saiba mais](../virtual-machines/managed-disks-overview.md).
 Tamanho máximo do disco de dados | 8192 GB para discos geridos<br></br>4095 GB para discos não geridos|
 Tamanho mínimo do disco de dados | Sem restrições para discos não geridos. 2 GB para discos geridos |
 Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho Azure VM específico | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505564"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654587"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505564"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ O SQL Server 2014 e posteriormente abre a possibilidade de armazenar ficheiros d
 * Considerações enumeradas anteriormente sobre a distribuição de VHDs em diferentes contas de armazenamento Azure aplicam-se também a este método de implantação. Significa que as operações de E/S contam contra os limites da Conta de Armazenamento Azure.
 * Em vez de contabilizar contra a quota de I/O de armazenamento da VM, o tráfego contra as bolhas de armazenamento que representam os dados do SQL Server e ficheiros de registo, será contabilizado na largura de banda de rede do VM do tipo VM específico. Para obter largura de banda de rede e armazenamento de um determinado tipo VM, consulte o artigo [Tamanhos para máquinas virtuais Windows em Azure](../../sizes.md).
 * Como resultado de empurrar o ficheiro I/O através da quota de rede, está a encalhando a quota de armazenamento na maior parte e com isso utilizar a largura de banda geral do VM apenas parcialmente.
-* Os alvos de desempenho de desempenho IOPS e I/O que o Azure Premium Storage tem para os diferentes tamanhos de disco já não se aplicam. Mesmo que as bolhas que criou estejam localizadas no Azure Premium Storage. Os alvos são documentados no artigo [Armazenamento Premium de alto desempenho e discos geridos para VMs](../../windows/disks-types.md#premium-ssd). Como resultado da colocação de ficheiros de dados do SQL Server e ficheiros de registo diretamente em bolhas que são armazenadas no Azure Premium Storage, as características de desempenho podem ser diferentes em comparação com VHDs no Azure Premium Storage.
+* Os alvos de desempenho de desempenho IOPS e I/O que o Azure Premium Storage tem para os diferentes tamanhos de disco já não se aplicam. Mesmo que as bolhas que criou estejam localizadas no Azure Premium Storage. Os alvos são documentados no artigo [Armazenamento Premium de alto desempenho e discos geridos para VMs](../../disks-types.md#premium-ssd). Como resultado da colocação de ficheiros de dados do SQL Server e ficheiros de registo diretamente em bolhas que são armazenadas no Azure Premium Storage, as características de desempenho podem ser diferentes em comparação com VHDs no Azure Premium Storage.
 * O cache baseado no anfitrião como disponível para discos de armazenamento Azure Premium não está disponível quando colocar ficheiros de dados do SQL Server diretamente em blobs Azure.
 * Nos VMs da Série M, o Acelerador de Escrita Azure não pode ser utilizado para suportar escritas de sub-milissegundos contra o ficheiro de registo de transações do SQL Server. 
 

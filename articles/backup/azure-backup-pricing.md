@@ -3,12 +3,12 @@ title: Preços do Azure Backup
 description: Saiba como estimar os seus custos para orçamentar os preços de reserva da Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035761"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654536"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup
 
@@ -161,7 +161,7 @@ Para estimar os custos de backup das ações de ficheiros Azure utilizando a [so
 
 - A quantidade esperada de dados nas ações de ficheiro que pretende fazer back-up. <br>Churn refere-se à quantidade de alteração de dados e impacta diretamente o tamanho do armazenamento instantâneo. Por exemplo, se tiver uma partilha de ficheiros com 200 GB de dados a serem apoiados, e 10 GB dela mudar todos os dias, o churn diário é de 5%.
   - Maior agitação significa que a quantidade de alteração de dados no conteúdo da partilha de ficheiros todos os dias é alta, pelo que o tamanho do instantâneo incremental (capturando apenas as alterações de dados) também seria mais.
-  - Selecione Baixo (1%), Moderado (3%), ou alto (5%) com base nas características e utilização da sua partilha de ficheiros.
+  - Selecione Baixo (1%), Moderado (3%), ou Alto (5%) com base nas características e utilização da sua partilha de ficheiros.
   - Se **souber** o preço exato da sua parte do ficheiro, pode selecionar a **opção Enter your own%** a partir da entrega. Especificar os valores (in %) para o dia, semanal, mensal e anual.
 
 - Tipo de conta de armazenamento (standard ou premium) e a definição de redundância de armazenamento da conta de armazenamento que hospeda a parte do ficheiro back-up. <br>Na atual solução de backup para ações de ficheiros Azure, as imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com cópia de segurança. Assim, o custo de armazenamento associado a instantâneos é faturado como parte da sua conta de ficheiros Azure, com base no preço instantâneo para o tipo de conta e definição de redundância da conta de armazenamento que hospeda a partilha de ficheiros e instantâneos de ficheiros com apoio.

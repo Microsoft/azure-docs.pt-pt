@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure com a REST API
 description: Saiba como usar a API REST para apoiar as ações de ficheiros Azure no Cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036747"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654145"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando Azure Backup via Rest API
 
@@ -38,13 +38,13 @@ O cofre precisa de descobrir todas as contas de armazenamento da Azure na subscr
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-O POST URI `{subscriptionId}` `{vaultName}` tem, `{vaultresourceGroupName}` e `{fabricName}` parâmetros. No nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
+O POST URI `{subscriptionId}` `{vaultName}` tem, `{vaultresourceGroupName}` e `{fabricName}` parâmetros. No nosso exemplo, o valor para os diferentes parâmetros será o seguinte:
 
-- `{fabricName}`é *Azure*
+- `{fabricName}` é *Azure*
 
-- `{vaultName}`é *azurefilesvault*
+- `{vaultName}` é *azurefilesvault*
 
-- `{vaultresourceGroupName}`é *azurefiles*
+- `{vaultresourceGroupName}` é *azurefiles*
 
 - $filter=backupManagementType eq 'AzureStorage'
 
@@ -54,13 +54,13 @@ Uma vez que todos os parâmetros necessários são dados no URI, não há necess
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-to-the-refresh-operation"></a>Respostas à operação de atualização
 
 A operação "refresh" é uma [operação assíncronea.](../azure-resource-manager/management/async-operations.md) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e 200 (OK) quando essa operação termina.
 
-##### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-to-the-refresh-operation"></a>Exemplo de respostas à operação de atualização
 
 Uma vez apresentado o pedido *do CORREIO,* é devolvida uma resposta 202 (Aceite).
 
@@ -487,13 +487,13 @@ Pedido Exemplo corpo
 }
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses-to-the-on-demand-backup-operation"></a>Respostas à operação de backup a pedido
 
 Desencadear uma cópia de segurança a pedido é uma [operação assíncronea.](../azure-resource-manager/management/async-operations.md) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e 200 (OK) quando essa operação estiver concluída.
 
-### <a name="example-responses"></a>Respostas de exemplo
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Respostas de exemplo à operação de backup a pedido
 
 Uma vez que envie o pedido *DEM* para um backup a pedido, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho Azure-async.
 

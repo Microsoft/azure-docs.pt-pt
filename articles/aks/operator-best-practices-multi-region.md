@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142184"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654001"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para a continuidade do negócio e recuperação de desastres no Serviço Azure Kubernetes (AKS)
 
@@ -122,7 +122,7 @@ A estratégia típica é fornecer um ponto de armazenamento comum onde as aplica
 Se utilizar discos geridos Azure, pode escolher soluções de replicação e DR como estas:
 
 * [Velero em Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Backup](../backup/backup-overview.md)
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncronea baseada em aplicações
 
@@ -130,7 +130,7 @@ Kubernetes não fornece atualmente nenhuma implementação nativa para replicaç
 
 ![Replicação assíncronea baseada em aplicações](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo centra-se nas considerações de continuidade de negócios e recuperação de desastres para clusters AKS. Para obter mais informações sobre as operações de cluster em AKS, consulte estes artigos sobre as melhores práticas:
 

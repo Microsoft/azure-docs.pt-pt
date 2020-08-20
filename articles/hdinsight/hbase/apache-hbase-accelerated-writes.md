@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: de32f2a3a45a883f9da860b159eaa7f7b9368518
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085434"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654859"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escritas Aceleradas do Azure HDInsight para o Apache HBase
 
-Este artigo fornece o fundo sobre a funcionalidade **Escritas Aceleradas** para Apache HBase em Azure HDInsight, e como pode ser usado eficazmente para melhorar o desempenho da escrita. **A Accelerated Writes** utiliza [discos geridos Azure premium SSD](../../virtual-machines/linux/disks-types.md#premium-ssd) para melhorar o desempenho do Apache HBase Write Ahead Log (WAL). Para saber mais sobre o Apache HBase, consulte [o que é Apache HBase em HDInsight](apache-hbase-overview.md).
+Este artigo fornece o fundo sobre a funcionalidade **Escritas Aceleradas** para Apache HBase em Azure HDInsight, e como pode ser usado eficazmente para melhorar o desempenho da escrita. **A Accelerated Writes** utiliza [discos geridos Azure premium SSD](../../virtual-machines/disks-types.md#premium-ssd) para melhorar o desempenho do Apache HBase Write Ahead Log (WAL). Para saber mais sobre o Apache HBase, consulte [o que é Apache HBase em HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Visão geral da arquitetura HBase
 
@@ -32,7 +32,7 @@ Se um **RegiãoServer** falhar ou ficar indisponível antes da MemStore ser lava
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funcionalidade de Escritas Aceleradas em Azure HDInsight para Apache HBase
 
-A funcionalidade Writes Acelerada resolve o problema das mais altas latências de escrita causadas pela utilização de Write Ahead Logs que estão no armazenamento em nuvem.  A funcionalidade De Escritas Aceleradas para clusters HDInsight Apache HBase, anexa discos geridos por SSD premium a todos os RegionServer (nó de trabalhador). Os Registos Antecipados são então escritos para o Sistema de Ficheiros Hadoop (HDFS) montado nestes discos geridos premium em vez de armazenamento em nuvem.  Os discos geridos premium utilizam discos de estado sólido (SSDs) e oferecem um excelente desempenho de I/S com tolerância a falhas.  Ao contrário dos discos não geridos, se uma unidade de armazenamento cair, não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos geridos proporcionam baixa latência de escrita e melhor resiliência para as suas aplicações. Para saber mais sobre discos geridos pelo Azure, consulte [discos geridos introdução ao Azure](../../virtual-machines/windows/managed-disks-overview.md).
+A funcionalidade Writes Acelerada resolve o problema das mais altas latências de escrita causadas pela utilização de Write Ahead Logs que estão no armazenamento em nuvem.  A funcionalidade De Escritas Aceleradas para clusters HDInsight Apache HBase, anexa discos geridos por SSD premium a todos os RegionServer (nó de trabalhador). Os Registos Antecipados são então escritos para o Sistema de Ficheiros Hadoop (HDFS) montado nestes discos geridos premium em vez de armazenamento em nuvem.  Os discos geridos premium utilizam discos de estado sólido (SSDs) e oferecem um excelente desempenho de I/S com tolerância a falhas.  Ao contrário dos discos não geridos, se uma unidade de armazenamento cair, não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos geridos proporcionam baixa latência de escrita e melhor resiliência para as suas aplicações. Para saber mais sobre discos geridos pelo Azure, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como ativar writes acelerados para HBase em HDInsight
 
@@ -60,7 +60,7 @@ Seguindo estes passos, garantirá uma escala bem sucedida e evitará a possibili
 
 Se o seu nome entrar em modo de segurança após uma escala baixa, utilize comandos hdfs para re-replicar os blocos sub-replicados e tirar os HDFs do modo de segurança. Esta re-replicação permitir-lhe-á reiniciar o HBase com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Documentação oficial do Apache HBase na [funcionalidade Write Ahead Log](https://hbase.apache.org/book.html#wal)
 * Para atualizar o seu cluster HDInsight Apache HBase para utilizar Writes Acelerados, consulte [migrar um cluster Apache HBase para uma nova versão](apache-hbase-migrate-new-version.md).

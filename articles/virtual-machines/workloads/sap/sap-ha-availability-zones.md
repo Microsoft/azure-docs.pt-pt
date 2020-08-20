@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035796"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653601"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 [Azure Availability Zones](../../../availability-zones/az-overview.md) é uma das funcionalidades de alta disponibilidade que o Azure fornece. A utilização de Zonas de Disponibilidade melhora a disponibilidade global de cargas de trabalho SAP no Azure. Esta funcionalidade já está disponível em algumas [regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) No futuro, estará disponível em mais regiões.
@@ -109,7 +109,7 @@ Aplicam-se as seguintes considerações a esta configuração:
 - Para os equilibradores de carga dos clusters de failover dos Serviços Centrais SAP e da camada DBMS, é necessário utilizar o [Balanceador de Carga Standard SKU Azure](../../../load-balancer/load-balancer-standard-availability-zones.md). O Balanceador de Carga Básica não funciona em zonas.
 - A rede virtual Azure que implementou para acolher o sistema SAP, juntamente com as suas sub-redes, está estendida através de zonas. Não precisa de redes virtuais separadas para cada zona.
 - Para todas as máquinas virtuais que implementa, tem de utilizar [discos geridos Azure](https://azure.microsoft.com/services/managed-disks/). Os discos não geridos não são suportados para implementações zonais.
-- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../windows/disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
 - O mesmo acontece com o diretório de sapmnt partilhado, que é um disco partilhado (Windows), uma partilha CIFS (Windows) ou uma partilha NFS (Linux). É preciso utilizar uma tecnologia que reproduz estes discos partilhados ou partilhas entre as zonas. Estas tecnologias são apoiadas:
   - Para o Windows, uma solução de cluster que utiliza o SIOS DataKeeper, como documentado no [Cluster, uma instância SAP ASCS/SCS num cluster de falha do Windows utilizando um disco partilhado de cluster em Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - Para a SUSE Linux, uma quota NFS que é construída como documentado em [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -137,7 +137,7 @@ Aplicam-se as seguintes considerações a esta configuração:
 - Para os equilibradores de carga dos clusters de failover dos Serviços Centrais SAP e da camada DBMS, é necessário utilizar o [Balanceador de Carga Standard SKU Azure](../../../load-balancer/load-balancer-standard-availability-zones.md). O Balanceador de Carga Básica não funciona em zonas.
 - A rede virtual Azure que implementou para acolher o sistema SAP, juntamente com as suas sub-redes, está estendida através de zonas. Não precisa de redes virtuais separadas para cada zona.
 - Para todas as máquinas virtuais que implementa, tem de utilizar [discos geridos Azure](https://azure.microsoft.com/services/managed-disks/). Os discos não geridos não são suportados para implementações zonais.
-- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../windows/disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
 - O mesmo acontece com o diretório de sapmnt partilhado, que é um disco partilhado (Windows), uma partilha CIFS (Windows) ou uma partilha NFS (Linux). É preciso utilizar uma tecnologia que reproduz estes discos partilhados ou partilhas entre as zonas. Estas tecnologias são apoiadas:
     - Para o Windows, uma solução de cluster que utiliza o SIOS DataKeeper, como documentado no [Cluster, uma instância SAP ASCS/SCS num cluster de falha do Windows utilizando um disco partilhado de cluster em Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Para a SUSE Linux, uma quota NFS que é construída como documentado em [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -167,7 +167,7 @@ Aplicam-se as seguintes considerações a esta configuração:
 - Para os equilibradores de carga dos clusters de failover dos Serviços Centrais SAP e da camada DBMS, é necessário utilizar o [Balanceador de Carga Standard SKU Azure](../../../load-balancer/load-balancer-standard-availability-zones.md). O Balanceador de Carga Básica não funciona em zonas.
 - A rede virtual Azure que implementou para acolher o sistema SAP, juntamente com as suas sub-redes, está estendida através de zonas. Não precisa de redes virtuais separadas para cada zona.
 - Para todas as máquinas virtuais que implementa, tem de utilizar [discos geridos Azure](https://azure.microsoft.com/services/managed-disks/). Os discos não geridos não são suportados para implementações zonais.
-- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../windows/disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
+- O armazenamento Azure Premium e [o armazenamento Ultra SSD](../../disks-types.md#ultra-disk) não suportam qualquer tipo de replicação de armazenamento em zonas. A aplicação (DBMS ou SAP Central Services) deve replicar dados importantes.
 - O mesmo acontece com o diretório de sapmnt partilhado, que é um disco partilhado (Windows), uma partilha CIFS (Windows) ou uma partilha NFS (Linux). É preciso utilizar uma tecnologia que reproduz estes discos partilhados ou partilhas entre as zonas. Estas tecnologias são apoiadas:
     - Para o Windows, uma solução de cluster que utiliza o SIOS DataKeeper, como documentado no [Cluster, uma instância SAP ASCS/SCS num cluster de falha do Windows utilizando um disco partilhado de cluster em Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Para a SUSE Linux, uma quota NFS que é construída como documentado em [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

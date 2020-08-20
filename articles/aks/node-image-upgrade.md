@@ -5,15 +5,15 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 08/17/2020
+ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562792"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654281"
 ---
-# <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Pré-visualização - Azure Kubernetes Service (AKS) upgrades de imagem de nó
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Atualização de imagem do nó de Azure Kubernetes (AKS)
 
 A AKS suporta a atualização das imagens num nó para que esteja atualizado com as mais recentes atualizações de sistemas operativos e de tempo de execução. A AKS fornece uma nova imagem por semana com as mais recentes atualizações, pelo que é benéfico atualizar regularmente as imagens do seu nó para as funcionalidades mais recentes, incluindo patches Linux ou Windows. Este artigo mostra-lhe como atualizar as imagens do nó de cluster AKS, bem como como atualizar as imagens do node pool sem atualizar a versão de Kubernetes.
 
@@ -21,23 +21,9 @@ Se estiver interessado em saber mais sobre as imagens mais recentes fornecidas p
 
 Para obter informações sobre a atualização da versão Kubernetes para o seu cluster, consulte [atualizar um cluster AKS][upgrade-cluster].
 
-## <a name="register-the-node-image-upgrade-preview-feature"></a>Registe a funcionalidade de pré-visualização da pré-visualização da imagem do nó
+## <a name="install-the-aks-cli-extension"></a>Instale a extensão AKS CLI
 
-Para utilizar a funcionalidade de atualização da imagem do nó durante o período de pré-visualização, é necessário registar a funcionalidade.
-
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
-
-Levará vários minutos para que a inscrição esteja concluída. Utilize o seguinte comando para verificar se a funcionalidade está registada:
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-Durante a pré-visualização, precisa da extensão CLI *de pré-visualização aks* para utilizar a atualização da imagem do nó. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Antes da próxima versão core CLI ser lançada, precisa da extensão CLI *de pré-visualização aks* para utilizar o upgrade de imagem do nó. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,12 +32,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider?view=azure-cli-latest#az-provider-register)
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Atualizar todos os nós em todas as piscinas de nós
 
@@ -140,7 +120,7 @@ az aks nodepool show \
     --name mynodepool
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as notas de lançamento da [AKS](https://github.com/Azure/AKS/releases) para obter informações sobre as imagens mais recentes do nó.
 - Saiba como atualizar a versão Kubernetes com [upgrade de um cluster AKS.][upgrade-cluster]

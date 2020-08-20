@@ -1,7 +1,7 @@
 ---
-title: Exemplo de cadernos Jupyter
+title: Exemplo Cadernos Jupyter
 titleSuffix: Azure Machine Learning
-description: Encontre e use os cadernos Jupyter para explorar o Python de Aprendizagem automática Azure para SDK.
+description: Encontre e use exemplo os cadernos jupyter para explorar o Azure Machine Learning Python para SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,28 +11,28 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: aeced8c4108760fc3e10dbf891a469792c210707
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780067"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653720"
 ---
-# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explore a Aprendizagem automática Azure com os cadernos jupyter
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explore a aprendizagem da máquina de Azure com cadernos Jupyter
 
-O [exemplo do repositório](https://github.com/azure/machinelearningnotebooks) de cadernos de aprendizagem automática azure inclui as mais recentes amostras Azure Machine Learning Python SDK. Estes cadernos Juypter são projetados para ajudá-lo a explorar o SDK e servir como modelos para seus próprios projetos de aprendizagem automática.
+O [exemplo do repositório de cadernos de aprendizagem de máquinas Azure](https://github.com/azure/machinelearningnotebooks) inclui as mais recentes amostras de Python SDK de aprendizagem de máquinas Azure. Estes cadernos Juypter são projetados para ajudá-lo a explorar o SDK e servir como modelos para seus próprios projetos de machine learning.
 
 Este artigo mostra-lhe como aceder ao repositório a partir dos seguintes ambientes:
 
-- [Instância computacional de aprendizagem automática azure](#notebookvm)
-- [Traga o seu próprio servidor de caderno](#byo)
+- [Instância de computação do Azure Machine Learning](#notebookvm)
+- [Traga o seu próprio servidor de cadernos](#byo)
 - [Máquina Virtual de Ciência de Dados](#dsvm)
 
 > [!NOTE]
-> Depois de clonar o repositório, encontrará cadernos tutoriais na pasta dos **tutoriais** e cadernos específicos de funcionalidades na pasta **"Como usar-azureml".**
+> Depois de clonado o repositório, encontrará cadernos tutoriais na pasta **dos tutoriais** e cadernos específicos de funcionalidades na pasta **como usar-azureml.**
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtenha amostras no caso do cálculo do Azure Machine Learning
+## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtenha amostras em Azure Machine Learning caso
 
 A maneira mais fácil de começar com as amostras é completar o [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md) Uma vez concluído, terá um servidor de portátil dedicado pré-carregado com o SDK e o repositório de amostras. Não são necessários downloads ou instalações.
 
@@ -44,25 +44,25 @@ Se quiser trazer o seu próprio servidor de cadernos para o desenvolvimento loca
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-Estas instruções instalam as embalagens Base SDK necessárias para os cadernos de arranque rápido e tutoriais. Outros cadernos de amostrapodem exigir que instale componentes extras. Para mais informações, consulte [Instale o SDK de Aprendizagem automática Azure para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Estas instruções instalam os pacotes SDK base necessários para os cadernos de arranque rápido e tutorial. Outros cadernos de amostras podem exigir que instale componentes extras. Para obter mais informações, consulte [instalar o Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
-## <a name="get-samples-on-dsvm"></a>Obtenha amostras no DSVM
+## <a name="get-samples-on-dsvm"></a>Obtenha amostras em DSVM
 
-A Máquina Virtual da Ciência dos Dados (DSVM) é uma imagem VM personalizada construída especificamente para fazer ciência de dados. Se [criar um DSVM,](how-to-configure-environment.md#dsvm)o servidor SDK e portátil são instalados e configurados para si. No entanto, ainda terá de criar um espaço de trabalho e clonar o repositório de amostras.
+A Data Science Virtual Machine (DSVM) é uma imagem VM personalizada construída especificamente para fazer ciência de dados. Se [criar um DSVM,](how-to-configure-environment.md#dsvm)o SDK e o servidor de portátil estão instalados e configurados para si. No entanto, ainda terá de criar um espaço de trabalho e clonar o repositório de amostras.
 
 [!INCLUDE [aml-dsvm-server](../../includes/aml-dsvm-server.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore os cadernos de [amostras](https://aka.ms/aml-notebooks) para descobrir o que o Azure Machine Learning pode fazer.
+Explore os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks) para descobrir o que a Azure Machine Learning pode fazer.
 
-Para mais projetos e exemplos de amostragGItHub, consulte estes repos:
+Para mais projetos e exemplos de amostras do GitHub, consulte estes repos:
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 Experimente estes tutoriais:
 
-- [Treine e implemente um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
+- [Treine e implemente um modelo de classificação de imagem com o MNIST](tutorial-train-models-with-aml.md)
 
-- [Prepare dados e use machine learning automatizado para treinar um modelo de regressão com o conjunto de dados de táxi de NYC](tutorial-auto-train-models.md)
+- [Prepare dados e use machine learning automatizado para treinar um modelo de regressão com o conjunto de dados de táxi nyc](tutorial-auto-train-models.md)

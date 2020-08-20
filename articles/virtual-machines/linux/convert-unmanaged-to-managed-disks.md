@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e866b0b6182d7b46b3206a7d8e672d49ab5c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659814"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654434"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não geridos para discos geridos
 
-Se tiver máquinas virtuais Linux existentes (VMs) que utilizam discos não geridos, pode converter os VMs para utilizar [discos geridos Azure](../linux/managed-disks-overview.md). Este processo converte tanto o disco de SO como quaisquer discos de dados anexados.
+Se tiver máquinas virtuais Linux existentes (VMs) que utilizam discos não geridos, pode converter os VMs para utilizar [discos geridos Azure](../managed-disks-overview.md). Este processo converte tanto o disco de SO como quaisquer discos de dados anexados.
 
 Este artigo mostra-lhe como converter VMs utilizando o Azure CLI. Se precisar de o instalar ou atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). 
 
@@ -102,6 +102,6 @@ Também pode converter discos não geridos para discos geridos utilizando o port
 
 O VM será interrompido e reiniciado após a conclusão da migração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as opções de armazenamento, consulte [a visão geral dos Discos Geridos Azure](../windows/managed-disks-overview.md).
+Para obter mais informações sobre as opções de armazenamento, consulte [a visão geral dos Discos Geridos Azure](../managed-disks-overview.md).

@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054539"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654128"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -52,7 +52,7 @@ Os seguintes cenários são definidos pelo serviço como cenários de alerta.
 - Cópias de segurança de VMs do Azure
 - Cópias de segurança dos Ficheiros do Azure
 - Backups de carga de trabalho Azure tais como SQL, SAP HANA
-- Agente dos Serviços de Recuperação do Microsoft Azure (MARS) 
+- Agente dos Serviços de Recuperação do Microsoft Azure (MARS)
 
 > [!NOTE]
 > Os alertas do Gestor de Proteção de Dados do Centro de Sistema (SC-DPM), do Microsoft Azure Backup Server (MABS) não são apresentados aqui.
@@ -63,7 +63,7 @@ Para soluções de backup de carga de trabalho Azure, como SQL e SAP HANA, os ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é levantado
 
-Há poucas exceções quando um alerta não é levantado sobre um fracasso. São:
+Há poucas exceções quando um alerta não é levantado sobre um fracasso. A saber:
 
 - O utilizador cancelou explicitamente o trabalho de execução
 - O trabalho falha porque outro trabalho de reserva está em andamento (nada para agir aqui, uma vez que só temos que esperar que o trabalho anterior termine)
@@ -83,7 +83,7 @@ Com base na gravidade do alerta, os alertas podem ser definidos em três tipos:
 ## <a name="notification-for-backup-alerts"></a>Notificação para alertas de backup
 
 > [!NOTE]
-> A configuração da notificação só pode ser feita através do Portal Azure. O suporte do modelo do gestor de recursos PS/CLI/REST não é suportado.
+> A configuração da notificação só pode ser feita através do portal Azure. O suporte do modelo do gestor de recursos PS/CLI/REST não é suportado.
 
 Uma vez levantado um alerta, os utilizadores são notificados. O Azure Backup fornece um mecanismo de notificação incorporado via e-mail. Pode-se especificar endereços de e-mail individuais ou listas de distribuição para ser notificado quando um alerta é gerado. Também pode escolher se deve ser notificado para cada alerta individual ou agrupar-se numa digestão de hora a hora e, em seguida, ser notificado.
 
@@ -100,7 +100,7 @@ Se a frequência foi definida para uma digestão de hora a hora e um alerta foi 
 
 ## <a name="inactivating-alerts"></a>Alertas inativos
 
-Para inativar/resolver um alerta ativo, pode clicar no item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que exibe informações detalhadas sobre o alerta, com um botão 'Inactivado' na parte superior. Clicar neste botão mudaria o estado do alerta para 'Inactivo'. Pode também inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando 'Inactivar'.
+Para inativar/resolver um alerta ativo, pode selecionar o item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que exibe informações detalhadas sobre o alerta, com um botão **Inativado** na parte superior. Clicar neste botão alterará o estado do alerta para **Inativo**. Pode também inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando **Inativado**.
 
 ![Inativação de alerta RS Vault](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

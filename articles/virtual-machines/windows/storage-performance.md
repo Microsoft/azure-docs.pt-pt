@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525573"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653635"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2 Windows
 
 As máquinas virtuais da série Lsv2 suportam uma variedade de cargas de trabalho que necessitam de alta E/S e produção no armazenamento local através de uma vasta gama de aplicações e indústrias.  A série Lsv2 é ideal para big data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais, incluindo Cassandra, MongoDB, Cloudera e Redis.
 
@@ -75,9 +75,9 @@ Os cenários que apagam de forma segura os dados para proteger o cliente incluem
 - O VM torna-se insalubre e tem de servir a cicatrização a outro nó devido a um problema de hardware.
 - Um pequeno número das operações de manutenção planeadas que exigem que o VM seja realojado para outro hospedeiro para manutenção.
 
-Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastres para discos Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastres para discos Azure IaaS](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **Como começo a implantar VMs da série Lsv2?**  
    Tal como qualquer outro VM, utilize o [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md)ou [PowerShell](quick-create-powershell.md) para criar um VM.
@@ -94,6 +94,6 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
 * **Posso ajustar as definições de sondagens no Windows Server 2019?**  
    As definições de votação não são ajustáveis pelo utilizador.
    
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte as especificações de todos os [VMs otimizados para o desempenho do armazenamento](../sizes-storage.md) no Azure

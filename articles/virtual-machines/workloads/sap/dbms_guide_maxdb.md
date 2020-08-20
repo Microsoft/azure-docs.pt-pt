@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842ab7a1562c731e790ba03b2fd5acdc3987a90d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7195e3c9f2d38c16bd9cad59a2489157c7c1340f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051963"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654638"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>IMPLANTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure
 
@@ -247,7 +247,7 @@ ms.locfileid: "87051963"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -467,7 +467,7 @@ Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros na base de da
 
 Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança/restauro manual de toda a estrutura de ficheiros onde os documentos estão localizados. Semelhante ao backup/restauro SAP MaxDB, recomenda-se ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>Outro
+#### <a name="other"></a>Outros
 Outras definições específicas do Servidor de Conteúdo SAP são transparentes para VMs Azure e são descritas em vários documentos e notas SAP:
 
 * <https://service.sap.com/contentserver> 

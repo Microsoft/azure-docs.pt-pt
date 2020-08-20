@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2a25625e085ee07a2dc036fd40f70e6b0376b42a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c4a43d113df09d88e8b93028c68dcf04f718fad
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003887"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654009"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Como utilizar o Azure PowerShell para o fornecimento de servidor SQL em Máquinas Virtuais Azure
 
@@ -60,7 +60,7 @@ $ResourceGroupName = "sqlvm2"
 
 Defina a conta de armazenamento e o tipo de armazenamento a utilizar pela máquina virtual.
 
-Modifique como quiser e, em seguida, executar o cmdlet seguinte para rubricar estas variáveis. Recomendamos a utilização [de SSDs premium](../../../virtual-machines/windows/disks-types.md#premium-ssd) para cargas de trabalho de produção.
+Modifique como quiser e, em seguida, executar o cmdlet seguinte para rubricar estas variáveis. Recomendamos a utilização [de SSDs premium](../../../virtual-machines/disks-types.md#premium-ssd) para cargas de trabalho de produção.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"

@@ -3,15 +3,15 @@ title: Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTe
 description: Saiba como anexar ou desprender um disco de dados a uma máquina virtual em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287563"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653924"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
-[A Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.
+[A Azure Managed Disks](../virtual-machines/managed-disks-overview.md) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.
 
 Esta funcionalidade é útil para gerir armazenamento ou software fora de cada máquina virtual individual. Se o armazenamento ou software já existir dentro de um disco de dados, pode ser facilmente ligado, destacado e religado a qualquer VM que seja propriedade do utilizador que detém esse disco de dados.
 

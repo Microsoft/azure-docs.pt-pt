@@ -1,16 +1,16 @@
 ---
-title: Introdução ao Conselheiro Azure
+title: Introdução ao Assistente do Azure
 description: Utilize o Azure Advisor para otimizar as suas implementações Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057693"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654026"
 ---
-# <a name="introduction-to-azure-advisor"></a>Introdução ao Conselheiro Azure
+# <a name="introduction-to-azure-advisor"></a>Introdução ao Assistente do Azure
 
 Conheça as capacidades-chave do Azure Advisor e obtenha respostas para perguntas frequentes.
 
@@ -55,7 +55,7 @@ Pode aceder às recomendações do Advisor como *Proprietário,* *Contribuinte*o
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para que recursos o Advisor fornece recomendações?
 
-O Advisor fornece recomendações para Gateway de Aplicações, Serviços de Aplicações, conjuntos de disponibilidade, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure Public IP addresss, SQL Data Warehouse, servidores SQL, contas de armazenamento, perfis de tráfego, e máquinas virtuais.
+O Advisor fornece recomendações para Gateway de Aplicações, Serviços de Aplicações, conjuntos de disponibilidade, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure Public IP addresss, Azure Synapse Analytics, SQL servers, storage accounts, Traffic Managers,
 
 O Azure Advisor também inclui as suas recomendações do [Azure Security Center,](../security-center/security-center-recommendations.md) que podem incluir recomendações para tipos de recursos adicionais.
 

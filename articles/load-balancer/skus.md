@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 60e8a0dc93e19dfec0982080d0353466b08373de
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586839"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654485"
 ---
 # <a name="azure-load-balancer-skus"></a>SKUs de balançador de carga Azure
 
-Azure Load Balancer tem dois sabores ou SKUs.
+O Azure Load Balancer tem dois SKUs.
 
 ## <a name="sku-comparison"></a><a name="skus"></a> Comparação SKU
 
-O equilibrador de carga suporta SKUs básicos e padrão. Estes SKUs diferem na escala de cenário, características e preços. Qualquer cenário possível com o balanceador de carga Básico pode ser criado com o balanceador de carga Standard.
+O equilibrador de carga suporta skus standard e básico. Estes SKUs diferem na escala de cenário, características e preços. Qualquer cenário possível com o balanceador de carga Básico pode ser criado com o balanceador de carga Standard.
 
 Para comparar e compreender as diferenças, veja a tabela seguinte. Para obter mais informações, consulte [a visão geral do Balanço de Carga Padrão Azure](load-balancer-standard-overview.md).
 
@@ -41,7 +41,7 @@ As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionam
 | **Zonas de Disponibilidade** | Frontends zona redundantes e zonais para tráfego de entrada e saída. | Não disponível |
 | **Diagnóstico** | [Métricas multidimensionais do Monitor Azure](./load-balancer-standard-diagnostics.md) | [Registos do Monitor Azure](./load-balancer-monitor-log.md) |
 | **Portos HA** | [Disponível para equilibrador de carga interna](./load-balancer-ha-ports-overview.md) | Não disponível |
-| **Proteger por defeito** | Fechado a fluxos de entrada, a menos que seja permitido por um grupo de segurança de rede. Por favor, note que o tráfego interno do VNet para o balançador de carga interno é permitido. | Abrir por defeito. Grupo de segurança de rede opcional. |
+| **Proteger por defeito** | Fechado a fluxos de entrada, a menos que seja permitido por um grupo de segurança de rede. É permitido tráfego interno da rede virtual para o balançador de carga interno. | Abrir por defeito. Grupo de segurança de rede opcional. |
 | **Regras de saída** | [Configuração DE NAT de saída declarativa](./load-balancer-outbound-rules-overview.md) | Não disponível |
 | **Reposição de TCP em Idle** | [Disponível em qualquer regra](./load-balancer-tcp-reset.md) | Não disponível |
 | **[Múltiplas extremidades dianteiras](./load-balancer-multivip-overview.md)** | Entrada e [saída](./load-balancer-outbound-connections.md) | Só de entrada |

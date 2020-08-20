@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053750"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654893"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configure as chaves geridas pelo cliente para a sua conta Azure Batch com cofre de chave Azure e identidade gerida
 
@@ -19,7 +19,7 @@ Por predefinição, o Azure Batch utiliza chaves geridas pela plataforma para en
 As chaves que fornece devem ser geradas no [Cofre da Chave Azure,](../key-vault/general/basic-concepts.md)e as contas batch que pretende configurar com as chaves geridas pelo cliente têm de ser ativadas com identidade gerida pelo [Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> O suporte para chaves geridas pelo cliente em Azure Batch está atualmente em pré-visualização pública para as regiões do Centro-Oeste dos EUA, Leste dos EUA, Centro Sul dos EUA, West US 2, Eua Gov Virginia e eua Gov Arizona.
+> O apoio às chaves geridas pelo cliente em Azure Batch está atualmente em pré-visualização pública para as regiões da Europa Ocidental, Norte da Europa, Suíça Norte, Central dos EUA, Centro-Sul dos EUA, Leste dos EUA 2, West US 2, EUA Gov Virginia e eua Gov Arizona regiões.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -82,7 +82,7 @@ No campo **Seleção** em **Princípio,** preencha o `principalId` que recuperou
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Gere uma chave no Cofre da Chave Azure
 
-No portal Azure, aceda à instância Key Vault na secção **chave,** **selecione Gerar/Importar**. Selecione o **tipo de** chave para ser `RSA` e o tamanho da chave **RSA** para ser pelo menos `2048` bits. `EC`os tipos-chave não são atualmente suportados como uma chave gerida pelo cliente numa conta Batch.
+No portal Azure, aceda à instância Key Vault na secção **chave,** **selecione Gerar/Importar**. Selecione o **tipo de** chave para ser `RSA` e o tamanho da chave **RSA** para ser pelo menos `2048` bits. `EC` os tipos-chave não são atualmente suportados como uma chave gerida pelo cliente numa conta Batch.
 
 ![Criar uma chave](./media/batch-customer-managed-key/create-key.png)
 

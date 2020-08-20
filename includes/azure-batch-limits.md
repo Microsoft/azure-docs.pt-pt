@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323892"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655195"
 ---
 | **Recurso** | **Limite predefinido** | **Limite máximo** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323892"
 > Os limites predefinidos variam consoante o tipo de subscrição que utiliza para criar uma conta Batch. As quotas de núcleos apresentadas são para contas Batch no modo de serviço Batch. [Veja as quotas na sua conta Batch.](../articles/batch/batch-quota-limit.md#view-batch-quotas)
 
 > [!IMPORTANT]
-> Para nos ajudar a gerir melhor a capacidade durante a pandemia global de saúde, as quotas fundamentais padrão para novas contas de Lote em algumas regiões e para alguns tipos de subscrição foram reduzidas do intervalo de valores acima, em alguns casos para núcleos zero. Quando criar uma nova conta Batch, [verifique a sua quota principal](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento de quota de base,](../articles/batch/batch-quota-limit.md#increase-a-quota)se necessário. 
+> Para nos ajudar a gerir melhor a capacidade durante a pandemia global de saúde, as quotas fundamentais padrão para novas contas de Lote em algumas regiões e para alguns tipos de subscrição foram reduzidas do intervalo de valores acima, em alguns casos para núcleos zero. Quando criar uma nova conta Batch, [verifique a sua quota principal](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento de quota de base,](../articles/batch/batch-quota-limit.md#increase-a-quota)se necessário. Em alternativa, considere reutilizar as contas do Batch que já tenham quota suficiente. 

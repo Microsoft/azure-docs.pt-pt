@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827865"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654264"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -26,7 +26,7 @@ O Azure tem vários tipos disponíveis de armazenamento em nuvem. Um aspeto fund
 
 [As ações de ficheiros Azure](storage-files-introduction.md) são adequadas para dados de ficheiros de uso geral. Estes dados incluem qualquer coisa para a sua utilização de uma participação de SMB ou NFS no local. Com [o Azure File Sync,](storage-sync-files-planning.md)pode cache o conteúdo de várias partilhas de ficheiros Azure em servidores que executam o Windows Server no local.
 
-Para uma aplicação que atualmente é executada num servidor no local, armazenar ficheiros numa partilha de ficheiros Azure pode ser uma boa escolha. Pode mover a aplicação para a Azure e utilizar as ações de ficheiros Azure como armazenamento partilhado. Também pode considerar [discos Azure](../../virtual-machines/windows/managed-disks-overview.md) para este cenário.
+Para uma aplicação que atualmente é executada num servidor no local, armazenar ficheiros numa partilha de ficheiros Azure pode ser uma boa escolha. Pode mover a aplicação para a Azure e utilizar as ações de ficheiros Azure como armazenamento partilhado. Também pode considerar [discos Azure](../../virtual-machines/managed-disks-overview.md) para este cenário.
 
 Algumas aplicações em nuvem não dependem de SMB ou de acesso de dados locais a máquinas ou acesso partilhado. Para essas aplicações, o armazenamento de objetos como [as bolhas Azure é muitas vezes](../blobs/storage-blobs-overview.md) a melhor escolha.
 
@@ -126,7 +126,7 @@ A tabela a seguir classifica as ferramentas da Microsoft e a sua adequação atu
 |![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Suportado. | Não copia metadados. |
 |||||
 
-*\*Fidelidade total: cumpre ou excede as capacidades de partilha de ficheiros Azure.*
+*\* Fidelidade total: cumpre ou excede as capacidades de partilha de ficheiros Azure.*
 
 ### <a name="migration-helper-tools"></a>Ferramentas de ajuda à migração
 

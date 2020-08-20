@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699197"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654876"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analise o relatório do Planejador de Implantação para a recuperação de desastres da VMware para Azure
 
@@ -178,7 +178,7 @@ Poderá haver casos em que sabe que não pode definir uma largura de banda com m
 
 **VM Name (Nome da VM)**: o nome ou o endereço IP da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VMDKs) que estão ligados às VMs. Para distinguir VMs do vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome de anfitrião ESXi. O anfitrião ESXi listado é aquele em que a VM foi colocada quando a ferramenta detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)\***. **Sim, é o seu** \* é por exemplos em que o VM é adequado para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
+**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)\***. **Sim, é o seu** \* é por exemplos em que o VM é adequado para [SSDs premium](../virtual-machines/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15
 * 256 GB a 512 GB é P20.
@@ -281,5 +281,5 @@ Estes são números médios, que pressupõem uma sobreposição de 30 por cento 
 Saiba mais sobre a [estimativa de custos](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a [estimativa de custos](site-recovery-vmware-deployment-planner-cost-estimation.md).

@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço usando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258526"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654043"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -71,7 +71,7 @@ O Advisor analisa o seu armazenamento Azure Blob e o armazenamento do Azure Data
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB, MySQL e PósgreSQL reservados
 O Advisor analisa os seus padrões de utilização para Azure Database for MariaDB, Azure Database for MySQL e Azure Database for PostgreSQL nos últimos 30 dias. Recomenda então compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso horário de MariaDB, MySQL e PostgreSQL e economizar acima dos seus custos atuais. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
 
-### <a name="synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Synapse Analytics (antigo ARMAZÉM DE DADOS SQL) reservado capacidade
+### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics (anteriormente SQL Data Warehouse) reservado capacidade
 O Advisor analisa os seus padrões de utilização Azure Synapse Analytics ao longo dos últimos 30 dias e recomenda compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o Synapse Analytics de hora a hora e economizar acima dos seus custos a pedido. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar endereços IP públicos não ligados para economizar dinheiro

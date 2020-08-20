@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710274"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653584"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Recuperação do Local de Azure
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -179,7 +179,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **VM Name (Nome da VM)**: o nome da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VHDs) que estão ligados às VMs. Os nomes incluem os nomes do anfitrião Hyper-V onde as VMs foram colocadas quando a ferramenta os detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)**\*. **Sim, é o seu** \* é por exemplos em que o VM é adequado para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
+**VM Compatibility (Compatibilidade de VMs)**: os valores são **Yes (Sim)** e **Yes (Não)**\*. **Sim, é o seu** \* é por exemplos em que o VM é adequado para [SSDs premium](../virtual-machines/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15.
 * 256 GB a 512 GB é P20.
@@ -356,5 +356,5 @@ Cada tabela de batch fornece um resumo da utilização de rede do batch.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a [estimativa de custos](hyper-v-deployment-planner-cost-estimation.md).

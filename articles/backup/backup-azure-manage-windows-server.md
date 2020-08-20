@@ -3,12 +3,12 @@ title: Gerir cofres e servidores dos Serviços de Recuperação Azure
 description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263334"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654213"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -70,8 +70,8 @@ Pré-Verificação de cópias de segurança Verifique a configuração dos seus 
 Os Pré-Verificações de Backup funcionam como parte das operações de backup programadas para os seus VMs Azure. Concluem com um dos seguintes estados:
 
 * **Aprovado**: Este estado indica que a configuração do seu VM deve levar a cópias de segurança bem sucedidas e não é necessário tomar nenhuma ação corretiva.
-* **Aviso:** Este estado indica um ou mais problemas na configuração do VM que *podem* levar a falhas de backup. Fornece medidas *recomendadas* para garantir cópias de segurança bem sucedidas. Por exemplo, não ter o mais recente Agente VM instalado pode fazer com que as cópias de segurança falhem intermitentemente. Esta situação forneceria um estado de alerta.
-* **Crítico**: Este estado indica um ou mais problemas críticos na configuração do VM que *levarão* a falhas de backup e fornece as medidas *necessárias* para garantir cópias de segurança bem sucedidas. Por exemplo, um problema de rede causado por uma atualização das regras NSG de um VM, irá causar falhas nas cópias de segurança, uma vez que impede o VM de comunicar com o serviço de Backup Azure. Esta situação proporcionaria um estado crítico.
+* **Aviso:** Este estado indica um ou mais problemas na configuração do VM que *podem* levar a falhas de backup. Fornece medidas *recomendadas* para garantir cópias de segurança bem sucedidas. Por exemplo, não ter o mais recente Agente VM instalado pode fazer com que as cópias de segurança falhem intermitentemente. Esta situação proporcionará um estado de alerta.
+* **Crítico**: Este estado indica um ou mais problemas críticos na configuração do VM que *levarão* a falhas de backup e fornece as medidas *necessárias* para garantir cópias de segurança bem sucedidas. Por exemplo, um problema de rede causado por uma atualização das regras NSG de um VM, irá causar falhas nas cópias de segurança, uma vez que impede o VM de comunicar com o serviço de Backup Azure. Esta situação proporcionará um estado crítico.
 
 Siga os passos abaixo para começar a resolver quaisquer problemas reportados por Backup Pré-Verificações de cópias de segurança VM no seu Cofre de Serviços de Recuperação.
 
@@ -96,7 +96,7 @@ A lista de Alertas de Cópia de Segurança apresenta as informações selecionad
 | Nível de Alerta | Eventos que geram alertas |
 | ----------- | ----------- |
 | Crítico | Recebe alertas críticos quando: Os trabalhos de backup falham, os trabalhos de recuperação falham e quando paras a proteção num servidor, mas retém os dados.|
-| Aviso | Recebe alertas de alerta quando: Trabalhos de backup completos com avisos, por exemplo, quando menos de 100 ficheiros não são apoiados devido a problemas de corrupção, ou quando mais de 1.000.000 ficheiros são apoiados com sucesso. |
+| Aviso | Recebe alertas de aviso quando: Trabalhos de reserva completos com avisos. Por exemplo, quando menos de 100 ficheiros não são apoiados por problemas de corrupção, ou quando mais de 1.000.000 ficheiros são apoiados com sucesso. |
 | Informativo | atualmente, não estão a ser utilizados alertas informativos. |
 
 ### <a name="viewing-alert-details"></a>Visualizar detalhes do alerta

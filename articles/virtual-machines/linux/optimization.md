@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659469"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654196"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual Linux (VM) é fácil de fazer a partir da linha de comando ou a partir do portal. Este tutorial mostra-lhe como garantir que o configura para otimizar o seu desempenho na plataforma Microsoft Azure. Este tópico utiliza um Ubuntu Server VM, mas também pode criar uma máquina virtual Linux usando [as suas próprias imagens como modelos.](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
@@ -34,7 +34,7 @@ Para obter os IOps mais elevados nos discos de armazenamento Premium onde as sua
 * Se utilizar **XFS,** desative as barreiras utilizando a opção de montagem `nobarrier` (Para ativar barreiras, utilize a opção `barrier` )
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações de conta de armazenamento não geridos
-A ação predefinida quando cria um VM com o CLI Azure é utilizar discos geridos Azure.  Estes discos são manuseados pela plataforma Azure e não requerem qualquer preparação ou localização para os armazenar.  Os discos não geridos requerem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A secção seguinte descreve considerações de desempenho apenas quando utiliza discos não geridos.  Mais uma vez, a solução de armazenamento padrão e recomendada é a utilização de discos geridos.
+A ação predefinida quando cria um VM com o CLI Azure é utilizar discos geridos Azure.  Estes discos são manuseados pela plataforma Azure e não requerem qualquer preparação ou localização para os armazenar.  Os discos não geridos requerem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../managed-disks-overview.md).  A secção seguinte descreve considerações de desempenho apenas quando utiliza discos não geridos.  Mais uma vez, a solução de armazenamento padrão e recomendada é a utilização de discos geridos.
 
 Se criar um VM com discos não geridos, certifique-se de que anexa discos de contas de armazenamento que residem na mesma região que o seu VM para garantir a proximidade e minimizar a latência da rede.  Cada conta de armazenamento Standard tem um máximo de 20k IOps e uma capacidade de tamanho de 500 TB.  Este limite resulta em aproximadamente 40 discos fortemente utilizados, incluindo o disco SO e quaisquer discos de dados que crie. Para contas de Armazenamento Premium, não existe limite máximo de IOps, mas existe um limite de tamanho de 32 TB. 
 
@@ -51,7 +51,7 @@ Nas Imagens cloud Ubuntu, deve utilizar a cloud-init para configurar a partiçã
 
 Para imagens sem suporte de nuvem, as imagens VM implementadas a partir do Azure Marketplace têm um Agente VM Linux integrado com o SO. Este agente permite que o VM interaja com vários serviços Azure. Assumindo que implementou uma imagem padrão a partir do Azure Marketplace, teria de fazer o seguinte para configurar corretamente as definições de ficheiros de troca de Linux:
 
-Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de troca dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa de verificar são `ResourceDisk.EnableSwap` e`ResourceDisk.SwapSizeMB` 
+Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de troca dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa de verificar são `ResourceDisk.EnableSwap` e `ResourceDisk.SwapSizeMB` 
 
 Para ativar um disco devidamente ativado e um ficheiro de troca montado, certifique-se de que os parâmetros têm as seguintes definições:
 

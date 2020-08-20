@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053204"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654366"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
 
@@ -99,7 +99,6 @@ Antes de começar a manipular os recursos AMS v3, precisa de obter e definir Azu
 
 ## <a name="see-also"></a>Ver também
 
-- [Faça upload de ficheiros numa conta de Serviços de Comunicação Social - REST](upload-files-rest-how-to.md)
 - [Criar filtros com Serviços de Mídia - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 

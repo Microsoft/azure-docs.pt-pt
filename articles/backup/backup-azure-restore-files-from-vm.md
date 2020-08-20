@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611845"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654162"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -398,7 +398,7 @@ O fluxo de dados entre o serviço de recuperação e a máquina está protegido 
 
 Qualquer Lista de Controlo de Acesso de Ficheiros (ACL) presente no VM dos pais/apoiados também está preservada no sistema de ficheiros montado.
 
-O script dá acesso apenas à leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, em seguida, inscreva-se no Portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
+O script dá acesso apenas à leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, inscreva-se no portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

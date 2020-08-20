@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667374"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653346"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Para utilizar as definições de configuração de armazenamento automatizado, a
 
 * A provisionada com uma [imagem de galeria sql server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Utiliza o [modelo de implementação do Gestor de Recursos.](../../../azure-resource-manager/management/deployment-models.md)
-* Utiliza [SSDs premium.](../../../virtual-machines/windows/disks-types.md)
+* Utiliza [SSDs premium.](../../../virtual-machines/disks-types.md)
 
 ## <a name="new-vms"></a>Novos VMs
 
@@ -115,7 +115,7 @@ Pode modificar as definições do disco para as unidades que foram configuradas 
 Esta secção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante o fornecimento ou configuração do SQL Server VM no portal Azure.
 
 * O Azure configura uma piscina de armazenamento a partir do armazenamento selecionado a partir do seu VM. A próxima secção deste tópico fornece detalhes sobre a configuração da piscina de armazenamento.
-* A configuração automática de armazenamento utiliza sempre discos [de dados SSDs](../../../virtual-machines/windows/disks-types.md) P30 premium. Consequentemente, existe um mapeamento de 1:1 entre o número selecionado de Terabytes e o número de discos de dados ligados ao seu VM.
+* A configuração automática de armazenamento utiliza sempre discos [de dados SSDs](../../../virtual-machines/disks-types.md) P30 premium. Consequentemente, existe um mapeamento de 1:1 entre o número selecionado de Terabytes e o número de discos de dados ligados ao seu VM.
 
 Para obter informações sobre preços, consulte a página [de preços de Armazenamento](https://azure.microsoft.com/pricing/details/storage) no **separador Armazenamento de Discos.**
 
@@ -127,7 +127,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 | --- | --- |
 | Tamanho de listra |256 KB (armazenagem de dados); 64 KB (Transacional) |
 | Tamanhos de disco |1 TB cada |
-| Cache |Leitura |
+| Cache |Ler |
 | Tamanho da atribuição |64 KB NTFS tamanho da unidade de atribuição |
 | Recuperação | Recuperação simples (sem resiliência) |
 | Número de colunas |Número de discos de dados até 8<sup>1</sup> |
@@ -142,13 +142,13 @@ O quadro a seguir descreve as três opções de tipo de carga de trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
-| **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhuma |
+| **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |
 | **Armazenagem de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e reportando |Bandeira de traço 610<br/>Bandeira de traço 1117 |
 
 > [!NOTE]
 > Só é possível especificar o tipo de carga de trabalho quando forte uma máquina virtual SQL Server selecionando-a no passo de configuração de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para outros tópicos relacionados com a execução do SQL Server em VMs Azure, consulte [o SQL Server em Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).

@@ -3,12 +3,12 @@ title: Análise de custos e orçamento
 description: Aprenda a obter uma análise de custos e desa um orçamento para os recursos de computação subjacentes e licenças de software usadas para executar as suas cargas de trabalho do Batch.
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50ca1ecfd0a973ff39dabfcb62175ce820d0a0d6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725776"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654247"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custos e orçamentos para o Azure Batch
 
@@ -68,7 +68,7 @@ Saiba mais sobre como configurar VMs de baixa prioridade para a sua carga de tra
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco de so máquina virtual
 
-Existem vários [tipos de discos VM OS](../virtual-machines/windows/disks-types.md). A maioria das séries VM tem tamanhos que suportam tanto o armazenamento premium como o armazenamento padrão. Quando um tamanho VM 's' é selecionado para uma piscina, o Batch configura discos de SO SSD premium. Quando o tamanho VM 'não-s' é selecionado, então o tipo de disco HDD mais barato e padrão é usado. Por exemplo, discos de SO SSD premium são utilizados `Standard_D2s_v3` e os discos HDD OS standard são usados para `Standard_D2_v3` .
+Existem vários [tipos de discos VM OS](../virtual-machines/disks-types.md). A maioria das séries VM tem tamanhos que suportam tanto o armazenamento premium como o armazenamento padrão. Quando um tamanho VM 's' é selecionado para uma piscina, o Batch configura discos de SO SSD premium. Quando o tamanho VM 'não-s' é selecionado, então o tipo de disco HDD mais barato e padrão é usado. Por exemplo, discos de SO SSD premium são utilizados `Standard_D2s_v3` e os discos HDD OS standard são usados para `Standard_D2_v3` .
 
 Os discos Premium SSD OS são mais caros, mas têm maior desempenho e os VMs com discos premium podem começar ligeiramente mais rápido do que os VMs com discos HDD OS padrão. Com o Batch, o disco DE não é frequentemente utilizado tanto quanto as aplicações e ficheiros de tarefa estão localizados no disco SSD temporário VMs. Portanto, em muitos casos, não há necessidade de pagar o custo acrescido para o SSD premium que é a provisionado quando um tamanho 's' VM é especificado.
 
@@ -82,7 +82,7 @@ Se pretender utilizar o Batch por um longo período de tempo, pode economizar no
 
 Para obter mais informações sobre a escala automática, consulte [os nós computacional de escala automática numa piscina Azure Batch](batch-automatic-scaling.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as APIs do [lote e as ferramentas](batch-apis-tools.md) disponíveis para construir e monitorizar soluções batch.  
 

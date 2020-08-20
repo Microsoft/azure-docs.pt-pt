@@ -3,16 +3,16 @@ title: Atualizar os nosdes de cluster para usar discos geridos a Azure
 description: Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192297"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653703"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar os nosdes de cluster para usar discos geridos a Azure
 
-[Os discos geridos Azure](../virtual-machines/windows/managed-disks-overview.md) são a oferta recomendada de armazenamento de discos para uso com máquinas virtuais Azure para armazenamento persistente de dados. Pode melhorar a resiliência das cargas de trabalho do seu Tecido de Serviço, atualizando os conjuntos de escala de máquinas virtuais que estão na base dos seus tipos de nós para utilizar discos geridos. Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
+[Os discos geridos Azure](../virtual-machines/managed-disks-overview.md) são a oferta recomendada de armazenamento de discos para uso com máquinas virtuais Azure para armazenamento persistente de dados. Pode melhorar a resiliência das cargas de trabalho do seu Tecido de Serviço, atualizando os conjuntos de escala de máquinas virtuais que estão na base dos seus tipos de nós para utilizar discos geridos. Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 
 A estratégia geral para atualizar um nó de cluster de tecido de serviço para utilizar discos geridos é:
 

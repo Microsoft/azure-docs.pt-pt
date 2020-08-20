@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653142"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -32,7 +32,7 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
@@ -52,7 +52,7 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 
 O [modelo Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta de Link Synapse ativada a Azure Cosmos para a SQL API. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
 
-## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a>Criar um recipiente Azure Cosmos com loja analítica
+## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Criar um recipiente Azure Cosmos com loja analítica
 
 Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipiente. Você pode usar o portal Azure ou configurar a propriedade durante a `analyticalTTL` criação de contentores usando os SDKs Azure Cosmos.
 
@@ -103,44 +103,63 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### <a name="python-v3-sdk"></a>Python V3 SDK
+### <a name="python-v4-sdk"></a>Python V4 SDK
 
-O seguinte código cria um recipiente com loja analítica utilizando o Python SDK:
+Python 2.7 e Azure Cosmos DB SDK 4.1.0 são as versões mínimas necessárias, e o SDK só é compatível com o SQL API.
+
+O primeiro passo é certificar-se de que está a utilizar pelo menos a versão 4.1.0 do [Azure Cosmos DB Python SDK:](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ```python
+import azure.cosmos as cosmos
+
+print (cosmos.__version__)
+```
+O passo seguinte cria um recipiente com loja analítica utilizando o Azure Cosmos DB Python SDK:
+
+```python
+# Azure Cosmos DB Python SDK, for SQL API only.
+# Creating an analytical store enabled container.
+
 import azure.cosmos.cosmos_client as cosmos_client
-def create_collection_if_not_exists(cosmosEndpoint, cosmosKey, databaseName, collectionName):
-    client = cosmos_client.CosmosClient(url_connection=cosmosEndpoint, auth={'masterKey': cosmosKey})
+import azure.cosmos.exceptions as exceptions
+from azure.cosmos.partition_key import PartitionKey
 
-db = client.QueryDatabases("select * from c where c.id = '" + databaseName + "'").fetch_next_block()[0]
-options = {
-    'offerThroughput': 1000
-}
+HOST = 'your-cosmos-db-account-URI'
+KEY = 'your-cosmos-db-account-key'
+DATABASE = 'your-cosmos-db-database-name'
+CONTAINER = 'your-cosmos-db-container-name'
 
-container_definition = {
-    'id': collectionName,
-    "partitionKey": {  
-        "paths": [  
-        "/id"  
-        ],  
-        "kind": "Hash" 
-    },
-    "indexingPolicy": {  
-    "indexingMode": "consistent",  
-    "automatic": True,  
-    "includedPaths": [],  
-    "excludedPaths": [{
-        "path": "/*"
-    }]  
-    },
-    "defaultTtl": -1,
-    "analyticalStorageTtl": -1
-}
+client = cosmos_client.CosmosClient(HOST,  KEY )
+# setup database for this sample. 
+# If doesn't exist, creates a new one with the name informed above.
+try:
+    db = client.create_database(DATABASE)
 
-container = client.CreateContainer(db['_self'], container_definition, options)
+except exceptions.CosmosResourceExistsError:
+    db = client.get_database_client(DATABASE)
+
+# Creating the container with analytical store enabled, using the name informed above.
+# If a container with the same name exists, an error is returned.
+#
+# The 3 options for the analytical_storage_ttl parameter are:
+# 1) 0 or Null or not informed (Not enabled).
+# 2) -1 (The data will be stored in analytical store infinitely).
+# 3) Any other number is the actual ttl, in seconds.
+
+try:
+    container = db.create_container(
+        id=CONTAINER,
+        partition_key=PartitionKey(path='/id', kind='Hash'),analytical_storage_ttl=-1
+    )
+    properties = container.read()
+    print('Container with id \'{0}\' created'.format(container.id))
+    print('Partition Key - \'{0}\''.format(properties['partitionKey']))
+
+except exceptions.CosmosResourceExistsError:
+    print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a>Atualize o tempo de loja analítica para viver
+### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Atualize o tempo de loja analítica para viver
 
 Após o arquivo analítico ser ativado com um valor de TTL em particular, pode atualizá-lo posteriormente para um valor válido diferente. Pode atualizar o valor com o portal do Azure ou os SDKs. Para obter informações sobre as várias opções de config Analítico TTL, consulte o artigo [de valores suportados pela TTL analítica.](analytical-store-introduction.md#analytical-ttl)
 
@@ -185,15 +204,15 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 container.replace(containerProperties).block();
 ```
 
-## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a>Conecte-se a um espaço de trabalho da Sinapse
+## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Conecte-se a um espaço de trabalho da Sinapse
 
 Utilize as instruções em [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) sobre como aceder a uma base de dados DB Azure Cosmos do Azure Synapse Analytics Studio com Azure Synapse Link.
 
-## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a>Consulta usando faísca de sinapse
+## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Consulta usando faísca de sinapse
 
 Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sobre como consultar a Synapse Spark. Este artigo dá alguns exemplos sobre como você pode interagir com a loja analítica a partir de gestos da Sinapse. Esses gestos são visíveis quando clicas à direita num contentor. Com gestos, pode gerar rapidamente código e ajustá-lo às suas necessidades. Também são perfeitos para descobrir dados com um único clique.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a>Começando com Azure Synpase Link - Amostras
+## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synpase Link - Amostras
 
 Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e Retail.
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre a gestão de certificados num cluster de Tecido de
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246712"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653669"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestão de certificados em clusters de tecidos de serviço
 
@@ -91,7 +91,7 @@ Neste momento, existe um certificado no cofre, pronto para consumo. Avante para:
 Mencionamos um "agente de provisionamento", que é a entidade que recupera o certificado, incluindo a sua chave privada, a partir do cofre e o instala em cada um dos anfitriões do cluster. (Lembre-se que o Tecido de Serviço não fornece certificados.) No nosso contexto, o cluster será hospedado numa coleção de VMs Azure e/ou conjuntos de escala de máquinas virtuais. Em Azure, o fornecimento de um certificado de um cofre para um VM/VMSS pode ser alcançado com os seguintes mecanismos - assumindo, como acima, que o agente de provisionamento foi previamente concedido permissões de "obter" no cofre pelo proprietário do cofre: 
   - ad-hoc: um operador recupera o certificado do cofre (como pfx/PKCS #12 ou pem) e instala-o em cada nó
   - como uma balança de máquina virtual definida 'secret' durante a implantação: o serviço Compute recupera, utilizando a sua primeira identidade partidária em nome do operador, o certificado a partir de um cofre ativado por modelo e instala-o em cada nó do conjunto de escala de máquina virtual[(assim );](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates) notar que isto permite o provisionamento de segredos versados apenas
-  - utilizando a [extensão VM do cofre chave;](../virtual-machines/extensions/key-vault-windows.md) isto permite o fornecimento de certificados utilizando declarações sem versão, com refrescamento periódico dos certificados observados. Neste caso, espera-se que o VM/VMSS tenha uma [identidade gerida,](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)identidade a que tenha acesso ao cofre(s) contendo os certificados observados.
+  - utilizando a [extensão VM do cofre chave;](../virtual-machines/extensions/key-vault-windows.md) isto permite o fornecimento de certificados utilizando declarações sem versão, com refrescamento periódico dos certificados observados. Neste caso, espera-se que o VM/VMSS tenha uma [identidade gerida,](../virtual-machines/security-policy.md#managed-identities-for-azure-resources)identidade a que tenha acesso ao cofre(s) contendo os certificados observados.
 
 O mecanismo ad-hoc não é recomendado por múltiplas razões, que vão da segurança à disponibilidade, e não será discutido aqui mais; para mais informações, consulte [certificados em conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

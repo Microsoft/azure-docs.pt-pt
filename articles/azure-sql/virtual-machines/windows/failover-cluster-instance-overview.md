@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533823"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653278"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,17 +48,17 @@ O SQL Server em VMs Azure oferece várias opções como solução de armazenamen
 
 ||[Discos partilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaços de armazenamento Direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
-|**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
+|**Versão mínima do SO**| Tudo |Windows Server 2012|Windows Server 2016|
+|**Versão mínima do SqL Server**|Tudo|SQL Server 2012|SQL Server 2016|
 |**Disponibilidade de VM suportada** |Conjuntos de disponibilidade com grupos de colocação de proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
-|**Suporta FileStream**|Sim|Não|Sim |
-|**Cache de bolha de Azure**|Não|Não|Sim|
+|**Suporta FileStream**|Sim|Não|Yes |
+|**Cache de bolha de Azure**|No|Não|Yes|
 
 O resto desta secção lista os benefícios e limitações de cada opção de armazenamento disponível para O SQL Server em VMs Azure. 
 
 ### <a name="azure-shared-disks"></a>Discos partilhados do Azure
 
-[Os discos partilhados Azure](../../../virtual-machines/windows/disks-shared.md) são uma característica dos [discos geridos pela Azure.](../../../virtual-machines/windows/managed-disks-overview.md) O Windows Server Failover Clustering suporta a utilização de discos partilhados do Azure com uma instância de cluster de falha. 
+[Os discos partilhados Azure](../../../virtual-machines/windows/disks-shared.md) são uma característica dos [discos geridos pela Azure.](../../../virtual-machines/managed-disks-overview.md) O Windows Server Failover Clustering suporta a utilização de discos partilhados do Azure com uma instância de cluster de falha. 
 
 **Os suportados**: Todos   
 **Versão SQL suportada**: Todos     

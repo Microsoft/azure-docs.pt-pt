@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432869"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654706"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -25,11 +25,11 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 - Enquanto um cofre de Serviços de Recuperação é usado por (ambos) Azure Backup e Azure Site Recovery, este artigo discute o uso de pontos finais privados apenas para Azure Backup.
 - O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para que o Azure Ative Directory funcione numa região terá de ser autorizado a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de desativar a Polícia de Rede antes de continuar.
-- Tem de voltar a registar o fornecedor de recursos dos Serviços de Recuperação com a assinatura se o registar antes de 1 de maio de 2020. Para voltar a registar o fornecedor, aceda à sua subscrição no portal Azure, navegue para o **fornecedor de Recursos** na barra de navegação esquerda, em seguida, selecione **Microsoft.RecoveryServices** e clique em **Re-registrar**.
+- Tem de voltar a registar o fornecedor de recursos dos Serviços de Recuperação com a assinatura se o registar antes de 1 de maio de 2020. Para voltar a registar o fornecedor, aceda à sua subscrição no portal Azure, navegue para o **fornecedor de Recursos** na barra de navegação esquerda, em seguida, selecione **Microsoft.RecoveryServices** e selecione **Re-registr .**
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e apoiados
 
-Enquanto os pontos finais privados estão habilitados para o cofre, eles são usados para backup e restauro de cargas de cargas DE SQL e SAP HANA apenas em um backup de VM e agente MARS Azure. Pode usar o cofre para cópias de segurança de outras cargas de trabalho também (no entanto, não requereriam pontos finais privados). Além da cópia de segurança das cargas de trabalho DA SQL e SAP HANA e da cópia de segurança utilizando o agente MARS, os pontos finais privados também são utilizados para realizar a recuperação de ficheiros no caso de cópia de segurança Azure VM. Para mais informações, consulte a seguinte tabela:
+Enquanto os pontos finais privados estão habilitados para o cofre, eles são usados para backup e restauro de cargas de cargas DE SQL e SAP HANA apenas em um backup de VM e agente MARS Azure. Pode utilizar o cofre para cópias de segurança de outras cargas de trabalho também (no entanto, não exigirão pontos finais privados). Além da cópia de segurança das cargas de trabalho DA SQL e SAP HANA e da cópia de segurança utilizando o agente MARS, os pontos finais privados também são utilizados para realizar a recuperação de ficheiros para a cópia de segurança do Azure VM. Para mais informações, consulte a seguinte tabela:
 
 | Backup de cargas de trabalho em Azure VM (SQL, SAP HANA), Backup usando o Agente MARS | Recomenda-se a utilização de pontos finais privados para permitir a cópia de segurança e a restauração sem necessidade de permitir a lista de quaisquer IPs/FQDNs para Azure Backup ou Azure Storage a partir das suas redes virtuais. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Identidades geridas permitem que o cofre crie e utilize pontos finais privados. 
 
     ![Alterar o estado de identidade para On](./media/private-endpoints/identity-status-on.png)
 
-1. Alterar o **Estado** para **On** e clicar **Em Guardar**.
+1. Alterar o **Estado** para **On** e selecionar **Guardar**.
 
 1. Um **ID de objeto** é gerado, que é a identidade gerida do cofre.
 
@@ -72,14 +72,14 @@ Também pode utilizar os seus servidores DNS personalizados. Consulte [as altera
 
 Existem duas zonas de DNS obrigatórias que precisam de ser criadas:
 
-- `privatelink.blob.core.windows.net`(para cópias de segurança/restauro de dados)
-- `privatelink.queue.core.windows.net`(para comunicação de serviço)
+- `privatelink.blob.core.windows.net` (para cópias de segurança/restauro de dados)
+- `privatelink.queue.core.windows.net` (para comunicação de serviço)
 
 1. Procure por **Private DNS Zone** na barra de pesquisa **de todos os serviços** e selecione **a zona de DNS privada** da lista de drop-down.
 
     ![Selecione zona privada de DNS](./media/private-endpoints/private-dns-zone.png)
 
-1. Uma vez no painel **de zonas DNS privados,** clique no botão **+Adicionar** para começar a criar uma nova zona.
+1. Uma vez no painel **de zonas DNS privados,** selecione o botão **+Adicionar** para começar a criar uma nova zona.
 
 1. No painel **de zona privada do DNS Create,** preencha os detalhes necessários. A subscrição deve ser a mesma do local onde o ponto final privado será criado.
 
@@ -90,7 +90,7 @@ Existem duas zonas de DNS obrigatórias que precisam de ser criadas:
 
     | **Zona**                           | **Serviço** | **Detalhes do Grupo de Assinatura e Recursos (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: O mesmo que onde é necessário criar um ponto final privado **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
+    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: O mesmo que onde é necessário criar um ponto final privado  **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
     | `privatelink.queue.core.windows.net` | Fila       | **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
 
     ![Criar zona privada de DNS](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Se desejar criar uma zona de DNS privada separada em Azure, pode fazer o mesmo u
 
 | **Zona**                                                     | **Serviço** | **Detalhes do Grupo de Assinatura e Recursos**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota:** *geo* aqui refere-se ao código da região. Por exemplo, *wcus* e *ne* para os EUA e a Europa do Norte, respectivamente. | Backup      | **Assinatura**: O mesmo que o Ponto Final Privado precisa de ser criado **RG**: Qualquer RG dentro da subscrição |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota:** *geo* aqui refere-se ao código da região. Por exemplo, *wcus* e *ne* para os EUA e a Europa do Norte, respectivamente. | Cópia de segurança      | **Assinatura**: O mesmo que o Ponto Final Privado precisa de ser criado  **RG**: Qualquer RG dentro da subscrição |
 
 Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para obter códigos de região.
 
@@ -119,7 +119,7 @@ Para as convenções de nomeação de URL nas regiões nacionais:
 
 As zonas DNS criadas acima devem agora estar ligadas à rede virtual onde os seus servidores devem ser apoiados. Isto tem de ser feito para todas as zonas DNS que criou.
 
-1. Vá à sua zona DE DNS (que criou no passo anterior) e navegue para **links de rede Virtual** na barra esquerda. Uma vez lá, clique no botão **+Adicionar**
+1. Vá à sua zona DE DNS (que criou no passo anterior) e navegue para **links de rede Virtual** na barra esquerda. Uma vez lá, selecione o botão **+Adicionar**
 1. Preencha os detalhes necessários. Os campos **de subscrição** e **rede Virtual** devem ser preenchidos com os detalhes correspondentes da rede virtual onde os seus servidores existem. Os outros campos devem ser deixados como estão.
 
     ![Adicionar link de rede virtual](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Recomendamos que conceda o papel **de Contribuinte** para esses três grupos de 
 
     ![Adicionar uma atribuição de função](./media/private-endpoints/add-role-assignment.png)
 
-1. No painel de atribuição de **funções Add,** escolha **o Contribuinte** como **Função,** e use o **Nome** do cofre como **Principal**. Selecione o seu cofre e clique em **Guardar** quando terminar.
+1. No painel de atribuição de **funções Add,** escolha **o Contribuinte** como **Função,** e use o **Nome** do cofre como **Principal**. Selecione o seu cofre e selecione **Guarde** quando terminar.
 
     ![Escolha o papel e o principal](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ Esta secção descreve o processo de criação de um ponto final privado para o 
 
     ![Pesquisa por Link Privado](./media/private-endpoints/search-for-private-link.png)
 
-1. Na barra de navegação à esquerda, clique em **Private Endpoints**. Uma vez no painel **Private Endpoints,** clique **em +Adicionar** para começar a criar um Ponto Final Privado para o seu cofre.
+1. Na barra de navegação à esquerda, selecione **Private Endpoints**. Uma vez no painel **Private Endpoints,** selecione **+Adicione** para começar a criar um Ponto Final Privado para o seu cofre.
 
     ![Adicione ponto final privado no Private Link Center](./media/private-endpoints/add-private-endpoint.png)
 
@@ -169,13 +169,13 @@ Esta secção descreve o processo de criação de um ponto final privado para o 
 
         ![Preencha o separador recursos](./media/private-endpoints/resource-tab.png)
 
-    1. **Configuração**: Na configuração, especifique a rede virtual e a sub-rede onde pretende que o ponto final privado seja criado. Este seria o Vnet onde o VM está presente. Pode optar por **integrar o seu ponto final privado** com uma zona privada de DNS. Alternadamente, também pode utilizar o seu servidor DNS personalizado ou criar uma zona de DNS privada.
+    1. **Configuração**: Na configuração, especifique a rede virtual e a sub-rede onde pretende que o ponto final privado seja criado. Este será o Vnet onde o VM está presente. Pode optar por **integrar o seu ponto final privado** com uma zona privada de DNS. Alternadamente, também pode utilizar o seu servidor DNS personalizado ou criar uma zona de DNS privada.
 
         ![Preencha o separador configuração](./media/private-endpoints/configuration-tab.png)
 
     1. Opcionalmente, pode adicionar **Tags** para o seu ponto final privado.
 
-    1. Proceda a **Rever + criar** uma vez feito a introdução de detalhes. Quando a validação estiver concluída, clique em **Criar** para criar o ponto final privado.
+    1. Continue a **rever + criar** uma vez feito a introdução de detalhes. Quando a validação estiver concluída, selecione **Criar** para criar o ponto final privado.
 
 ## <a name="approving-private-endpoints"></a>Aprovação de pontos finais privados
 
@@ -200,7 +200,7 @@ Uma vez criada a zona privada opcional de DNS e os pontos finais privados para o
 
 Isto requer que você faça entradas para cada FQDN no seu ponto final privado na sua Zona Privada de DNS.
 
-1. Vá à sua **zona privada de DNS** e navegue para a opção **Overview** na barra esquerda. Uma vez lá, clique **em +Record definido** para começar a adicionar registos.
+1. Vá à sua **zona privada de DNS** e navegue para a opção **Overview** na barra esquerda. Uma vez lá, selecione **+Record definido** para começar a adicionar registos.
 
     ![Selecione +Conjunto de recordes para adicionar registos](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ Resposta JSON:
 
 A Identidade Gerida para o cofre necessita de ter as seguintes permissões no grupo de recursos e na rede virtual onde serão criados os pontos finais privados:
 
-- `Microsoft.Network/privateEndpoints/*`Isto é necessário para executar CRUD em pontos finais privados no grupo de recursos. Deve ser atribuído ao grupo de recursos.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`Isto é necessário na rede virtual onde o IP privado está a ser anexado ao ponto final privado.
-- `Microsoft.Network/networkInterfaces/read`Isto é necessário no grupo de recursos para obter a interface de rede criada para o ponto final privado.
+- `Microsoft.Network/privateEndpoints/*` Isto é necessário para executar CRUD em pontos finais privados no grupo de recursos. Deve ser atribuído ao grupo de recursos.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` Isto é necessário na rede virtual onde o IP privado está a ser anexado ao ponto final privado.
+- `Microsoft.Network/networkInterfaces/read` Isto é necessário no grupo de recursos para obter a interface de rede criada para o ponto final privado.
 - Função contribuinte privada da zona de DNS Esta função já existe e pode ser usada para fornecer `Microsoft.Network/privateDnsZones/A/*` e `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` permissões.
 
 Pode utilizar um dos seguintes métodos para criar funções com permissões necessárias:
@@ -497,7 +497,7 @@ Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual.
 
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
+| `privatelink.<geo>.backup.windowsazure.com`      | Cópia de segurança      |
 | `privatelink.blob.core.windows.net`                            | Blob        |
 | `privatelink.queue.core.windows.net`                           | Fila       |
 
@@ -552,7 +552,7 @@ P. Tentei proteger um objeto para o meu cofre, mas falhou e o cofre ainda não c
 A. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
 
 P. Tenho um cofre que está a usar pontos finais privados para reforços e restauros. Posso adicionar ou remover mais tarde pontos finais privados para este cofre, mesmo que eu tenha itens de reserva protegidos?<br>
-A. Yes. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
+A. Sim. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
 
 P. O ponto final privado do Azure Backup também pode ser usado para a recuperação do local de Azure?<br>
 A. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.
@@ -566,6 +566,6 @@ A. Sim, podes usar os teus próprios servidores DNS. No entanto, certifique-se d
 P. Preciso de fazer mais passos no meu servidor depois de ter seguido o processo neste artigo?<br>
 A. Depois de seguir o processo detalhado neste artigo, não precisa de fazer trabalho adicional para usar pontos finais privados para fazer backup e restauro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

@@ -3,12 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611743"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654825"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -378,7 +378,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Mapeamento da rede** | Para a recuperação de desastres em Azure VM, pode agora utilizar qualquer rede alvo disponível quando ativar a replicação.
-**SSD Standard** | Pode agora configurar a recuperação de desastres para os VMs Azure utilizando [discos SSD standard](../virtual-machines/windows/disks-types.md#standard-ssd).
+**SSD Standard** | Pode agora configurar a recuperação de desastres para os VMs Azure utilizando [discos SSD standard](../virtual-machines/disks-types.md#standard-ssd).
 **Direto de Espaços de Armazenamento** | Pode configurar a recuperação de desastres para aplicações em execução em aplicações Azure VM, utilizando [espaços de armazenamento direto](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para uma alta disponibilidade.  A utilização de espaços de armazenamento diretos (S2D) juntamente com a Recuperação do Local proporciona uma proteção abrangente das cargas de trabalho do Azure VM. O S2D permite-lhe acolher um cluster de hóspedes em Azure. Isto é especialmente útil quando um VM acolhe uma aplicação crítica, como a camada SAP ASCS, o SQL Server ou o servidor de ficheiros scale-out.
 
 

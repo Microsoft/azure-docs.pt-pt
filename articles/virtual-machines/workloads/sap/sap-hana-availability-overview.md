@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035643"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653550"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA alta disponibilidade para máquinas virtuais Azure
 
@@ -60,7 +60,7 @@ O Azure tem diferentes SLAs de disponibilidade para diferentes componentes, como
 
 [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) descreve três SLAs diferentes, para três configurações diferentes:
 
-- Um único VM que utiliza [SSDs premium Azure](../../windows/managed-disks-overview.md) para o disco de SO e todos os discos de dados. Esta opção proporciona um uptime mensal de 99,9%.
+- Um único VM que utiliza [SSDs premium Azure](../../managed-disks-overview.md) para o disco de SO e todos os discos de dados. Esta opção proporciona um uptime mensal de 99,9%.
 - Múltiplos (pelo menos dois) VMs que são organizados num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md). Esta opção proporciona um uptime mensal de 99,95 por cento.
 - Múltiplos (pelo menos dois) VMs que são organizados numa [Zona de Availablity](../../../availability-zones/az-overview.md). Esta opção proporcionou um aumento mensal de 99,99%.
 

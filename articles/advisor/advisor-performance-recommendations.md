@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257456"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653312"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -51,32 +51,32 @@ O Advisor identifica máquinas virtuais com discos standard que têm um elevado 
 
 O Azure Premium Storage oferece suporte de disco de alto desempenho e baixa latência para máquinas virtuais que executam cargas de trabalho intensivas de I/O. Os discos de máquinas virtuais que utilizam contas premium de armazenamento armazenam dados em unidades de estado sólido (SSDs). Para obter o melhor desempenho para a sua aplicação, recomendamos que migrar quaisquer discos de máquinas virtuais que exijam um elevado IOPS para Armazenamento Premium.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Remova o distorção de dados nas tabelas do Armazém de Dados SQL para aumentar o desempenho da consulta
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Remova o enviesamento de dados nas suas tabelas Azure Synapse Analytics para aumentar o desempenho da consulta
 
 A distorção de dados pode causar movimentos de dados desnecessários ou estrangulamentos de recursos quando executar a sua carga de trabalho. O consultor deteta dados de distribuição superiores a 15%. Recomenda que redistribua os seus dados e revisite as seleções das chaves de distribuição da sua mesa. Para saber mais sobre a identificação e remoção de distorções, consulte [a resolução de problemas.](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Crie ou atualize estatísticas de tabelas desatualizadas nas tabelas do Armazém de Dados SQL para aumentar o desempenho da consulta
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Crie ou atualize estatísticas de tabelas desatualizadas nas tabelas Azure Synapse Analytics para aumentar o desempenho da consulta
 
-O advisor identifica tabelas que não têm estatísticas atualizadas de [tabelas](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) e recomenda a criação ou atualização das estatísticas. O otimizador de consultas no Azure SQL Data Warehouse utiliza estatísticas atualizadas para estimar a cardinalidade ou o número de linhas nos resultados da consulta. Estas estimativas permitem ao otimizador de consultas criar um plano de consulta para fornecer o desempenho mais rápido.
+O advisor identifica tabelas que não têm estatísticas atualizadas de [tabelas](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) e recomenda a criação ou atualização das estatísticas. O otimizador de consultas no Azure Synapse Analytics utiliza estatísticas atualizadas para estimar a cardinalidade ou o número de linhas nos resultados da consulta. Estas estimativas permitem ao otimizador de consultas criar um plano de consulta para fornecer o desempenho mais rápido.
 
 ## <a name="improve-mysql-connection-management"></a>Melhorar a gestão das ligações MySQL
 
 A análise do conselho pode indicar que a sua aplicação conectada a um servidor MySQL pode não estar a gerir as ligações de forma eficiente. Esta condição poderia conduzir a um consumo desnecessário de recursos e a uma maior latência da aplicação. Para melhorar a gestão das ligações, recomendamos que reduza o número de ligações de curta duração e elimine as ligações inativas desnecessárias. Pode efetá-las configurando um pooler de ligação do lado do servidor, como o ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Dimensione para otimizar a utilização de cache nas suas tabelas sql Data Warehouse para aumentar o desempenho da consulta
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Dimensione para otimizar a utilização de cache nas suas tabelas Azure Synapse Analytics para aumentar o desempenho da consulta
 
-O Azure Advisor deteta se as suas tabelas SQL Data Warehouse têm uma elevada percentagem de cache e uma percentagem baixa de impacto. Esta condição indica um despejo de cache elevado, o que pode afetar o desempenho da sua instância SQL Data Warehouse. O Advisor recomenda que este escalone a sua instância SQL Data Warehouse para garantir que aloque capacidade de cache suficiente para a sua carga de trabalho.
+O Azure Advisor deteta se as suas tabelas Azure Synapse Analytics têm uma alta percentagem de cache e uma percentagem baixa de impacto. Esta condição indica um despejo de cache elevado, o que pode afetar o desempenho da sua instância Azure Synapse Analytics. O Advisor recomenda que este escale o seu exemplo Azure Synapse Analytics para garantir que aloque capacidade de cache suficiente para a sua carga de trabalho.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Converter tabelas de Armazém de Dados SQL em tabelas replicadas para aumentar o desempenho da consulta
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Converter as tabelas Azure Synapse Analytics em tabelas replicadas para aumentar o desempenho da consulta
 
 O conselheiro identifica tabelas que não são tabelas replicadas, mas que beneficiariam da conversão. Sugere que converta estas mesas. As recomendações baseiam-se em:
 - O tamanho da mesa replicada. 
 - O número de colunas. 
 - O tipo de distribuição de mesa. 
-- O número de divisórias na tabela SQL Data Warehouse. 
+- O número de divisórias na tabela Azure Synapse Analytics. 
 
-Podem ser fornecidas heurísticas adicionais na recomendação de contexto. Para saber mais sobre como esta recomendação é determinada, consulte [as recomendações do SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Podem ser fornecidas heurísticas adicionais na recomendação de contexto. Para saber mais sobre como esta recomendação é determinada, consulte [as recomendações da Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migrar a sua conta de armazenamento para o Azure Resource Manager para obter as mais recentes funcionalidades do Azure
 
