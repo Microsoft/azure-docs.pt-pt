@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: Chave de partição sintética
           href: synthetic-partition-keys.md
-    - name: Débito aprovisionado
+    - name: Capacidade
       items:
         - name: Unidades de pedidos
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Introdução ao débito aprovisionado
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: Aprovisionar débito de dimensionamento automático
-          href: provision-throughput-autoscale.md
-        - name: Escolher entre dimensionamento automático e débito (manual) padrão
-          href: how-to-choose-offer.md
-        - name: FAQ sobre dimensionamento automático
-          href: autoscale-faq.md
+        - name: Débito aprovisionado
+          items:
+            - name: Introdução ao débito aprovisionado
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: Aprovisionar débito de dimensionamento automático
+              href: provision-throughput-autoscale.md
+            - name: Escolher entre dimensionamento automático e débito (manual) padrão
+              href: how-to-choose-offer.md
+            - name: FAQ sobre dimensionamento automático
+              href: autoscale-faq.md
+        - name: Sem servidor
+          href: serverless.md
+        - name: Escolha entre débito aprovisionado e um modelo sem servidor
+          href: throughput-serverless.md
     - name: Consulta SQL
       items:
         - name: Introdução
@@ -238,6 +244,9 @@
                     - name: DateTimeToTicks
                       displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
                       href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
                     - name: GetCurrentDateTime
                       displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
                       href: sql-query-getcurrentdatetime.md
@@ -247,6 +256,12 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
                 - name: Funções matemáticas
                   items:
                     - name: Funções matemáticas
@@ -953,26 +968,28 @@
           href: how-to-manage-conflicts.md
         - name: Converter formato de tokens de sessão
           href: how-to-convert-session-token.md
-    - name: Débito aprovisionado
+    - name: Capacidade
       items:
-        - name: Aprovisionar débito (manual) padrão num contentor
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: Aprovisionar débito (manual) padrão numa base de dados
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: Aprovisionar débito de dimensionamento automático numa base de dados ou num contentor
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Estimar RU/s com o planeador de capacidade Cosmos
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: Encontrar cobranças de unidades de pedido
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Dimensionar com o temporizador das Funções do Azure
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: Débito aprovisionado
+          items:
+            - name: Aprovisionar débito (manual) padrão num contentor
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: Aprovisionar débito (manual) padrão numa base de dados
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: Aprovisionar débito de dimensionamento automático numa base de dados ou num contentor
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Estimar RU/s com o planeador de capacidade Cosmos
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Dimensionar com o temporizador das Funções do Azure
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: Trabalhar com contentores e itens
       items:
         - name: Trabalhar com dados do Cosmos DB
