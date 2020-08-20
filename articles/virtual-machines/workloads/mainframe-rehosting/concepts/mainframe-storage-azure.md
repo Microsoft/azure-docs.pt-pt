@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042588"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652853"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento do computador principal para Azure
 
@@ -45,7 +45,7 @@ As opções de infraestrutura azul como serviço[(IaaS)](https://azure.microsoft
 
 A Microsoft oferece petabytes de armazenamento para aplicações hospedadas no Azure, e tem várias opções de armazenamento. Estes variam desde o armazenamento SSD para alto desempenho até armazenamento de blob de baixo custo para armazenamento em massa e arquivos. Além disso, o Azure fornece uma opção de redundância de dados para armazenamento - algo que requer mais esforço para se configurar em um ambiente mainframe.
 
-O armazenamento Azure está disponível como [Azure Disks](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)e [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md) como resume a tabela seguinte. Saiba mais sobre [quando usar cada um.](../../../../storage/common/storage-introduction.md)
+O armazenamento Azure está disponível como [Azure Disks](../../../managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)e [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md) como resume a tabela seguinte. Saiba mais sobre [quando usar cada um.](../../../../storage/common/storage-introduction.md)
 
 <!-- markdownlint-disable MD033 -->
 
@@ -108,7 +108,7 @@ O armazenamento de blob fornece o maior volume de armazenamento em Azure. Além 
 - [Rehosagem de mainframe em Máquinas Virtuais Azure](../overview.md)
 - [Mover o computador principal para Azure](mainframe-compute-Azure.md)
 - [Decidir quando usar Azure Blobs, Ficheiros Azure ou Discos Azure](../../../../storage/common/storage-introduction.md)
-- [Discos geridos standard SSD para cargas de trabalho Azure VM](../../../windows/disks-types.md#standard-ssd)
+- [Discos geridos standard SSD para cargas de trabalho Azure VM](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Recursos IBM
 

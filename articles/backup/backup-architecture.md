@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835736"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652785"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -94,10 +94,10 @@ A tabela a seguir resume as funcionalidades suportadas para os diferentes tipos 
 
 **Funcionalidade** | **Cópia de segurança direta de ficheiros e pastas (utilizando o agente MARS)** | **Azure VM Backup** | **Máquinas ou aplicativos com DPM/MABS**
 --- | --- | --- | ---
-De volta ao cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Voltar para o disco DPM/MABS e depois para Azure | | | ![Sim][green]
-Dados de comprimir enviados para cópia de segurança | ![Sim][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Sim][green]
-Executar backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
+De volta ao cofre | ![Yes][green] | ![Yes][green] | ![Yes][green]
+Voltar para o disco DPM/MABS e depois para Azure | | | ![Yes][green]
+Dados de comprimir enviados para cópia de segurança | ![Yes][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Yes][green]
+Executar backup incremental |![Yes][green] |![Yes][green] |![Yes][green]
 Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para servidores DPM/MABS implantados apenas no local.
 
 ![Chave de mesa](./media/backup-architecture/table-key.png)
@@ -193,9 +193,8 @@ Os VMs Azure usam discos para armazenar o seu sistema operativo, aplicações e 
 
 Para obter mais informações sobre o armazenamento de discos e os tipos de discos disponíveis para VMs, consulte estes artigos:
 
-- [Discos geridos Azure para VMs windows](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure geriu discos para Os VMs Linux](../virtual-machines/linux/managed-disks-overview.md)
-- [Tipos de disco disponíveis para VMs](../virtual-machines/windows/disks-types.md)
+- [Azure geriu discos para Os VMs Linux](../virtual-machines/managed-disks-overview.md)
+- [Tipos de disco disponíveis para VMs](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Recue e restaure os VMs Azure com armazenamento premium
 
@@ -204,7 +203,7 @@ Pode apoiar os VMs Azure utilizando armazenamento premium com Azure Backup:
 - Durante o processo de backup de VMs com armazenamento premium, o serviço Backup cria uma localização de preparação temporária, chamada *AzureBackup-* na conta de armazenamento. O tamanho do local de paragem é igual ao tamanho do instantâneo do ponto de recuperação.
 - Certifique-se de que a conta de armazenamento premium dispõe de espaço livre adequado para acomodar o local de paragem temporária. Para obter mais informações, consulte [os alvos de Escalaability para contas de armazenamento de blob de página premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de paragem.
 - Após o fim do trabalho de reserva, o local de paragem é apagado.
-- O preço de armazenamento utilizado para a localização de localização é consistente com [o preço de armazenamento premium.](../virtual-machines/windows/disks-types.md#billing)
+- O preço de armazenamento utilizado para a localização de localização é consistente com [o preço de armazenamento premium.](../virtual-machines/disks-types.md#billing)
 
 Quando restaurar os VMs Azure utilizando um armazenamento premium, pode restaurá-los para armazenamento premium ou padrão. Normalmente, restabelecê-los-ias para armazenamento premium. Mas se precisar apenas de um subconjunto de ficheiros do VM, pode ser rentável restaurá-los para o armazenamento padrão.
 

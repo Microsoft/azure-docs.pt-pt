@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090761"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652581"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -57,11 +57,23 @@ A.  Para obter informações sobre quais os países/regiões disponíveis a Caix
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>P. Em que regiões posso armazenar dados com o Data Box?
 A. A Data Box é apoiada para todas as regiões dos EUA, Europa Ocidental, Norte da Europa, França, Reino Unido, Japão, Austrália e Canadá. Para mais informações, aceda à [disponibilidade da Região.](data-box-overview.md#region-availability)
 
+### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>P. Como posso importar os meus dados de origem no local para uma região de Azure num país/região diferente ou dados de exportação de uma região de Azure num país para um país/região diferente?
+
+A Data Box suporta a ingestão de dados ou a saída apenas no mesmo país/região que o seu destino e não atravessará quaisquer fronteiras internacionais. A única exceção é para encomendas na União Europeia (UE), onde as caixas de dados podem enviar de e para qualquer país/região da UE.
+
+Por exemplo, no cenário de importação, se tivesse dados no Local no Canadá que quisesse mudar-se para uma conta de armazenamento Azure WestUS, então poderia alcançá-lo da seguinte forma:
+
+1. Encomende a Data Box no Canadá escolhendo uma conta de armazenamento em Cananda. O dispositivo é enviado de um datacenter Azure no Canadá para o endereço de envio (no Canadá) fornecido durante a criação da encomenda.
+
+2. Uma vez feita a cópia de dados on-prem para a Caixa de Dados, devolva o dispositivo ao centro de dados Azure no Canadá. Os dados presentes na Caixa de Dados são depois enviados para a conta de armazenamento de destino na região do Canadá Azure escolhida durante a criação de encomendas.
+
+3. Em seguida, pode utilizar uma ferramenta como a AzCopy para copiar os dados para uma conta de armazenamento em WestUS . Este passo incorre em [custos de armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) e [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) que não estão incluídos na faturação da Caixa de Dados.
+
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>P. Quem devo contactar se me deparar com problemas com o Data Box?
 A. Se se deparar com problemas com o Data Box, contacte o [Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>P. Perdi a minha Caixa de Dados. Há uma carga de dispositivo perdida?
-A. Yes. Há uma carga do dispositivo perdida ou danificada. Esta taxa está abrangida pela [página de preços,](https://azure.microsoft.com/pricing/details/storage/databox/) bem como nos [Termos de Serviço do Produto.](https://www.microsoft.com/licensing/product-licensing/products)
+A. Sim. Há uma carga do dispositivo perdida ou danificada. Esta taxa está abrangida pela [página de preços,](https://azure.microsoft.com/pricing/details/storage/databox/) bem como nos [Termos de Serviço do Produto.](https://www.microsoft.com/licensing/product-licensing/products)
 
 
 ## <a name="order-device"></a>Encomendar dispositivo
@@ -94,16 +106,16 @@ A. Pode clonar a encomenda anterior. A clonagem cria a mesma encomenda e permite
 A.  No portal do Azure, aceda à encomenda do Data Box e navegue para **Detalhes do dispositivo**. Copie a palavra-passe de bloqueio. Utilize-a para iniciar sessão na IU da Web no seu Data Box. Para obter mais informações, aceda a [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md) (Tutorial: Desempacotar, ligar os cabos e ligar o Azure Data Box).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>P. Posso utilizar um computador anfitrião Linux para ligar e copiar os dados para os discos do Data Box?
-A.  Yes. Pode utilizar o Data Box para ligar a clientes SMB e NFS. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-system-requirements.md) do seu computador anfitrião.
+A.  Sim. Pode utilizar o Data Box para ligar a clientes SMB e NFS. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-system-requirements.md) do seu computador anfitrião.
 
 ### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. O meu Data Box foi enviado, mas quero cancelar esta encomenda. Por que é que o botão de cancelamento não está disponível?
 A.  Só pode cancelar a encomenda depois de o Data Box ter sido encomendado e antes de a encomenda ser processada. Assim que a encomenda for processada, já não a pode cancelar. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>P. Posso ligar um dispositivo Data Box a vários computadores anfitriões para transferir dados?
-A. Yes. É possível ligar vários computadores anfitriões ao Data Box para transferir dados e podem ser executados múltiplos trabalhos de cópia em paralelo. Para obter mais informações, aceda a [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box).
+A. Sim. É possível ligar vários computadores anfitriões ao Data Box para transferir dados e podem ser executados múltiplos trabalhos de cópia em paralelo. Para obter mais informações, aceda a [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box).
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>P. Posso ligar-me às duas interfaces de 10 GbE na Caixa de Dados para transferir dados?
-A. Yes. Ambas as interfaces de 10 GbE podem ser ligadas na Caixa de Dados para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, aceda ao [Tutorial: Copie os dados para a Caixa de Dados Azure](data-box-deploy-copy-data.md).
+A. Sim. Ambas as interfaces de 10 GbE podem ser ligadas na Caixa de Dados para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, aceda ao [Tutorial: Copie os dados para a Caixa de Dados Azure](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -172,7 +184,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>P. Posso utilizar várias contas de armazenamento com o Data Box?
-A.  Yes. O Data Box suporta um máximo de dez contas de armazenamento, sejam de fins gerais, clássicas ou de blobs. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. 
+A.  Sim. O Data Box suporta um máximo de dez contas de armazenamento, sejam de fins gerais, clássicas ou de blobs. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. 
 
 
 ## <a name="ship-device"></a>Enviar dispositivo
@@ -183,7 +195,7 @@ A.  Yes. O Data Box suporta um máximo de dez contas de armazenamento, sejam de 
 A. Se o dispositivo foi entregue danificado ou se houver provas de adulteração, não o utilize. [Contacte o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) e devolva o dispositivo o mais depressa possível. Também pode criar uma encomenda do Data Box nova para substituir o dispositivo. Nesse caso, o dispositivo de substituição não lhe é cobrado.
 
 ### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>P. Posso pegar o meu pedido de caixa de dados? Posso devolver a Caixa de Dados através de um porta-aviões que escolho?
-A. Yes. A Microsoft também oferece envios auto-geridos. Ao fazer a encomenda caixa de dados, pode escolher a opção de envio auto-gerida. Para obter mais informações, consulte [o envio gerido por Self para a Caixa de Dados.](data-box-portal-customer-managed-shipping.md)
+A. Sim. A Microsoft também oferece envios auto-geridos. Ao fazer a encomenda caixa de dados, pode escolher a opção de envio auto-gerida. Para obter mais informações, consulte [o envio gerido por Self para a Caixa de Dados.](data-box-portal-customer-managed-shipping.md)
 
 ### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>P. Os meus dispositivos data box atravessarão as fronteiras país/região durante o transporte?
 A. Todos os dispositivos Data Box são enviados de dentro do mesmo país/região que o seu destino e não atravessarão nenhuma fronteira internacional. A única exceção é para encomendas na União Europeia (UE), onde os dispositivos podem embarcar de e para qualquer país/região da UE. Isto aplica-se tanto à Caixa de Dados como aos dispositivos Data Box Heavy.
@@ -205,7 +217,7 @@ A.  Durante o transporte, os dados são protegidos pelas seguintes funcionalidad
 Para obter mais informações, aceda a [Data Box security features](data-box-security.md) (Funcionalidades de segurança do Data Box).  
 
 ### <a name="q-i-have-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Terminei preparar-me para o envio para a minha ordem de importação e desligar o dispositivo. Posso continuar a adicionar mais dados ao Data Box?
-A. Yes. Pode ligar o dispositivo e adicionar mais dados. Quando concluir a cópia dos dados, tem de **Preparar o Envio** outra vez.
+A. Sim. Pode ligar o dispositivo e adicionar mais dados. Quando concluir a cópia dos dados, tem de **Preparar o Envio** outra vez.
 
 ### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi o meu dispositivo e não está a arrancar? Como envio o dispositivo de volta?
 A. Se o seu dispositivo não estiver a arrancar, vá ao seu pedido no portal Azure. Faça o download de uma etiqueta de envio e afixe-a no dispositivo. Para obter mais informações, aceda a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Transferir a guia de remessa).

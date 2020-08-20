@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844478"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652643"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para a aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Para ativar estes componentes no seu ambiente de Caderno Jupyter:
     conda activate myenv
     ```
 
-1. Clone [o repositório gitHub](https://aka.ms/aml-notebooks) para um conjunto de cadernos de amostras.
+1. Clone [o repositório gitHub](https://github.com/Azure/MachineLearningNotebooks) para um conjunto de cadernos de amostras.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -303,7 +303,7 @@ Uma vez que o cluster esteja em funcionamento, [crie uma biblioteca](https://doc
 
 1. Escolha **apenas uma** opção (nenhuma outra instalação SDK está suportada)
 
-   |&nbsp;Extras de pacote &nbsp; SDK|Fonte|&nbsp;Nome PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Extras de pacote &nbsp; SDK|Origem|&nbsp;Nome PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Upload Python Egg ou PyPI | azureml-sdk[databricks]|
    |Para databricks -com...<br> capacidades ML automatizadas| Upload Python Egg ou PyPI | azureml-sdk[automl]|
@@ -323,8 +323,8 @@ Uma vez que o cluster esteja em funcionamento, [crie uma biblioteca](https://doc
 
    Considere também:
    + Em configurar AutoML, ao utilizar a Azure Databricks adicione os seguintes parâmetros:
-       1. ```max_concurrent_iterations```baseia-se no número de nós de trabalhadores no seu agrupamento.
-        2. ```spark_context=sc```baseia-se no contexto de faísca padrão.
+       1. ```max_concurrent_iterations``` baseia-se no número de nós de trabalhadores no seu agrupamento.
+        2. ```spark_context=sc``` baseia-se no contexto de faísca padrão.
    + Ou, se tiver uma versão antiga do SDK, desmarca-a das libs instaladas do cluster e muda-se para o lixo. Instale a nova versão SDK e reinicie o cluster. Se houver algum problema após o reinício, retire-se e recoloque o seu cluster.
 
 Se a instalação tiver sido bem sucedida, a biblioteca importada deve parecer uma destas:
@@ -361,9 +361,9 @@ Para utilizar este ficheiro a partir do seu código, utilize `ws=Workspace.from_
 
 Pode criar o ficheiro de configuração de três formas:
 
-* **Utilize [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um *config.jsno* ficheiro. O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.jsem* outros ambientes de desenvolvimento.
+* **Utilize  [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um *config.jsno* ficheiro. O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.jsem* outros ambientes de desenvolvimento.
 
-* **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
+* **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
 
      ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 

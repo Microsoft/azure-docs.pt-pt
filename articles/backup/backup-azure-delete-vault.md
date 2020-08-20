@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257949"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652836"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -18,7 +18,7 @@ Este artigo descreve como apagar um cofre dos Serviços de Recuperação [de Bac
 
 Não pode eliminar um cofre dos Serviços de Recuperação com qualquer uma das seguintes dependências:
 
-- Não é possível apagar um cofre que contenha fontes de dados protegidas (por exemplo, IaaS VMs, bases de dados SQL, partilhas de ficheiros Azure, etc.)  
+- Não é possível apagar um cofre que contenha fontes de dados protegidas (por exemplo, IaaS VMs, bases de dados SQL, partilhas de ficheiros Azure).
 - Não é possível apagar um cofre que contenha dados de reserva. Depois de eliminar os dados em cópia de segurança, entrará no estado de eliminação recuperável.
 - Não é possível apagar um cofre que contenha dados de backup no estado de eliminação suave.
 - Não se pode apagar um cofre que tenha contas de armazenamento registadas.
@@ -45,7 +45,7 @@ Para eliminar corretamente um cofre, deve seguir os passos desta ordem:
   - **Itens protegidos em nuvem**: Vá ao menu do painel de abóbadas > **itens de reserva**. Todos os itens listados aqui devem ser removidos com **Backup stop** ou **eliminar dados de backup,** juntamente com os seus dados de cópia de segurança.  [Siga estes passos](#delete-protected-items-in-the-cloud) para remover estes itens.
   - **Sql Server instance**: Vá ao menu do painel de abóbadas > Servidores Protegidos de **Infraestruturas**de Reserva  >  **Protected Servers**. Em Servidores Protegidos, selecione o servidor para não registar. Para apagar o cofre, tem de não registar todos os servidores. Clique com o botão direito no servidor protegido e selecione **Unregister**.
   - **Servidores protegidos por MARS**: Vá ao menu do painel de abóbadas > servidores protegidos por **infraestruturas**de backup  >  **Protected Servers**. Se tiver servidores protegidos pela MARS, todos os itens listados aqui devem ser eliminados juntamente com os seus dados de cópia de segurança. [Siga estes passos](#delete-protected-items-on-premises) para eliminar servidores protegidos pela MARS.
-   - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure**Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
+  - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure**Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
 
 - **Passo 4**: Deve assegurar-se de que todas as contas de armazenamento registadas são eliminadas. Aceda ao menu do painel de abóbadas > Contas de Armazenamento **de Infraestruturas de Backup**  >  **Storage Accounts**. Se tem contas de armazenamento listadas aqui, então deve não registar todas. Para aprender a desregistralmente da conta, consulte [Não registar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -234,7 +234,7 @@ Para parar a proteção e eliminar os dados de cópia de segurança:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Posto onde aparece o seguinte pedido:
+    Posteriormente, aparecerá o seguinte pedido:
 
     *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados. <br/> [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*
 
@@ -244,7 +244,7 @@ Para parar a proteção e eliminar os dados de cópia de segurança:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Posto onde aparece o seguinte pedido:
+    Posteriormente, aparecerá o seguinte pedido:
 
    *Backup microsoft Azure* Tem a certeza de que pretende remover esta política de reserva? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/>
    [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*

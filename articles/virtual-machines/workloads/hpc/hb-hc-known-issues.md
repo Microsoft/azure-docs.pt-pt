@@ -10,18 +10,19 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: e85ae50321b9aa034f6a6d2cadcc329a24dafa62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.reviewer: cynthn
+ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500023"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652870"
 ---
-# <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas conhecidos relacionados com a série HB e as VMs da série HC
+# <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos relacionados com as VMs da série H e série N
 
-Este artigo fornece as questões e soluções mais comuns ao utilizar vMs da série HB e da série HC.
+Este artigo fornece as questões e soluções mais comuns ao utilizar os VMs da [série H](../../sizes-hpc.md) e da [série N.](../../sizes-gpu.md)
 
 ## <a name="dram-on-hb-series"></a>DRAM na série HB
 
@@ -87,6 +88,15 @@ Pode ver as seguintes mensagens de aviso de núcleo ao iniciar um VM da série H
 
 Pode ignorar este aviso. Isto deve-se a uma conhecida limitação do hipervisor Azure que será abordado ao longo do tempo.
 
-## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [computação de alto desempenho](/azure/architecture/topics/high-performance-computing/) em Azure.
+## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Instalação do controlador InfiniBand em tamanhos VM da série N ativados
+
+NC24r_v3 e ND40r_v2 estão ativados pela SR-IOV, enquanto o NC24r e o NC24r_v2 não estão ativados pela SR-IOV. Alguns detalhes sobre a bifurcação [aqui.](../../sizes-hpc.md#rdma-capable-instances)
+O InfiniBand (IB) pode ser configurado nos tamanhos VM ativados pela SR-IOV com os condutores OFED, enquanto os tamanhos VM não-SR-IOV requerem condutores de ND. Este suporte IB está disponível adequadamente em [VMIs CentOS-HPC](configure.md). Para ubuntu, consulte aqui as [instruções](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para a instalação dos controladores OFED e ND, conforme descrito nos [documentos](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Reveja a [visão geral](hb-series-overview.md) da série HB e [a visão geral da série HC](hc-series-overview.md) para aprender sobre a configuração ideal das cargas de trabalho para desempenho e escalabilidade.
+- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).
