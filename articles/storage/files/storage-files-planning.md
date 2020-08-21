@@ -8,12 +8,12 @@ ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520533"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705916"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -37,7 +37,7 @@ Ao colocar ações de ficheiros Azure em contas de armazenamento, recomendamos:
 
 ## <a name="identity"></a>Identidade
 Para aceder a uma partilha de ficheiros Azure, o utilizador da partilha de ficheiros deve ser autenticado e ter autorização para aceder à partilha. Isto é feito com base na identidade do utilizador que acede à partilha de ficheiros. A Azure Files integra-se com três principais fornecedores de identidade:
-- **No local, serviços de domínio de diretório ativo (DS AD, ou no local AD DS)** (pré-visualização): As contas de armazenamento Azure podem ser unidas a um serviço de domínio de diretório ativo, propriedade do cliente, tal como um servidor de ficheiros do Windows Server ou um dispositivo NAS. Pode implantar um controlador de domínio no local, num VM Azure, ou mesmo como VM em outro fornecedor de nuvem; O Azure Files é agnóstico até onde o seu controlador de domínio está hospedado. Uma vez que uma conta de armazenamento é unida ao domínio, o utilizador final pode montar uma partilha de ficheiro com a conta de utilizador com a qual assinou no seu PC. A autenticação baseada em AD utiliza o protocolo de autenticação Kerberos.
+- **No local Serviços de Domínio de Diretório Ativo (DS AD ou DS no local)**: As contas de armazenamento Azure podem ser unidas a um serviço de domínio de propriedade do cliente, de propriedade do cliente, serviços de domínio de diretório ativo, tal como um servidor de ficheiros do Windows Server ou um dispositivo NAS. Pode implantar um controlador de domínio no local, num VM Azure, ou mesmo como VM em outro fornecedor de nuvem; O Azure Files é agnóstico até onde o seu controlador de domínio está hospedado. Uma vez que uma conta de armazenamento é unida ao domínio, o utilizador final pode montar uma partilha de ficheiro com a conta de utilizador com a qual assinou no seu PC. A autenticação baseada em AD utiliza o protocolo de autenticação Kerberos.
 - **Azure Ative Directory Domain Services (Azure AD DS)**: A azure AD DS fornece um controlador de domínio gerido pela Microsoft que pode ser usado para recursos Azure. O domínio que une a sua conta de armazenamento ao Azure AD DS proporciona benefícios semelhantes ao domínio que o une a um Ative Directory de propriedade do cliente. Esta opção de implementação é mais útil para cenários de elevação e mudança de aplicações que requerem permissões baseadas em AD. Uma vez que a Azure AD DS fornece autenticação baseada em AD, esta opção também utiliza o protocolo de autenticação Kerberos.
 - **Chave da conta de armazenamento Azure**: As ações de ficheiros Azure também podem ser montadas com uma chave de conta de armazenamento Azure. Para montar uma partilha de ficheiros desta forma, o nome da conta de armazenamento é usado como nome de utilizador e a chave da conta de armazenamento é usada como senha. A utilização da chave de conta de armazenamento para montar a partilha de ficheiros Azure é efetivamente uma operação de administrador, uma vez que a partilha de ficheiros montada terá permissões completas em todos os ficheiros e pastas da partilha, mesmo que tenham ACLs. Ao utilizar a chave de conta de armazenamento para montar sobre o SMB, é utilizado o protocolo de autenticação NTLMv2.
 
@@ -45,7 +45,7 @@ Para os clientes que migram de servidores de ficheiros no local ou criam novas a
 
 Se pretender utilizar a chave da conta de armazenamento para aceder às suas ações de ficheiros Azure, recomendamos a utilização de pontos finais de serviço, conforme descrito na secção [Networking.](#networking)
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 As ações de ficheiros Azure estão acessíveis a partir de qualquer lugar através do ponto final público da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de início de súmã de um utilizador, podem ter origem seguramente dentro ou fora de Azure. Em muitos ambientes de clientes, uma montagem inicial da partilha de ficheiros Azure na sua estação de trabalho no local falhará, mesmo que os suportes dos VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que o SMB usa para comunicar, porta 445. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
@@ -87,7 +87,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1bc8a9c06b564282af15d6a6aa53b6fc696857b2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: fdc1f0db956d0f64938b6a0433fda21dc4462ced
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165775"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691331"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma aplicação web core ASP.NET pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -90,8 +90,8 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here`- é o **ID de Aplicação (cliente)** para a aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
-> - `Enter_the_Tenant_Info_Here`- é uma das seguintes opções:
+> - `Enter_the_Application_Id_here` - é o **ID de Aplicação (cliente)** para a aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
+> - `Enter_the_Tenant_Info_Here` - é uma das seguintes opções:
 >   - Se a sua candidatura suporta **contas apenas neste diretório organizacional,** substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino** (por exemplo, contoso.microsoft.com)
 >   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
@@ -148,7 +148,7 @@ A linha que contém `.AddAzureAd` adiciona a autenticação da plataforma de ide
 > |Onde | Descrição |
 > |---------|---------|
 > | ClientId  | Identificação de candidatura (cliente) a partir da aplicação registada no portal Azure. |
-> | Autoridade | O ponto final STS para o utilizador autenticar. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu ID do seu inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |
+> | Autoridade | O ponto final STS para o utilizador autenticar. Normalmente, isto é `https://login.microsoftonline.com/{tenant}/v2.0` para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu ID do seu inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |
 > | TokenValidationParameters | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido para indicar que pode aceitar `false` inscrições de quaisquer contas pessoais, ou de trabalho ou escola. |
 
 
@@ -156,7 +156,7 @@ A linha que contém `.AddAzureAd` adiciona a autenticação da plataforma de ide
 > A `ValidateIssuer = false` definição é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
 > Veja as amostras para entender como fazer isso.
 >
-> Note também o `Configure` método que contém dois métodos importantes: `app.UseCookiePolicy()` e`app.UseAuthentication()`
+> Note também o `Configure` método que contém dois métodos importantes: `app.UseCookiePolicy()` e `app.UseAuthentication()`
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 0c60eb8618568d01af9ec6ad0e3d00fe1332b766
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: cb986f1e0172c4a44381b2f9cf043025cb5abe8a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213019"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705032"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET fornecedor de cache de saída para cache Azure para Redis
 
@@ -57,7 +57,7 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 | *hospedeiro* | string | "Localhost" | O endereço IP do servidor Redis ou o nome de anfitrião |
 | *porto* | inteiro positivo | 6379 (não-TLS/SSL)<br/>6380 (TLS/SSL) | Porta de servidor Redis |
 | *acessoKey* | string | "" | Palavra-passe do servidor Redis quando a autorização do Redis estiver ativada. O valor é de cadeia vazia por padrão, o que significa que o fornecedor do estado da sessão não utilizará nenhuma palavra-passe quando ligar ao servidor Redis. **Se o seu servidor Redis estiver numa rede acessível ao público como a Cache Azure Redis, certifique-se de que ativa a autorização do Redis para melhorar a segurança e fornecer uma senha segura.** |
-| *ssl* | boolean | **falso** | Se ligar ao servidor Redis via TLS. Este valor é **falso** por padrão porque o Redis não suporta tLS fora da caixa. **Se estiver a utilizar o Azure Redis Cache, que suporta sSL fora da caixa, certifique-se de que o define para melhorar a segurança.**<br/><br/>A porta não-TLS é desativada por defeito para novos caches. Especifique **a verdade** para esta definição para utilizar a porta TLS. Para obter mais informações sobre a ativação da porta não-TLS, consulte a secção [Portas de Acesso](cache-configure.md#access-ports) no tópico [Configure um](cache-configure.md) tópico de cache. |
+| *ssl* | boolean | **falso** | Se ligar ao servidor Redis via TLS. Este valor é **falso** por padrão porque o Redis não suporta tLS fora da caixa. **Se estiver a utilizar o Azure Redis Cache, que suporta sSL fora da caixa, certifique-se de que o define para melhorar a segurança.**<br/><br/>A porta não-TLS é desativada por defeito para novos caches. Especifique **a versão verdadeira** para a utilização da porta não-TLS. Para obter mais informações sobre a ativação da porta não-TLS, consulte a secção [Portas de Acesso](cache-configure.md#access-ports) no tópico [Configure um](cache-configure.md) tópico de cache. |
 | *databaseIdNumber* | inteiro positivo | 0 | *Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Especifique qual base de dados Redis utilizar. |
 | *conexãoTimeoutInMiliss* | inteiro positivo | Fornecido por StackExchange.Redis | Usado para definir *ConnectTimeout ao* criar StackExchange.Redis.ConnectionMultiplexer. |
 | *operaçãoTimeoutInMiliss* | inteiro positivo | Fornecido por StackExchange.Redis | Usado para definir *SyncTimeout ao* criar StackExchange.Redis.ConnectionMultiplexer. |

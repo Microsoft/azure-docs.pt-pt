@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606753"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705049"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
-O Marketplace Rewards apoia-o na sua fase específica de crescimento, começando com atividades de sensibilização para o ajudar a obter os seus primeiros clientes. À medida que cresce através do mercado comercial, desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e fechar ofertas.
+O Marketplace Rewards apoia-o na sua fase específica de crescimento, começando com atividades de sensibilização para o ajudar a obter os seus primeiros clientes. À medida que cresces através do mercado comercial da Microsoft, desbloqueias novos benefícios concebidos para te ajudar a converter clientes e fechar ofertas.
 
 O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento ajudam-no a progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como plataforma.
 
-Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](../determine-your-listing-type.md#choose-a-call-to-action)
+Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](../determine-your-listing-type.md#choose-a-listing-option)
 
 Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade.
 
-Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace, desbloqueia maiores benefícios por nível.
+Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace comercial, desbloqueia maiores benefícios por nível.
 
-O requisito mínimo para publicar nas lojas online é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma.
+O requisito mínimo para publicar nas lojas online é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado comercial como plataforma.
 
 Você terá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Consulte [aqui](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)a sua elegibilidade para o programa Marketplace Rewards.
+Para verificar a sua elegibilidade para o programa Marketplace Rewards, consulte a página [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) no Partner Center.
 
 Os seus passos para começar são fáceis:
 

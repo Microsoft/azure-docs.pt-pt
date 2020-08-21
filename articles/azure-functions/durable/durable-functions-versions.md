@@ -3,14 +3,14 @@ title: Visão geral das funções duradouras - Funções Azure
 description: Saiba mais sobre as versões Funções Duradouras.
 author: cgillum
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024729"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705797"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das funções duradouras
 
@@ -44,7 +44,29 @@ Esta secção descreve como migrar a sua versão 1.x Funções Duráveis para a 
 
 ### <a name="upgrade-the-extension"></a>Atualizar a extensão
 
-Instale a versão 2.x da [extensão de ligações de funções duráveis](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) no seu projeto. Consulte [as extensões de ligação do Registo Azure Functions](../functions-bindings-register.md) para obter mais informações.
+Instale a versão mais recente de 2.x da extensão de ligações duráveis no seu projeto.
+
+#### <a name="javascript-and-python"></a>JavaScript e Python
+
+Funções Duradouras 2.x está disponível na versão 2.x do pacote de [extensão Azure Functions](../functions-bindings-register.md#extension-bundles).
+
+Para atualizar a versão do pacote de extensão no seu projeto, abra host.jse atualize a `extensionBundle` secção para utilizar a versão 2.x ( `[2.*, 3.0.0)` ).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+#### <a name="net"></a>.NET
+
+Atualize o seu projeto .NET para utilizar a versão mais recente da extensão de [encadernações de funções duráveis.](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
+
+Consulte [as extensões de ligação do Registo Azure Functions](../functions-bindings-register.md#local-csharp) para obter mais informações.
 
 ### <a name="update-your-code"></a>Atualize o seu código
 
@@ -54,9 +76,9 @@ Funções Duradouras 2.x introduz várias alterações de rutura. As aplicaçõe
 
 Funções Duradouras 2.x utiliza um novo host.jsno esquema. As principais alterações a partir de 1.x incluem:
 
-* `"storageProvider"`(e a `"azureStorage"` subsecção) para a configuração específica do armazenamento.
-* `"tracing"`para a configuração de rastreio e registo.
-* `"notifications"`(e a `"eventGrid"` subsecção) para a configuração da notificação da grelha de eventos.
+* `"storageProvider"` (e a `"azureStorage"` subsecção) para a configuração específica do armazenamento.
+* `"tracing"` para a configuração de rastreio e registo.
+* `"notifications"` (e a `"eventGrid"` subsecção) para a configuração da notificação da grelha de eventos.
 
 Consulte as [Funções Duradouras host.jsna documentação de referência](durable-functions-bindings.md#durable-functions-2-0-host-json) para obter mais detalhes.
 

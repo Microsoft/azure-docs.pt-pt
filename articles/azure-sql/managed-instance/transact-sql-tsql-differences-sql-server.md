@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298452"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705389"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,9 +26,9 @@ Este artigo resume e explica as diferenças de sintaxe e comportamento entre Azu
 
 A SQL Managed Instance fornece alta compatibilidade com o motor de base de dados sql Server, e a maioria das funcionalidades são suportadas numa SqL Managed Instance.
 
-![Migração](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Fácil migração do SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
-Existem algumas limitações paaS que são introduzidas em SQL Managed Instance e algumas mudanças de comportamento em comparação com o SQL Server. As diferenças dividem-se nas seguintes categorias:<a name="Differences"></a>
+Existem algumas limitações paaS que são introduzidas em SQL Managed Instance e algumas mudanças de comportamento em comparação com o SQL Server. As diferenças dividem-se nas seguintes categorias: <a name="Differences"></a>
 
 - [A disponibilidade](#availability) inclui as diferenças em [Grupos de Disponibilidade Sempre e](#always-on-availability-groups) [cópias de segurança.](#backup)
 - [A](#security) segurança inclui as diferenças na [auditoria,](#auditing) [certificados,](#certificates) [credenciais,](#credential) [fornecedores criptográficos,](#cryptographic-providers) [logins e utilizadores,](#logins-and-users)e a [chave de serviço e de serviço principal.](#service-key-and-service-master-key)
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -60,8 +60,8 @@ SQL Managed Instance tem backups automáticos, para que os utilizadores possam c
   - Só `BACKUP TO URL` é apoiado.
   - `FILE`, `TAPE` e os dispositivos de reserva não são suportados.
 - A maioria das `WITH` opções gerais são apoiadas.
-  - `COPY_ONLY`é obrigatório.
-  - `FILE_SNAPSHOT`não é apoiado.
+  - `COPY_ONLY` é obrigatório.
+  - `FILE_SNAPSHOT` não é apoiado.
   - Opções de fita: `REWIND` , , e não são `NOREWIND` `UNLOAD` `NOUNLOAD` suportados.
   - Opções específicas do registo: `NORECOVERY` , e não são `STANDBY` `NO_TRUNCATE` suportadas.
 
@@ -132,8 +132,8 @@ Consulte [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sq
 
 A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedores criptográficos não podem ser criados:
 
-- `CREATE CRYPTOGRAPHIC PROVIDER`não é apoiado. Consulte [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
-- `ALTER CRYPTOGRAPHIC PROVIDER`não é apoiado. Consulte [o PROVEDOR CRIPTOGRÁFICO ALTER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
+- `CREATE CRYPTOGRAPHIC PROVIDER` não é apoiado. Consulte [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
+- `ALTER CRYPTOGRAPHIC PROVIDER` não é apoiado. Consulte [o PROVEDOR CRIPTOGRÁFICO ALTER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
 ### <a name="logins-and-users"></a>Inícios de sessão e utilizadores
 
@@ -174,11 +174,11 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
 - São permitidos os principais dos servidores AZure AD (logins) com uma conta de administração AD Azure. Os principais servidores AD do Azure (logins) têm precedência sobre a administração AD Azure quando resolve o principal e aplica permissões à SQL Managed Instance.
 - Durante a autenticação, é aplicada a seguinte sequência para resolver o principal autenticador:
 
-    1. Se a conta AD Azure existir como diretamente mapeada para o principal do servidor AD Azure (login), que está presente em sys.server_principals como tipo "E", conceder acesso e aplicar permissões do servidor Azure AD principal (login).
-    2. Se a conta AZure AD é membro de um grupo AD Azure que está mapeado para o principal servidor AD do Azure (login), que está presente em sys.server_principals como tipo "X", conceder acesso e aplicar permissões do login do grupo AZure.
+    1. Se a conta AD AZure existir como diretamente mapeada para o principal do servidor AD Azure (login), que está presente em sys.server_principals como tipo "E", conceder acesso e aplicar permissões do servidor AD Ad (login).
+    2. Se a conta AD Azure é membro de um grupo AD Azure que está mapeado para o principal servidor AD do Azure (login), que está presente em sys.server_principals como tipo "X", conceder acesso e aplicar permissões do login do grupo Azure AD.
     3. Se a conta AZure AD for um administrador AD Azure Ad de um portal especial configurado para a SQL Managed Instance, que não existe nas vistas do sistema SQL Managed Instance, aplique permissões fixas especiais da administração AD Ad para SQL Managed Instance (modo legado).
     4. Se a conta AZure AD existir como diretamente mapeada para um utilizador AZure AD numa base de dados, que está presente em sys.database_principals como tipo "E", conceder acesso e aplicar permissões do utilizador da base de dados Azure AD.
-    5. Se a conta AZure AD é membro de um grupo AD Azure que está mapeado para um utilizador AZure AD em uma base de dados, que está presente em sys.database_principals como tipo "X", conceder acesso e aplicar permissões do login do grupo AZure.
+    5. Se a conta AZure AD é membro de um grupo AD Azure que está mapeado para um utilizador AZure AD em uma base de dados, que está presente em sys.database_principals como tipo "X", conceder acesso e aplicar permissões do login do grupo Azure AD.
     6. Se houver um login AD Azure mapeado para uma conta de utilizador AZure ou uma conta do grupo AZure, que resolve para o utilizador que está autenticando, todas as permissões deste login Azure AD são aplicadas.
 
 ### <a name="service-key-and-service-master-key"></a>Chave de serviço e chave principal de serviço
@@ -193,7 +193,7 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
 ### <a name="buffer-pool-extension"></a>Extensão da piscina tampão
 
 - [A extensão](/sql/database-engine/configure-windows/buffer-pool-extension) da piscina tampão não é suportada.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`não é apoiado. VER [CONFIGURAÇÃO DO SERVIDOR ALTER](/sql/t-sql/statements/alter-server-configuration-transact-sql).
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` não é apoiado. VER [CONFIGURAÇÃO DO SERVIDOR ALTER](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
 ### <a name="collation"></a>Agrupamento
 
@@ -211,8 +211,8 @@ Consulte [o nível de compatibilidade da BASE DE DADOS ALTER](/sql/t-sql/stateme
 
 O espelhamento da base de dados não é suportado.
 
-- `ALTER DATABASE SET PARTNER`e `SET WITNESS` as opções não são apoiadas.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`não é apoiado.
+- `ALTER DATABASE SET PARTNER` e `SET WITNESS` as opções não são apoiadas.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` não é apoiado.
 
 Para obter mais informações, consulte [alter database set partner e SET WITNESS](/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) and CREATE [ENDPOINT ... PARA DATABASE_MIRRORING.](/sql/t-sql/statements/create-endpoint-transact-sql)
 
@@ -230,7 +230,7 @@ Aplicam-se as seguintes `CREATE DATABASE` limitações:
 
 - Os ficheiros e grupos de ficheiros não podem ser definidos. 
 - A `CONTAINMENT` opção não é apoiada. 
-- `WITH`opções não são suportadas. 
+- `WITH` opções não são suportadas. 
    > [!TIP]
    > Como solução alternativa, utilize `ALTER DATABASE` depois `CREATE DATABASE` para definir opções de base de dados para adicionar ficheiros ou para definir a contenção. 
 
@@ -327,20 +327,20 @@ Para obter informações sobre como criar e alterar tabelas, consulte [CREATE TA
 
 A SQL Managed Instance não consegue aceder a partilhas de ficheiros e pastas Windows, pelo que os ficheiros devem ser importados a partir do armazenamento do Azure Blob:
 
-- `DATASOURCE`é necessário no `BULK INSERT` comando enquanto importa ficheiros do armazenamento Azure Blob. Ver [INSERÇÃO A GRANEL](/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE`é necessário na `OPENROWSET` função quando ler o conteúdo de um ficheiro a partir do armazenamento da Azure Blob. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`pode ser usado para ler dados a partir de Azure SQL Database, Azure SQL Managed Instance, ou SQL Server instances. Outras fontes, como bases de dados Oracle ou ficheiros Excel, não são suportadas.
+- `DATASOURCE` é necessário no `BULK INSERT` comando enquanto importa ficheiros do armazenamento Azure Blob. Ver [INSERÇÃO A GRANEL](/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` é necessário na `OPENROWSET` função quando ler o conteúdo de um ficheiro a partir do armazenamento da Azure Blob. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` pode ser usado para ler dados a partir de Azure SQL Database, Azure SQL Managed Instance, ou SQL Server instances. Outras fontes, como bases de dados Oracle ou ficheiros Excel, não são suportadas.
 
 ### <a name="clr"></a>CLR
 
 Uma sql Managed Instance não pode aceder a partilhas de ficheiros e pastas Windows, pelo que aplicam-se os seguintes constrangimentos:
 
 - Só `CREATE ASSEMBLY FROM BINARY` é apoiado. Consulte [O CONJUNTO CREATE FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
-- `CREATE ASSEMBLY FROM FILE`não é apoiado. Consulte [O CONJUNTO CREATE A PARTIR DE FICHEIRO](/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY`não pode fazer referência a ficheiros. Consulte [o CONJUNTO ALTER](/sql/t-sql/statements/alter-assembly-transact-sql).
+- `CREATE ASSEMBLY FROM FILE` não é apoiado. Consulte [O CONJUNTO CREATE A PARTIR DE FICHEIRO](/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` não pode fazer referência a ficheiros. Consulte [o CONJUNTO ALTER](/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Correio da Base de Dados (db_mail)
- - `sp_send_dbmail`não pode enviar anexos usando @file_attachments parâmetro. O sistema de ficheiros local e as ações externas ou o Azure Blob Storage não estão acessíveis a partir deste procedimento.
+ - `sp_send_dbmail` não pode enviar anexos usando @file_attachments parâmetro. O sistema de ficheiros local e as ações externas ou o Azure Blob Storage não estão acessíveis a partir deste procedimento.
  - Consulte as questões conhecidas relacionadas com `@query` o parâmetro e a autenticação.
  
 ### <a name="dbcc"></a>DBCC
@@ -355,7 +355,7 @@ As declarações não documentadas do DBCC que estão ativadas no SQL Server nã
 
 MsDTC e [transações elásticas](../database/elastic-transactions-overview.md) atualmente não são suportados em SQL Managed Instance.
 
-### <a name="extended-events"></a>Eventos Expandidos
+### <a name="extended-events"></a>Eventos Alargados
 
 Alguns alvos específicos do Windows para Eventos Prolongados (XEvents) não são suportados:
 
@@ -364,13 +364,13 @@ Alguns alvos específicos do Windows para Eventos Prolongados (XEvents) não sã
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
-Na base de dados R e Python, as bibliotecas externas ainda não estão suportadas. Consulte [os serviços de aprendizagem automática de servidores SQL](/sql/advanced-analytics/r/sql-server-r-services).
+As bibliotecas externas in-database R e Python são suportadas em pré-visualização pública limitada. Ver [Serviços de Machine Learning em Azure SQL Managed Instance (pré-visualização)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>Filestream e FileTable
 
 - Os dados do fluxo de ficheiros não são suportados.
 - A base de dados não pode conter grupos de ficheiros com `FILESTREAM` dados.
-- `FILETABLE`não é apoiado.
+- `FILETABLE` não é apoiado.
 - As mesas não podem ter `FILESTREAM` tipos.
 - As seguintes funções não são suportadas:
   - `GetPathLocator()`
@@ -396,7 +396,7 @@ Servidores ligados em SQL Managed Instance suportam um número limitado de alvos
 Operações: 
 
 - As transações de escrita cruzadas não são suportadas.
-- `sp_dropserver`é suportado para deixar cair um servidor ligado. Ver [sp_dropserver.](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)
+- `sp_dropserver` é suportado para deixar cair um servidor ligado. Ver [sp_dropserver.](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)
 - A `OPENROWSET` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A `OPENDATASOURCE` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Apenas os `SQLNCLI` `SQLNCLI11` valores e `SQLOLEDB` valores são suportados como fornecedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Os servidores ligados não podem ser utilizados para ler ficheiros (Excel, CSV) a partir das partilhas de rede. Tente utilizar [o BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lê ficheiros CSV do Azure Blob Storage. Acompanhe este pedido no [item de feedback de instância gerida do SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
@@ -429,28 +429,28 @@ Para obter mais informações sobre a configuração da replicação transaciona
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Origem: 
-  - `FROM URL`(Armazenamento Azure Blob) é a única opção suportada.
+  - `FROM URL` (Armazenamento Azure Blob) é a única opção suportada.
   - `FROM DISK`/`TAPE`/dispositivo de reserva não é suportado.
   - Os conjuntos de reserva não são suportados.
-- `WITH`opções não são suportadas. As tentativas de `WITH` `DIFFERENTIAL` restauro, `STATS` incluindo, `REPLACE` etc., falharão.
-- `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for deixada cair, pode verificar a `sys.dm_operation_status` vista para o estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `WITH` opções não são suportadas. As tentativas de `WITH` `DIFFERENTIAL` restauro, `STATS` incluindo, `REPLACE` etc., falharão.
+- `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for deixada cair, pode verificar a `sys.dm_operation_status` vista para o estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 
 
 As seguintes opções de base de dados são definidas ou ultrapassadas e não podem ser alteradas mais tarde: 
 
-- `NEW_BROKER`se o corretor não estiver ativado no ficheiro .bak. 
-- `ENABLE_BROKER`se o corretor não estiver ativado no ficheiro .bak. 
-- `AUTO_CLOSE=OFF`se uma base de dados no ficheiro .bak tiver `AUTO_CLOSE=ON` . 
-- `RECOVERY FULL`se uma base de dados no ficheiro .bak tiver `SIMPLE` ou o modo de `BULK_LOGGED` recuperação.
+- `NEW_BROKER` se o corretor não estiver ativado no ficheiro .bak. 
+- `ENABLE_BROKER` se o corretor não estiver ativado no ficheiro .bak. 
+- `AUTO_CLOSE=OFF` se uma base de dados no ficheiro .bak tiver `AUTO_CLOSE=ON` . 
+- `RECOVERY FULL` se uma base de dados no ficheiro .bak tiver `SIMPLE` ou o modo de `BULK_LOGGED` recuperação.
 - Um grupo de ficheiros otimizado pela memória é adicionado e chamado XTP se não estivesse no ficheiro source .bak. 
 - Qualquer grupo de ficheiros otimizado pela memória existente é renomeado para XTP. 
-- `SINGLE_USER`e `RESTRICTED_USER` as opções são convertidas para `MULTI_USER` .
+- `SINGLE_USER` e `RESTRICTED_USER` as opções são convertidas para `MULTI_USER` .
 
 Limitações: 
 
 - Cópias de segurança das bases de dados corrompidas podem ser restauradas dependendo do tipo de corrupção, mas não serão tomadas cópias de segurança automatizadas até que a corrupção seja corrigida. Certifique-se de que funciona `DBCC CHECKDB` na fonte SQL Managed Instance e utilize cópia de segurança `WITH CHECKSUM` para evitar este problema.
 - A restauração do `.BAK` ficheiro de uma base de dados que contenha qualquer limitação descrita neste documento (por exemplo, ou `FILESTREAM` `FILETABLE` objetos) não pode ser restaurada em SQL Managed Instance.
-- `.BAK`ficheiros que contêm vários conjuntos de backup não podem ser restaurados. 
-- `.BAK`ficheiros que contêm vários ficheiros de registo não podem ser restaurados.
+- `.BAK` ficheiros que contêm vários conjuntos de backup não podem ser restaurados. 
+- `.BAK` ficheiros que contêm vários ficheiros de registo não podem ser restaurados.
 - As cópias de segurança que contenham bases de dados maiores do que 8 TB, objetos OLTP ativos na memória ou um número de ficheiros que excedam 280 ficheiros por exemplo não podem ser restaurados numa instância de Finalidade Geral. 
 - As cópias de segurança que contenham bases de dados maiores do que 4 objetos OLTP com o tamanho total superior ao tamanho descrito nos [limites de recursos](resource-limits.md) não podem ser restaurados em caso De Produção Crítica.
 Para obter informações sobre as declarações de restauro, consulte [as declarações RESTORE](/sql/t-sql/statements/restore-statements-transact-sql).
@@ -468,7 +468,7 @@ O corretor de serviços de cross-instance não é suportado:
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos, funções e gatilhos armazenados
 
-- `NATIVE_COMPILATION`não é suportado no nível de propósito geral.
+- `NATIVE_COMPILATION` não é suportado no nível de propósito geral.
 - As [seguintes opções sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) não são suportadas: 
   - `allow polybase export`
   - `allow updates`
@@ -476,8 +476,8 @@ O corretor de serviços de cross-instance não é suportado:
   - `remote access`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts`não é apoiado. Ver [sp_execute_external_scripts.](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)
-- `xp_cmdshell`não é apoiado. Ver [xp_cmdshell.](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)
+- `sp_execute_external_scripts` não é apoiado. Ver [sp_execute_external_scripts.](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)
+- `xp_cmdshell` não é apoiado. Ver [xp_cmdshell.](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)
 - `Extended stored procedures`não são apoiados, o que inclui `sp_addextendedproc`   `sp_dropextendedproc` e. Consulte [os procedimentos de armazenação alargados](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`E `sp_attach_single_file_db` `sp_detach_db` não são apoiados. Ver [sp_attach_db,](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db.](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)
 
@@ -485,17 +485,17 @@ O corretor de serviços de cross-instance não é suportado:
 
 As seguintes variáveis, funções e vistas retornam diferentes resultados:
 
-- `SERVERPROPERTY('EngineEdition')`devolve o valor 8. Esta propriedade identifica exclusivamente uma SQL Managed Instance. Ver [SERVERProPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`retorna NU PORQUE o conceito de instância tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [SERVERPROPERTY ('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`retorna um nome "conectável" DNS completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [ @SERVERNAME @](/sql/t-sql/functions/servername-transact-sql) 
-- `SYS.SERVERS`retorna um nome "conectável" DNS completo, como `myinstance.domain.database.windows.net` para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`retorna NU PORQUE o conceito de serviço tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql)
-- `SUSER_ID`é apoiado. Devolve NUD Se o login AZure AD não estiver em sys.syslogins. Ver [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
-- `SUSER_SID`não é apoiado. Os dados errados são devolvidos, o que é uma questão temporária conhecida. Ver [SUSER_SID.](/sql/t-sql/functions/suser-sid-transact-sql) 
+- `SERVERPROPERTY('EngineEdition')` devolve o valor 8. Esta propriedade identifica exclusivamente uma SQL Managed Instance. Ver [SERVERProPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retorna NU PORQUE o conceito de instância tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [SERVERPROPERTY ('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` retorna um nome "conectável" DNS completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [ @SERVERNAME @](/sql/t-sql/functions/servername-transact-sql) 
+- `SYS.SERVERS` retorna um nome "conectável" DNS completo, como `myinstance.domain.database.windows.net` para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` retorna NU PORQUE o conceito de serviço tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql)
+- `SUSER_ID` é apoiado. Devolve NUD Se o login AZure AD não estiver em sys.syslogins. Ver [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
+- `SUSER_SID` não é apoiado. Os dados errados são devolvidos, o que é uma questão temporária conhecida. Ver [SUSER_SID.](/sql/t-sql/functions/suser-sid-transact-sql) 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Constrangimentos ambientais
 
-### <a name="subnet"></a>Subrede
+### <a name="subnet"></a>Sub-rede
 -  Não é possível colocar quaisquer outros recursos (por exemplo, máquinas virtuais) na sub-rede onde implementou a sua SQL Managed Instance. Implemente estes recursos usando uma sub-rede diferente.
 - A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis . O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
 - [Os pontos finais de serviço não podem ser associados à sub-rede sql Managed Instance](connectivity-architecture-overview.md#network-requirements). Certifique-se de que a opção de pontos finais de serviço é desativada quando criar a rede virtual.
@@ -515,7 +515,7 @@ As bases de dados do sistema não são replicadas para a instância secundária 
 
 ### <a name="tempdb"></a>TEMPDB
 
-O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb`o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
+O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb` o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
 
 ### <a name="msdb"></a>MSDB
 
@@ -541,7 +541,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

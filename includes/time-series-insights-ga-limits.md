@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1e07f56bc2e820b325414e124c7825c1d356ca26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046423"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703951"
 ---
 O seguinte resume os limites-chave na Azure Time Series Insights Gen1.
 
@@ -60,4 +60,4 @@ Os limites de propriedade da Gen1 dependem do ambiente SKU que é selecionado. A
 
 ### <a name="api-limits"></a>Limites da API
 
-Os limites de API para Azure Time Series Insights Gen1 são especificados na [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits)da API REST .
+Os limites de API para Azure Time Series Insights Gen1 são especificados na [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability)da API REST .

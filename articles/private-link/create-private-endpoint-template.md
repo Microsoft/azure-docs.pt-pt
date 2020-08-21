@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071502"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705814"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Quickstart: Criar um ponto final privado usando um modelo ARM
 
@@ -37,7 +37,7 @@ Este modelo cria um ponto final privado para um exemplo de Azure SQL Database.
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
+:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
 
 Os recursos Azure múltiplos são definidos no modelo:
 

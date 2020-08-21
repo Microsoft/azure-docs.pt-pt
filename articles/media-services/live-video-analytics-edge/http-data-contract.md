@@ -1,0 +1,103 @@
+---
+title: Contrato de dados de extensão HTTP - Azure
+description: Neste artigo, você aprenderá sobre a utilização do protocolo HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
+ms.topic: overview
+ms.date: 09/14/2020
+ms.openlocfilehash: 54037d904bd86120af054f5d2f6a1075f7379004
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691959"
+---
+# <a name="http-extension-data-contract"></a>Contrato de dados de extensão HTTP
+
+Neste artigo, você aprenderá sobre a utilização do protocolo HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
+
+O contrato HTTP é definido entre os dois componentes seguintes:
+
+* Servidor HTTP
+* Vídeo ao vivo Analytics no módulo IoT Edge atua como cliente HTTP
+
+## <a name="request"></a>Pedir
+
+Os pedidos do módulo Live Video Analytics para o seu servidor HTTP seriam os seguintes:
+
+|Chave|Valor|
+|---|---|
+|POST|`https://hostname/optional-path?optional-query`|
+|Aceitar|aplicação/json,  */*|
+|Autorização|Básico, Digest, Portador (através de suporte personalizado de cabeçalho)|
+|Content-Type|imagem/jpeg<br/>imagem/png<br/>imagem/bmp<br/>imagem/x-cru|
+|Comprimento do comprimento do conteúdo comprimento do corpo, em bytes|
+|User-Agent|Serviços de Multimédia do Azure|
+|Corpo|Bytes de imagem, binário codificados num dos tipos de conteúdo suportado.|
+
+### <a name="example"></a>Exemplo
+
+```
+POST http://localhost:8080/inference HTTP/1.1
+Host: localhost:8080
+x-ms-client-request-id: d6050cd4-c9f2-42d3-9adc-53ba7e440f17
+Content-Type: image/bmp
+Content-Length: 519222
+
+(Image Binary Content)
+```
+
+## <a name="response"></a>Resposta
+
+As respostas do módulo para o módulo Live Video Analytics devem ser as seguintes:
+
+|Chave|Valor|
+|---|---|
+|Código de Estado|200 OK - Resultados de inferência encontrados<br/>204 No Content - Nenhum conteúdo encontrado pela IA<br/>400 Mau Pedido - Não esperado<br/>500 Erro interno do Servidor - Não esperado<br/>503 Server Busy - AMS irá recuar com base no cabeçalho "Retry-After" ou baseado numa quantidade padrão de tempo no caso de o cabeçalho não estar predefinido.|
+|Content-Type|application/json|
+|Comprimento do conteúdo|Comprimento do corpo, em bytes|
+|Corpo|Objeto JSON com propriedade única de "inferências".|
+
+### <a name="example"></a>Exemplo
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 468
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 17 Apr 2020 04:44:01 GMT
+
+{
+  "inferences": [
+    {
+      "type": "entity",
+      "entity": {
+        "tag": { "value": "car", "confidence": 0.9048132 },
+        "box": { "l": 0.42681578, "t": 0.47660735, "w": 0.019501392, "h": 0.020954132 }
+      }
+    },
+    {
+      "type": "entity",
+      "entity": {
+        "tag": { "value": "car", "confidence": 0.8953932 },
+        "box": { "l": 0.55083525, "t": 0.4843858, "w": 0.046550274, "h": 0.046502113 }
+      }
+    }    
+  ]
+}
+```
+
+Recomenda-se vivamente que as respostas sejam devolvidas utilizando documentos JSON válidos seguindo o esquema pré-estabelecido definido abaixo. Isto garantirá melhor a interoperabilidade com outros componentes e possíveis capacidades futuras adicionadas ao módulo Live Video Analytics.
+
+Se o seu módulo devolver uma resposta em que o tipo de conteúdo não é "aplicação/json", o Live Video Analytics codificará a mensagem como um conteúdo base 64 e serializará-a como uma carga útil opaca do JSON.
+
+Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação/json" mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, a carga útil da mensagem será reencaminhada através do pipeline, mas a interoperabilidade será reduzida.
+
+> [!NOTE]
+> Se o seu módulo não produzir qualquer resultado, deverá devolver HTTP 204 Status Code (Sem Conteúdo) com um corpo de resposta vazio. O Live Video Analytics compreenderá isto como um resultado vazio e não irá encaminhar o evento para todo o oleoduto.
+
+## <a name="data-contracts---class-hierarchy"></a>Contratos de dados - hierarquia de classes
+
+![hierarquia de classe](./media/http-data-contract/class-hierarchy.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+[contrato de dados gRPC](grpc-data-contract.md)

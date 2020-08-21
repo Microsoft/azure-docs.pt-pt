@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: fe059f684306e2c98e625af72248f03f0932ebad
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168274"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705066"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
 O Azure Instance Medata Service (IMDS) fornece informações sobre casos de máquinas virtuais atualmente em funcionamento e pode ser usado para gerir e configurar as suas máquinas virtuais.
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte [as APIs de metadados](#metadata-apis).
-O Serviço de Metadados de Exemplo está disponível tanto para o conjunto de escala de VM como para a escala de máquina virtual. Só está disponível para executar VMs criados/geridos utilizando [o Azure Resource Manager](/rest/api/resources/).
+O Serviço de Metadados de Exemplo está disponível para executar casos de conjunto de máquinas virtuais e de escala de máquina virtual. Todos os APIs suportam VMs criados/geridos usando [o Azure Resource Manager](/rest/api/resources/). Apenas os pontos finais attestados e de rede suportam VMs clássicos (não-ARM) e Attested fá-lo apenas em um grau limitado.
 
 O IMDS do Azure é um ponto final de REST que está disponível num endereço IP não-roteado bem conhecido ( `169.254.169.254` ), que só pode ser acedido a partir do VM. A comunicação entre o VM e o IMDS nunca sai do Hospedeiro.
 É prática ser prática ter os seus clientes HTTP a contornar os proxies web dentro do VM ao consultar o IMDS e tratar `169.254.169.254` o mesmo que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
@@ -685,7 +685,7 @@ Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolv
 }
 ```
 
-A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com os detalhes vM, como vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informações do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
+A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com certos detalhes específicos da VM. Para os VMs ARM, isto inclui vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informação do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. Para VMs clássicos (não-ARM), apenas o vmId é garantido para ser povoado. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
 O documento contém os seguintes campos:
 
 Dados | Descrição
@@ -695,8 +695,11 @@ plano | O [plano Azure Marketplace Image](/rest/api/compute/virtualmachines/crea
 timestamp/createdOn | O calendário utc para quando o documento assinado foi criado
 timetamp/expiraOn | O calendário utc para quando o documento assinado expirar
 vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM
-subscriptionId | Assinatura Azure para a Máquina Virtual, introduzida em`2019-04-30`
-sku | SKU específico para a imagem VM, introduzido em`2019-11-01`
+subscriptionId | Assinatura Azure para a Máquina Virtual, introduzida em `2019-04-30`
+sku | SKU específico para a imagem VM, introduzido em `2019-11-01`
+
+> [!NOTE]
+> Para VMs clássicos (não-ARM), apenas o vmId é garantido para ser povoado.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Amostra 2: Validação que o VM está em execução em Azure
 

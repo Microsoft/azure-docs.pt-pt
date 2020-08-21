@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 04/01/2020
+ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8e8f10b07d47f7aebd8482b8dae995bd50050162
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: aa2357e31bf2fba97ae8547948cacdffc70cc741
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852213"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705015"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Python usando cadernos Jupyter
 
@@ -89,7 +89,7 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
 
    ![Script python no caderno Jupyter com pedidos HTTP para Azure Cognitive Search](media/search-get-started-python/connect-azure-search.png "Script python no caderno Jupyter com pedidos HTTP para Azure Cognitive Search")
 
-   Em contraste, uma coleção de índice vazio devolve esta resposta:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Em contraste, uma coleção de índice vazio devolve esta resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 

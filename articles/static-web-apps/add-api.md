@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271163"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691501"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -147,7 +147,7 @@ O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functi
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
 
-1. Com as Ferramentas Core em funcionamento, navegue para o seguinte URL para verificar se a API está a funcionar corretamente: <http://localhost:7071/api/message> .
+1. Com as Ferramentas Core em funcionamento, navegue para o seguinte URL para verificar se a API está a funcionar corretamente: `http://localhost:7071/api/message` .
 
    A resposta no navegador deve ser semelhante ao seguinte exemplo:
 

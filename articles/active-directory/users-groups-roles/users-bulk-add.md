@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236561"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705627"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
 
@@ -35,7 +35,7 @@ Faça o download e preencha o modelo de CSV de upload a granel para ajudá-lo a 
 ![Folha de cálculo para upload e chamadas explicando a finalidade e valores de cada linha e coluna](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> Se tentar adicionar apenas uma entrada no modelo CSV, deve preservar a linha 3 e adicionar a sua nova entrada à linha 4. 
+> Se adicionar apenas uma entrada utilizando o modelo CSV, deve preservar a linha 3 e adicionar a sua nova entrada à linha 4.
 
 ### <a name="csv-template-structure"></a>Estrutura de modelo de CSV
 

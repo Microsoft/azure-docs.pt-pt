@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4214fca9e295dc7716d8e2c069f52c719aa74697
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a122a36b14bd3c5f4912387dc98585cb89ab53b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292110"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705645"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para Os VMs Linux em Azure
 
@@ -64,7 +64,7 @@ Por padrão, a maioria das imagens do Azure Marketplace para Linux são configur
 - NTP como primária, que obtém tempo de um servidor NTP. Por exemplo, as imagens Ubuntu 16.04 LTS Marketplace utilizam **ntp.ubuntu.com**.
 - O serviço VMICTimeSync como secundário, utilizado para comunicar o tempo de anfitrião aos VMs e fazer correções após a pausa do VM para manutenção. Os anfitriões do Azure usam dispositivos Stratum 1 da Microsoft para manter o tempo preciso.
 
-Nas mais recentes distribuições do Linux, o serviço VMICTimeSync utiliza o protocolo de tempo de precisão (PTP), mas as distribuições anteriores podem não suportar PTP e vão voltar para a NTP para obter tempo do anfitrião.
+Nas mais recentes distribuições do Linux, o serviço VMICTimeSync fornece uma fonte de relógio de hardware do Precision Time Protocol (PTP), mas as distribuições anteriores podem não fornecer esta fonte de relógio e irão recuar para NTP para obter tempo do anfitrião.
 
 Para confirmar que o NTP está a sincronizar corretamente, executar o `ntpq -p` comando.
 
@@ -112,9 +112,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Verifique se o PTP
+### <a name="check-for-ptp-clock-source"></a>Verifique se a Fonte do Relógio PTP
 
-Com versões mais recentes do Linux, está disponível uma fonte de relógio do Protocolo de Tempo de Precisão (PTP) como parte do fornecedor VMICTimeSync. Nas versões mais antigas da Red Hat Enterprise Linux ou CentOS 7.x os Serviços de [Integração Linux](https://github.com/LIS/lis-next) podem ser descarregados e utilizados para instalar o controlador atualizado. Ao utilizar ptp, o dispositivo Linux será do formulário /dev/ptp*x*. 
+Com versões mais recentes do Linux, está disponível uma fonte de relógio do Protocolo de Tempo de Precisão (PTP) como parte do fornecedor VMICTimeSync. Nas versões mais antigas da Red Hat Enterprise Linux ou CentOS 7.x os Serviços de [Integração Linux](https://github.com/LIS/lis-next) podem ser descarregados e utilizados para instalar o controlador atualizado. Quando a fonte do relógio PTP estiver disponível, o dispositivo Linux será do formulário /dev/ptp*x*. 
 
 Veja quais as fontes de relógio PTP disponíveis.
 

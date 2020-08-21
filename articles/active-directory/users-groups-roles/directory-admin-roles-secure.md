@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d303f8a04a9159eeb4dc5e78ef09b57f5a966c72
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807864"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691365"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -373,7 +373,7 @@ Recomendamos as seguintes práticas quando estiver a gerir contas de acesso priv
 * Conceder acesso privilegiado apenas quando necessário, e removê-lo depois (just-in-time)
 * Manter registos de atividades de auditoria relativos a contas privilegiadas
 
-Para obter mais informações sobre a construção de um roteiro completo de segurança, consulte [os recursos de arquitetura de TI na nuvem da Microsoft.](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources) Para se envolver com os serviços da Microsoft para o ajudar a implementar qualquer parte do seu roteiro, contacte o seu representante da Microsoft ou consulte [a Build critical cyber defenses para proteger a sua empresa.](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)
+Para obter mais informações sobre a construção de um roteiro completo de segurança, consulte [os recursos de arquitetura de TI na nuvem da Microsoft.](https://almbok.com/office365/microsoft_cloud_it_architecture_resources) Para se envolver com os serviços da Microsoft para o ajudar a implementar qualquer parte do seu roteiro, contacte o seu representante da Microsoft ou consulte [a Build critical cyber defenses para proteger a sua empresa.](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)
 
 Esta fase final em curso do roteiro de acesso privilegiado garantido inclui os seguintes componentes.
 
@@ -464,7 +464,7 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 **Resposta:** Utilize contas não privilegiadas para todos os utilizadores e a maioria dos administradores. Comece por desenvolver uma pegada da organização para determinar quais as poucas contas de administrador que devem ser privilegiadas. E monitor para utilizadores administrativos recém-criados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Funcionalidades de segurança dos produtos e serviços da Microsoft na nuvem
 

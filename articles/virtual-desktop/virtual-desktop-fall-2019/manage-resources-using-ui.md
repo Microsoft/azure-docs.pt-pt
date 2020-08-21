@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005708"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691399"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
@@ -83,7 +83,7 @@ Para determinar que utilizador pode utilizar para iniciar singagem na ferramenta
 
 Assim que decidir qual o utilizador que utilizará para fornecer o seu consentimento, siga estas instruções para fornecer o consentimento à ferramenta:
 
-1. Aceda aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo (por exemplo, Apr3UX) e navegue para o URL associado a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net> . .
+1. Aceda aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo (por exemplo, Apr3UX) e navegue para o URL associado a ele; por exemplo,  `https://rdmimgmtweb-210520190304.azurewebsites.net` . .
 2. Inscreva-se utilizando a conta de utilizador Azure Ative Directory apropriada.
 3. Se autenticar com um Administrador Global, pode agora selecionar a caixa de verificação para **Consent em nome da sua organização.** Selecione **Aceitar** para fornecer consentimento.
 
@@ -98,7 +98,7 @@ Depois de fornecer o consentimento para a organização ou para um utilizador es
 
 Siga estas instruções para lançar a ferramenta:
 
-1. Selecione o recurso Azure App Services com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue para o URL associado ao mesmo; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net> . .
+1. Selecione o recurso Azure App Services com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue para o URL associado ao mesmo; por exemplo,  <https://rdmimgmtweb-210520190304.azurewebsites.net> . .
 2. Inscreva-se usando as suas credenciais de ambiente de trabalho virtual do Windows.
 3. Quando solicitado para escolher um Grupo de Inquilinos, selecione **O Grupo de Inquilinos Predefinidos** na lista de suspensos.
 4. Quando selecionar **o Grupo inquilino predefinido,** deve aparecer um menu no lado esquerdo da janela. Neste menu, encontre o nome do seu grupo de inquilinos e selecione-o.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607434"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705882"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -47,9 +47,9 @@ A tabela seguinte mostra as opções de publicação para os tipos de oferta no 
 
 &#42;&#42; as ofertas da Microsoft 365 são gratuitas e podem ser rentabilizadas através da oferta saaS como um serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in Office 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
 
-## <a name="choose-a-call-to-action"></a>Escolha uma chamada para a ação
+## <a name="choose-a-listing-option"></a>Escolha uma opção de listagem
 
-As opções de publicação disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [aos benefícios do mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as chamadas para a ação que correspondem à opção de publicação:
+As opções de listagem disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [benefícios comerciais do mercado.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as opções de listagem que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae802d8aa9378155bcca0713992a8cc041ea1a9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 042a881cc6021842dec126c92ff13f306f79dad1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799027"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705236"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -26,26 +26,24 @@ No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um co
 ## <a name="member-and-guest-users"></a>Utilizadores membros e convidados
 O conjunto de permissões por defeito recebidas depende se o utilizador é um membro nativo do inquilino (utilizador membro) ou se o utilizador é trazido de outro diretório como convidado de colaboração B2B (utilizador convidado). Veja [o que é a colaboração Azure AD B2B?](../b2b/what-is-b2b.md)
 * Os utilizadores membros podem registar aplicações, gerir a fotografia de perfil e o número de telemóvel, alterar a palavra-passe e convidar convidados B2B. Além disso, os utilizadores podem ler todas as informações de diretório (com algumas exceções). 
-* Os utilizadores convidados têm permissões restritas de diretório. Por exemplo, os utilizadores convidados não podem procurar informações do inquilino além das suas próprias informações de perfil. No entanto, um utilizador convidado pode obter informações sobre outro utilizador, fornecendo o Nome Principal de Utilizador ou o objectId. Um utilizador convidado pode ler propriedades de grupos a que pertencem, incluindo a adesão ao grupo, independentemente das permissões dos **utilizadores do Guest serem limitadas.** Um hóspede não pode ver informações sobre quaisquer outros objetos de inquilino.
-
-As permissões predefinidas para os convidados são restritivas por predefinição. Os convidados podem ser adicionados a funções de administrador, que lhes concedem permissões totais de leitura e escrita contidas na função. Há uma restrição adicional disponível, a capacidade de os convidados convidarem outros convidados. Definir **Os convidados podem convidar** para **Não** impede os convidados de convidarem outros convidados. Veja [Delegar convites para colaboração B2B](../b2b/delegate-invitations.md) para saber como. Para conceder aos utilizadores convidados as mesmas permissões dos utilizadores membros por predefinição, defina **As permissões dos utilizadores convidados são limitadas** para **Não**. Esta definição concede a todos os utilizadores membros permissões para convidar utilizadores por predefinição, bem com permite que sejam adicionados convidados a funções administrativas.
+* Os utilizadores convidados têm permissões restritas de diretório. Podem gerir o seu próprio perfil, alterar a sua própria palavra-passe e recuperar algumas informações sobre outros utilizadores, grupos e aplicações, no entanto, não conseguem ler todas as informações do diretório. Por exemplo, os utilizadores convidados não podem enumerar utilizadores, grupos e outros objetos de diretório. Os convidados podem ser adicionados a funções de administrador, que lhes concedem permissões totais de leitura e escrita contidas na função. Os hóspedes também podem convidar outros hóspedes.
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Comparar as permissões predefinidas de membro e convidado
 
-**Área** | **Permissões dos utilizadores membros** | **Permissões de utilizador convidado**
------------- | --------- | ----------
-Utilizadores e contactos | Ler todas as propriedades públicas de utilizadores e contactos<br>Convidar convidados<br>Alterar a própria palavra-passe<br>Gerir o próprio número de telemóvel<br>Gerir a própria fotografia<br>Invalidar os próprios tokens de atualização | Ler as próprias propriedades<br>Leia o nome do visor, e-mail, sinal no nome, foto, nome principal do utilizador e propriedades do tipo de utilizador de outros utilizadores e contactos<br>Alterar a própria palavra-passe
-Grupos | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Associações de grupo de leitura oculto do Office 365 para grupo associado<br>Gerir propriedades, propriedade e adesão de grupos que o utilizador detém<br>Adicionar convidados a grupos detidos<br>Gerir definições de associação dinâmica<br>Eliminar grupos detidos<br>Restaurar grupos detidos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Associações a grupo de leitura oculto do Office 365 para grupos associados<br>Gerir grupos detidos<br>Adicionar convidados a grupos detidos (se permitido)<br>Eliminar grupos detidos<br>Restaurar grupos detidos do Office 365<br>Leia propriedades de grupos a que pertencem, incluindo a adesão.
-Aplicações | Registar (criar) nova aplicação<br>Ler as propriedades de aplicações registadas e empresariais<br>Gerir as propriedades da aplicação, atribuições e credenciais para aplicações detidas<br>Criar ou eliminar palavra-passe de aplicação do utilizador<br>Eliminar aplicações detidas<br>Restaurar aplicações detidas | Ler as propriedades de aplicações registadas e empresariais<br>Gerir as propriedades da aplicação, atribuições e credenciais para aplicações detidas<br>Eliminar aplicações detidas<br>Restaurar aplicações detidas
-Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos detidos<br> | Sem permissões<br>Eliminar dispositivos detidos<br>
-Diretório | Ler todas as informações da empresa<br>Ler todos os domínios<br>Ler todos os contratos de parceiros | Ler o nome a apresentar e os domínios verificados
-Funções e Âmbitos | Ler todas as funções e associações administrativas<br>Ler todas as propriedades e associação de unidades administrativas | Sem permissões 
-Subscrições | Ler todas as subscrições<br>Ativar Membro do Plano de Serviço | Sem permissões
-Políticas | Ler todas as propriedades das políticas<br>Gerir todas as propriedades da política detida | Sem permissões
+**Área** | **Permissões dos utilizadores membros** | **Permissões de utilizador de hóspedes predefinidos** | **Permissões restritas do utilizador do hóspede (Pré-visualização)**
+------------ | --------- | ---------- | ----------
+Utilizadores e contactos | <ul><li>Ler todas as propriedades públicas de utilizadores e contactos</li><li>Convidar convidados<li>Alterar a própria palavra-passe<li>Gerir o próprio número de telemóvel<li>Gerir a própria fotografia<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Leia o nome do visor, e-mail, sinal no nome, foto, nome principal do utilizador e propriedades do tipo de utilizador de outros utilizadores e contactos<li>Alterar a própria palavra-passe<li>Procure por outro utilizador por Display Name, User Principal Name ou ObjectId (se permitido)<li>Leia informações de gestor e relatório direto de outros utilizadores</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria palavra-passe</li></ul>
+Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos do Office 365<li>Ler todas as propriedades dos grupos<li>Ler as associações de grupo não oculto<li>Associações de grupo de leitura oculto do Office 365 para grupo associado<li>Gerir propriedades, propriedade e adesão de grupos que o utilizador detém<li>Adicionar convidados a grupos detidos<li>Gerir definições de associação dinâmica<li>Eliminar grupos detidos<li>Restaurar grupos detidos do Office 365</li></ul> | <ul><li>Ler propriedades de todos os grupos não escondidos, incluindo a adesão e a propriedade (mesmo grupos não acompanhados)<li>Associações a grupo de leitura oculto do Office 365 para grupos associados<li>Procure por grupos por Display Name ou ObjectId (se permitido)</li></ul> | Sem permissões
+Aplicações | <ul><li>Registar (criar) nova aplicação<li>Ler as propriedades de aplicações registadas e empresariais<li>Gerir as propriedades da aplicação, atribuições e credenciais para aplicações detidas<li>Criar ou eliminar palavra-passe de aplicação do utilizador<li>Eliminar aplicações detidas<li>Restaurar aplicações detidas</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais
+Dispositivos</li></ul> | <ul><li>Ler todas as propriedades dos dispositivos<li>Gerir todas as propriedades dos dispositivos detidos</li></ul> | Sem permissões | Sem permissões
+Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiros</li></ul> | <ul><li>Ler o nome a apresentar e os domínios verificados</li></ul> | <ul><li>Ler o nome a apresentar e os domínios verificados</li></ul>
+Funções e Âmbitos | <ul><li>Ler todas as funções e associações administrativas<li>Ler todas as propriedades e associação de unidades administrativas</li></ul> | Sem permissões | Sem permissões
+Subscrições | <ul><li>Ler todas as subscrições<li>Ativar Membro do Plano de Serviço</li></ul> | Sem permissões | Sem permissões
+Políticas | <ul><li>Ler todas as propriedades das políticas<li>Gerir todas as propriedades da política detida</li></ul> | Sem permissões | Sem permissões
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Para restringir as permissões predefinidas para os utilizadores membros
 
-As permissões predefinidas para os utilizadores membros podem ser restringidas das seguintes formas.
+As permissões por predefinição para os utilizadores membros podem ser restringidas das seguintes formas:
 
 Permissão | Explicação da definição
 ---------- | ------------
@@ -53,8 +51,23 @@ Os utilizadores podem registar a aplicação | Definir esta opção para Não im
 Permitir que os utilizadores conectem o trabalho ou a conta escolar com o LinkedIn | Definir esta opção para Não impede que os utilizadores conectem o seu trabalho ou conta escolar com a sua conta LinkedIn. Para mais informações, consulte [a partilha e consentimento de contactos da conta LinkedIn.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)
 Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os administradores globais e os administradores de utilizadores ainda podem criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Capacidade de criar grupos do Office 365 | Definir esta opção para Não impede que os utilizadores criem grupos do Office 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos do Office 365. Os administradores globais e os administradores de utilizadores ainda poderão criar grupos do Office 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
-Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para Não permite que os não administradores utilizem o portal de administração AD Azure para ler e gerir os recursos Azure AD. Sim, restringe todos os não administradores de acederem a quaisquer dados AD do Azure no portal da administração. Importante a notar: esta definição não restringe o acesso aos dados AD do Azure utilizando o PowerShell ou outros clientes, como o Visual Studio. Quando definido para Sim, conceder a um utilizador específico não administrador a capacidade de usar o portal de administração AD Azure atribui qualquer papel administrativo, como o papel de Leitores de Diretório. Esta função permite a leitura de informações básicas do diretório, que os utilizadores membros têm por padrão (os hóspedes e os principais de serviço não).
+Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para Não permite que os não administradores utilizem o portal de administração AD Azure para ler e gerir os recursos Azure AD. Sim, restringe todos os não administradores de acederem a quaisquer dados AD do Azure no portal da administração.<p>**Nota:** esta definição não restringe o acesso aos dados AD do Azure utilizando o PowerShell ou outros clientes, como o Visual Studio.Quando definido para Sim, para conceder a um utilizador específico não administrador a capacidade de usar o portal de administração AD Azure atribuir qualquer papel administrativo, como o papel de Leitores de Diretório.<p>Esta função permite a leitura de informações básicas do diretório, que os utilizadores membros têm por padrão (os hóspedes e os principais de serviço não).
 Capacidade de ler outros utilizadores | Esta definição só está disponível no PowerShell. A colocação desta bandeira em $false impede que todos os não administradores leiam a informação do utilizador a partir do diretório. Esta bandeira não impede a leitura de informações dos utilizadores noutros serviços da Microsoft, como o Exchange Online. Esta definição destina-se a circunstâncias especiais, e não é recomendada a colocação desta bandeira $false.
+
+
+## <a name="to-restrict-the-default-permissions-for-guest-users"></a>Para restringir as permissões padrão para os utilizadores convidados
+
+As permissões por predefinição para utilizadores convidados podem ser restringidas das seguintes formas:
+
+>[!NOTE] 
+>A definição de restrições de acesso ao utilizador dos hóspedes substituiu as **permissões dos utilizadores do Guest são** de definição limitada. Para obter orientações sobre a utilização desta funcionalidade, consulte [permissões de acesso ao hóspede (pré-visualização) no Azure Ative Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+
+Permissão | Explicação da definição
+---------- | ------------
+Restrições de acesso ao utilizador dos hóspedes (Pré-visualização) | Definir esta opção para os utilizadores do Guest tem o mesmo acesso que os membros concedem todas as permissões do utilizador membro aos utilizadores convidados por padrão.<p>Definir esta opção para o acesso do utilizador do Hóspede está restrito a propriedades e membros dos seus próprios objetos de diretório restringem o acesso do hóspede apenas ao seu próprio perfil de utilizador por padrão. O acesso a outros utilizadores já não é permitido mesmo quando pesquisa pelo Nome Principal do Utilizador ou objectId. O acesso a grupos, incluindo membros de grupos, também já não é permitido. Esta definição não impede o acesso a grupos em outros serviços da Microsoft, como o Microsoft Teams. Consulte [o acesso do Microsoft Teams Guest]() para saber mais.<p>Os utilizadores convidados ainda podem ser adicionados às funções de administrador, independentemente destas definições de permissão.
+Os convidados podem convidar | Definir esta opção para Sim permite que os hóspedes convidem outros hóspedes. Consulte [os convites do Delegado para a colaboração B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) para saber mais.
+Os membros podem convidar | Os membros podem convidar A Definição desta opção para Sim permite que membros não administrativos do seu diretório convidem os hóspedes. Consulte [os convites do Delegado para a colaboração B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) para saber mais.
+Os administradores e utilizadores na função de autor de convite podem convidar | Definir esta opção para Sim permite que administradores e utilizadores no papel de "Convidado Convidado" convidem os hóspedes. Quando definido para Sim, os utilizadores no papel de convidado convidado ainda poderão convidar os hóspedes, independentemente dos Membros podem convidar a configuração. Consulte [os convites do Delegado para a colaboração B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#assign-the-guest-inviter-role-to-a-user) para saber mais.
 
 ## <a name="object-ownership"></a>Propriedade do objeto
 
@@ -130,6 +143,7 @@ Os utilizadores podem realizar as seguintes ações em grupos de propriedade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../users-groups-roles/users-restrict-guest-permissions.md).
 * Para saber mais sobre como atribuir funções de administrador AZure, consulte [atribuir um utilizador às funções de administrador no Azure Ative Directory](active-directory-users-assign-role-azure-portal.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529612"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705253"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Quickstart: Criar um serviço de ligação privada usando um modelo ARM
 
@@ -37,7 +37,7 @@ Este modelo cria um serviço de ligação privada.
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
+:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
 
 Os recursos Azure múltiplos são definidos no modelo:
 
@@ -110,6 +110,6 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o Azure Private Link](private-link-overview.md).

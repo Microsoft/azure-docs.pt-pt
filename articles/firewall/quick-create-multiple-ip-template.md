@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260566"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705440"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo ARM
 
@@ -23,7 +23,7 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo 
 
 Para obter mais informações sobre o Azure Firewall com vários endereços IP públicos, consulte [Implementar uma Firewall Azure com vários endereços IP públicos utilizando Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
 
@@ -35,9 +35,9 @@ Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a ut
 
 Este modelo cria um Azure Firewall com dois endereços IP públicos, juntamente com os recursos necessários para apoiar o Azure Firewall.
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/fw-docs-qs).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
-:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
+:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json":::
 
 Os recursos Azure múltiplos são definidos no modelo:
 
@@ -73,7 +73,7 @@ No portal Azure, reveja os recursos mobilizados. Observe os endereços IP públi
 
 Utilize ligação de ambiente de trabalho remoto para ligar aos endereços IP públicos da firewall. As ligações bem sucedidas demonstram as regras DE NA de firewall que permitem a ligação aos servidores backend.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

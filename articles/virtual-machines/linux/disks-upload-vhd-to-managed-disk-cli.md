@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7eb50caa4e7f0505809da64dd0309c6e0b8709f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510451"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691348"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "86510451"
 
 ## <a name="getting-started"></a>Introdução
 
-Se preferir fazer o upload de discos através de um GUI, pode fazê-lo utilizando o Azure Storage Explorer. Para mais detalhes, consulte: [Use o Azure Storage Explorer para gerir discos geridos aZure](disks-use-storage-explorer-managed-disks.md)
+Se preferir fazer o upload de discos através de um GUI, pode fazê-lo utilizando o Azure Storage Explorer. Para mais detalhes, consulte: [Use o Azure Storage Explorer para gerir discos geridos aZure](../disks-use-storage-explorer-managed-disks.md)
 
 Para fazer o upload do seu VHD para Azure, terá de criar um disco gerido vazio que esteja configurado para este processo de upload. Antes de criar um, há algumas informações adicionais que deve saber sobre estes discos.
 
@@ -129,6 +129,6 @@ az disk revoke-access -n $sourceDiskName -g $sourceRG
 az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez o upload de um VHD com sucesso para um disco gerido, pode anexar o disco como [disco de dados a um VM existente](add-disk.md) ou [anexar o disco VM a um disco VM como disco de OS,](upload-vhd.md#create-the-vm)para criar um novo VM. 

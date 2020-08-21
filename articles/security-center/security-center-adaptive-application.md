@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037021"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691484"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -54,7 +54,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |Preços:|Escalão standard|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -83,7 +83,7 @@ Selecione a recomendação ou abra a página de controlos de aplicações adapta
     - **Sem recomendação** - Máquinas sem uma lista de aplicações definidas, e que não suportam a funcionalidade. A sua máquina pode estar neste separador pelas seguintes razões:
       - Falta um agente do Log Analytics.
       - O agente do Log Analytics não está a enviar eventos.
-      - É uma máquina Windows com uma política [appLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) pré-existente, ativada por um GPO ou por uma política de segurança local
+      - É uma máquina Windows com uma política [appLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) pré-existente, ativada por um GPO ou por uma política de segurança local
 
       > [!TIP]
       > O Centro de Segurança precisa de pelo menos duas semanas de dados para definir as recomendações únicas por grupo de máquinas. As máquinas que foram criadas recentemente, ou que pertencem a subscrições que só recentemente foram ativadas com o nível padrão, aparecerão no separador **No recommendation.**
