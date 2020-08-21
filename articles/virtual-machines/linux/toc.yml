@@ -239,7 +239,7 @@
             - name: Série Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: vCPUs restritos
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md
         - name: Com otimização de armazenamento
           items:
             - name: Descrição geral
@@ -294,7 +294,7 @@
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Flexibilidade do tamanho da instância de VM
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Spot VMs
           displayName: 'pre-empt, preempt'
           href: spot-vms.md
@@ -317,7 +317,7 @@
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidade do tamanho da instância de VM
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Pontuações de referência
           href: compute-benchmark-scores.md
     - name: Distribuições aprovadas
@@ -329,21 +329,21 @@
     - name: Armazenamento em disco
       items:
         - name: Introdução aos discos geridos
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md
         - name: Selecionar um tipo de disco para VMs IaaS
-          href: disks-types.md
+          href: ../disks-types.md
         - name: Encriptação
           href: disk-encryption.md
         - name: Reservas de Armazenamento de Discos
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Conceber para desempenho elevado
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md
         - name: Expansão do disco
           href: disk-bursting.md
         - name: Destinos de escalabilidade para discos
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Discos partilhados
           href: disks-shared.md
         - name: Discos de SO Efémeros
@@ -357,7 +357,7 @@
     - name: Segurança
       items:
         - name: Segurança e política
-          href: security-policy.md
+          href: ../security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Controlos de segurança do Azure Policy
@@ -958,7 +958,7 @@
           displayName: 'Azure Resource Manager, ARM'
           href: ../using-managed-disks-template-deployments.md
         - name: Ativar discos partilhados
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md
         - name: Carregar um VHD para um disco - CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Importar/exportar um disco de forma segura - CLI
@@ -968,11 +968,11 @@
         - name: Redimensionar um disco
           href: expand-disks.md
         - name: Utilizar o Explorador de Armazenamento para gerir discos
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md
         - name: Tirar um instantâneo de um disco
           href: snapshot-copy-managed-disk.md
         - name: Reservar Armazenamento de Discos
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md
         - name: Criar um instantâneo incremental - CLI
           href: disks-incremental-snapshots.md
         - name: Criar um instantâneo incremental - Portal
@@ -1008,7 +1008,7 @@
             - name: Utilizar o acelerador de escrita
               href: ../how-to-enable-write-accelerator.md
             - name: Utilizar os discos ultra
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md
             - name: Criar um disco de referência
               href: disks-benchmarks.md
             - name: Otimizar o desempenho

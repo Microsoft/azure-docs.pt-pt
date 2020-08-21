@@ -5,17 +5,18 @@ metadata:
   title: Azure Cost Management + Faturação
   description: O Azure Cost Management + Faturação ajuda-o a compreender a faturação do Azure, a gerir a sua conta e subscrições, a monitorizar e controlar as despesas do Azure e a otimizar a utilização de recursos. Saiba como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e agir com base em recomendações.
   ms.service: cost-management-billing
+  ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 06/01/2020
-  ms.openlocfilehash: c999417f091d82adf09df5d6962de146ef58b285
-  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+  ms.date: 08/20/2020
+  ms.openlocfilehash: 1d3fafd26b5ad7f92d9280701a386a09f1ad3d22
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/16/2020
-  ms.locfileid: "88257373"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88683135"
 landingContent:
 - title: Analisar os seus custos
   linkLists:

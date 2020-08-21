@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: Alertas
       items:
-        - name: Regras de alerta de aplicação
-          items:
-            - name: Disponibilidade
-              href: app/monitor-web-app-availability.md
-            - name: Alertas de métricas
-              href: ./platform/alerts-log.md
         - name: Regras de alerta de métricas
           items:
             - name: Gerir alertas de métrica
               href: platform/alerts-metric.md
+            - name: Disponibilidade
+              href: app/monitor-web-app-availability.md
             - name: Utilizar limiares dinâmicos
               href: platform/alerts-dynamic-thresholds.md
             - name: Alertas individuais para muitas séries temporais

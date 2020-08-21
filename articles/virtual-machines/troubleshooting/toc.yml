@@ -193,7 +193,7 @@
 - name: Problemas de Gestão de Discos Virtuais
   items:
     - name: Descrição geral
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: FAQ
       href: ../windows/faq-for-disks.md
     - name: Erros ao eliminar os recursos de armazenamento

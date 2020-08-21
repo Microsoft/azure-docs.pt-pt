@@ -134,7 +134,7 @@
           maintainContext: true
           items:
             - name: vCPUs restritos
-              href: ../virtual-machines/windows/constrained-vcpu.md
+              href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
         - name: Com otimização de armazenamento
           href: ../virtual-machines/sizes-storage.md
@@ -173,16 +173,16 @@
     - name: Armazenamento em disco
       items:
         - name: Managed Disks
-          href: ../virtual-machines/windows/managed-disks-overview.md
+          href: ../virtual-machines/managed-disks-overview.md
           maintainContext: true
         - name: Selecionar um tipo de disco
-          href: ../virtual-machines/windows/disks-types.md
+          href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Encriptação
           href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Desempenho de armazenamento Premium
-          href: ../virtual-machines/windows/premium-storage-performance.md
+          href: ../virtual-machines/premium-storage-performance.md
           maintainContext: true
         - name: Discos de SO Efémeros
           href: ../virtual-machines/ephemeral-os-disks.md
@@ -190,7 +190,7 @@
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
         - name: Cópia de Segurança e recuperação após desastre para discos
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Redes
       href: ../virtual-machines/network-overview.md
@@ -201,7 +201,7 @@
     - name: Segurança
       items:
         - name: Segurança e política
-          href: ../virtual-machines/windows/security-policy.md
+          href: ../virtual-machines/security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Linha de base de segurança do Azure

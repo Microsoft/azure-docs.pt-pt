@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: ca49aafcfa4911c97cff4a9187184ba420cd76da
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 24f3dbc550f04d9b25c1c15e2878523c1a3df805
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88168257"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88651034"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -108,9 +108,9 @@ landingContent:
     - text: Resolver falhas de alocação ao redimensionar uma VM
       url: ./allocation-failure.md
     - text: Compreender a unidade temporária na sua VM
-      url: ../windows/managed-disks-overview.md#temporary-disk
+      url: ../managed-disks-overview.md#temporary-disk
     - text: Descrição geral do Azure Managed Disks
-      url: ../windows/managed-disks-overview.md
+      url: ../managed-disks-overview.md
 - title: Problemas de encriptação de discos
   linkLists:
   - linkListType: how-to-guide
