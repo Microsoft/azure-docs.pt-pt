@@ -2,14 +2,14 @@
 title: Executar tarefas em contas de utilizador
 description: Aprenda os tipos de contas de utilizador e como configurá-las.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142674"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719364"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizadores em Batch
 
@@ -49,18 +49,13 @@ O nível de elevação da conta de utilizador indica se uma tarefa funciona com 
 
 ## <a name="auto-user-accounts"></a>Contas de utilizador automático
 
-Por predefinição, as tarefas são executadas em Batch sob uma conta de utilizador automático, como utilizador padrão sem acesso elevado, e com âmbito de tarefa. Quando a especificação do utilizador automático está configurada para o âmbito de tarefa, o serviço Batch cria uma conta de utilizador automático apenas para essa tarefa.
+Por predefinição, as tarefas são executadas em Batch sob uma conta de utilizador automático, como utilizador padrão sem acesso elevado, e com âmbito de piscina. O âmbito do pool significa que a tarefa é executado sob uma conta de utilizador automático que está disponível para qualquer tarefa na piscina. Para obter mais informações sobre o âmbito do pool, consulte [executar uma tarefa como utilizador automático com âmbito de piscina](#run-a-task-as-an-auto-user-with-pool-scope).
 
-A alternativa ao âmbito de tarefa é o âmbito do pool. Quando a especificação do utilizador automático para uma tarefa é configurada para o âmbito do pool, a tarefa é executada sob uma conta de utilizador automático que está disponível para qualquer tarefa no pool. Para obter mais informações sobre o âmbito do pool, consulte [executar uma tarefa como utilizador automático com âmbito de piscina](#run-a-task-as-an-auto-user-with-pool-scope).
-
-O âmbito padrão é diferente nos nos acenos Windows e Linux:
-
-- Nos nós do Windows, as tarefas são executadas por padrão no âmbito de tarefa.
-- Os nós Linux são sempre executados sob o âmbito da piscina.
+A alternativa ao âmbito da piscina é o âmbito da tarefa. Quando a especificação do utilizador automático está configurada para o âmbito de tarefa, o serviço Batch cria uma conta de utilizador automático apenas para essa tarefa.
 
 Existem quatro configurações possíveis para a especificação do utilizador automático, cada uma das quais corresponde a uma conta única de utilizador automático:
 
-- Acesso não administrativo com âmbito de tarefa (a especificação padrão do utilizador automático)
+- Acesso não administrativo com âmbito de tarefa
 - Acesso de administração (elevado) com âmbito de tarefa
 - Acesso não administrativo com âmbito de piscina
 - Acesso a administrador com âmbito de piscina
@@ -75,7 +70,7 @@ Pode configurar a especificação do utilizador automático para privilégios de
 > [!NOTE]
 > Utilize acesso elevado apenas quando necessário. As melhores práticas recomendam a concessão do privilégio mínimo necessário para alcançar o resultado desejado. Por exemplo, se uma tarefa inicial instalar software para o utilizador atual, em vez de para todos os utilizadores, poderá evitar conceder um acesso elevado às tarefas. Pode configurar a especificação do utilizador automático para o âmbito do pool e acesso não administrativo para todas as tarefas que precisam de ser executadas na mesma conta, incluindo a tarefa inicial.
 
-Os seguintes fragmentos de código mostram como configurar a especificação do utilizador automático. Os exemplos definem o nível de elevação `Admin` para e o âmbito para `Task` . O âmbito de tarefa é a definição padrão, mas está incluído aqui por exemplo.
+Os seguintes fragmentos de código mostram como configurar a especificação do utilizador automático. Os exemplos definem o nível de elevação `Admin` para e o âmbito para `Task` .
 
 #### <a name="batch-net"></a>.NET do Batch
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Batch Python
@@ -113,7 +108,7 @@ Quando um nó é a provisionado, duas contas de utilizador automático em toda a
 
 Quando especifica o alcance do pool para o utilizador automático, todas as tarefas que executam com acesso ao administrador são executadas na mesma conta de utilizador automático em toda a piscina. Da mesma forma, as tarefas que funcionam sem permissões de administrador também são executadas numa única conta de utilizador automático em toda a piscina.
 
-> [!NOTE] 
+> [!NOTE]
 > As duas contas de utilizadores automáticos em toda a piscina são contas separadas. As tarefas que executam sob a conta administrativa em toda a piscina não podem partilhar dados com tarefas a decorrer sob a conta padrão, e vice-versa.
 
 A vantagem de executar sob a mesma conta de utilizador automático é que as tarefas são capazes de partilhar dados com outras tarefas que executam no mesmo nó.
@@ -291,7 +286,7 @@ A versão de serviço Batch 2017-01-01.4.0 introduz uma mudança de rutura, subs
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`não especificado | Nenhuma atualização necessária                                                                                               |
+| `CloudTask.RunElevated` não especificado | Nenhuma atualização necessária                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -299,7 +294,7 @@ A versão de serviço Batch 2017-01-01.4.0 introduz uma mudança de rutura, subs
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`não especificado | Nenhuma atualização necessária                                                                                                                     |
+| `CloudTask.withRunElevated` não especificado | Nenhuma atualização necessária                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
@@ -307,7 +302,7 @@ A versão de serviço Batch 2017-01-01.4.0 introduz uma mudança de rutura, subs
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
-| `run_elevated`não especificado | Nenhuma atualização necessária                                                                                                                                  |
+| `run_elevated` não especificado | Nenhuma atualização necessária                                                                                                                                  |
 
 ## <a name="next-steps"></a>Passos seguintes
 

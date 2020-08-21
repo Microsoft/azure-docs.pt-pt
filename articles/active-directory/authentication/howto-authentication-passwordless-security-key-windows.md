@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550624"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717970"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
 
 Este documento centra-se em permitir a autenticação sem palavras-passe baseada em chaves de segurança FIDO2 com dispositivos Windows 10. No final deste artigo, poderás iniciar súb na sua AD Azure e o híbrido Azure AD juntou-se aos dispositivos Do Windows 10 com a sua conta AZure AD utilizando uma chave de segurança FIDO2.
 
 > [!NOTE]
-> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 | Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ Este documento centra-se em permitir a autenticação sem palavras-passe baseada
 | [Dispositivos híbridos Azure AD aderidos](../devices/concept-azure-ad-join-hybrid.md) requerem versão 10 ou superior do Windows 10 |   | X |
 | Controladores de domínio totalmente corrigidos do Windows Server 2016/2019. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versão 1.4.32.0 ou mais tarde |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Opcional) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (Opcional) | X | X |
 | Pacote de provisionamento (Opcional) | X | X |
 | Política de Grupo (Opcional) |   | X |
 
@@ -100,7 +100,7 @@ Para direcionar grupos de dispositivos específicos para permitir o fornecedor d
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Tipo de dados: Inteiro
       - Valor: 1
-1. Esta política pode ser atribuída a utilizadores, dispositivos ou grupos específicos. Para obter mais informações, consulte [atribuir perfis de utilizador e dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Esta política pode ser atribuída a utilizadores, dispositivos ou grupos específicos. Para obter mais informações, consulte [atribuir perfis de utilizador e dispositivo no Microsoft Intune](/intune/device-profile-assign).
 
 ![Criação de política de configuração de dispositivo personalizado intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ Para dispositivos não geridos pelo Intune, pode ser instalado um pacote de prov
 1. Tome nota ou altere o caminho nas janelas **Build** em **Select where to save the provisioning package** and select **Next**.
 1. Selecione **Construir** na página **de pacote de provisionamento.**
 1. Guarde os dois ficheiros criados *(ppkg* e *gato*) para um local onde possa aplicá-los mais tarde às máquinas.
-1. Para aplicar o pacote de provisionamento que criou, consulte [Aplicar um pacote de provisionamento](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. Para aplicar o pacote de provisionamento que criou, consulte [Aplicar um pacote de provisionamento](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Os dispositivos que executam a versão 1809 do Windows 10 também devem ativar o modo pc partilhado *(EnableSharedPCMode*). Para obter mais informações sobre como ativar esta funcionalidade, consulte [Configurar um PC partilhado ou convidado com o Windows 10.](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc)
+> Os dispositivos que executam a versão 1809 do Windows 10 também devem ativar o modo pc partilhado *(EnableSharedPCMode*). Para obter mais informações sobre como ativar esta funcionalidade, consulte [Configurar um PC partilhado ou convidado com o Windows 10.](/windows/configuration/set-up-shared-or-guest-pc)
 
 ### <a name="enable-with-group-policy"></a>Ativar com Política de Grupo
 
@@ -158,7 +158,7 @@ Se quiser partilhar feedback ou encontrar problemas durante a pré-visualizaçã
    - Subcategoria: FIDO
 1. Para capturar registos, use a opção para **recriar o meu problema**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Permitir o acesso aos recursos no local para dispositivos ad Azure Azure e híbridos Azure AD](howto-authentication-passwordless-security-key-on-premises.md)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038436"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719075"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerir uma aplicação de vídeo - aplicação de deteção de objetos e movimentos
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Navegue para o painel **monitor** na sua aplicação. Em seguida, clique numa das hiperligações de deteção de objetos capturados no azulejo **inference Event Video.** O vídeo aparece numa página exibida pelo leitor de vídeo local:
+Navegue para o dispositivo **camera-003** e selecione o **separador Dashboard.** Em seguida, clique numa das hiperligações de deteção de objetos capturados no azulejo **inference Event Video.** O vídeo aparece numa página exibida pelo leitor de vídeo local:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Corte de vídeo":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Alterar os dispositivos simulados no Painel de Aplicações
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Alterar os dispositivos simulados nos painéis de aplicação
 
 Os painéis de aplicação são originalmente povoados com telemetria e propriedades geradas a partir dos dispositivos simulados IoT Central. Para configurar os azulejos para telemetria a partir de câmaras reais ou do simulador Live555, siga estes passos:
 
-1. Navegue para o **painel de instrumentos do Monitor da Câmara Real.**
+1. Navegue para o painel de aplicações **(Amostra) Real Camera Monitor.**
 1. Selecione **Editar**.
+1. Selecione o azulejo **Note** e elimine-o.
+1. Mude o título do painel para *"Real Camera Monitor".*
 1. No azulejo do Conde de **Inferência,** selecione o ícone de configuração.
 1. Na secção Gráfico de **Configuração,** selecione uma ou mais câmaras reais no grupo **de dispositivos de detetor de objetos de borda LVA.**
 1. Selecione o `AI Inference Interface/Inference Count` campo de telemetria.
 1. Selecione **Atualizar**.
-
-   
 
 1. Repita os passos para os seguintes azulejos:
     1. O gráfico de tartes **de deteção** usa o `AI Inference Interface/Inference/entity/tag/value` tipo de telemetria.

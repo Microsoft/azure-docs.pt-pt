@@ -3,12 +3,12 @@ title: Atualizar os nosdes de cluster para usar discos geridos a Azure
 description: Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653703"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717528"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar os nosdes de cluster para usar discos geridos a Azure
 
@@ -365,7 +365,7 @@ Nesta passagem, aprendeu a atualizar os conjuntos de escala de máquina virtual 
 
 Aprenda a:
 
-* [Aumentar verticalmente um nó do tipo primário do cluster do Service Fabric](service-fabric-scale-up-node-type.md)
+* [Aumentar verticalmente um nó do tipo primário do cluster do Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Converter um modelo de conjunto de escala para usar discos geridos](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

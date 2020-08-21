@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090455"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717341"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -25,7 +25,7 @@ O Azure Standard Load Balancer expõe as seguintes capacidades de diagnóstico:
 
 * **Métricas e alertas multidimensionais**: Fornece capacidades de diagnóstico multidimensionais através do [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do balanceador de carga. Pode monitorizar, gerir e resolver problemas dos seus recursos padrão de balanceador de carga.
 
-* **Saúde dos recursos**: A página do Balanceador de Carga no portal Azure e a página de Saúde de Recursos (sob Monitor) expõem a secção de Saúde de Recursos para o Balanceador de Carga Padrão. 
+* **Saúde dos recursos**: O estado de saúde dos recursos do seu Balancer de Carga está disponível na página de Saúde dos Recursos no Monitor. Esta verificação automática informa-o da disponibilidade atual do seu recurso Balanceador de Carga.
 
 Este artigo proporciona uma visita rápida a estas capacidades, e oferece formas de usá-las para o Balancer de Carga Padrão. 
 
@@ -91,7 +91,7 @@ Para configurar alertas:
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>O caminho dos dados está disponível para o meu Frontend do Balancer de Carga?
 <details><summary>Expandir</summary>
 
-A métrica de disponibilidade de trajetória de dados descreve a saúde da trajetória de dados dentro da região até ao hospedeiro de computação onde estão localizados os seus VMs. A métrica é um reflexo da saúde da infraestrutura Azure. Pode utilizar a métrica para:
+A métrica de disponibilidade de caminhos de dados descreve a saúde da trajetória de dados dentro da região para o hospedeiro computacional onde os seus VMs estão localizados. A métrica é um reflexo da saúde da infraestrutura Azure. Pode utilizar a métrica para:
 - Monitorize a disponibilidade externa do seu serviço
 - Investigue mais profundamente e compreenda se a plataforma em que o seu serviço é implementado é saudável ou se o seu so ou instância de aplicação é saudável.
 - Isole se um evento está relacionado com o seu serviço ou com o plano de dados subjacente. Não confunda esta métrica com o estado da sonda de saúde ("Disponibilidade de Backend Instance").
@@ -110,7 +110,7 @@ A métrica é gerada por uma medição ativa em banda. Um serviço de sondagem n
 
 Um pacote que corresponda à parte frontal e à regra da sua implantação é gerado periodicamente. Percorre a região desde a nascente até ao hospedeiro, onde está localizado um VM na piscina traseira. A infraestrutura do balanceador de carga realiza as mesmas operações de equilíbrio e tradução de carga como para todos os outros tráfegos. Esta sonda está em banda no seu ponto final equilibrado de carga. Depois de a sonda chegar ao hospedeiro computacional, onde está localizado um VM saudável na piscina traseira, o hospedeiro computacional gera uma resposta ao serviço de sondagem. O seu VM não vê este tráfego.
 
-A disponibilidade de disponibilidade de datapath falha pelas seguintes razões:
+A disponibilidade de datapath falha pelas seguintes razões:
 - A sua implantação não tem VMs saudáveis restantes na piscina traseira. 
 - Ocorreu uma falha na infraestrutura.
 
@@ -155,14 +155,14 @@ Para obter estatísticas de conexão SNAT:
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Como verifico o uso e alocação do porto SNAT?
 <details>
   <summary>Expandir</summary>
-A métrica de utilização SNAT indica quantos fluxos únicos são estabelecidos entre uma fonte de internet e um conjunto de balança de vm ou de máquina virtual que está por trás de um equilibrador de carga e não tem um endereço IP público. Ao comparar isto com a métrica de atribuição de SNAT, pode determinar se o seu serviço está a sofrer ou em risco de exaustão SNAT e consequente falha de fluxo de saída. 
+A métrica dos portos SNAT usados rastreia quantas portas SNAT estão sendo consumidas para manter os fluxos de saída. Isto indica quantos fluxos únicos são estabelecidos entre uma fonte de internet e um VM de backend ou conjunto de escala de máquina virtual que está por trás de um equilibrador de carga e não tem um endereço IP público. Ao comparar o número de portas SNAT que está a utilizar com a métrica dos Portos SNAT atribuídos, pode determinar se o seu serviço está a sofrer ou em risco de exaustão SNAT e consequente falha de fluxo de saída. 
 
 Se as suas métricas indicarem o risco de falha de fluxo de [saída,](https://aka.ms/lboutbound) consulte o artigo e tome medidas para mitigar isto para garantir a saúde do serviço.
 
 Para visualizar a utilização e atribuição da porta SNAT:
 1. Desagrega a agregação de tempo do gráfico para 1 minuto para garantir que os dados desejados são apresentados.
-1. Selecione **a atribuição de SNAT** e/ou **SNAT** como o tipo métrico e **a média** como agregação
-    * Por predefinição, este é o número médio de portas SNAT atribuídas ou utilizadas por cada VMs ou VMSSes de backend, correspondentes a todos os IPs públicos frontend mapeados para o Balanceador de Carga, agregados sobre TCP e UDP.
+1. Selecione **portas SNAT usadas** e/ou **Portas SNAT atribuídas** como o tipo métrico e **média** como agregação
+    * Por predefinição, estas métricas são o número médio de portas SNAT atribuídas ou utilizadas por cada VM ou VMSS backend, correspondente a todos os IPs públicos frontend mapeados para o Balanceador de Carga, agregados sobre TCP e UDP.
     * Para visualizar as portas SNAT totais utilizadas ou atribuídas para o balanceador de carga utilizar a agregação métrica **Soma**
 1. Filtrar para um tipo de **protocolo**específico , um conjunto de **IPs backend**e/ou **IPs frontend**.
 1. Para monitorizar a saúde por caso de backend ou frontend, aplique a divisão. 
@@ -252,13 +252,14 @@ Para ver a saúde dos seus recursos públicos standard balancer:
 
    *Figura: Visão de saúde do equilibrador de recursos de carga*
  
-Os vários estados de saúde dos recursos e as suas descrições constam do quadro seguinte: 
+A descrição genérica do estado de saúde dos recursos está disponível na documentação do [RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). Para os estatutos específicos do Balançador de Carga Azure estão listados na tabela abaixo: 
 
 | Estado da saúde dos recursos | Descrição |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
-| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. Diagnosticar a saúde selecionando Métricas do Monitor **Azure**  >  **Metrics**.<br>(O*estado indisponível* pode também significar que o recurso não está ligado ao seu balanceador de carga padrão.) |
-| Desconhecido | O estado de saúde dos recursos para o seu recurso padrão do balanceador de carga ainda não foi atualizado.<br>(Estado*desconhecido* também pode significar que o recurso não está ligado ao seu balanceador de carga padrão.)  |
+| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade de Datapath reportou menos de 90% mas superior a 25% de saúde durante pelo menos dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia de disponibilidade do Caminho de Dados para resolver problemas] para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
+| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia de disponibilidade do Caminho de Dados para resolver problemas] para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
+| Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

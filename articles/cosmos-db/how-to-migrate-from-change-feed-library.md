@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b610748e425b9497e12c389cca4d797d6da54087
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261414"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719007"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de processadores de mudanças para o Azure Cosmos DB .NET V3 SDK
 
@@ -47,17 +47,13 @@ O processador de feed de alteração SDK V3 detetará qualquer estado antigo da 
 
 Pode parar com segurança a aplicação utilizando o código antigo, migrar o código para a nova versão, iniciar a aplicação migrada e quaisquer alterações que o tenham ocorrido durante a paragem da aplicação, serão recolhidas e processadas pela nova versão.
 
-> [!NOTE]
-> As migrações de aplicações que utilizam a biblioteca para o .NET V3 SDK são unidirecionais, uma vez que o Estado (arrendamentos) será migrado para o novo esquema. A migração não é compatível com retrocesso.
-
-
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [Amostras de utilização no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Amostras adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora proceder para saber mais sobre o processador de feed de mudança nos seguintes artigos:
 

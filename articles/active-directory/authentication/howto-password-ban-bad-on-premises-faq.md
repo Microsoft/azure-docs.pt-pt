@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283083"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717783"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
 
@@ -46,7 +46,7 @@ Uma mudança de palavra-passe é quando um utilizador escolhe uma nova palavra-p
 
 Um conjunto de palavra-passe (por vezes chamado de redefinição de palavra-passe) é quando um administrador substitui a palavra-passe numa conta por uma nova palavra-passe, por exemplo, utilizando a ferramenta de gestão de Utilizadores de Diretório Ativo e Computadores. Esta operação requer um elevado nível de privilégio (geralmente Domain Admin), e a pessoa que executa a operação geralmente não tem conhecimento da senha antiga. Os cenários de help-desk muitas vezes executam conjuntos de palavras-passe, por exemplo, quando ajudam um utilizador que se esqueceu da sua palavra-passe. Também verá eventos de definição de palavra-passe quando uma nova conta de utilizador estiver a ser criada pela primeira vez com uma palavra-passe.
 
-A política de validação de palavras-passe comporta-se da mesma forma, independentemente de estar a ser feita uma alteração ou um conjunto de palavras-passe. O serviço Azure AD Password Protection DC Agent regista eventos diferentes para informá-lo se foi feita uma alteração de senha ou uma operação de definição de palavras-passe.  Consulte [a monitorização e registo de registo de passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+A política de validação de palavras-passe comporta-se da mesma forma, independentemente de estar a ser feita uma alteração ou um conjunto de palavras-passe. O serviço Azure AD Password Protection DC Agent regista eventos diferentes para informá-lo se foi feita uma alteração de senha ou uma operação de definição de palavras-passe.  Consulte [a monitorização e registo de registo de passwords Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
 **P: Por que razão são registados eventos duplicados de rejeição de palavras-passe ao tentar definir uma palavra-passe fraca utilizando o snap-in de gestão de Diretório Ativo e computadores?**
 
@@ -54,11 +54,11 @@ O snap-in de gestão de utilizadores e computadores de Diretório Ativo tentará
 
 **P: Porque é que os eventos de validação da palavra-passe Azure AD estão a ser registados com um nome de utilizador vazio?**
 
-O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se passa nos atuais requisitos de complexidade da palavra-passe do domínio, por exemplo, utilizando o [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. Quando uma palavra-passe é validada desta forma, o teste também inclui validação por produtos baseados em password-filter-dll, como a Proteção de PasswordS AD Azure - mas os nomes de utilizador passados para um dado filtro de senha dll estarão vazios. Neste cenário, o Azure AD Password Protection ainda validará a palavra-passe utilizando a política de senha atualmente em vigor e emitirá uma mensagem de registo de eventos para capturar o resultado, no entanto a mensagem de registo de eventos terá campos de nome de utilizador vazios.
+O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se passa nos atuais requisitos de complexidade da palavra-passe do domínio, por exemplo, utilizando o [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. Quando uma palavra-passe é validada desta forma, o teste também inclui validação por produtos baseados em password-filter-dll, como a Proteção de PasswordS AD Azure - mas os nomes de utilizador passados para um dado filtro de senha dll estarão vazios. Neste cenário, o Azure AD Password Protection ainda validará a palavra-passe utilizando a política de senha atualmente em vigor e emitirá uma mensagem de registo de eventos para capturar o resultado, no entanto a mensagem de registo de eventos terá campos de nome de utilizador vazios.
 
 **P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Yes. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
 **P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
@@ -74,13 +74,13 @@ O FRS (a tecnologia antecessora da DFSR) tem muitos problemas conhecidos e não 
 
 Para mais informações, consulte os seguintes artigos:
 
-[O caso da replicação sysvol migratória para o DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[O caso da replicação sysvol migratória para o DFSR](/archive/blogs/askds/the-case-for-migrating-sysvol-to-dfsr)
 
 [O Fim é Nigh para FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 Se o seu domínio ainda não estiver a utilizar o DFSR, deve emigrá-lo para utilizar o DFSR antes de instalar a Proteção de Password AD Azure. Para mais informações, consulte o seguinte link:
 
-[Guia de migração de replicação SYSVOL: FRS à replicação de DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Guia de migração de replicação SYSVOL: FRS à replicação de DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > O software Azure AD Password Protection DC Agent irá atualmente instalar-se em controladores de domínio em domínios que ainda utilizam FRS para replicação sysvol, mas o software NÃO funcionará corretamente neste ambiente. Os efeitos colaterais negativos adicionais incluem ficheiros individuais que não conseguem replicar-se, e os procedimentos de restauro sysvol parecem ter sucesso, mas silenciosamente não conseguem replicar todos os ficheiros. Deve migrar o seu domínio para utilizar o DFSR o mais rapidamente possível, tanto para os benefícios inerentes da DFSR como também para desbloquear a implementação da Proteção de Password AD AD Azure. Futuras versões do software serão automaticamente desativadas quando estiverem a funcionar num domínio que ainda utiliza FRS.
@@ -99,9 +99,9 @@ Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor
 
 **P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Yes. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
-Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
+Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](../manage-apps/application-proxy.md) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 
 **P: Em que ordem devem os agentes e proxies de DC ser instalados e registados?**
 

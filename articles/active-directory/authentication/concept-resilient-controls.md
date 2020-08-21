@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027619"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716304"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -30,7 +30,7 @@ Este documento fornece orientações sobre estratégias que uma organização de
 
  1. As organizações podem aumentar a sua resiliência para reduzir o risco de bloqueio antes de **uma perturbação,** implementando estratégias de mitigação ou planos de contingência.
  2. As organizações podem continuar a aceder a apps e recursos que escolherem **durante uma interrupção,** tendo estratégias de mitigação e planos de contingência em vigor.
- 3. As organizações devem certificar-se de que preservam a informação, como registos, **após uma interrupção** e antes de reverterem quaisquer contingências que implementaram.
+ 3. As organizações devem certificar-se de que preservam a informação, como registos,  **após uma interrupção** e antes de reverterem quaisquer contingências que implementaram.
  4. Organizações que não implementaram estratégias de prevenção ou planos alternativos podem ser capazes de implementar **opções de emergência** para lidar com a perturbação.
 
 ## <a name="key-guidance"></a>Orientação chave
@@ -55,7 +55,7 @@ Atenuar uma perturbação real deve ser o principal foco de uma organização no
 
 ### <a name="administrator-lockout-contingency"></a>Contingência de bloqueio do administrador
 
-Para desbloquear o acesso administrativo ao seu inquilino, deverá criar contas de acesso de emergência. Estas contas de acesso de emergência, também conhecidas como contas *de vidro quebrado,* permitem o acesso à configuração AD do Azure quando os procedimentos normais de acesso à conta privilegiada não estão disponíveis. Pelo menos duas contas de acesso de emergência devem ser criadas seguindo as [recomendações]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)da conta de acesso de emergência .
+Para desbloquear o acesso administrativo ao seu inquilino, deverá criar contas de acesso de emergência. Estas contas de acesso de emergência, também conhecidas como contas *de vidro quebrado,* permitem o acesso à configuração AD do Azure quando os procedimentos normais de acesso à conta privilegiada não estão disponíveis. Pelo menos duas contas de acesso de emergência devem ser criadas seguindo as [recomendações]( ../users-groups-roles/directory-emergency-access.md)da conta de acesso de emergência .
 
 ### <a name="mitigating-user-lockout"></a>Atenuando o bloqueio do utilizador
 
@@ -65,11 +65,11 @@ Para desbloquear o acesso administrativo ao seu inquilino, deverá criar contas 
 
 Incorpore os seguintes controlos de acesso nas suas políticas de acesso condicional existentes para organização:
 
-1. Disponibilização de múltiplos métodos de autenticação para cada utilizador que se baseiam em diferentes canais de comunicação, por exemplo, a aplicação Microsoft Authenticator (baseada na Internet), o token OATH (gerado no dispositivo) e o SMS (telefonia). O seguinte script PowerShell irá ajudá-lo a identificar com antecedência, quais os métodos adicionais que os seus utilizadores devem registar: [Script for Azure MFA authentic method analysis](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Disponibilização de múltiplos métodos de autenticação para cada utilizador que se baseiam em diferentes canais de comunicação, por exemplo, a aplicação Microsoft Authenticator (baseada na Internet), o token OATH (gerado no dispositivo) e o SMS (telefonia). O seguinte script PowerShell irá ajudá-lo a identificar com antecedência, quais os métodos adicionais que os seus utilizadores devem registar: [Script for Azure MFA authentic method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Implementar o Windows Hello for Business em dispositivos Windows 10 para satisfazer os requisitos de MFA diretamente a partir do sôm-in do dispositivo.
-3. Utilize dispositivos fidedignos através de dispositivos [Azure AD Hybrid Join](https://docs.microsoft.com/azure/active-directory/devices/overview) ou [Microsoft Intune Managed](https://docs.microsoft.com/intune/planning-guide). Os dispositivos fidedignos melhorarão a experiência do utilizador porque o próprio dispositivo de confiança pode satisfazer os fortes requisitos de autenticação da política sem um desafio MFA ao utilizador. O MFA será então necessário ao inscrever um novo dispositivo e ao aceder a apps ou recursos de dispositivos não fidedqui nem fided contas.
+3. Utilize dispositivos fidedignos através de dispositivos [Azure AD Hybrid Join](../devices/overview.md) ou [Microsoft Intune Managed](/intune/planning-guide). Os dispositivos fidedignos melhorarão a experiência do utilizador porque o próprio dispositivo de confiança pode satisfazer os fortes requisitos de autenticação da política sem um desafio MFA ao utilizador. O MFA será então necessário ao inscrever um novo dispositivo e ao aceder a apps ou recursos de dispositivos não fidedqui nem fided contas.
 4. Utilize políticas baseadas em risco de proteção de identidade Azure AD que impeçam o acesso quando o utilizador ou o início de sação estão em risco em vez de políticas fixas de MFA.
-5. Se estiver a proteger o acesso VPN utilizando a extensão NPS do Azure MFA, considere a sua solução VPN como uma [aplicação SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determine a categoria de aplicação conforme recomendado abaixo. 
+5. Se estiver a proteger o acesso VPN utilizando a extensão NPS do Azure MFA, considere a sua solução VPN como uma [aplicação SAML](../manage-apps/view-applications-portal.md) e determine a categoria de aplicação conforme recomendado abaixo. 
 
 >[!NOTE]
 > As políticas baseadas no risco requerem licenças [Azure AD Premium P2.](https://azure.microsoft.com/pricing/details/active-directory/)
@@ -92,7 +92,7 @@ Este conjunto de políticas de exemplo irá conceder aos utilizadores selecionad
 
 ### <a name="contingencies-for-user-lockout"></a>Contingências para o bloqueio do utilizador
 
-Em alternativa, a sua organização também pode criar políticas de contingência. Para criar políticas de contingência, deve definir critérios de troca entre continuidade do negócio, custos operacionais, custos financeiros e riscos de segurança. Por exemplo, pode ativar uma política de contingência apenas para um subconjunto de utilizadores, para um subconjunto de aplicações, para um subconjunto de clientes, ou a partir de um subconjunto de localizações. As políticas de contingência darão aos administradores e utilizadores finais acesso a apps e recursos, durante uma interrupção quando não foi implementado nenhum método de mitigação. A Microsoft recomenda que as políticas de contingência sejam ativadas [apenas](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) no modo de relatório quando não estão a ser utilizadas para que os administradores possam monitorizar o impacto potencial das políticas caso precisem de ser ativadas.
+Em alternativa, a sua organização também pode criar políticas de contingência. Para criar políticas de contingência, deve definir critérios de troca entre continuidade do negócio, custos operacionais, custos financeiros e riscos de segurança. Por exemplo, pode ativar uma política de contingência apenas para um subconjunto de utilizadores, para um subconjunto de aplicações, para um subconjunto de clientes, ou a partir de um subconjunto de localizações. As políticas de contingência darão aos administradores e utilizadores finais acesso a apps e recursos, durante uma interrupção quando não foi implementado nenhum método de mitigação. A Microsoft recomenda que as políticas de contingência sejam ativadas [apenas](../conditional-access/howto-conditional-access-report-only.md) no modo de relatório quando não estão a ser utilizadas para que os administradores possam monitorizar o impacto potencial das políticas caso precisem de ser ativadas.
 
  Compreender a sua exposição durante uma interrupção ajuda a reduzir o seu risco e é uma parte crítica do seu processo de planeamento. Para criar o seu plano de contingência, determine primeiro os seguintes requisitos de negócio da sua organização:
 
@@ -119,7 +119,7 @@ Uma política de acesso condicional de contingência é uma **política de backu
 
 * Configure um conjunto de políticas de recuo se uma rutura num tipo de credencial ou um mecanismo de controlo de acesso tiver impacto no acesso às suas apps. Configure uma política em estado apenas de relatório que exija a Participação do Domínio como um controlo, como um backup para uma política ativa que requer um provedor de MFA de terceiros.
 * Reduzir o risco de maus atores adivinharem palavras-passe, quando não é necessário o MFA, seguindo as práticas no livro branco de orientação da [palavra-passe.](https://aka.ms/passwordguidance)
-* Implementar [Azure AD Self-Service Password Reset (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para garantir que os utilizadores não usam a palavra-passe comum e os termos que escolhe proibir.
+* Implementar [Azure AD Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) e [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) para garantir que os utilizadores não usam a palavra-passe comum e os termos que escolhe proibir.
 * Utilize políticas que restrinjam o acesso dentro das apps se um determinado nível de autenticação não for atingido em vez de simplesmente voltar ao acesso total. Por exemplo:
   * Configure uma política de backup que envia o pedido de sessão restrita para Exchange e SharePoint.
   * Se a sua organização utilizar o Microsoft Cloud App Security, considere recorrer a uma política que envolva o MCAS e, em seguida, o MCAS permite o acesso apenas à leitura, mas não o upload.
@@ -208,7 +208,7 @@ Ordem de ativação:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingências para o bloqueio do utilizador a partir de recursos on-prem (extensão NPS)
 
-Se estiver a proteger o acesso VPN utilizando a extensão NPS do Azure MFA, considere a sua solução VPN como uma [aplicação SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determine a categoria de aplicação conforme recomendado abaixo. 
+Se estiver a proteger o acesso VPN utilizando a extensão NPS do Azure MFA, considere a sua solução VPN como uma [aplicação SAML](../manage-apps/view-applications-portal.md) e determine a categoria de aplicação conforme recomendado abaixo. 
 
 Se implementou a extensão NPS MFA AD AD Ad para proteger recursos on-prem, como VPN e Remote Desktop Gateway, com MFA - deve considerar antecipadamente se está pronto para desativar mFA em caso de emergência.
 
@@ -233,7 +233,7 @@ O bloqueio do utilizador também pode ocorrer se as seguintes condições forem 
 - A sua organização utiliza uma solução de identidade híbrida com autenticação ou federação pass-through.
 - Os seus sistemas de identidade no local (como Ative Directory, AD FS ou um componente dependente) não estão disponíveis. 
  
-Para ser mais resiliente, a sua organização deve [ativar a sincronização de haxixe de palavra-passe](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), pois [permite-lhe mudar para a sincronização de haxixe de palavra-passe](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) se os seus sistemas de identidade no local estiverem desligados.
+Para ser mais resiliente, a sua organização deve [ativar a sincronização de haxixe de palavra-passe](../hybrid/choose-ad-authn.md), pois [permite-lhe mudar para a sincronização de haxixe de palavra-passe](../hybrid/plan-connect-user-signin.md) se os seus sistemas de identidade no local estiverem desligados.
 
 #### <a name="microsoft-recommendations"></a>Recomendações da Microsoft
  Ative a sincronização de haxixe de palavra-passe utilizando o assistente Azure AD Connect, independentemente de a sua organização utilizar a federação ou a autenticação pass-through.
@@ -255,7 +255,7 @@ Dependendo das mitigações ou contingências que são usadas durante uma interr
 1. Como parte da sua estratégia de controlo de mudanças, documente todas as alterações e o estado anterior para poder reverter quaisquer contingências que implementou assim que os controlos de acesso estiverem totalmente operacionais.
 2. Assuma que os atores mal-intencionados tentarão recolher senhas através de spray de palavras-passe ou ataques de phishing enquanto desativa o MFA. Além disso, os maus atores podem já ter senhas que anteriormente não deram acesso a qualquer recurso que possa ser tentado durante esta janela. Para utilizadores críticos, como executivos, é possível atenuar parcialmente este risco, repondo as suas palavras-passe antes de desativar o MFA para os mesmos.
 3. Arquive toda a atividade de inscrição para identificar quem acede ao que durante o tempo mFA foi desativado.
-4. [Triagem todas as deteções de risco reportadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante esta janela.
+4. [Triagem todas as deteções de risco reportadas](../reports-monitoring/concept-sign-ins.md) durante esta janela.
 
 ## <a name="after-a-disruption"></a>Depois de uma rutura
 
@@ -265,8 +265,8 @@ Desfaça as alterações que fez como parte do plano de contingência ativado as
 2. Desative as suas políticas de contingência de volta ao modo reporte- apenas. 
 3. Reverta quaisquer outras alterações que tenha feito e documentada durante a interrupção.
 4. Se usou uma conta de acesso de emergência, lembre-se de regenerar credenciais e proteger fisicamente os novos detalhes das credenciais como parte dos procedimentos da sua conta de acesso de emergência.
-5. Continue a [triagem de todas as deteções de risco reportadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) após a interrupção para atividades suspeitas.
-6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) para direcionar um conjunto de utilizadores. A revogação de todos os tokens de atualização é importante para as contas privilegiadas utilizadas durante a interrupção e fazê-lo irá forçá-los a reauthenticar e a cumprir o controlo das políticas restauradas.
+5. Continue para [triagem todas as deteções de risco reportadas](../reports-monitoring/concept-sign-ins.md) após a interrupção para atividades suspeitas.
+6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) para direcionar um conjunto de utilizadores. A revogação de todos os tokens de atualização é importante para as contas privilegiadas utilizadas durante a interrupção e fazê-lo irá forçá-los a reauthenticar e a cumprir o controlo das políticas restauradas.
 
 ## <a name="emergency-options"></a>Opções de emergência
 
@@ -280,17 +280,17 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
  > Se alargar os endereços IP fidedignos para desbloquear o acesso, não serão geradas as deteções de risco associadas a endereços IP (por exemplo, viagens impossíveis ou locais desconhecidos).
 
 >[!NOTE]
- > Configurar [IPs fidedignos](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) para Azure MFA só está disponível com [licenças Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
+ > Configurar [IPs fidedignos](./howto-mfa-mfasettings.md) para Azure MFA só está disponível com [licenças Azure AD Premium](./concept-mfa-licensing.md).
 
 ## <a name="learn-more"></a>Saiba mais
 
-* [Documentação da Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Gerir contas administrativas de acesso de emergência em Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
-* [Configurar localizações nomeadas no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
-  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Como configurar o Azure Ative Directory híbrido juntou dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Guia de Implementação do Windows Hello para Empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
+* [Gerir contas administrativas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Configurar localizações nomeadas no Azure Ative Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+* [Como configurar o Azure Ative Directory híbrido juntou dispositivos](../devices/hybrid-azuread-join-plan.md)
+* [Guia de Implementação do Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Orientação de passwords - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quais são as condições no Azure Ative Directy Acesso Condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [O que são controlos de acesso no Azure Ative Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
-* [O que é o modo de relatório de acesso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)
+* [Quais são as condições no Azure Ative Directy Acesso Condicional?](../conditional-access/concept-conditional-access-conditions.md)
+* [O que são controlos de acesso no Azure Ative Directory Conditional Access?](../conditional-access/controls.md)
+* [O que é o modo de relatório de acesso condicional?](../conditional-access/concept-conditional-access-report-only.md)

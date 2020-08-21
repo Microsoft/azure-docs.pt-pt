@@ -4,15 +4,15 @@ description: Replicar servidores de Serviços de Análise Azure com escala. As c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247999"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716933"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -50,7 +50,7 @@ Ao executar uma operação de escala subsequente, por exemplo, aumentando o núm
 
 ### <a name="synchronization-mode"></a>Modo de sincronização
 
-Por padrão, as réplicas de consulta são rehidratadas na totalidade, não incrementalmente. A reidratação acontece por etapas. São separadas e anexadas duas de cada vez (assumindo que existem pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida on-line para consultas a qualquer momento. Em alguns casos, os clientes podem precisar de voltar a ligar-se a uma das réplicas online enquanto este processo está a decorrer. Ao utilizar a definição **replicaSyncMode** (in Preview), pode agora especificar que a sincronização de réplicas de consulta ocorre em paralelo. A sincronização paralela proporciona os seguintes benefícios: 
+Por padrão, as réplicas de consulta são rehidratadas na totalidade, não incrementalmente. A reidratação acontece por etapas. São separadas e anexadas duas de cada vez (assumindo que existem pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida on-line para consultas a qualquer momento. Em alguns casos, os clientes podem precisar de voltar a ligar-se a uma das réplicas online enquanto este processo está a decorrer. Ao utilizar a definição **ReplicaSyncMode,** pode agora especificar que a sincronização de réplicas de consulta ocorre em paralelo. A sincronização paralela proporciona os seguintes benefícios: 
 
 - Redução significativa do tempo de sincronização. 
 - Os dados através de réplicas são mais propensos a serem consistentes durante o processo de sincronização. 
@@ -61,7 +61,7 @@ Por padrão, as réplicas de consulta são rehidratadas na totalidade, não incr
 
 Utilize SSMS para definir ReplicaSyncMode em Propriedades Avançadas. Os valores possíveis são: 
 
-- `1`(predefinição): Reidratação total da base de dados de réplicas em fases (incrementais). 
+- `1` (predefinição): Reidratação total da base de dados de réplicas em fases (incrementais). 
 - `2`: Sincronização otimizada em paralelo. 
 
 ![Definição de RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
@@ -137,7 +137,7 @@ Códigos de estado de devolução:
 |0     | Replicação        |
 |1     |  Reidratação       |
 |2     |   Concluído       |
-|3     |   Falhou      |
+|3     |   Com falhas      |
 |4     |    Finalização     |
 |||
 

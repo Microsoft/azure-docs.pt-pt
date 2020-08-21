@@ -3,43 +3,46 @@ title: Use identidades geridas pela Azure para criar ambientes na DevTest Labs M
 description: Aprenda a usar identidades geridas em Azure para implantar ambientes num laboratório em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478880"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718986"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Use identidades geridas pela Azure para implantar ambientes num laboratório 
+
 Como dono de laboratório, pode usar uma identidade gerida para implantar ambientes num laboratório. Esta funcionalidade é útil em cenários onde o ambiente contém ou tem referências a recursos Azure, tais como cofres-chave, galerias de imagem partilhadas e redes externas ao grupo de recursos do ambiente. Permite a criação de ambientes de caixas de areia que não se limitam ao grupo de recursos desse ambiente.
 
 > [!NOTE]
 > Atualmente, uma única identidade atribuída ao utilizador é suportada por laboratório. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Certifique-se de que a sua identidade gerida foi criada na mesma região e subscrição que o seu laboratório. A identidade gerida não precisa de estar no mesmo grupo de recursos.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
+
 Nesta secção você, como proprietário de laboratório, use o portal Azure para adicionar uma identidade gerida pelo utilizador ao laboratório. 
 
-1. Na página de laboratório, selecione **Configuração e políticas**. 
-1. Selecione **Identidade** na secção **Definições.**
-1. Para adicionar uma identidade atribuída ao utilizador, **selecione Adicione** na barra de ferramentas. 
-1. Selecione uma **identidade** de uma lista de drop-down pré-povoada.
-1. Selecione **OK**.
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Procure por **Laboratórios DevTest.**
+1. Da lista de laboratórios, selecione o laboratório que quiser.
+1. Selecione **Configuração e políticas**  ->  **Identidade (Pré-visualização)**. 
+1. Para adicionar uma identidade atribuída ao utilizador, selecione o **separador Utilizador Atribuído.**
+1. **Pressione Add** .
+1. Selecione um utilizador existente que criou e/ou tenha acesso a partir do drop-down.
+ 
     ![Adicionar identidade gerida pelo utilizador](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. Vê a identidade gerida pelo utilizador na lista. 
+1. Pressione **Guarde** em cima da página.
 
-    ![Identidade gerida pelo utilizador na lista](./media/use-managed-identities-environments/identity-in-list.png)
-
-Uma vez guardado, o laboratório usará esta identidade enquanto implanta todos os ambientes de laboratório. Também pode aceder ao recurso de identidade em Azure selecionando a identidade da lista. 
+    Uma vez guardado, o laboratório usará esta identidade enquanto implanta todos os ambientes de laboratório. Também pode aceder ao recurso de identidade em Azure selecionando a identidade da lista. 
 
 O dono do laboratório não precisa de fazer nada de especial enquanto implanta um ambiente, desde que a identidade adicionada ao laboratório tenha permissões para os recursos externos a que o ambiente precisa de aceder. 
 
 Para alterar a identidade gerida pelo utilizador atribuída ao laboratório, remova primeiro a identidade anexada ao laboratório e adicione outra ao laboratório. Para remover uma identidade anexada ao laboratório, **selecione... (elipse)** e clique em **Remover**. 
-
-![Identidade gerida pelo utilizador na lista](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## <a name="use-api"></a>Utilizar API
 

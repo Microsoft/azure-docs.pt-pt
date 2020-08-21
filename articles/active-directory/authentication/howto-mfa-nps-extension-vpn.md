@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507183"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717885"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com o Azure MFA utilizando a extensão do Servidor de Política de Rede para Azure
 
@@ -41,7 +41,7 @@ A Política de Rede e os Serviços de Acesso conferem às organizações a capac
 * Estabeleça e aplique políticas de saúde do cliente de Proteção de Acesso à Rede (NAP) que determinam se os dispositivos são concedidos sem restrições ou acesso restrito aos recursos de rede.
 
 * Forneça uma forma de impor a autenticação e autorização de acesso a pontos de acesso sem fios com capacidade 802.1x e comutadores Ethernet.
-  Para obter mais informações, consulte [o Servidor de Política de Rede](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+  Para obter mais informações, consulte [o Servidor de Política de Rede](/windows-server/networking/technologies/nps/nps-top).
 
 Para aumentar a segurança e fornecer um alto nível de conformidade, as organizações podem integrar NPS com Azure Multi-Factor Authentication para garantir que os utilizadores usam verificação em duas etapas para ligar à porta virtual no servidor VPN. Para que os utilizadores tenham acesso, devem fornecer o seu nome de utilizador e combinação de palavra-passe e outras informações que controlam. Esta informação deve ser fidedigna e não facilmente duplicada. Pode incluir um número de telemóvel, um número fixo ou uma aplicação num dispositivo móvel.
 
@@ -94,7 +94,7 @@ Se não tiver uma infraestrutura VPN em funcionamento, pode rapidamente criar um
 
 A Política de Rede e os Serviços de Acesso fornecem o servidor RADIUS e a funcionalidade do cliente. Este artigo pressupõe que instalou a função de Política de Rede e Serviços de Acesso num servidor de membros ou controlador de domínio no seu ambiente. Neste guia, configura RADIUS para uma configuração VPN. Instale a função De Política de Rede e Serviços de Acesso num servidor *diferente do* seu servidor VPN.
 
-Para obter informações sobre a instalação do serviço de funções de política de rede e serviços de acesso, o Windows Server 2012 ou mais tarde, consulte [instalar um Servidor de Política de Saúde NAP](https://technet.microsoft.com/library/dd296890.aspx). O NAP é prectado no Windows Server 2016. Para uma descrição das melhores práticas para os NPS, incluindo a recomendação de instalar NPS num controlador de domínio, consulte [as melhores práticas para NPS](https://technet.microsoft.com/library/cc771746).
+Para obter informações sobre a instalação do serviço de funções de política de rede e serviços de acesso, o Windows Server 2012 ou mais tarde, consulte [instalar um Servidor de Política de Saúde NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). O NAP é prectado no Windows Server 2016. Para uma descrição das melhores práticas para os NPS, incluindo a recomendação de instalar NPS num controlador de domínio, consulte [as melhores práticas para NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-mfa-license"></a>Licença Azure MFA
 
@@ -446,13 +446,13 @@ Um evento relacionado a partir do registo de autenticação multi-factor Azure �
 
 ![Registos de autenticação multi-factor Azure](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Para fazer uma resolução avançada de problemas, consulte os ficheiros de registo de formato de base de dados NPS onde o serviço NPS está instalado. Os ficheiros de registo são criados na pasta _%SystemRoot%\System32\Logs_ como ficheiros de texto delimitados por vírgula. Para obter uma descrição dos ficheiros de registo, consulte [os ficheiros de registo do formato de base de dados do NPS](https://technet.microsoft.com/library/cc771748.aspx).
+Para fazer uma resolução avançada de problemas, consulte os ficheiros de registo de formato de base de dados NPS onde o serviço NPS está instalado. Os ficheiros de registo são criados na pasta _%SystemRoot%\System32\Logs_ como ficheiros de texto delimitados por vírgula. Para obter uma descrição dos ficheiros de registo, consulte [os ficheiros de registo do formato de base de dados do NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 As entradas nestes ficheiros de registo são difíceis de interpretar, a menos que as exporte para uma folha de cálculo ou uma base de dados. Pode encontrar muitas ferramentas de análise do Serviço de Autenticação da Internet (IAS) online para o ajudar a interpretar os ficheiros de registo. A saída de uma dessas [aplicações de shareware](https://www.deepsoftware.com/iasviewer) transferíveis é mostrada aqui:
 
 ![Amostra Shareware app IAS parser](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Para fazer uma resolução adicional de problemas, pode utilizar um analisador de protocolos como o Wireshark ou [o Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). A imagem a seguir da Wireshark mostra as mensagens RADIUS entre o servidor VPN e o NPS.
+Para fazer uma resolução adicional de problemas, pode utilizar um analisador de protocolos como o Wireshark ou [o Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). A imagem a seguir da Wireshark mostra as mensagens RADIUS entre o servidor VPN e o NPS.
 
 ![Microsoft Message Analyzer mostrando tráfego filtrado](./media/howto-mfa-nps-extension-vpn/image50.png)
 

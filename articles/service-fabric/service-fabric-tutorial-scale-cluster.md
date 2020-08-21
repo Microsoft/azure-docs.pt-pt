@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a escalar um cluster de Tecido de Ser
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257109"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716899"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -87,7 +87,7 @@ Assim, ao atualizar o valor do *nt1InstanceCount,* altera o número de nós no s
 Se estiver a escalonar, retirando os nós de um nó de [nível][durability] de durabilidade de Bronze, deve [remover manualmente o estado desses nós](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade prata e ouro, estes passos são feitos automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
@@ -793,7 +793,7 @@ No *parameters.jsem* arquivo, adicione os seguintes novos parâmetros e valores:
 ```
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
@@ -809,7 +809,7 @@ Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizo
 > [!WARNING]
 > Não é aconselhável utilizar o Remove-AzServiceFabricNodeType para remover um nó de um cluster de produção. É um comando perigoso, uma vez que elimina o recurso de escala de máquina virtual por trás do tipo de nó. 
 
-Para remover o tipo de nó, executar o [cmdlet Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser nível de [durabilidade][durability] prateado ou dourado O cmdlet elimina o conjunto de escalas associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, executar o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós para remover, que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos para outro nó. Se o gestor do cluster não conseguir encontrar um nó para a réplica/serviço, então a operação está atrasada/bloqueada.
+Para remover o tipo de nó, executar o [cmdlet Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser nível de [durabilidade][durability]  prateado ou dourado O cmdlet elimina o conjunto de escalas associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, executar o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós para remover, que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos para outro nó. Se o gestor do cluster não conseguir encontrar um nó para a réplica/serviço, então a operação está atrasada/bloqueada.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -833,7 +833,7 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentar recursos de nó 
-Depois de criar um cluster de Tecido de Serviço, pode escalar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operativo dos VMs do tipo nó substituindo o tipo de nó original por um novo tipo de nó (com imagem VM SKU ou SO atualizado). Para mais detalhes, consulte [escalar um nó de nó de tecido de serviço Azure](service-fabric-scale-up-node-type.md).
+Depois de criar um cluster de Tecido de Serviço, pode escalar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operativo dos VMs do tipo nó substituindo o tipo de nó original por um novo tipo de nó (com imagem VM SKU ou SO atualizado). Para mais detalhes, consulte [escalar um nó de nó de tecido de serviço Azure](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Nunca tente uma mudança no lugar da imagem VM SKU ou SO, que é uma operação perigosa e sem suporte.
@@ -849,7 +849,7 @@ O tamanho dos VMs no segundo tipo de nó é definido no parâmetro *vmNodeType1S
 O VM SKU para todos os três tipos de nós é definido no parâmetro *vmImageSku.*  Mais uma vez, a alteração do VM SKU de um tipo de nó deve ser abordada com cuidado e não é recomendada para o tipo de nó primário.
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"

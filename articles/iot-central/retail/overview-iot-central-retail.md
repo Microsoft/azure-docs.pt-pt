@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032299"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719235"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
 
@@ -160,20 +160,20 @@ A aplicação de análise de vídeo utiliza um módulo [de análise de vídeo ao
 
 O modelo de aplicação inclui quatro dashboards de aplicação:
 
-* **A configuração** fornece informações sobre o design da aplicação e permite adicionar e eliminar câmaras.
-* **Gerir** permite-lhe gerir as suas câmaras. Por exemplo, pode configurar as câmaras, ver informações sobre o estado e iniciar a execução das câmaras.
-* **As Câmaras Reais** permitem-lhe visualizar informações das suas câmaras reais, tais como contagens de deteção e eventos de câmara.
-* **O Monitor** permite-lhe ver informações detalhadas de todas as suas câmaras.
+* **O Getting Started** fornece links para recursos para ajudá-lo a começar a usar o modelo de aplicação.
+* **O Painel de Demonstração** fornece uma ilustração dos tipos de informação que pode apresentar a partir das suas câmaras ligadas.
+* **(Amostra) A Real Camera Management** utiliza câmaras simuladas para mostrar como consegue gerir as suas câmaras a partir da aplicação.
+* **(Amostra) O Monitor de Câmara Real** utiliza câmaras simuladas para mostrar como pode monitorizar as suas câmaras a partir da aplicação.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo - deteção de objetos e movimentos":::
 
 Para saber mais sobre a arquitetura da solução, consulte a arquitetura da [aplicação video analytics.](architecture-video-analytics.md)
 
-Para aprender a implementar a solução, consulte a aplicação de análise de vídeo create no tutorial [Azure IoT Central.](tutorial-video-analytics-create-app.md)
+Para aprender a implementar a solução, consulte a aplicação de análise de vídeo create no tutorial [Azure IoT Central.](tutorial-video-analytics-deploy.md)
 
 ### <a name="live-video-analytics"></a>Análise de vídeo ao vivo
 
-A análise de vídeo ao vivo fornece uma plataforma para você construir aplicações de vídeo inteligentes que atravessam a borda e a nuvem. A plataforma oferece a capacidade de capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser de vídeo ou vídeo, para os serviços Azure. Os serviços Azure podem estar a funcionar na nuvem ou na borda. Pode utilizar a plataforma para melhorar as soluções IoT com análise de vídeo.
+[A análise de vídeo ao vivo](https://github.com/Azure/live-video-analytics) fornece uma plataforma para você construir aplicações de vídeo inteligentes que atravessam a borda e a nuvem. A plataforma oferece a capacidade de capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser de vídeo ou vídeo, para os serviços Azure. Os serviços Azure podem estar a funcionar na nuvem ou na borda. Pode utilizar a plataforma para melhorar as soluções IoT com análise de vídeo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -184,4 +184,5 @@ Para começar a construir uma solução de retalho:
 * [Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital.](./tutorial-iot-central-digital-distribution-center.md)
 * [Implemente e caminhe através de um modelo inteligente de aplicação de gestão de inventário](./tutorial-iot-central-smart-inventory-management.md).
 * [Implemente e caminhe através do modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center.md).
+* [Implemente e caminhe através do modelo de aplicação de análise de vídeo](./tutorial-video-analytics-deploy.md).
 * Saiba mais sobre o IoT Central na visão geral do [IoT Central](../preview/overview-iot-central.md).

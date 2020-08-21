@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035388"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717800"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Pré-povoar informações de contacto de autenticação do utilizador para reposição da palavra-passe de autosserviço do Azure Ative Directory (SSPR)
 
@@ -88,7 +88,7 @@ Os seguintes campos podem ser definidos através do PowerShell:
 
 ### <a name="use-powershell-version-1"></a>Utilizar a versão 1 do PowerShell
 
-Para começar, [descarregue e instale o módulo Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois de instalado, utilize os seguintes passos para configurar cada campo.
+Para começar, [descarregue e instale o módulo Azure AD PowerShell](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). Depois de instalado, utilize os seguintes passos para configurar cada campo.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Desa estação os dados de autenticação com a versão 1 do PowerShell
 
@@ -126,7 +126,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Utilizar a versão 2 do PowerShell
 
-Para começar, [descarregue e instale o módulo PowerShell da versão AD AZure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
+Para começar, [descarregue e instale o módulo PowerShell da versão AD AZure](/powershell/module/azuread/?view=azureadps-2.0).
 
 Para instalar rapidamente a partir de versões recentes do PowerShell que suportam `Install-Module` , executar os seguintes comandos. A primeira linha verifica se o módulo já está instalado:
 
