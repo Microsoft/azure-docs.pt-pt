@@ -3,12 +3,12 @@ title: O que é extensão de gráfico de mídia - Azure
 description: O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um nó de extensão de gráfico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 09fc2b71a6188caf1bdd9b7a2ef4da287f022845
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691946"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716083"
 ---
 # <a name="media-graph-extension"></a>Extensão de gráfico de mídia
 
@@ -54,7 +54,7 @@ O diagrama abaixo retrata o fluxo de dados de alto nível:
 
 ## <a name="samples"></a>Amostras
 
-Confira algumas das nossas amostras de [caderno Jupyter](https://jupyter.org/) para Live Video Analytics. Estes cadernos fornecer-lhe-ão instruções passo a passo sobre:
+Confira algumas das nossas amostras de [caderno Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para Live Video Analytics. Estes cadernos fornecer-lhe-ão instruções passo a passo sobre:
 
 * Como criar uma imagem de contentor Docker de um serviço de extensão
 * Como implantar o serviço de extensão como um recipiente juntamente com o recipiente Live Video Analytics

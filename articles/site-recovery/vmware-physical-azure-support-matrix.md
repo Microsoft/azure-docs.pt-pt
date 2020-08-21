@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ffc07d38e3a04cd4cf71aaa8e80d69066f044f6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 288cebc4d4097ff40b618e2f1976039359458ecf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607102"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719024"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -86,8 +86,8 @@ Windows 7 com SP1 64-bit | Suportado a partir do [rollup 36](https://support.mic
 **Sistema operativo** | **Detalhes**
 --- | ---
 Linux | Apenas um sistema de 64 bits é suportado. Sistema de 32 bits não é suportado.<br/><br/>Todos os servidores Linux devem ter [componentes do Linux Integration Services (LIS) instalados.](https://www.microsoft.com/download/details.aspx?id=55106) É necessário iniciar o servidor em Azure após o teste failover/failover. Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure. <br/><br/> As orquestras de recuperação do site falham em executar servidores Linux em Azure. No entanto, os fornecedores do Linux podem limitar o suporte apenas a versões de distribuição que não tenham atingido o fim de vida.<br/><br/> Nas distribuições linux, apenas os núcleos de stock que fazem parte da versão/atualização da versão menor de distribuição são suportados.<br/><br/> A atualização de máquinas protegidas nas principais versões de distribuição do Linux não é suportada. Para atualizar, desativar a replicação, atualizar o sistema operativo e, em seguida, voltar a ativar a replicação.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte ao Linux e à tecnologia open-source em Azure.
-Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/> Poucos núcleos mais antigos em servidores com red hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
-Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a [7.9](https://support.microsoft.com/help/4578241/)<br/> <br/> 8.0, 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/><br/> Poucos núcleos mais antigos em servidores que executam CentOS 5.2-5.11 & 6.1-6.10 não possuem [componentes do Linux Integration Services (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
+Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/> Poucos núcleos mais antigos em servidores com red hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
+Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/><br/> Poucos núcleos mais antigos em servidores que executam CentOS 5.2-5.11 & 6.1-6.10 não possuem [componentes do Linux Integration Services (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
 Ubuntu | Ubuntu 14.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions) </br> Servidor Ubuntu 18.04 LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions); Ubuntu 18.4.03 (Kernel v5.4) é suportado a partir de [9.36](https://support.microsoft.com/help/4578241/) </br> Ubuntu 20.04 servidor LTS [(versões de kernel suportados pela revisão)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x* [(versões de kernel suportadas pela revisão)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o mais recente instalador de agentes de mobilidade no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Nota:** Não é suportada a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4. Para atualizar, desative a replicação e reativa após a atualização. <br/>|
@@ -177,16 +177,16 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 **Componente** | **Suportado**
 --- | ---
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
-Rede de anfitriões VLAN | Yes.
-Rede de anfitriões IPv4 | Yes.
+Rede de anfitriões VLAN | Sim.
+Rede de anfitriões IPv4 | Sim.
 Rede de anfitriões IPv6 | Não.
 Rede de hóspedes/servidor NIC Teaming | Não.
-Rede de hóspedes/servidores IPv4 | Yes.
+Rede de hóspedes/servidores IPv4 | Sim.
 Rede de hóspedes/servidores IPv6 | Não.
-IP estático de rede de hóspedes/servidor (Windows) | Yes.
-IP estático de rede de hóspedes/servidor (Linux) | Yes. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
-Rede de hóspedes/servidores múltiplos NICs | Yes.
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+IP estático de rede de hóspedes/servidor (Windows) | Sim.
+IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
+Rede de hóspedes/servidores múltiplos NICs | Sim.
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
@@ -258,7 +258,7 @@ Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Yes
 Opção de transferência segura | Yes
 Serviço de importação/exportação | No
-Firewalls de armazenamento Azure para VNets | Yes.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
+Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
 ## <a name="azure-compute"></a>Azure compute

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680192"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717171"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação utilização & insights (pré-visualização)
 
@@ -65,7 +65,7 @@ Clicando nos **Utilizadores registados,** **os Utilizadores ativados,** ou **os 
 
 O relatório de dados de registo mostra as seguintes informações para cada utilizador:
 
-- Name
+- Nome
 - Nome de utilizador
 - Estado de registo (Todos, Registados, Não Registados)
 - Estado ativado (Tudo, Ativado, Não Ativado)
@@ -80,7 +80,7 @@ Clicar nos gráficos de Registos ou Resets irá levá-lo aos detalhes do reset.
 
 O relatório de detalhes de reset mostra eventos de registo e reposição dos últimos 30 dias, incluindo:
 
-- Name
+- Nome
 - Nome de utilizador
 - Recurso (Todos, Registo, Reset)
 - Método de autenticação (notificação de aplicação, código de aplicação, chamada telefónica, chamada do Office, SMS, Email, Questões de Segurança)
@@ -96,8 +96,8 @@ Os dados de utilização e insights não substituem os relatórios de atividade 
 
 O relatório não pode ser atualmente filtrado para excluir utilizadores externos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Trabalhar com os métodos de autenticação relatório de utilização API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Trabalhar com os métodos de autenticação relatório de utilização API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Escolher métodos de autenticação para a sua organização](concept-authentication-methods.md)
 - [Experiência de registo combinado](concept-registration-mfa-sspr-combined.md)

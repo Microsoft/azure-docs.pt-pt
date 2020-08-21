@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035236"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717358"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Ativar a palavra-passe de autosserviço do Azure Ative Directory reiniciada no ecrã de entrada do Windows
 
@@ -35,7 +35,7 @@ Aplicam-se as seguintes limitações à utilização de SSPR a partir do ecrã d
 
 - O reset da palavra-passe não é suportado atualmente a partir de um Ambiente de Trabalho Remoto ou de sessões melhoradas de Hiper-V.
 - Sabe-se que alguns fornecedores de credenciais de terceiros causam problemas com esta funcionalidade.
-- A desativação da UAC através da modificação da chave de [registo EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
+- A desativação da UAC através da modificação da chave de [registo EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
 - Esta funcionalidade não funciona para redes com autenticação de rede 802.1x implementada e a opção "Executar imediatamente antes da apresentação do utilizador". Para redes com autenticação de rede de 802.1x implantada, é aconselhável utilizar a autenticação da máquina para ativar esta funcionalidade.
 - As máquinas híbridas AZURE AD devem ter linha de visão de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache. Isto significa que os dispositivos devem estar na rede interna da organização ou numa VPN com acesso à rede a um controlador de domínio no local.
 - Se utilizar uma imagem, antes de executar o sysprep, certifique-se de que a cache web está limpa para o administrador incorporado antes de executar o passo CopyProfile. Mais informações sobre este passo podem ser encontradas no artigo De suporte [Desempenho fraco ao utilizar o perfil de utilizador padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
@@ -59,10 +59,10 @@ Para configurar um dispositivo Windows 10 para SSPR no ecrã de início de sing-
 ### <a name="windows-10-prerequisites"></a>Pré-requisitos do Windows 10
 
 - Um administrador [deve ativar a palavra-passe de autosserviço AZure AD reposta a partir do portal Azure](tutorial-enable-sspr.md).
-- Os utilizadores devem registar-se no SSPR antes de utilizarem esta funcionalidade em[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Os utilizadores devem registar-se no SSPR antes de utilizarem esta funcionalidade em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Não é exclusivo da utilização de SSPR a partir do ecrã de entrada do Windows, todos os utilizadores devem fornecer as informações de contacto de autenticação antes de poderem redefinir a sua palavra-passe.
 - Requisitos de procuração de rede:
-    - Porto 443 para `passwordreset.microsoftonline.com` e`ajax.aspnetcdn.com`
+    - Porto 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
     - Os dispositivos Windows 10 suportam apenas a configuração de procuração ao nível da máquina.
 - Executar pelo menos o Windows 10, versão April 2018 Update (v1803), e os dispositivos devem ser:
     - Azure AD associado
@@ -126,10 +126,10 @@ Para configurar um dispositivo Windows 7, 8 ou 8.1 para SSPR no ecrã de início
 ### <a name="windows-7-8-and-81-prerequisites"></a>Pré-requisitos do Windows 7, 8 e 8.1
 
 - Um administrador [deve ativar a palavra-passe de autosserviço AZure AD reposta a partir do portal Azure](tutorial-enable-sspr.md).
-- Os utilizadores devem registar-se no SSPR antes de utilizarem esta funcionalidade em[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Os utilizadores devem registar-se no SSPR antes de utilizarem esta funcionalidade em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Não é exclusivo da utilização de SSPR a partir do ecrã de entrada do Windows, todos os utilizadores devem fornecer as informações de contacto de autenticação antes de poderem redefinir a sua palavra-passe.
 - Requisitos de procuração de rede:
-    - Porto 443 para`passwordreset.microsoftonline.com`
+    - Porto 443 para `passwordreset.microsoftonline.com`
 - Sistema operativo Do Windows 7 ou Windows 8.1 remendado.
 - TLS 1.2 ativado utilizando as orientações encontradas nas [definições de registo de Segurança da Camada de Transporte (TLS).](/windows-server/security/tls/tls-registry-settings#tls-12)
 - Se mais de um provedor de credenciais de 3ª parte estiver ativado na sua máquina, os utilizadores vêem mais de um perfil de utilizador no ecrã de login.
@@ -143,7 +143,7 @@ Para o Windows 7, 8 e 8.1, deve ser instalado um pequeno componente na máquina 
 
 1. Descarregue o instalador apropriado para a versão do Windows que pretende ativar.
 
-    O instalador de software está disponível no centro de descarregamento da Microsoft em[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+    O instalador de software está disponível no centro de descarregamento da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Inscreva-se na máquina onde pretende instalar e execute o instalador.
 1. Após a instalação, recomenda-se vivamente um reinício.
 1. Após o reboot, no ecrã de entrada escolha um utilizador e selecione "Esqueceu-se da palavra-passe?" para iniciar o fluxo de trabalho de redefinição da palavra-passe.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027675"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716321"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -139,7 +139,7 @@ Os utilizadores não têm a opção de registar a sua aplicação móvel ao regi
 >
 > Ao configurar as políticas SSPR que incluem a aplicação Authenticator como método, pelo menos um método adicional deve ser selecionado quando um método é necessário, e pelo menos dois métodos adicionais devem ser selecionados quando são necessários configurar dois métodos.
 >
-> Este requisito deve-se ao facto de a experiência de registo SSPR atual não incluir a opção de registo da aplicação autenticadora. A opção de registo da aplicação autenticadora está incluída na nova [experiência de registo combinado.](concept-registration-mfa-sspr-converged.md)
+> Este requisito deve-se ao facto de a experiência de registo SSPR atual não incluir a opção de registo da aplicação autenticadora. A opção de registo da aplicação autenticadora está incluída na nova [experiência de registo combinado.](./concept-registration-mfa-sspr-combined.md)
 >
 > Permitir políticas que utilizem apenas a aplicação Authenticator (quando é necessário um método), ou a aplicação Authenticator e apenas um método adicional (quando são necessários dois métodos), pode levar a que os utilizadores sejam impedidos de se registarem para SSPR até estarem configurados para utilizarem a nova experiência de registo combinado.
 
@@ -191,13 +191,13 @@ A AZure AD verifica a sua conectividade híbrida atual e fornece uma das seguint
 * O Azure AD está online e está ligado ao seu cliente de writeback no local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que tem as mais recentes funcionalidades de conectividade e correções importantes de bugs.
 * Infelizmente, não podemos verificar o estado do seu cliente no local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o estado da sua ligação.
 * Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. [Resolução de problemas Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
-* Infelizmente, não podemos ligar-nos ao seu cliente de writeback no local porque a gravação de passwords não foi devidamente configurada. [Configurar a gravação da palavra-passe](howto-sspr-writeback.md) para restaurar a ligação.
+* Infelizmente, não podemos ligar-nos ao seu cliente de writeback no local porque a gravação de passwords não foi devidamente configurada. [Configurar a gravação da palavra-passe](./tutorial-enable-sspr-writeback.md) para restaurar a ligação.
 * Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. Isto pode ser devido a problemas temporários do nosso lado. Se o problema persistir, [o Problema Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
 
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Descreva palavras-passe para o seu diretório no local
 
@@ -223,7 +223,7 @@ O reset e a alteração da palavra-passe são totalmente suportados em todas as 
 
 * **Utilizadores de uma organização parceira com um inquilino Azure AD existente**: Se a organização com quem se associa tem um inquilino AZure AD existente, respeitamos quaisquer políticas de reset de palavra-passe que estejam habilitadas nesse inquilino. Para que a palavra-passe seja reposta para funcionar, a organização parceira apenas precisa de se certificar de que o Azure AD SSPR está ativado. Não há qualquer custo adicional para os clientes do Office 365.
 * **Utilizadores que se inscrevem através** de inscrição de self-service: Se a organização com quem se associa usou a função [de inscrição de self-service](../users-groups-roles/directory-self-service-signup.md) para entrar num inquilino, deixamos que repusessem a palavra-passe com o e-mail que registaram.
-* **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados através da utilização das novas [capacidades Azure AD B2B](../b2b/what-is-b2b.md) também podem redefinir as suas palavras-passe com o e-mail que registaram durante o processo de convite.
+* **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados através da utilização das novas [capacidades Azure AD B2B](../external-identities/what-is-b2b.md) também podem redefinir as suas palavras-passe com o e-mail que registaram durante o processo de convite.
 
 Para testar este cenário, vá a https://passwordreset.microsoftonline.com um destes utilizadores parceiros. Se tiverem um e-mail alternativo ou um e-mail de autenticação definido, o reset da palavra-passe funciona como esperado.
 

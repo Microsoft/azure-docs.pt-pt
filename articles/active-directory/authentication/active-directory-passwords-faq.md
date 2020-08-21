@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051301"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716338"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 
 Seguem-se algumas perguntas frequentes (FAQ) para todas as coisas relacionadas com o reset da palavra-passe de autosserviço.
 
-Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset da palavra-passe de autosserviço (SSPR) que não seja respondida aqui, pode pedir assistência à comunidade no [Microsoft Q&Página de perguntas para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
+Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset da palavra-passe de autosserviço (SSPR) que não seja respondida aqui, pode pedir assistência à comunidade no [Microsoft Q&Página de perguntas para o Azure Ative Directory](/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
 
 Esta FAQ é dividida nas seguintes secções:
 
@@ -197,7 +197,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
 * **P: Os meus utilizadores podem ser notificados no portal do Office quando a sua senha no local expirar?**
 
-  > **A:** Sim, isto é possível hoje se utilizar os Serviços da Federação de Diretórios Ativos (AD FS). Se utilizar AD FS, siga as instruções na política de senha Enviar por email o artigo [AD FS.](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) Se utilizar a sincronização de haxixe de palavra-passe, isso não é possível hoje em dia. Não sincronizamos as políticas de palavras-passe de diretórios no local, por isso não é possível publicar notificações de expiração para experiências em nuvem. Em qualquer dos casos, também é possível [notificar os utilizadores cujas palavras-passe estão prestes a expirar através do PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Sim, isto é possível hoje se utilizar os Serviços da Federação de Diretórios Ativos (AD FS). Se utilizar AD FS, siga as instruções na política de senha Enviar por email o artigo [AD FS.](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) Se utilizar a sincronização de haxixe de palavra-passe, isso não é possível hoje em dia. Não sincronizamos as políticas de palavras-passe de diretórios no local, por isso não é possível publicar notificações de expiração para experiências em nuvem. Em qualquer dos casos, também é possível [notificar os utilizadores cujas palavras-passe estão prestes a expirar através do PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **P: Posso impedir os utilizadores de alterarem a sua palavra-passe?**
@@ -243,7 +243,7 @@ Esta FAQ é dividida nas seguintes secções:
 
 * **P: Como funciona a gravação de passwords nos bastidores?**
 
-  > **A:** Veja o artigo Como a gravação da [palavra-passe funciona](howto-sspr-writeback.md) para uma explicação do que acontece quando ativa a gravação de passwords e como os dados fluem através do sistema de volta para o seu ambiente no local.
+  > **A:** Veja o artigo Como a gravação da [palavra-passe funciona](./tutorial-enable-sspr-writeback.md) para uma explicação do que acontece quando ativa a gravação de passwords e como os dados fluem através do sistema de volta para o seu ambiente no local.
   >
   >
 * **P: Quanto tempo demora a escrever a palavra-passe? Existe um atraso de sincronização como existe com a sincronização de haxixe de palavra-passe?**
@@ -273,7 +273,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
 * **P: A gravação da palavra-passe é segura?  Como posso ter certeza de que não serei hackeado?**
 
-  > **A:** Sim, a gravação da palavra-passe é segura. Para ler mais sobre as múltiplas camadas de segurança implementadas pelo serviço de writeback de palavra-passe, consulte a secção de segurança de [writeback password](concept-sspr-writeback.md#password-writeback-security) no artigo de visão geral de [writeback da Palavra-passe.](howto-sspr-writeback.md)
+  > **A:** Sim, a gravação da palavra-passe é segura. Para ler mais sobre as múltiplas camadas de segurança implementadas pelo serviço de writeback de palavra-passe, consulte a secção de segurança de [writeback password](concept-sspr-writeback.md#password-writeback-security) no artigo de visão geral de [writeback da Palavra-passe.](./tutorial-enable-sspr-writeback.md)
   >
   >
 
@@ -286,7 +286,7 @@ Esta FAQ é dividida nas seguintes secções:
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
+* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](./tutorial-enable-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
 * [Acho que algo está partido. Como é que resolvo a SSPR?](active-directory-passwords-troubleshoot.md)

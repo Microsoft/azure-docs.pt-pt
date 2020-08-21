@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: dedf1174e00f5bb75822fb720a592af86121ec2d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691433"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719313"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Alterar o feed de mudança de processo no Armazenamento Azure Blob (Pré-visualização)
 
@@ -22,15 +22,16 @@ O feed de alteração fornece registos de transações de todas as alterações 
 Para saber mais sobre o feed de mudança, consulte [change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> O feed de mudança está em pré-visualização pública, e está disponível nas **regiões oeste** e **oeste22.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [o suporte para feed change no Azure Blob Storage](storage-blob-change-feed.md). A biblioteca do processador de feed de alteração está sujeita a alterações entre agora e quando esta biblioteca se tornar geralmente disponível.
+> O feed de mudança está em visualização pública, e está disponível em regiões limitadas. Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [o suporte para feed change no Azure Blob Storage](storage-blob-change-feed.md). A biblioteca do processador de feed de alteração está sujeita a alterações entre agora e quando esta biblioteca se tornar geralmente disponível.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obtenha a biblioteca do processador de feed de mudança de blob
 
 1. Abra uma janela de comando (Por exemplo: Windows PowerShell).
-2. A partir do seu diretório de projeto, instale o pacote **Azure.Storage.Blobs.Changefeed** NuGet.
+2. A partir do seu diretório de projeto, instale o pacote [ **Azure.Storage.Blobs.Changefeed** NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/).
 
 ```console
-dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
+dotnet add package Azure.Storage.Blobs --version 12.5.1
+dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
 ## <a name="read-records"></a>Ler registos
 
@@ -117,7 +118,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## <a name="stream-processing-of-records"></a>Processamento de fluxo de registos
 
-Pode optar por processar a alteração dos registos de feed à medida que chegam. Ver [Especificações](storage-blob-change-feed.md#specifications). Recomendamos que faça sondagens para alterações a cada hora ou assim.
+Pode optar por processar a alteração dos registos de alimentação, uma vez que estão comprometidos com o feed de alteração. Ver [Especificações](storage-blob-change-feed.md#specifications). Os eventos de alteração são publicados no feed de mudança a um período de 60 segundos, em média. Recomendamos que faça sondagens para novas alterações com este período em mente ao especificar o intervalo de votação.
 
 Este exemplo sonda periodicamente para mudanças.  Se existirem registos de alteração, este código processa esses registos e poupa o cursor de alimentação de alteração. Desta forma, se o processo for interrompido e depois reinicie, a aplicação pode utilizar o cursor para retomar os registos de processamento onde parou pela última vez. Este exemplo guarda o cursor para um ficheiro de configuração de aplicação local, mas a sua aplicação pode guardá-lo de qualquer forma que faça mais sentido para o seu cenário. 
 
@@ -181,7 +182,7 @@ public void SaveCursor(string cursor)
 
 ## <a name="reading-records-within-a-time-range"></a>Ler registos dentro de um intervalo de tempo
 
-Pode ler registos que se enquadram num intervalo de tempo específico. Este exemplo imita através de todos os registos do feed de alteração que caem entre as 15:00 de 2 de março de 2017 e as 2:00 da manhã de 7 de outubro de 2019, adiciona-os a uma lista, e depois devolve essa lista ao chamador.
+Pode ler registos que se enquadram num intervalo de tempo específico. Este exemplo imita através de todos os registos do feed de alteração que caem entre as 15:00 de 2 de março de 2020 e as 2:00 da manhã de 7 de agosto de 2020, adiciona-os a uma lista, e depois devolve essa lista ao chamador.
 
 ### <a name="selecting-segments-for-a-time-range"></a>Selecionando segmentos para uma gama de tempo
 
@@ -198,8 +199,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     // Create the start and end time.  The change feed client will round start time down to
     // the nearest hour, and round endTime up to the next hour if you provide DateTimeOffsets
     // with minutes and seconds.
-    DateTimeOffset startTime = new DateTimeOffset(2017, 3, 2, 15, 0, 0, TimeSpan.Zero);
-    DateTimeOffset endTime = new DateTimeOffset(2020, 10, 7, 2, 0, 0, TimeSpan.Zero);
+    DateTimeOffset startTime = new DateTimeOffset(2020, 3, 2, 15, 0, 0, TimeSpan.Zero);
+    DateTimeOffset endTime = new DateTimeOffset(2020, 8, 7, 2, 0, 0, TimeSpan.Zero);
 
     // You can also provide just a start or end time.
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync(

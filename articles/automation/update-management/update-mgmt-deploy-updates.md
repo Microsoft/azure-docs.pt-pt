@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450687"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717698"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -41,8 +41,10 @@ Para agendar uma nova implementação de atualização:
 
 6. Utilize a região **de classificações de atualização** para especificar [classificações de atualização](update-mgmt-view-update-assessments.md#work-with-update-classifications) para produtos. Para cada produto, desmarcar todas as classificações de atualização suportadas, mas as que incluir na sua implementação de atualização.
 
-7. Utilize a região **de atualizações Incluir/excluir** para selecionar atualizações específicas para implementação. A página Incluir/Excluir apresenta as atualizações por números de ID de artigo do KB para incluir ou excluir.
-    
+    Se a sua implementação for destinada a aplicar apenas um conjunto selecionado de atualizações, é necessário desmarcar todas as classificações de atualização pré-selecionadas ao configurar a opção **de atualizações Incluir/excluir,** conforme descrito no passo seguinte. Isto garante apenas que as atualizações especificadas para *incluir* nesta implementação são instaladas nas máquinas-alvo.
+
+7. Utilize a região **de atualizações Incluir/excluir** para adicionar ou excluir atualizações selecionadas da implementação. Na página **Incluir/Excluir,** introduz os números de ID do artigo KB para incluir ou excluir.
+
    > [!IMPORTANT]
    > Lembre-se que as exclusões substituem as inclusãos. Por exemplo, se definir uma regra de exclusão de , A Gestão de `*` Atualização exclui todos os patches ou pacotes da instalação. Os remendos excluídos ainda mostram como desaparecidos das máquinas. Para as máquinas Linux, se incluir um pacote que tem um pacote dependente que foi excluído, a Update Management não instala o pacote principal.
 

@@ -3,12 +3,12 @@ title: Integre o Relé Azure com o Azure Private Link Service
 description: Saiba como integrar o Azure Relay com o Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317316"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719432"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integre o Relé Azure com Link Privado Azure (Pré-visualização)
 O Azure **Private Link Service** permite-lhe aceder aos serviços Azure (por exemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um ponto final privado na sua rede virtual. Para mais informações, consulte [O que é Azure Private Link (Preview)?](../private-link/private-link-overview.md)
@@ -52,7 +52,7 @@ Para obter instruções passo a passo sobre a criação de um novo espaço de no
     2. Selecione o **grupo de recursos** para o recurso de ponto final privado.
     3. Insira um **nome** para o ponto final privado. 
     5. Selecione uma **região** para o ponto final privado. O seu ponto final privado deve estar na mesma região que a sua rede virtual, mas pode estar numa região diferente do espaço de nomes Azure Relay a que está a ligar. 
-    6. Selecione **seguinte: O** botão >de recursos na parte inferior da página.
+    6. Selecione **seguinte: O ** botão >de recursos na parte inferior da página.
 
         ![Criar Ponto Final Privado - Página básica](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na página **de Recursos,** siga estes passos:
@@ -65,7 +65,7 @@ Para obter instruções passo a passo sobre a criação de um novo espaço de no
         
             ![Criar Ponto Final Privado - Página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Se selecionar **Ligar a um recurso Azure por ID ou pseudónimo** de recurso porque o espaço de nome não está sob o mesmo diretório que o do ponto final privado, siga estes passos:
-        1. Introduza o ID ou **o pseudónimo do** **recurso.** Pode ser o ID de recursos ou pseudónimo que alguém partilhou consigo. A maneira mais fácil de obter o ID de recurso é navegar para o espaço de nomeação Azure Relay no portal Azure e copiar a porção de URI a partir de `/subscriptions/` . Aqui está um exemplo:`/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
+        1. Introduza o ID ou **o pseudónimo do** **recurso.** Pode ser o ID de recursos ou pseudónimo que alguém partilhou consigo. A maneira mais fácil de obter o ID de recurso é navegar para o espaço de nomeação Azure Relay no portal Azure e copiar a porção de URI a partir de `/subscriptions/` . Aqui está um exemplo: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. Para **sub-recurso target,** insira **o espaço de nomes**. É o tipo de sub-recurso a que o seu ponto final privado pode aceder.
         3. (opcional) Introduza uma **mensagem de pedido**. O proprietário do recurso vê esta mensagem enquanto gere a ligação privada de ponto final.
         4. Em seguida, selecione **Seguinte: Configuração >** botão na parte inferior da página.
@@ -160,14 +160,14 @@ Existem quatro estados de provisionamento:
 
 | Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário do espaço de nome Azure Relay. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do espaço de identificação Azure Relay, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Na barra de pesquisa, escreva em **Relay.**
 1. Selecione o **espaço de nomes** que pretende gerir.
 1. Selecione o **separador 'Rede'.**
@@ -207,7 +207,7 @@ Existem quatro estados de provisionamento:
 3. Deve ver o estado alterado para **Desligado**. Então, verá o ponto final desaparecer da lista. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar que a ligação de ligação privada funciona
-Deverá validar que os recursos dentro da mesma sub-rede do ponto final privado estão a ligar-se ao seu espaço de nome Azure Relay sobre o seu endereço IP privado.
+Deve validar que os recursos dentro da rede virtual do ponto final privado estão a ligar-se ao seu espaço de nomeS Azure Relay sobre o seu endereço IP privado.
 
 Para este teste, crie uma máquina virtual seguindo os passos na [máquina virtual Create a Windows no portal Azure](../virtual-machines/windows/quick-create-portal.md)
 

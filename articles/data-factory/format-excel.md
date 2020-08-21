@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044390"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718208"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel formato na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +32,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Excel**.   | Yes      |
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . | Yes      |
 | nome de folhaName        | O nome da folha de cálculo do Excel para ler dados.                       | Yes      |
-| gama            | A gama celular na folha de cálculo dada para localizar os dados seletivos, por exemplo `A3:H5` (uma tabela de A3 a H5), `A3` (uma tabela a partir da célula A3), `A3:A3` (única célula). Se não for especificado, a ADF lê a partir de toda a folha de cálculo como uma tabela. | No       |
+| gama            | A gama de células na folha de cálculo dada para localizar os dados seletivos, por exemplo:<br>- Não especificado: lê toda a folha de cálculo como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula dada, deteta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê esta gama fixa como uma tabela<br>- `A3:A3`: lê esta única célula | No       |
 | firstRowAsHeader | Especifica se deve tratar a primeira linha na folha/intervalo dada como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | No       |
 | nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | No       |
 | compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
@@ -112,7 +112,7 @@ A tabela abaixo lista as propriedades suportadas por uma fonte do Excel. Pode ed
 | Caminho da raiz da partição       | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não       | Cadeia                                                    | partitionRootPath                 |
 | Lista de ficheiros             | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não       | `true` ou `false`                                         | fileList                          |
 | Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem       | não       | Cadeia                                                    | rowUrlColumn                      |
-| Após a conclusão          | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não       | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Após a conclusão          | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não       | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filtrar por última modificação   | Opte por filtrar ficheiros com base na última alteração que foram alterados | não       | Timestamp                                                 | modificado Depois <br> modificadoSForo antes |
 
 ### <a name="source-example"></a>Exemplo de origem

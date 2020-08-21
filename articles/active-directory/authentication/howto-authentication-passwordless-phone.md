@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428029"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717052"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o sing-in sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -54,7 +54,7 @@ As funcionalidades de inscrição para métodos de autenticação sem palavras-p
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registo e gestão do utilizador da aplicação Microsoft Authenticator
 
-1. Navegue para[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Navegue para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Inscreva-se se não já não
 1. Adicione uma aplicação autenticadora clicando no **método Adicionar,** escolhendo a **aplicação Authenticator**e clicando **em Adicionar**
 1. Siga as instruções para instalar e configurar a aplicação Microsoft Authenticator no seu dispositivo
@@ -62,7 +62,7 @@ As funcionalidades de inscrição para métodos de autenticação sem palavras-p
 1. No **Microsoft Authenticator**, escolha **Ativar** o registo do telefone a partir do menu suspenso da conta
 1. Siga as instruções na aplicação para terminar o registo para o início de sing-in telefónico sem palavra-passe. 
 
-As organizações podem apontar os seus utilizadores para o artigo [Iniciar sing com o seu telefone, não a sua palavra-passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para posterior assistência configurando na aplicação Microsoft Authenticator e ativando o acesso ao telefone. Para aplicar estas definições, poderá ter de fazer login e voltar a entrar no arrendatário. 
+As organizações podem apontar os seus utilizadores para o artigo [Iniciar sing com o seu telefone, não a sua palavra-passe](../user-help/user-help-auth-app-sign-in.md) para posterior assistência configurando na aplicação Microsoft Authenticator e ativando o acesso ao telefone. Para aplicar estas definições, poderá ter de fazer login e voltar a entrar no arrendatário. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Iniciar sessão com credencial sem palavra-passe
 
@@ -101,7 +101,7 @@ Os utilizadores finais que estão sujeitos a uma política que requer gestão de
 > [!NOTE]
 > O registo do dispositivo não é o mesmo que a gestão do dispositivo ou "MDM". Apenas associa um ID do dispositivo e um ID do utilizador no diretório AD Azure.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como funciona a autenticação sem palavras-passe](concept-authentication-passwordless.md)
 

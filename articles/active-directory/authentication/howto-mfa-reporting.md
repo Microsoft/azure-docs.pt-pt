@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418241"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719517"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utilize o relatório de ins- ins para rever eventos de autenticação multi-factor Azure
 
@@ -90,7 +90,7 @@ Os seguintes detalhes são mostrados na janela Detalhes de *Autenticação* para
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios PowerShell sobre utilizadores registados para MFA
 
-Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
+Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
 
 Identifique os utilizadores que se registaram para MFA usando o PowerShell que se segue. Este conjunto de comandos exclui os utilizadores com deficiência, uma vez que estas contas não podem autenticar-se contra a Azure AD:
 
@@ -177,6 +177,6 @@ Estão disponíveis as seguintes informações e relatórios adicionais para eve
 | Histórico de utilizadores contornados | Azure AD > Segurança > MFA > bypass único | Fornece um histórico de pedidos do MFA Server para contornar o MFA para um utilizador. |
 | Estado do servidor | Azure AD > Segurança > Estado do Servidor > MFA | Apresenta o estado dos Servidores MFA associados à sua conta. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo forneceu uma visão geral do relatório de atividades de inscrição. Para obter informações mais detalhadas sobre o que este relatório contém e compreender os dados, consulte [relatórios de atividade de inscrição no Azure AD](../reports-monitoring/concept-sign-ins.md).

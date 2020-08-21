@@ -3,12 +3,12 @@ title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185473"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716796"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -202,7 +202,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -211,7 +211,7 @@ Existem quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** que pretende gerir.
 4. Selecione o **separador 'Rede'.**
@@ -222,7 +222,7 @@ Existem quatro estados de provisionamento:
 2. Selecione o **ponto final privado** que deseja aprovar
 3. Selecione o botão **Aprovar.**
 
-    ![Imagem](./media/private-link-service/approve-private-endpoint.png)
+    ![Aprovar ponto final privado](./media/private-link-service/approve-private-endpoint.png)
 4. Na página **de ligação Aprovar,** adicione um comentário (opcional) e selecione **Sim**. Se **escolheres o Nº,** nada acontece. 
 5. Deverá ver o estado da ligação de ponto final privado na lista alterada para **Aprovado**. 
 
@@ -230,7 +230,7 @@ Existem quatro estados de provisionamento:
 
 1. Se houver alguma ligação de ponto final privado que pretenda rejeitar, seja um pedido pendente ou uma ligação existente, selecione a ligação e clique no botão **Rejeitar.**
 
-    ![Imagem](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Rejeitar ponto final privado](./media/private-link-service/private-endpoint-reject-button.png)
 2. Na página **de ligação Rejeitar,** insira um comentário (opcional) e selecione **Sim**. Se **escolheres o Nº,** nada acontece. 
 3. Deverá ver o estado da ligação de ponto final privado na lista alterada para **Rejeitado**. 
 
@@ -242,7 +242,7 @@ Existem quatro estados de provisionamento:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar que a ligação de ligação privada funciona
 
-Deve validar que os recursos dentro da mesma sub-rede do recurso de ponto final privado estão a ligar-se ao espaço de nomes dos Centros de Eventos num endereço IP privado e que têm a integração de zonas de DNS privadas correta.
+Você deve validar que os recursos dentro da rede virtual do ponto final privado estão conectando-se ao seu espaço de nomes Event Hubs em um endereço IP privado, e que eles têm a integração de zona de DNS privada correta.
 
 Primeiro, crie uma máquina virtual seguindo os passos na [Criar uma máquina virtual Windows no portal Azure](../virtual-machines/windows/quick-create-portal.md)
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043409"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719194"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -65,10 +65,10 @@ No seguinte número, os números representam o fluxo dos pedidos por ordem crono
 Veja as seguintes amostras que mostram como se conectar com o principal do serviço Azure AD:
 
 * [Conecte-se com REST](media-rest-apis-with-postman.md)  
-* [Ligar com Java](configure-connect-java-howto.md)
-* [Ligar com .NET](configure-connect-dotnet-howto.md)
-* [Ligar com Node.js](configure-connect-nodejs-howto.md)
-* [Ligar com Python](configure-connect-python-howto.md)
+* [Connect with Java](configure-connect-java-howto.md) (Ligar com Java)
+* [Connect with .NET](configure-connect-dotnet-howto.md) (Ligar com .NET)
+* [Connect with Node.js](configure-connect-nodejs-howto.md) (Ligar com Node.js)
+* [Connect with Python](configure-connect-python-howto.md) (Ligar com Python)
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
@@ -86,7 +86,7 @@ Os nomes de ficheiros/bolhas dentro de um ativo devem seguir tanto os requisitos
 
 As operações `x-ms-long-running-operation` marcadas nos [ficheiros](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) swagger da Azure Media Services são operações de longa duração. 
 
-Para mais detalhes sobre como rastrear as operações assíncronas do Azure, consulte [as operações da Async](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
+Para mais detalhes sobre como rastrear as operações assíncronas do Azure, consulte [as operações da Async](../../azure-resource-manager/management/async-operations.md).
 
 Os Serviços de Comunicação Social têm as seguintes operações de longo prazo:
 

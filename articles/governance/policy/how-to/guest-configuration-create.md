@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547669"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719398"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -26,8 +26,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > As políticas personalizadas com a Configuração do Convidado são uma funcionalidade de pré-visualização.
 >
 > A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
-> Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política:
->   - [Implementar pré-requisitos para ativar a política de configuração do hóspede em VMs windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
 

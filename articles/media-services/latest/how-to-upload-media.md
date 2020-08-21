@@ -12,14 +12,15 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3da313803aa546c2399e3c8c18858bee5cfa2ea1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a046a3caba9a0909d873356bda8d1fa6cf1f9860
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684376"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719262"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Upload mídia para streaming ou codificação
+
 Nos Serviços de Comunicação Social, faça o upload dos seus ficheiros digitais (media) para um recipiente de bolhas associado a um ativo. A entidade [Asset](/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros). Uma vez que os ficheiros são enviados para o recipiente do ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
 Antes de começar, terá de recolher ou pensar em alguns valores.
@@ -37,10 +38,6 @@ Antes de começar, terá de recolher ou pensar em alguns valores.
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
-
-## <a name="cli-shell"></a>[Concha CLI](#tab/clishell/)
-
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
 
 ## <a name="rest"></a>[REST](#tab/rest/)
 

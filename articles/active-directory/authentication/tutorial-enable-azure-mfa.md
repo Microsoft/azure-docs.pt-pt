@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9072c5611f5bd5a4b8cca082cb2bfd7a1e3f1b2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419551"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718905"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Garantir eventos de entrada de utilizadores com autenticação multi-factor Azure
 
@@ -101,7 +101,7 @@ As políticas de Acesso Condicional só podem ser *definidas* para Reportar se q
 
 Vamos ver a sua política de acesso condicional e autenticação multi-factor Azure em ação. Primeiro, inscreva-se num recurso que não requer MFA da seguinte forma:
 
-1. Abra uma nova janela de navegador em modo InPrivate ou incógnito e navegue para[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
+1. Abra uma nova janela de navegador em modo InPrivate ou incógnito e navegue para [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Inscreva-se com o utilizador de teste não administrador, como *o testuser*. Não há nenhuma solicitação para completar a MFA.
 1. Feche a janela do browser.
 
@@ -114,7 +114,7 @@ Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na polít
 
 1. Feche a janela do browser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não pretender utilizar a política de Acesso Condicional para ativar a autenticação multi-factor Azure configurada como parte deste tutorial, elimine a política utilizando os seguintes passos:
 
@@ -123,7 +123,7 @@ Se já não pretender utilizar a política de Acesso Condicional para ativar a a
 1. Selecione **o acesso condicional,** em seguida, escolha a política que criou, como *O Piloto de MFA*
 1. Escolha **Eliminar**e, em seguida, confirme que deseja eliminar a apólice.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, permitiu a autenticação multi-factor Azure utilizando políticas de Acesso Condicional para um grupo selecionado de utilizadores. Aprendeu a:
 
@@ -133,4 +133,4 @@ Neste tutorial, permitiu a autenticação multi-factor Azure utilizando polític
 > * Teste o processo de MFA como utilizador
 
 > [!div class="nextstepaction"]
-> [Ativar a gravação de palavra-passe para reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)
+> [Ativar a gravação de palavra-passe para reset da palavra-passe de autosserviço (SSPR)](./tutorial-enable-sspr-writeback.md)

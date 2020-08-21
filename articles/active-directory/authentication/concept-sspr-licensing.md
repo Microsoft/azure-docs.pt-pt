@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 608c8206227a129a320a560e752cf31a4843dca3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c24698736d611604c39b6fa91aef97f73576c6c6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321687"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716215"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licenciamento para reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -45,7 +45,7 @@ Para obter informações adicionais sobre o licenciamento, incluindo custos, con
 * [Funcionalidades e capacidades do Azure Ative Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Permitir licenciamentos em grupo ou no utilizador
 
@@ -53,7 +53,7 @@ A Azure AD apoia o licenciamento baseado em grupo. Os administradores podem atri
 
 Alguns serviços da Microsoft não estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um utilizador, o administrador deve especificar a propriedade **de localização de utilização** no utilizador. A atribuição de licenças pode ser feita na secção Definições de Perfil do **Utilizador**  >  **Profile**  >  **Settings** no portal Azure. *Quando utiliza a atribuição de licença de grupo, qualquer utilizadores sem localização de utilização especificada herda a localização do diretório.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a SSPR, complete o seguinte tutorial:
 

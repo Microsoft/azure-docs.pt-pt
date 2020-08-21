@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038390"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719177"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de vídeo-análise - aplicação de deteção de objetos e movimentos no Azure IoT Central
 
@@ -71,13 +71,13 @@ Criar a [conta dos Serviços de Comunicação social no portal Azure.](https://p
 
 Tome nota do nome da sua conta **media** no ficheiro *scratchpad.txt.*
 
-Quando a implementação estiver concluída, navegue na página **Propriedades** para a sua conta **De Serviços de Mídia.** Tome nota do **ID** de recurso no ficheiro *scratchpad.txt,* utilize este valor mais tarde quando configurar o módulo IoT Edge.
+Quando a implementação estiver concluída, navegue na página **Propriedades** para a sua conta **De Serviços de Mídia.** Tome nota do **ID** de recurso no ficheiro *scratchpad.txt, * utilize este valor mais tarde quando configurar o módulo IoT Edge.
 
 Em seguida, configurar um diretor de serviço Azure Ative Para o seu recurso De Serviços de Mídia. Selecione **o acesso a API** e, em **seguida, a autenticação principal do serviço.** Crie uma nova aplicação Azure Ative Directory com o mesmo nome que o seu recurso Media Services e crie um segredo com uma descrição *IoT Edge Access*.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app/media-service-authentication.png" alt-text="Configure a aplicação AAD para AMS":::
 
-Quando o segredo for gerado, desloque-se até à **Cópia das suas credenciais para ligar a secção de aplicação principal do seu serviço.** Em seguida, selecione **JSON**. Pode copiar todas as informações credenciais daqui de uma vez. Tome nota destas informações no ficheiro *scratchpad.txt,* utilize-as mais tarde quando configurar o dispositivo IoT Edge.
+Quando o segredo for gerado, desloque-se até à **Cópia das suas credenciais para ligar a secção de aplicação principal do seu serviço.** Em seguida, selecione **JSON**. Pode copiar todas as informações credenciais daqui de uma vez. Tome nota destas informações no ficheiro *scratchpad.txt, * utilize-as mais tarde quando configurar o dispositivo IoT Edge.
 
 > [!WARNING]
 > Esta é a sua única oportunidade de ver e salvar o segredo. Se o perderes, tens de gerar outro segredo.
@@ -98,7 +98,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 Para criar uma nova aplicação de análise de vídeo:
 
-1. Selecione o **modelo de aplicação de deteção de objetos e movimentos** de vídeo. Este modelo inclui modelos de dispositivo para os dispositivos utilizados no tutorial. O modelo também fornece um painel de instrumentos do operador para monitorizar o vídeo.
+1. Selecione o **modelo de aplicação de deteção de objetos e movimentos** de vídeo. Este modelo inclui modelos de dispositivo para os dispositivos utilizados no tutorial. O modelo inclui painéis de amostra que os operadores podem usar para executar tarefas como monitorizar e gerir câmaras.
 
 1. Opcionalmente, escolha um nome de **aplicação**amigável. Esta aplicação baseia-se numa loja fictícia chamada Northwind Traders. O tutorial usa o **nome de aplicação** *Northwind Traders video analytics*.
 
@@ -190,7 +190,7 @@ Para preparar o manifesto de implantação:
 
 1. Guarde as alterações.
 
-Opcionalmente, pode substituir o módulo Yolov3 pelo [OpenVINO Model Server – Módulo de &trade; Extensão Edge AI](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) otimizado da Intel. Você pode baixar um manifesto de implementação [de amostrasdeployment.openvino.amd64.jsem](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json). Este manifesto substitui as definições de configuração do `lvaYolov3` módulo pela seguinte configuração:
+Opcionalmente, pode substituir o módulo Yolov3 pelo [OpenVINO Model Server – Módulo de &trade; Extensão Edge AI](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) otimizado da Intel. Você pode baixar um manifesto de implementação [ de amostrasdeployment.openvino.amd64.jsem](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json). Este manifesto substitui as definições de configuração do `lvaYolov3` módulo pela seguinte configuração:
 
 ```json
 "OpenVINOModelServerEdgeAIExtensionModule": {

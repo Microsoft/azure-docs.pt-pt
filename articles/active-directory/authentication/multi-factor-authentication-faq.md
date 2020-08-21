@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035082"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718871"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Multi-Factor Authentication do Azure
 
@@ -259,6 +259,6 @@ Uma solução alternativa para este erro é ter contas de utilizador separadas p
 Se a sua pergunta não for respondida aqui, as seguintes opções de suporte estão disponíveis:
 
 * Procure na [Base de Conhecimento de Suporte](https://support.microsoft.com) do Microsoft soluções para problemas técnicos comuns.
-* Procure e navegue em questões técnicas e respostas da comunidade, ou faça a sua própria pergunta no [Azure Ative Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Procure e navegue em questões técnicas e respostas da comunidade, ou faça a sua própria pergunta no [Azure Ative Directory Q&A](/answers/topics/azure-active-directory.html).
 * Contacte o profissional da Microsoft através do [suporte do Servidor de Autenticação Multi-Factor Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao contactar-nos, é útil se puder incluir o máximo de informação possível sobre o seu problema. A informação que pode fornecer inclui a página onde viu o erro, o código de erro específico, o ID de sessão específico e o ID do utilizador que viu o erro.
 * Se é um cliente legado do PhoneFactor e tem dúvidas ou precisa de ajuda para redefinir uma palavra-passe, use o [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) endereço de e-mail para abrir um caso de suporte.

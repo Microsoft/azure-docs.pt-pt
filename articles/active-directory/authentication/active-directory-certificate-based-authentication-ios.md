@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144073"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716440"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificados Azure Ative No iOS
 
@@ -34,7 +34,7 @@ Este artigo detalha os requisitos e os cenários suportados para configurar a CB
 | --- | --- |
 | App Azure Information Protection |![Marca de verificação significa apoio para esta aplicação][1] |
 | Intune Portal da Empresa |![Marca de verificação significa apoio para esta aplicação][1] |
-| Microsoft Teams |![Marca de verificação significa apoio para esta aplicação][1] |
+| Microsoft Stream |![Marca de verificação significa apoio para esta aplicação][1] |
 | Escritório (móvel) |![Marca de verificação significa apoio para esta aplicação][1] |
 | OneNote |![Marca de verificação significa apoio para esta aplicação][1] |
 | OneDrive |![Marca de verificação significa apoio para esta aplicação][1] |
@@ -61,15 +61,15 @@ Aplicam-se os seguintes requisitos e considerações dos Serviços e consideraç
 
 Para que a Azure AD revogue um certificado de cliente, o token ADFS deve ter as seguintes reclamações. A Azure AD adiciona estas alegações ao token de atualização se estiverem disponíveis no token ADFS (ou em qualquer outro token SAML). Quando o token de atualização precisa de ser validado, esta informação é utilizada para verificar a revogação:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`- adicionar o número de série do seu certificado de cliente
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`- adicione a cadeia para o emitente do seu certificado de cliente
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` - adicionar o número de série do seu certificado de cliente
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` - adicione a cadeia para o emitente do seu certificado de cliente
 
 Como melhor prática, também deve atualizar as páginas de erro ADFS da sua organização com as seguintes informações:
 
 * A exigência de instalação do Autenticador Microsoft no iOS.
 * Instruções sobre como obter um certificado de utilizador.
 
-Para obter mais informações, consulte [personalizar o sinal de AD FS na página.](https://technet.microsoft.com/library/dn280950.aspx)
+Para obter mais informações, consulte [personalizar o sinal de AD FS na página.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11))
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Use a autenticação moderna com aplicações do Office
 

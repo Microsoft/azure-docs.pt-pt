@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550636"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717001"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory (pré-visualização)
 
@@ -40,7 +40,7 @@ Um objeto Azure AD Kerberos Server é criado no seu Ative Directory e depois pub
 1. A máquina cliente contacta um controlador de domínio AD no local e comercializa o TGT parcial por um TGT totalmente formado.
 1. A máquina cliente tem agora um Azure AD PRT e um TGT completo do Ative Directory e pode aceder tanto aos recursos em nuvem como no local.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 As organizações devem completar os passos para ativar o [sinal de chave de segurança sem palavras-passe para dispositivos Windows 10 (pré-visualização)](howto-authentication-passwordless-security-key.md) antes de completar os passos neste artigo.
 
@@ -48,10 +48,10 @@ As organizações também devem cumprir os seguintes requisitos de software.
 
 - Os dispositivos devem estar a executar o Windows 10 Insider Build 18945 ou mais recente.
 - Deve ter a versão 1.4.32.0 ou mais tarde do [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - Para obter mais informações sobre as opções de autenticação híbrida Azure AD disponíveis, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../../security/fundamentals/choose-ad-authn.md) e [Selecione qual o tipo de instalação a utilizar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
+  - Para obter mais informações sobre as opções de autenticação híbrida Azure AD disponíveis, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../hybrid/choose-ad-authn.md) e [Selecione qual o tipo de instalação a utilizar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter as seguintes correções instaladas:
-    - Para Windows Server 2016 -https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - Para Windows Server 2019 -https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - Para Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+    - Para Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### <a name="supported-scenarios"></a>Cenários suportados
 
@@ -75,7 +75,7 @@ Os seguintes cenários não são suportados:
 Os administradores utilizam ferramentas PowerShell do seu servidor Azure AD Connect para criar um objeto Azure AD Kerberos Server no seu diretório no local. Executar os seguintes passos em cada domínio e floresta na sua organização que contenham utilizadores AD Azure:
 
 1. Upgrade para a versão mais recente do Azure AD Connect. As instruções pressupõem que já configuraste o Azure AD Connect para suportar o ambiente híbrido.
-1. No Azure AD Connect Server, abra uma pressão de PowerShell elevada e navegue para`C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. No Azure AD Connect Server, abra uma pressão de PowerShell elevada e navegue para `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
 1. Execute os seguintes comandos PowerShell para criar um novo objeto de servidor Azure AD Kerberos tanto no seu domínio de Ative Directory como no inquilino do Azure Ative Directory.
 
 > [!NOTE]
@@ -114,7 +114,7 @@ Este comando produz as propriedades do Azure AD Kerberos Server. Pode rever as p
 | ID | A identificação única do objeto DS DC. Esta identificação é por vezes referida como "slot" ou "branch ID". |
 | DomainDnsName | O nome de domínio DNS do Domínio do Diretório Ativo. |
 | Contagem de computadores | O objeto da conta do computador do objeto Azure AD Kerberos Server (o DC). |
-| Contagem de utilizadores | O objeto de conta de utilizador desativado que detém a chave de encriptação Azure AD Kerberos Server TGT. O DN desta conta é`CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
+| Contagem de utilizadores | O objeto de conta de utilizador desativado que detém a chave de encriptação Azure AD Kerberos Server TGT. O DN desta conta é `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
 | Chaveversão | A versão chave da chave de encriptação Azure AD Kerberos Server TGT. A versão é atribuída quando a chave é criada. A versão é então incrementada cada vez que a chave é rodada. Os incrementos são baseados em meta-dados de replicação e provavelmente maiores que um. Por exemplo, a versão inicial *da KeyVersion* pode ser *192272*. A primeira vez que a chave é girada, a versão pode avançar para *212621*. O importante a verificar é que a *Versão Chave* para o objeto no local e a *CloudKeyVersion* para o objeto de nuvem são as mesmas. |
 | KeyUpdatedOn | A data e a hora em que a chave de encriptação Azure AD Kerberos Server TGT foi atualizada ou criada. |
 | KeyUpdatedFrom | O DC onde a chave de encriptação Azure AD Kerberos Server TGT foi atualizada pela última vez. |
@@ -164,7 +164,7 @@ Se quiser partilhar feedback ou encontrar problemas durante a pré-visualizaçã
    - Subcategoria: FIDO
 1. Para capturar registos, use a opção para **recriar o meu problema**
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="does-this-work-in-my-on-premises-environment"></a>Isto funciona no meu ambiente no local?
 
@@ -197,6 +197,6 @@ Se limpar a instalação de uma máquina híbrida Azure AD, após o processo de 
 
 Certifique-se de que controladores de domínio suficientes estão remendados para responder a tempo para atender o seu pedido de recursos. Para verificar se consegue ver um controlador de domínio que está a executar a funcionalidade, reveja a saída de `nltest /dsgetdc:contoso /keylist /kdc` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre sem palavras-passe](concept-authentication-passwordless.md)

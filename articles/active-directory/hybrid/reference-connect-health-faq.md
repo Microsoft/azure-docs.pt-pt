@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446977"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718548"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório Ativo Azure (Azure AD) Connect Health. Estas FAQs cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
@@ -37,9 +37,11 @@ A tabela que se segue lista as funções e as versões suportadas do sistema ope
 
 |Função| Sistema operativo / Versão|
 |--|--|
-|Serviços de Federação do Active Directory (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Serviços de Federação do Active Directory (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Versão 1.0.9125 ou superior|
-|Serviços de Domínio do Active Directory (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Serviços de Domínio do Active Directory (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+As instalações do Windows Server Core não são suportadas.
 
 Note que as funcionalidades fornecidas pelo serviço podem diferir com base na função e no sistema operativo. Por outras palavras, todas as funcionalidades podem não estar disponíveis para todas as versões do sistema operativo. Consulte as descrições do recurso para mais detalhes.
 
@@ -68,10 +70,10 @@ O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto na [fun
 
 | Funções | Funcionalidades | Apoiado na Nuvem Alemã |
 | ------ | --------------- | --- |
-| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | Não |
-|  | Relatório de erro sincronizado | Sim |
-| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | Não |
-| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | Não |
+| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | No |
+|  | Relatório de erro sincronizado | Yes |
+| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | No |
+| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | No |
 
 Para garantir a conectividade do agente da Connect Health para sincronização, por favor, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) em conformidade.
 

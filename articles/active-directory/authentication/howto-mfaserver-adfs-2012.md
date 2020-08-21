@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8143149332a4a493a9a4d8d4a0d403420b87f75a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653360"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719483"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 
@@ -98,7 +98,7 @@ Existem duas opções para configurar o SDK do serviço Web. A primeira consiste
 
 Se não quiser utilizar um nome de utilizador e uma palavra-passe, siga estes passos para configurar o SDK do Serviço Web com um certificado de cliente.
 
-1. Obtenha um certificado de cliente de uma autoridade de certificação para o servidor que está a executar o SDK do Serviço Web. Saiba como [obter certificados de cliente](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Obtenha um certificado de cliente de uma autoridade de certificação para o servidor que está a executar o SDK do Serviço Web. Saiba como [obter certificados de cliente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Importe o certificado de cliente para o arquivo de certificados pessoais do computador local no servidor que está a executar o SDK do Serviço Web. Verifique que o certificado público da autoridade de certificação está no arquivo de Certificados de Raiz Fidedigna.  
 3. Exporte as chaves públicas e privadas do certificado de cliente para um ficheiro .pfx.  
 4. Exporte a chave pública no formato Base64 para um ficheiro .cer.  

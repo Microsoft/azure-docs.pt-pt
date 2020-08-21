@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117027"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717851"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
 
 Este artigo fornece detalhes para integrar a sua infraestrutura Remote Desktop Gateway com autenticação multi-factor (MFA) azure utilizando a extensão do Network Policy Server (NPS) para o Microsoft Azure.
 
-A extensão do Servidor de Política de Rede (NPS) para o Azure permite que os clientes protejam a autenticação do cliente do Serviço de Acesso ao Utilizador (RADIUS) de autenticação remota utilizando [a autenticação multi-factor (MFA)](multi-factor-authentication.md)da Azure na nuvem. Esta solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança às entradas e transações do utilizador.
+A extensão do Servidor de Política de Rede (NPS) para o Azure permite que os clientes protejam a autenticação do cliente do Serviço de Acesso ao Utilizador (RADIUS) de autenticação remota utilizando [a autenticação multi-factor (MFA)](./concept-mfa-howitworks.md)da Azure na nuvem. Esta solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança às entradas e transações do utilizador.
 
 Este artigo fornece instruções passo a passo para a integração da infraestrutura NPS com Azure MFA utilizando a extensão NPS para Azure. Isto permite uma verificação segura para os utilizadores que tentam iniciar sing a um Gateway de Secretária remoto.
 
@@ -75,7 +75,7 @@ Esta secção detalha os pré-requisitos necessários antes de integrar o Azure 
 Deve ter uma infraestrutura de Serviços de Secretária Remota (RDS) em funcionamento. Se não o fizer, poderá criar rapidamente esta infraestrutura em Azure utilizando o seguinte modelo de arranque rápido: [Criar uma implementação de Coleção de Sessão de Secretária remota](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Se desejar criar manualmente uma infraestrutura RDS no local rapidamente para efeitos de teste, siga os passos para implantar uma.
-**Saiba mais:** [Implementar RDS com quickstart Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) e [implantação básica de infraestruturas RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Saiba mais:** [Implementar RDS com quickstart Azure](/windows-server/remote/remote-desktop-services/rds-in-azure) e [implantação básica de infraestruturas RDS](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licença Azure MFA
 
@@ -89,7 +89,7 @@ A extensão NPS requer o Windows Server 2008 R2 SP1 ou superior com o serviço d
 
 O serviço de função NPS fornece o servidor RADIUS e a funcionalidade do cliente, bem como o serviço de saúde da Política de Acesso à Rede. Esta função deve ser instalada em pelo menos dois computadores na sua infraestrutura: O Gateway de Secretária remota e outro servidor de membro ou controlador de domínio. Por predefinição, a função já está presente no computador configurado como O Gateway de Ambiente de Trabalho Remoto.  Também deve instalar a função NPS em pelo menos noutro computador, como um controlador de domínio ou servidor de membros.
 
-Para obter informações sobre a instalação do serviço de funções NPS Windows Server 2012 ou mais antigo, consulte [instalar um Servidor de Política de Saúde NAP](https://technet.microsoft.com/library/dd296890.aspx). Para uma descrição das melhores práticas para nps, incluindo a recomendação de instalar NPS num controlador de domínio, consulte [as Melhores Práticas para NPS](https://technet.microsoft.com/library/cc771746).
+Para obter informações sobre a instalação do serviço de funções NPS Windows Server 2012 ou mais antigo, consulte [instalar um Servidor de Política de Saúde NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Para uma descrição das melhores práticas para nps, incluindo a recomendação de instalar NPS num controlador de domínio, consulte [as Melhores Práticas para NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Ative Directy sincronizado com o Ative Directory no local
 
@@ -109,7 +109,7 @@ Siga os passos em [Começar com a Autenticação Multi-Factor Azure na nuvem](ho
 
 Uma vez ativada uma conta para MFA, não pode subscrever os recursos regidos pela política do MFA até que tenha configurado com sucesso um dispositivo de confiança para utilizar para o segundo fator de autenticação e tenha autenticado usando a verificação em duas etapas.
 
-Siga os passos em [O que significa Azure Multi-Factor Authentication para mim?](../user-help/multi-factor-authentication-end-user.md)
+Siga os passos em [O que significa Azure Multi-Factor Authentication para mim?](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 > [!IMPORTANT]
 > O sinal de comportamento para Remote Desktop Gateway não fornece a opção de introduzir um código de verificação com autenticação multi-factor Azure. Uma conta de utilizador deve ser configurada para verificação de telefone ou a App autenticador da Microsoft com notificações push.
@@ -141,7 +141,7 @@ Instale a extensão NPS num servidor que tenha a função de Política de Rede e
 
 1. Descarregue a [extensão NPS](https://aka.ms/npsmfa).
 1. Copie o ficheiro executável de configuração (NpsExtnForAzureMfaInstaller.exe) para o servidor NPS.
-1. No servidor NPS, clique duas **vezesNpsExtnForAzureMfaInstaller.exe**. Se solicitado, clique em **Executar**.
+1. No servidor NPS, clique duas ** vezesNpsExtnForAzureMfaInstaller.exe**. Se solicitado, clique em **Executar**.
 1. Na extensão NPS Para Azure MFA Configurar caixa de diálogo, rever os termos da licença de software, verificar **concordo com os termos e condições da licença,** e clique em **Instalar**.
 1. Na extensão NPS Para Azure MFA Configurar caixa de diálogo, clique em **Fechar**.
 
@@ -250,7 +250,7 @@ Por predefinição, quando configurar o Gateway RD para utilizar uma loja de pol
 1. Clique **em Cancelar**.
 
 >[!NOTE]
-> Para obter mais informações sobre a criação de uma política de pedido de conexão consulte o artigo, [Configurar a](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentação das políticas de pedido de conexão para o mesmo. 
+> Para obter mais informações sobre a criação de uma política de pedido de conexão consulte o artigo, [Configurar a](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentação das políticas de pedido de conexão para o mesmo. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configure NPS no servidor onde a extensão NPS é instalada
 
@@ -378,13 +378,13 @@ Abaixo está um evento relacionado a partir dos registos AzureMFA:
 
 Para executar opções avançadas de resolução de problemas, consulte os ficheiros de registo de formato de base de dados NPS onde o serviço NPS está instalado. Estes ficheiros de registo são criados na pasta _%SystemRoot%\System32\Logs_ como ficheiros de texto delimitados por vírgula.
 
-Para obter uma descrição destes ficheiros de registo, consulte [os ficheiros de registo do formato de base de dados do NPS](https://technet.microsoft.com/library/cc771748.aspx). As entradas nestes ficheiros de registo podem ser difíceis de interpretar sem os importar numa folha de cálculo ou numa base de dados. Pode encontrar vários parsers da IAS on-line para ajudá-lo na interpretação dos ficheiros de registo.
+Para obter uma descrição destes ficheiros de registo, consulte [os ficheiros de registo do formato de base de dados do NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). As entradas nestes ficheiros de registo podem ser difíceis de interpretar sem os importar numa folha de cálculo ou numa base de dados. Pode encontrar vários parsers da IAS on-line para ajudá-lo na interpretação dos ficheiros de registo.
 
 A imagem abaixo mostra a saída de uma dessas [aplicações de shareware](https://www.deepsoftware.com/iasviewer)transferíveis .
 
 ![Amostra Shareware app IAS parser](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Finalmente, para opções adicionais de resolução de problemas, pode utilizar um analisador de protocolo, como [o Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
+Finalmente, para opções adicionais de resolução de problemas, pode utilizar um analisador de protocolo, como [o Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 A imagem abaixo do Microsoft Message Analyzer mostra o tráfego de rede filtrado no protocolo RADIUS que contém o nome de utilizador **CONTOSO\AliceC**.
 

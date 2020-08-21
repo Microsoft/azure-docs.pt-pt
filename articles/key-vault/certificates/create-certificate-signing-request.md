@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043889"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716117"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
@@ -69,7 +69,7 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
     - **Nome do certificado:** ContosoManualCSRCertificate.
     - **Tipo de Autoridade de Certificados (CA):** Certificado emitido por uma AC não integrada
     - **Objeto:**`"CN=www.contosoHRApp.com"`
-    - Selecione os outros valores conforme desejado. Clique em **Create** (Criar).
+    - Selecione os outros valores conforme desejado. Clique em **Criar**.
 
     ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
@@ -98,9 +98,11 @@ Exemplo
 >Se você estiver solicitando um cert DEV com todos esses detalhes na RSE, a AC pode rejeitar o pedido como CA pode não ser capaz de validar todas essas informações no pedido. Se está a solicitar um certificado de OV, então seria mais apropriado adicionar toda essa informação na RSE.
 
 
-## <a name="troubleshoot"></a>Resolução de Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
-Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, consulte a **Operação certificado** para rever a mensagem de erro desse certificado.
+- **Error type 'A chave pública do certificado de entidade final no conteúdo do certificado X.509 especificado não corresponde à parte pública da chave privada especificada. Verifique se o certificado é válido»** Este erro pode ocorrer se não estiver a fundir a RSE com o mesmo pedido de RSE iniciado. Cada vez que uma RSE é criada, cria uma chave privada que tem de ser correspondida ao fundir o pedido assinado.
+    
+- Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, consulte a **Operação certificado** para rever a mensagem de erro desse certificado.
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

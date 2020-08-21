@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035303"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717732"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -53,7 +53,7 @@ Na experiência do portal Azure, melhorámos a forma como pode ver a atividade d
 
 ### <a name="combined-registration"></a>Registo combinado
 
-Se tiver ativado o [registo combinado,](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)serão encontradas informações **Security**sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de**Segurança .
+Se tiver ativado o [registo combinado,](./concept-registration-mfa-sspr-combined.md)serão encontradas informações **Security**sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de**Segurança .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas de relatório no portal Azure
 
@@ -179,7 +179,7 @@ A seguinte lista explica esta atividade em detalhe:
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
+* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](./tutorial-enable-sspr-writeback.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
 * [Acho que algo está partido. Como é que resolvo a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)

@@ -488,22 +488,16 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: app-service-platform-windows-linux
-  title: Plataforma do Serviço de Aplicações
-  prompt: Escolher uma plataforma de alojamento
+- id: programming-languages-spark-all-minus-sql
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem
   pivots:
-  - id: platform-linux
-    title: Linux
-  - id: platform-windows
-    title: Windows
-- id: app-service-containers-windows-linux
-  title: Serviço de Aplicações com contentores personalizados
-  prompt: Escolher uma plataforma de contentores personalizados
-  pivots:
-  - id: container-linux
-    title: Contentor do Linux
-  - id: container-windows
-    title: Contentor do Windows
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
 - id: aml-control-methods
   title: Plano de controlo do Azure Machine Learning
   prompt: Escolher uma interface do plano de controlo do Azure Machine Learning
@@ -540,10 +534,34 @@ groups:
     title: Java
   - id: programming-language-more
     title: Mais linguagens...
+- id: ams-lva-edge-programming-languages
+  title: Linguagens de programação do Live Video Analytics no IoT Edge
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: app-service-platform-windows-linux
+  title: Plataforma do Serviço de Aplicações
+  prompt: Escolher uma plataforma de alojamento
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: Serviço de Aplicações com contentores personalizados
+  prompt: Escolher uma plataforma de contentores personalizados
+  pivots:
+  - id: container-linux
+    title: Contentor do Linux
+  - id: container-windows
+    title: Contentor do Windows
 metadata:
-  ms.openlocfilehash: a51aa5fcc88269e718375ed08f0238867da7079b
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: e9997400e1ed6708889f5f9f70078f5d3ec4c282
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88225636"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88691212"

@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para o Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547725"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717545"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -25,8 +25,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > [!IMPORTANT]
 > As políticas personalizadas com a Configuração do Convidado são uma funcionalidade de pré-visualização.
 >
-> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política:
-> - [Implemente os pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
 

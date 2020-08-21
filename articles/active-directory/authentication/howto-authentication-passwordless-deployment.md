@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81451436"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717154"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -43,9 +43,9 @@ Sem palavras-passe, a palavra-passe é substituída por algo que tem mais algo q
 ## <a name="passwordless-authentication-methods"></a>Métodos de autenticação sem palavras-passe
 A Microsoft oferece três opções de autenticação sem palavras-passe que cobrem muitos cenários. Estes métodos podem ser utilizados em conjunto:
 
-- [O Windows Hello for Business](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é o melhor para os utilizadores nos seus computadores Windows dedicados.
-- O início de sposição da chave de segurança com [as teclas de segurança FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é especialmente útil para os utilizadores que se inscrevem em máquinas partilhadas como quiosques, em situações em que o uso de telefones é restrito, e para identidades altamente privilegiadas.
-- O acesso telefónico com a [aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é útil para fornecer uma opção sem palavras-passe aos utilizadores com dispositivos móveis. A aplicação Authenticator transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe, permitindo que os utilizadores assinem em qualquer plataforma ou navegador. Os utilizadores insinuam-se recebendo uma notificação para o seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, usando os seus dados biométricos ou PIN para confirmar.
+- [O Windows Hello for Business](./concept-authentication-passwordless.md) é o melhor para os utilizadores nos seus computadores Windows dedicados.
+- O início de sposição da chave de segurança com [as teclas de segurança FIDO2](./concept-authentication-passwordless.md) é especialmente útil para os utilizadores que se inscrevem em máquinas partilhadas como quiosques, em situações em que o uso de telefones é restrito, e para identidades altamente privilegiadas.
+- O acesso telefónico com a [aplicação Microsoft Authenticator](./concept-authentication-passwordless.md) é útil para fornecer uma opção sem palavras-passe aos utilizadores com dispositivos móveis. A aplicação Authenticator transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe, permitindo que os utilizadores assinem em qualquer plataforma ou navegador. Os utilizadores insinuam-se recebendo uma notificação para o seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, usando os seus dados biométricos ou PIN para confirmar.
 
 ### <a name="passwordless-authentication-scenarios"></a>Cenários de autenticação sem palavras-passe
 
@@ -59,7 +59,7 @@ Os métodos de autenticação sem palavras-passe da Microsoft permitem diferente
 | **Sindução de aplicações web:** <br> a partir de um dispositivo móvel ou não-janelas | **Sim** | **Não** | **Não** |
 | **Sinal de computador em**: <br> Computador não-Windows | **Não** | **Não** | **Não** |
 
-Para obter informações sobre a seleção do melhor método para a sua organização, consulte [decidir um método sem palavras-passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
+Para obter informações sobre a seleção do melhor método para a sua organização, consulte [decidir um método sem palavras-passe](./concept-authentication-passwordless.md#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,17 +72,17 @@ As organizações devem cumprir os seguintes requisitos antes de iniciar uma imp
 | [Os utilizadores registaram-se para autenticação de vários fatores Azure e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Os utilizadores registaram os seus dispositivos móveis no Azure Ative Directory](../devices/overview.md) | √ |   |
 | Versão 1809 ou superior do Windows 10 utilizando um navegador suportado como Microsoft Edge ou Mozilla Firefox <br> (versão 67 ou superior). <br> *A Microsoft recomenda a versão 1903 ou superior para suporte nativo*. |   | √ |
-| Chaves de segurança FIDO2 compatíveis. Certifique-se de que está a utilizar um dispositivo de segurança FIDO2 [testado e verificado pela Microsoft](howto-authentication-passwordless-enable.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
+| Chaves de segurança FIDO2 compatíveis. Certifique-se de que está a utilizar um dispositivo de segurança FIDO2 [testado e verificado pela Microsoft](./concept-authentication-passwordless.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>Pré-requisitos para Windows Hello for Business
 
-Os pré-requisitos para o Windows Hello são altamente dependentes de estar a implementar numa configuração no local, híbrida ou apenas em nuvem. Para mais informações, consulte a [listagem completa de pré-requisitos para o Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Os pré-requisitos para o Windows Hello são altamente dependentes de estar a implementar numa configuração no local, híbrida ou apenas em nuvem. Para mais informações, consulte a [listagem completa de pré-requisitos para o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
 Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação de vários fatores Azure. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licenciamento 
+### <a name="licensing"></a>Licensing 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Description |
+| Área | Descrição |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -132,7 +132,7 @@ Consulte [as melhores práticas para um piloto](https://aka.ms/deploymentplans) 
 
 A aplicação Microsoft Authenticator é um download gratuito da Google Play ou da Apple App Store. [Saiba mais sobre o download da aplicação Microsoft Authenticator.](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) Os utilizadores descarreguem a aplicação Microsoft Authenticator. e siga as instruções para ativar o sinal do telefone. 
 
-Transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe. Os utilizadores inserem-se em qualquer plataforma ou navegador, recebendo uma notificação para o seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, usando biometria ou PIN para confirmar. [Consulte os detalhes sobre o funcionamento da aplicação Microsoft Authenticator.](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app)
+Transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe. Os utilizadores inserem-se em qualquer plataforma ou navegador, recebendo uma notificação para o seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, usando biometria ou PIN para confirmar. [Consulte os detalhes sobre o funcionamento da aplicação Microsoft Authenticator.](./concept-authentication-passwordless.md#microsoft-authenticator-app)
 
 ![iniciar sista com a app Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -150,7 +150,7 @@ Existem três tipos de implementações de entrada sem palavra-passe disponívei
 -    Aplicativos web Azure Ative Directory em um navegador suportado
 -    Azure Ative Directory juntou-se a dispositivos Windows 10
 -    O Diretório Ativo Híbrido Azure juntou-se a dispositivos Windows 10 (pré-visualização)
-     -    Fornece acesso tanto à nuvem como aos recursos das instalações. Para obter mais informações sobre o acesso aos recursos no local, consulte [sSO para recursos no local utilizando chaves FIDOP2](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
+     -    Fornece acesso tanto à nuvem como aos recursos das instalações. Para obter mais informações sobre o acesso aos recursos no local, consulte [sSO para recursos no local utilizando chaves FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Tem de ativar **as teclas de segurança FIDO2 compatíveis.** A Microsoft anunciou [parcerias-chave com os principais fornecedores fido2.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)
 
@@ -164,7 +164,7 @@ Tem de ativar **as teclas de segurança FIDO2 compatíveis.** A Microsoft anunci
 -    Servidores de domínio totalmente remendados com o Windows Server 2016 ou 2019.
 -    Versão mais recente do Azure AD Connect
 
-Para obter uma lista completa de requisitos, consulte [Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos Windows 10 com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+Para obter uma lista completa de requisitos, consulte [Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos Windows 10 com o Azure Ative Directory](./howto-authentication-passwordless-security-key-windows.md#requirements).
 
 
 ### <a name="security-key-life-cycle"></a>Ciclo de vida chave de segurança
@@ -292,7 +292,7 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Description |
+| Papel de Azure AD | Descrição |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |
@@ -320,7 +320,7 @@ Siga os passos do artigo, Ative o [sinal da chave de segurança sem palavras-pas
 | --- | --- |
 | O utilizador não pode efetuar o registo combinado. | Certifique-se de que o [registo combinado](concept-registration-mfa-sspr-combined.md) está ativado. |
 | O utilizador não pode adicionar uma chave de segurança nas suas [definições de segurança](https://aka.ms/mysecurityinfo). | Certifique-se de que [as chaves de segurança](howto-authentication-passwordless-security-key.md) estão ativadas. |
-| O utilizador não pode adicionar a chave de segurança nas opções de insinusição do Windows 10. | [Certifique-se de que as chaves de segurança para o Windows iniciar sinscrevam](howto-authentication-passwordless-enable.md) |
+| O utilizador não pode adicionar a chave de segurança nas opções de insinusição do Windows 10. | [Certifique-se de que as chaves de segurança para o Windows iniciar sinscrevam](./concept-authentication-passwordless.md) |
 | **Error message**: Detetámos que este navegador ou SISTEMA não suporta chaves de segurança FIDO2. | Os dispositivos de segurança FIDO2 sem palavras-passe apenas podem ser registados em navegadores suportados (Microsoft Edge, versão Firefox 67) na versão 1809 do Windows 10 ou superior. |
 | **Error message**: A sua política da empresa requer que utilize um método diferente para iniciar sôm. | Chaves de segurança inseguras estão ativadas no inquilino. |
 | Utilizador incapaz de gerir a minha chave de segurança na versão 1809 do Windows 10 | A versão 1809 requer que utilize o software de gestão de chaves de segurança fornecido pelo fornecedor-chave FIDO2. Contacte o fornecedor para obter apoio. |
@@ -331,4 +331,3 @@ Siga os passos do artigo, Ative o [sinal da chave de segurança sem palavras-pas
 - [Ativar chaves de segurança sem palavra-passe para iniciar sing para Azure AD](howto-authentication-passwordless-security-key.md)
 - [Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Saiba mais sobre a utilização dos métodos de autenticação & insights](howto-authentication-methods-usage-insights.md)
-

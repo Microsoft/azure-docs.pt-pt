@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027602"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717443"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição da palavra-passe de autosserviço no Azure Ative Directory?
 
@@ -47,7 +47,7 @@ A writeback da palavra-passe fornece as seguintes funcionalidades:
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavras-passe
 
@@ -140,7 +140,7 @@ As palavras-passe são escritas em todas as seguintes situações:
    * Qualquer administrador de autosserviço força alterar a operação de senha, por exemplo, a expiração da palavra-passe.
    * Qualquer redefinição da palavra-passe de autosserviço do administrador que tenha origem no portal de reset da [palavra-passe](https://passwordreset.microsoftonline.com).
    * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir do [portal Azure](https://portal.azure.com).
-   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da [beta API do Microsoft Graph](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da [beta API do Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Operações de writeback não suportadas
 
@@ -149,7 +149,7 @@ As palavras-passe não estão escritas em nenhuma das seguintes situações:
 * **Operações de utilizador final não suportadas**
    * Qualquer utilizador final que reinicie a sua própria palavra-passe utilizando a versão 1 do PowerShell, a versão 2 ou a API do Microsoft Graph.
 * **Operações de administrador não apoiadas**
-   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da versão 1 do PowerShell, versão 2 ou da API do Microsoft Graph (a versão API do [Microsoft Graph](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) É suportada).
+   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da versão 1 do PowerShell, versão 2 ou da API do Microsoft Graph (a versão API do [Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) É suportada).
    * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir do [centro de administração microsoft 365](https://admin.microsoft.com).
    * Qualquer administrador não pode utilizar a ferramenta de reset de palavra-passe para redefinir a sua própria palavra-passe para a gravação de palavras-passe.
 
@@ -161,4 +161,4 @@ As palavras-passe não estão escritas em nenhuma das seguintes situações:
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](./tutorial-enable-sspr-writeback.md)

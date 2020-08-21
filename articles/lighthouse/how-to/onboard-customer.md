@@ -1,14 +1,14 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167322"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719058"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -121,7 +121,7 @@ Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Az
 
 |Campo  |Definição  |
 |---------|---------|
-|**mspOfferName**     |Um nome descrevendo esta definição. Este valor é apresentado ao cliente como título da oferta.         |
+|**mspOfferName**     |Um nome descrevendo esta definição. Este valor é apresentado ao cliente como o título da oferta e deve ser um valor único.        |
 |**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "Oferta de gestão de Contoso VM").      |
 |**managedByTenantId**     |Sua identificação de inquilino.          |
 |**autorizações**     |Os valores **principais** para os utilizadores/grupos/SPNs do seu inquilino, cada um com um **nome principalIdDisplayName** para ajudar o seu cliente a compreender o propósito da autorização, e mapeado para uma **função incorporadaDefinitionId** valor para especificar o nível de acesso.      |
@@ -138,11 +138,11 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 |Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> O processo aqui descrito requer uma implementação separada do nível de subscrição para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa implementação de nível de subscrição.
+> O processo aqui descrito requer uma implementação separada para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa única implementação.
 >
 > São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
 
-O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada **no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
+O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada ** no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 
 ```json
 {
@@ -199,12 +199,22 @@ A última autorização no exemplo acima adiciona um **principalid** com a funç
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
-Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar (ou para cada subscrição que contenha grupos de recursos que pretende embarcar). A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
+Uma vez atualizado o seu arquivo de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino. É necessária uma implementação separada para cada subscrição que pretende embarcar (ou para cada subscrição que contenha grupos de recursos que pretende embarcar).
 
 > [!IMPORTANT]
-> Esta implementação ao nível de subscrição deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](../../role-based-access-control/built-in-roles.md#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
+> Esta implementação deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](../../role-based-access-control/built-in-roles.md#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription) 
 >
 > Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha o papel de Agente [Administrativo](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu inquilino fornecedor de serviços pode realizar a implementação.
+
+A implementação pode ser feita no portal Azure, utilizando o PowerShell, ou utilizando o Azure CLI, como mostrado abaixo.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+1. No nosso [repo GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), selecione o botão **Implementar para Azure** mostrado ao lado do modelo que pretende utilizar. O modelo será aberto no portal do Azure.
+1. Insira os seus valores para **Msp Offer Name**, Msp Offer **Description**, **Managed by Tenant Id**, and **Authorizations**. Se preferir, pode **selecionar parâmetros de edição** para introduzir valores para `mspOfferName` , , e `mspOfferDescription` `managedbyTenantId` `authorizations` diretamente no ficheiro do parâmetro. Certifique-se de atualizar estes valores em vez de utilizar os valores predefinidos do modelo.
+1. Selecione **Rever e criar,** em seguida, selecione **Criar**.
+
+Após alguns minutos, deverá ver uma notificação de que a implementação foi concluída.
 
 ### <a name="powershell"></a>PowerShell
 

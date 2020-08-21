@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 35842520b26d3a98342660244295e26e934e7d3c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848478"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717375"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Multi-Factor Authentication do Azure
 
@@ -50,7 +50,7 @@ A extensão NPS destina-se a trabalhar com a sua infraestrutura existente. Certi
 
 ### <a name="licenses"></a>Licenças
 
-A Extensão NPS para Azure MFA está disponível para clientes com [licenças para autenticação multi-factor Azure](multi-factor-authentication.md) (incluída com Azure AD Premium, EMS ou uma licença autónoma MFA). As licenças baseadas no consumo para MFA Azure, como por utilizador ou por licença de autenticação, não são compatíveis com a extensão NPS. 
+A Extensão NPS para Azure MFA está disponível para clientes com [licenças para autenticação multi-factor Azure](./concept-mfa-howitworks.md) (incluída com Azure AD Premium, EMS ou uma licença autónoma MFA). As licenças baseadas no consumo para MFA Azure, como por utilizador ou por licença de autenticação, não são compatíveis com a extensão NPS. 
 
 ### <a name="software"></a>Software
 
@@ -81,7 +81,7 @@ Quando instalar a extensão, precisa da *identificação* do inquilino e credenc
 
    ![Obter a ID do Inquilino do portal Azure](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
-### <a name="network-requirements"></a>Requisitos de rede
+### <a name="network-requirements"></a>Requisitos da rede
 
 O servidor NPS precisa de ser capaz de comunicar com os urls seguintes sobre as portas 80 e 443.
 
@@ -106,7 +106,7 @@ O servidor NPS conecta-se ao Azure Ative Directory e autentica os pedidos de MFA
 1. No seu servidor, abra o **Assistente de Funções e Funcionalidades adicionais** a partir do menu Quickstart do Gestor do Servidor.
 2. Escolha **instalação baseada em funções ou baseada em recursos** para o seu tipo de instalação.
 3. Selecione a função de servidor **de Política de Rede e Serviços de Acesso.** Pode surgir uma janela para informá-lo das funcionalidades necessárias para executar este papel.
-4. Continue através do assistente até à página de Confirmação. Selecione **Instalar**.
+4. Continue através do assistente até à página de Confirmação. Selecione **Install** (Instalar).
 
 Agora que tem um servidor designado para NPS, também deve configurar este servidor para lidar com pedidos de RADIUS de entrada a partir da solução VPN.
 
@@ -290,7 +290,7 @@ Pode optar por criar esta chave e defini-la para FALSE enquanto os seus utilizad
 
 O seguinte script está disponível para executar etapas básicas de verificação de saúde ao resolver problemas na extensão de NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -298,7 +298,7 @@ O seguinte script está disponível para executar etapas básicas de verificaç�
 
 Procure o certificado auto-assinado criado pelo instalador na loja cert, e verifique se a chave privada tem permissões concedidas ao **serviço de rede de utilizador**. O cert tem um nome de **assunto de \<tenantid\> CN, OU = Extensão NPS do Microsoft**
 
-Os certificados auto-assinados gerados pelo *scriptAzureMfaNpsExtnConfigSetup.ps1* também têm uma vida útil de validade de dois anos. Ao verificar se o certificado está instalado, deve também verificar se o certificado não expirou.
+Os certificados auto-assinados gerados pelo * scriptAzureMfaNpsExtnConfigSetup.ps1* também têm uma vida útil de validade de dois anos. Ao verificar se o certificado está instalado, deve também verificar se o certificado não expirou.
 
 ---
 
@@ -365,15 +365,15 @@ Para verificar se tem um certificado válido, consulte a Loja de Certificados da
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gerir os Protocolos TLS/SSL e Conjuntos de Cifras
 
-Recomenda-se que as suites de cifra mais antigas e mais fracas sejam desativadas ou removidas, a menos que a sua organização o exija. Pode encontrar informações sobre como concluir esta tarefa no artigo [Gerir Protocolos SSL/TLS e Conjuntos de Cifras para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+Recomenda-se que as suites de cifra mais antigas e mais fracas sejam desativadas ou removidas, a menos que a sua organização o exija. Pode encontrar informações sobre como concluir esta tarefa no artigo [Gerir Protocolos SSL/TLS e Conjuntos de Cifras para o AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ### <a name="additional-troubleshooting"></a>Resolução adicional de problemas
 
 Orientações adicionais de resolução de problemas e possíveis soluções podem ser encontradas no artigo [Resolver mensagens de erro da extensão NPS para autenticação multi-factor Azure](howto-mfa-nps-extension-errors.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral e configuração do Servidor de Política de Rede no Servidor do Windows](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Visão geral e configuração do Servidor de Política de Rede no Servidor do Windows](/windows-server/networking/technologies/nps/nps-top)
 
 - Configure iDs alternativos para login ou crie uma lista de exceções para IPs que não deve realizar verificação em duas etapas em [opções de configuração avançada para a extensão NPS para autenticação multi-factor](howto-mfa-nps-extension-advanced.md)
 

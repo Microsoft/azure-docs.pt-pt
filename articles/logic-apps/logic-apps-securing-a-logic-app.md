@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/20/2020
+ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566085"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719534"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -57,7 +57,7 @@ Cada ponto final de pedido de uma aplicação lógica tem uma [Assinatura de Ace
 
 Cada URL contém o `sp` `sv` parâmetro , e `sig` consulta, conforme descrito nesta tabela:
 
-| Parâmetro de consulta | Description |
+| Parâmetro de consulta | Descrição |
 |-----------------|-------------|
 | `sp` | Especifica permissões para os métodos HTTP autorizados a utilizar. |
 | `sv` | Especifica a versão SAS para utilizar para gerar a assinatura. |
@@ -592,7 +592,7 @@ Aqui está mais informações sobre estas `parameters` secções:
 
 Este modelo de exemplo que tem múltiplas definições de parâmetros seguros que usam o `securestring` tipo:
 
-| Nome do parâmetro | Description |
+| Nome do parâmetro | Descrição |
 |----------------|-------------|
 | `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma palavra-passe que é depois passada para o parâmetro da definição de fluxo de trabalho `basicAuthPasswordParam` |
 | `TemplateUsernameParam` | Um parâmetro de modelo que aceita um nome de utilizador que é depois passado para o parâmetro da definição de fluxo de trabalho `basicAuthUserNameParam` |
@@ -725,7 +725,7 @@ Aqui estão algumas formas de ajudar a proteger pontos finais que recebem chamad
 
 * Adicione autenticação a pedidos de saída.
 
-  Quando trabalha com um gatilho ou ação baseado em HTTP que faz chamadas de saída, tais como HTTP, HTTP + Swagger ou Webhook, pode adicionar autenticação ao pedido enviado pela sua aplicação lógica. Por exemplo, pode selecionar estes tipos de autenticação:
+  Quando utiliza um gatilho ou ação baseado em HTTP que faz chamadas de saída, por exemplo, HTTP, pode adicionar autenticação ao pedido enviado pela sua aplicação lógica. Por exemplo, pode selecionar estes tipos de autenticação:
 
   * [Autenticação básica](#basic-authentication)
 
@@ -792,7 +792,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado de Cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Diretório Ativo OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Não processado](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Identidade gerida](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Identidade gerida](#managed-identity-authentication) | Gestão AZURE API, Azure App Services, Azure Functions, HTTP |
 |||
 
 <a name="basic-authentication"></a>

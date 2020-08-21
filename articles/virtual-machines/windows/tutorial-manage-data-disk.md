@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69d346d554ee6f30e4ef578bacf358aaba722b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 528fe5dea533faf9447e03dd901568d783891ce9
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825179"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718939"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -52,10 +52,11 @@ O Azure oferece dois tipos de discos.
 
 **Discos Standard** - são apoiados por HDDs e oferecem armazenamento económico, mantendo o desempenho. Os discos Standard são ideais para uma carga de trabalho de desenvolvimento e teste económica.
 
-**Discos Premium** - são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Os discos Premium são fornecidos em cinco tipos (P10, P20, P30, P40, P50), e o tamanho do disco determina o tipo de disco. Ao selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco é P10 ou entre 129 GB e 512 GB, o disco é P20.
-
-### <a name="premium-disk-performance"></a>Desempenho do disco Premium
+Discos premium - **apoiados** por disco ssd baseado, de alto desempenho, de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. Tamanhos VM com um  **S** no [nome de tamanho,](../vm-naming-conventions.md)normalmente suportam o Armazenamento Premium. Por exemplo, séries DS, séries DSv2, sérieS GS e VMs da série FS suportam armazenamento premium. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for superior a 64 GB, mas inferior a 128 GB, o tipo de disco é P10. 
+<br>
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
+
+Ao providenciar um disco de armazenamento premium, ao contrário do armazenamento padrão, é-lhe garantida a capacidade, iOPS e a produção desse disco. Por exemplo, se criar um disco P50, o Azure prevê capacidade de armazenamento de 4.095 GB, 7.500 IOPS e 250-MB/s para o disco. A sua aplicação pode utilizar a maior ou parte da capacidade e desempenho. Os discos Premium SSD são projetados para fornecer latências de um dígito baixo e IOPS alvo e produção descrita na tabela anterior 99,9% das vezes.
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, podem ser anexados 64 discos de dados à VM Standard_GS5. Se cada um destes discos for dimensionado como um P30, pode ser alcançado um máximo de 80.000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, veja [Tipos e tamanhos de VMs](../sizes.md).
 

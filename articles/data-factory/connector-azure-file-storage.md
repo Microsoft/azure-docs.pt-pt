@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: be12393591d534b4141594439f0409d0db331bd0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/21/2020
+ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522679"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718259"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de/para o Armazenamento de Ficheiros do Azure com o Azure Data Factory
 
@@ -33,7 +33,12 @@ Este conector de armazenamento de ficheiros Azure é suportado para as seguintes
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)
 - [Eliminar atividade](delete-activity.md)
 
-Especificamente, este conector de armazenamento de ficheiros Azure suporta a cópia de ficheiros como está ou analisa/gerar ficheiros com os [formatos de ficheiros suportados e os codecs de compressão](supported-file-formats-and-compression-codecs.md).
+Pode copiar dados do Azure File Storage para qualquer loja de dados de lavatórios suportados ou copiar dados de qualquer loja de dados de origem suportada para o Azure File Storage. Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
+
+Especificamente, este conector de armazenamento de ficheiros Azure suporta:
+
+- Copiar ficheiros utilizando autenticações de assinatura de assinatura partilhada da chave de conta ou do serviço (SAS).
+- Copiar ficheiros como é ou analisar/gerar ficheiros com os [formatos de ficheiros suportados e os codecs de compressão](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -43,7 +48,139 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
-As seguintes propriedades são suportadas para o serviço ligado ao armazenamento de ficheiros Azure:
+Este conector de armazenamento de ficheiros Azure suporta os seguintes tipos de autenticação. Consulte as secções correspondentes para mais detalhes.
+
+- [Autenticação chave de conta](#account-key-authentication)
+- [Autenticação de assinatura de acesso partilhado](#shared-access-signature-authentication)
+
+>[!NOTE]
+> Se estava a utilizar o serviço de armazenamento de ficheiros Azure com [o modelo legado](#legacy-model), onde na UI de autoria da ADF mostrado como "Autenticação Básica", ainda é suportado como está, enquanto é sugerido que utilize o novo modelo em curso. O modelo legado transfere dados de/para armazenamento sobre o Bloco de Mensagens do Servidor (SMB), enquanto o novo modelo utiliza o SDK de armazenamento que tem melhor produção. Para atualizar, pode editar o seu serviço ligado para mudar o método de autenticação para "Tecla conta" ou "SAS URI"; não é necessária qualquer alteração no conjunto de dados ou na atividade de cópia.
+
+### <a name="account-key-authentication"></a>Autenticação chave de conta
+
+A Data Factory suporta as seguintes propriedades para autenticação da chave de armazenamento de ficheiros Azure:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| tipo | A propriedade tipo deve ser definida para: **AzureFileStorage**. | Yes |
+| conexãoStragem | Especifique as informações necessárias para ligar ao Armazenamento de Ficheiros Azure. <br/> Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Para mais informações, consulte as seguintes amostras e as credenciais da Loja no artigo [do Azure Key Vault.](store-credentials-in-key-vault.md) |Yes |
+| filePartilha | Especifique a partilha de ficheiros. | Yes |
+| instantâneo | Especifique a data da snapshot da partilha de [ficheiros](../storage/files/storage-snapshots-files.md) se pretender copiar a partir de uma foto instantânea. | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net;",
+            "fileShare": "<file share name>"
+        },
+        "connectVia": {
+          "referenceName": "<name of Integration Runtime>",
+          "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a chave da conta no Cofre da Chave Azure**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
+            "fileShare": "<file share name>",
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
+### <a name="shared-access-signature-authentication"></a>Autenticação de assinatura de acesso partilhado
+
+Uma assinatura de acesso partilhado proporciona acesso delegado aos recursos na sua conta de armazenamento. Pode utilizar uma assinatura de acesso partilhado para conceder ao cliente permissões limitadas a objetos na sua conta de armazenamento por um tempo especificado. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: Compreenda o modelo de assinatura de acesso partilhado.](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+
+A Data Factory suporta as seguintes propriedades para a utilização da autenticação de assinatura de acesso partilhado:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| tipo | A propriedade tipo deve ser definida para: **AzureFileStorage**. | Yes |
+| SasUri | Especifique a assinatura de acesso partilhado URI aos recursos. <br/>Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory. Também pode colocar o token SAS no Cofre da Chave Azure para utilizar a rotação automática e remover a porção de token. Para mais informações, consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Yes |
+| filePartilha | Especifique a partilha de ficheiros. | Yes |
+| instantâneo | Especifique a data da snapshot da partilha de [ficheiros](../storage/files/storage-snapshots-files.md) se pretender copiar a partir de uma foto instantânea. | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the resource e.g. https://<accountname>.file.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            },
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a chave da conta no Cofre da Chave Azure**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.file.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="legacy-model"></a>Modelo legado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -52,13 +189,6 @@ As seguintes propriedades são suportadas para o serviço ligado ao armazenament
 | userid | Especifique o utilizador para aceder ao Armazenamento de Ficheiros Azure como: <br/>-Utilização de UI: especificar `AZURE\<storage name>`<br/>-Utilizando json: `"userid": "AZURE\\<storage name>"` . | Yes |
 | palavra-passe | Especifique a chave de acesso ao armazenamento. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não para a fonte, sim para a pia |
-
->[!IMPORTANT]
-> - Para copiar dados no Azure File Storage utilizando o Tempo de Execução da Integração Azure, criar explicitamente [um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com a localização do seu Armazenamento de Ficheiros e associar no serviço ligado como o seguinte exemplo.
-> - Para copiar dados de/para Azure File Storage utilizando o tempo de execução de integração auto-hospedado fora de Azure, lembre-se de abrir a porta TCP de saída 445 na sua rede local.
-
->[!TIP]
->Ao utilizar o ADF UI para autoria, pode encontrar a entrada específica de "Azure File Storage" para criação de serviços ligados, que por baixo gera `FileServer` objeto tipo.
 
 **Exemplo:**
 
@@ -138,9 +268,10 @@ As seguintes propriedades são suportadas para armazenamento de ficheiros Azure 
 | tipo                     | A propriedade tipo em baixo `storeSettings` deve ser definida para **FileServerReadSettings**. | Yes                                           |
 | ***Localize os ficheiros para copiar:*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Cópia do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de uma pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
-| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta DadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
-| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
+| OPÇÃO 2: prefixo de ficheiro<br>- prefixo | Prefixo para o nome do ficheiro na partilha de ficheiros configurada num conjunto de dados para filtrar ficheiros de origem. São selecionados ficheiros com nome a `fileshare_in_linked_service/this_prefix` começar. Utiliza o filtro do lado do serviço para o Azure File Storage, que proporciona um melhor desempenho do que um filtro wildcard. Esta função não é suportada quando se utiliza um [modelo de serviço ligado ao legado.](#legacy-model) | No                                                          |
+| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta DadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
+| OPÇÃO 4: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
 | ***Definições adicionais:*** |  | |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
 | eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia binária, onde as lojas de fontes de dados são Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. O valor predefinido: falso. |No |

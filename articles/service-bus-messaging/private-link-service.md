@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423427"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716627"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados
 
@@ -79,7 +79,7 @@ Se já tiver um espaço de nome existente, pode criar um ponto final privado seg
     2. Selecione o **grupo de recursos** para o recurso de ponto final privado.
     3. Insira um **nome** para o ponto final privado. 
     5. Selecione uma **região** para o ponto final privado. O seu ponto final privado deve estar na mesma região que a sua rede virtual, mas pode estar numa região diferente do recurso de ligação privada a que está a ligar. 
-    6. Selecione **seguinte: O** botão >de recursos na parte inferior da página.
+    6. Selecione **seguinte: O ** botão >de recursos na parte inferior da página.
 
         ![Criar Ponto Final Privado - Página básica](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na página **de Recursos,** siga estes passos:
@@ -234,7 +234,7 @@ Existem quatro estados de provisionamento:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar que a ligação de ligação privada funciona
 
-Você deve validar que os recursos dentro da mesma sub-rede do recurso de ponto final privado estão conectando-se ao seu espaço de nome de Service Bus em um endereço IP privado, e que eles têm a integração de zona de DNS privada correta.
+Você deve validar que os recursos dentro da rede virtual do ponto final privado estão conectando-se ao seu espaço de nome de Service Bus em um endereço IP privado, e que eles têm a integração de zona de DNS privada correta.
 
 Primeiro, crie uma máquina virtual seguindo os passos na [Criar uma máquina virtual Windows no portal Azure](../virtual-machines/windows/quick-create-portal.md)
 

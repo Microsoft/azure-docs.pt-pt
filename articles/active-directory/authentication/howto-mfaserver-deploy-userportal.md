@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680910"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719466"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 
@@ -45,7 +45,7 @@ Em ambos os cenários, se o SDK do Serviço Web do Multi-Factor Authentication d
 3. Conclua a instalação com as predefinições, a menos que tenha de as alterar por algum motivo.
 4. Ligue um certificado TLS/SSL ao site no IIS.
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 O Serviço Web SDK deve ser protegido com um certificado TLS/SSL. Pode utilizar um certificado autoassinado para este fim. Importe o certificado na loja "Autoridades de Certificação de Raiz Fidedigna" da conta de Computador Local no servidor web do Portal do Utilizador, de modo a confiar nesse certificado ao iniciar a ligação TLS.
 
@@ -73,7 +73,7 @@ Para implementar o portal de utilizador, siga estes passos:
 
 ![Instalação do Portal de Utilizador do Servidor MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Implementar no portal do utilizador num servidor separado
 
@@ -110,7 +110,7 @@ Instalar o portal de utilizador num servidor diferente do Servidor Multi-Factor 
 
 6. Abra um navegador web a partir de qualquer computador e navegue até ao URL onde o portal do utilizador foi instalado (Exemplo: `https://mfa.contoso.com/MultiFactorAuth` ). Certifique-se de que não são apresentados erros ou avisos de certificado.
 
-Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Se tiver dúvidas sobre a configuração de um Certificado TLS/SSL num servidor IIS, consulte o artigo [Como Configurar O SSL no IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições do portal de utilizador no Servidor Multi-Factor Authentication do Azure
 
@@ -183,6 +183,6 @@ Se os administradores tiverem configurado o Servidor Multi-Factor Authentication
 
 A autoinscrição do utilizador está agora concluída e o utilizador tem sessão iniciada no portal de utilizador. Os utilizadores podem voltar a iniciar sessão no portal de utilizador em qualquer altura no futuro para alterar os números de telefone, PINs, métodos de autenticação e perguntas de segurança, se for permitido alterar os seus métodos pelos administradores deles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implemente o Serviço Web de Aplicações Móveis do Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy-mobileapp.md)

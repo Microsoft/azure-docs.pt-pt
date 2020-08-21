@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903345"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718820"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -39,6 +39,9 @@ O processo de cópia de um modelo personalizado consiste nos seguintes passos:
 1. Primeiro emita um pedido de autorização de cópia ao recurso-alvo, &mdash; ou seja, o recurso que receberá o modelo copiado. Você recebe de volta o URL do modelo-alvo recém-criado, que receberá os dados copiados.
 1. Em seguida, envia o pedido de cópia para o recurso de origem &mdash; o recurso que contém o modelo a ser copiado. Receberá de volta um URL que pode consultar para acompanhar o progresso da operação.
 1. Você usará as suas credenciais de recurso de origem para consultar o URL de progresso até que a operação seja um sucesso. Também pode consultar o novo ID do modelo no recurso-alvo para obter o estado do novo modelo.
+
+> [!CAUTION]
+> A API copy não suporta atualmente iDs de modelo para [modelos personalizados compostos.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose) O composição do modelo é uma funcionalidade de pré-visualização na pré-visualização v2.1.1. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar pedido de autorização de cópia
 
@@ -88,9 +91,9 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Error|Resolução|
+|Erro|Resolução|
 |:--|:--|
-| 400 / Mau Pedido com`"code:" "1002"` | Indica erro de validação ou pedido de cópia mal formado. As questões comuns incluem: a) Carga útil inválida ou `copyAuthorization` modificada. b) Valor expirado `expirationDateTimeTicks` para token `copyAuhtorization` (a carga útil é válida por 24 horas). c) Inválido ou não suportado `targetResourceRegion` . d) Cadeia inválida ou mal `targetResourceId` formada.
+| 400 / Mau Pedido com `"code:" "1002"` | Indica erro de validação ou pedido de cópia mal formado. As questões comuns incluem: a) Carga útil inválida ou `copyAuthorization` modificada. b) Valor expirado `expirationDateTimeTicks` para token `copyAuhtorization` (a carga útil é válida por 24 horas). c) Inválido ou não suportado `targetResourceRegion` . d) Cadeia inválida ou mal `targetResourceId` formada.
 |
 
 ## <a name="track-copy-progress"></a>Rastreio do progresso da cópia
@@ -112,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Error|Resolução|
+|Erro|Resolução|
 |:--|:--|
 |"Erros":[{"código":"AutorizaçãoError",<br>"mensagem":"Falha de autorização devido a <br>pedidos de autorização em falta ou inválidos."}]   | Ocorre quando a `copyAuthorization` carga útil ou o conteúdo são modificados a partir do que foi devolvido pela `copyAuthorization` API. Certifique-se de que a carga útil é o mesmo conteúdo exato que foi devolvido da `copyAuthorization` chamada anterior.|
 |"Erros":[{"código":"AutorizaçãoError",<br>"mensagem":"Não foi possível recuperar a autorização <br>Metadados. Se esta questão persistir, use um diferente <br>modelo-alvo para copiar em."}] | Indica que a `copyAuthorization` carga está a ser reutilizada com um pedido de cópia. Um pedido de cópia que tenha sucesso não permitirá mais pedidos que utilizem a mesma `copyAuthorization` carga útil. Se levantar um erro separado (como os abaixo notados) e posteriormente voltar a tentar a cópia com a mesma carga útil de autorização, este erro é levantado. A resolução é gerar uma nova `copyAuthorization` carga útil e, em seguida, reeditar o pedido de cópia.|
