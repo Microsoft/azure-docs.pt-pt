@@ -3,17 +3,17 @@ title: Use o Criador para criar mapas interiores
 description: Use o Criador de Mapas Azure para criar mapas interiores.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075414"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688096"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -102,23 +102,32 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
  Agora que o pacote de desenho está carregado, usaremos `udid` para o pacote carregado para converter o pacote em dados de mapa. A API de Conversão utiliza uma transação de longa duração que implementa o padrão definido [aqui.](creator-long-running-operation.md) Assim que a operação estiver concluída, usaremos o `conversionId` para aceder aos dados convertidos. Siga os passos abaixo para obter o `conversionId` .
 
-1. Selecione **New** (Novo). Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Save** (Guardar).
+1. Selecione **New** (Novo). Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**.
 
 2. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para converter o seu pacote de desenho carregado em dados de mapa. Use o `udid` para o pacote carregado.
 
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > Os urls API neste documento podem ter de ser ajustados de acordo com a localização do seu recurso Criador. Para mais detalhes, consulte [Acesso aos Serviços de Criador.](how-to-manage-creator.md#access-to-creator-services)
 
-3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão.
+3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão. Vais usar isto no próximo passo.
 
-4. Inicie um novo método **GET** HTTP no separador construtor. Apenda a chave de subscrição primária do Azure Maps para o `status URL` . Faça um pedido **GET** no `status URL` passo anterior. Se o processo de conversão ainda não tiver sido concluído, poderá ver algo como a seguinte resposta JSON:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiar o valor da chave de localização":::
+
+4. Inicie um novo método **GET** HTTP no separador construtor. Apenda a chave de subscrição primária do Azure Maps para o `status URL` . Faça um pedido **GET** no `status URL` que copiou no passo 3. O `status URL` parece o seguinte URL:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Se o processo de conversão ainda não tiver sido concluído, poderá ver algo como a seguinte resposta JSON:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ A amostra Desenhada deve ser convertida sem erros ou avisos. No entanto, se rece
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -157,7 +166,7 @@ A amostra Desenhada deve ser convertida sem erros ou avisos. No entanto, se rece
 
 O conjunto de dados é uma coleção de características do mapa, tais como edifícios, níveis e quartos. Para criar um conjunto de dados, utilize o [Conjunto de Dados Criar API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). O conjunto de dados Create API leva o `conversionId` pacote de desenho convertido e devolve um dos `datasetId` conjuntos de dados criados. Os passos abaixo mostram-lhe como criar um conjunto de dados.
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
 
 2. Faça um pedido **DE** POST ao [Conjunto de Dados Criar API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) para criar um novo conjunto de dados. Antes de submeter o pedido, apedte a sua chave de subscrição e `conversionId` a com a obtida durante o processo de Conversão no passo `conversionId` 5.  O pedido deve parecer-se com o seguinte URL:
 
@@ -177,7 +186,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -188,7 +197,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 
 Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets são criados a partir de conjuntos de dados existentes. No entanto, um teesto é independente do conjunto de dados a partir do qual foi obtido. Se o conjunto de dados for eliminado, o teset continuará a existir. Para criar um teesto, siga os passos abaixo:
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
 
 2. Faça um pedido **DEM** na conta do construtor. O URL do pedido deve parecer-se com o seguinte URL:
 
@@ -206,7 +215,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"
@@ -215,9 +224,9 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 ## <a name="query-datasets-with-wfs-api"></a>Conjuntos de dados de consulta com a API do WFS
 
- Conjuntos de dados podem ser consultados usando [a API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Com a API WFS pode consultar-se para coleções de funcionalidades, uma coleção específica ou uma funcionalidade específica com um **ID de**recurso. O **ID de** funcionalidade identifica exclusivamente a funcionalidade dentro do conjunto de dados. É usado, por exemplo, para identificar que estado de recurso deve ser atualizado em um determinado estado.
+ Conjuntos de dados podem ser consultados usando  [a API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Com a API WFS pode consultar-se para coleções de funcionalidades, uma coleção específica ou uma funcionalidade específica com um **ID de**recurso. O **ID de** funcionalidade identifica exclusivamente a funcionalidade dentro do conjunto de dados. É usado, por exemplo, para identificar que estado de recurso deve ser atualizado em um determinado estado.
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
 
 2. Faça um pedido **GET** para visualizar uma lista das coleções no seu conjunto de dados. `<dataset-id>`Substitua-a pela sua `datasetId` . Utilize a sua chave primária Azure Maps em vez do espaço reservado. O pedido deve parecer-se com o seguinte URL:
 
@@ -293,7 +302,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 ## <a name="create-a-feature-stateset"></a>Criar um estadoet de recurso
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
 
 2. Faça um pedido **de CORREIO** à [API Create Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Utilize o `datasetId` conjunto de dados que contém o estado que pretende modificar. O pedido deve parecer-se com o seguinte URL:
 
@@ -391,7 +400,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
     >[!NOTE]
     > A atualização só será guardada se o carimbo do tempo registado for após o carimbo de tempo do pedido anterior. Podemos passar qualquer nome chave que já configuramos durante a criação.
 
-7. Após uma atualização bem sucedida, receberá um `200 OK` código de estado HTTP. Se tiver [um estilo dinâmico implementado](indoor-map-dynamic-styling.md) para um mapa interior, a atualização será exibida no seu mapa renderizado no carimbo de hora especificado.
+7. Após uma atualização bem sucedida, receberá um `200 OK` código de estado HTTP. Se tiver  [um estilo dinâmico implementado](indoor-map-dynamic-styling.md) para um mapa interior, a atualização será exibida no seu mapa renderizado no carimbo de hora especificado.
 
 A [API de Estados-Recursos](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) permite-lhe recuperar o estado de uma funcionalidade utilizando a sua `ID` funcionalidade. Também pode eliminar o estado e os seus recursos utilizando a [API de eliminação do Estado de funcionalidade.](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview)
 

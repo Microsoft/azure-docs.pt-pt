@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367755"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690277"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não pode aceder a esta aplicação corporativa" ao utilizar uma aplicação Proxy de aplicação
 
@@ -50,7 +50,7 @@ Ocorre um tempo limite de gateway quando o serviço tenta chegar ao conector e �
 Um erro de porta de entrada errado indica que o conector não consegue alcançar a aplicação de backend. certifique-se de que publicou a aplicação correta. Erros comuns que causam este erro são:
 
 - Um erro ou erro na URL interna
-- Não publicar a raiz da aplicação. Por exemplo, publicar <http://expenses/reimbursement> mas tentar aceder<http://expenses>
+- Não publicar a raiz da aplicação. Por exemplo, publicar `http://expenses/reimbursement` mas tentar aceder `http://expenses`
 - Problemas com a configuração da Delegação Restrita kerberos (KCD)
 - Problemas com a aplicação backend
 
@@ -103,6 +103,6 @@ Se continuar a ver o erro, vá à máquina onde o Conector está instalado, abra
 
 Se conseguir chegar à aplicação a partir dessa máquina, procure problemas ou erros com o próprio Conector. Pode ver alguns erros comuns no [documento de resolução de problemas](application-proxy-troubleshoot.md#connector-errors). Também pode olhar diretamente para os registos do Conector para identificar quaisquer erros. Muitas das nossas mensagens de erro podem partilhar recomendações mais específicas para correções. Para aprender a ver os registos, consulte a [documentação dos nossos conectores.](application-proxy-connectors.md#under-the-hood)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

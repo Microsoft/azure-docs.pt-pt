@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 0dff28d5bfb2623a7362dc9b8aeb0840ac4e1e49
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 22f0b7af7434288bea45e6edcf4868dcffe526db
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430105"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690722"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é o Machine Learning Studio (clássico)?
 
@@ -29,7 +29,7 @@ O Machine Learning Studio (clássico) é onde a ciência dos dados, a análise p
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>O espaço de trabalho interativo do Machine Learning Studio (clássico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 Para desenvolver um modelo de análise preditiva, normalmente utiliza dados de uma ou mais fontes, transforma e analisa esses dados através de várias funções de manipulação de dados e estatísticas, e gera um conjunto de resultados. Desenvolver um modelo como este é um processo iterativo. À medida que modifica as várias funções e os respetivos parâmetros, os seus resultados convergem até achar que tem um modelo preparado e eficaz.
 
@@ -89,7 +89,7 @@ Para alguma ajuda a navegar através da grande biblioteca de algoritmos de machi
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementar um serviço web de análise preditiva
 Uma vez que o seu modelo de análise preditiva esteja pronto, pode implantá-lo como um serviço web a partir do Machine Learning Studio (clássico). Para obter mais informações sobre este processo, consulte [implementar um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Você pode aprender os fundamentos da análise preditiva e da aprendizagem automática usando um [quickstart passo-a-passo](create-experiment.md) e [baseando-se em amostras](sample-experiments.md).
 
 <!-- Module References -->

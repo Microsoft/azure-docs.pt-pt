@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433242"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691280"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Criar e partilhar um espaço de trabalho do Machine Learning Studio (clássico)
 
@@ -39,12 +39,12 @@ Para abrir um espaço de trabalho no Machine Learning Studio (clássico), tem de
 
 4. Insira as informações do seu espaço de trabalho:
 
-   - O *nome do espaço de trabalho* pode ter até 260 caracteres, não terminando num espaço. O nome não pode incluir estes caracteres:`< > * % & : \ ? + /`
+   - O *nome do espaço de trabalho* pode ter até 260 caracteres, não terminando num espaço. O nome não pode incluir estes caracteres: `< > * % & : \ ? + /`
    - O *plano de serviço web* que você escolhe (ou cria), juntamente com o *nível de preços* associado que seleciona, é usado se implementar serviços web a partir deste espaço de trabalho.
 
      ![Criar um novo espaço de trabalho studio (clássico)](./media/create-workspace/create-new-workspace.png)
 
-5. Clique em **Create** (Criar).
+5. Clique em **Criar**.
 
    O Machine Learning está atualmente disponível num número limitado de regiões. Se a sua subscrição não incluir uma destas regiões, poderá ver a mensagem de erro: "Não tem subscrições nas regiões permitidas."  Para solicitar que uma região seja adicionada à sua subscrição, crie um novo pedido de suporte da Microsoft a partir do portal Azure, escolha **a Faturação** como o tipo de problema e siga as instruções para submeter o seu pedido.
 
@@ -70,7 +70,7 @@ Se encontrar um problema na criação do seu espaço de trabalho, consulte [o gu
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Partilhe um espaço de trabalho Azure Machine Learning Studio (clássico)
-Uma vez criado um espaço de trabalho do Machine Learning Studio (clássico), pode convidar os utilizadores para o seu espaço de trabalho para partilharem o acesso ao seu espaço de trabalho e a todas as suas experiências, conjuntos de dados, cadernos, etc. Pode adicionar utilizadores numa de duas funções:
+Uma vez criado um espaço de trabalho do Machine Learning Studio (clássico), pode convidar os utilizadores para o seu espaço de trabalho para partilharem o acesso ao seu espaço de trabalho e a todas as suas experiências, conjuntos de dados, etc. Pode adicionar utilizadores numa de duas funções:
 
 * **Utilizador** - Um utilizador do espaço de trabalho pode criar, abrir, modificar e eliminar experiências, conjuntos de dados, etc. no espaço de trabalho.
 * **Proprietário** - Um proprietário pode convidar e remover utilizadores no espaço de trabalho, além do que um utilizador pode fazer.
@@ -82,7 +82,7 @@ Uma vez criado um espaço de trabalho do Machine Learning Studio (clássico), po
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Para partilhar um espaço de trabalho (clássico) do Studio
 
-1. Inscreva-se no Machine Learning Studio (clássico) em[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Inscreva-se no Machine Learning Studio (clássico) em [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. No painel esquerdo, clique em **DEFINIÇÕES**
 
@@ -129,6 +129,6 @@ Após a criação do novo espaço de trabalho do Machine Learning Studio (cláss
 Depois de os cookies serem eliminados, reinicie o navegador e, em seguida, vá para a página [do Microsoft Azure Machine Learning Studio (clássico).](https://studio.azureml.net) Quando lhe for solicitado um nome de utilizador e uma palavra-passe, insira a mesma conta Microsoft que usou para criar o espaço de trabalho.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a gestão de um espaço de trabalho, consulte [Gerir um espaço de trabalho (clássico) do Azure Machine Learning Studio (clássico).](manage-workspace.md)

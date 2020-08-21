@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092393"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684461"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
@@ -61,7 +61,7 @@ Se vir erros ao criar o novo interruptor virtual, certifique-se de que nenhum ou
 
 ### <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. Descarregue um ficheiro de imagem em disco para utilizar para a sua máquina virtual e guarde-o localmente. Por exemplo, [o servidor Ubuntu 18.04](http://releases.ubuntu.com/18.04.4/). Para obter informações sobre sistemas operativos suportados para dispositivos IoT Edge, consulte [os sistemas suportados Azure IoT Edge](support.md).
+1. Descarregue um ficheiro de imagem em disco para utilizar para a sua máquina virtual e guarde-o localmente. Por exemplo, [o servidor Ubuntu 18.04](http://releases.ubuntu.com/18.04/). Para obter informações sobre sistemas operativos suportados para dispositivos IoT Edge, consulte [os sistemas suportados Azure IoT Edge](support.md).
 
 2. No Hyper-V Manager novamente, selecione **Action**  >  **New**  >  **Virtual Machine** no menu **Ações.**
 

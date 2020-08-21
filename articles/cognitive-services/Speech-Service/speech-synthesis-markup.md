@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3394882574f94e4a1af3aa942f3b0bd87be55368
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533398"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690090"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -46,7 +46,7 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 ## <a name="create-an-ssml-document"></a>Criar um documento SSML
 
-`speak`é o elemento raiz, e é **necessário** para todos os documentos SSML. O `speak` elemento contém informações importantes, tais como versão, linguagem e a definição de vocabulário de marcação.
+`speak` é o elemento raiz, e é **necessário** para todos os documentos SSML. O `speak` elemento contém informações importantes, tais como versão, linguagem e a definição de vocabulário de marcação.
 
 **Syntax**
 
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > O ajuste dos estilos de fala só funcionará com vozes neurais.
 
-Por predefinição, o serviço de texto-a-fala sintetiza o texto utilizando um estilo de fala neutro tanto para vozes padrão como neurais. Com vozes neurais, pode ajustar o estilo de fala para expressar diferentes emoções como alegria, empatia e calma, ou otimizar a voz para diferentes cenários como serviço personalizado, newscasting e assistente de voz, usando o <mstts:express-as> elemento. Este é um elemento opcional exclusivo do serviço Discurso.
+Por predefinição, o serviço de texto-a-fala sintetiza o texto utilizando um estilo de fala neutro tanto para vozes padrão como neurais. Com vozes neurais, pode ajustar o estilo de fala para expressar diferentes emoções como alegria, empatia e calma, ou otimizar a voz para diferentes cenários como serviço personalizado, noticiário e assistente de voz, usando o  `mstts:express-as`   elemento. Este é um elemento opcional exclusivo do serviço Discurso.
 
 Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurais:
 * `en-US-AriaNeural`
@@ -262,8 +262,8 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
-| `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e`500` | Opcional |
+| `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
+| `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
 | Força                      | Descrição |
 |-------------------------------|-------------|
@@ -286,7 +286,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 
 ## <a name="specify-paragraphs-and-sentences"></a>Especificar parágrafos e frases
 
-`p`e `s` os elementos são usados para denotar parágrafos e frases, respectivamente. Na ausência destes elementos, o serviço de texto-a-fala determina automaticamente a estrutura do documento SSML.
+`p` e `s` os elementos são usados para denotar parágrafos e frases, respectivamente. Na ausência destes elementos, o serviço de texto-a-fala determina automaticamente a estrutura do documento SSML.
 
 O `p` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
 
@@ -564,7 +564,7 @@ As alterações de tom podem ser aplicadas às vozes padrão ao nível da palavr
 ```
 ## <a name="say-as-element"></a>dizer-como elemento
 
-`say-as`é um elemento opcional que indica o tipo de conteúdo (como número ou data) do texto do elemento. Isto fornece orientação para o motor da síntese da fala sobre como pronunciar o texto.
+`say-as` é um elemento opcional que indica o tipo de conteúdo (como número ou data) do texto do elemento. Isto fornece orientação para o motor da síntese da fala sobre como pronunciar o texto.
 
 **Syntax**
 
@@ -617,7 +617,7 @@ O motor da síntese do discurso fala o seguinte exemplo: "O seu primeiro pedido 
 
 ## <a name="add-recorded-audio"></a>Adicionar áudio gravado
 
-`audio`é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
+`audio` é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
 
 Qualquer áudio incluído no documento SSML deve satisfazer estes requisitos:
 

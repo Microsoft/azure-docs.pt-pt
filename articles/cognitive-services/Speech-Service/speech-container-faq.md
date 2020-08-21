@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289030"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690209"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -291,8 +291,8 @@ Pode ajudar a preencher as seguintes métricas de teste, incluindo que funções
 
 | Ponto final                                                | Teste funcional                                                   | SDK | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Sim      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Sim | Não       |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Yes      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Sim | No       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto final do serviço cognitivo on-prem interactive v1 websocket  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Os serviços cognitivos on-prem conversa v1 websocket endpoint |     |          |
 
@@ -305,7 +305,7 @@ Pode ajudar a preencher as seguintes métricas de teste, incluindo que funções
 - O carbono que tem o fogo afirma em libertação constrói (matando o processo).
 
 A solução alternativa é ou mudar para usar reconhecimento contínuo no seu código, ou (mais rápido) ligar-se aos pontos finais interativos ou contínuos no recipiente.
-Para o seu código, desaponte o ponto final para <anfitrião:>/fala/reconhecimento/interativo/serviços cognitivos/v1
+Para o seu código, desaponte o ponto final para `host:port` /speech/recognition/interactive/cognitiveservices/v1
 
 Para os vários modos, consulte os modos de voz - veja abaixo:
 
@@ -559,7 +559,7 @@ Amostras [de python:](https://github.com/Azure-Samples/cognitive-services-speech
 
 Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`APIs
+### <a name="fromendpoint-apis"></a>`FromEndpoint` APIs
 | Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,7 +579,7 @@ Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` funçã
 
 **Resposta:** Há uma nova `FromHost` API. Isto não substitui nem modifica quaisquer APIs existentes. Apenas adiciona uma forma alternativa de criar um config de fala usando um hospedeiro personalizado.
 
-### <a name="fromhost-apis"></a>`FromHost`APIs
+### <a name="fromhost-apis"></a>`FromHost` APIs
 
 | Linguagem | Detalhes da API |
 |--|:-|
@@ -597,8 +597,8 @@ O formato para anfitrião `protocol://hostname:port` é onde é opcional `:port`
 - Se o contentor estiver a funcionar num servidor remoto, utilize o nome de anfitrião ou o endereço IPv4 desse servidor.
 
 Exemplos de parâmetros de anfitrião para discurso-a-texto:
-- `ws://localhost:5000`- ligação não segura a um contentor local que utilize a porta 5000
-- `ws://some.host.com:5000`- ligação não segura a um contentor em execução num servidor remoto
+- `ws://localhost:5000` - ligação não segura a um contentor local que utilize a porta 5000
+- `ws://some.host.com:5000` - ligação não segura a um contentor em execução num servidor remoto
 
 Amostras de python de cima, mas use `host` parâmetro em vez `endpoint` de:
 

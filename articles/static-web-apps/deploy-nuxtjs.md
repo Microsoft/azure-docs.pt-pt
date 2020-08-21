@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9c7e03f5e658b8e15dcae1c5314b73dfbfdf0206
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2eafd2f74ffcf5fe0fe65d04884cfd2d668cdf0b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430278"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684580"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implementar sites de Nuxt.js renderizados por servidores na pré-visualização de aplicações web estáticas do Azure
 
-Neste tutorial, aprende-se a implementar um website estático [geradoNuxt.js](https://nuxtjs.org) para a [Azure Static Web Apps](overview.md). Para começar, aprende-se a configurar, configurar e implementar uma aplicação Nuxt.js. Durante este processo, você também aprende a lidar com desafios comuns muitas vezes enfrentados ao gerar páginas estáticas com Nuxt.js
+Neste tutorial, aprende-se a implementar um website estático [ geradoNuxt.js](https://nuxtjs.org) para a [Azure Static Web Apps](overview.md). Para começar, aprende-se a configurar, configurar e implementar uma aplicação Nuxt.js. Durante este processo, você também aprende a lidar com desafios comuns muitas vezes enfrentados ao gerar páginas estáticas com Nuxt.js
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Pode configurar um novo projeto de Nuxt.js utilizando `create-nuxt-app` . Em vez
     npm run dev
     ```
 
-Navegue <http://localhost:3000> para abrir a app, onde deverá ver o seguinte site aberto no seu navegador preferido:
+Navegue `http://localhost:3000` para abrir a app, onde deverá ver o seguinte site aberto no seu navegador preferido:
 
 :::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Início Nuxt.js app":::
 
@@ -211,7 +211,7 @@ Se a página for uma página dinâmica, por `_id.vue` exemplo, não terá inform
    ```
 
    > [!NOTE]
-   > `routes`é uma função assínca, para que possa fazer um pedido a uma API nesta função e usar a lista devolvida para gerar os caminhos.
+   > `routes` é uma função assínca, para que possa fazer um pedido a uma API nesta função e usar a lista devolvida para gerar os caminhos.
 
 2. Empurre as novas alterações para o seu repositório GitHub e aguarde alguns minutos enquanto o GitHub Actions volta a construir o seu site. Após a construção estar concluída, o erro 404 desaparece.
 

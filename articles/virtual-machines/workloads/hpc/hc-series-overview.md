@@ -10,28 +10,29 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: de6051e8880bbe3df42031a0d0d7b60abc27d2b0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077380"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689804"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
 Maximizar o desempenho da aplicação HPC em processadores Escaláveis Intel Xeon requer uma abordagem pensada para processar a colocação nesta nova arquitetura. Aqui, delineamos a nossa implementação em VMs da série Azure HC para aplicações HPC. Usaremos o termo "pNUMA" para se referir a um domínio NUMA físico, e "vNUMA" para se referir a um domínio NUMA virtualizado. Da mesma forma, usaremos o termo "pCore" para se referir aos núcleos físicos do CPU, e "vCore" para se referir aos núcleos de CPU virtualizados.
 
-Fisicamente, um servidor HC é 2 * 24-core Intel Xeon Platinum 8168 CPUs para um total de 48 núcleos físicos. Cada CPU é um único domínio pNUMA, e tem acesso unificado a seis canais de DRAM. Os CPUs Intel Xeon Platinum apresentam uma cache L2 maior de 4x do que nas gerações anteriores (256 KB/core -> 1 MB/core), reduzindo também a cache L3 em comparação com cpus intel anteriores (2,5 MB/core -> 1,375 MB/core).
+Fisicamente, um servidor [da série HC](../../hc-series.md) é 2 * 24-core Intel Xeon Platinum 8168 CPUs para um total de 48 núcleos físicos. Cada CPU é um único domínio pNUMA, e tem acesso unificado a seis canais de DRAM. Os CPUs Intel Xeon Platinum apresentam uma cache L2 maior de 4x do que nas gerações anteriores (256 KB/core -> 1 MB/core), reduzindo também a cache L3 em comparação com cpus intel anteriores (2,5 MB/core -> 1,375 MB/core).
 
 A topologia acima também leva para a configuração do hipervisor da série HC. Para dar espaço para o hipervisor Azure funcionar sem interferir com o VM, reservamos pCores 0-1 e 24-25 (ou seja, os primeiros 2 pCores em cada tomada). Em seguida, atribuímos domínios pNUMA todos os núcleos restantes para o VM. Assim, o VM verá:
 
-`(2 vNUMA domains) * (22 cores/vNUMA) = 44`núcleos por VM
+`(2 vNUMA domains) * (22 cores/vNUMA) = 44` núcleos por VM
 
 O VM não tem conhecimento de que os pCores 0-1 e 24-25 não lhe tenham sido dados. Assim, expõe cada vNUMA como se tivesse 22 núcleos nativo.
 
-Intel Xeon Platinum, Gold e Silver CPUs também introduzem uma rede de malha 2D on-die para comunicação dentro e externa à tomada cpu. Recomendamos vivamente a fixação de processos para um melhor desempenho e consistência. A fixação de processos funcionará em VMs da série HC porque o silício subjacente está exposto como está para o VM convidado. Para saber mais, consulte [a arquitetura Intel Xeon SP.](https://bit.ly/2RCYkiE)
+Intel Xeon Platinum, Gold e Silver CPUs também introduzem uma rede de malha 2D on-die para comunicação dentro e externa à tomada cpu. Recomendamos vivamente a fixação de processos para um melhor desempenho e consistência. A fixação de processos funcionará em VMs da série HC porque o silício subjacente está exposto como está para o VM convidado.
 
 O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervisor Azure e o VM da série HC.
 
@@ -42,27 +43,26 @@ O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervis
 | Especificações de hardware          | VM da série HC                     |
 |----------------------------------|----------------------------------|
 | Núcleos                            | 44 (HT desativado)                 |
-| CPU                              | Intel Xeon Platinum 8168*        |
+| CPU                              | Intel Xeon Platinum 8168         |
 | Frequência CPU (não-AVX)          | 3,7 GHz (núcleo único), 2.7-3.4 GHz (todos os núcleos) |
 | Memória                           | 8 GB/núcleo (352 no total)            |
-| Disco Local                       | 700 GB NVMe                      |
-| Infiniband                       | 100 Gb EDR Mellanox ConnectX-5** |
-| Rede                          | 50 Gb Ethernet (40 Gb utilizável) Azure segundo Gen SmartNIC*** |
+| Disco Local                       | 700 GB SSD                       |
+| Infiniband                       | 100 Gb EDR Mellanox ConnectX-5   |
+| Rede                          | 50 Gb Ethernet (40 Gb utilizável) Azure segundo Gen SmartNIC    |
 
 ## <a name="software-specifications"></a>Especificações de software
 
-| Especificações de Software     | VM da série HC          |
+| Especificações de Software     |VM da série HC           |
 |-----------------------------|-----------------------|
-| Tamanho do trabalho de MPI Max            | 13200 núcleos (300 VMs num único VMSS com singlePlacementGroup=verdadeiro) |
-| Suporte MPI                 | MVAPICH2, OpenMPI, MPICH, Plataforma MPI, Intel MPI  |
+| Tamanho do trabalho de MPI Max            | 13200 núcleos (300 VMs numa única escala de máquina virtual definida com singlePlacementGroup=verdadeiro)  |
+| Suporte MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Plataforma MPI  |
 | Quadros Adicionais       | Comunicação Unificada X, libfabric, PGAS |
-| Suporte de armazenamento Azure       | Std + Premium (máx. 4 discos) |
-| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+ |
-| Suporte Azure CycleCloud    | Yes                         |
-| Suporte a lote de Azure         | Sim                         |
+| Suporte de armazenamento Azure       | Discos Standard e Premium (máximo 4 discos) |
+| Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
+| Apoio orquestrador        | CycleCloud, Lote  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os tamanhos HPC VM para [Linux](../../sizes-hpc.md) e [Windows](../../sizes-hpc.md) em Azure.
-
-* Saiba mais sobre [o HPC](/azure/architecture/topics/high-performance-computing/) em Azure.
+- Saiba mais sobre [a arquitetura Intel Xeon SP.](https://bit.ly/2RCYkiE)
+- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

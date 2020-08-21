@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: f64892193eb6cfcce8f948b54e5557b5fa3d90ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b67e2bf2ae5af2feb334e898ce69fd5b959c7cf0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878255"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689570"
 ---
 ```json
 {
@@ -27,7 +27,3 @@ As seguintes propriedades estão disponíveis `extensionBundle` em:
 | -------- | ----------- |
 | ID | O espaço de nome para pacotes de extensão Microsoft Azure Functions. |
 | versão | A versão do pacote para instalar. O tempo de execução das Funções escolhe sempre a versão máxima admissível definida pela gama ou intervalo da versão. O valor da versão acima permite todas as versões do pacote de 1.0.0 até, mas não incluindo 2.0.0. Para obter mais informações, consulte a [notação de intervalo para especificar as gamas de versões](/nuget/reference/package-versioning#version-ranges). |
-
-As versões de pacote incrementam como pacotes na mudança do pacote. As principais mudanças de versão ocorrem quando os pacotes no incremento do pacote por uma versão principal. As principais mudanças de versão no pacote geralmente coincidem com uma mudança na versão principal do tempo de execução das Funções.  
-
-O conjunto atual de extensões instaladas pelo pacote predefinido é enumerado neste [extensions.jsem ficheiro](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

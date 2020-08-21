@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 80a38c069f937783b60ede46bc4319253798ff44
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c5afd7d912142dd8556e71ba9e0a522b2fa0da1c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431638"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684597"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implementar sites de Next.js renderizados por servidores na pré-visualização de aplicações web estáticas do Azure
 
-Neste tutorial, aprende-se a implementar um website estático [geradoNext.js](https://nextjs.org) para a [Azure Static Web Apps](overview.md). Para começar, aprende-se a configurar, configurar e implementar uma aplicação Next.js. Durante este processo, você também aprende a lidar com desafios comuns muitas vezes enfrentados ao gerar páginas estáticas com Next.js
+Neste tutorial, aprende-se a implementar um website estático [ geradoNext.js](https://nextjs.org) para a [Azure Static Web Apps](overview.md). Para começar, aprende-se a configurar, configurar e implementar uma aplicação Next.js. Durante este processo, você também aprende a lidar com desafios comuns muitas vezes enfrentados ao gerar páginas estáticas com Next.js
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ Para começar, crie um novo repositório sob a sua conta GitHub a partir de um r
     npm run dev
     ```
 
-Navegue <http://localhost:3000> para abrir a app, onde deverá ver o seguinte site aberto no seu navegador preferido:
+Navegue `http://localhost:3000` para abrir a app, onde deverá ver o seguinte site aberto no seu navegador preferido:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Início Next.js app":::
 
@@ -69,7 +69,7 @@ Ao clicar numa estrutura/biblioteca, deverá ver uma página de detalhes sobre o
 
 Quando constrói um site Next.js `npm run build` utilizando, a aplicação é construída como uma aplicação web tradicional, não como um site estático. Para gerar um site estático, utilize a seguinte configuração de aplicação.
 
-1. Para configurar rotas estáticas, crie ficheiros _nomeadosnext.config.js_ na raiz do seu projeto e adicione o seguinte código..
+1. Para configurar rotas estáticas, crie ficheiros _ nomeadosnext.config.js_ na raiz do seu projeto e adicione o seguinte código..
 
     ```javascript
     module.exports = {

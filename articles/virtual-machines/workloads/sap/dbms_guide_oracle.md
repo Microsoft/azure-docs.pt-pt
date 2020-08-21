@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75f8a1f42c5d5702fdb4a588b0829636c30f80a6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66837a0e4118695b19776972fdb4fd88a70ee561
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654621"
+ms.locfileid: "88690328"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação DBMS de máquinas virtuais Azure para carga de trabalho SAP
 
@@ -318,7 +318,7 @@ O software Oracle é suportado pela Oracle para funcionar no Microsoft Azure. Pa
 
 As seguintes notas SAP estão relacionadas com a SAP on Azure.
 
-| Número de nota | Título |
+| Número de nota | Title |
 | --- | --- |
 | [1928533] |Aplicações SAP em Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] |SAP no Microsoft Azure: Suporte pré-requisitos |
@@ -357,7 +357,7 @@ Apenas a Oracle de instância única que utiliza discos formatados NTFS é supor
 
 Recomendamos vivamente a utilização de [Discos Geridos Azure](../../managed-disks-overview.md). Também recomendamos vivamente a utilização de [SSDs premium](../../disks-types.md) para as suas implementações na Oracle Database.
 
-As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, veja:
+As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, consulte:
 
 - [Introdução ao Serviço do Ficheiro do Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -444,7 +444,7 @@ Neste caso, recomendamos instalar/localizar o Oracle em casa, palco, saptrace, s
 
 Os sistemas de ficheiros de ext4, xfs ou Oracle ASM são suportados para ficheiros Oracle Database em Azure. Todos os ficheiros de base de dados devem ser armazenados nestes sistemas de ficheiros com base em VHDs ou Discos Geridos. Estes discos são montados no Azure VM e são baseados no [armazenamento de blob de página Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou [em Discos Geridos Azure](../../managed-disks-overview.md).
 
-Para os núcleos Oracle Linux UEK, é necessário um mínimo de versão UEK 4 para suportar [SSDs premium Azure](../../windows/premium-storage-performance.md#disk-caching).
+Para os núcleos Oracle Linux UEK, é necessário um mínimo de versão UEK 4 para suportar [SSDs premium Azure](../../premium-storage-performance.md#disk-caching).
 
 É altamente recomendado utilizar [discos geridos Azure](../../managed-disks-overview.md). Também é altamente recomendado usando [SSDs premium Azure](../../disks-types.md) para as suas implementações oracle Database.
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 110d39791b3779a30e6541e77c0c6062cd51144c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076045"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688560"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -31,7 +31,7 @@ Para obter um guia prático para a resolução de problemas de ponta a ponta nas
 * [Monitorização do seu serviço de armazenamento]
   * [Monitorização da saúde do serviço]
   * [Capacidade de monitorização]
-  * [Disponibilidade de monitorização]
+  * [Monitorizar a disponibilidade]
   * [Acompanhamento do desempenho]
 * [Diagnóstico de problemas de armazenamento]
   * [Problemas de saúde de serviço]
@@ -136,7 +136,7 @@ As métricas de armazenamento apenas armazenam métricas de capacidade para o se
 
 Para ajudar a estimar o tamanho de vários objetos de armazenamento, tais como bolhas, consulte o post do blog [Understanding Azure Storage Billing – Bandwidth, Transactions e Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Disponibilidade de monitorização
+### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitorizar a disponibilidade
 Deverá monitorizar a disponibilidade dos serviços de armazenamento na sua conta de armazenamento, monitorizando o valor na coluna **Disponibilidade** nas tabelas de métricas horárias ou minúsculas — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable,** **$MetricsHourPrimaryTransactionsQueue,** **$MetricsMinutePrimaryTransactionsBlob,** **$MetricsMinutePrimaryTransactionsTable,** **$MetricsMinutePrimaryTransactionsQueue,** **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linha (o **RowKey** mostra se a linha contém métricas para o serviço como um todo ou para uma operação API específica).
 
 Qualquer valor inferior a 100% indica que alguns pedidos de armazenamento estão a falhar. Pode ver por que estão falhando examinando as outras colunas nos dados das métricas que mostram o número de pedidos com diferentes tipos de erro, tais como **ServerTimeoutError**. Deverá esperar que a **Disponibilidade** caia temporariamente abaixo dos 100% por razões como intervalos transitórios do servidor, enquanto o serviço move divisórias para um melhor pedido de equilíbrio de carga; a lógica de recandidatura na sua aplicação ao cliente deve lidar com tais condições intermitentes. O artigo [Armazenamento Analytics Operações e Mensagens de Estado](https://msdn.microsoft.com/library/azure/hh343260.aspx) lista os tipos de transação que as Métricas de Armazenamento incluem no seu cálculo de **Disponibilidade.**
@@ -468,7 +468,7 @@ Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das caus
 | Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab-... |Iniciar a operação com a localização Principal por modo de localização PrimaryOnly. |
-| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Início de pedido sincronizado para<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Início de pedido sincronizado para <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab -... |À espera de resposta. |
 | Microsoft.Azure.Storage |Aviso |2 |85d077ab -... |Exceção lançada enquanto aguardava resposta: O servidor remoto devolveu um erro: (403) Proibido. |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Resposta recebida. Código de estado = 403, ID pedido = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Conteúdo-MD5 = , ETag = . |
@@ -516,7 +516,7 @@ Entradas de registo:
 | 07b26a5d-... |Iniciando pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = CABEÇA.................. x-ms-cliente-pedido-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:11 GMT.x-ms-versão:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |À espera de resposta. |
-| 07b26a5d-... |Resposta recebida. Código de estado = 200, ID do pedido = eead849-... Conteúdo-MD5 = ETag = &quot; 0x8D14D2DC63D059B &quot; . |
+| 07b26a5d-... |Resposta recebida. Código de estado = 200, ID do pedido = eead849-... Conteúdo-MD5 = ETag =    &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
 | 07b26a5d-... |A descarregar o corpo de resposta. |
 | 07b26a5d-... |A operação foi concluída com sucesso. |
@@ -559,7 +559,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de registo de registo de registo de registo de armazenamento:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 | Pedir hora de início | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
@@ -824,7 +824,7 @@ Para obter mais informações sobre a análise no Azure Storage, consulte estes 
 [Monitorização do seu serviço de armazenamento]: #monitoring-your-storage-service
 [Monitorização da saúde do serviço]: #monitoring-service-health
 [Capacidade de monitorização]: #monitoring-capacity
-[Disponibilidade de monitorização]: #monitoring-availability
+[Monitorizar a disponibilidade]: #monitoring-availability
 [Acompanhamento do desempenho]: #monitoring-performance
 
 [Diagnóstico de problemas de armazenamento]: #diagnosing-storage-issues

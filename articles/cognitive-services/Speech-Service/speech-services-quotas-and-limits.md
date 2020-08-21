@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: alexeyo
-ms.openlocfilehash: 86182130daf5cbb61df7a751aaeff392dd608a67
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88662594"
+ms.locfileid: "88690141"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas e Limites de Serviços de Fala
 
@@ -132,7 +132,7 @@ Inicie o aumento do limite de Pedido Simultâneo para o seu recurso ou, se neces
   - "Validação de quota ou utilização" para verificar o limite existente
 - Clique *em Seguida: Soluções*
 - Avance ainda com a criação do pedido
-- Quando nos campos *Detalhes* entram no campo *Descrição:*
+- Quando em *Detalhes* o separador entrar no campo *Descrição:*
   - uma nota, que o pedido é sobre **quota de discurso a texto**
   - **Modelo base** ou **personalizado**
   - Informação sobre recursos Azure que [recolheu antes](#have-the-required-information-ready) 
@@ -184,7 +184,7 @@ Inicie o aumento do limite de Pedido Simultâneo para o seu recurso ou, se neces
   - "Validação de quota ou utilização" para verificar o limite existente
 - Clique *em Seguida: Soluções*
 - Avance ainda com a criação do pedido
-- Quando nos campos *Detalhes* entram no campo *Descrição:*
+- Quando em *Detalhes* o separador entrar no campo *Descrição:*
   - uma nota, que o pedido é sobre **quota texto-a-discurso**
   - Informação sobre recursos Azure que [recolheu antes](#prepare-the-required-information) 
   - Concluir a introdução das informações necessárias e clicar em *Criar* botão no *separador 'Revisão+'*

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544677"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685770"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -36,7 +36,7 @@ Para auditar as definições dentro de uma máquina, está ativada uma [extensã
 > [!IMPORTANT]
 > A extensão de Configuração do Hóspede e uma identidade gerida são necessárias para auditar máquinas virtuais Azure. Para implementar a extensão em escala, atribua a seguinte iniciativa política:
 > 
-> - [Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
@@ -62,19 +62,19 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 As políticas de configuração dos hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível.
 A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Name|Versões|
+|Publisher|Nome|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
-|Microsoft|Windows Server|2012 e mais tarde|
-|Microsoft|Cliente Windows|Windows 10|
+|Peering da Microsoft|Windows Server|2012 e mais tarde|
+|Peering da Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e mais tarde|
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3 e mais tarde|
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
 
-## <a name="network-requirements"></a>Requisitos de rede
+## <a name="network-requirements"></a>Requisitos da rede
 
 As máquinas virtuais em Azure podem utilizar o adaptador de rede local ou um link privado para comunicar com o serviço de Configuração do Hóspede.
 

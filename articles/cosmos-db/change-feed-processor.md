@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236476"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688050"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Você é cobrado por RUs consumidos, uma vez que o movimento de dados dentro e f
 O processador de feed de alteração pode ser hospedado em qualquer plataforma que suporte processos ou tarefas de longa duração:
 
 * Um [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)em execução contínua .
-* Um processo numa [Máquina Virtual Azure.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines)
-* Um trabalho de fundo no [Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service)
+* Um processo numa [Máquina Virtual Azure.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines)
+* Um trabalho de fundo no [Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)
 * Um [serviço ASP.NET hospedado.](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)
 
 Embora o processador de feed de mudança possa funcionar em ambientes de curta duração, porque o recipiente de arrendamento mantém o estado, o ciclo de arranque e paragem destes ambientes irá adicionar atraso à receção das notificações (devido à sobrecarga de arranque do processador sempre que o ambiente é iniciado).

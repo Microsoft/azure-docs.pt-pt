@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f31782fb4e91b72f51d6f0550fe9010cba7ca3d6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585462"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688645"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -25,7 +25,7 @@ Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar co
 À medida que começa a escalar o seu serviço, o número de pedidos enviados para o seu cofre-chave aumentará. Isto tem um potencial para aumentar a latência dos seus pedidos e, em casos extremos, fazer com que os seus pedidos sejam estrangulados, o que irá afetar o desempenho do seu serviço. Pode monitorizar as métricas de desempenho do cofre e ser alertado para limiares específicos, para um guia passo a passo para configurar a monitorização, [ler mais](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Como posso atribuir controlo de acesso por objeto de cofre chave? 
-A disponibilidade da funcionalidade de controlo de acesso por segredo/chave/certificado será notificada aqui, [leia mais](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
+A disponibilidade da funcionalidade de controlo de acesso por segredo/chave/certificado será notificada aqui, [leia mais](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>Como posso fornecer a autenticação do cofre de chaves usando a política de controlo de acessos?
 A forma mais simples de autenticar uma aplicação baseada em nuvem para o Key Vault é com uma identidade gerida; ver [usar uma identidade gerida pelo Serviço de Aplicações para aceder ao Cofre da Chave Azure]( https://docs.microsoft.com/azure/key-vault/general/managed-identity) para obter detalhes.

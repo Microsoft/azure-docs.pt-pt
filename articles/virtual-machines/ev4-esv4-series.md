@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 94c47369d7b638640fab1971801177103779e896
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 34c29a6f6cab77eaa69c7f28f57a4b823dd23d08
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648943"
+ms.locfileid: "88685243"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -82,7 +82,7 @@ Atualizações de preservação da memória: Suportadas
 | Standard_E48s_v4 | 48 | 384 | Apenas armazenamento remoto | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Apenas armazenamento remoto | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
 
-<sup>1</sup> [Tamanhos de núcleo limitados disponíveis](./windows/constrained-vcpu.md).
+<sup>1</sup> [Tamanhos de núcleo limitados disponíveis](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

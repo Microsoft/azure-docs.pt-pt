@@ -10,14 +10,14 @@ ms.author: sethm
 ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: b9fe363da0fa5e451aaee83e895d539a0741a174
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830738"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684648"
 ---
-# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Quickstart: criar um hub de notificação usando um modelo ARM
+# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Quickstart: Criar um hub de notificação usando um modelo ARM
 
 O Azure Notification Hubs fornece um motor de pressão fácil de usar e dimensionado que lhe permite enviar notificações para qualquer plataforma (iOS, Android, Windows, Kindle, etc.) a partir de qualquer backend (cloud ou no local). Para obter mais informações sobre o serviço, consulte [o Que é o Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
+:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
@@ -71,7 +71,7 @@ The output looks similar to: null
 ':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::': null
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

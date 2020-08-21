@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 4cc00ecb3810b1499f52ea9f3a0c110e92c75dff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009617"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689614"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "87009617"
 
 ## <a name="getting-started"></a>Introdução
 
-Se preferir fazer o upload de discos através de um GUI, pode fazê-lo utilizando o Azure Storage Explorer. Para mais detalhes, consulte: [Use o Azure Storage Explorer para gerir discos geridos aZure](disks-use-storage-explorer-managed-disks.md)
+Se preferir fazer o upload de discos através de um GUI, pode fazê-lo utilizando o Azure Storage Explorer. Para mais detalhes, consulte: [Use o Azure Storage Explorer para gerir discos geridos aZure](../disks-use-storage-explorer-managed-disks.md)
 
 Para fazer o upload do seu VHD para Azure, terá de criar um disco gerido vazio que esteja configurado para este processo de upload. Antes de criar um, há algumas informações adicionais que deve saber sobre estes discos.
 

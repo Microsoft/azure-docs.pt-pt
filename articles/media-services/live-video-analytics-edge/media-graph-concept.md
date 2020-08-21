@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300812"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690685"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -81,6 +81,10 @@ O nó do processador do filtro de taxa de fotogramas permite-lhe recolher os qua
 
 O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
 
+#### <a name="grpc-extension-processor"></a>processador de extensão gRPC
+
+O nó do processador de extensão gRPC leva quadros de vídeo descodificados como entrada, e retransmite esses quadros para um ponto final gRPC exposto pelo seu módulo. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final gRPC. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
+
 #### <a name="signal-gate-processor"></a>Processador do portão de sinal  
 
 O nó do processador do portão de sinal permite-lhe encaminhar os meios de um nó para outro. Também funciona como um tampão, permitindo a sincronização de meios e eventos. Uma caixa de utilização típica é inserir um nó do processador do portão de sinal entre o nó de origem RTSP e o nó da pia do ativo, e usar a saída de um nó do processador de processador de movimento para acionar o portão. Com um gráfico tão mediático, só estaria a gravar vídeos quando o movimento for detetado.
@@ -111,6 +115,6 @@ Utilizando uma combinação das fontes, processadores e pias acima definidas, po
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Live Video Analytics sem gravação de vídeo](analyze-live-video-concept.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver como pode executar a deteção de movimentos num feed de vídeo ao vivo, consulte [Quickstart: Run Live Video Analytics com o seu próprio modelo](use-your-model-quickstart.md).

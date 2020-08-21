@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb24100eaebc54b98adf2f09fa3e557e4d6fa0be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580650"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690413"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitore e afinar base de dados de Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -28,11 +28,11 @@ Além de visualizar gráficos das métricas, pode configurar alertas. Para orien
 
 Estas métricas estão disponíveis para nós de Hiperescala (Citus):
 
-|Métrica|Nome de exibição métrica|Unidade|Description|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |active_connections|Ligações Ativas|Contagem|O número de ligações ativas ao servidor.|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
-|iops|IOPS|Contagem|Consulte a [definição de IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) e [a produção de hiperescala](concepts-hyperscale-configuration-options.md)|
+|iops|IOPS|Contagem|Consulte a [definição de IOPS](../virtual-machines/premium-storage-performance.md#iops) e [a produção de hiperescala](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em através de ligações ativas.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede para fora através de ligações ativas.|

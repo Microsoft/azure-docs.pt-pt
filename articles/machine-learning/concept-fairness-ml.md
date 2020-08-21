@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829378"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689682"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a equidade nos modelos de aprendizagem automática (pré-visualização)
 
@@ -51,7 +51,7 @@ Juntos, estes componentes permitem que cientistas de dados e líderes empresaria
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a equidade nos modelos de aprendizagem automática
 
-No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
+No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
 
 Algo a ter em conta é se estas funcionalidades contêm implicações de privacidade devido a dados privados. Mas a palavra "sensível" não implica que estas características não devam ser usadas para fazer previsões.
 
@@ -108,6 +108,6 @@ O pacote fairlearn open-source fornece algoritmos de mitigação pós-processame
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/user_guide/index.html) [exemplos](https://fairlearn.github.io/auto_examples/notebooks/index.html)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
+- Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/user_guide/index.html) [exemplos](https://fairlearn.github.io/auto_examples/)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
 - Saiba como permitir [a](how-to-machine-learning-fairness-aml.md) avaliação da equidade dos modelos de aprendizagem automática em Azure Machine Learning.
 - Consulte os cadernos de amostras para obter [cenários](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) adicionais de avaliação da equidade no Azure Machine Learning. 

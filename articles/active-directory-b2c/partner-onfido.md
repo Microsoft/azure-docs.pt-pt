@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 580d3cea94e3c550954fc0fa1aa6f2c3a73e9386
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554837"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683866"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar Onfido com Azure Ative Directory B2C
 
@@ -136,7 +136,7 @@ Nas políticas personalizadas fornecidas, encontre os seguintes espaços reserva
 | {your_tenant_extensions_app_objectid}                  | ID de objeto da aplicação de armazenamento do seu inquilino                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_app_insights_instrumentation_key} | Chave de instrumentação da sua instância de insights de aplicação*| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_ui_file_base_url}| URL do local onde estão localizadas as suas **pastas UI ocean_blue,** **dist**e **ativos** | https://yourstorage.blob.core.windows.net/UI/|
-| {your_app_service_URL}                                 | URL do serviço de aplicações que criou                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL do serviço de aplicações que criou                                             | `https://yourapp.azurewebsites.net`          |
 
 *Insights de aplicativos podem estar em um inquilino diferente. Este passo é opcional. Remova os respetivos Filtros Técnicos e OrquestraçõesSteps, se não necessário.
 
@@ -165,7 +165,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 5. O serviço Onfido será chamado durante o fluxo, após a criação do atributo do utilizador. Se o fluxo estiver incompleto, verifique se o utilizador não está guardado no diretório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

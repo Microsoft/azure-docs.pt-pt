@@ -4,12 +4,12 @@ description: Neste arranque rápido, você usa um modelo de Gestor de Recursos A
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 93c8e907190a3e87c3c0ce3392ccfd7fd4d2e515
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520877"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689852"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo ARM
 
@@ -32,7 +32,7 @@ Neste arranque rápido, cria-se uma atribuição de política e atribui-se uma d
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
 O recurso definido no modelo é:
 
@@ -49,7 +49,7 @@ O recurso definido no modelo é:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Name | Valor |
+   | Nome | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \<Date in MMDD\> rg_. |

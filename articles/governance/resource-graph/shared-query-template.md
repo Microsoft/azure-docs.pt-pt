@@ -4,12 +4,12 @@ description: Neste arranque rápido, utiliza-se um modelo de Gestor de Recursos 
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252373"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685532"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo ARM
 
@@ -17,7 +17,7 @@ As consultas de gráfico de recurso podem ser guardadas como uma _consulta priva
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implemente o modelo ARM para criar uma consulta partilhada ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
@@ -29,9 +29,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Neste quickstart, você cria uma consulta partilhada chamada _Conde VMs by OS_. Para experimentar esta consulta em SDK ou em portal com o Resource Graph Explorer, consulte [Samples - Conte máquinas virtuais por tipo OS](./samples/starter.md#count-os).
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
+:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 O recurso definido no modelo é:
 
@@ -54,7 +54,7 @@ O recurso definido no modelo é:
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. |
    | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome de consulta | Deixe o valor padrão **Conde VMs por OS**. |
-   | Código de consulta | Deixe o valor padrão`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Código de consulta | Deixe o valor padrão `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
    | Descrição de consultas | Deixe o valor predefinido **Esta consulta partilhada conta todos os recursos da máquina virtual e resume pelo tipo de SO.** |
    | Concordo com os termos e condições acima indicados | (Selecione) |
 
@@ -85,7 +85,7 @@ Em alternativa, a consulta partilhada pode ser aberta a partir do Explorador de 
 
 1. Uma vez carregada a consulta, selecione o botão **de consulta 'Executar'.** Os resultados são apresentados no separador **Resultados** abaixo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a consulta partilhada criada, siga estes passos:
 

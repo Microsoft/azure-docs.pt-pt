@@ -3,17 +3,17 @@ title: Gerir e encontrar dados sobre o armazenamento de blob Azure com índice b
 description: Aprenda a usar tags Blob Index para categorizar, gerir e consultar para descobrir objetos blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ed70a05e0a6213ce00a6e0514f0741e8abbaeef9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499879"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690379"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)
 
@@ -105,7 +105,7 @@ A tabela abaixo mostra todos os operadores válidos para FindBlobsByTags:
 |     <      |  Menor que    | "Idade" < '32' |
 |     <=     |  Menor ou igual que  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
-| @container |  Âmbito de um recipiente específico   | @container= 'videofiles' E "status" = 'feito' |
+| @container |  Âmbito de um recipiente específico   | @container = 'videofiles' E "status" = 'feito' |
 
 > [!NOTE]
 > Esteja familiarizado com o pedido lexicográfico ao definir e consultar as etiquetas.

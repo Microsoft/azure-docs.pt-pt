@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424380"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685719"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de erro Azure Key Vault REST API
  
@@ -89,7 +89,7 @@ Os tokens são codificados base64 e os valores podem ser descodificados em websi
 
 Podemos ver muitas partes importantes neste símbolo:
 
-- aud (público): O recurso do símbolo. Note que isto <https://vault.azure.net> é. Este token NÃO funcionará para qualquer recurso que não corresponda explicitamente a este valor, como gráfico.
+- aud (público): O recurso do símbolo. Note que isto `https://vault.azure.net` é. Este token NÃO funcionará para qualquer recurso que não corresponda explicitamente a este valor, como gráfico.
 - iat (emitido em): O número de carraças desde o início da época quando o token foi emitido.
 - nbf (não antes): O número de carraças desde o início da época quando este token se torna válido.
 - exp (expiração): O número de carrapatos desde o início da época quando este token expirar.

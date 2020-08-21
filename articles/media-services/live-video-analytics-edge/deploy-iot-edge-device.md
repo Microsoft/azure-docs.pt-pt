@@ -3,17 +3,16 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652462"
+ms.locfileid: "88684104"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
 Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,6 +22,7 @@ Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics
 * [Registar dispositivo IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Criar uma conta Azure Media Services](../latest/create-account-howto.md)
+
     * Utilize uma destas regiões: Leste dos EUA 2, Central EUA, Norte Central DOS EUA, Japão Leste, Oeste dos EUA 2, West Central US, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
     * Recomenda-se que utilize contas de armazenamento v2 (GPv2) para fins gerais
 
@@ -190,6 +190,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > A propriedade twin **permite que Os pontos de Finalidades de Sedcured** são definidos como verdadeiros para o propósito dos tutoriais e dos quickstarts.   
    Você deve definir esta propriedade **falsa** quando estiver correndo em ambiente de produção. Isto garantirá que a aplicação bloqueará todos os pontos finais não protegidos e, para executar as topologias de gráficos, serão necessárias credenciais de ligação válidas.  
@@ -210,8 +211,8 @@ Reveja as suas informações de implementação e, em seguida, selecione Criar.
 
 Depois de criar a implementação, volte à página IoT Edge do seu hub IoT.
 
-1.  Selecione o dispositivo IoT Edge que direcionou com a implementação para abrir os seus detalhes.
-2.  Nos dados do dispositivo, verifique se o módulo de armazenamento de bolhas está listado como **especificado na implementação e reportado pelo dispositivo**.
+1. Selecione o dispositivo IoT Edge que direcionou com a implementação para abrir os seus detalhes.
+2. Nos dados do dispositivo, verifique se o módulo de armazenamento de bolhas está listado como **especificado na implementação e reportado pelo dispositivo**.
 
 Pode levar alguns momentos para que o módulo seja iniciado no dispositivo e depois reportado de volta ao IoT Hub. Refresque a página para ver um estado atualizado.
 Código de estado: 200 -OK significa que [o tempo de funcionamento do IoT Edge](../../iot-edge/iot-edge-runtime.md) está saudável e está a funcionar bem.
@@ -247,6 +248,7 @@ Em seguida, vamos testar a amostra invocando um método direto. Leia [os método
     ![A mensagem status 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Experimente [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252356"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690447"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Quickstart: Adicione uma atribuição de função Azure usando um modelo ARM
 
@@ -23,7 +23,7 @@ ms.locfileid: "86252356"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
@@ -32,14 +32,14 @@ Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a ut
 Para adicionar atribuições de funções, você deve ter:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 - Para adicionar uma atribuição de funções, deve especificar três elementos: principal de segurança, definição de função e âmbito. Para este arranque rápido, o principal de segurança é você ou outro utilizador no seu diretório, a definição de função é [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), e o âmbito é um grupo de recursos que especifica.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma secção de recursos. Na secção de recursos, note que tem os três elementos de uma atribuição de funções: principal de segurança, definição de função e âmbito.
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma secção de recursos. Na secção de recursos, note que tem os três elementos de uma atribuição de funções: principal de segurança, definição de função e âmbito.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 O recurso definido no modelo é:
 
@@ -116,7 +116,7 @@ O recurso definido no modelo é:
 
    ![Nova atribuição de função](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição de funções e o grupo de recursos que criou, siga estes passos.
 

@@ -2,13 +2,13 @@
 title: Conceito - Integre uma implementação de Solução VMware Azure num hub e tenha falado arquitetura
 description: Conheça as recomendações para a integração de uma implementação de Azure VMware Solution num centro existente ou novo e falou arquitetura sobre a Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649589"
+ms.locfileid: "88684522"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integre a Solução Azure VMware num hub e falou arquitetura
 
@@ -28,10 +28,7 @@ O tráfego entre o datacenter no local, a nuvem privada Azure VMware Solution e 
 
 O diagrama mostra um exemplo de uma implantação de Hub e Spoke em Azure ligada às instalações e Solução Azure VMware através do ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
 
 A arquitetura tem os seguintes componentes principais:
 
@@ -64,12 +61,12 @@ A conectividade no local também pode utilizar o ExpressRoute Global Reach, mas 
 
 * **No local para o fluxo de tráfego da Solução VMware Azure**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="No local para o fluxo de tráfego da Solução VMware Azure":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="No local para o fluxo de tráfego da Solução VMware Azure" border="false":::
 
 
 * **Solução Azure VMware para o fluxo de tráfego hub VNET**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Solução Azure VMware para hub fluxo de tráfego de rede virtual":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Solução Azure VMware para hub fluxo de tráfego de rede virtual" border="false":::
 
 
 Pode encontrar mais detalhes sobre conceitos de networking e interconectividade da Azure VMware Solution na documentação do [produto Azure VMware Solution](./concepts-networking.md).
@@ -97,7 +94,7 @@ Um segundo nível de segmentação de tráfego utilizando os grupos de seguranç
 
 A azure Application Gateway V1 e V2 foram testados com aplicações web que funcionam em VMs de Solução VMware Azure como pool de backend. O Application Gateway é atualmente o único método suportado para expor aplicações web em execução em VMs de Solução VMware Azure para a internet. Também pode expor as aplicações a utilizadores internos de forma segura.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego utilizando os Grupos de Segurança da Rede":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego utilizando os Grupos de Segurança da Rede" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>Jumpbox e Azure Bastion
@@ -110,7 +107,7 @@ Como uma boa prática de segurança, implemente o serviço [Microsoft Azure Bast
 > Não forneça o endereço IP público para a VM da Jumpbox nem exponha a porta 3389/TCP à internet pública. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rede virtual Azure Bastion Hub":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rede virtual Azure Bastion Hub" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Considerações de resolução do Azure DNS

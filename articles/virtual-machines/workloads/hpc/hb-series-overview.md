@@ -10,30 +10,29 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.reviewer: cynthn
+ms.openlocfilehash: 7c66af5184c4a943fd4b3185a87623112fe0d954
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508037"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691246"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 
 Maximizar o desempenho da aplicação de computação de alto desempenho (HPC) na AMD EPYC requer uma abordagem ponderada da localidade da memória e colocação do processo. Abaixo descrevemos a arquitetura AMD EPYC e a nossa implementação no Azure para aplicações HPC. Usaremos o termo "pNUMA" para se referir a um domínio NUMA físico, e "vNUMA" para se referir a um domínio NUMA virtualizado.
 
-Fisicamente, uma série HB é 2 * 32-core EPYC 7551 CPUs para um total de 64 núcleos físicos. Estes 64 núcleos estão divididos em 16 domínios pNUMA (8 por tomada), cada um dos quais é de quatro núcleos e é conhecido como "Complexo cpu" (ou "CCX"). Cada CCX tem a sua própria cache L3, que é como um SISTEMA verá um limite pNUMA/vNUMA. Um par de CCXs adjacentes partilha o acesso a dois canais de DRAM físico (32 GB de DRAM em servidores da série HB).
+Fisicamente, um servidor [da série HB](../../hb-series.md) é 2 * 32-core EPYC 7551 CPUs para um total de 64 núcleos físicos. Estes 64 núcleos estão divididos em 16 domínios pNUMA (8 por tomada), cada um dos quais é de quatro núcleos e é conhecido como "Complexo cpu" (ou "CCX"). Cada CCX tem a sua própria cache L3, que é como um SISTEMA verá um limite pNUMA/vNUMA. Um par de CCXs adjacentes partilha o acesso a dois canais de DRAM físico (32 GB de DRAM em servidores da série HB).
 
 Para proporcionar espaço para o hipervisor Azure funcionar sem interferir com o VM, reservamos o domínio físico pNUMA 0 (o primeiro CCX). Em seguida, atribuímos os domínios pNUMA 1-15 (as restantes unidades CCX) para o VM. O VM verá:
 
-`(15 vNUMA domains) * (4 cores/vNUMA) = 60`núcleos por VM
+`(15 vNUMA domains) * (4 cores/vNUMA) = 60` núcleos por VM
 
 O VM, por si só, não sabe que o pNUMA 0 não lhe foi dado. O VM entende o pNUMA 1-15 como vNUMA 0-14, com 7 vNUMA no vSocket 0 e 8 vNUMA no vSocket 1. Embora isto seja assimétrico, o seu SO deve arrancar e funcionar normalmente. Mais tarde neste guia, instruímos a melhor forma de executar aplicações mpi neste layout ASI assimétrico.
 
 A fixação de processos funcionará em VMs da série HB porque expomos o silício subjacente como está ao VM convidado. Recomendamos vivamente a fixação de processos para um melhor desempenho e consistência.
-
-Veja mais sobre [arquitetura AMD EPYC](https://bit.ly/2Epv3kC) e [arquiteturas multi-chips](https://bit.ly/2GpQIMb) no LinkedIn. Para obter informações mais detalhadas, consulte o [Guia de Afinação do HPC para processadores AMD EPYC](https://bit.ly/2T3AWZ9).
 
 O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervisor Azure e o VM da série HB.
 
@@ -41,30 +40,29 @@ O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervis
 
 ## <a name="hardware-specifications"></a>Especificações de hardware
 
-| Especificações da HW                | VM da série HB                     |
+| Especificações de hardware                | VM da série HB                     |
 |----------------------------------|----------------------------------|
 | Núcleos                            | 60 (SMT desativado)                |
-| CPU                              | AMD EPYC 7551*                   |
+| CPU                              | AMD EPYC 7551                    |
 | Frequência CPU (não-AVX)          | ~2,55 GHz (single + todos os núcleos)   |
-| Memória                           | 4 GB/núcleo (240 no total)            |
-| Disco Local                       | 700 GB NVMe                      |
-| Infiniband                       | 100 Gb EDR Mellanox ConnectX-5** |
-| Rede                          | 50 Gb Ethernet (40 Gb utilizável) Azure segundo Gen SmartNIC*** |
+| Memória                           | 4 GB/núcleo (total de 240 GB)         |
+| Disco Local                       | 700 GB SSD                       |
+| Infiniband                       | 100 Gb EDR Mellanox ConnectX-5 |
+| Rede                          | 50 Gb Ethernet (40 Gb utilizável) Azure segundo Gen SmartNIC |
 
 ## <a name="software-specifications"></a>Especificações de software
 
-| Especificações sw           |VM da série HB           |
+| Especificações de Software           |VM da série HB           |
 |-----------------------------|-----------------------|
-| Tamanho do trabalho de MPI Max            | 6000 núcleos (100 conjuntos de balança de máquinas virtuais) 12000 núcleos (200 conjuntos de balanças de máquinas virtuais)  |
-| Suporte MPI                 | MVAPICH2, OpenMPI, MPICH, Plataforma MPI, Intel MPI  |
+| Tamanho do trabalho de MPI Max            | 18000 núcleos (300 VMs numa única escala de máquina virtual definida com singlePlacementGroup=verdadeiro)  |
+| Suporte MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Plataforma MPI  |
 | Quadros Adicionais       | Comunicação Unificada X, libfabric, PGAS |
-| Suporte de armazenamento Azure       | Std + Premium (máx. 4 discos) |
+| Suporte de armazenamento Azure       | Discos Standard e Premium (máximo 4 discos) |
 | Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Suporte Azure CycleCloud    | Sim                         |
-| Suporte a lote de Azure         | Sim                         |
+| Apoio orquestrador        | CycleCloud, Lote  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os tamanhos HPC VM para [Linux](../../sizes-hpc.md) e [Windows](../../sizes-hpc.md) em Azure.
-
-* Saiba mais sobre [o HPC](/azure/architecture/topics/high-performance-computing/) em Azure.
+- Saiba mais sobre [arquitetura AMD EPYC](https://bit.ly/2Epv3kC) e [arquiteturas multi-chip.](https://bit.ly/2GpQIMb) Para obter informações mais detalhadas, consulte o [Guia de Afinação do HPC para processadores AMD EPYC](https://bit.ly/2T3AWZ9).
+- Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

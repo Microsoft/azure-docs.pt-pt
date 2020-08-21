@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2a69bc40090e74ad5885c2576c040693f90d5d03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097774"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683883"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian com Azure Ative Directory B2C
 
@@ -30,7 +30,7 @@ Nesta amostra, é utilizada a plataforma integrada de risco de identidade digita
 - Segundo Nome
 - Apelido
 - Rua
-- Cidade
+- City
 - Distrito
 - Código Postal
 - País/Região
@@ -129,7 +129,7 @@ Nas políticas personalizadas fornecidas, encontre os seguintes espaços reserva
 | {your_tenant_extensions_app_objectid}                  | ID de objeto da aplicação de armazenamento do seu inquilino                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Nome da chave de nome de utilizador que criou [aqui](#part-4---create-api-policy-keys)             | B2C \_ 1A \_ RestApiUsername                     |
 | {your_api_password_key_name}                           | Nome da chave-passe que criou [aqui](#part-4---create-api-policy-keys)             | B2C \_ 1A \_ RestApiPassword                     |
-| {your_app_service_URL}                                 | URL do serviço de aplicações que criou                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL do serviço de aplicações que criou                                             | `https://yourapp.azurewebsites.net`          |
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6 - Configurar a política Azure AD B2C
 

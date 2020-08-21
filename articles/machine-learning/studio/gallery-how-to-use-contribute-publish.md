@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431207"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691263"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e descobrir recursos na Galeria Azure AI
 
 **APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[A Azure AI Gallery](https://gallery.azure.ai)** é um site orientado pela comunidade para descobrir e partilhar soluções construídas com a Azure AI.
 A Galeria tem uma variedade de recursos que pode usar para desenvolver as suas próprias soluções de análise.
@@ -34,7 +34,6 @@ A Galeria Azure AI contém uma série de recursos diferentes que foram contribu�
 * **Tutoriais** - Vários tutoriais estão disponíveis para o acompanhar através de tecnologias e conceitos de machine learning, ou para descrever métodos avançados para resolver vários problemas de aprendizagem automática.
 * **Coleções** - Uma coleção permite-lhe agrupar experiências, APIs e outros recursos da Galeria que abordam uma solução ou conceito específico.
 * **Módulos Personalizados** - Você pode baixar módulos personalizados no seu espaço de trabalho Studio (clássico) para usar nas suas próprias experiências.
-* **Jupyter Notebooks** - Jupyter Notebooks incluem código, visualizações de dados e documentação em uma única tela interativa. Os cadernos na Galeria fornecem tutoriais e explicações detalhadas sobre técnicas e soluções avançadas de aprendizagem automática.
 
 ## <a name="discover-and-contribute"></a>Descubra e contribua
 
@@ -49,12 +48,12 @@ Pode até partilhar um recurso de interesse com amigos ou colegas usando as capa
 
 Quando assinar, torna-se membro da comunidade gallery. Isto permite-lhe descarregar recursos ou contribuir com os seus próprios itens da Galeria para que outros possam beneficiar das soluções que descobriu.
 
-Você pode baixar **experiências,** **módulos personalizados**e **cadernos Jupyter** para usar no desenvolvimento das suas próprias soluções de análise.
+Você pode baixar **experiências,** **módulos personalizados** para usar no desenvolvimento das suas próprias soluções de análise.
 Pode contribuir com **experiências,** **tutoriais**e **coleções** para a Galeria.
 
-## <a name="download-experiments-modules-notebooks"></a>Faça o download de experiências, módulos, cadernos
+## <a name="download-experiments-modules"></a>Faça o download de experiências, módulos
 
-Você pode baixar **experiências,** **módulos personalizados**e **cadernos Jupyter** no seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento das suas próprias soluções.
+Você pode baixar **experiências,** **módulos personalizados** no seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento das suas próprias soluções.
 
 Para descarregar um recurso a partir da Galeria AI:
 

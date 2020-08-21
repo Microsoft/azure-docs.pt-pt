@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1f77d6189e5b32ca771d17ae9902341bcaa1871
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210913"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688135"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -73,6 +73,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 - Restringir o acesso administrativo ao servidor Azure AD Connect apenas a administradores de domínio ou a outros grupos de segurança bem controlados.
 - Crie uma [conta dedicada para todo o pessoal com acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
 - Siga as orientações fornecidas na [Garantia de acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) 
+- Negar a utilização da autenticação NTLM com o servidor AADConnect. Eis algumas formas de o fazer: [Restringir o NTLM no Servidor AADConnect](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringir a NTLM num domínio](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 - Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
 - Implementar estações de [trabalho privilegiadas dedicadas](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
 - Siga estas [diretrizes adicionais](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
@@ -131,7 +132,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes

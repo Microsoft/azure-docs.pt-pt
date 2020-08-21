@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708744"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689512"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Aprendizagem automática em Azure SQL Gestded Instance (pré-visualização)
 
@@ -52,13 +52,29 @@ As distribuições base de Python e R estão incluídas nos Serviços de Aprendi
 
 Esta pré-visualização pública limitada está sujeita aos [termos de pré-visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Se você está interessado em aderir ao programa de pré-visualização e aceitar estes termos, então você pode solicitar a inscrição criando um bilhete de apoio Azure em [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . Para "Tipo de emissão" selecione "Technical", para "Service" selecione "SQL Database Managed Instance", e para "Tipo de Problema" selecione "Outros". No pedido, indique que quer inscrever-se na pré-visualização pública limitada do Machine Learning para o SQL Managed Instance e inclua estes detalhes: nome do servidor lógico, região e ID de subscrição.
+Se você está interessado em aderir ao programa de pré-visualização e aceitar estes termos, então você pode solicitar a inscrição criando um bilhete de apoio Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+
+1. Selecione as seguintes opções:
+   - Tipo de emissão - **Técnico**
+   - Subscrição - *selecione a sua subscrição*
+   - Serviço - **SQL Database Managed Instance**
+   - Resumo - *insira uma breve descrição do seu pedido*
+   - Tipo de problema - **Serviços de aprendizagem automática para exemplo gerido do SQL (Pré-visualização)**
+   - Subtipo de problema - **Outras questões ou "Como Fazer"**
+
+1. Clique **em seguida: Soluções**.
+
+1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Detalhes**.
+
+1. Em **Descrição,** insira as especificidades do seu pedido, incluindo o nome do servidor lógico, região e ID de subscrição que gostaria de inscrever na pré-visualização. Insira outros detalhes conforme apropriado.
+
+1. Quando terminar, clique em **Seguinte: Rever + criar**e, em seguida, clicar em **Criar**.
 
 Assim que estiver inscrito no programa, a Microsoft vai incluí-lo na pré-visualização pública e ativar o Machine Learning Services para a base de dados existente ou nova.
 
 Durante a pré-visualização pública, o Machine Learning Services no SQL Managed Instance não são recomendados para cargas de trabalho em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [principais diferenças dos serviços de aprendizagem automática de servidores SQL.](machine-learning-services-differences.md)
 - Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).

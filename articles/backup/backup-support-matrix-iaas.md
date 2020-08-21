@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611539"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685481"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -165,7 +165,7 @@ Retrocede & Restaurar VMs/discos desduplicados | A Azure Backup não suporta a d
 Adicione o disco ao VM protegido | Suportado.
 Redimensione o disco em VM protegido | Suportado.
 Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume (CSV) ou o Servidor de Ficheiros Scale-Out não é suportado. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
-[Discos partilhados](../virtual-machines/windows/disks-shared-enable.md) | Não suportado.
+[Discos partilhados](../virtual-machines/disks-shared-enable.md) | Não suportado.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 
