@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 54fe33750b08b5da85b30d876a32daf33d8b4bc2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13c54b548a507043fda7ff230cf7641c26f471d1
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517919"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724082"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -52,14 +52,35 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
+
+
+
+
 1. Obtenha o recipiente da ferramenta de rotulagem da amostra com o `docker pull` comando.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
+    # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    ```
+
+    ---
+
 1. Agora está pronto para executar o contentor `docker run` com.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    ```
+
+    --- 
 
    Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Aceda a `http://localhost:3000`.
 
@@ -97,7 +118,8 @@ Preencha os campos com os seguintes valores:
 * **Descrição** - A descrição do seu projeto.
 * **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Desa esta hora de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
-![Definições de conexão da ferramenta de rotulagem da amostra](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
@@ -111,7 +133,7 @@ Na ferramenta de rotulagem da amostra, os projetos armazenam as suas configuraç
 * **Chave API** - A tecla de subscrição do Reconhecimento de Formulários.
 * **Descrição** - Opcional - Descrição do projeto
 
-![Nova página do projeto na ferramenta de rotulagem da amostra](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nova página do projeto na ferramenta de rotulagem de amostras.":::
 
 ## <a name="label-your-forms"></a>Rotular os seus formulários
 
@@ -125,10 +147,15 @@ Quando cria ou abre um projeto, abre-se a janela principal do editor de etiqueta
 
 Clique **em OCR em todos os ficheiros** do painel esquerdo para obter as informações de layout de texto para cada documento. A ferramenta de rotulagem irá desenhar caixas de delimitação em torno de cada elemento de texto.
 
+Também mostrará quais as tabelas que foram automaticamente extraídas. Clique no ícone de tabela/grelha na mão esquerda do documento para ver a tabela extraída. Neste arranque rápido, uma vez que o conteúdo da tabela é extraído automaticamente, não vamos rotular o conteúdo da tabela, mas sim confiar na extração automatizada.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização da tabela na ferramenta de rotulagem da amostra.":::
+
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos no texto
 
 Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que pretende que o modelo reconheça.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
    1. Clique **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
@@ -146,7 +173,30 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
     > * Utilize os botões à direita da **+** pesquisa, renomeação, reencomenda e exclusão das suas etiquetas.
     > * Para remover uma etiqueta aplicada sem eliminar a etiqueta em si, selecione o retângulo marcado na vista do documento e prima a tecla de eliminação.
 
-![Janela principal do editor principal da ferramenta de rotulagem de amostra](../media/label-tool/main-editor.png)
+
+# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
+1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
+   1. Clique **+** para criar uma nova etiqueta.
+   1. Insira o nome da etiqueta.
+   1. Pressione Insira para guardar a etiqueta.
+1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1_ também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
+1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
+    > [!Tip]
+    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
+    > * Só pode aplicar uma etiqueta a cada elemento de texto selecionado.
+    > * Cada tag só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura nº 2" e assim por diante.
+    > * As etiquetas não podem abranger páginas.
+    > * Valores de etiquetagem tal como aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se enveredeça por várias linhas.
+    > * Não inclua chaves nos seus campos marcados &mdash; apenas os valores.
+    > * Os dados do quadro devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com uma etiqueta diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
+    > * Utilize os botões à direita da **+** pesquisa, renomeação, reencomenda e exclusão das suas etiquetas.
+    > * Para remover uma etiqueta aplicada sem eliminar a etiqueta em si, selecione o retângulo marcado na vista do documento e prima a tecla de eliminação.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rotulagem de amostra.":::
+
 
 Siga os passos acima para rotular pelo menos cinco dos seus formulários.
 
@@ -166,6 +216,7 @@ Os seguintes tipos de valor e variações são atualmente suportados:
     * padrão, `dmy` `mdy` , `ymd`
 * `time`
 * `integer`
+* `selectionMark` – _Novo em v2.1-pré-visualização.1!_
 
 > [!NOTE]
 > Consulte estas regras para formatação de data:
@@ -196,14 +247,31 @@ Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seg
 * **Precisão média** - Precisão média do modelo. Pode melhorar a precisão do modelo rotulando formas adicionais e treinando novamente para criar um novo modelo. Recomendamos começar por rotular cinco formas e adicionar mais formas conforme necessário.
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
-![vista de formação](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de treino.":::
 
 Após o final do treino, examine o valor **de precisão média.** Se for baixo, deve adicionar mais documentos de entrada e repetir os passos acima. Os documentos que já rotulou permanecerão no índice do projeto.
 
 > [!TIP]
 > Também pode executar o processo de treino com uma chamada de API REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](./python-labeled-data.md)
 
-## <a name="analyze-a-form"></a>Analisar um formulário
+## <a name="compose-trained-models"></a>Compor modelos treinados
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar. 
+
+# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
+
+Com o Model Compose, pode compor até 100 modelos para um único modelo ID. Quando ligar para analisar com este ID de modelo composto, o Form Recogniser classificará primeiro o formulário que submeteu, correspondendo-o ao melhor modelo de correspondência e, em seguida, devolverá os resultados para esse modelo. Isto é útil quando os formulários de entrada podem pertencer a um de vários modelos.
+
+Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (duas setas) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
+
+---
+
+## <a name="analyze-a-form"></a>Analisar um formulário 
 
 Clique no ícone Predict (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 

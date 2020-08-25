@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605008"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783676"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -81,7 +81,7 @@ O seu diretório necessita de pelo menos tantas licenças Azure AD Premium P2 co
 
 As licenças Azure AD Premium P2 **não** são necessárias para utilizadores com as funções de Administrador Global ou Administrador de Utilizador que configuram revisões de acesso, configuram definições ou aplicam as decisões das avaliações.
 
-Por cada licença Azure AD Premium P2 paga que atribua a um dos utilizadores da sua própria organização, pode utilizar o Azure AD business-to-business (B2B) para convidar até cinco utilizadores convidados ao abrigo do Subsídio de Utilizador Externo. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../b2b/licensing-guidance.md).
+Por cada licença Azure AD Premium P2 paga que atribua a um dos utilizadores da sua própria organização, pode utilizar o Azure AD business-to-business (B2B) para convidar até cinco utilizadores convidados ao abrigo do Subsídio de Utilizador Externo. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 

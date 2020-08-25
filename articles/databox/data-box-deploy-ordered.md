@@ -2,18 +2,18 @@
 title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
 description: Neste tutorial, conheça a Azure Data Box, uma solução híbrida que permite importar dados no local para o Azure e como encomendar a Azure Data Box.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.author: v-grpr
-ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.author: twooley
+ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926370"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783574"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -123,7 +123,7 @@ Se a extensão for instalada com sucesso, verá a seguinte saída:
 
 Você pode usar [Azure Cloud Shell](https://shell.azure.com/), um ambiente de concha interativa azure hospedado, através do seu navegador para executar comandos CLI. A Azure Cloud Shell suporta os serviços Bash ou Windows PowerShell com os serviços Azure. O Azure CLI está pré-instalado e configurado para ser utilizado com a sua conta. Selecione o botão Cloud Shell no menu na secção superior direita do portal Azure:
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Cloud Shell,](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 O botão lança uma concha interativa que pode usar para executar os passos descritos neste artigo de como fazer.
 
@@ -322,7 +322,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
    |saída -o| Define o formato de saída.  Valores permitidos: json, jsonc, nenhum, mesa, tsv, yaml, yamlc. O valor predefinido é json. | --saída "json" |
-   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
+   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
 2. No seu pedido de comando de escolha ou terminal, utilize o trabalho de caixa de [dados az criar](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
@@ -509,7 +509,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
    |saída -o| Define o formato de saída.  Valores permitidos: json, jsonc, nenhum, mesa, tsv, yaml, yamlc. O valor predefinido é json. | --saída "json" |
-   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
+   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
    Aqui está um exemplo do comando com formato de saída definido para "tabela":
@@ -550,7 +550,7 @@ A tabela a seguir mostra as informações do parâmetro `az databox job list` pa
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
    |saída -o| Define o formato de saída.  Valores permitidos: json, jsonc, nenhum, mesa, tsv, yaml, yamlc. O valor predefinido é json. | --saída "json" |
-   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
+   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
    Aqui está um exemplo do comando com formato de saída definido para "tabela":
@@ -580,7 +580,7 @@ A tabela a seguir mostra as informações do parâmetro `az databox job list` pa
 Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, execute [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
 > [!NOTE]
-> `Get-AzDataBoxJob`é utilizado para exibir encomendas individuais e múltiplas. A diferença é que você especifica o nome da encomenda para encomendas individuais.
+> `Get-AzDataBoxJob` é utilizado para exibir encomendas individuais e múltiplas. A diferença é que você especifica o nome da encomenda para encomendas individuais.
 
    ```azurepowershell
     Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
@@ -671,7 +671,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da cai
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
    |saída -o| Define o formato de saída.  Valores permitidos: json, jsonc, nenhum, mesa, tsv, yaml, yamlc. O valor predefinido é json. | --saída "json" |
-   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
+   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
    Aqui está um exemplo do comando com saída:
@@ -708,7 +708,7 @@ Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o traba
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
    |saída -o| Define o formato de saída.  Valores permitidos: json, jsonc, nenhum, mesa, tsv, yaml, yamlc. O valor predefinido é json. | --saída "json" |
-   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
+   |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
 Aqui está um exemplo do comando com saída:

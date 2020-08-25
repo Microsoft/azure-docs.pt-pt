@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar um papel personalizado azure com azure PowerShell - Azure RBAC'
-description: Comece a criar uma função personalizada Azure utilizando o controlo de acesso baseado em papel Azure PowerShell e Azure (Azure RBAC) neste tutorial.
+title: 'Tutorial: Criar um papel personalizado Azure com Azure PowerShell - Azure RBAC'
+description: Começa a criar um papel personalizado Azure usando o controlo de acesso baseado em funções Azure PowerShell e Azure (Azure RBAC) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82735594"
 ---
-# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada azure usando o Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Criar um papel personalizado Azure usando Azure PowerShell
 
-Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de apoio.
+Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de suporte.
 
 Neste tutorial, ficará a saber como:
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 > * Atualizar uma função personalizada
 > * Eliminar uma função personalizada
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -41,11 +41,11 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Casca de Nuvem Azure](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Concha de nuvem azul](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
 
-Inscreva-se na [Azure PowerShell.](/powershell/azure/authenticate-azureps)
+Inscreva-se na [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
@@ -65,7 +65,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. Utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para forme a função [reader](built-in-roles.md#reader) no formato JSON.
+1. Utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para desbotar a função [Reader](built-in-roles.md#reader) no formato JSON.
 
     ```azurepowershell
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
@@ -73,7 +73,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
 1. Abra o ficheiro **ReaderSupportRole.json** num editor.
 
-    O seguinte mostra o resultado do JSON. Para obter informações sobre as diferentes propriedades, consulte [as funções personalizadas do Azure.](custom-roles.md)
+    O seguinte mostra o resultado do JSON. Para obter informações sobre as diferentes propriedades, consulte [as funções personalizadas Azure](custom-roles.md).
 
     ```json
     {
@@ -95,7 +95,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
     
 1. Edite o ficheiro JSON para adicionar a operação `"Microsoft.Support/*"` à propriedade `Actions`. Não se esqueça de incluir uma vírgula após a operação de leitura. Esta ação irá permitir ao utilizador criar pedidos de suporte.
 
-1. Obtenha a identificação da sua subscrição utilizando o comando [Get-AzSubscription.](/powershell/module/Az.Accounts/Get-AzSubscription)
+1. Obtenha o ID da sua subscrição utilizando o comando [Get-AzSubscription.](/powershell/module/Az.Accounts/Get-AzSubscription)
 
     ```azurepowershell
     Get-AzSubscription
@@ -129,7 +129,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
     }
     ```
     
-1. Para criar a nova função personalizada, utilize o comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) e especifique o ficheiro de definição de função JSON.
+1. Para criar o novo papel personalizado, utilize o comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) e especifique o ficheiro de definição de função JSON.
 
     ```azurepowershell
     New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
@@ -171,7 +171,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
 Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utilizar o objeto `PSRoleDefinition`.
 
-1. Para atualizar o ficheiro JSON, utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para forme a função personalizada no formato JSON.
+1. Para atualizar o ficheiro JSON, utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para descodutar a função personalizada no formato JSON.
 
     ```azurepowershell
     Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
@@ -221,7 +221,7 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. Para utilizar `PSRoleDefintion` o objeto para atualizar a sua função personalizada, utilize primeiro o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter o papel.
+1. Para utilizar o `PSRoleDefintion` objeto para atualizar a sua função personalizada, utilize primeiro o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter o papel.
 
     ```azurepowershell
     $role = Get-AzRoleDefinition "Reader Support Tickets"
@@ -254,7 +254,7 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-1. Utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter a identificação da função personalizada.
+1. Utilize o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter o ID do papel personalizado.
 
     ```azurepowershell
     Get-AzRoleDefinition "Reader Support Tickets"
@@ -277,4 +277,4 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar ou atualizar funções personalizadas do Azure utilizando o Azure PowerShell](custom-roles-powershell.md)
+> [Criar ou atualizar funções personalizadas Azure usando Azure PowerShell](custom-roles-powershell.md)

@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo nas quotas IoT Edge - Azure
 description: Este artigo descreve live video analytics em quotas e limitações IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091815"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750223"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e limitações
 
@@ -36,21 +36,23 @@ Com o lançamento da pré-visualização, existem limitações em diferentes nó
    * Apenas uma fonte de RTSP é permitida por topologia de gráfico.
 * Processador de filtro de taxa de fotogramas
    * Deve ser imediatamente a jusante a partir de fonte RTSP ou processador de deteção de movimentos.
-   * Não é possível ser utilizado a jusante de um processador de extensão HTTP.
+   * Não é possível ser utilizado a jusante de um processador de extensão HTTP ou gRPC.
    * Não pode estar a montante de um processador de deteção de movimentos.
 * Processador de extensão HTTP
+   * Pode haver no máximo um desses processadores por topologia de gráficos.
+* processador de extensão gRPC
    * Pode haver no máximo um desses processadores por topologia de gráficos.
 * Processador de deteção de movimentos
    * Deve ser imediatamente a jusante da fonte RTSP.
    * Pode haver no máximo um desses processadores por topologia de gráficos.
-   * Não é possível ser utilizado a jusante de um processador de extensão HTTP.
+   * Não é possível ser utilizado a jusante de um processador de extensão HTTP ou gRPC.
 * Processador do portão de sinal
    * Deve ser imediatamente a jusante da fonte RTSP.
 * Pia de ativos 
    * Deve ser imediatamente a jusante da fonte RTSP ou do processador do portão de sinal.
 * Pia de arquivo
    * Deve ser imediatamente a jusante do processador do portão de sinalização.
-   * Não pode ser imediatamente a jusante do processador de extensão HTTP ou processador de deteção de movimentos
+   * Não pode ser imediatamente a jusante de um processador de extensão HTTP ou gRPC, ou de deteção de movimentos
 * Pia IoT Hub
    * Não pode ser imediatamente a jusante de uma fonte de hub IoT.
 

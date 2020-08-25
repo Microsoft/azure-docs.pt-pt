@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82692446"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de débito e latência de uma conta de armazenamento
@@ -34,12 +34,12 @@ Escolha Blob no menu pendente **SUBSERVIÇO**.
 
 Em **MÉTRICA**, selecione uma das métricas encontradas na tabela seguinte:
 
-As métricas seguintes dão-lhe uma ideia da latência e do débito da aplicação. As métricas que configurar no portal encontram-se em médias de 1 minuto. Se uma transação terminada em meados de um minuto, os dados do minuto são reduzidos para metade para a média. Na aplicação, as operações de carregamento e transferência foram cronometradas e proporcionaram-lhe o resultado do tempo real que demorou a carregar e a transferir os ficheiros. Estas informações podem ser utilizadas em conjunto com as métricas do portal para compreender totalmente o débito.
+As métricas seguintes dão-lhe uma ideia da latência e do débito da aplicação. As métricas que configurar no portal encontram-se em médias de 1 minuto. Se uma transação terminada a meio de um minuto, os dados dos minutos são reduzidos para metade para a média. Na aplicação, as operações de carregamento e transferência foram cronometradas e proporcionaram-lhe o resultado do tempo real que demorou a carregar e a transferir os ficheiros. Estas informações podem ser utilizadas em conjunto com as métricas do portal para compreender totalmente o débito.
 
 |Métrica|Definição|
 |---|---|
 |**Latência de E2E Com Êxito**|A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|
-|**Latência de Servidor Com Êxito**|O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. |
+|**Latência do servidor de sucesso**|O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. |
 |**Transações**|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. No exemplo, o tamanho do bloco foi definido como 100 MB. Neste caso, cada bloco de 100 MB é considerado uma transação.|
 |**Entrada**|A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. |
 |**Saída**|A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. |
@@ -58,7 +58,7 @@ As [dimensões](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2f
 
 ![Métricas da conta de armazenamento – transações](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos da VM e clique em Eliminar.
 

@@ -3,12 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral e comparação entre cofres dos Serviços de Recuperação e cofres Azure Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c69883a88473cd304bb772430ddfe662da4d8fac
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587757"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757103"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -32,7 +32,7 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 - Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre [redundância geo](../storage/common/storage-redundancy.md) e [local.](../storage/common/storage-redundancy.md)
 
-## <a name="encryption-settings-in-the-recovery-services-vault"></a>Definições de encriptação no Cofre de Serviços de Recuperação
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Definições de encriptação no cofre dos Serviços de Recuperação
 
 Esta secção discute as opções disponíveis para encriptar os seus dados de backup armazenados no cofre dos Serviços de Recuperação.
 

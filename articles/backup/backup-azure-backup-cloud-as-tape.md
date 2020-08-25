@@ -3,12 +3,12 @@ title: Como substituir a sua infraestrutura de fita
 description: Saiba como o Azure Backup fornece semântica semelhante a fita que lhe permite fazer backup e restaurar dados em Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514191"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757239"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mova o seu armazenamento a longo prazo da fita para a nuvem Azure
 
@@ -64,9 +64,9 @@ O número total de pontos de recuperação é de 56.
 
 Ao clicar em **Modificar** no ecrã anterior, os clientes têm mais flexibilidade na especificação dos horários de retenção.
 
-![Modificar](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![Modificar a janela da política](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a Azure Backup, consulte:
 

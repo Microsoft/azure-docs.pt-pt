@@ -4,14 +4,14 @@ description: Neste artigo, aprenda a atualizar a configuração do cofre utiliza
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513120"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757307"
 ---
-# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações do cofre de serviços de recuperação do Azure usando a API REST
+# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações de cofre de serviços de recuperação de Azure usando REST API
 
 Este artigo descreve como atualizar configurações relacionadas com cópias de segurança no cofre dos Serviços de Recuperação Azure utilizando a API REST.
 
@@ -65,7 +65,7 @@ Uma vez apresentado o pedido 'GET', uma resposta de 200 (com sucesso) é devolvi
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Atualizar estado de exclusão suave usando REST API
 
-Para atualizar o estado de eliminação suave do cofre dos serviços de recuperação utilizando a API REST, utilize a seguinte operação *PATCH*
+Para atualizar o estado de eliminação suave do cofre dos Serviços de Recuperação utilizando a API REST, utilize a seguinte operação *PATCH*
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,7 +83,7 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Name  |Necessário  |Tipo  |Descrição  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   Cadeia      |  ETag opcional       |
 |localização     |  true       |Cadeia         |   Localização de recursos      |
@@ -103,7 +103,7 @@ O exemplo a seguir é utilizado para atualizar o estado de eliminação suave pa
 }
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-for-the-patch-operation"></a>Respostas para a operação PATCH
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
@@ -111,7 +111,7 @@ A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>Resposta de exemplo
+##### <a name="example-response-for-the-patch-operation"></a>Resposta de exemplo para a operação PATCH
 
 Uma vez apresentado o pedido 'PATCH', é devolvida uma resposta de 200 (com sucesso).
 
@@ -127,7 +127,7 @@ Uma vez apresentado o pedido 'PATCH', é devolvida uma resposta de 200 (com suce
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Crie uma política de backup para apoiar um VM Azure neste cofre](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

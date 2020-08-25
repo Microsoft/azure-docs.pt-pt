@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a gerir bases de dados SAP HANA com apoio e
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489440"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757358"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerir bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>Proteja novas bases de dados adicionadas a uma instância SAP HANA
 
-[Registar um caso SAP HANA com um cofre de serviços de recuperação](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) descobre automaticamente todas as bases de dados deste caso.
+[Registar um caso SAP HANA com um cofre de Serviços de Recuperação](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) descobre automaticamente todas as bases de dados deste caso.
 
 No entanto, nos casos em que novas bases de dados são adicionadas à instância SAP HANA mais tarde, utilize o [cmdlet de produtos de proteção az-backup inicializ.](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) Este cmdlet descobre as novas bases de dados adicionadas.
 
@@ -91,7 +91,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Em seguida, utilize o cmdlet [de lista de artigos protegidos por cópias de segurança az](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) para listar todas as bases de dados que foram descobertas no seu caso SAP HANA. No entanto, esta lista exclui as bases de dados em que o backup já foi configurado. Assim que a base de dados a ser apoiada for descoberta, consulte para ativar a [cópia de segurança na base de dados SAP HANA](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Em seguida, utilize o cmdlet [de lista de artigos protegidos por cópias de segurança az](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) para listar todas as bases de dados que foram descobertas no seu caso SAP HANA. No entanto, esta lista exclui as bases de dados em que o backup já foi configurado. Assim que a base de dados a ser apoiada for descoberta, consulte para ativar a  [cópia de segurança na base de dados SAP HANA](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \

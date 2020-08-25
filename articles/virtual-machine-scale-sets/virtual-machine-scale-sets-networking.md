@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837164"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783727"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -43,28 +43,7 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de balança de máquina virtual Azure com Equilibrador de Carga Azure
-
-Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carga, devem ser considerados os seguintes itens:
-
-* **Vários conjuntos de escala de máquina virtual não podem usar o mesmo equilibrador de carga**.
-* **Regras de encaminhamento e entrada de entrada:**
-  * Cada conjunto de balança de máquina virtual deve ter uma regra NAT de entrada.
-  * Após a criação do conjunto de escala, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda sanitária do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
-  * Ao utilizar a balança de máquina virtual definida no pool de backend do balanceador de carga, as regras NAT de entrada padrão são criadas automaticamente.
-* **Piscina NAT de entrada:**
-  * A piscina NAT de entrada é uma coleção de regras NAT de entrada. Uma piscina NAT de entrada não suporta vários conjuntos de escala de máquina virtual.
-* **Regras de equilíbrio de carga:**
-  * Quando se utiliza a balança de máquina virtual definida no pool de backend do balanceador de carga, a regra de equilíbrio de carga padrão é criada automaticamente.
-* **Regras de saída:**
-  *  Para criar uma regra de saída para um pool de backend que já é referenciado por uma regra de equilíbrio de carga, é necessário primeiro marcar **"Criar regras implícitas de saída"** como **Não** no portal quando a regra de equilíbrio de carga de entrada é criada.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regras de equilíbrio de carga" border="true":::
-
-Os seguintes métodos podem ser utilizados para implantar uma balança de máquina virtual definida com um equilibrador de carga Azure existente.
-
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o portal Azure](../load-balancer/configure-vm-scale-set-portal.md).
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando a Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o Azure CLI](../load-balancer/configure-vm-scale-set-cli.md).
+Consulte [o balançador de carga Azure e os conjuntos de balanças de máquinas virtuais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) para saber mais sobre como configurar o seu Balancer de Carga Padrão com conjuntos de balança de máquinas virtuais com base no seu cenário.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:

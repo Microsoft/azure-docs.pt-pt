@@ -1,27 +1,27 @@
 ---
-title: Definição de esquema de aplicação
-description: A aplicação LUIS está representada na `.json` ou inclui todas as `.lu` intenções, entidades, declarações de exemplo, funcionalidades e configurações.
+title: Definição de esquema de aplicativo
+description: A aplicação LUIS está representada na `.json` ou e inclui todas as `.lu` intenções, entidades, exemplo de expressões, funcionalidades e configurações.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684355"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756793"
 ---
-# <a name="app-schema-definition"></a>Definição de esquema de aplicação
+# <a name="app-schema-definition"></a>Definição de esquema de aplicativo
 
-A aplicação LUIS está representada na `.json` ou inclui todas as `.lu` intenções, entidades, declarações de exemplo, funcionalidades e configurações.
+A aplicação LUIS está representada na `.json` ou e inclui todas as `.lu` intenções, entidades, exemplo de expressões, funcionalidades e configurações.
 
 ## <a name="format"></a>Formato
 
-Quando importar e exportar a app, escolha ou `.json` `.lu` .
+Quando importar e exportar a aplicação, escolha `.json` `.lu` ou.
 
 |Formato|Informações|
 |--|--|
 |`.json`| Formato de programação padrão|
-|`.lu`|Apoiado pelas [ferramentas Bot Builder](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md)do Bot Framework.|
+|`.lu`|Apoiado pelas [ferramentas bot builder](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md)da Bot Framework.|
 
 ## <a name="version-7x"></a>Versão 7.x
 
@@ -55,16 +55,34 @@ Quando importar e exportar a app, escolha ou `.json` `.lu` .
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
 
+| elemento                  | Comentário                              |
+|--------------------------|--------------------------------------|
+| "hierárquicos": [],     | Depreciadas, [utilizem entidades de aprendizagem automática.](luis-concept-entity-types.md)   |
+| "Compósitos": [],        | Depreciadas, [utilizem entidades de aprendizagem automática.](luis-concept-entity-types.md) [Referência de entidade composta.](reference-entity-composite.md) |
+| "listas fechadas": [],       | [Referência de entidades](reference-entity-list.md) de lista, usada principalmente como recursos para entidades.    |
+| "versãoId": "0.1",      | Versão de uma aplicação LUIS.|
+| "Nome": "exemplo-app",   | Nome da app LUIS. |
+| "desc": "",              | Descrição opcional da aplicação LUIS.  |
+| "cultura": "en-us",      | [Linguagem](luis-language-support.md) da app, impacta características subjacentes, tais como entidades pré-construídas, machine-learning e tokenizer.  |
+| "TokenizerVersion": "1.0.0", | [Tokenizer](luis-language-support.md#tokenization)  |
+| "padrõesInstações": [],   | [Entidade Pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Entidade de expressão regular](reference-entity-regular-expression.md)   |
+| "Phraselists": [],       |  [Listas de frases (recurso)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Depreciadas, [utilizem entidades de aprendizagem automática.](luis-concept-entity-types.md) |
+| "padrões": [],          |  [Os padrões melhoram a precisão da previsão](luis-concept-patterns.md) com [a sintaxe do padrão](reference-pattern-syntax.md)   |
+| "Definições": []           | [Definições da aplicação](luis-reference-application-settings.md)|
+
 ## <a name="version-6x"></a>Versão 6.x
 
-* Passando para a versão 6.x, use a nova [entidade de machine-learning](reference-entity-machine-learned-entity.md) para representar as suas entidades.
+* Passando para a versão 6.x, use a nova [entidade de aprendizagem automática](reference-entity-machine-learned-entity.md) para representar as suas entidades.
 
 ```json
 {
@@ -126,4 +144,4 @@ Quando importar e exportar a app, escolha ou `.json` `.lu` .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Migrar para a [V3 autorde APIs](luis-migration-authoring-entities.md)
+* Migrar para as [APIs de autoria V3](luis-migration-authoring-entities.md)

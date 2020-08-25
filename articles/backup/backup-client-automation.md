@@ -3,12 +3,12 @@ title: Use PowerShell para fazer o back up Windows Server para Azure
 description: Neste artigo, aprenda a usar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente Windows, e gerir a cópia de segurança e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: d0ae5165fc13193737ec75cf06060123ca4a13d4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564032"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757001"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como usar o PowerShell para configurar o Azure Backup no 
 
 Para começar, [instale o mais recente lançamento powerShell](/powershell/azure/install-az-ps).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Os passos seguintes levam-no através da criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de reserva.
 
@@ -124,7 +124,7 @@ As opções disponíveis incluem:
 | /pu |Nome de utilizador do anfitrião proxy |- |
 | /pw |Senha de procuração |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou a máquina de clientes do Windows num Cofre de Serviços de Recuperação
+## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou a máquina de clientes do Windows num cofre de Serviços de Recuperação
 
 Depois de criar o cofre dos Serviços de Recuperação, descarregue as credenciais mais recentes e as credenciais do cofre e guarde-o num local conveniente como C:\Downloads.
 
@@ -740,7 +740,7 @@ $Session = New-PSSession -ComputerName REMOTESERVER01
 Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath $D $A -Wait } -ArgumentList $Agent, $Args
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a cópia de segurança do Azure para Windows Server/Cliente:
 

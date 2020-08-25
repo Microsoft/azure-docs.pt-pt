@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 8b585dc46eb2bdd54e48950ca861f0edc8f0a7ed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187148"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762458"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -58,9 +58,9 @@ Certifique-se do seguinte:
 
 - Uma subscrição válida da Azure.
 - O utilizador destinado a executar a política de backup offline deve ser proprietário da subscrição Azure.
-- O trabalho da Caixa de Dados e o Cofre de Serviços de Recuperação para o qual os dados precisam de ser semeados devem estar disponíveis nas mesmas subscrições.
+- O trabalho da Caixa de Dados e o cofre dos Serviços de Recuperação para o qual os dados precisam de ser semeados devem estar disponíveis nas mesmas subscrições.
     > [!NOTE]
-    > Recomendamos que a conta de armazenamento alvo e o Cofre de Serviços de Recuperação estejam na mesma região. No entanto, isto não é obrigatório.
+    > Recomendamos que a conta de armazenamento alvo e o cofre dos Serviços de Recuperação estejam na mesma região. No entanto, isto não é obrigatório.
 
 ### <a name="order-and-receive-the-data-box-device"></a>Encomende e receba o dispositivo Data Box
 
@@ -131,7 +131,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
     ![Escolha a replicação inicial on-line](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > A opção de selecionar **Transferência usando discos da Microsoft** não está disponível para MABS v3 uma vez que a funcionalidade está em pré-visualização. Contacte-nos se [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) pretender utilizar esta funcionalidade para MABS v3.
+    > A opção de selecionar **Transferência usando discos da Microsoft** não está disponível para MABS v3 uma vez que a funcionalidade está em pré-visualização. Contacte-nos [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) se pretender utilizar esta funcionalidade para MABS v3.
 
 12. Inscreva-se no Azure quando solicitado, utilizando as credenciais do utilizador que têm acesso ao proprietário na Subscrição Azure. Depois de uma sposição bem sucedida, é apresentado o seguinte ecrã:
 
@@ -194,7 +194,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 Siga estes passos assim que a cópia de segurança dos dados para o Disco caixa de dados Azure for bem sucedida.
 
 - Siga os passos [deste artigo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) para enviar o disco Azure Data Box para Azure. Se utilizar um dispositivo Azure Data Box 100-TB, siga [estes passos](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) para enviar a Caixa de Dados Azure para Azure.
-- [Monitorize o trabalho da Caixa de Dados](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) no portal Azure. Uma vez *concluída*a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o Cofre de Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
+- [Monitorize o trabalho da Caixa de Dados](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) no portal Azure. Uma vez *concluída*a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
 
   > [!NOTE]
   > O servidor DPM/MABS ativa as cópias de segurança nos horários programados durante a criação do grupo de proteção. No entanto, estes trabalhos serão assinalados À espera que o *trabalho da Caixa de Dados Azure esteja concluído* até ao momento em que o trabalho estiver concluído.
@@ -215,7 +215,7 @@ No momento da configuração da cópia de segurança offline, devido a um defeit
 
 Para garantir que a falha se deve à [questão acima,](#issue) execute um dos seguintes passos:
 
-#### <a name="step-1"></a>Passo 1
+#### <a name="step-1"></a>Passo 1
 
 Verifique se vê a seguinte mensagem de erro na consola DPM/MABS no momento da configuração da cópia de segurança offline:
 
@@ -260,7 +260,7 @@ A partir do servidor DPM/MABS está a tentar configurar a cópia de segurança o
 6. Clique com o botão direito na cadeia adicionada no degrau acima e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no **ponto 2** e selecione **OK**.
 7. Para obter o valor da impressão digital, clique duas vezes no certificado, em seguida, selecione **Detalhes**  e desloque-se até ver o campo de impressão digital. Selecione **a impressão digital** e copie o valor.
 
-   ![Certificado](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Valor da impressão digital](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Criar uma biblioteca de conteúdos para implantar VMs em Azure VMware Solution (AVS)'
-description: Neste tutorial Azure VMware Solution (AVS), cria-se uma biblioteca de conteúdos para implantar um VM numa nuvem privada AVS.
+title: 'Tutorial: Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure'
+description: Neste tutorial Azure VMware Solution, cria-se uma biblioteca de conteúdos para implantar um VM numa nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612797"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750551"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutorial: Criar uma biblioteca de conteúdos para implantar VMs em Azure VMware Solution (AVS)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tutorial: Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure
 
 Uma biblioteca de conteúdos armazena e gere conteúdos sob a forma de itens de biblioteca. Um único item de biblioteca consiste num ou mais ficheiros que utiliza para implantar máquinas virtuais (VMs). 
  
@@ -22,7 +22,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário um segmento de comutação lógica NSX-T e um serviço DHCP gerido para completar este tutorial.  Consulte a [pré-visualização do DHCP em Azure VMware Solution (AVS)](manage-dhcp.md) para obter mais detalhes.
+É necessário um segmento de comutação lógica NSX-T e um serviço DHCP gerido para completar este tutorial.  Consulte o Como gerir o [DHCP na pré-visualização da Solução VMWare Azure](manage-dhcp.md) para obter mais detalhes.
 
 ## <a name="create-a-content-library"></a>Criar uma biblioteca de conteúdos
 

@@ -6,10 +6,10 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86058032"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Use o cheque de saúde no Azure Deployment Manager (visualização pública)
@@ -73,7 +73,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Para verificar e testar a função Azure:
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos.  O nome padrão é o nome do projeto com **rg** anexado.
 1. Selecione o serviço de aplicações do grupo de recursos.  O nome padrão do serviço de aplicações é o nome do projeto com **webapp** anexado.
 1. Expandir **funções**e, em seguida, selecionar **HttpTrigger1**.
@@ -248,7 +248,7 @@ Para ver os recursos, **Mostrar tipos ocultos** tem de estar selecionado.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementar o lançamento com o estado pouco saudável
 
-Utilize o URL de estado pouco saudável que criou na [Criar um simulador de serviço de verificação de saúde](#create-a-health-check-service-simulator). Você precisa doCreateADMServiceTopology.jsrevisto **e** o mesmo **CreateADMServiceTopology.Parameters.jsem** que usou no Use [Azure Deployment Manager com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
+Utilize o URL de estado pouco saudável que criou na [Criar um simulador de serviço de verificação de saúde](#create-a-health-check-service-simulator). Você precisa doCreateADMServiceTopology.jsrevisto ** e** o mesmo **CreateADMServiceTopology.Parameters.jsem** que usou no Use [Azure Deployment Manager com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment`é uma chamada assíncronea. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a implantação, utilize `Get-AZDeploymentManagerRollout` .  Veja o próximo procedimento.
+> `New-AzResourceGroupDeployment` é uma chamada assíncronea. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a implantação, utilize `Get-AZDeploymentManagerRollout` .  Veja o próximo procedimento.
 
 Para verificar o progresso do lançamento utilizando o seguinte script PowerShell:
 
@@ -348,7 +348,7 @@ Repita esta secção para recolocar o lançamento com o URL de estado saudável.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 2. Navegue para as aplicações Web criadas recentemente, nos grupos de recursos novos que foram criados com a implementação do lançamento.
 3. Abra a aplicação Web num browser. Verifique a localização e a versão no ficheiro index.html.
 
@@ -367,6 +367,6 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 5. Repita os dois últimos passos para eliminar outros grupos de recursos criados neste tutorial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar a funcionalidade de verificação de saúde do Azure Deployment Manager. Para saber mais, veja a [Documentação do Azure Resource Manager](../index.yml).

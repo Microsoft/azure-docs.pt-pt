@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c928056ec0e7b101d991c8d8c8db3bd659251ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036833"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799133"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando o PowerShell
 
@@ -81,13 +81,16 @@ A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos
 
 Por predefinição, a encriptação do Azure Storage utiliza as teclas geridas pela Microsoft. Neste passo, configufique a sua conta de Armazenamento Azure para utilizar chaves geridas pelo cliente com o Azure Key Vault e, em seguida, especifique a chave para associar à conta de armazenamento.
 
-Ao configurar a encriptação com as teclas geridas pelo cliente, pode optar por rodar automaticamente a chave utilizada para encriptação quando a versão muda no cofre de teclas associado. Em alternativa, pode especificar explicitamente uma versão chave a ser utilizada para encriptação até que a versão chave seja atualizada manualmente.
+Ao configurar a encriptação com as teclas geridas pelo cliente, pode optar por atualizar automaticamente a chave utilizada para encriptação quando a versão chave muda no cofre de teclas associado. Em alternativa, pode especificar explicitamente uma versão chave a ser utilizada para encriptação até que a versão chave seja atualizada manualmente.
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Encriptação configurada para rotação automática de chaves geridas pelo cliente
+> [!NOTE]
+> Para rodar uma chave, crie uma nova versão da chave no Cofre da Chave Azure. O Azure Storage não lida com a rotação da chave no Cofre da Chave Azure, pelo que terá de rodar a chave manualmente ou criar uma função para a rodar num horário.
 
-Para configurar a encriptação para a rotação automática das teclas geridas pelo cliente, instale o módulo [Az.Storage,](https://www.powershellgallery.com/packages/Az.Storage) versão 2.0.0 ou posterior.
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>Configurar encriptação para atualizar automaticamente a versão chave
 
-Para rodar automaticamente as teclas geridas pelo cliente, omita a versão chave quando configurar as chaves geridas pelo cliente para a conta de armazenamento. Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte, e inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Para configurar a encriptação com as chaves geridas pelo cliente para atualizar automaticamente a versão chave, instale o módulo [Az.Storage,](https://www.powershellgallery.com/packages/Az.Storage) versão 2.0.0 ou posterior.
+
+Para atualizar automaticamente a versão chave para uma chave gerida pelo cliente, omita a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte, e inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -97,7 +100,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Encriptação configurada para rotação manual de versões-chave
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>Encriptação configurada para atualização manual de versões-chave
 
 Para especificar explicitamente uma versão chave a utilizar para encriptação, forneça a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte, e inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
@@ -110,7 +113,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-Quando rodar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Primeiro, ligue para [o Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, ligue para [o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão da chave, como mostrado no exemplo anterior.
+Quando atualizar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Primeiro, ligue para [o Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, ligue para [o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão da chave, como mostrado no exemplo anterior.
 
 ## <a name="use-a-different-key"></a>Use uma chave diferente
 

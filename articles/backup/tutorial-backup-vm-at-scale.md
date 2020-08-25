@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a criar um cofre dos Serviços de Recupera�
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263423"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757511"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -136,7 +136,7 @@ Para executar um trabalho de cópia de segurança a pedido:
 
 1. No menu Contexto, selecione **Backup Now** (Criar Cópia de Segurança Agora).
 
-    ![Menu Contexto](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menu de contexto - selecione Backup agora](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     É aberto o menu Backup Now.
 
@@ -166,7 +166,7 @@ Se pretende continuar a trabalhar com tutoriais subsequentes, não limpe os recu
 
 1. No menu **Itens de Cópia de Segurança,** selecione a elipse para abrir o menu Contexto.
 
-    ![Menu Contexto](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![No menu Itens de Cópia de Segurança, abra o menu de contexto](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. No menu de contexto, **selecione Parar de fazer backup** para abrir o menu Stop Backup.
 

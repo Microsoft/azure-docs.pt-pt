@@ -2,17 +2,17 @@
 title: Permitir o fim do TLS no Gateway de Aplicações Azure
 description: Este artigo é uma visão geral do fim do Gateway de Aplicação para acabar com o suporte TLS.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962106"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723304"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim do fim do TLS com Gateway de aplicação
 
@@ -30,7 +30,7 @@ O Gateway de Aplicação suporta a terminação do TLS no gateway, após o qual 
 Para configurar a rescisão de TLS, é necessário adicionar ao ouvinte um certificado TLS/SSL para permitir que o Gateway de Aplicação produza uma chave simétrica de acordo com a especificação do protocolo TLS/SSL. A chave simétrica é então usada para encriptar e desencriptar o tráfego enviado para o portal. O certificado TLS/SSL tem de estar no formato Personal Information Exchange (PFX). Este formato de ficheiro permite-lhe exportar a chave privada que é exigida pelo gateway da aplicação para realizar a encriptação e desencriptação do tráfego.
 
 > [!IMPORTANT] 
-> Por favor, note que o certificado no ouvinte requer que toda a cadeia de certificados seja carregada. 
+> O certificado no ouvinte exige que toda a cadeia de certificados seja carregada (o certificado raiz da AC, os intermediários e o certificado de folha) para estabelecer a cadeia de confiança. 
 
 
 > [!NOTE] 
@@ -124,7 +124,7 @@ As tabelas a seguir descrevem as diferenças no SNI entre o V1 e o V2 SKU em ter
 ### <a name="frontend-tls-connection-client-to-application-gateway"></a>Ligação Frontend TLS (cliente para porta de aplicação)
 
 ---
-Scenario | v1 | v2 |
+Cenário | v1 | v2 |
 | --- | --- | --- |
 | Se o cliente especificar o cabeçalho SNI e todos os ouvintes multi-locais estiverem ativados com a bandeira "Require SNI" | Devolva o certificado apropriado e se o site não existir (de acordo com o server_name), então a ligação é reiniciada. | Devolve o certificado adequado se disponível, caso contrário, devolve o certificado do primeiro ouvinte HTTPS configurado (na ordem)|
 | Se o cliente não especificar um cabeçalho SNI e se todos os cabeçalhos multi-locais estiverem ativados com "Require SNI" | Reinicia a ligação | Devolve o certificado do primeiro ouvinte HTTPS configurado (na ordem)
@@ -135,7 +135,7 @@ Scenario | v1 | v2 |
 #### <a name="for-probe-traffic"></a>Para o tráfego de sonda
 
 ---
-Scenario | v1 | v2 |
+Cenário | v1 | v2 |
 | --- | --- | --- |
 | Cabeçalho SNI (server_name) durante o aperto de mão TLS como FQDN | Definido como FQDN a partir da piscina de backend. De acordo com [rfc 6066,](https://tools.ietf.org/html/rfc6066)os endereços IPv4 e IPv6 literais não são permitidos no nome de anfitrião SNI. <br> **Nota:** FQDN no pool de backend caso o DNS resolva reesar o endereço IP do servidor (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome de anfitrião da sonda personalizada anexada às definições HTTP (se configurado), caso contrário, a partir do nome de anfitrião mencionado nas definições HTTP, caso contrário a partir do FQDN mencionado no pool de backend. A ordem de precedência é sonda personalizada > configurações HTTP > pool de backend. <br> **Nota:** Se os nomes de anfitrião configurados nas definições HTTP e na sonda personalizada forem diferentes, então de acordo com a precedência, o SNI será definido como o nome de anfitrião da sonda personalizada.
 | Se o endereço do pool backend for um endereço IP (v1) ou se o nome de anfitrião da sonda personalizada for configurado como endereço IP (v2) | SNI (server_name) não será definido. <br> **Nota:** Neste caso, o servidor backend deverá poder devolver um certificado de incumprimento/recuo, o que deverá permitir a sua cotação nas definições HTTP sob certificado de autenticação. Se não houver nenhum certificado predefinido/recuo configurado no servidor backend e se espera SNI, o servidor pode reiniciar a ligação e levará a falhas na sonda | Na ordem de precedência anteriormente mencionada, se tiverem endereço IP como nome de hospedeiro, então o SNI não será definido de acordo com [o RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** O SNI também não será definido em sondas V2 se nenhuma sonda personalizada estiver configurada e nenhum nome de anfitrião estiver definido nas definições HTTP ou pool de backend |
@@ -146,12 +146,12 @@ Scenario | v1 | v2 |
 #### <a name="for-live-traffic"></a>Para tráfego ao vivo
 
 ---
-Scenario | v1 | v2 |
+Cenário | v1 | v2 |
 | --- | --- | --- |
 | Cabeçalho SNI (server_name) durante o aperto de mão TLS como FQDN | Definido como FQDN a partir da piscina de backend. De acordo com [rfc 6066,](https://tools.ietf.org/html/rfc6066)os endereços IPv4 e IPv6 literais não são permitidos no nome de anfitrião SNI. <br> **Nota:** FQDN no pool de backend caso o DNS resolva reesar o endereço IP do servidor (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome de anfitrião a partir das definições HTTP, caso contrário, se a opção *PickHostnameFromBackendAddress* for escolhida ou se não for mencionado nenhum nome de anfitrião, então será definido como O FQDN na configuração do pool backend
 | Se o endereço de pool backend for um endereço IP ou o nome de anfitrião não estiver definido nas definições HTTP | SNI não será definido de acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066) se a entrada na piscina de backend não for um FQDN | O SNI será definido como o nome de anfitrião a partir da entrada FQDN do cliente e o certificado de backend CN tem que corresponder com este nome de anfitrião.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de aprender sobre o fim do TLS, vá ao [Configure end to end TLS usando o Application Gateway com PowerShell](application-gateway-end-to-end-ssl-powershell.md) para criar um gateway de aplicação utilizando o fim do TLS.
 

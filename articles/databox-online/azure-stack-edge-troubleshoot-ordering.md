@@ -2,18 +2,18 @@
 title: Use o portal Azure para resolver problemas Azure Stack Edge ordenando problemas Microsoft Docs
 description: Descreve como resolver problemas com problemas de encomenda de Azure Stack Edge.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: v-grpr
-ms.openlocfilehash: d403fb0da27e3f91e00f3fd8a2fbea77e915898b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.author: twooley
+ms.openlocfilehash: 226274c52610e24c305400d77dc7737d32c2b722
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136956"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783999"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Resolução de problemas do seu Azure Stack Edge questões de encomenda
 
@@ -73,6 +73,6 @@ Para obter mais informações, consulte [os fornecedores de recursos do Registo.
 
 **Solução sugerida:** Este erro ocorre devido a uma política Azure existente que bloqueia a criação de recursos. As políticas Azure são definidas pelo administrador de sistema de uma organização para garantir o cumprimento durante a utilização ou criação de recursos Azure. Se tal política estiver a bloquear a criação de recursos do Azure Stack Edge, contacte o administrador do sistema para editar a sua política Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como resolver os [seus problemas com o Azure Stack Edge](azure-stack-edge-troubleshoot.md).

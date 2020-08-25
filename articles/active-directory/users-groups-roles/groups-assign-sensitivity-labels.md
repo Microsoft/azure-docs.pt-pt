@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f80b986a9d1a3b2be9aa413ce4175d8eb88bc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213830"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795326"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
 
-O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo [Microsoft 365 compliance center](https://sip.protection.office.com/homepage) aos grupos Microsoft 365. As etiquetas de sensibilidade aplicam-se ao grupo em todos os serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em GA pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte [o suporte do Office 365 para etiquetas de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo [Microsoft 365 compliance center](https://sip.protection.office.com/homepage) aos grupos Microsoft 365. As etiquetas de sensibilidade aplicam-se ao grupo em todos os serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em GA pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte [o suporte do Office 365 para etiquetas de sensibilidade](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esta funcionalidade, deve existir pelo menos uma licença ativa do Azure Ative Directory Premium P1 na sua organização Azure AD.
@@ -48,7 +48,7 @@ Para aplicar rótulos publicados em grupos, tem primeiro de ativar a funcionalid
     ```
 
     > [!NOTE]
-    > Se não tiverem sido criadas configurações de grupo para esta organização Azure AD, deve primeiro criar as definições. Siga os [passos em cmdlets do Azure Ative Directory para configurar as definições de grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) para criar configurações de grupo para esta organização Azure AD.
+    > Se não tiverem sido criadas configurações de grupo para esta organização Azure AD, deve primeiro criar as definições. Siga os [passos em cmdlets do Azure Ative Directory para configurar as definições de grupo](./groups-settings-cmdlets.md) para criar configurações de grupo para esta organização Azure AD.
 
 1. Em seguida, apresente as definições de grupo atuais.
 
@@ -145,7 +145,7 @@ Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilize etiquetas de sensibilidade com as equipas da Microsoft, grupos Microsoft 365 e sites SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Utilize etiquetas de sensibilidade com as equipas da Microsoft, grupos Microsoft 365 e sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Atualizar grupos após a alteração da política do rótulo manualmente com o script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
-- [Editar as suas definições de grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
-- [Gerir grupos através de comandos do PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
+- [Editar as suas definições de grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gerir grupos através de comandos do PowerShell](./groups-settings-v2-cmdlets.md)

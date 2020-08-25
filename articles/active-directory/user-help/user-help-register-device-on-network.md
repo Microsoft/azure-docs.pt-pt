@@ -13,12 +13,12 @@ ms.date: 01/04/2019
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747394"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799405"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registe o seu dispositivo pessoal na rede da sua organização
 Registe o seu dispositivo pessoal (normalmente um telefone ou tablet) na rede da sua organização. Depois de o seu dispositivo estar registado, poderá aceder aos recursos restritos da sua organização.
@@ -31,9 +31,9 @@ Enquanto regista o seu dispositivo na rede da sua organização, as seguintes a�
 
 - O Windows regista o seu dispositivo na rede da sua organização.
 
-- Opcionalmente, com base nas escolhas da sua organização, poderá ser-lhe solicitada a configuração de uma verificação em duas etapas através de [uma autenticação multi-factor](multi-factor-authentication-end-user-first-time.md) ou [de informações de segurança.](user-help-security-info-overview.md)
+- Opcionalmente, com base nas escolhas da sua organização, poderá ser-lhe solicitada a configuração de uma verificação em duas etapas através de [uma autenticação multi-factor](multi-factor-authentication-end-user-first-time.md) ou [de informações de segurança.](./security-info-setup-signin.md)
 
-- Opcionalmente, com base nas escolhas da sua organização, poderá ser automaticamente inscrito na gestão de dispositivos móveis, como o Microsoft Intune. Para obter mais informações sobre a inscrição no Microsoft Intune, consulte [Inscrever o seu dispositivo no Intune.](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all)
+- Opcionalmente, com base nas escolhas da sua organização, poderá ser automaticamente inscrito na gestão de dispositivos móveis, como o Microsoft Intune. Para obter mais informações sobre a inscrição no Microsoft Intune, consulte [Inscrever o seu dispositivo no Intune.](/intune-user-help/enroll-your-device-in-intune-all)
 
 - Você vai passar pelo processo de inscrição, usando o nome de utilizador e senha para o seu trabalho ou conta escolar.
 
@@ -66,10 +66,7 @@ Pode certificar-se de que está registado olhando para as suas definições.
 
     ![Trabalho de acesso ou tela escolar com conta contoso conectada](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de registar o seu dispositivo pessoal na rede da sua organização, deverá poder aceder à maioria dos seus recursos.
 
 - Se a sua organização quiser que se junte ao seu dispositivo de trabalho, consulte [junte-se ao seu dispositivo de trabalho na rede da sua organização.](user-help-join-device-on-network.md)
-
-
-

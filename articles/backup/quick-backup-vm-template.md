@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 5b2677e7b83c1d86fd12f8c89c51e95460e8694f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0a7dc470bf6392f55b55bfa99268bea4be57e78f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690668"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757579"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Quickstart: Apoie uma máquina virtual em Azure com um modelo ARM
 
-[O Azure Backup](backup-overview.md) apoia máquinas e aplicações no local e VMs Azure. Este artigo mostra-lhe como fazer o back up de um Azure VM com um modelo Azure Resource Manager (modelo ARM) e Azure PowerShell. Este quickstart foca-se no processo de implantação de um modelo ARM para criar um cofre de Serviços de Recuperação. Para obter mais informações sobre o desenvolvimento de modelos ARM, consulte a documentação do [Gestor de Recursos Azure](../azure-resource-manager/index.yml) e a referência do [modelo](/azure/templates/microsoft.recoveryservices/allversions).
+[O Azure Backup](backup-overview.md) apoia máquinas e aplicações no local e VMs Azure. Este artigo mostra-lhe como fazer o back up de um Azure VM com um modelo Azure Resource Manager (modelo ARM) e Azure PowerShell. Este quickstart foca-se no processo de implantação de um modelo ARM para criar um cofre dos Serviços de Recuperação. Para obter mais informações sobre o desenvolvimento de modelos ARM, consulte a documentação do [Gestor de Recursos Azure](../azure-resource-manager/index.yml) e a referência do [modelo](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,7 +26,7 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Este modelo permite-lhe implementar um simples Cofre de Serviços de VM e Recuperação do Windows configurado com a DefaultPolicy for Protection.
+O modelo utilizado neste arranque rápido é de [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Este modelo permite-lhe implementar um cofre simples do Windows VM e dos Serviços de Recuperação configurado com a DefaultPolicy for Protection.
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 

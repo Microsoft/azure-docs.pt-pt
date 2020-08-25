@@ -1,75 +1,86 @@
 ---
-title: 'Tutorial: Lista de verificação da rede'
-description: Requisitos de rede e detalhes sobre a conectividade da rede e portas de rede
+title: 'Tutorial: Lista de verificação de rede'
+description: Requisitos de rede pré-requisitos e detalhes sobre conectividade de rede e portas de rede
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: 42bd579a455c7efe3b8f6e4d4154e687726adb1d
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.date: 08/21/2020
+ms.openlocfilehash: aba5d7767e420b3ade6238621487884e44fbb6e2
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740151"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750421"
 ---
-# <a name="networking-checklist-for-azure-vmware-solution-avs"></a>Lista de verificação de rede para a Solução Azure VMware (AVS)
+# <a name="networking-checklist-for-azure-vmware-solution"></a>Lista de verificação de rede para Solução VMware Azure 
 
-A Azure VMware Solution oferece um ambiente de nuvem privada VMware, acessível para utilizadores e aplicações a partir de ambientes ou recursos baseados em Azure. A conectividade é transmitida através de serviços de networking, tais como ligações Azure ExpressRoute e VPN e exigirá algumas gamas específicas de endereços de rede e portas de firewall para permitir os serviços. Este artigo fornece-lhe a informação que precisa de saber para configurar corretamente a sua rede para trabalhar com a AVS.
+A Azure VMware Solution oferece um ambiente de nuvem privada VMware, que é acessível para utilizadores e aplicações a partir de ambientes ou recursos baseados em Azure. A conectividade é prestada através de serviços de networking, tais como ligações Azure ExpressRoute e VPN e exigirá algumas gamas específicas de endereços de rede e portas de firewall para permitir os serviços. Este artigo fornece-lhe as informações que precisa de saber para configurar corretamente a sua rede para trabalhar com a Azure VMware Solution.
 
 Neste tutorial, aprende-se a:
 
 > [!div class="checklist"]
 > * Requisitos de conectividade da rede
-> * DHCP em AVS
+> * DHCP em Solução VMware Azure
 
-## <a name="network-connectivity"></a>Conectividade de rede
+## <a name="virtual--network-and-expressroute-circuit--considerations"></a>Considerações de rede virtual e circuito ExpressRoute
+Quando cria uma ligação a partir de uma rede virtual na sua subscrição, o circuito ExpressRoute é estabelecido através do estorte, utiliza uma chave de autorização e um ID de esprevamento que solicita no portal Azure. O espreitamento é uma ligação privada, um a um entre a sua nuvem privada e a rede virtual.
 
-A nuvem privada AVS está ligada à sua rede virtual Azure utilizando uma ligação Azure ExpressRoute. Esta elevada largura de banda e baixa ligação de latência permite-lhe aceder a serviços em funcionamento na sua subscrição Azure a partir do seu ambiente privado de nuvem.
+> [!NOTE] 
+> O circuito ExpressRoute não faz parte de uma nuvem privada. O circuito ExpressRoute está fora do âmbito deste documento. Se necessitar de conectividade no local para a sua nuvem privada, pode utilizar um dos circuitos ExpressRoute existentes ou comprar um no portal Azure.
 
-As nuvens privadas AVS requerem um mínimo de um `/22` bloco de endereços de rede CIDR para subredes, mostrado abaixo. Esta rede complementa as suas redes no local. Para se ligar aos ambientes no local e às redes virtuais, este deve ser um bloco de endereços de rede não sobreposto.
+Ao implementar uma nuvem privada, recebe endereços IP para vCenter e NSX-T Manager. Para aceder a essas interfaces de gestão, terá de criar recursos adicionais numa rede virtual na sua subscrição. Você pode encontrar os procedimentos para criar esses recursos e estabelecer o expressRoute private peering nos tutoriais.
 
-Exemplo `/22` do bloco de endereços da rede CIDR:`10.10.0.0/22`
+A rede lógica de nuvem privada vem com NSX-T pré-a provisionado. Um portal tier-0 e porta de entrada tier-1 é pré-a provisionado para si. Pode criar um segmento e anexá-lo ao portal de nível 1 existente ou anexá-lo a um novo portal Tier-1 que definir. Os componentes de rede lógico NSX-T proporcionam conectividade Leste-Oeste entre cargas de trabalho e fornecem conectividade Norte-Sul aos serviços de internet e Azure.
+
+## <a name="routing-and-subnet-considerations"></a>Considerações de encaminhamento e sub-rede
+A nuvem privada AVS está ligada à sua rede virtual Azure utilizando uma ligação Azure ExpressRoute. Esta alta largura de banda, ligação de baixa latência permite-lhe aceder a serviços em execução na sua subscrição Azure a partir do seu ambiente de nuvem privada. O encaminhamento é baseado em Protocolo de Gateway fronteiriço (BGP), automaticamente a provisionado e habilitado por padrão para cada implantação em nuvem privada. 
+
+As nuvens privadas AVS requerem um mínimo de um bloco de `/22` endereços de rede CIDR para sub-redes, mostrado abaixo. Esta rede complementa as suas redes no local. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais que se encontram nas suas redes de subscrição e no local. Dentro deste bloco de endereços, as redes de gestão, provisionamento e vMotion são aprovisionadas automaticamente.
+
+Exemplo `/22` do bloco de endereços de rede CIDR:  `10.10.0.0/22`
 
 As sub-redes:
 
-| Utilização de rede             | Subrede | Exemplo        |
+| Utilização de rede             | Sub-rede | Exemplo        |
 | ------------------------- | ------ | -------------- |
-| Gestão de clouds privadas            | `/24`    | `10.10.0.0/24`   |
-| rede vMotion       | `/24`    | `10.10.1.0/24`   |
-| Cargas de trabalho de VM | `/24`   | `10.10.2.0/24`   |
-| Peering ExpressRoute | `/24`    | `10.10.3.8/30`   |
+| Gestão de clouds privadas  | `/24`  | `10.10.0.0/24` |
+| vMotion network           | `/24`  | `10.10.1.0/24` |
+| Cargas de trabalho de VM              | `/24`  | `10.10.2.0/24` |
+| ExpressRoute olhando      | `/24`  | `10.10.3.8/30` |
+
 
 ### <a name="network-ports-required-to-communicate-with-the-service"></a>Portas de rede necessárias para comunicar com o serviço
 
-Origem|Destino|Protocolo |Porta |Descrição  |Comentário
----|-----|:-----:|:-----:|-----|-----
-Servidor DNS de Nuvem Privada  |No local, servidor DNS  |UDP |53|DNS Client - Pedidos para a frente do PC vCenter para quaisquer consultas dNS no local (ver secção DNS abaixo) |
-No local, DNS Server  |Servidor DNS de Nuvem Privada  |UDP |53|DNS Client - Pedidos a prazo dos serviços no local para servidores DNS de Nuvem Privada (ver secção DNS abaixo)
-Rede no local  |Servidor vCenter de Nuvem Privada  |TCP(HTTP)  |80|vCenter Server requer porta 80 para ligações HTTP diretas.Porta 80 redireciona pedidos para a porta HTTPS 443. Esta reorientação ajuda `http://server` se `https://server`utilizar em vez de .  <br><br>WS-Management (também requer a porta 443 para ser aberta) <br><br>Se utilizar uma base de dados Personalizada do Microsoft SQL e não a base de dados SQL Server 2008 no vCenter Server, a porta 80 é utilizada pelos Serviços de Informação SQL. Quando instala o VCenter Server, o instalador pede-lhe para alterar a porta HTTP para o Servidor vCenter. Mude a porta vCenter Server HTTP para um valor personalizado para garantir uma instalação bem sucedida.O Microsoft Internet Information Services (IIS) também utiliza a porta 80. Ver Conflito entre o VCenter Server e o IIS para a Porta 80.
-Rede privada de gestão cloud |Active Directory no local  |TCP  |389|Esta porta deve estar aberta no local e em todas as instâncias remotas do VCenter Server. Esta porta é o número de porta LDAP para os Serviços de Diretório para o grupo vCenter Server. O sistema vCenter Server precisa de se ligar à porta 389, mesmo que não esteja a aderir a esta instância vCenter Server a um grupo de Modo Linked. Se outro serviço estiver em funcionamento nesta porta, talvez seja preferível removê-lo ou mudar a sua porta para uma porta diferente. Pode executar o serviço LDAP em qualquer porta de 1025 a 65535.Se este caso estiver a servir de Diretório Ativo microsoft Windows, mude o número da porta de 389 para uma porta disponível de 1025 a 65535. Esta porta é opcional - para configurar no local a D.C., como fonte de identidade no vCenter private Cloud
-Rede no local  |Servidor vCenter de Nuvem Privada  |TCP(HTTPS)  |443|Esta porta permite-lhe aceder ao vCenter a partir da rede no local.A porta padrão que o sistema vCenter Server utiliza para ouvir ligações do Cliente vSphere. Para permitir que o sistema vCenter Server receba dados do Cliente vSphere, abra a porta 443 na firewall. O sistema vCenter Server também utiliza a porta 443 para monitorizar a transferência de dados dos clientes SDK.Esta porta também é utilizada para os seguintes serviços: WS-Management (também requer a porta 80 para ser aberta). vSphere Client acesso ao vSphere Update Manager. Ligações de clientes de gestão de rede de terceiros ao vCenter Server. Clientes de gestão de rede de terceiros acedem aos anfitriões. 
-Browser  | Gestor de nuvem híbrida  | TCP(Https) | 9443 | Interface de gestão de aparelhos virtuais hybrid Cloud Manager para configuração do sistema Hybrid Cloud Manager.
-Rede Admin  | Gestor de nuvem híbrida |ssh |22| Acesso ssh administrador ao Hybrid Cloud Manager.
-HCM |   Cloud Gateway|TCP(HTTPS) |8123| Envie instruções de serviço de replicação baseadas no hospedeiro para o Portal da Nuvem Híbrida.
-HCM |   Cloud Gateway  |    HTTP TCP(HTTPS) |    9443  |  Envie instruções de gestão para o Portal da Nuvem Híbrida local utilizando a API REST.
-Cloud Gateway|      L2C |    TCP (HTTP)  |   443 |   Envie instruções de gestão de Cloud Gateway para L2C quando L2C usar o mesmo caminho que o Portal da Nuvem Híbrida.
-Cloud Gateway |     Anfitriões ESXi |     TCP |    80,902  |   Gestão e implantação da OVF
-Cloud Gateway (local)|     Cloud Gateway (remoto)|     UDP  |   4500 | Obrigatório para o IPSEC<br>   Troca de chaves na Internet (IKEv2) para encapsular cargas de trabalho para o túnel bidirecional. O endereço de rede Translation-Traversal (NAT-T) também é suportado.
-Cloud Gateway (local)  |   Cloud Gateway (remoto)  |   UDP  |   500   | Obrigatório para o IPSEC<br> Troca de chaves na Internet (ISAKMP) para o túnel bidirecional.
-Rede vCenter no local|      Rede privada de gestão cloud|      TCP  |    8000    |  vMotion de VMs de in-no-local vCenter para Private Cloud vCenter   |     
+| Origem | Destino | Protocolo | Porta | Descrição  | 
+| ------ | ----------- | :------: | :---:| ------------ | 
+| Servidor privado de DNS em nuvem | Servidor DNS nas instalações | UDP | 53 | CLIENTE DNS - Pedidos a prazo do PC vCenter para quaisquer consultas DNS no local (ver secção DNS abaixo) |  
+| Servidor DNS no local   | Servidor privado de DNS em nuvem | UDP | 53 | CLIENTE DNS - Encaminhar pedidos de serviços no local para servidores DNS private Cloud (ver secção DNS abaixo) |  
+| Rede no local  | Servidor Private Cloud vCenter  | TCP(HTTP)  | 80 | vCenter Server requer porta 80 para ligações HTTP diretas.A Porta 80 redireciona os pedidos para a porta HTTPS 443. Esta reorientação ajuda se utilizar  `http://server`   em vez de  `https://server` .  <br><br>WS-Management (também requer a porta 443 para ser aberta) <br><br>Se utilizar uma base de dados personalizada do Microsoft SQL e não a base de dados SQL Server 2008 agregada no servidor vCenter, a porta 80 é utilizada pelos Serviços de Relatório SQL. Quando instala o vCenter Server, o instalador solicita-lhe que altere a porta HTTP para o servidor vCenter. Altere a porta HTTP do servidor vCenter para um valor personalizado para garantir uma instalação bem sucedida.O Microsoft Internet Information Services (IIS) também utiliza a porta 80. Ver Conflito entre vCenter Server e IIS para a porta 80. |  
+| Rede privada de gestão de nuvem | Active Directory no local  | TCP  | 389 | Esta porta deve estar aberta no local e em todas as instâncias remotas do vCenter Server. Esta porta é o número de porta LDAP para os Serviços de Diretório para o grupo vCenter Server. O sistema vCenter Server precisa de se ligar à porta 389, mesmo que não esteja a juntar esta instância do servidor vCenter a um grupo de Modo Ligado. Se estiver a funcionar outro serviço nesta porta, poderá ser preferível removê-lo ou mudar a sua porta para uma porta diferente. Pode executar o serviço LDAP em qualquer porta de 1025 a 65535.Se este caso estiver a servir como o Microsoft Windows Ative Directory, altere o número de porta de 389 para uma porta disponível de 1025 para 65535. Esta porta é opcional - para configurar no local a AD como uma fonte de identidade no Private Cloud vCenter. |  
+| Rede no local  | Servidor Private Cloud vCenter  | TCP(HTTPS)  | 443 | Esta porta permite-lhe aceder ao vCenter a partir da rede no local.A porta predefinida que o sistema vCenter Server utiliza para ouvir as ligações do cliente vSphere. Para permitir que o sistema vCenter Server receba dados do vSphere Client, abra a porta 443 na firewall. O sistema vCenter Server também utiliza a porta 443 para monitorizar a transferência de dados dos clientes SDK.Esta porta também é utilizada para os seguintes serviços: WS-Management (também requer a porta 80 para ser aberta). vSphere Acesso ao cliente ao vSphere Update Manager. Ligações de clientes de gestão de rede de terceiros ao servidor vCenter. Clientes de gestão de rede de terceiros têm acesso a anfitriões. |  
+| Browser  | Gestor de nuvem híbrida  | TCP(HTTPS) | 9443 | Interface de gestão de eletrodomésticos virtual do Gestor de Nuvem Híbrido para configuração do sistema Hybrid Cloud Manager. |
+| Rede Admin  | Gestor de nuvem híbrida | SSH | 22 | Administrador SSH acesso ao Gestor de Nuvem Híbrida. |
+| HCM | Porta de entrada de nuvens | TCP(HTTPS) | 8123 | Envie instruções de serviço de replicação baseadas no anfitrião para o Portal da Nuvem Híbrida. |
+| HCM | Porta de entrada de nuvens | HTTP TCP(HTTPS) | 9443 | Envie instruções de gestão para o Gateway híbrido local utilizando a API REST. |
+| Porta de entrada de nuvens | L2C | TCP(HTTPS) | 443 | Envie instruções de gestão de Cloud Gateway para L2C quando l2C usar o mesmo caminho que o Portal de Nuvem Híbrida. |
+| Porta de entrada de nuvens | Anfitriões ESXi | TCP | 80,902 | Gestão e implantação de OVF. |
+| Cloud Gateway (local)| Cloud Gateway (remoto) | UDP | 4500 | Requerido para o IPSEC<br>   Troca de chaves de Internet (IKEv2) para encapsular cargas de trabalho para o túnel bidirecional. O endereço de rede Tradução-Traversal (NAT-T) também é suportado. |
+| Cloud Gateway (local) | Cloud Gateway (remoto)  | UDP | 500 | Requerido para o IPSEC<br> Troca de chaves de Internet (ISAKMP) para o túnel bidirecional. |
+| Rede vCenter no local | Rede privada de gestão de nuvem | TCP | 8000 |  vMotion de VMs de vCenter para Private Cloud vCenter   |     
 
-## <a name="dhcp"></a>DHCP
+## <a name="dhcp-and-dns-resolution-considerations"></a>Considerações de resolução de DHCP e DNS
+Aplicações e cargas de trabalho em execução em um ambiente de nuvem privada requerem resolução de nomes e serviços DHCP para procura e atribuição de endereços IP. É necessária uma infraestrutura DHCP e DNS adequada para a prestação destes serviços. Pode configurar uma máquina virtual para fornecer estes serviços no seu ambiente de nuvem privada.  
 
-Aplicações e cargas de trabalho em funcionamento num ambiente privado de nuvem requerem resolução de nomes e serviços DHCP para procura e atribuição de endereços IP. É necessária uma infraestrutura dHCP e DNS adequada para prestar estes serviços. Pode configurar uma máquina virtual para fornecer estes serviços no seu ambiente de nuvem privada.  
-Recomenda-se utilizar o serviço DHCP incorporado no NSX ou utilizar um servidor DHCP local na nuvem privada em vez de encaminhar o tráfego dHCP de transmissão sobre o WAN de volta ao local.
+Recomenda-se a utilização do serviço DHCP que é incorporado no NSX ou utilizando um servidor DHCP local na nuvem privada em vez de encaminhar o tráfego DHCP sobre o WAN de volta para o local.
 
-Neste tutorial, aprendeste sobre:
-
-> [!div class="checklist"]
-> * Requisitos de conectividade da rede
-> * DHCP em AVS
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que tiver o networking adequado, continue até ao próximo tutorial para criar a sua nuvem privada AVS.
+Neste tutorial, aprendeu sobre:
+
+> [!div class="checklist"]
+> * Requisitos de conectividade da rede
+> * DHCP em Solução VMware Azure
+
+Assim que tiver a rede adequada no lugar, continue até ao próximo tutorial para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar uma nuvem privada AVS](tutorial-create-private-cloud.md)
+> [Tutorial: Criar uma nuvem privada Azure VMware Solution](tutorial-create-private-cloud.md)

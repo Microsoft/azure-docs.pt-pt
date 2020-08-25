@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192703"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795349"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição de self-service para o Azure Ative Directory?
 
@@ -64,7 +64,7 @@ Se as condições anteriores forem verdadeiras, então um utilizador membro é c
 Para obter mais informações sobre inscrições de teste flow e PowerApps, consulte os seguintes artigos:
 
 * [Como posso impedir que os utilizadores existentes comecem a utilizar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [O Flow na sua organização - Perguntas e Respostas](https://docs.microsoft.com/flow/organization-q-and-a)
+* [O Flow na sua organização - Perguntas e Respostas](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Como funcionam os controlos em conjunto?
 Estes dois parâmetros podem ser usados em conjunto para definir um controlo mais preciso sobre a inscrição de autosserviço. Por exemplo, o seguinte comando permitirá aos utilizadores realizar a inscrição de autosserviço, mas apenas se esses utilizadores já tiverem uma conta em Azure AD (ou seja, os utilizadores que precisariam de uma conta verificada por e-mail para serem criados primeiro não podem realizar a inscrição de autosserviço):

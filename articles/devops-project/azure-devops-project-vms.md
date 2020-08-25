@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 80a590ff97cc6595f2da6d1e573820324a46c2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82231521"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua aplicação ASP.NET para máquinas virtuais Azure utilizando o Azure DevOps Starter
@@ -34,7 +34,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
 > * Configurar a monitorização do Azure Application Insights
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -169,7 +169,7 @@ Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a u
 
 1. Introduza um nome de teste e, em seguida, **selecione Criar**. Um teste de ping simples é criado para verificar a disponibilidade da sua aplicação. Após alguns minutos, os resultados do teste ficam disponíveis e o dashboard do Application Insights apresenta um estado de disponibilidade.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se estiver a testar, pode evitar acumular encargos de faturação limpando os seus recursos. Quando já não são necessários, pode eliminar a máquina virtual Azure e os recursos relacionados que criou neste tutorial. Para tal, utilize a funcionalidade **Eliminar** no painel de arranque de DevOps. 
 
@@ -193,7 +193,7 @@ Neste tutorial, ficou a saber como:
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
 > * Configurar a monitorização do Azure Application Insights
-> * Limpar recursos
+> * Limpar os recursos
 
 Para saber mais sobre o oleoduto CI/CD, consulte:
 

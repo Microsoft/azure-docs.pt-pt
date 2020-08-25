@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024932"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723032"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -68,7 +68,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
     |----------------------|-------------------|
     | Grupo de recursos       | Selecione ou crie um grupo de recursos, como *o myResourceGroup* |
     | Nome da máquina virtual | Insira um nome para o VM, como *myVM* |
-    | Região               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
+    | Region               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
     | Nome de utilizador             | Introduza um nome de utilizador para a conta de administrador local para criar no VM, como *azureuser* |
     | Palavra-passe             | Introduza e confirme, uma senha segura para o administrador local criar no VM. Não especifique as credenciais de uma conta de utilizador de domínio. |
 
@@ -244,7 +244,7 @@ Para administrar o seu domínio gerido, configuure um VM de gestão utilizando o
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
-[password-sync]: active-directory-ds-getting-started-password-sync.md
+[password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

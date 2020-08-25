@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: c7e2b522d475a49f694a8cb57bf57f62900948b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42ced6632ebfa56af8fe13a02f531b9835e13df3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743196"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799388"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inscreva-se usando informações de verificação ou segurança em duas etapas
 
@@ -88,11 +88,11 @@ Se, por alguma razão, não conseguir utilizar o seu método de insicio primári
 
 3. Depois de voltar à sua conta, pode atualizar os seus métodos de verificação (se necessário). Para obter mais informações sobre adicionar ou alterar os seus métodos, consulte as [definições de Gerir as suas definições para artigo de verificação em duas etapas.](multi-factor-authentication-end-user-manage-settings.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](user-help-security-info-overview.md)
+- Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](./security-info-setup-signin.md)
 
-- Saiba mais sobre a verificação em duas etapas no artigo [de verificação de duas etapas.](user-help-two-step-verification-overview.md)
+- Saiba mais sobre a verificação em duas etapas no artigo [de verificação de duas etapas.](./multi-factor-authentication-end-user-first-time.md)
 
 - Reinicie a sua palavra-passe se a tiver perdido ou esquecido, a partir do [portal de reset password](https://passwordreset.microsoftonline.com/)
 

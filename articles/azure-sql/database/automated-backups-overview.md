@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921950"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756729"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -36,14 +36,12 @@ Quando restaura uma base de dados, o serviço determina quais as cópias de segu
 
 ### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
 
-> [!IMPORTANT]
-> A redundância de armazenamento configurado para cópias de segurança só está disponível para a SQL Managed Instance, e só pode ser especificada durante o processo de instância gerido por criar. Uma vez que o recurso é aprovisionado, não pode alterar a opção de redundância de armazenamento de backup.
+Por padrão, a Base de Dados SQL e a SQL Managed Instance armazenam dados em [bolhas](../../storage/common/storage-redundancy.md) de armazenamento geo-redundantes (RA-GRS) que são replicadas numa [região emparelhada.](../../best-practices-availability-paired-regions.md) Isto ajuda a proteger contra falhas que impactam o armazenamento de backup na região primária e permite restaurar o seu servidor numa região diferente em caso de desastre. 
 
-A opção de configurar a redundância de armazenamento de backup proporciona a flexibilidade para escolher entre bolhas de armazenamento redundantes locais (LRS), zonas redundantes (ZRS) ou [blobs](../../storage/common/storage-redundancy.md)de armazenamento geo-redundantes (RA-GRS). Os mecanismos de redundância de armazenamento armazenam várias cópias dos seus dados para que seja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, ou desastres naturais maciços. Atualmente, esta funcionalidade só está disponível para SQL Managed Instance.
+A SQL Managed Instance introduz a capacidade de alterar o despedimento de armazenamento para blobs de armazenamento locais redundantes (LRS) ou redundantes de zona (ZRS) para garantir que os seus dados permaneçam na mesma região onde a sua instância gerida é implantada. Os mecanismos de redundância de armazenamento armazenam várias cópias dos seus dados para que seja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, ou desastres naturais maciços. 
 
-As bolhas de armazenamento RA-GRS são replicadas numa [região emparelhada](../../best-practices-availability-paired-regions.md) para proteger contra falhas que impactam o armazenamento de backup na região primária e permitem restaurar o seu servidor numa região diferente em caso de desastre. 
+A opção de configurar a redundância de armazenamento de backup proporciona a flexibilidade para escolher entre lRS, ZRS ou ra-GRS blobs de armazenamento para uma SQL Managed Instance. Configure a redundância de armazenamento de backup durante o processo de criação de instâncias geridas uma vez que o recurso é aprovisionado, não é mais possível alterar o despedimento de armazenamento. (O armazenamento redundante de zonas (ZRS) só está atualmente disponível em [determinadas regiões.](../../storage/common/storage-redundancy.md#zone-redundant-storage)
 
-Inversamente, as bolhas de armazenamento LRS e ZRS asseguram que os seus dados permanecem na mesma região onde a sua Base de Dados SQL ou SQL Managed Instance são implantados. Atualmente, o armazenamento redundante de zona (ZRS) só está disponível em [determinadas regiões).](../../storage/common/storage-redundancy.md#zone-redundant-storage)
 
 > [!IMPORTANT]
 > Em SQL Managed Instance, o despedimento de backup configurado é aplicado tanto a definições de retenção de backup de curto prazo que são usadas para restaurar pontual (PITR) e backups de retenção a longo prazo utilizados para backups de longo prazo (LTR).
@@ -194,7 +192,7 @@ Adicione um filtro para **o nome de serviço**e, em seguida, selecione a base de
 
 ## <a name="encrypted-backups"></a>Backups encriptados
 
-Se a sua base de dados estiver encriptada com TDE, as cópias de segurança são automaticamente encriptadas em repouso, incluindo cópias de segurança LTR. Todas as novas bases de dados em Azure SQL estão configuradas com TDE ativado por padrão. Para obter mais informações sobre o TDE, consulte [a Encriptação de Dados Transparente com a Base de Dados SQL & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Se a sua base de dados estiver encriptada com TDE, as cópias de segurança são automaticamente encriptadas em repouso, incluindo cópias de segurança LTR. Todas as novas bases de dados em Azure SQL estão configuradas com TDE ativado por padrão. Para obter mais informações sobre o TDE, consulte  [a Encriptação de Dados Transparente com a Base de Dados SQL & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integridade de backup
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Crie um registo de pseudónimo sintetismo azure para se referir a um endereço IP público do Azure'
+title: 'Tutorial: Criar um registo de pseudónimo azure DNS para se referir a um endereço IP público Azure'
 description: Este tutorial mostra como configurar um registo de alias do DNS do Azure para fazer referência a um endereço IP público do Azure.
 services: dns
 author: rohinkoul
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80985444"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configurar um registo de alias para fazer referência a um endereço IP público do Azure 
@@ -21,11 +21,11 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma infraestrutura de rede.
 > * Crie uma máquina virtual de servidor web com um IP público.
-> * Crie um registo de pseudónimos que aponte para o IP público.
+> * Crie um registo de pseudónimo que aponta para o IP público.
 > * Testar o registo de alias.
 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
@@ -38,17 +38,17 @@ O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize
 Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores Web.
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No canto superior esquerdo do portal, selecione **Criar um recurso**. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-pip**.
-3. Selecione Criar uma**rede virtual**de**rede** >  **de recursos** > .
+3. **Selecione Criar uma**rede  >  virtual de rede**de**  >  **Virtual network**recursos.
 4. Criar uma rede virtual denominada **VNet-Server**. Coloque-o no grupo de recursos **RG-DNS-Alias-pip** e atribua à sub-rede o nome **SN-Web**.
 
 ## <a name="create-a-web-server-virtual-machine"></a>Criar uma máquina virtual do servidor Web
-1. Selecione **Criar um recurso** > **Windows Server 2016 VM**.
+1. Selecione **Criar um**  >  **VM do Windows Server 2016**de recurso .
 2. Introduza **Web-01** para o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Introduza um nome de utilizador e palavra-passe e selecione **OK**.
 3. Para **Tamanho**, selecione um SKU com 8 GB de RAM.
-4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Para as portas de entrada públicas, selecione **HTTP** > **HTTPS** > **RDP (3389)** e, em seguida, selecione **OK**.
+4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Para portas de entrada **HTTP**pública, selecione  >  **HTTPS**  >  **RDP (3389)** e, em seguida, selecione **OK**.
 5. Na página **Resumo**, selecione **Criar**.
 
-Este procedimento demora alguns minutos a concluir. A máquina virtual terá um NIC anexo, que terá um IP público dinâmico básico chamado Web-01-ip. O IP público mudará sempre que a máquina virtual for reiniciada.
+Este procedimento demora alguns minutos a concluir. A máquina virtual terá um NIC anexado, que terá um IP público dinâmico básico chamado Web-01-ip. O IP público mudará sempre que a máquina virtual for reiniciada.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -84,7 +84,7 @@ Crie um registo de alias que esteja associado ao endereço IP público.
 
 Este procedimento funciona, uma vez que utilizou um registo de alias associado ao recurso do endereço IP público e não um registo A convencional.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos criados para este tutorial, elimine o grupo de recursos **RG-DNS-Alias-pip**.
 

@@ -3,14 +3,14 @@ title: Diagnósticos em Funções Duráveis - Azure
 description: Saiba como diagnosticar problemas com a extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae721d2a8df981ecf9ab8e8b04d0e0d287d523cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081819"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750702"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics in Durable Functions in Azure (Diagnósticos no Durable Functions no Azure)
 
@@ -28,7 +28,7 @@ Cada evento de ciclo de vida de uma instância de orquestração faz com que um 
 
 * **hubName**: O nome do centro de tarefas em que as suas orquestrações estão em execução.
 * **appName**: O nome da aplicação de função. Este campo é útil quando tem várias aplicações de funções que partilham a mesma instância De Insights de Aplicação.
-* **slotName**: A [ranhura de implantação](../functions-deployment-slots.md) na qual a aplicação de função atual está em execução. Este campo é útil quando aproveita as ranhuras de implantação para ver versão das suas orquestrações.
+* **slotName**: A [ranhura de implantação](../functions-deployment-slots.md) na qual a aplicação de função atual está em execução. Este campo é útil quando utiliza slots de implantação para ver versão das suas orquestrações.
 * **funçãoName**: O nome do orquestrador ou função de atividade.
 * **funçãoType**: O tipo de função, como **Orquestrador** ou **Atividade**.
 * **instanceId**: O ID único da instância de orquestração.
@@ -88,7 +88,7 @@ Para permitir a emissão dos eventos de repetição da orquestração verbose, o
 
 #### <a name="functions-20"></a>Funções 2.0
 
-```javascript
+```json
 {
     "extensions": {
         "durableTask": {
@@ -103,9 +103,9 @@ Para permitir a emissão dos eventos de repetição da orquestração verbose, o
 
 ### <a name="single-instance-query"></a>Consulta de instância única
 
-A seguinte consulta mostra dados históricos de rastreamento para uma única instância da orquestração da função [Hello Sequence.](durable-functions-sequence.md) Está escrito utilizando a Linguagem De Consulta de Insights de [Aplicação (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Filtra a execução de repetição para que apenas seja mostrado o caminho de execução *lógica.* Os eventos podem ser encomendados por triagem por `timestamp` e como mostrado na consulta `sequenceNumber` abaixo:
+A seguinte consulta mostra dados históricos de rastreamento para uma única instância da orquestração da função [Hello Sequence.](durable-functions-sequence.md) Está escrito usando a [língua de consulta de Kusto.](/azure/data-explorer/kusto/query/) Filtra a execução de repetição para que apenas seja mostrado o caminho de execução *lógica.* Os eventos podem ser encomendados por triagem por `timestamp` e como mostrado na consulta `sequenceNumber` abaixo:
 
-```AIQL
+```kusto
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
 let start = datetime(2018-03-25T09:20:00);
 traces
@@ -124,13 +124,13 @@ traces
 
 O resultado é uma lista de eventos de rastreio que mostra o caminho de execução da orquestração, incluindo quaisquer funções de atividade ordenadas pelo tempo de execução em ordem ascendente.
 
-![Consulta de Insights de Aplicação](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Aplicação Insights única instância ordenada consulta](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 ### <a name="instance-summary-query"></a>Consulta sumária de instância
 
 A seguinte consulta mostra o estado de todas as instâncias de orquestração que foram executadas num intervalo de tempo especificado.
 
-```AIQL
+```kusto
 let start = datetime(2017-09-30T04:30:00);
 traces
 | where timestamp > start and timestamp < start + 1h
@@ -148,13 +148,61 @@ traces
 
 O resultado é uma lista de identificações de casos e o seu estado atual de funcionação.
 
-![Consulta de Insights de Aplicação](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Consulta de instância única do Application Insights](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
-## <a name="logging"></a>Registo
+## <a name="durable-task-framework-logging"></a>Registo de quadros de tarefas duráveis
+
+Os registos de extensão durável são úteis para entender o comportamento da sua lógica de orquestração. No entanto, estes registos nem sempre contêm informações suficientes para depurar problemas de desempenho e fiabilidade ao nível do quadro. A partir de **v2.3.0** da extensão Durable, os registos emitidos pelo Quadro de Tarefas Duráveis subjacente (DTFx) também estão disponíveis para recolha.
+
+Ao olhar para os registos emitidos pelo DTFx, é importante entender que o motor DTFx é composto por dois componentes: o motor de despacho principal ( `DurableTask.Core` ) e um dos muitos fornecedores de armazenamento suportado (Funções Duradouras utiliza por `DurableTask.AzureStorage` defeito).
+
+* **DurableTask.Core:** contém informações sobre execução de orquestração e agendamento de baixo nível.
+* **DurableTask.AzureStorage**: contém informações relacionadas com interações com artefactos de armazenamento Azure, incluindo as filas internas, bolhas e mesas de armazenamento usadas para armazenar e buscar o estado de orquestração interna.
+
+Pode ativar estes registos atualizando a `logging/logLevel` secção dohost.jsda sua aplicação de funções ** no** ficheiro. O exemplo a seguir mostra como permitir registos de alerta e erro de ambos `DurableTask.Core` `DurableTask.AzureStorage` e:
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "DurableTask.AzureStorage": "Warning",
+      "DurableTask.Core": "Warning"
+    }
+  }
+}
+```
+
+Se tiver o Application Insights ativado, estes registos serão automaticamente adicionados à `trace` coleção. Pode revistá-los da mesma forma que procura `trace` outros registos usando consultas kusto.
+
+> [!NOTE]
+> Para aplicações de produção, recomenda-se que ative `DurableTask.Core` e `DurableTask.AzureStorage` faça logins utilizando o `"Warning"` filtro. Filtros de verbosidade mais elevados, tais como `"Information"` são muito úteis para depurar problemas de desempenho. No entanto, estes eventos de registo são de grande volume e podem aumentar significativamente os custos de armazenamento de dados do Application Insights.
+
+A seguinte consulta kusto mostra como consultar os registos DTFx. A parte mais importante da consulta é `where customerDimensions.Category startswith "DurableTask"` uma vez que filtra os resultados para registos nas `DurableTask.Core` categorias e `DurableTask.AzureStorage` categorias.
+
+```kusto
+traces
+| where customDimensions.Category startswith "DurableTask"
+| project
+    timestamp,
+    severityLevel,
+    Category = customDimensions.Category,
+    EventId = customDimensions.EventId,
+    message,
+    customDimensions
+| order by timestamp asc 
+```
+O resultado é um conjunto de registos escritos pelos fornecedores de registos Quadro de Tarefas Durable.
+
+![Resultados da consulta DTFx do Application Insights DTFx](./media/durable-functions-diagnostics/app-insights-dtfx.png)
+
+Para obter mais informações sobre os eventos de registo disponíveis, consulte a documentação estruturada do Quadro de [Tarefas Durable no GitHub.](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Core/Logging#durabletaskcore-logging)
+
+## <a name="app-logging"></a>Registo de aplicativos
 
 É importante manter o comportamento do orquestrador em mente ao escrever registos diretamente de uma função orquestradora. Por exemplo, considere a seguinte função orquestradora:
 
-### <a name="precompiled-c"></a>C pré-compensado #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -172,24 +220,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="c-script"></a>C# Script
-
-```csharp
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-### <a name="javascript-functions-20-only"></a>JavaScript (apenas funções 2.0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,6 +235,26 @@ module.exports = df.orchestrator(function*(context){
     context.log("Done!");
 });
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
 
 Os dados de registo resultantes vão parecer algo como a seguinte saída de exemplo:
 
@@ -223,9 +274,9 @@ Done!
 > [!NOTE]
 > Lembre-se que enquanto os registos afirmam chamar F1, F2 e F3, essas funções só são *realmente* chamadas na primeira vez que são encontradas. Chamadas subsequentes que acontecem durante a repetição são ignoradas e as saídas são reproduzidas para a lógica do orquestrador.
 
-Se pretender apenas iniciar sessão na execução não reta de reprodução, pode escrever uma expressão condicional para registar apenas se `IsReplaying` for `false` . Considere o exemplo acima, mas desta vez com verificações de repetição.
+Se pretender apenas escrever registos em execuções não repetidas, só pode escrever uma expressão condicional para registar se a bandeira "reproduzir" for `false` . Considere o exemplo acima, mas desta vez com verificações de repetição.
 
-#### <a name="precompiled-c"></a>C pré-compensado #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -243,40 +294,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="c"></a>C#
-
-```cs
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    if (!context.IsReplaying) log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    if (!context.IsReplaying) log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    if (!context.IsReplaying) log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-#### <a name="javascript-functions-20-only"></a>JavaScript (apenas funções 2.0)
-
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context){
-    if (!context.df.isReplaying) context.log("Calling F1.");
-    yield context.df.callActivity("F1");
-    if (!context.df.isReplaying) context.log("Calling F2.");
-    yield context.df.callActivity("F2");
-    if (!context.df.isReplaying) context.log("Calling F3.");
-    yield context.df.callActivity("F3");
-    context.log("Done!");
-});
-```
-
-A partir de Funções Duráveis 2.0, as funções de orquestrador .NET também têm a opção de criar um `ILogger` que filtra automaticamente as declarações de registo durante a repetição. Esta filtragem automática é feita utilizando a `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` API.
+A partir de Funções Duráveis 2.0, as funções de orquestrador .NET também têm a opção de criar um `ILogger` que filtra automaticamente as declarações de registo durante a repetição. Esta filtragem automática é feita utilizando a [API IDurableOrchestrationContext.CreateReplaySafeLogger (ILogger).](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -295,6 +313,49 @@ public static async Task Run(
 }
 ```
 
+> [!NOTE]
+> Os exemplos C# anteriores são para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    if not context.is_replaying:
+        logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    if not context.is_replaying:
+        logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    if not context.is_replaying:
+        logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Com as alterações anteriormente mencionadas, a saída de registo é a seguinte:
 
 ```txt
@@ -304,14 +365,11 @@ Calling F3.
 Done!
 ```
 
-> [!NOTE]
-> Os exemplos C# anteriores são para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
-
 ## <a name="custom-status"></a>Estado personalizado
 
-O estado de orquestração personalizada permite-lhe definir um valor de estado personalizado para a sua função de orquestrador. Este estado é fornecido através da consulta de estado HTTP API ou da `IDurableOrchestrationClient.GetStatusAsync` API. O estado de orquestração personalizada permite uma monitorização mais rica para funções de orquestradores. Por exemplo, o código de função do orquestrador pode incluir `IDurableOrchestrationContext.SetCustomStatus` chamadas para atualizar o progresso para uma operação de longa duração. Um cliente, como uma página web ou outro sistema externo, poderia então consultar periodicamente as APIs de consulta de estado HTTP para obter informações de progresso mais ricas. Abaixo é fornecida uma amostra: `IDurableOrchestrationContext.SetCustomStatus`
+O estado de orquestração personalizada permite-lhe definir um valor de estado personalizado para a sua função de orquestrador. Este estado personalizado é então visível para clientes externos através da [consulta de estado HTTP API](durable-functions-http-api.md#get-instance-status) ou através de chamadas API específicas da linguagem. O estado de orquestração personalizada permite uma monitorização mais rica para funções de orquestradores. Por exemplo, o código de função do orquestrador pode invocar a API "set custom status" para atualizar os progressos para uma operação de longa duração. Um cliente, como uma página web ou outro sistema externo, poderia então consultar periodicamente as APIs de consulta de estado HTTP para obter informações de progresso mais ricas. O código de amostra para definir um valor de estado personalizado numa função orquestradora é fornecido abaixo:
 
-### <a name="precompiled-c"></a>C pré-compensado #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -330,7 +388,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 > [!NOTE]
 > O exemplo C# anterior é para Funções Duradouras 2.x. Para funções duradouras 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
 
-### <a name="javascript-functions-20-only"></a>JavaScript (apenas funções 2.0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -346,10 +404,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    # update the status of the orchestration with some arbitrary data
+    custom_status = {'completionPercentage': 90.0, 'status': 'Updating database records'}
+    context.set_custom_status(custom_status)
+    # ...do more work...
+
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Enquanto a orquestração está em execução, os clientes externos podem obter este estatuto personalizado:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
+GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 ```
 
@@ -379,7 +459,7 @@ O Azure Functions suporta o código de função de depuração diretamente, e es
 * **Parar e iniciar:** As mensagens em funções duradouras persistem entre as sessões de depuração. Se parar de depurar e terminar o processo de anfitrião local enquanto uma função durável estiver a ser executada, essa função poderá voltar a executar automaticamente numa futura sessão de depuração. Este comportamento pode ser confuso quando não é esperado. Limpar todas as mensagens das [filas internas](durable-functions-perf-and-scale.md#internal-queue-triggers) de armazenamento entre sessões de depuração é uma técnica para evitar este comportamento.
 
 > [!TIP]
-> Ao definir pontos de rutura nas funções do orquestrador, se quiser apenas quebrar a execução não reprodução, pode definir um ponto de rutura condicional que só se parte se `IsReplaying` for `false` .
+> Ao definir pontos de rutura nas funções do orquestrador, se quiser apenas quebrar a execução não reprodução, pode definir um ponto de rutura condicional que só se parte se o valor "reproduzir" for `false` .
 
 ## <a name="storage"></a>Armazenamento
 

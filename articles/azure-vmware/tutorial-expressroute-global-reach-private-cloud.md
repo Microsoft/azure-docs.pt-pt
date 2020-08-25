@@ -1,18 +1,18 @@
 ---
 title: Par no local ambientes para uma nuvem privada
-description: Neste tutorial Azure VMware Solution (AVS), cria-se o ExpressRoute Global Reach a espreitar para uma nuvem privada num AVS.
+description: Neste tutorial Azure VMware Solution, cria o ExpressRoute Global Reach a espreitar para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: a9a002eab3219a0db74062570d31595bfcc0d6a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db3f5988cb8c07d9b6e80f500ac6aff8f96dfded
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101919"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750444"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
-O ExpressRoute Global Reach liga o seu ambiente no local às suas nuvens privadas. A ligação ExpressRoute Global Reach é estabelecida entre um circuito expressRoute em nuvem privada e uma ligação ExpressRoute existente aos seus ambientes no local.  Existem instruções para configurar o ExpressRoute Global Reach com Azure CLI e PowerShell, e nós aumentamos os [comandos CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para ajudá-lo a configurar o ExpressRoute Global Reach espreitando entre ambientes no local para uma nuvem privada Azure VMware Solution (AVS).   
+O ExpressRoute Global Reach liga o seu ambiente no local às suas nuvens privadas. A ligação ExpressRoute Global Reach é estabelecida entre um circuito expressRoute em nuvem privada e uma ligação ExpressRoute existente aos seus ambientes no local.  Existem instruções para configurar o ExpressRoute Global Reach com Azure CLI e PowerShell, e nós aumentamos os [comandos CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para ajudá-lo a configurar o ExpressRoute Global Reach espreitando entre ambientes no local para uma nuvem privada Azure VMware Solution.   
 
 Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o ExpressRoute Global Reach, reveja a documentação sobre como permitir a [conectividade em diferentes subscrições do Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  O circuito ExpressRoute que utiliza quando [configura a rede de nuvem Azure-to-private](tutorial-configure-networking.md) requer que crie e utilize chaves de autorização quando espreita para gateways ExpressRoute ou com outros circuitos ExpressRoute usando o Global Reach. Já terá usado uma chave de autorização do circuito ExpressRoute, e criará uma segunda para espreitar com o circuito ExpressRoute no local.
 
@@ -33,19 +33,19 @@ Os pré-requisitos para este tutorial são:
 - Um circuito ExpressRoute separado e funcional usado para ligar ambientes no local ao Azure – este é o _circuito 1_ do ponto de vista dos procedimentos de observação.
 - Um bloco de [endereços](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) de rede não sobreposto /29 para o olho do ExpressRoute Global Reach.
 
-## <a name="create-an-expressroute-authorization-key-in-the-avs-private-cloud"></a>Criar uma chave de autorização ExpressRoute na nuvem privada AVS
+## <a name="create-an-expressroute-authorization-key-in-the-azure-vmware-solution-private-cloud"></a>Criar uma chave de autorização ExpressRoute na nuvem privada Azure VMware Solution
 
 1. A partir da nuvem privada **Overview**, em Gestão, selecione **Conectividade > ExpressRoute > Solicite uma chave de autorização**.
 
-   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Selecione conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido":::
+   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
 
 2. Introduza o nome para a chave de autorização e selecione **Criar**. 
 
-   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Clique em Criar para criar uma nova chave de autorização.":::
+   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Clique em Criar para criar uma nova chave de autorização. ":::
 
    Uma vez criada, a nova chave aparece na lista de chaves de autorização para a nuvem privada. 
 
-   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Confirme que a nova chave de autorização aparece na lista de chaves para a nuvem privada.":::
+   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Confirme que a nova chave de autorização aparece na lista de chaves para a nuvem privada. ":::
 
 3. Tome nota da chave de autorização e do ID ExpressRoute, juntamente com o bloco de endereços /29. Vais usá-los no próximo passo para completar o olhar. 
 

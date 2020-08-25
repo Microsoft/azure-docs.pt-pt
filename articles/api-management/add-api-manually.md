@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82203272"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
@@ -29,20 +29,20 @@ Neste artigo, vamos criar uma API em branco e especificar [httpbin.org](https://
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
+Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-an-api"></a>Criar uma API
 
-1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** do menu.
+1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 2. No menu à esquerda, selecione **+ Adicionar API**.
 3. Selecione **API em branco** na lista.  
     ![API em Branco](media/add-api-manually/blank-api.png)  
-4. Introduza definições para a API. As definições são explicadas no Importar e publicar o seu primeiro tutorial [API.](import-and-publish.md#-import-and-publish-a-backend-api)
+4. Introduza definições para a API. As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#-import-and-publish-a-backend-api)
 5. Selecione **Criar**.
 
-Neste momento, não tem nenhuma operação na API Management que mapeie para as operações na sua API de back-end. Se chamar uma operação que é exposta na parte de trás, mas não através da Gestão da API, obtém-se um **404**.
+Neste momento, não tem nenhuma operação na API Management que mapear para as operações na sua API de back-end. Se chamar uma operação que está exposta na parte de trás mas não através da Administração da API, obtém-se um **404**.
 
 >[!NOTE] 
 > Por predefinição, quando adiciona uma API, mesmo que esteja ligada a algum serviço de back-end, a APIM não irá expor quaisquer operações até colocá-las na lista de permissões. Para colocar uma operação do seu serviço de back-end numa lista de permissões, crie uma operação de APIM que mapeie para a operação de back-end.

@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3148f8ba84674c79764d0fc69acdbc02e7a12dc4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416020"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798997"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer o back up e recuperar as credenciais de conta usando a app Microsoft Authenticator
 
@@ -100,7 +100,7 @@ Para contas pessoais da Microsoft, pode provar a sua identidade introduzindo a s
     :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Autenticador apresenta uma senha única como código de verificação" border="true":::
 
 >[!NOTE]
->Para obter mais informações sobre os códigos QR e como obter um, consulte [Começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [configurar informações de segurança para utilizar uma aplicação autenticadora](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), com base no facto de o seu administrador ter ligado as informações de segurança.
+>Para obter mais informações sobre os códigos QR e como obter um, consulte [Começar com a aplicação Microsoft Authenticator](./user-help-auth-app-download-install.md) ou [configurar informações de segurança para utilizar uma aplicação autenticadora](./security-info-setup-auth-app.md), com base no facto de o seu administrador ter ligado as informações de segurança.
 >
 >Se esta for a primeira vez que está a configurar a aplicação Microsoft Authenticator, poderá receber uma solicitação a perguntar se permite que a app aceda à sua câmara (iOS) ou se permite que a app tire fotografias e grave vídeos (Android). Tem de selecionar **Permitir** que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no passo seguinte. Se não permitir a câmara, ainda pode configurar a aplicação autenticadora, mas terá de adicionar manualmente a informação de código. Para obter informações sobre como adicionar o código manualmente, consulte [manualmente adicionar uma conta à aplicação.](user-help-auth-app-add-account-manual.md)
 
@@ -120,7 +120,7 @@ Existem algumas razões pelas quais o seu backup pode não estar disponível
 
 - **A cópia de segurança está desatualizada**: Se as suas informações de backup estiverem desatualizadas, poderá ser-lhe pedido que reacmem as informações, insinuá-la novamente na sua conta de Recuperação da Microsoft. A sua conta de recuperação é a conta pessoal da Microsoft que usou inicialmente para armazenar a sua cópia de segurança. Se for necessário um início de sposição, verá um ponto vermelho no seu menu ou barra de ação, ou verá um ícone de marca de exclamação que o leva a iniciar sposição para terminar a restauração da cópia de segurança. Depois de selecionar o ícone apropriado, será solicitado que faça sedudas novamente para atualizar as suas informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez o back up e recuperou as credenciais da sua conta para o seu novo dispositivo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade. Para obter mais informações, consulte [iniciar sôm nas suas contas utilizando a aplicação Microsoft Authenticator](user-help-sign-in.md).
 
@@ -130,4 +130,4 @@ Agora que fez o back up e recuperou as credenciais da sua conta para o seu novo 
 
 - [FAQ da aplicação Microsoft Authenticator](user-help-auth-app-faq.md)
 
-- [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)
+- [Multi-factor Authentication](/azure/multi-factor-authentication/)

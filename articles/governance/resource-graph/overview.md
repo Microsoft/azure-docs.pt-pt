@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do Azure Resource Graph
 description: Compreenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
-ms.date: 07/25/2020
+ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541792"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798538"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -37,6 +37,9 @@ Com o Azure Resource Graph, pode:
 
 - Aceda às propriedades devolvidas pelos fornecedores de recursos sem necessidade de fazer chamadas individuais a cada fornecedor de recursos.
 - Veja os últimos 14 dias de história de mudança feita ao recurso para ver que propriedades mudaram e quando. (pré-visualização)
+
+> [!NOTE]
+> Como uma funcionalidade _de pré-visualização,_ `type` alguns objetos têm propriedades adicionais não-Resource Manager disponíveis. Para obter mais informações, consulte [propriedades estendidas (pré-visualização)](./concepts/query-language.md#extended-properties).
 
 ## <a name="how-resource-graph-is-kept-current"></a>Como o Gráfico de Recursos é mantido atual
 
@@ -74,8 +77,8 @@ Forneça o seu caso de negócio e selecione a caixa de verificação 'Microsoft 
 
 Consultas de aceleração de gráficos de recurso ao nível do utilizador. A resposta de serviço contém os seguintes cabeçalhos HTTP:
 
-- `x-ms-user-quota-remaining`(int): A restante quota de recursos para o utilizador. Este valor mapeia para a contagem de consultas.
-- `x-ms-user-quota-resets-after`(hh:mm:ss): A duração do tempo até ao reinício do consumo de quota de um utilizador
+- `x-ms-user-quota-remaining` (int): A restante quota de recursos para o utilizador. Este valor mapeia para a contagem de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração do tempo até ao reinício do consumo de quota de um utilizador
 
 Para obter mais informações, consulte [Orientação para pedidos de aceleração.](./concepts/guidance-for-throttled-requests.md)
 
@@ -90,7 +93,7 @@ O Resource Graph suporta Azure CLI, Azure PowerShell, Azure SDK para Python, e m
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](./concepts/query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](./samples/starter.md).

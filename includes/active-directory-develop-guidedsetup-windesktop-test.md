@@ -15,10 +15,10 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181545"
 ---
 ## <a name="test-your-code"></a>Teste o seu código
@@ -41,9 +41,9 @@ A primeira vez que iniciar sessão na sua candidatura, também é solicitado que
 
 Depois de iniciar sessão, deverá ver as informações do perfil do utilizador que são devolvidas pela chamada para a API do Gráfico da Microsoft. Os resultados são apresentados na caixa de Resultados de **Chamadas API.** Informações básicas sobre o token que foi adquirido através da chamada para `AcquireTokenInteractive` ou `AcquireTokenSilent` devem ser visíveis na caixa de **Info Token.** Os resultados contêm as seguintes propriedades:
 
-|Propriedade  |Formato  |Description |
+|Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
-|**Nome de utilizador** |<span>user@domain.com</span> |O nome de utilizador que é usado para identificar o utilizador.|
+|**Nome de Utilizador** |<span>user@domain.com</span> |O nome de utilizador que é usado para identificar o utilizador.|
 |**Token expira** |DateTime |O momento em que o símbolo expira. A MSAL prolonga a data de validade renovando o token se necessário.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas

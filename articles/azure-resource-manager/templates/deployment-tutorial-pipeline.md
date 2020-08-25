@@ -5,10 +5,10 @@ ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86118924"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure
@@ -19,13 +19,13 @@ A Azure DevOps fornece serviços de desenvolvimento para apoiar equipas para pla
 
 > [!NOTE]
 > Escolha um nome de projeto. Quando passar pelo tutorial, substitua qualquer um dos **AzureRmPipeline** pelo nome do seu projeto.
-> Este nome do projeto é usado para gerar nomes de recursos.  Um dos recursos é uma conta de armazenamento. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome deve ser único. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
+> Este nome do projeto é usado para gerar nomes de recursos.  Um dos recursos é uma conta de armazenamento. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Preparar um repositório do GitHub
-> * Criar um projeto de DevOps do Azure
+> * Criar um projeto do Azure DevOps
 > * Criar um gasoduto Azure
 > * Verifique a implantação do gasoduto
 > * Atualizar o modelo e reimplantar
@@ -83,8 +83,8 @@ A pasta **CreateWebApp** é a pasta onde o modelo é armazenado. O comando **da 
 
 Em vez de criar os modelos, pode descarregar os modelos e guardá-los para a pasta **CreateWebApp.**
 
-* O modelo principal:https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* O modelo ligado:https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Tanto o nome da pasta como os nomes dos ficheiros são utilizados como estão na calha.  Se alterar estes nomes, tem de atualizar os nomes utilizados no oleoduto.
 
@@ -120,7 +120,7 @@ Uma organização de DevOps é necessária antes de poder avançar para o proced
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines cria projeto Azure DevOps](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
-1. Selecione **New project** (Projeto novo). Se não tiver projetos, a página do projeto create é aberta automaticamente.
+1. Selecione **Novo projeto**. Se não tiver projetos, a página do projeto create é aberta automaticamente.
 1. Introduza os seguintes valores:
 
     * **Nome do**projeto : insira um nome de projeto. Pode usar o nome do projeto que escolheu no início do tutorial.
@@ -239,7 +239,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 Também pode querer eliminar o repositório GitHub e o projeto Azure DevOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, terminou este tutorial de implementação de modelos do Gestor de Recursos. Informe-nos se tiver algum comentário e sugestões na secção de comentários. Obrigado!
 Está pronto para saltar para conceitos mais avançados sobre modelos. O próximo tutorial vai para mais detalhes sobre o uso de documentação de referência do modelo para ajudar a definir recursos para implementar.

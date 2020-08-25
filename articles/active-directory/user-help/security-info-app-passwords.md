@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: e5ad882f172007e2563f832ec8eb61145cd0b36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744496"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799201"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Crie senhas de aplicação a partir da página de informações de Segurança (pré-visualização)
 
@@ -84,4 +84,4 @@ Se já não precisar de usar uma aplicação que exija uma palavra-passe da apli
 
 ## <a name="for-more-information"></a>Para obter mais informações:
 
-- Para obter mais informações sobre a página **de informações de Segurança** e como configurar, consulte a [visão geral da informação de Segurança](user-help-security-info-overview.md)
+- Para obter mais informações sobre a página **de informações de Segurança** e como configurar, consulte a [visão geral da informação de Segurança](./security-info-setup-signin.md)

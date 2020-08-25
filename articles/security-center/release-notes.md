@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653839"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723967"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -43,7 +43,7 @@ As atualizações em agosto incluem:
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventário de ativos - nova visão poderosa da postura de segurança dos seus ativos
 
-O inventário de ativos do Centro de Segurança fornece uma forma de ver a postura de segurança dos recursos que ligou ao Centro de Segurança.
+O inventário de ativos do Security Center (atualmente em pré-visualização) fornece uma forma de ver a postura de segurança dos recursos que ligou ao Centro de Segurança.
 
 O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como remediar essas vulnerabilidades. Quando algum recurso tiver recomendações pendentes, aparecerão no inventário.
 

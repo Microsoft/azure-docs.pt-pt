@@ -1,22 +1,22 @@
 ---
 title: Faça o back up ações de ficheiros Azure com a Azure CLI
-description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros da Azure no Cofre dos Serviços de Recuperação
+description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514446"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763257"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Faça o back up ações de ficheiros Azure com o CLI
 
 A interface de linha de comando Azure (CLI) proporciona uma experiência de linha de comando para a gestão dos recursos Azure. É uma ótima ferramenta para construir automatização personalizada para usar recursos Azure. Este artigo detalha como fazer o back up Azure file shares with Azure CLI. Também pode realizar estes passos com o [Azure PowerShell](./backup-azure-afs-automation.md) ou no [portal do Azure](backup-afs.md).
 
-No final deste tutorial, você aprenderá a executar abaixo operações com Azure CLI:
+No final deste tutorial, você aprenderá a realizar as operações abaixo com Azure CLI:
 
-* Criar um cofre dos serviços de recuperação
+* Criar um cofre dos Serviços de Recuperação 
 * Ativar backup para ações de ficheiros Azure
 * Desencadear uma cópia de segurança a pedido para ações de ficheiros
 
@@ -24,11 +24,11 @@ No final deste tutorial, você aprenderá a executar abaixo operações com Azur
 
 Para instalar e utilizar a CLI localmente, tem de executar a CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão CLI, `run az --version` . Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre de serviços de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-Um cofre de serviço de recuperação é uma entidade que lhe dá uma visão consolidada e capacidade de gestão em todos os itens de backup. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
+Um cofre de Serviços de Recuperação é uma entidade que lhe dá uma visão consolidada e capacidade de gestão em todos os itens de backup. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-Siga estes passos para criar um cofre de serviços de recuperação:
+Siga estes passos para criar um cofre dos Serviços de Recuperação:
 
 1. Um cofre é colocado num grupo de recursos. Se não tiver um grupo de recursos existente, crie um novo com [criação de grupo az](/cli/azure/group?view=azure-cli-latest#az-group-create) . Neste tutorial, criamos o novo grupo de recursos *azurefiles* na região leste dos EUA.
 
@@ -44,7 +44,7 @@ Siga estes passos para criar um cofre de serviços de recuperação:
 
 1. Use o [cofre de reserva az criar](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet para criar o cofre. Especifique o mesmo local para o cofre que foi usado para o grupo de recursos.
 
-    O exemplo a seguir cria um cofre de serviços de recuperação chamado *azurefilesvault* na região leste dos EUA.
+    O exemplo a seguir cria um cofre dos Serviços de Recuperação chamado *azurefilesvault* na região leste dos EUA.
 
     ```azurecli-interactive
     az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table
@@ -100,7 +100,7 @@ Name                                  ResourceGroup
 
 O atributo **Nome** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a sua operação de "backup on-demand". Para rastrear o estado de um trabalho, use o [az backup show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar as ações de ficheiros Azure com o CLI](restore-afs-cli.md)
 * Saiba como gerir o [ficheiro Azure partilhar backups com o CLI](manage-afs-backup-cli.md)

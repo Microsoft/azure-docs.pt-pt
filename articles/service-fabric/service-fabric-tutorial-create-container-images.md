@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252793"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
@@ -78,7 +78,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Primeiro, execute o comando de **login az** para iniciar sessão na sua conta Azure.
+Primeiro, faça o comando **de login az** para iniciar sessão na sua conta Azure.
 
 ```azurecli
 az login
@@ -98,7 +98,7 @@ Crie um grupo de recursos com o comando **az group create**. Neste exemplo, é c
 az group create --name <myResourceGroup> --location westus
 ```
 
-Crie um registo de contentores Azure com o **az acr criar** comando. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único.
+Crie um registo do Contentor Azure com o comando **az acr create.** \<acrName>Substitua-o pelo nome do registo do contentor que pretende criar sob a sua assinatura. O nome tem de ser alfanumérico e único.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -106,9 +106,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor.
 
-## <a name="sign-in-to-your-container-registry"></a>Inscreva-se no seu registo de contentores
+## <a name="sign-in-to-your-container-registry"></a>Inscreva-se no registo do seu contentor
 
-Inscreva-se na sua instância ACR antes de empurrar as imagens para ele. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Inscreva-se na sua instância ACR antes de lhe empurrar imagens. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
 ```azurecli
 az acr login --name <acrName>
@@ -126,7 +126,7 @@ Para ver uma lista das imagens atuais, utilize o comando [docker images](https:/
 docker images
 ```
 
-Saída:
+Resultado:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -156,7 +156,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Depois de marcada, execute "docker images" para verificar a operação.
 
-Saída:
+Resultado:
 
 ```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -186,7 +186,7 @@ Para devolver uma lista de imagens que foram enviadas para o seu registo de cont
 az acr repository list --name <acrName> --output table
 ```
 
-Saída:
+Resultado:
 
 ```output
 Result
@@ -198,7 +198,7 @@ Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância pri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, uma aplicação foi retirada do GitHub e as imagens de contentores foram criadas e empurradas para um registo. Foram efetuados os seguintes passos:
+Neste tutorial, uma aplicação foi retirada do GitHub e foram criadas imagens de contentores e empurradas para um registo. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
 > * Clonar a origem de aplicação a partir do GitHub

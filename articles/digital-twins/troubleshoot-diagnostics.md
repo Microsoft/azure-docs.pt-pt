@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612406"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723933"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -49,7 +49,7 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
     
 4. Guarde as novas definições. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot mostrando a página de definição de diagnóstico onde o utilizador preencheu um nome de definição de diagnóstico, e fez algumas seleções de caixas de verificação para detalhes da categoria e detalhes do destino. O botão Guardar é realçado.":::
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo configurado de volta na página **de definições de Diagnóstico,** para o seu exemplo. 
 
@@ -81,18 +81,147 @@ Aqui está uma lista completa das operações e [correspondentes chamadas API de
 | Categoria do registo | Operação | REST Chamadas API e outros eventos |
 | --- | --- | --- |
 | ADTModelsOperação | Microsoft.DigitalTwins/models/write | Atualização de modelos digitais twin api |
-|  | Microsoft.DigitalTwins/modelos/ler | Modelos twin digital obter por Id e APIs listar |
+|  | Microsoft.DigitalTwins/modelos/ler | Modelos Twin Digital Get By ID e List APIs |
 |  | Microsoft.DigitalTwins/models/delete | Modelos Gémeos Digitais Delete API |
 |  | Microsoft.DigitalTwins/modelos/ação | Modelos Twin Digitais Adicionam API |
 | ADTQueryOperação | Microsoft.DigitalTwins/consulta/ação | Consulta Gémeas API |
 | ADTEventRoutesOperação | Microsoft.DigitalTwins/eventroutes/write | Rotas do Evento Adicionar API |
-|  | Microsoft.DigitalTwins/eventroutes/read | Rotas de eventos obter por Id e APIs listar |
+|  | Microsoft.DigitalTwins/eventroutes/read | Rotas de eventos obter por ID e APIs listar |
 |  | Microsoft.DigitalTwins/eventroutes/delete | Rotas do evento Eliminar API |
 |  | Microsoft.DigitalTwins/eventroutes/action | Falha ao tentar publicar eventos para um serviço de ponto final (não uma chamada da API) |
 | ADTDigitalTwinsOperação | Microsoft.DigitalTwins/digitaltwins/write | Gémeos Digitais Adicionar, Adicionar Relacionamento, Atualização, Componente de Atualização |
-|  | Microsoft.DigitalTwins/digitaltwins/read | Gémeos Digitais Obter Por Id, Obter Componente, Obter Relacionamento por ID, Lista de Relacionamentos De Entrada, Relacionamentos de Lista |
+|  | Microsoft.DigitalTwins/digitaltwins/read | Gémeos Digitais Obter Por ID, Obter Componente, Obter Relação por ID, Listar relações recebidas, relacionamentos de lista |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Gémeos Digitais Delete, Excluir Relacionamento |
 |  | Microsoft.DigitalTwins/digitaltwins/action | Gémeos Digitais Enviam Telemetria Componente, Enviar Telemetria |
+
+## <a name="log-schemas"></a>Esquemas de registo 
+
+Cada categoria de registo tem um esquema que define como os eventos nessa categoria são relatados. Cada entrada de registo individual é armazenada como texto e formatada como uma bolha JSON. Os campos no log e exemplo os corpos JSON são fornecidos para cada tipo de registo abaixo. 
+
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` e use um esquema de registo `ADTQueryOperation` API consistente; `ADTEventRoutesOperation` tem o seu próprio esquema separado.
+
+### <a name="api-log-schemas"></a>Esquemas de registo da API
+
+Este esquema de registo é consistente para `ADTDigitalTwinsOperation` `ADTModelsOperation` , e `ADTQueryOperation` . Contém informações pertinentes para chamadas da API para uma instância Azure Digital Twins.
+
+Aqui estão as descrições de campo e propriedade para registos API.
+
+| Nome do campo | Tipo de dados | Descrição |
+|-----|------|-------------|
+| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
+| `ResourceID` | Cadeia | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
+| `OperationName` | Cadeia  | O tipo de ação que está a ser realizada durante o evento |
+| `OperationVersion` | Cadeia | A versão API utilizada durante o evento |
+| `Category` | Cadeia | O tipo de recurso que está a ser emitido |
+| `ResultType` | Cadeia | Resultado do evento |
+| `ResultSignature` | Cadeia | Código de estado http para o evento |
+| `ResultDescription` | Cadeia | Detalhes adicionais sobre o evento |
+| `DurationMs` | Cadeia | Quanto tempo demorou a realizar o evento em milissegundos |
+| `CallerIpAddress` | Cadeia | Um endereço IP de origem mascarada para o evento |
+| `CorrelationId` | GUID | O cliente forneceu um identificador único para o evento |
+| `Level` | Cadeia | A gravidade do registo do evento |
+| `Location` | Cadeia | A região onde o evento teve lugar |
+| `RequestUri` | Uri | O ponto final utilizado durante o evento |
+
+Abaixo estão os corpos JSON exemplo para este tipo de registos.
+
+#### <a name="adtdigitaltwinsoperation"></a>ADTDigitalTwinsOperação
+
+```json
+{
+  "time": "2020-03-14T21:11:14.9918922Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "DigitalTwinOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "314",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+}
+```
+
+#### <a name="adtmodelsoperation"></a>ADTModelsOperação
+
+```json
+{
+  "time": "2020-10-29T21:12:24.2337302Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/models/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "ModelsOperation",
+  "resultType": "Success",
+  "resultSignature": "201",
+  "resultDescription": "",
+  "durationMs": "935",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+}
+```
+
+#### <a name="adtqueryoperation"></a>ADTQueryOperação
+
+```json
+{
+  "time": "2020-12-04T21:11:44.1690031Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/query/action",
+  "operationVersion": "2020-05-31-preview",
+  "category": "QueryOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "255",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+}
+```
+
+### <a name="egress-log-schemas"></a>Esquemas de log da Egress
+
+Este é o esquema para `ADTEventRoutesOperation` registos. Estes contêm detalhes relativos a exceções e as operações da API em torno de pontos finais de saída ligados a uma instância Azure Digital Twins.
+
+|Nome do campo | Tipo de dados | Descrição |
+|-----|------|-------------|
+| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
+| `ResourceId` | Cadeia | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
+| `OperationName` | Cadeia  | O tipo de ação que está a ser realizada durante o evento |
+| `Category` | Cadeia | O tipo de recurso que está a ser emitido |
+| `ResultDescription` | Cadeia | Detalhes adicionais sobre o evento |
+| `Level` | Cadeia | A gravidade do registo do evento |
+| `Location` | Cadeia | A região onde o evento teve lugar |
+| `EndpointName` | Cadeia | O nome do ponto final da saída criado em Azure Digital Twins |
+
+Abaixo estão os corpos JSON exemplo para este tipo de registos.
+
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperação
+
+```json
+{
+  "time": "2020-11-05T22:18:38.0708705Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/eventroutes/action",
+  "category": "EventRoutesOperation",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+  "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+  "level": "3",
+  "location": "southcentralus",
+  "properties": {
+    "endpointName": "endpointEventGridInvalidKey"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

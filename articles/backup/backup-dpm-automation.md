@@ -3,12 +3,12 @@ title: Use powerShell para apoiar cargas de trabalho de DPM
 description: Saiba como implementar e gerir o Azure Backup para o Gestor de Proteção de Dados (DPM) utilizando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538858"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762747"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -47,7 +47,7 @@ As seguintes tarefas de configuração e registo podem ser automatizadas com a P
 * Definições de rede
 * Definições de encriptação
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Os passos seguintes levam-no através da criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de reserva.
 
@@ -140,7 +140,7 @@ As opções disponíveis incluem:
 | /pu |Nome de utilizador do anfitrião proxy |- |
 | /pw |Senha de procuração |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registo de DPM num Cofre de Serviços de Recuperação
+## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registo de DPM num cofre dos Serviços de Recuperação
 
 Depois de criar o cofre dos Serviços de Recuperação, descarregue as credenciais mais recentes e as credenciais do cofre e guarde-o num local conveniente como C:\Downloads.
 
@@ -183,7 +183,7 @@ Todas as modificações são feitas neste objeto Local PowerShell ```$setting```
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não existe um servidor proxy, pelo que estamos a limpar explicitamente qualquer informação relacionada com procuração.
 
@@ -323,10 +323,10 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 No exemplo acima, ```$onlineSch``` encontra-se um conjunto com quatro elementos que contém o calendário de proteção online existente para o Grupo de Proteção no regime GFS:
 
-1. ```$onlineSch[0]```contém a agenda diária
-2. ```$onlineSch[1]```contém o horário semanal
-3. ```$onlineSch[2]```contém o horário mensal
-4. ```$onlineSch[3]```contém o horário anual
+1. ```$onlineSch[0]``` contém a agenda diária
+2. ```$onlineSch[1]``` contém o horário semanal
+3. ```$onlineSch[2]``` contém o horário mensal
+4. ```$onlineSch[3]``` contém o horário anual
 
 Portanto, se precisar de modificar o horário semanal, tem de se referir ao ```$onlineSch[1]``` .
 
@@ -354,8 +354,8 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 Pode utilizar o [cmdlet Get-DPMRecoveryPoint](/powershell/module/dataprotectionmanager/get-dpmrecoverypoint?view=systemcenter-ps-2019) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
 
-* buscar todos os PGs no servidor DPM e armazenados em uma matriz```$PG```
-* obter as fontes de dados correspondentes ao```$PG[0]```
+* buscar todos os PGs no servidor DPM e armazenados em uma matriz ```$PG```
+* obter as fontes de dados correspondentes ao ```$PG[0]```
 * obter todos os pontos de recuperação para uma fonte de dados.
 
 ```powershell
@@ -386,6 +386,6 @@ Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $
 
 Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para mais informações sobre DPM para Azure Backup consulte [Introdução ao Backup DPM](backup-azure-dpm-introduction.md)

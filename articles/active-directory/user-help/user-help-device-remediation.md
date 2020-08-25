@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741000"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799422"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "Não pode chegar lá daqui"
 
@@ -67,7 +67,7 @@ Se o seu dispositivo não estiver associado à rede da sua organização, pode f
 
 - **Registe o seu dispositivo pessoal para trabalhar.** Registe o seu dispositivo pessoal, normalmente um telefone ou tablet, na rede da sua organização. Depois de o seu dispositivo estar registado, pode aceder aos recursos restritos da sua organização. Para obter mais informações e instruções passo a passo, consulte [Registar o seu dispositivo pessoal na rede da sua organização.](user-help-register-device-on-network.md)
 
-## <a name="next-steps"></a>Próximos passos
-- [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
+## <a name="next-steps"></a>Passos seguintes
+- [O que é o portal MyApps?](./my-apps-portal-end-user-access.md)
 
 - [Iniciar sessão com o telemóvel em vez da palavra-passe](user-help-auth-app-sign-in.md)

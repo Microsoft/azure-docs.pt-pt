@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745721"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799490"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
 Junte-se ao seu dispositivo windows 10 de propriedade laboral na rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -27,9 +27,9 @@ Enquanto se junta ao seu dispositivo Windows 10 na rede da sua organização, as
 
 - O Windows regista o seu dispositivo na rede da sua organização, permitindo-lhe aceder aos seus recursos utilizando a sua conta pessoal. Depois de o seu dispositivo estar registado, o Windows junta-se então ao seu dispositivo à rede, para que possa utilizar o nome de utilizador e a palavra-passe da sua organização para iniciar sôm e aceder a recursos restritos.
 
-- Opcionalmente, com base nas escolhas da sua organização, poderá ser-lhe solicitada a configuração de uma verificação em duas etapas através de [uma autenticação multi-factor](multi-factor-authentication-end-user-first-time.md) ou [de informações de segurança.](user-help-security-info-overview.md)
+- Opcionalmente, com base nas escolhas da sua organização, poderá ser-lhe solicitada a configuração de uma verificação em duas etapas através de [uma autenticação multi-factor](multi-factor-authentication-end-user-first-time.md) ou [de informações de segurança.](./security-info-setup-signin.md)
 
-- Opcionalmente, com base nas escolhas da sua organização, poderá ser automaticamente inscrito na gestão de dispositivos móveis, como o Microsoft Intune. Para obter mais informações sobre a inscrição no Microsoft Intune, consulte [Inscrever o seu dispositivo no Intune.](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all)
+- Opcionalmente, com base nas escolhas da sua organização, poderá ser automaticamente inscrito na gestão de dispositivos móveis, como o Microsoft Intune. Para obter mais informações sobre a inscrição no Microsoft Intune, consulte [Inscrever o seu dispositivo no Intune.](/intune-user-help/enroll-your-device-in-intune-all)
 
 - Você vai passar pelo processo de inscrição, usando o sign-in automático com a sua conta organizacional.
 
@@ -110,9 +110,9 @@ Pode certificar-se de que está unido olhando para as suas definições.
 
     ![Trabalho de acesso ou tela escolar com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de se juntar ao seu dispositivo na rede da sua organização, deverá poder aceder a todos os seus recursos utilizando a informação da sua conta de trabalho ou da sua escola.
 
 - Se a sua organização quiser que registe o seu dispositivo pessoal, como o seu telemóvel, consulte [registar o seu dispositivo pessoal na rede da sua organização.](user-help-register-device-on-network.md)
 
-- Se a sua organização for gerida utilizando o Microsoft Intune e tiver dúvidas sobre a inscrição, o sôm-in ou qualquer outro problema relacionado com o Intune, consulte o conteúdo de ajuda do [utilizador Intune.](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)
+- Se a sua organização for gerida utilizando o Microsoft Intune e tiver dúvidas sobre a inscrição, o sôm-in ou qualquer outro problema relacionado com o Intune, consulte o conteúdo de ajuda do [utilizador Intune.](/intune-user-help/use-managed-devices-to-get-work-done)

@@ -3,12 +3,12 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067344"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757273"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -41,7 +41,7 @@ Com a capacidade de sementeira offline do Azure Backup e do serviço Azure Impor
 Certifique-se de que os seguintes pré-requisitos são cumpridos antes de iniciar o fluxo de trabalho de backup offline:
 
 * Foi criado [um cofre dos Serviços de Recuperação.](backup-azure-recovery-services-vault-overview.md) Para criar um, siga os passos no [Create a Recovery Services vault](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)tutorial-backup-windows-server-to-azure#create-a-recovery-services-vault).
-* Certifique-se de que apenas a [versão mais recente do agente microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent) está instalada no SC DPM ou MABS e registada no Cofre de Serviços de Recuperação.
+* Certifique-se de que apenas a [versão mais recente do agente microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent) está instalada no SC DPM ou MABS e registada no cofre dos Serviços de Recuperação.
 * Update Rollup 1 está instalado no SC DPM 2019 ou MABS v3.
 
   > [!NOTE]
@@ -102,7 +102,7 @@ As informações nesta secção ajudam-no a completar o fluxo de trabalho de bac
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Prepare as unidades da SATA e envie-a para Azure
 
-O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o centro de dados Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente Azure Backup (no seguinte caminho):`*\Microsoft Azure Recovery Services Agent\Utils\\*`
+O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o centro de dados Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente Azure Backup (no seguinte caminho): `*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Vá ao diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador onde as unidades SATA estão ligadas. No computador com as unidades SATA ligadas, certifique-se:
 
