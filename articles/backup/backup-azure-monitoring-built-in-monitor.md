@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654128"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755726"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -95,7 +95,7 @@ Se a frequência foi definida para uma digestão de hora a hora e um alerta foi 
 
 > [!NOTE]
 >
-> - Se for realizada uma operação destrutiva como **a proteção stop com os dados de eliminação,** é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre do Serviço de Recuperação.
+> - Se for realizada uma operação destrutiva como **a proteção stop com os dados de eliminação,** é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre dos Serviços de Recuperação.
 > - Para configurar a notificação para trabalhos bem sucedidos, utilize [o Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Alertas inativos

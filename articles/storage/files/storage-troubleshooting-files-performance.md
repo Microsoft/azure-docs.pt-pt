@@ -4,15 +4,15 @@ description: Resolução de problemas conhecidos problemas de desempenho com aç
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009278"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782375"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
@@ -20,9 +20,9 @@ Este artigo enumera alguns problemas comuns relacionados com as ações de fiche
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Altas latências, baixo rendimento e problemas gerais de desempenho
 
-### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Partilhar a experimentar estrangulamento
+### <a name="cause-1-share-was-throttled"></a>Causa 1: A partilha foi acelerada
 
-A quota padrão numa ação premium é de 100 GiB, que fornece 100 IOPS de base (com um potencial de explosão até 300 durante uma hora). Para obter mais informações sobre o provisionamento e a sua relação com o IOPS, consulte a secção [de ações provisionadas](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) do guia de planeamento.
+Os pedidos são acelerados quando o IOPS, ingresss ou limites de saída para uma partilha de ficheiros são atingidos. Para compreender os limites das ações de ficheiros standard e premium, consulte [os alvos de ações de ficheiros e de escala de ficheiros.](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)
 
 Para confirmar se a sua parte está a ser acelerada, pode aproveitar a Azure Metrics no portal.
 
@@ -47,7 +47,8 @@ Para confirmar se a sua parte está a ser acelerada, pode aproveitar a Azure Met
 
 ### <a name="solution"></a>Solução
 
-- Aumente a capacidade a percentagem apresentando especificando uma quota mais elevada na sua parte.
+- Se estiver a utilizar uma partilha de ficheiros padrão, ative [grandes ações de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) na sua conta de armazenamento. As grandes ações suportam até 10.000 IOPS por ação.
+- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte a [secção de provisão de Compreensão para ações de ficheiros premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) no guia de planeamento dos Ficheiros Azure.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Metadata/espaço de nome carga de trabalho pesada
 
@@ -202,7 +203,7 @@ Maior do que o esperado, a latência acede aos Ficheiros Azure para cargas de tr
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure](storage-files-faq.md)

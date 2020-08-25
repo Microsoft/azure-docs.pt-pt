@@ -4,16 +4,16 @@ description: Neste tutorial, melhore a qualidade da sua base de conhecimento com
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84635392"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Tutorial: Adicione a sua base de conhecimentos a Agentes Virtuais de Energia
 Crie e estenda um bot [de Agentes Virtuais de Energia](https://powervirtualagents.microsoft.com/) para fornecer respostas a partir da sua base de conhecimento.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -214,9 +214,9 @@ Aqui está o que o agente final tela.
     |--|--|--|
     |1|Hello|Começar a conversa|
     |2|Horário de loja|Tópico da amostra. Isto está configurado para si sem qualquer trabalho adicional da sua parte.|
-    |3|Sim|Em resposta a`Did that answer your question?`|
-    |4|Excelente|Em resposta a`Please rate your experience.`|
-    |5|Sim|Em resposta a`Can I help with anything else?`|
+    |3|Yes|Em resposta a `Did that answer your question?`|
+    |4|Excelente|Em resposta a `Please rate your experience.`|
+    |5|Yes|Em resposta a `Can I help with anything else?`|
     |6|Como posso melhorar o desempenho da produção para previsões de consulta?|Esta pergunta desencadeia a ação de recuo, que envia o texto para a sua base de conhecimento para responder. Então a resposta é mostrada. as marcas verdes de verificação das ações individuais indicam o sucesso de cada ação.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Screenshot do chat bot com tela indicando marcas verdes para ações bem sucedidas.":::
@@ -229,7 +229,7 @@ Para disponibilizar o agente a todos os membros da sua escola ou organização, 
 
 1. Experimente o seu bot no site de demonstração (procure o link em **Publicação).**
 
-    Uma nova página web abre com o seu bot. Faça ao bot a mesma pergunta de teste:`How can I improve the throughput performance for query predictions?`
+    Uma nova página web abre com o seu bot. Faça ao bot a mesma pergunta de teste: `How can I improve the throughput performance for query predictions?`
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da tela do agente final](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)

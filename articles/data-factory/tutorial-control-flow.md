@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85513317"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
@@ -65,7 +65,7 @@ Crie uma aplicação como descrito na [Criação de uma aplicação Azure Ative 
    Tamika|Walsh
    ```
 
-1. Abra o Explorador de Armazenamento Azure. Expanda a sua conta de armazenamento. Clique com o botão direito **Recipientes blob** e selecione **Create Blob Container**.
+1. Abra o Explorador de Armazenamento Azure. Expanda a sua conta de armazenamento. Clique com o botão direito do rato em **Contentores de Blobs** e selecione **Criar Contentor de Blobs**.
 1. Nomeie o novo recipiente *adfv2branch* e **selecione Upload** para adicionar o seu ficheiro *input.txt* ao recipiente.
 
 ## <a name="create-visual-studio-project"></a>Criar projeto do Visual Studio<a name="create-visual-studio-project"></a>
@@ -236,7 +236,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados Blob refere-se ao serviço ligado ao Azure Storage suportado no passo anterior. O conjunto de dados Blob descreve a localização da bolha para copiar a partir de: *PastaPath* e *DataName*de Ficheiros .
 
-Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer`é o nome do parâmetro e a expressão é substituída pelos valores passados no gasoduto. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
+Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer` é o nome do parâmetro e a expressão é substituída pelos valores passados no gasoduto. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Crie um conjunto de dados para um azure Blob
 

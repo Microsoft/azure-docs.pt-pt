@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983411"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782163"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros do modelo
 
@@ -77,11 +77,11 @@ Esta secção descreve como executar uma varredura de parâmetros básicos, que 
 
 Quando o treino estiver completo:
 
-+ Para visualizar um conjunto de métricas de precisão para o melhor modelo, clique com o botão direito no módulo e, em seguida, **selecione Visualize**.
++ Para ver os resultados da varredura, clique com o botão direito no módulo e, em seguida, **selecione Visualize**.
 
-    A saída inclui todas as métricas de precisão que se aplicam ao tipo de modelo, mas a métrica que selecionou para o ranking determina qual o modelo considerado "melhor".
+    A saída inclui todas as métricas de varredura de parâmetros e precisão que se aplicam ao tipo de modelo, mas a métrica que selecionou para o ranking determina qual o modelo considerado "melhor".
 
-+ Para guardar uma imagem do modelo treinado, selecione o **separador Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone **do conjunto de dados registar** para guardar o modelo como um módulo reutilizável.
++ Para guardar uma imagem do modelo treinado, selecione o **separador Saídas+logs** no painel direito do módulo **modelo Train.** Selecione o ícone **do conjunto de dados registar** para guardar o modelo como um módulo reutilizável.
 
 
 ## <a name="technical-notes"></a>Notas técnicas
@@ -149,7 +149,7 @@ No entanto, durante o treino, deve escolher uma *única* métrica para utilizar 
 Quase todos os alunos do Azure Machine Learning apoiam a validação cruzada com uma varredura de parâmetros integrada, que permite escolher os parâmetros para pipeline com. Se o aprendiz não suportar a definição de uma gama de valores, ainda pode usá-lo em validação cruzada. Neste caso, é selecionada uma gama de valores permitidos para a varredura. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

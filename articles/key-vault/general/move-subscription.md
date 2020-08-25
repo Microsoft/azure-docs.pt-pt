@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585786"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782724"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -39,7 +39,7 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
 
 Alguns diretores de serviço (utilizadores e aplicações) estão ligados a um inquilino específico. Se você mudar o seu cofre chave para uma subscrição em outro inquilino, há a chance de que você não será capaz de restaurar o acesso a um diretor de serviço específico. Verifique se todos os diretores de serviço essenciais existem no inquilino para onde você está movendo o seu cofre chave.
 
-## <a name="design-considerations"></a>Considerações de design
+## <a name="design-considerations"></a>Considerações de conceção
 
 A sua organização pode ter implementado a Política Azure com aplicação ou exclusões ao nível da subscrição. Pode haver um conjunto diferente de atribuições de política na subscrição onde o seu cofre-chave existe atualmente e a subscrição para onde está a mover o cofre principal. Um conflito nos requisitos políticos tem o potencial de quebrar as suas aplicações.
 
@@ -59,7 +59,9 @@ Certifique-se de que vai à página da Política Azure no portal Azure e veja as
 
 ## <a name="procedure"></a>Procedimento
 
-### <a name="initial-steps-moving-key-vault"></a>Passos iniciais (cofre de chaves móvel)
+Se 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Mover o Cofre-Chave para uma nova subscrição dentro do mesmo inquilino
 
 1. Iniciar sessão no portal do Azure
 2. Navegue até ao cofre da chave
@@ -70,9 +72,9 @@ Certifique-se de que vai à página da Política Azure no portal Azure e veja as
 7. Reconheça o aviso sobre os recursos em movimento
 8. Selecione "OK"
 
-### <a name="additional-steps-post-move"></a>Passos adicionais (movimento pós-post)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Passos adicionais se você mudou o cofre chave para uma subscrição em um novo inquilino
 
-Agora que mudou o cofre para a nova subscrição, precisa atualizar a identificação do inquilino e remover as antigas políticas de acesso. Aqui estão os tutoriais para estes passos em PowerShell e Azure CLI.
+Se você mudou o seu cofre chave para uma subscrição em um novo inquilino, você precisa atualizar manualmente o ID do inquilino e remover as antigas políticas de acesso. Aqui estão os tutoriais para estes passos em PowerShell e Azure CLI. Se estiver a utilizar o PowerShell, poderá ter de executar o comando Clear-AzContext documentado abaixo para lhe permitir ver recursos fora do âmbito atual selecionado. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

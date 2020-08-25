@@ -1,15 +1,15 @@
 ---
 title: Como mover cofres dos Serviços de Recuperação de Backup da Azure
-description: Instruções sobre como mover o cofre de serviços de recuperação através de assinaturas Azure e grupos de recursos.
+description: Instruções sobre como mover um cofre dos Serviços de Recuperação através de assinaturas Escaure e grupos de recursos.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650918"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755743"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -50,12 +50,12 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Use o portal Azure para mover o cofre dos Serviços de Recuperação para diferentes grupos de recursos
 
-Para mover um cofre de serviços de recuperação e os seus recursos associados para diferentes grupos de recursos
+Para mover um cofre dos Serviços de Recuperação e os seus recursos associados para diferentes grupos de recursos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra a lista de cofres dos **Serviços de Recuperação** e selecione o cofre que pretende mover. Quando o painel de abóbada abre, aparece como mostrado na imagem seguinte.
 
-   ![Cofre de serviço de recuperação aberta](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Cofre de Serviços de Recuperação Aberto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    Se não vir as informações **essenciais** para o seu cofre, selecione o ícone de drop-down. Devias agora ver as informações do Essentials para o teu cofre.
 
@@ -84,7 +84,7 @@ Você pode mover um cofre de Serviços de Recuperação e seus recursos associad
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra a lista de cofres dos Serviços de Recuperação e selecione o cofre que pretende mover. Quando o painel de abóbada abre, aparece como mostra a seguinte imagem.
 
-    ![Cofre de serviço de recuperação aberta](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Cofre de Serviços de Recuperação Aberto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     Se não vir as informações **essenciais** para o seu cofre, selecione o ícone de drop-down. Devias agora ver as informações do Essentials para o teu cofre.
 

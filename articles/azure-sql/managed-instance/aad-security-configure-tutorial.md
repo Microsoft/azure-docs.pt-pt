@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84706448"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
@@ -27,7 +27,7 @@ A Azure SQL Managed Instance fornece quase todas as funcionalidades de seguranç
 - Utilizar a autorização com membros e permissões baseados em funções
 - Ativar funcionalidades de segurança
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -136,7 +136,7 @@ Para adicionar o login à função do `sysadmin` servidor:
     GO
     ```
 
-    O exemplo seguinte concede a função do `sysadmin` servidor ao loginnativeuser@aadsqlmi.onmicrosoft.com
+    O exemplo seguinte concede a função do `sysadmin` servidor ao login nativeuser@aadsqlmi.onmicrosoft.com
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER [nativeuser@aadsqlmi.onmicrosoft.com]
@@ -239,7 +239,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     GO
     ```
 
-    O exemplo a seguir cria um utilizador bob@aadsqlmi.net a partir do loginbob@aadsqlmi.net:
+    O exemplo a seguir cria um utilizador bob@aadsqlmi.net a partir do login bob@aadsqlmi.net:
 
     ```sql
     USE MyMITestDB

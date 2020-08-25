@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297946"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
 
 Este artigo demonstra como criar e implementar uma aplicação web [Hugo](https://gohugo.io/) para [Azure Static Web Apps](overview.md). O resultado final é uma nova App Web Estática Azure com ações gitHub associadas que lhe dão controlo sobre como a aplicação é construída e publicada.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -97,11 +97,11 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 ### <a name="create-the-application"></a>Criar a aplicação
 
-1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Clique **em Criar um recurso**
-1. Pesquisa de **aplicativos web estáticos**
-1. Clique **em Aplicativos Web Estáticos (pré-visualização)**
-1. Clique **em Criar**
+1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Clique em **Criar um Recurso**.
+1. Procure **Aplicações Web Estáticas**
+1. Clique em **Aplicações Web Estáticas (Pré-visualização)**
+1. Clique em **Criar**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Criar um recurso Azure Static Web Apps no portal":::
 
@@ -127,11 +127,11 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
-### <a name="build"></a>Compilação
+### <a name="build"></a>Compilar
 
 Em seguida, adiciona definições de configuração que o processo de construção utiliza para construir a sua aplicação. As seguintes definições configuram o ficheiro de fluxo de trabalho gitHub Action.
 
-1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
+1. Clique no botão **Seguinte: Compilar>** para editar a configuração de compilação
 
 1. Definir _a localização da aplicação_ para **/** .
 

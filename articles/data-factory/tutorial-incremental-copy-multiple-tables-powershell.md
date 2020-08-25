@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85250966"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
@@ -834,7 +834,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 No SQL Server Management Studio, execute as seguintes consultas na base de dados SQL de destino para verificar que os dados foram copiados das tabelas de origem para as tabelas de destino. 
 
-**Consulta** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -851,7 +851,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Consulta**
+**Query**
 
 ```sql
 select * from project_table
@@ -868,7 +868,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Consulta**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -917,7 +917,7 @@ VALUES
 
 No SQL Server Management Studio, execute as seguintes consultas na base de dados de destino para verificar que os dados atualizados/novos foram copiados a partir de tabelas de origem para tabelas de destino. 
 
-**Consulta** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -936,7 +936,7 @@ PersonID    Name    LastModifytime
 
 Repare nos valores novos de **Name** e **LastModifytime** para **PersonID** relativamente ao número 3. 
 
-**Consulta**
+**Query**
 
 ```sql
 select * from project_table
@@ -956,7 +956,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Repare que a entrada **NewProject** foi adicionada a project_table. 
 
-**Consulta**
+**Query**
 
 ```sql
 select * from watermarktable

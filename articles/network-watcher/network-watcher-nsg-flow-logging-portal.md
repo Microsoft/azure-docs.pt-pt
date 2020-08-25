@@ -16,10 +16,10 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84808697"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
@@ -31,7 +31,7 @@ ms.locfileid: "84808697"
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, vai aprender a:
+Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma VM com um grupo de segurança de rede
@@ -67,12 +67,12 @@ A criação da VM demora alguns minutos. Não continue com os restantes passos a
 
 Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para [Registar o fornecedor do Insights](#register-insights-provider).
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
 
     ![Ativar o Observador de Rede](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
-3. Selecione **Ativar o Observador de Rede**.
+3. Selecione **Ativar Observador de Rede**.
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 

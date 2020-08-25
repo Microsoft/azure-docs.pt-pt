@@ -8,19 +8,21 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448636"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782588"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore da decisão reforçada
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
 
 Utilize este módulo para criar um conjunto de árvores de regressão utilizando o reforço. *Aumentar* significa que cada árvore depende de árvores anteriores. O algoritmo aprende encaixando o residual das árvores que o precederam. Assim, o aumento de um conjunto de árvores de decisão tende a melhorar a precisão com algum pequeno risco de menor cobertura.  
+
+Este módulo é baseado no algoritmo LightGBM.
   
 Este método de regressão é um método de aprendizagem supervisionado e, portanto, requer um *conjunto de dados rotulado*. A coluna da etiqueta deve conter valores numéricos.  
 
@@ -103,6 +105,6 @@ Após o treino estar completo:
 
 + Para guardar uma imagem do modelo treinado, selecione o separador **Saídas** no painel direito do **modelo treinado** e clique no ícone do conjunto de **dados do Registo.** A cópia do modelo treinado será guardada como módulo na árvore do módulo e não será atualizada em sucessivas execuções do gasoduto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

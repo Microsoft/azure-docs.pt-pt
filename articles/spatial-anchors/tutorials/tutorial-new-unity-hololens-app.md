@@ -9,10 +9,10 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297992"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
@@ -31,7 +31,7 @@ Para concluir este tutorial, confirme que tem:
 
 Primeiro vamos preparar o nosso projeto e a cena da unidade:
 1. Iniciar a Unidade.
-2. Selecione **Novo**.
+2. Selecione **New** (Novo).
 4. Certifique-se de que o **3D** está selecionado.
 5. Nomeie o seu projeto e introduza uma **localização**de salvamento.
 6. Clique **em Criar projeto.**
@@ -212,7 +212,7 @@ Uma âncora é enviada para a nuvem, estamos prontos para tentar localizá-la no
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
-Vamos agora adicionar os `ResetSession()` nossos e `CleanupObjects()` métodos. Pode colocá-los abaixo`QueueOnUpdate()`
+Vamos agora adicionar os `ResetSession()` nossos e `CleanupObjects()` métodos. Pode colocá-los abaixo `QueueOnUpdate()`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
@@ -225,6 +225,6 @@ Agora permite adicionar código que irá criar & colocar uma esfera verde uma ve
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Já está. Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
+Já está! Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

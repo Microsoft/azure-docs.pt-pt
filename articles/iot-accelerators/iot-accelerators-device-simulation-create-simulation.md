@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "61448559"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo IoT
@@ -28,7 +28,7 @@ Neste tutorial:
 > * Ver métricas relativas a uma simulação
 > * Parar uma simulação
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,4 +77,4 @@ Para parar uma simulação, clique em **Stop Simulation** (Parar Simulação), n
 Neste tutorial, aprendeu a criar, executar e parar uma simulação. Também aprendeu a ver os detalhes da simulação. Para saber mais sobre como executar simulações, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Create a custom simulated device](iot-accelerators-device-simulation-create-custom-device.md) (Criar um dispositivo simulado personalizado)
+> [Criar um dispositivo simulado personalizado](iot-accelerators-device-simulation-create-custom-device.md)

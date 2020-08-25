@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc
 ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85367381"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
@@ -153,7 +153,7 @@ As seguintes classes, propriedades e métodos são utilizados na tarefa anterior
 |[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [Uri](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Existe](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
 |[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
 |[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [Nome](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
-|[UriBuilder](/dotnet/api/system.uribuilder) | [Consulta](/dotnet/api/system.uribuilder.query) |  |
+|[UriBuilder](/dotnet/api/system.uribuilder) | [Query](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Adicionar](/dotnet/api/system.collections.generic.list-1.add) |
 
 ## <a name="azure-storage-encryption"></a>Encriptação do Armazenamento do Azure

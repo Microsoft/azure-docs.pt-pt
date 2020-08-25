@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 057ffcdc8a21567e909d768236e454ee10036115
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84216566"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Desenhe uma base de dados relacional na Azure SQL Database C&#x23; e ADO.NET
@@ -58,14 +58,14 @@ Siga estes passos para criar uma base de dados em branco.
     | **Nome da base de dados** | *sua Base de Dados* | Para obter nomes de bases de dados válidos, consulte [os identificadores de base de dados.](/sql/relational-databases/databases/database-identifiers) |
     | **Subscrição** | *sua Subscrição*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
     | **Grupo de recursos** | *o seu Grupo DeOrigem* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-    | **Selecione fonte** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
+    | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **Server** para utilizar um servidor existente ou criar e configurar um novo servidor. Selecione um servidor existente ou clique em **Criar um novo servidor** e preencha o novo formulário do **servidor** com as seguintes informações:
 
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-    | **Início de administração do servidor** | Qualquer nome válido | Para obter nomes de login válidos, consulte [os identificadores de base de dados.](/sql/relational-databases/databases/database-identifiers) |
+    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para obter nomes de login válidos, consulte [os identificadores de base de dados.](/sql/relational-databases/databases/database-identifiers) |
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter pelo menos oito caracteres e deve utilizar caracteres de três das seguintes categorias: caracteres maiúsculas, caracteres minúsculos, números e caracteres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
@@ -9,17 +9,17 @@ ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "67184690"
 ---
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planear avançar para o próximo tutorial, deixe o acelerador de soluções de Monitorização Remota implementado. Para reduzir os custos de execução do acelerador de soluções enquanto não estiver a utilizá-lo, pode parar os dispositivos simulados no painel de definições:
 
-[![Pausa telemetria](./media/iot-accelerators-tutorial-cleanup/togglesimulation-inline.png)](./media/iot-accelerators-tutorial-cleanup/togglesimulation-expanded.png#lightbox)
+[![Pausa na telemetria](./media/iot-accelerators-tutorial-cleanup/togglesimulation-inline.png)](./media/iot-accelerators-tutorial-cleanup/togglesimulation-expanded.png#lightbox)
 
 Pode reiniciar os dispositivos simulados quando estiver pronto para iniciar o próximo tutorial.
 

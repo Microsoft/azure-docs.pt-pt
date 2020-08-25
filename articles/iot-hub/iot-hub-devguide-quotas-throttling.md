@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f8522171fca6a88f81c3b8f0161fc382041aae1e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335567"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782571"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -111,7 +111,8 @@ O IoT Hub impõe outros limites operacionais:
 | Configurações automáticas de dispositivo e módulo<sup>1</sup> | 100 configurações por hub SKU pago. 20 configurações por hub SKU gratuito. |
 | Implementações automáticas IoT Edge<sup>1</sup> | 50 módulos por implantação. 100 implementações (incluindo implementações em camadas) por hub SKU pago. 10 implementações por hub SKU gratuito. |
 | Gémeos<sup>1</sup> | O tamanho máximo das propriedades desejadas e as secções de propriedades reportadas são de 32 KB cada. O tamanho máximo da secção de etiquetas é de 8 KB. |
-| Políticas de acesso partilhado | O número máximo de políticas de acesso partilhado é de 16 |
+| Políticas de acesso partilhado | O número máximo de políticas de acesso partilhado é de 16. |
+| Certificados da AC | O número máximo de certificados de CA X.509 que podem ser registados é de 25. |
 
 <sup>1</sup> Esta funcionalidade não está disponível no nível básico do IoT Hub. Para mais informações, consulte [Como escolher o IoT Hub certo.](iot-hub-scaling.md)
 

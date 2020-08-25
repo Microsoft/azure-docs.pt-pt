@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24b7845ec66a85e6ced4f1df9caec409a94016bf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034104"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782605"
 ---
 # <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Use funções personalizadas Azure na Gestão de Identidade Privilegiada
 
@@ -31,7 +31,7 @@ Siga os passos descritos na secção seguinte para configurar configurações de
 
 ## <a name="create-the-custom-role"></a>Criar o papel personalizado
 
-Para criar um papel personalizado para um recurso, siga os passos descritos nas [funções personalizadas Azure](../role-based-access-control-custom-roles.md).
+Para criar um papel personalizado para um recurso, siga os passos descritos nas [funções personalizadas Azure](../../role-based-access-control/custom-roles.md).
 
 Quando criar um papel personalizado, inclua um nome descritivo para que possa facilmente lembrar qual o papel incorporado que pretendia duplicar.
 

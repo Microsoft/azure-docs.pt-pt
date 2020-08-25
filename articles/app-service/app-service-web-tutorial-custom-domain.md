@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190074"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782316"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 
@@ -277,7 +277,7 @@ Quando o CNAME estiver adicionado, a página de registos DNS terá um aspeto sem
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Ativar o mapeamento de registos CNAME na aplicação
 
-Agora pode adicionar qualquer subdomínio que corresponda ao nome wildcard da aplicação (por exemplo, `sub1.contoso.com` e `sub2.contoso.com` ambos `*.contoso.com` correspondem).
+Agora pode adicionar qualquer subdomínio que corresponda ao nome wildcard da aplicação (por exemplo, `sub1.contoso.com` `sub2.contoso.com` e ambos `*.contoso.com` `*.contoso.com` correspondem).
 
 No painel de navegação esquerdo da página da aplicação no portal do Azure, selecione **Domínios personalizados**.
 
