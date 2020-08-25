@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852230"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816308"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -247,8 +247,6 @@ Depois de iniciar seduca no estúdio Azure Machine Learning, pode usar uma tela 
 Operacionalize os modelos de machine learning que construiu envolvendo-os numa interface de serviço web. A operacionalização de modelos de machine learning permite que os clientes escritos em qualquer língua invoquem previsões desses modelos. Para mais informações, consulte a [documentação de Machine Learning.](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 Também pode construir os seus modelos em R ou Python no VM e, em seguida, implantá-los em produção no Azure Machine Learning. Instalámos bibliotecas em R **(AzureML)** e Python **(azureml)** para permitir esta funcionalidade.
-
-Para obter informações sobre como implementar modelos em R e Python em Azure Machine Learning, consulte [dez coisas que pode fazer na Máquina Virtual de Ciência de Dados.](vm-do-ten-things.md)
 
 > [!NOTE]
 > Estas instruções foram escritas para a versão Windows da Máquina Virtual de Ciência de Dados. Mas a informação fornecida sobre a implementação de modelos para a Azure Machine Learning é aplicável ao Linux VM.

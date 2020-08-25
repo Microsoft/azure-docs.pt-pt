@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a482b860ae13e817727ca0c3848a598fe3632136
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277592"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816767"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
 
@@ -150,9 +150,15 @@ O código que se segue demonstra a leitura e a escrita de textos bem conhecidos 
 GML é uma especificação de ficheiros XML espacial que é frequentemente usada como uma extensão a outras especificações de XML. Os dados da GeoJSON podem ser escritos como XML com tags GML utilizando a `atlas.io.core.GmlWriter.write` função. O XML que contém GML pode ser lido utilizando a `atlas.io.core.GmlReader.read` função. A função de leitura tem duas opções:
 
 - A `isAxisOrderLonLat` opção - A ordem do eixo das coordenadas "latitude, longitude" ou "longitude, latitude" pode variar entre conjuntos de dados, e nem sempre está bem definida. Por predefinição, o leitor da GML lê os dados da coordenada como "latitude, longitude", mas definir esta opção para verdade irá lê-lo como "longitude, latitude".
-- A `propertyTypes` opção - Esta opção é uma tabela de procura de valor chave onde a chave é o nome de uma propriedade no conjunto de dados. O valor é o tipo de objeto para lançar o valor para quando a análise. Os valores do tipo suportado são: `string` `number` , , e `boolean` `date` . Se uma propriedade não estiver na mesa de pesquisa ou o tipo não estiver definido, a propriedade será analisada como uma corda.
+- A `propertyTypes` opção - Esta opção é uma tabela de procura de valor chave onde a chave é o nome de uma propriedade no conjunto de dados. O valor é o tipo de objeto para lançar o valor para quando a análise. Os valores do tipo suportado são: `string` `number` , , e `boolean`  `date` . Se uma propriedade não estiver na mesa de pesquisa ou o tipo não estiver definido, a propriedade será analisada como uma corda.
 
 A `atlas.io.read` função irá desreser o padrão da `atlas.io.core.GmlReader.read` função quando detetar que os dados de entrada são XML, mas os dados não são um dos outros formatos de suporte de XML espacial.
+
+As coordenadas de análise de `GmlReader` testamento que têm um dos seguintes SRIDs:
+
+- EPSG:4326 (Preferido)
+- EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 possivelmente com uma pequena margem de erro.
+- EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336927"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815815"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -64,7 +64,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -113,7 +113,7 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
     h. Selecione **Incremental** para o **modo de implementação**.
 
     > [!WARNING]
-    > Se selecionar **Complete** para o **modo de Implementação,** os recursos existentes podem ser eliminados, incluindo todos os recursos do grupo de recursos-alvo que não estão definidos no modelo de Gestor de Recursos.
+    > No modo de implementação completo, os recursos que existem no grupo de recursos mas que não estão especificados no novo modelo de Gestor de Recursos serão **eliminados**. Para mais informações, consulte os [modos de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Implantação de prod de fábrica de dados](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -165,7 +165,7 @@ Há duas maneiras de lidar com segredos:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões ao agente da Azure Pipelines
 
-A tarefa Azure Key Vault pode falhar com um erro de Acesso Negado se as permissões corretas não estiverem definidas. Descarregue os registos para o lançamento e localize o ficheiro .ps1 que contém o comando para dar permissões ao agente Azure Pipelines. Pode executar o comando diretamente. Ou pode copiar o ID principal do ficheiro e adicionar a política de acesso manualmente no portal Azure. `Get`e `List` são as permissões mínimas necessárias.
+A tarefa Azure Key Vault pode falhar com um erro de Acesso Negado se as permissões corretas não estiverem definidas. Descarregue os registos para o lançamento e localize o ficheiro .ps1 que contém o comando para dar permissões ao agente Azure Pipelines. Pode executar o comando diretamente. Ou pode copiar o ID principal do ficheiro e adicionar a política de acesso manualmente no portal Azure. `Get` e `List` são as permissões mínimas necessárias.
 
 ### <a name="updating-active-triggers"></a>Atualizar gatilhos ativos
 
@@ -325,7 +325,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixado com `connectionString` .
 * A propriedade `secretAccessKey` passa a ser um `AzureKeyVaultSecret` (por exemplo, num serviço ligado ao Amazon S3). É automaticamente parametrizado como um cofre de chave Azure e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre da chave em si.
 
-#### <a name="datasets"></a>Conjuntos de dados
+#### <a name="datasets"></a>Conjuntos de Dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 
@@ -630,7 +630,7 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
 
 -   Não pode atualmente acolher projetos no Bitbucket.
 
-## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a>Guião pré e pós-implantação da amostra
+## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Guião pré e pós-implantação da amostra
 
 O seguinte script de amostra pode ser usado para parar os gatilhos antes de ser implantado e reiniciá-los depois. O script também inclui código para eliminar recursos que foram removidos. Guarde o script num repositório de git Azure DevOps e refira-o através de uma tarefa Azure PowerShell utilizando a versão 4.*.
 

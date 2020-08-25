@@ -10,22 +10,22 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f6d128ace64f7c100a974883bff82435a496be97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026666"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815458"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual de ciência de dados Ubuntu usando um modelo ARM
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este quickstart irá mostrar-lhe como criar uma Máquina Virtual Ubuntu 18.04 Data Science utilizando um modelo de Gestor de Recursos Azure (modelo ARM). Data Science Virtual Machines são máquinas virtuais baseadas em nuvem pré-carregadas com um conjunto de quadros e ferramentas de aprendizagem automática de dados e de aprendizagem automática. Quando implantados em recursos computacionais movidos a GPU, todas as ferramentas e bibliotecas são configuradas para utilizar a GPU. 
+Este quickstart irá mostrar-lhe como criar uma Máquina Virtual Ubuntu 18.04 Data Science utilizando um modelo de Gestor de Recursos Azure (modelo ARM). Data Science Virtual Machines são máquinas virtuais baseadas em nuvem pré-carregadas com um conjunto de quadros e ferramentas de aprendizagem automática de dados e de aprendizagem automática. Quando implantados em recursos computacionais movidos a GPU, todas as ferramentas e bibliotecas são configuradas para utilizar a GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
 
@@ -37,7 +37,7 @@ Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a ut
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). O modelo completo para este artigo é muito longo para mostrar aqui. Para ver o modelo completo, consulte [azuredeploy.js.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json) A parte que define as especificidades do DSVM é mostrada aqui:
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). O modelo completo para este artigo é muito longo para mostrar aqui. Para ver o modelo completo, consulte [azuredeploy.js.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json) A parte que define as especificidades do DSVM é mostrada aqui:
 
 :::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
 
@@ -74,8 +74,8 @@ Quando executar o comando acima, insira:
 
 Para ver a sua Máquina Virtual de Ciência de Dados:
 
-1. Aceda a https://portal.azure.com.
-1. Inicia sessão.
+1. Vá ao [portal Azure](https://portal.azure.com)
+1. Inicie sessão.
 1. Escolha o grupo de recursos que acabou de criar.
 
 Verá as informações do Grupo de Recursos:
@@ -84,7 +84,7 @@ Verá as informações do Grupo de Recursos:
 
 Clique no recurso Máquina Virtual para ir à sua página de informações. Aqui pode encontrar informações sobre o VM, incluindo detalhes de conexão.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não quiser utilizar esta máquina virtual, elimine-a. Uma vez que o DSVM está associado a outros recursos, como uma conta de armazenamento, provavelmente irá querer eliminar todo o grupo de recursos que criou. Pode eliminar o grupo de recursos utilizando o portal clicando no botão **Eliminar** e confirmando. Ou, pode eliminar o grupo de recursos do CLI com:
 

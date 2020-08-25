@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/25/2020
+ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066487"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816665"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
 
@@ -39,7 +39,7 @@ Também pode criar um ISE utilizando o modelo de arranque rápido do [Azure Reso
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
   > [!IMPORTANT]
   > Aplicações lógicas, gatilhos incorporados, ações incorporadas e conectores que funcionam no seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para aprender como os preços e a faturação funcionam para as ISEs, consulte o [modelo de preços de Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para taxas de preços, consulte [os preços das Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md)
@@ -94,6 +94,8 @@ Para garantir que o ise está acessível e que as aplicações lógicas em que o
 
   Ao configurar [as regras de segurança NSG,](../virtual-network/security-overview.md#security-rules)tem de utilizar *os* protocolos **TCP** e **UDP,** ou pode selecionar **Qualquer** em vez disso para que não tenha de criar regras separadas para cada protocolo. As regras de segurança NSG descrevem as portas que deve abrir para os endereços IP que precisam de acesso a essas portas. Certifique-se de que quaisquer firewalls, routers ou outros itens existentes entre estes pontos finais também mantêm essas portas acessíveis a esses endereços IP.
 
+* Se configurar um túnel forçado através da sua firewall para redirecionar o tráfego ligado à Internet, reveja os [requisitos adicionais de túneis forçados](#forced-tunneling).
+
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>Portas de rede utilizadas pelo ISE
@@ -135,11 +137,31 @@ Esta tabela descreve as portas que o seu ISE necessita para serem acessíveis e 
 | Resolução de nomes DNS | **VirtualNetwork** | * | Endereços IP para quaisquer servidores personalizados do Sistema de Nome de Domínio (DNS) na sua rede virtual | 53 | Requerido apenas quando utiliza servidores DNS personalizados na sua rede virtual |
 |||||||
 
-Além disso, você precisa adicionar regras de saída para [o Ambiente de Serviço de Aplicações (ASE)](../app-service/environment/intro.md):
+Além disso, você precisa adicionar regras de saída para o Ambiente de Serviço de [Aplicações (ASE)](../app-service/environment/intro.md):
 
 * Se utilizar o Azure Firewall, tem de configurar a sua firewall com a [etiqueta de domínio (ASE) totalmente qualificada (FQDN),](../firewall/fqdn-tags.md#current-fqdn-tags)que permite o acesso de saída ao tráfego da plataforma ASE.
 
 * Se utilizar um aparelho de firewall que não seja o Azure Firewall, tem de configurar a sua firewall com *todas as* [regras listadas](../app-service/environment/firewall-integration.md#dependencies) nas dependências de integração de firewall que são necessárias para o Ambiente de Serviço de Aplicações.
+
+<a name="forced-tunneling"></a>
+
+#### <a name="forced-tunneling-requirements"></a>Requisitos de túneis forçados
+
+Se configurar ou utilizar [um túnel forçado](../firewall/forced-tunneling.md) através da sua firewall, tem de permitir dependências externas adicionais para o seu ISE. O túnel forçado permite redirecionar o tráfego ligado à Internet para um próximo lúpulo designado, como a sua rede privada virtual (VPN) ou para um aparelho virtual, em vez de para a Internet, para que possa inspecionar e auditar o tráfego da rede de saída.
+
+Normalmente, todo o tráfego de dependência de saída do ISE viaja através do endereço IP virtual (VIP) que é a provisionado com o seu ISE. No entanto, se alterar o encaminhamento de tráfego de ou para o seu ISE, tem de permitir as seguintes dependências de saída na sua firewall, definindo o seu próximo salto para `Internet` . Se utilizar o Azure Firewall, siga as [instruções para configurar a sua firewall com o seu Ambiente de Serviço de Aplicações](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+
+Se não permitir o acesso a estas dependências, a sua implantação ise falha e o ise implantado deixa de funcionar:
+
+* [Endereços de gestão de Ambiente de Serviço de Aplicações](../app-service/environment/management-addresses.md)
+
+* [Endereços de gestão da API da Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+
+* [Endereços de gestão do Gestor de Tráfego Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+
+* [Endereços de entrada e saída de Apps lógicas para a região do ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+
+* Você precisa ativar os pontos finais de serviço para Azure SQL, Storage, Service Bus e Event Hub porque você não pode enviar tráfego através de uma firewall para estes serviços.
 
 <a name="create-environment"></a>
 
@@ -151,7 +173,7 @@ Além disso, você precisa adicionar regras de saída para [o Ambiente de Servi�
 
 1. No painel **de ambientes de serviço de integração,** selecione **Adicionar**.
 
-   ![Localizar e selecionar "Ambientes de Serviço de Integração"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
+   ![Selecione "Adicionar" para criar ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. Forneça estes detalhes para o seu ambiente e, em seguida, selecione **Review + create**, por exemplo:
 

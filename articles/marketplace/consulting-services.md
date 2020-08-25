@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607449"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814727"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
 
@@ -72,40 +72,40 @@ Para obter mais informações sobre competências, aceda à página [microsoft P
 
 Os parceiros integradores de sistemas podem apresentar ofertas de serviços de consultoria para os seguintes 20 países/regiões:
 
-| Países  | (continuou..)   | (continuou..)  | (continuou..)  |
+| Países | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Austrália | Bélgica | Canadá | Dinamarca |
 | Finlândia  | França | Alemanha  | Índia   |
 | Itália    | Japão  |  México  |  Países Baixos  |
 |  Nova Zelândia  |  Noruega  |  Polónia  | África do Sul |
 |  Suécia  | Suíça  |  Estados Unidos da América  | Reino Unido  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registar-se para serviços de consultoria no mercado comercial
 
-Comece por [registar a](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informação da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Torne-se um editor no mercado.](become-publisher.md) 
+Comece por [registar a](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informação da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Torne-se um editor no mercado.](become-publisher.md)
 
 ## <a name="prepare-your-publishing-artifacts"></a>Prepare os seus artefactos editoriais
 Antes de se registar, pode começar a recolher e preparar o conteúdo que ajudará a sua listagem a articular o valor do seu serviço e solução para o seu cliente-alvo. 
 
 |Configuração para novas editoras  |
-|---------|
-|ID do MPN     |
-|Logotipos da empresa (48 x 48, 216 x 216 pixels)     |
-|Destino principal     |
-||
+| - |
+| ID do MPN |
+| Logotipos da empresa (48 x 48, 216 x 216 pixels) |
+| Destino principal |
+|
 
 |Configuração para novas ofertas  |
-|---------|
-|Nome da oferta (200 caracteres) e descrição (2.000 caracteres)    |
-|Competências     |
-|Disponibilidade país/região     |
-|Duração do noivado     |
-|Indústrias, categorias e palavras-chave de pesquisa aplicáveis     |
-|Vídeo geral do produto    |
-|Screenshots (máximo de 5.1280 x 720 pixels)     |
-|Documentos de marketing (máximo de 3)     |
-||
+| - |
+| Nome da oferta (200 caracteres) e descrição (2.000 caracteres) |
+| Competências  |
+| Disponibilidade país/região |
+| Duração do noivado  |
+| Indústrias, categorias e palavras-chave de pesquisa aplicáveis |
+| Vídeo geral do produto |
+| Screenshots (máximo de 5.1280 x 720 pixels) |
+| Documentos de marketing (máximo de 3) |
+|
 
 ## <a name="the-publishing-process"></a>O processo de publicação
 

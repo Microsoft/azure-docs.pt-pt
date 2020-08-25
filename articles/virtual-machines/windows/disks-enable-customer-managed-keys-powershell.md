@@ -2,17 +2,17 @@
 title: Azure PowerShell - Ativar chaves geridas pelo cliente com SSE - discos geridos
 description: Ativar a encriptação do lado do servidor utilizando teclas geridas pelo cliente nos discos geridos com a Azure PowerShell.
 author: roygara
-ms.date: 07/09/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f27f704c0bfbe0c7718ef9c64e907c86a065ebbd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: f967d061ece5887457375b4e93469809f6a575f9
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236073"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814778"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - Ativar as chaves geridas pelo cliente com encriptação do lado do servidor - discos geridos
 
@@ -189,5 +189,5 @@ Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $Reso
 
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Replicar máquinas com chaves geridas pelo cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
-- [Configurar a recuperação de VMware VMs para Azure com a PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
-- [Confiem da recuperação de desastres para a Azure para VMs hiper-V usando PowerShell e Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- [Configurar a recuperação após desastre de VMs do VMware para o Azure com o PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [Configurar a recuperação após desastre para o Azure para VMs Hyper-V com o PowerShell e com o Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

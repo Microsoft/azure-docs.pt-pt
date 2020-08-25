@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507438"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815057"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
 
@@ -39,6 +39,7 @@ Estes riscos são calculados offline usando as fontes internas e externas de int
 | Deteção de riscos | Descrição |
 | --- | --- |
 | Fuga de credenciais | Este tipo de deteção de risco indica que as credenciais válidas do utilizador foram vazadas. Quando os cibercriminosos comprometem senhas válidas de utilizadores legítimos, muitas vezes partilham essas credenciais. Esta partilha é normalmente feita publicamente publicamente na dark web, pasta sites, ou através da negociação e venda das credenciais no mercado negro. Quando o serviço de credenciais vazado da Microsoft adquire credenciais de utilizador a partir da web escura, sites de pasta ou outras fontes, eles são verificados contra as credenciais válidas atuais dos utilizadores do AD AZure para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [questões comuns.](#common-questions) |
+| Spray de senha | Um ataque de spray de palavra-passe é onde vários nomes de utilizadores são atacados usando senhas comuns de forma bruta unificada para obter acesso não autorizado. Esta deteção de risco é desencadeada quando um ataque de spray de palavra-passe foi realizado. |
 | Inteligência de ameaça Azure AD | Este tipo de deteção de risco indica atividade de utilizador que é incomum para o utilizador dado ou é consistente com padrões de ataque conhecidos com base nas fontes internas e externas de inteligência da Microsoft. |
 
 ### <a name="sign-in-risk"></a>Risco de início de sessão

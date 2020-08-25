@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6e877f4e4ce7b50a2e50a2925850b9f533b7f97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508207"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814829"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows
 
@@ -42,7 +42,7 @@ Eventos Agendados proporcionam eventos nos seguintes casos de utilização:
 - [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (por exemplo, reboot VM, migração ao vivo ou atualizações de preservação da memória para hospedeiro)
 - Máquina virtual está a funcionar com [hardware de hospedeiro degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se prevê falhar em breve
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador reinicia ou reimplanta um VM)
-- [Spot VM](spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
+- [Spot VM](../spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
 
 ## <a name="the-basics"></a>Noções básicas  
 
@@ -227,7 +227,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Assista [a Eventos Agendados na Sexta-feira](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) azul para ver uma demonstração. 
 - Reveja as amostras de código de eventos programados no [repositório de metados de casos Azure Instance GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Leia mais sobre as APIs que estão disponíveis no [Serviço de Metadados de Exemplo.](instance-metadata-service.md)

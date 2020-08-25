@@ -1,66 +1,66 @@
 ---
 title: 'Quickstart: Criar uma máquina virtual de ciência de dados do Windows'
 titleSuffix: Azure Data Science Virtual Machine
-description: Configure e crie uma Máquina Virtual de Ciência de Dados em Azure para análise e aprendizagem automática.
+description: Configure e crie uma máquina virtual de ciência de dados em Azure para análise e machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80281787"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816359"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual de ciência de dados para windows
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual da Ciência de Dados para windows
 
-Prepare-se e esteja a funcionar com uma Máquina Virtual de Ciência de Dados do Windows Server 2019.
+Levante-se e em funcionamento com uma máquina virtual de ciência de dados do Windows Server 2019.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Para criar uma Máquina Virtual de Ciência de Dados do Windows, deve ter uma subscrição Azure. [Experimente Azure de graça.](https://azure.com/free)
-Por favor, note que as contas gratuitas do Azure não suportam a gpu ativada pela máquina virtual SKUs.
+Para criar uma Máquina Virtual da Ciência dos Dados do Windows, tem de ter uma subscrição do Azure. [Experimente Azure de graça.](https://azure.com/free)
+Por favor, note que as contas gratuitas do Azure não suportam SKUs de máquina virtual ativada por GPU.
 
 ## <a name="create-your-dsvm"></a>Crie o seu DSVM
 
-Para criar uma instância DSVM:
+Para criar um exemplo DSVM:
 
-1. Vá ao [portal Azure](https://portal.azure.com) Poderá ser solicitado a fazer sessão na sua conta Azure se ainda não tiver assinado.
+1. Vá ao [portal Azure](https://portal.azure.com) Poderá ser solicitado a inscrever-se na sua conta Azure se ainda não tiver assinado.
 1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine - Windows 2019".
 
 1. Selecione o botão **Criar** na parte inferior.
 
 1. Deve ser redirecionado para a lâmina "Criar uma máquina virtual".
 
-1. Preencha o separador **Basics:**
+1. Preencha o separador **Básicos:**
       * **Subscrição**: Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
       * **Grupo de recursos**: Criar um novo grupo ou utilizar um existente.
-      * **Nome**da máquina virtual : Introduza o nome da máquina virtual. É assim que vai aparecer no seu portal Azure.
-      * **Localização**: Selecione o datacenter mais adequado. Para acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+      * **Nome da máquina virtual**: Introduza o nome da máquina virtual. É assim que vai aparecer no seu portal Azure.
+      * **Localização**: Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
       * **Imagem**: Deixe o valor predefinido.
-      * **Tamanho**: Isto deve povoar automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre os tamanhos de [VM do Windows em Azure](../../virtual-machines/windows/sizes.md).
-      * **Nome de utilizador**: Introduza o nome de utilizador do administrador. Este é o nome de utilizador que utilizará para iniciar sessão na sua máquina virtual, e não precisa de ser o mesmo que o seu nome de utilizador Azure.
+      * **Tamanho**: Isto deve povoar automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos do Windows VM em Azure](../../virtual-machines/windows/sizes.md).
+      * **Nome de utilizador**: Introduza o nome de utilizador do administrador. Este é o nome de utilizador que irá utilizar para iniciar sessão na sua máquina virtual, e não precisa de ser o mesmo que o seu nome de utilizador Azure.
       * **Palavra-passe**: Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
 1. Selecione **Rever + criar**.
 1. **Review+criar**
-   * Verifique se todas as informações que inseriu estão corretas. 
+   * Verifique se toda a informação que introduziu está correta. 
    * Selecione **Criar**.
 
 
 > [!NOTE]
-> * Não paga taxas de licenciamento pelo software que vem pré-carregado na máquina virtual. Paga-se o custo da computação pelo tamanho do servidor que escolheu no passo **tamanho.**
-> * O provisionamento demora 10 a 20 minutos. Pode ver o estado do seu VM no portal Azure.
+> * Não paga taxas de licenciamento pelo software que vem pré-carregado na máquina virtual. Paga o custo de cálculo pelo tamanho do servidor que escolheu no passo **Tamanho.**
+> * O provisionamento leva de 10 a 20 minutos. Pode ver o estado do seu VM no portal Azure.
 
-## <a name="access-the-dsvm"></a>Acesso ao DSVM
+## <a name="access-the-dsvm"></a>Aceda ao DSVM
 
-Depois de o VM ser criado e aprovisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) Utilize as credenciais de conta de administração que configurado no passo **Básico** de criação de uma máquina virtual. 
+Depois de o VM ser criado e provisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) Use as credenciais de conta de administração que configuraste no passo **Básico** de criar uma máquina virtual. 
 
-Está pronto para começar a utilizar as ferramentas instaladas e configuradas no VM. Muitas das ferramentas podem ser acedidas através de azulejos de menu **Iniciar** e ícones de ambiente de trabalho.
+Está pronto para começar a usar as ferramentas instaladas e configuradas no VM. Muitas das ferramentas podem ser acedidas através de telhas de menu **Iniciar** e ícones de ambiente de trabalho.
 
-Também pode anexar um DSVM aos Cadernos Azure para executar cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos.](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects)
+Também pode anexar um DSVM a Azure Notebooks para executar os cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos.](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects)
 
 <a name="tools"></a>
 
@@ -68,7 +68,6 @@ Também pode anexar um DSVM aos Cadernos Azure para executar cadernos Jupyter no
 ## <a name="next-steps"></a>Passos seguintes
 
 * Explore as ferramentas no DSVM abrindo o menu **Iniciar.**
-* Saiba mais sobre o Azure Machine Learning lendo o [tutorials](../index.yml) [que é Azure Machine Learning?](../overview-what-is-azure-ml.md)
-* Leia o artigo [dez coisas que pode fazer na Máquina Virtual da Ciência dos Dados](https://aka.ms/dsvmtenthings).
-* Visite a [Galeria Azure AI](https://gallery.cortanaintelligence.com) para obter amostras de machine learning e análise de dados que utilizam o Azure Machine Learning e serviços de dados relacionados no Azure. Também fornecemos um ícone para esta galeria no menu **Iniciar** e no ambiente de trabalho da máquina virtual.
+* Saiba mais sobre o Azure Machine Learning lendo O [tutorials](../index.yml) [que é Azure Machine Learning?](../overview-what-is-azure-ml.md)
+* Leia o artigo [Data Science com uma máquina virtual de ciência de dados do Windows em Azure](./vm-do-ten-things.md)
 

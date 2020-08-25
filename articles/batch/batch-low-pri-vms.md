@@ -5,12 +5,12 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959998"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816699"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
@@ -23,7 +23,7 @@ A compensação pela utilização de VMs de baixa prioridade é que esses VM pod
 Os VM de baixa prioridade são oferecidos a um preço significativamente reduzido em comparação com os VM dedicados. Para obter detalhes sobre os preços, consulte [o Preço do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> [Os VM spot](https://azure.microsoft.com/pricing/spot/) estão agora disponíveis para conjuntos de escala [de VMs](../virtual-machines/linux/spot-vms.md) e VM de [exemplo.](../virtual-machine-scale-sets/use-spot.md) Os VM spot são uma evolução de VMs de baixa prioridade, mas diferem nesse preço pode variar e um preço máximo opcional pode ser definido ao atribuir VMs spot.
+> [Os VM spot](https://azure.microsoft.com/pricing/spot/) estão agora disponíveis para conjuntos de escala [de VMs](../virtual-machines/spot-vms.md) e VM de [exemplo.](../virtual-machine-scale-sets/use-spot.md) Os VM spot são uma evolução de VMs de baixa prioridade, mas diferem nesse preço pode variar e um preço máximo opcional pode ser definido ao atribuir VMs spot.
 >
 > As piscinas Azure Batch começarão a suportar VMs spot dentro de alguns meses após a sua disponibilidade geral, com novas versões das [APIs do lote e ferramentas](./batch-apis-tools.md). Uma vez que o suporte spot VM esteja disponível, os VM de baixa prioridade serão depreciados - continuarão a ser suportados utilizando as atuais APIs e versões de ferramentas durante pelo menos 12 meses, para permitir tempo suficiente para a migração para os VMs spot. 
 >
@@ -179,7 +179,7 @@ Para ver métricas no portal Azure:
 
 ![Métricas para os nosdes de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.

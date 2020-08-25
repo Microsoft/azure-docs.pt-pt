@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233247"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816869"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implementar borda Azure SQL (pré-visualização) 
 
@@ -48,7 +48,7 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
    |**Campo**  |**Descrição**  |
    |---------|---------|
    |Subscrição  |  A subscrição Azure sob a qual o IoT Hub foi criado |
-   |IoT Hub   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
+   |Hub IoT   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
    |Nome do dispositivo de borda IoT  |  Nome do dispositivo IoT Edge onde o SQL Edge seria implantado |
 
 4. Na página **'Definir Módulos',** navegue na secção dos módulos de implantação e clique em **Configurar** contra o módulo SQL Edge. 
@@ -114,9 +114,114 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
 12. Clique em **Seguinte**.
 13. Clique **em Submeter.**
 
-Neste arranque rápido, lançou um Módulo SQL Edge num dispositivo IoT Edge.
+## <a name="connect-to-azure-sql-edge"></a>Ligue-se à Borda Azure SQL
+
+Os passos seguintes utilizam a ferramenta de linha de comando Azure SQL Edge, **sqlcmd,** dentro do recipiente para ligar ao Aresta SQL Azure.
+
+> [!NOTE]
+> a ferramenta sqlcmd não está disponível dentro da versão ARM64 dos recipientes SQL Edge.
+
+1. Utilize o `docker exec -it` comando para iniciar uma casca de pancada interativa dentro do seu recipiente de funcionamento. No exemplo a seguir `azuresqledge` encontra-se o nome especificado pelo `Name` parâmetro do seu Módulo de Borda IoT.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. Uma vez dentro do recipiente, conecte-se localmente com sqlcmd. Sqlcmd não está no caminho por defeito, por isso tem que especificar o caminho completo.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > Pode omitir a palavra-passe na linha de comando a ser solicitada para a introduzir.
+
+3. Se for bem sucedido, deverá chegar a um pedido de comando **sqlcmd:** `1>` .
+
+## <a name="create-and-query-data"></a>Criar e consultar dados
+
+As secções seguintes **acompanham-no utilizando sqlcmd** e Transact-SQL para criar uma nova base de dados, adicionar dados e executar uma consulta simples.
+
+### <a name="create-a-new-database"></a>Criar uma nova base de dados
+
+Os passos seguintes criam uma nova base de dados chamada `TestDB` .
+
+1. A partir da solicitação de comando **sqlcmd,** cole o seguinte comando Transact-SQL para criar uma base de dados de teste:
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. Na linha seguinte, escreva uma consulta para devolver o nome de todas as bases de dados no seu servidor:
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### <a name="insert-data"></a>Inserir dados
+
+Em seguida, crie uma nova `Inventory` mesa, e insira duas novas linhas.
+
+1. A partir do pedido de comando **sqlcmd,** altere o contexto para a nova `TestDB` base de dados:
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Criar uma nova tabela chamada `Inventory` :
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Inserir dados na nova tabela:
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Digite `GO` para executar os comandos anteriores:
+
+   ```sql
+   GO
+   ```
+
+### <a name="select-data"></a>Selecionar dados
+
+Agora, fazer uma consulta para devolver os dados da `Inventory` tabela.
+
+1. A partir do pedido de comando **sqlcmd,** insira uma consulta que retorna as linhas da `Inventory` tabela onde a quantidade é superior a 152:
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Execute o comando:
+
+   ```sql
+   GO
+   ```
+
+### <a name="exit-the-sqlcmd-command-prompt"></a>Saia da solicitação de comando sqlcmd
+
+1. Para terminar a sua sessão **de sqlcmd,** escreva: `QUIT`
+
+   ```sql
+   QUIT
+   ```
+
+2. Para sair do comando interativo no seu recipiente, escreva `exit` . O seu contentor continua a funcionar depois de sair da casca de choque interativa.
+
+## <a name="connect-from-outside-the-container"></a>Conecte-se de fora do recipiente
+
+Pode ligar e executar consultas SQL contra a sua instância Azure SQL Edge a partir de qualquer ferramenta externa de Linux, Windows ou macOS que suporte ligações SQL. Para obter mais informações sobre a ligação a um recipiente SQL Edge a partir do exterior, consulte [Connect e Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+Neste arranque rápido, lançou um Módulo SQL Edge num dispositivo IoT Edge. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Machine Learning e Inteligência Artificial com ONNX em SQL Edge](onnx-overview.md).
 - [Construção de uma solução IoT de ponta a ponta com aresta SQL utilizando IoT Edge](tutorial-deploy-azure-resources.md).
+- [Streaming de dados em Azure SQL Edge](stream-data.md)

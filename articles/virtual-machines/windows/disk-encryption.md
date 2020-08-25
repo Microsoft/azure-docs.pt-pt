@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448934"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815594"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Encriptação do lado do servidor do armazenamento do disco Azure para powerShell
 
 A encriptação do lado do servidor (SSE) protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. A SSE encripta automaticamente os seus dados armazenados em discos geridos aZure (OS e discos de dados) em repouso por padrão quando os persiste na nuvem. 
 
@@ -84,8 +84,8 @@ Clientes sensíveis de alta segurança que estejam preocupados com o risco assoc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião com [o PowerShell](disks-enable-host-based-encryption-powershell.md) ou com o [portal Azure](disks-enable-host-based-encryption-portal.md).
-- Ativar a dupla encriptação em repouso para discos geridos com [o PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou com o [portal Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Ativar as chaves geridas pelo cliente para discos geridos com [o PowerShell](disks-enable-customer-managed-keys-powershell.md) ou com o [portal Azure](disks-enable-customer-managed-keys-portal.md).
+- Ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião com [o PowerShell](disks-enable-host-based-encryption-powershell.md) ou com o [portal Azure](../disks-enable-host-based-encryption-portal.md).
+- Ativar a dupla encriptação em repouso para discos geridos com [o PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou com o [portal Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Ativar as chaves geridas pelo cliente para discos geridos com [o PowerShell](disks-enable-customer-managed-keys-powershell.md) ou com o [portal Azure](../disks-enable-customer-managed-keys-portal.md).
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)

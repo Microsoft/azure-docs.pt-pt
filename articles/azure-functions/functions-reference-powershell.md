@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642219"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816410"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -375,7 +375,7 @@ param([string] $myBlob)
 
 No PowerShell, há o conceito de um perfil PowerShell. Se não está familiarizado com os perfis powerShell, consulte [sobre perfis.](/powershell/module/microsoft.powershell.core/about/about_profiles)
 
-Nas Funções PowerShell, o script de perfil executa quando a aplicação de funções começa. As aplicações de função começam quando implementadas pela primeira vez e depois de serem idled[(arranque a frio).](#cold-start)
+Nas Funções PowerShell, o script de perfil é executado uma vez por exemplo de trabalhador powerShell na aplicação quando implantado pela primeira vez e depois de ser idled[(arranque a frio](#cold-start). Quando a concurrency é ativada definindo o valor [PSWorkerInProcConcurrencyUpper,](#concurrency) o script de perfil é executado para cada espaço de execução criado.
 
 Quando cria uma aplicação de função utilizando ferramentas, como o Código do Estúdio Visual e as Ferramentas Core de Funções Azure, é criado um padrão `profile.ps1` para si. O perfil predefinido é mantido [no repositório Core Tools GitHub](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) e contém:
 
@@ -417,7 +417,10 @@ Quando cria um novo projeto de funções PowerShell, a gestão da dependência �
 Quando atualiza o ficheiro requirements.psd1, os módulos atualizados são instalados após um reinício.
 
 > [!NOTE]
-> As dependências geridas requerem acesso a www.powershellgallery.com para descarregar módulos. Ao correr localmente, certifique-se de que o tempo de execução pode aceder a este URL adicionando as regras de firewall necessárias. 
+> As dependências geridas requerem acesso a www.powershellgallery.com para descarregar módulos. Ao correr localmente, certifique-se de que o tempo de execução pode aceder a este URL adicionando as regras de firewall necessárias.
+
+> [!NOTE]
+> Atualmente, as dependências geridas não suportam módulos que exijam que o utilizador aceite uma licença, quer aceitando a licença interativamente, quer fornecendo `-AcceptLicense` o interruptor ao invocar `Install-Module` .
 
 As seguintes definições de aplicação podem ser usadas para alterar a forma como as dependências geridas são descarregadas e instaladas. A atualização da sua aplicação começa dentro `MDMaxBackgroundUpgradePeriod` de , e o processo de atualização completa dentro de aproximadamente o `MDNewSnapshotCheckPeriod` .
 
@@ -435,6 +438,7 @@ Em Funções, `PSModulePath` contém dois caminhos:
 
 * Uma `Modules` pasta que existe na raiz da sua aplicação de função.
 * Um caminho para uma `Modules` pasta que é controlada pelo trabalhador linguístico PowerShell.
+
 
 ### <a name="function-app-level-modules-folder"></a>Pasta de nível de aplicação de função `Modules`
 
@@ -502,17 +506,22 @@ Por predefinição, o tempo de funcionamento do PowerShell funcionamento das fun
 * Quando se está a tentar lidar com um grande número de invocações ao mesmo tempo.
 * Quando tiver funções que invoquem outras funções dentro da mesma aplicação de função.
 
-Pode alterar este comportamento definindo a seguinte variável ambiental para um valor inteiro:
+Existem alguns modelos de concordância que você poderia explorar dependendo do tipo de carga de trabalho:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Aumentar ```FUNCTIONS_WORKER_PROCESS_COUNT``` . Isto permite lidar com invocações de funções em múltiplos processos dentro do mesmo caso, que introduz certos CPU e sobrecarga de memória. Em geral, as funções ligadas à I/O não sofrerão com esta sobrecarga. Para as funções ligadas à CPU, o impacto pode ser significativo.
 
-Você define esta variável de ambiente nas definições de [aplicação](functions-app-settings.md) da sua App de Função.
+* Aumente o ```PSWorkerInProcConcurrencyUpperBound``` valor de definição da aplicação. Isto permite criar múltiplos espaços de funcionamento dentro do mesmo processo, o que reduz significativamente a CPU e a memória.
+
+Você define estas variáveis ambientais nas definições de [aplicação](functions-app-settings.md) da sua aplicação de função.
+
+Dependendo do seu caso de utilização, as funções duráveis podem melhorar significativamente a escalabilidade. Para saber mais, consulte [os padrões de aplicação de Funções Duráveis](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> Poderá receber "pedidos que estão a ser solicitados devido a nenhum espaço de funcionamento disponível", por favor tenha em atenção que isto não é um erro. A mensagem diz-lhe que os pedidos estão a ser preenchidos e que serão tratados quando os pedidos anteriores estiverem concluídos.
 
 ### <a name="considerations-for-using-concurrency"></a>Considerações para a utilização da concordância
 
-PowerShell é uma única linguagem de script _roscada_ por defeito. No entanto, a concordância pode ser adicionada utilizando vários espaços de funcionamento PowerShell no mesmo processo. A quantidade de espaço de execução criado corresponderá à definição de aplicação PSWorkerInProcConcurrencyUpperBound. A produção será impactada pela quantidade de CPU e memória disponível no plano selecionado.
+PowerShell é uma única linguagem de script _roscada_ por defeito. No entanto, a concordância pode ser adicionada utilizando vários espaços de funcionamento PowerShell no mesmo processo. A quantidade de espaço de execução criado corresponderá à definição de ```PSWorkerInProcConcurrencyUpperBound``` aplicação. A produção será impactada pela quantidade de CPU e memória disponível no plano selecionado.
 
 O Azure PowerShell utiliza alguns contextos _e estados de nível de processo_ para ajudar a salvá-lo do excesso de dactilografia. No entanto, se ligar a sua aplicação de função e invocar ações que mudam de estado, pode acabar com as condições de corrida. Estas condições de corrida são difíceis de depurar porque uma invocação depende de um determinado estado e a outra invocação mudou o estado.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 8996673cf8f01334e3dcd35aab8544643bd37360
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88802229"
+ms.locfileid: "88815849"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como: Executar uma aplicação com Fortanix Enclave Manager 
 
@@ -46,7 +46,6 @@ Este tutorial mostra-lhe como converter a sua imagem de aplicação numa imagem 
 1. Inscreva-se na [Fortanix EM](https://fortanix.com)
 1. Navegue na página **Contas** e selecione **ADD ACCOUNT** para criar uma nova conta. 
     
-[!div class="mx-imgBorder"]
 ![Criar uma conta](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. Depois de a sua conta ser criada, bastar para **selecionar** a conta recém-criada. Agora podemos começar a inscrever os nós computacional e criar aplicações. 

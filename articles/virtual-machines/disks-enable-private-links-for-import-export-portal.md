@@ -4,18 +4,18 @@ description: Ativar Links Privados para os seus discos geridos com o portal Azur
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135849"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815866"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portal Azure - Restringir o acesso à importação/exportação de discos geridos com Ligações Privadas
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utilize o portal Azure para restringir o acesso à importação/exportação de discos geridos com ligações privadas
 
 O suporte de Links Privados para discos geridos está atualmente em pré-visualização, e permite-lhe restringir a exportação e importação de discos geridos para que ocorra apenas dentro da sua rede virtual Azure. Pode gerar um URI de assinatura de acesso compartilhado (SAS) para discos geridos não ligados e instantâneos para exportar os dados para outra região para expansão regional, recuperação de desastres e ler os dados para análise forense. Também pode utilizar o SAS URI para carregar diretamente o VHD para um disco vazio a partir do seu local. O tráfego de rede entre clientes na sua rede virtual e discos geridos apenas atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição à internet pública.
 
@@ -65,7 +65,7 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 
 1. Selecionar um grupo de recursos
 1. Preencha o nome e selecione a mesma região em que o seu recurso de acesso ao disco foi criado.
-1. Selecione **Seguinte: >de recursos**
+1. Selecione **Seguinte: >de recursos **
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot do fluxo de trabalho de criação de ponto final privado, primeira lâmina. Se não selecionar a região apropriada, poderá encontrar problemas mais tarde.":::
 
@@ -98,7 +98,7 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 
 Já completou a configuração de Links Privados que pode utilizar ao importar/exportar o seu disco gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [FAQ para links privados](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ para links privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportação/Cópia geriu instantâneos como VHD para uma conta de armazenamento em diferentes regiões com PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

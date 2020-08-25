@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604653"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815420"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta da aplicação Power BI
 
@@ -146,7 +146,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 10. Descrição
 11. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -209,13 +209,16 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça ficheiros PNG do logótipo da sua oferta em dois tamanhos de pixel:
-- **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center irá usá-lo para criar um logótipo **pequeno.** Pode substituir opcionalmente isto por uma imagem diferente mais tarde.
 
-Ambos os logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
+- **Grande** (de 216 x 216 a 350 x 350 px, necessário)
+- **Pequeno** (48 x 48 px, opcional)
+
+Estes logótipos são utilizados em diferentes locais da listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

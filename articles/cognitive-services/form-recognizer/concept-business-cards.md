@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757919"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799286"
 ---
-# <a name="business-card-concepts"></a>Conceitos de cartão de visita
+# <a name="business-card-concepts"></a>Conceitos de cartões de visita
 
 O Azure Form Recogniser pode analisar e extrair pares de valor chave dos cartões de visita utilizando um dos seus modelos pré-construídos. A API do Cartão de Negócios combina poderosas capacidades de reconhecimento de caracteres óticos (OCR) com o nosso modelo de Compreensão do Cartão de Visita para extrair informações chave dos cartões de visita em inglês. Extrai informações pessoais de contacto, nome da empresa, cargo, e muito mais. A API do Cartão de Visita Pré-Construído está disponível publicamente na pré-visualização do Formulário Reconhecedor v2.1. 
 
@@ -70,7 +70,7 @@ O segundo passo é chamar a operação [Get Analyze Business Card Result.](https
 
 Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON incluirá os resultados de compreensão do cartão de visita e reconhecimento de texto. O resultado do entendimento do cartão de visita é organizado como um dicionário de valores de campo nomeados, onde cada valor contém o texto extraído, valor normalizado, caixa de delimitação, confiança e elementos de palavra correspondentes. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com texto, caixa de delimitação e informação de confiança.
 
-![Resultados do smample de Contoso](./media/business-card-results.png)
+![amostra de saída de cartão de visita](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Amostra de saída JSON
 
@@ -90,8 +90,8 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida: O nó "readResults" c
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

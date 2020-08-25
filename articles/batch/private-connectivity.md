@@ -4,12 +4,12 @@ description: Aprenda a ligar-se em privado a uma conta Azure Batch utilizando po
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004240"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814115"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utilizar pontos finais privados com contas do Azure Batch
 
@@ -19,7 +19,8 @@ Utilizando [o Azure Private Link,](../private-link/private-link-overview.md)pode
 
 O Private Link permite que os utilizadores acedam a uma conta Azure Batch a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Pode ligar-se a uma conta Azure Batch configurada com o Private Link utilizando o [método de aprovação automática ou manual.](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)
 
-O apoio à conectividade privada em Azure Batch está atualmente disponível nas seguintes regiões de Azure: West Central US, West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona, East Asia, France, e UK South.
+> [!IMPORTANT]
+> O apoio à conectividade privada em Azure Batch está atualmente disponível nas seguintes regiões de Azure: Central EUA, Norte Central EUA, South Central US, West Central US, East US, East US 2, West US 2, East US 2, East Asia, France Central, UK South, North Europe, West Europe, Japan East, Japan West, Australia East, e todas as regiões norte-americanas gov e EUA DoD.
 
 Este artigo descreve os passos para criar uma conta privada do Batch e acedê-la através de um ponto final privado.
 
@@ -33,7 +34,7 @@ Utilize os seguintes passos para criar uma conta privada do Lote utilizando o po
 4. Em **Definições**, selecione **ligações de ponto final privado e,** em seguida, selecione **+ ponto final privado**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Conexões de ponto final privado":::
 5. No painel **Basics,** introduza ou selecione a subscrição, grupo de recursos, nome de recurso de ponto final privado e detalhes da região, selecione **Next: Resource**.
-6. No painel **de recursos,** desaprote o **tipo de recurso** paraMicrosoft.Batcontas **ch/batchAccounts**. Selecione a conta batch privada a que pretende aceder e, em seguida, selecione **Seguinte: Configuração**.
+6. No painel **de recursos,** desaprote o **tipo de recurso** paraMicrosoft.Batcontas ** ch/batchAccounts**. Selecione a conta batch privada a que pretende aceder e, em seguida, selecione **Seguinte: Configuração**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Criar um ponto final privado - Painel de recursos":::
 7. No painel **de configuração,** introduza ou selecione esta informação:
    - **Rede virtual**: Selecione a sua rede virtual.

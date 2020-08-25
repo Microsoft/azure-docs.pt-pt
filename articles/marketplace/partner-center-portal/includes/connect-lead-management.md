@@ -1,22 +1,22 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 08/24/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2d4ce0de130942ccd52dc2894d91a4e4f667c99
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326630"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815674"
 ---
-Ao publicar a sua oferta no mercado através do Partner Center, tem de ligar a sua oferta ao seu sistema CRM. Desta forma, pode receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implantar o seu produto.
+Ao publicar a sua oferta no mercado comercial através do Partner Center, tem de ligar a sua oferta ao seu sistema CRM. Desta forma, pode receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implantar o seu produto.
 
 1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. São suportados os seguintes sistemas CRM:
 
@@ -29,7 +29,6 @@ Ao publicar a sua oferta no mercado através do Partner Center, tem de ligar a s
     * [Mesa azul](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [Ponto final https](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Leia esta documentação ligada para o seu destino de chumbo selecionado para ver como configurar o destino principal para receber pistas da sua oferta de mercado.
-3. Ligue a sua oferta ao destino principal quando publicar a oferta ao mercado no Partner Center. Para obter informações sobre como fazê-lo, consulte a documentação vinculada.
-4. Confirme se a ligação ao destino de chumbo está corretamente configurada. Depois de configurar corretamente o seu destino principal, **selecione Publicar** a sua oferta no Partner Center. Depois validaremos a ligação e enviar-lhe-emos um teste. Quando vê a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização.
-5. Certifique-se de que a ligação ao destino principal permanece atualizada para que não perca nenhuma pista. Certifique-se de atualizar estas ligações sempre que algo tiver mudado na sua extremidade.
+1. Leia a documentação vinculada aplicável acima para saber como configurar o seu destino principal e receber pistas das suas ofertas de mercado comercial.
+1. Depois de ligar a sua oferta ao seu destino principal, selecione **Publicar** a sua oferta no Partner Center. Vamos validar a ligação e enviar-lhe um teste. Quando vê a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização.
+1. Certifique-se de que a ligação ao destino principal permanece atualizada para não perder nenhuma pista. Certifique-se de que atualiza estas ligações sempre que algo tiver mudado.

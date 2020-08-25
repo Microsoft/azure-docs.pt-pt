@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751084"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816376"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -28,12 +28,12 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 
 - **Rest A referência API está disponível** - Ver a [referência v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Novas línguas suportadas Para além**do inglês, as seguintes línguas são agora apoiadas: para `Layout` e : Inglês `Train Custom Model` (EN), chinês (Simplificado) (ZH-ZH), holandês (NL), francês (FR), alemão (DE), italiano (IT), português (PT) e espanhol (ES).
+- **Novas línguas apoiadas Para além**do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( holandês ( ( ( ( francês ( ( ( ( ( ( ( ), alemão ( `zh-Hans` ( ( ( ( ( ( ( ( ( ( ( ( ) português `nl` ( ) e espanhol ( `fr` `de` `it` `pt` ). `es`
 - **Deteção de marca de verificação / Seleção** – O Reconhecimento de Formulários suporta a deteção e extração de marcas de seleção, tais como caixas de verificação e botões de rádio. As marcas de seleção são extraídas `Layout` e agora também pode rotular e treinar em Comboio com `Train Custom Model`  -  _Etiquetas_ para extrair pares de valores chave para marcas de seleção. 
 - **O Model Compose** permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O modelo composição está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
 - **O nome do modelo** adiciona um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.
-- **Novo modelo pré-construído para cartões de visita** para extrair campos comuns em inglês, cartões de visita em língua.
-- **Novas localidades para recibos pré-construídos** para além da EN-US, o suporte está agora disponível para EN-AU, EN-CA, EN-GB, EN-IN
+- **[Novo modelo pré-construído para cartões de visita](concept-business-cards.md)** para extrair campos comuns em inglês, cartões de visita em língua.
+- **[Novas localidades para recibos pré-construídos](concept-receipts.md)** para além da EN-US, o suporte está agora disponível para EN-AU, EN-CA, EN-GB, EN-IN
 - **Melhorias de qualidade** para `Layout` , Tre sem `Train Custom Model`  -  _Etiquetas_ e Comboio com _Etiquetas._
 
 
@@ -43,6 +43,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 **Novas amostras** estão disponíveis no GitHub. 
 - As [Receitas de Extração de Conhecimento - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) recolhe as melhores práticas a partir de compromissos reais do cliente do Form Recogniser e fornece amostras de código utilizáveis, listas de verificação e pipelines de amostras utilizados no desenvolvimento destes projetos. 
+- A [ferramenta de rotulagem da amostra](https://github.com/microsoft/OCR-Form-Tools) foi atualizada para suportar a nova funcionalidade v2.1. Veja este [quickstart](quickstarts/label-tool.md) para começar com a ferramenta. 
 - A amostra de Reconhecimento [de Formulários de Quiosque Inteligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) mostra como integrar e treinar sem `Analyze Receipt` `Train Custom Model`  -  _etiquetas._
 
 

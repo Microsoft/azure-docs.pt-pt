@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816194"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Instalação push do serviço de mobilidade de resolução de problemas
 
@@ -41,8 +41,8 @@ Para o Windows **(erro 95107),** verifique se a conta de utilizador tem acesso a
 * Para adicionar manualmente uma chave de registo que desative o controlo de acesso ao utilizador remoto:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Adicione um `DWORD` novo:`LocalAccountTokenFilterPolicy`
-  * Definir o valor para`1`
+  * Adicione um `DWORD` novo: `LocalAccountTokenFilterPolicy`
+  * Definir o valor para `1`
 
 * Para adicionar a chave de registo, a partir de um pedido de comando, executar o seguinte comando:
 
@@ -129,6 +129,28 @@ Para resolver o erro:
 ## <a name="connectivity-failure-errorid-95523"></a>Falha de conectividade (ErrorID: 95523)
 
 Este erro ocorre quando a rede que a máquina de origem reside não é encontrada, pode ter sido eliminada ou já não está disponível. A única forma de resolver o erro é garantir a existência da rede.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Verifique o acesso a pastas partilhadas na rede na máquina de origem (ErrorID: 95105.95523)
+
+Verifique se as pastas partilhadas na rede na sua máquina virtual estão acessíveis a partir do Process Server (PS) remotamente utilizando credenciais especificadas. Para confirmar o acesso: 
+
+1. Inicie sessão na sua máquina processua Server.
+2. Abra o Explorador de Ficheiros. Na barra de endereços, `\\<SOURCE-MACHINE-IP>\C$` escreva e clique em Entrar.
+
+    ![Abrir pasta em PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. O explorador de ficheiros pedirá credenciais. Introduza o nome de utilizador e a palavra-passe e clique em OK. <br><br/>
+
+    ![Fornecer Credenciais](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Se a máquina de origem estiver unida ao domínio, forneça o nome de domínio juntamente com o nome de utilizador como `<domainName>\<username>` . Se a máquina de origem estiver no grupo de trabalho, forneça apenas o nome de utilizador.
+
+4. Se a ligação for bem sucedida, as pastas da máquina de origem serão visíveis remotamente a partir do Process Server.
+
+    ![Pastas visíveis da Máquina de Origem](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Se a ligação não for bem sucedida, verifique se todos os requisitos prévios são cumpridos.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Verificação dos serviços de partilha de ficheiros e impressoras (ErrorID: 95105 & 95106)
 
@@ -260,7 +282,7 @@ Quando o agente de mobilidade é copiado para a máquina de origem, é necessár
 
 ## <a name="low-system-resources"></a>Baixos recursos do sistema
 
-Este problema ocorre quando o sistema tem pouca memória disponível, e não é capaz de alocar memória para instalação de serviço de mobilidade. Certifique-se de que a memória foi libertada para que a instalação prossiga e complete com sucesso.
+Os possíveis IDs de erro vistos para esta edição são 95572 e 95573. Este problema ocorre quando o sistema tem pouca memória disponível, e não é capaz de alocar memória para instalação de serviço de mobilidade. Certifique-se de que a memória foi libertada para que a instalação prossiga e complete com sucesso.
 
 ## <a name="vss-installation-failures"></a>Falhas de instalação vss
 

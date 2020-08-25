@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461639"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815745"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -77,6 +77,9 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
    Todos os gatilhos do Service Bus são gatilhos *de sondagens longas.* Esta descrição significa que quando o gatilho dispara, o gatilho processa todas as mensagens e, em seguida, aguarda 30 segundos para que mais mensagens apareçam na fila ou subscrição de tópicos. Se não aparecerem mensagens em 30 segundos, o gatilho é ignorado. Caso contrário, o gatilho continua a ler mensagens até que a fila ou a subscrição de tópicos esteja vazia. A próxima sondagem do gatilho baseia-se no intervalo de recorrência especificado nas propriedades do gatilho.
 
    Alguns gatilhos, como o Quando uma ou mais mensagens chegam num gatilho **de fila (completa automaticamente),** podem devolver uma ou mais mensagens. Quando estes disparam fogo, eles retornam entre um e o número de mensagens especificadas pela propriedade de **contagem de mensagens máximas** do gatilho.
+
+    > [!NOTE]
+    > O gatilho auto-completo completa automaticamente uma mensagem, mas a conclusão só acontece no próximo gatilho. Este comportamento pode afetar o design da sua aplicação lógica. Por exemplo, se definir o gatilho auto-completo para verificar as mensagens a cada minuto, mas a duração do bloqueio é definida para 30 segundos no lado do Service Bus, o resultado é uma falha de "bloqueio expirado" que acontece ao completar a mensagem. É preciso definir a duração do bloqueio para um valor mais longo do que o intervalo de votação.
 
 1. Se o seu gatilho estiver a ligar-se ao seu espaço de nomes service bus pela primeira vez, siga estes passos quando o Logic App Designer lhe solicitar informações de ligação.
 

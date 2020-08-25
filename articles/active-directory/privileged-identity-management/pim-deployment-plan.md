@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7c6537ace2caeb2f5dc25848a04aa2e0e65b31d6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783217"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815985"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -30,7 +30,7 @@ Este guia passo a passo descreve como planear a implementação de Gestão de Id
 >
 > :heavy_check_mark: Microsoft **recomenda**
 >
-> Estas são recomendações gerais, e só deve implementar se se aplicar às suas necessidades específicas da empresa.
+> Estas são recomendações gerais, e você deve implementá-las apenas quando se aplicam às suas necessidades específicas da empresa.
 
 ## <a name="learn-about-privileged-identity-management"></a>Saiba mais sobre Gestão de Identidade Privilegiada
 
@@ -100,7 +100,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de Ad Azure
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Arquiteto de identidade ou Administrador Global da Azure**<br/>Um representante da equipa de gestão de identidade responsável por definir como esta mudança está alinhada com a infraestrutura de gestão de identidade central na sua organização. | SO/R/I |
 | Nome e e-mail | **Proprietário de serviço / gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | SO/R/I |
@@ -110,16 +110,16 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de recursos do Azure
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Assinatura / Titular de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
 | Nome e e-mail | **Gestor de suporte de TI / Helpdesk**<br/>Um representante da organização de suporte de TI que pode fornecer informações sobre a sustentabilidade desta mudança numa perspetiva de helpdesk. | R/I |
 | Nome e e-mail para utilizadores piloto | **Utilizadores de funções Azure**<br/>O grupo de utilizadores para o qual é implementada a gestão de identidade privilegiada. Terão de saber como ativar as suas funções assim que a Gestão de Identidade Privilegiada for implementada. | I |
 
-### <a name="enable-privileged-identity-management"></a>Ativar a Gestão de Identidade Privilegiada
+### <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
-Como parte do processo de planeamento, deve primeiro consentir e ativar a Gestão de Identidade Privilegiada, seguindo o nosso início utilizando o artigo [de Gestão de Identidade Privilegiada.](pim-getting-started.md) Permitir a Gestão de Identidade Privilegiada dá-lhe acesso a algumas funcionalidades que foram especificamente concebidas para ajudar na sua implementação.
+Como parte do processo de planeamento, deve preparar a Gestão de Identidade Privilegiada seguindo o nosso início usando o artigo [de Gestão de Identidade Privilegiada.](pim-getting-started.md) A Gestão de Identidade Privilegiada dá-lhe acesso a algumas funcionalidades que foram especificamente concebidas para ajudar na sua implementação.
 
 Se o seu objetivo é implementar Gestão de Identidade Privilegiada para recursos Azure, deve seguir os [nossos recursos da Azure para gerir em artigo de Gestão de Identidade Privilegiada.](pim-resource-roles-discover-resources.md) Apenas os proprietários de subscrições e grupos de gestão podem descobrir e embarcar estes recursos na Gestão de Identidade Privilegiada. Depois de embarcar, a funcionalidade PIM está disponível para proprietários em todos os níveis, incluindo grupo de gestão, subscrição, grupo de recursos e recursos. Se você é um Administrador Global tentando implementar Gestão de Identidade Privilegiada para os seus recursos Azure, você pode [elevar o acesso para gerir todas as subscrições da Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para dar a si mesmo acesso a todos os recursos Azure no diretório para descoberta. No entanto, aconselhamos que obtenha a aprovação de cada um dos seus proprietários de subscrição antes de gerir os seus recursos com a Gestão de Identidade Privilegiada.
 

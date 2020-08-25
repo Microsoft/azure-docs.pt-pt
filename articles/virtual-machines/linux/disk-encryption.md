@@ -1,6 +1,6 @@
 ---
 title: Encriptação do lado do servidor dos discos geridos Azure - Azure CLI
-description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus discos geridos, ou pode utilizar chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves.
+description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode utilizar as chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves, ou pode confiar nas chaves geridas pela Microsoft para a encriptação dos seus discos geridos.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449154"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816903"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -80,7 +80,7 @@ Clientes sensíveis de alta segurança que estejam preocupados com o risco assoc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião com [o CLI](disks-enable-host-based-encryption-cli.md) ou com o [portal Azure](disks-enable-host-based-encryption-portal.md).
-- Ativar a dupla encriptação em repouso para discos geridos com [CLI](disks-enable-double-encryption-at-rest-cli.md) ou com o [portal Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Ativar as chaves geridas pelo cliente para discos geridos com [O CLI](disks-enable-customer-managed-keys-cli.md) ou com o [portal Azure](disks-enable-customer-managed-keys-portal.md).
+- Ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião com [o CLI](disks-enable-host-based-encryption-cli.md) ou com o [portal Azure](../disks-enable-host-based-encryption-portal.md).
+- Ativar a dupla encriptação em repouso para discos geridos com [CLI](disks-enable-double-encryption-at-rest-cli.md) ou com o [portal Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Ativar as chaves geridas pelo cliente para discos geridos com [O CLI](disks-enable-customer-managed-keys-cli.md) ou com o [portal Azure](../disks-enable-customer-managed-keys-portal.md).
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)

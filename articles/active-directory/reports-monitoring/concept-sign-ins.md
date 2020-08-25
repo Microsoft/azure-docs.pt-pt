@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388123"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816087"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -47,11 +47,7 @@ Este artigo dá-lhe uma visão geral do relatório de inscrições.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
 
-- O relatório de atividades de inscrição está disponível em [todas as edições do Azure AD.](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
-
-- Se pretender aceder aos dados de inscrição utilizando uma API, o seu inquilino deve ter uma licença [Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) associada a ela.
-
-
+O relatório de atividades de inscrição está disponível em [todas as edições do AZure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) e também pode ser acedido através da API do Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Relatório de inscrições
 
@@ -128,7 +124,7 @@ Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em seg
 
 A **Localização** - A localização da ligação foi iniciada a partir de:
 
-- Cidade
+- City
 
 - Estado / Província
 
@@ -146,7 +142,7 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 ![Filtro de aplicativo de cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticação moderna|Descrição|
+|Name|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|
@@ -238,7 +234,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Cliente
 - Localização
 - Endereço IP
-- Date
+- Data
 - MFA Necessário
 - Estado de início de sessão
 
@@ -279,7 +275,7 @@ Pode visualizar registos de atividade do Office 365 a partir do [centro de admin
 
 Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Códigos de erro do relatório de atividade de inscrição](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados Azure AD](reference-reports-data-retention.md)

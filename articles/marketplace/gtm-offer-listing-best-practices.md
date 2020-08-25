@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607401"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816274"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -22,7 +22,7 @@ Este artigo dá sugestões para criar e envolver ofertas de mercado comercial da
 
 | Definição | Melhores práticas |
 |:--- |:--- |  
-| Nome da Oferta | Para aplicações, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir a sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [Nome da Oferta: [Tipo de Oferta] (por exemplo, Contoso: 2 Semanas de Implementação) |
+| Nome da oferta | Para aplicações, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir a sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [Nome da Oferta: [Tipo de Oferta] (por exemplo, Contoso: 2 Semanas de Implementação) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que estas frases podem ser usadas nos resultados do motor de busca. Os componentes fundamentais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou solução. </li> <li> Persona do utilizador que beneficia do produto ou solução. </li> <li> O cliente precisa ou dor nos endereços do produto ou da solução. </li> </ul> <br> Utilize o vocabulário padrão da indústria ou a redação baseada em benefícios, sempre que possível.  Não confie nas funcionalidades e funcionalidades para vender o seu produto.  Em vez disso, concentre-se no valor que entrega. <br> <br> Para anúncios de Serviços de Consultoria, indicar claramente o serviço profissional que presta. |
 
 > [!IMPORTANT]
@@ -54,12 +54,12 @@ As categorias e subcategorias são mapeadas para cada loja online com base no p�
 
 Selecione categorias e subcategorias que melhor se alinham com a sua oferta e o seu público pretendido. Pode selecionar:
 
-* Até duas (2) categorias, incluindo uma categoria primária e secundária (opcional).
-* Até duas (2) subcategorias para cada categoria primária e/ou secundária. Se não for selecionada nenhuma subcategoria, a sua oferta continuará a ser detetável apenas na categoria selecionada.
+* Até duas categorias, incluindo uma categoria primária e secundária (opcional).
+* Até duas subcategorias para cada categoria primária e/ou secundária. Se não for selecionada nenhuma subcategoria, a sua oferta continuará a ser detetável apenas na categoria selecionada.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**IMPORTANTE: Ofertas SaaS e Add-ins Microsoft 365**
+#### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANTE: Ofertas SaaS e Add-ins Microsoft 365
 
 Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como as capacidades de transação podem afetar a forma como a sua oferta pode ser vista e comprada pelos clientes do mercado. Para as ofertas da SaaS, a capacidade de transação da oferta, bem como a seleção de categorias determinarão a loja online onde a sua oferta será publicada:
 
@@ -120,9 +120,9 @@ As palavras-chave podem ajudar os clientes a encontrar a sua oferta quando pesqu
 ## <a name="online-store-marketing-details"></a>Detalhes de marketing da loja online
 | Definição | Melhores práticas |
 |:--- |:--- |  
-| Logotipo da oferta (formato PNG, 48 &nbsp; &times; &nbsp; 48): página de pesquisa | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de pesquisa da sua oferta. |
-| Logotipo da oferta (formato PNG, 216 &nbsp; &times; &nbsp; 216): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. |
-| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são: <ul> <li> papéis brancos, </li> <li> brochuras, </li> <li> listas de verificação, ou </li> <li> Apresentações de PowerPoint.</li> </ul>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los. <br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
+| Logotipo da oferta (formato PNG, de 216 × 216 a 350 x 350 px): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
+| Logotipo de oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará este logótipo a partir do logotipo Grande que carregou. Pode substituir opcionalmente isto por uma imagem diferente mais tarde. |
+| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são:<ul><li>papéis brancos</li><li> brochuras</li><li>listas de verificação, ou</li><li> Apresentações de PowerPoint</li></ul><br>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los.<br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
 | Vídeos: AppSource, serviços de consultoria e SaaS oferece apenas | Os vídeos mais fortes comunicam o valor da sua oferta em forma narrativa:<ul> <li> Faça do seu cliente, não da sua empresa, o herói da história. </li> <li> O seu vídeo deve abordar os principais desafios e objetivos do seu cliente alvo. </li> <li> Comprimento recomendado: 60-90 segundos.</li> <li> Incorpore palavras de pesquisa chave que usam o nome dos vídeos. </li> <li> Considere adicionar vídeos adicionais, como como fazer, começar ou testemunhos de clientes. </li> </ul> |
 | Screenshots (1280 &nbsp; &times; &nbsp; 720) | Adicione até cinco imagens:<br>Incorpore palavras de pesquisa chave nos nomes dos ficheiros. |
 
@@ -141,4 +141,3 @@ Ao adicionar os parâmetros ao seu URL AppSource, pode rever a eficácia da sua 
 Saiba mais sobre os seus [benefícios no mercado comercial.](./gtm-your-marketplace-benefits.md)
 
 Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar a sua oferta.
-

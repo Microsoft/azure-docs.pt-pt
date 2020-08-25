@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757154"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763461"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -200,13 +200,13 @@ Agora temos todos os nomes de VG com identificações únicas.
 
 ###### <a name="active-volume-groups"></a>Grupos de volume ativos
 
-Certifique-se de que os grupos de Volume correspondentes aos volumes do script estão ativos. O comando abaixo é utilizado para exibir grupos de volume ativos. Verifique se os grupos de volume relacionados do script estão presentes nesta lista.
+Certifique-se de que os grupos de Volume correspondentes aos volumes do script estão ativos. É utilizado o seguinte comando para exibir grupos de volume ativos. Verifique se os grupos de volume relacionados do script estão presentes nesta lista.
 
 ```bash
 vgdisplay -a
 ```  
 
-Caso contrário, ative o grupo de volume utilizando o comando abaixo.
+Caso contrário, ative o grupo de volume utilizando o seguinte comando.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Enumeração de volumes lógicos dentro dos grupos de volume
 
-Assim que tivermos a lista única e ativa de VGs relacionados com o script, então os volumes lógicos presentes nesses grupos de volume podem ser listados usando o comando abaixo.
+Assim que tivermos a lista única e ativa de VGs relacionados com o script, então os volumes lógicos presentes nesses grupos de volume podem ser listados usando o seguinte comando.
 
 ```bash
 #!/bin/bash

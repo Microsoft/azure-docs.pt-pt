@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 13c54b548a507043fda7ff230cf7641c26f471d1
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b7c41d96e9817c548dbf52d4e56a78df4a88d696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724082"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815758"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -265,7 +265,7 @@ Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar.
 
 Com o Model Compose, pode compor até 100 modelos para um único modelo ID. Quando ligar para analisar com este ID de modelo composto, o Form Recogniser classificará primeiro o formulário que submeteu, correspondendo-o ao melhor modelo de correspondência e, em seguida, devolverá os resultados para esse modelo. Isto é útil quando os formulários de entrada podem pertencer a um de vários modelos.
 
-Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (duas setas) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
+Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
 
@@ -296,7 +296,7 @@ Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao me
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 
-Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
+Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.fott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 

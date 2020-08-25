@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b9ec42620ee5ffaaf5fd79da5dabc944fc3bc422
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287097"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815951"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
-O Azure Maps Web SDK inclui o módulo *Interior Azure Maps.* O módulo *Azure Maps Indoor* permite-lhe renderizar mapas interiores criados no Azure Maps Creator.
+O Azure Maps Web SDK inclui o módulo *Interior Azure Maps.* O módulo  *Azure Maps Indoor* permite-lhe renderizar mapas interiores criados no Azure Maps Creator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,10 +35,8 @@ Pode instalar e incorporar o módulo *Azure Maps Indoor* de duas maneiras.
 Para utilizar a versão global da Rede de Entrega de Conteúdos Azure do módulo *Azure Maps Indoor,* consulte as seguintes referências JavaScript e Style Sheet no `<head>` elemento do ficheiro HTML:
 
 ```html
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
  Ou, você pode baixar o módulo *Azure Maps Indoor.* O módulo *Azure Maps Indoor* contém uma biblioteca de clientes para aceder aos serviços do Azure Maps. Siga os passos abaixo para instalar e carregar o módulo *Interior* na sua aplicação web.  
@@ -46,15 +44,14 @@ Para utilizar a versão global da Rede de Entrega de Conteúdos Azure do módulo
   1. Instale o [pacote azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
       ```powershell
-      >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
   2. Faça referência ao módulo *Interior Azure Maps* JavaScript e Style Sheet no `<head>` elemento do ficheiro HTML:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Instantaneamente o objeto do mapa
@@ -148,11 +145,11 @@ Este exemplo mostra-lhe como utilizar o módulo *Azure Maps Indoor* na sua aplic
 3. No cabeçalho HTML, refira-se aos estilos de placa de javaScript do módulo *Azure Maps e* de chapa de estilo.
 
 4. Inicialize um *objeto de mapa.* O *objeto Mapa* suporta as seguintes opções:
-    - `Subscription key`é a sua chave de subscrição primária do Azure Maps.
-    - `center`define uma latitude e longitude para a sua localização do centro do mapa interior. Forneça um valor para `center` se não quiser fornecer um valor para `bounds` . O formato deve aparecer como `center` : [-122.13315, 47.63637].
-    - `bounds`é a menor forma retangular que encerra os dados do mapa de azulejos. Desa estada um valor para `bounds` se não quiser definir um valor para `center` . Pode encontrar os limites do seu mapa ligando para a [API da Lista tileset.](https://docs.microsoft.com/rest/api/maps/tileset/listpreview) A Lista de Tileset API devolve o `bbox` , que você pode analisar e atribuir a `bounds` . O formato deve aparecer como `bounds` : [# oeste, # sul, # leste, # norte].
-    - `style`permite definir a cor do fundo. Para exibir um fundo branco, defina `style` como "em branco".
-    - `zoom`permite especificar os níveis de zoom min e max para o seu mapa.
+    - `Subscription key` é a sua chave de subscrição primária do Azure Maps.
+    - `center` define uma latitude e longitude para a sua localização do centro do mapa interior. Forneça um valor para `center` se não quiser fornecer um valor para `bounds` . O formato deve aparecer como `center` : [-122.13315, 47.63637].
+    - `bounds` é a menor forma retangular que encerra os dados do mapa de azulejos. Desa estada um valor para `bounds` se não quiser definir um valor para `center` . Pode encontrar os limites do seu mapa ligando para a [API da Lista tileset.](https://docs.microsoft.com/rest/api/maps/tileset/listpreview) A Lista de Tileset API devolve o `bbox` , que você pode analisar e atribuir a `bounds` . O formato deve aparecer como `bounds` : [# oeste, # sul, # leste, # norte].
+    - `style` permite definir a cor do fundo. Para exibir um fundo branco, defina `style` como "em branco".
+    - `zoom` permite especificar os níveis de zoom min e max para o seu mapa.
 
 5. Em seguida, crie o módulo *Gerente Interior.* Atribua o *Azure Maps Indoor,* `tilesetId` e opcionalmente adicione o `statesetId` .
 

@@ -1,6 +1,6 @@
 ---
 title: Utilize o portal para implantar VMs Azure Spot
-description: Aprenda a usar o Azure PowerShell para implementar VMs spot para economizar custos.
+description: Como utilizar o Azure PowerShell para implantar VMs spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: ee2ff7119c229b8a0fd94be3b85863fcb1108f58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef5fa0aafca1312480f51614a1ba1692c09a13b8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074169"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816580"
 ---
 # <a name="deploy-spot-vms-using-the-azure-portal"></a>Implementar VMs spot utilizando o portal Azure
 
-A utilização [de VMs spot](spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
+A utilização [de VMs spot](../spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
-Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
+Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](../spot-vms.md#pricing).
 
 Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.05701` seria um preço máximo de $0.05701 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para o spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível.
 
@@ -35,7 +35,7 @@ No **separador Basics,** na secção Detalhes de **Instância,** **Não** é o p
 
 ![Captura de ecrã para escolher não, não use uma instância de spot Azure](media/spot-portal/no.png)
 
-Selecione **Sim,** a secção expande e pode escolher o seu [tipo de despejo e política de despejo.](spot-vms.md#eviction-policy) 
+Selecione **Sim,** a secção expande e pode escolher o seu [tipo de despejo e política de despejo.](../spot-vms.md#eviction-policy) 
 
 ![Captura de ecrã para escolher sim, use uma instância de spot Azure](media/spot-portal/yes.png)
 

@@ -2,19 +2,19 @@
 title: Azure CLI - Ativar chaves geridas pelo cliente com SSE - discos geridos
 description: Ativar as chaves geridas pelo cliente nos discos geridos com o Azure CLI.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: cd1855a4ce2d394559db28448d9f1c9a01b4bd08
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236156"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814144"
 ---
-# <a name="azure-cli---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure CLI - Ativar as chaves geridas pelo cliente com encriptação do lado do servidor - discos geridos
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utilize o CLI Azure para ativar a encriptação do lado do servidor com chaves geridas pelo cliente para discos geridos
 
 O Armazenamento de Discos Azure permite-lhe gerir as suas próprias chaves ao utilizar a encriptação do lado do servidor (SSE) para discos geridos, se escolher. Para obter informações conceptuais sobre a SSE com as teclas geridas pelo cliente, bem como outros tipos de encriptação de discos geridos, consulte a secção de [chaves gerida pelo Cliente](disk-encryption.md#customer-managed-keys) do nosso artigo de encriptação de disco.
 
@@ -129,5 +129,5 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Replicar máquinas com chaves geridas pelo cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
-- [Configurar a recuperação de VMware VMs para Azure com a PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
-- [Confiem da recuperação de desastres para a Azure para VMs hiper-V usando PowerShell e Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- [Configurar a recuperação após desastre de VMs do VMware para o Azure com o PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [Configurar a recuperação após desastre para o Azure para VMs Hyper-V com o PowerShell e com o Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

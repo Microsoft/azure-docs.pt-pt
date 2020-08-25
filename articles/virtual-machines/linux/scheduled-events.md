@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088738"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816733"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos Agendados para VMs Linux
 
@@ -42,7 +42,7 @@ Eventos Agendados proporcionam eventos nos seguintes casos de utilização:
 - [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (por exemplo, reboot VM, migração ao vivo ou atualizações de preservação da memória para hospedeiro)
 - Máquina virtual está a funcionar com [hardware de hospedeiro degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se prevê falhar em breve
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador reinicia ou reimplanta um VM)
-- [Spot VM](spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
+- [Spot VM](../spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
 
 ## <a name="the-basics"></a>O Básico  
 
@@ -139,7 +139,7 @@ No caso de existirem eventos agendados, a resposta contém uma série de eventos
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nenhum `Completed` estatuto ou estatuto semelhante é fornecido. O evento já não é devolvido quando o evento estiver terminado.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
 | Descrição | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
-| Fonte de Eventos | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Este evento é iniciado por platfrom. <li>`User`: Este evento é iniciado pelo utilizador. |
+| Fonte de Eventos | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Este evento é iniciado por plataforma. <li>`User`: Este evento é iniciado pelo utilizador. |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos
 Cada evento está programado um período mínimo de tempo no futuro com base no tipo de evento. Desta vez reflete-se na propriedade de um `NotBefore` evento. 

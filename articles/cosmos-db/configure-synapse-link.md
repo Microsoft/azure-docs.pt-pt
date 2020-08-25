@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653142"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815577"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -19,7 +19,7 @@ Synapse Link for Azure Cosmos DB é uma capacidade de processamento transacional
 
 
 > [!IMPORTANT]
-> Para utilizar o Azure Synapse Link, certifique-se de que fornece a sua conta Azure Cosmos & espaço de trabalho Azure Synapse Analytics numa das regiões acima apoiadas. Para a lista de regiões apoiadas, consulte [as atualizações do serviço Azure](https://azure.microsoft.com/updates/). 
+> Para utilizar o Azure Synapse Link, certifique-se de que fornece a sua conta Azure Cosmos & espaço de trabalho Azure Synapse Analytics numa das regiões apoiadas. A azure Synapse Link está atualmente disponível nas seguintes regiões de Azure: EUA West Central, East US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
 Utilize os seguintes passos para executar consultas analíticas com a Ligação Synapse para Azure Cosmos DB:
 

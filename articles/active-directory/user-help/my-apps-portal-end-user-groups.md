@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741985"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798079"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualize as informações dos seus Grupos no portal My Apps
 
@@ -26,7 +26,7 @@ Pode utilizar a sua conta de trabalho ou escola com o portal **My Apps,** para v
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
+>Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/index.yml)
 
 ## <a name="view-your-groups-information"></a>Ver as informações dos seus Grupos
 
@@ -80,7 +80,7 @@ Se o seu administrador lhe der permissão para ver o **azulejo dos Grupos,** pod
 
     - **Tipo de grupo:**
 
-        - **A segurança.** Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente.
+        - **A segurança.** Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de ter de adicionar permissões a cada membro individualmente.
 
         - **Escritório 365.** Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo.
 
@@ -164,7 +164,7 @@ Pode participar ou deixar um grupo já existente na página **Grupos.**
 
     ![Junte-se à página de grupos, com o botão do grupo Leave em destaque](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aceda e utilize aplicativos no portal My Apps](my-apps-portal-end-user-access.md).
 

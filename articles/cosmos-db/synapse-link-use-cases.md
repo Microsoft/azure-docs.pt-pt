@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119499"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814421"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
 
@@ -34,7 +34,7 @@ Os fabricantes estão a embarcar em tecnologias nativas da nuvem para sair dos c
 
 A seguinte arquitetura mostra o poder de alavancar Azure Cosmos DB como a base de dados operacional nativa da nuvem e Synapse Link na análise da cadeia de fornecimento:
 
-:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false":::
 
 Com base em arquitetura anterior, você pode alcançar os seguintes casos de uso com Synapse Link para Azure Cosmos DB:
 
@@ -52,9 +52,9 @@ Com base em arquitetura anterior, você pode alcançar os seguintes casos de uso
 
   Synapse Link for Azure Cosmos DB permite a inteligência empresarial rica (BI)/cenários de reporte:
 
-  * Consultar dados operacionais da loja analítica Azure Cosmos DB utilizando a integração nativa com o Sinapse SQL Serverless e a total expressividade da linguagem T-SQL.
+  * Consultar dados operacionais da loja analítica Azure Cosmos DB utilizando a integração nativa com o servidor Synapse SQL sem servidor e a total expressividade da linguagem T-SQL.
 
-  * Modele e publique painéis de BI auto refrescantes sobre a Azure Cosmos DB através do suporte Sinaapse SQL Serverless para ferramentas bi familiares. Por exemplo, Serviços de Análise Azure, Power BI Premium, etc.
+  * Modele e publique painéis bi refrescantes auto sobre Azure Cosmos DB através do suporte sem servidor Sinaapse SQL para ferramentas bi familiares. Por exemplo, Serviços de Análise Azure, Power BI Premium, etc.
 
 Seguem-se algumas orientações para a integração de dados para o lote & dados de streaming para a Azure Cosmos DB:
 
@@ -128,7 +128,7 @@ Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operaç
 
   * Ao utilizar [a loja analítica Azure Cosmos DB](analytical-store-introduction.md), uma loja de colunas totalmente isolada, a Synapse Link não permite análises extract-Transform-Load (ETL) em [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) contra dados operacionais distribuídos globalmente à escala.  Analistas de negócios, engenheiros de dados e cientistas de dados podem agora usar o Synapse Spark ou Synapse SQL de forma interoperável para executar perto de inteligência empresarial em tempo real, analíticos e oleodutos de aprendizagem automática sem afetar o desempenho das suas cargas de trabalho transacionais na Azure Cosmos DB. Veja os [benefícios do Synapse Link em Azure Cosmos DB](synapse-link.md) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

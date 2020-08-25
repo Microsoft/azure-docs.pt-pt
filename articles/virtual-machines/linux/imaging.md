@@ -1,6 +1,6 @@
 ---
 title: Visão geral da criação de imagens Linux para Azure
-description: Visão geral de como trazer as suas imagens Linux VM ou criar novas imagens para usar em Azure.
+description: Como trazer as suas imagens Linux VM ou criar novas imagens para usar no Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502185"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815305"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
 
@@ -25,7 +25,7 @@ Este artigo falará através dos pontos e requisitos de decisão de imagem, expl
 ## <a name="difference-between-managed-disks-and-images"></a>Diferença entre discos geridos e imagens
 
 
-O Azure permite-lhe trazer um VHD para a plataforma, para usar como [disco gerido,](../windows/faq-for-disks.md#managed-disks)ou usar como fonte para uma imagem. 
+O Azure permite-lhe trazer um VHD para a plataforma, para usar como [disco gerido,](../faq-for-disks.md#managed-disks)ou usar como fonte para uma imagem. 
 
 Os discos geridos Azure são VHDs únicos. Pode pegar num VHD existente e criar um disco gerido a partir dele, ou criar um disco gerido vazio a partir do zero. Pode criar VMs a partir de discos geridos, fixando o disco ao VM, mas só pode utilizar um VHD com um VM. Não é possível modificar nenhuma propriedade de SO, o Azure tentará apenas ligar o VM e iniciar a utilização desse disco. 
 
@@ -58,7 +58,7 @@ Estes são [pré-requisitos](./create-upload-generic.md) para criar uma imagem.
 ### <a name="specialized-images"></a>Imagens especializadas
 Estas são imagens que estão completamente configuradas e não requerem VM e parâmetros especiais, a plataforma vai apenas ligar o VM, você precisa lidar com a singularidade dentro do VM, como definir um nome de hospedeiro, para evitar conflitos DNS no mesmo VNET. 
 
-Os agentes de provisionamento não são necessários para estas imagens, no entanto, é melhor que seja necessário ter capacidades de tratamento de extensões. Pode instalar o Agente Linux, mas desativar a opção de provisionamento. Mesmo que não precise de um agente de provisionamento, a imagem deve cumprir [os requisitos pré-requisitos](./create-upload-generic.md) para a Azure Images.
+Os agentes de provisionamento não são necessários para estas imagens, no entanto, é melhor que seja necessário ter capacidades de tratamento de extensões. Pode instalar o Agente Linux, mas desativar a opção de provisionamento. Mesmo que não precise de um agente de provisionamento, a imagem deve cumprir [os requisitos pré-requisitos](./create-upload-generic.md)  para a Azure Images.
 
 
 ## <a name="image-storage-options"></a>Opções de armazenamento de imagem
@@ -101,13 +101,13 @@ Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os
 
 - [Distribuições baseadas em CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
-- [Contentor Flatcar Linux](flatcar-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES e openSUSE](suse-create-upload-vhd.md)
 - [Ubuntu](create-upload-ubuntu.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como criar uma [Galeria de Imagens Partilhadas.](tutorial-custom-images.md)

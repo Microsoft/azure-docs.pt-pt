@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034183"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814395"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -27,7 +27,7 @@ A imagem a seguir mostra a integração da Azure Synapse Link com a Azure Cosmos
 
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagrama de arquitetura para integração Azure Synapse Analytics com Azure Cosmos DB" border="false":::
 
-## <a name="benefits"></a><a id="synapse-link-benefits"></a>Benefícios
+## <a name="benefits"></a><a id="synapse-link-benefits"></a> Benefícios
 
 Para analisar grandes conjuntos de dados operacionais, minimizando o impacto no desempenho das cargas de trabalho transacionais críticas da missão, tradicionalmente, os dados operacionais em Azure Cosmos DB são extraídos e processados pelos gasodutos Extract-Transform-Load (ETL). Os oleodutos ETL requerem muitas camadas de movimento de dados, resultando em muita complexidade operacional e impacto no desempenho das suas cargas de trabalho transacionais. Aumenta também a latência para analisar os dados operacionais a partir do momento de origem.
 
@@ -75,7 +75,7 @@ Se tiver uma conta DB Azure Cosmos distribuída globalmente, depois de ativar um
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integração com a Azure Synapse Analytics
 
-Com a Synapse Link, pode agora ligar-se diretamente aos seus contentores DB Azure Cosmos da Azure Synapse Analytics e aceder à loja analítica sem conectores separados. A Azure Synapse Analytics suporta atualmente a Synapse Link com [o Sinapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e o [Sinaapse SQL Serverless](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Com a Synapse Link, pode agora ligar-se diretamente aos seus contentores DB Azure Cosmos da Azure Synapse Analytics e aceder à loja analítica sem conectores separados. A Azure Synapse Analytics suporta atualmente a Synapse Link com [o Sinapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e o [sinapse SQL sem servidor](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Pode consultar os dados da loja analítica Azure Cosmos DB simultaneamente, com interop através de diferentes tempos de execução analíticos suportados pela Azure Synapse Analytics. Não são necessárias transformações adicionais de dados para analisar os dados operacionais. Pode consultar e analisar os dados da loja analítica utilizando:
 

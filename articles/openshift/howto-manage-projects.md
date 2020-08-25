@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139118"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816444"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, streams de imagem em um cluster Azure Red Hat OpenShift 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, streams de imagem em um cluster Azure Red Hat OpenShift
 
 Numa Plataforma de Contentores OpenShift, os projetos são usados para agrupar e isolar objetos relacionados. Como administrador, pode dar aos desenvolvedores acesso a projetos específicos, permitir-lhes criar os seus próprios projetos e conceder-lhes direitos administrativos a projetos individuais.
 
@@ -45,7 +45,7 @@ O acesso à API é concedido a desenvolvedores com a função de cluster de auto
    oc edit template project-request -n openshift
    ```
 
-3. Remova o modelo de projeto padrão do processo de atualização Azure Red Hat OpenShift (ARO), adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
+3. Remova o modelo de projeto padrão do processo de atualização Azure Red Hat OpenShift (ARO), adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -112,7 +112,7 @@ Para desativar as atualizações para ALL `Templates` e no espaço de `ImageStre
    oc edit namespace openshift
    ```
 
-3. Remova `openshift` o espaço de nome do processo de atualização ARO adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
+3. Remova `openshift` o espaço de nome do processo de atualização ARO adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -124,7 +124,7 @@ Para desativar as atualizações para ALL `Templates` e no espaço de `ImageStre
 
    Qualquer objeto individual no `openshift` espaço de nomes pode ser removido do processo de atualização `openshift.io/reconcile-protect: "true"` adicionando-lhe anotação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]

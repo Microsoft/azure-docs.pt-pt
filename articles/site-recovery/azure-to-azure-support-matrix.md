@@ -4,14 +4,14 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761377"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815373"
 ---
-# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
+# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
 Este artigo resume o suporte e os pré-requisitos para a recuperação de desastres de Azure VMs de uma região de Azure para outra, utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md)
 
@@ -44,8 +44,8 @@ Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geo
 **Aglomerado geográfico** | **Regiões do Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Central EUA, Norte-Americanos do Centro Norte
-Europe | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central
-Asia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
+Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central
+Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
@@ -195,6 +195,7 @@ Grupos de colocação de proximidade | Suportado | As máquinas virtuais localiz
 -- | ---
 Redimensione o disco em VM replicado | Suportado na fonte VM antes do failover. Não há necessidade de desativar/reativar a replicação.<br/><br/> Se alterar o VM de origem após o failover, as alterações não são capturadas.<br/><br/> Se alterar o tamanho do disco no Azure VM após o failover, as alterações não são capturadas pela Recuperação do Site, e o failback será para o tamanho VM original.
 Adicione um disco a um VM replicado | Suportado
+Alterações offline para discos protegidos | Desligar discos e fazer modificações offline para eles requer desencadear um ressínc completo.
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas - armazenamento
 
@@ -254,6 +255,7 @@ A tabela seguinte resume os limites de recuperação do local.
 - Estes limites são baseados nos nossos testes, mas obviamente não cobrem todas as combinações possíveis de I/O de aplicação.
 - Os resultados reais podem variar em função da sua mistura de I/O.
 - Existem dois limites a considerar, por conta de dados de disco e por cada dados de máquinas virtuais.
+- O limite atual para os dados de máquinas virtuais é de 54 MB/s, independentemente do tamanho.
 
 **Alvo de armazenamento** | **Disco de origem médio I/O** |**Média de alterações a dados do disco de origem** | **Total de dados de disco de origem por dia**
 ---|---|---|---

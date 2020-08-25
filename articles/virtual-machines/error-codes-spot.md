@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e151145bd3c4d1db87ef5d1b0d553555a580279
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069797"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816750"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensagens de erro para VMs spot e conjuntos de escala
 
@@ -31,11 +31,11 @@ Aqui estão alguns possíveis códigos de erro que pode receber ao utilizar VMs 
 | MaxPriceChangeNotAllowedForAllocatedVMs | Não é permitida a alteração máxima dos preços quando o VM {0} ' » é atualmente atribuído. Por favor, faça um acordo e tente de novo. | Stop\Deallocate the VM para que possa alterar o preço máximo. |
 | MaxPriceChangeNotAllowed | Não é permitida a mudança de preço máxima. | Não é possível alterar o preço máximo deste VM. |
 | AzureSpotIsNotSupportedForThisAPIVersion  |  O Azure Spot não é suportado para esta versão API. | A versão API tem de ser 2019-03-01. |
-| AzurespotIsNotsupportedForThisvmsize  |  O Azure Spot não é suportado para este tamanho VM {0} . | Selecione outro tamanho VM. Para mais informações, consulte [as Máquinas Virtuais Spot.](./linux/spot-vms.md) |
-| MaxPriceIssupportedOnlyForAzurespotVirtualMachines  |  O preço máximo é suportado apenas para máquinas virtuais Azure Spot. | Para mais informações, consulte [as Máquinas Virtuais Spot.](./linux/spot-vms.md) |
+| AzurespotIsNotsupportedForThisvmsize  |  O Azure Spot não é suportado para este tamanho VM {0} . | Selecione outro tamanho VM. Para mais informações, consulte [as Máquinas Virtuais Spot.](./spot-vms.md) |
+| MaxPriceIssupportedOnlyForAzurespotVirtualMachines  |  O preço máximo é suportado apenas para máquinas virtuais Azure Spot. | Para mais informações, consulte [as Máquinas Virtuais Spot.](./spot-vms.md) |
 | MoveResourcesWithAzureSpotVMNotSupported  |  O pedido de recursos move contém uma máquina virtual Azure Spot. Atualmente, isto não é apoiado. Verifique os detalhes de erro para identificação de máquinas virtuais. | Não pode mover VMs spot. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  O pedido de recursos Move contém um conjunto de escala de máquina virtual Azure Spot. Atualmente, isto não é apoiado. Verifique os detalhes de erro para identificação de balança de máquina virtual. | Não é possível mover instâncias de escala spot. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | A máquina virtual Azure Spot não é suportada em Conjunto de Escala de Máquina Virtual com modo de Orquestração VM. | Desagrema o modo de orquestração à escala de máquina virtual definida para utilizar instâncias spot. |
 
 
-**Próximos passos** Para mais informações, consulte [as Máquinas Virtuais spot.](./linux/spot-vms.md)
+**Próximos passos** Para mais informações, consulte [as Máquinas Virtuais spot.](./spot-vms.md)

@@ -3,12 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654825"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816954"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -538,7 +538,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Apoio Técnico para Linux** | Suporte adicionado para RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Os VMs baseados em Linux que utilizam o estilo de partição da tabela GUID (GPT) no modo de compatibilidade BIOS legacy são agora suportados. Reveja as [FAQ Azure VM](../virtual-machines/linux/faq-for-disks.md) para obter mais informações.
+**Apoio Técnico para Linux** | Suporte adicionado para RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Os VMs baseados em Linux que utilizam o estilo de partição da tabela GUID (GPT) no modo de compatibilidade BIOS legacy são agora suportados. Reveja as [FAQ Azure VM](../virtual-machines/faq-for-disks.md) para obter mais informações.
 **Recuperação de desastres para VMs após migração** | Suporte para permitir a recuperação de desastres para uma região secundária para um VMware VM no local migraram para Azure, sem necessidade de desinstalar o serviço de Mobilidade no VM antes de permitir a replicação.
 **Windows Server 2008** | Suporte para máquinas migratórias que executam o Windows Server 2008 R2/2008 64-bits e 32-bit.<br/><br/> Migração (replicação e failover). O failback não é apoiado.
 

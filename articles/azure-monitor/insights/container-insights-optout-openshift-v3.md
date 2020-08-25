@@ -3,16 +3,16 @@ title: Como parar de monitorizar o seu azure Red Hat OpenShift v3 cluster Micros
 description: Este artigo descreve como pode parar de monitorizar o seu cluster Azure Red Hat OpenShift com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 26c8a574894e117694545508174d0ce7d0f0f5ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091220"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815441"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3 
 
-Depois de ativar a monitorização do seu cluster 3.x do Chapéu Vermelho Azure, pode parar de monitorizar o cluster com o Azure Monitor para contentores se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo usando o modelo Azure Resource Manager fornecido.  
+Depois de ativar a monitorização do seu cluster 3.x do Chapéu Vermelho Azure, pode parar de monitorizar o cluster com o Azure Monitor para contentores se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo usando o modelo Azure Resource Manager fornecido. 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
@@ -65,7 +65,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     }
     ```
 
-2. Guarde este ficheiro à medida **queOptOutTemplate.jsnuma** pasta local.
+2. Guarde este ficheiro à medida ** queOptOutTemplate.jsnuma** pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -88,7 +88,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
     ![Página de propriedades de contentores](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Guarde este ficheiro à medida **queOptOutParam.jsnuma** pasta local.
+5. Guarde este ficheiro à medida ** queOptOutParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 

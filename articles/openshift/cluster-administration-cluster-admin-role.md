@@ -7,15 +7,15 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139101"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815526"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Papel de administrador de cliente azure Red Hat OpenShift
-
+ 
 És o administrador de um aglomerado de chapéus vermelhos Azure. A sua conta aumentou as permissões e o acesso a todos os projetos criados pelo utilizador.
 
 Quando a sua conta tem a função de autorização de cluster de administração do cliente vinculada a ela, pode gerir automaticamente um projeto.
@@ -37,11 +37,11 @@ Só pode configurar o papel de cluster de agrupamento de administração do clie
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Confirme a adesão à função de administrador de clientes
 
-Para confirmar a sua adesão ao grupo de administração de clientes, experimente os comandos OpenShift CLI `oc get nodes` ou `oc projects` . `oc get nodes`apresentará uma lista de nós se tiver a função de cluster de administração do cliente e um erro de permissão se tiver apenas a função de projeto de administração do cliente. `oc projects`mostrará todos os projetos no cluster em oposição apenas aos projetos em que está a trabalhar.
+Para confirmar a sua adesão ao grupo de administração de clientes, experimente os comandos OpenShift CLI `oc get nodes` ou `oc projects` . `oc get nodes` apresentará uma lista de nós se tiver a função de cluster de administração do cliente e um erro de permissão se tiver apenas a função de projeto de administração do cliente. `oc projects` mostrará todos os projetos no cluster em oposição apenas aos projetos em que está a trabalhar.
 
 Para explorar ainda mais papéis e permissões no seu cluster, pode utilizar o [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) comando.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configure o papel de cluster de agrupamento de administração do cliente:
 > [!div class="nextstepaction"]

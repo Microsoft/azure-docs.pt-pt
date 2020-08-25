@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186639"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816461"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
 
@@ -24,19 +24,17 @@ Este artigo descreve resoluções a erros que poderá encontrar ao criar cluster
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
 
-### <a name="error"></a>Erro
+**Erro**: "O local de ação do script não pode ser acedido uri: \<SCRIPT ACTION URL\> "
 
-"O local de ação do script não pode ser acedido URI: \<SCRIPT ACTION URL\> "
-
-#### <a name="error-message"></a>Mensagem de erro
+### <a name="error-message-1"></a>Mensagem de erro 1
 
 "O servidor remoto devolveu um erro: (404) Não Encontrado."
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O serviço HDInsight não pode aceder ao URL de ação do script que forneceu como parte do pedido do Create Cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 - Para um URL HTTP ou HTTPS, verifique o URL tentando ir até ele a partir de uma janela do navegador incógnita.
 - Para um URL WASB, certifique-se de que o script existe na conta de armazenamento que você dá no pedido. Certifique-se também de que a chave de armazenamento desta conta de armazenamento está correta.
@@ -44,37 +42,29 @@ O serviço HDInsight não pode aceder ao URL de ação do script que forneceu co
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
-
-### <a name="error"></a>Erro
-
-"O local de ação do script não pode ser acedido URI: \<SCRIPT_ACTION_URL\> "
-
-#### <a name="error-message"></a>Mensagem de erro
+### <a name="error-message-2"></a>Mensagem de erro 2
 
 "O dado script URI \<SCRIPT_URI\> está em ADLS, mas este cluster não tem diretor de armazenamento de lago de dados"
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O serviço HDInsight não pode aceder ao URL de ação do script que forneceu como parte do pedido do Create Cluster. O serviço recebe a mensagem de erro anterior quando tenta aceder à ação do script.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 Adicione a correspondente conta Azure Data Lake Storage Gen 1 ao cluster. Adicione também o principal de serviço que acede à conta de Armazenamento de Data Lake Gen 1 ao cluster.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
-
-### <a name="error"></a>Erro
+### <a name="error-message-3"></a>Mensagem de erro 3
 
 "Tamanho \<CUSTOMER_SPECIFIED_VM_SIZE\> VM' fornecido no pedido é inválido ou não apoiado para o papel \<ROLE\> '. Valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\> ."
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O tamanho da máquina virtual que especificou não é permitido para o papel. Este erro pode ocorrer porque o valor do tamanho VM não funciona como esperado ou não é adequado para o papel do computador.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 A mensagem de erro lista os valores válidos para o tamanho VM. Selecione um destes valores e relemisça o pedido de Criar Cluster.
 
@@ -230,7 +220,7 @@ Se estiver a utilizar o grupo de segurança de rede VNet personalizado (NSGs) e 
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: As implementações falharam devido à violação da política: 'Recurso' <Resource URI> foi proibido pela política. Identificadores de política: <Policy Name> "[{"policyAssignment":{"name":"""""""""id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/ <Management Group Name> <Policy Name> "}"policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: As implementações falharam devido à violação da política: 'Recurso' <Resource URI> foi proibido pela política. Identificadores de política: <Policy Name> "[{"policyAssignment":{"name":"""""""""id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/ <Management Group Name> <Policy Name> "}"policyDefinition": <Policy Definition>
 
 ### <a name="cause"></a>Causa
 

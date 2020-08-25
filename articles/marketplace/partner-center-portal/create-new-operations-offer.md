@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606109"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817005"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ Este tópico explica como criar uma nova oferta Dynamics 365 para Operações. [
 Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 >[!NOTE]
-> Uma vez publicada uma oferta, as edições à oferta feita no Partner Center só serão atualizadas no sistema e nas frentes da loja após a reedição. Certifique-se de que submete a oferta para publicação depois de escrita.
+> Uma vez publicada uma oferta, as edições à oferta só serão atualizadas no Partner Center e na loja online depois de reencamessão da oferta para publicação.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
@@ -193,12 +193,16 @@ Nesta secção, pode fornecer logotipos e imagens que serão utilizados ao mostr
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça o logótipo da sua oferta em dois tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center irá usá-lo para criar um logótipo **pequeno.** Pode substituir opcionalmente isto por uma imagem diferente mais tarde.
 
-- **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (de 216 x 216 a 350 x 350 px, necessário)
+- **Pequeno** (48 x 48 px, opcional)
+
+Estes logótipos são utilizados em diferentes locais da listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

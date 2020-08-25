@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797926"
+ms.locfileid: "88814455"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -46,7 +46,7 @@ A tabela seguinte compara as opções de gestão chave para a encriptação do A
 | Parâmetro de gestão chave | Chaves geridas pela Microsoft | Chaves geridas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de encriptação/desencriptação | Azure | Azure | Azure |
-| Serviços de Armazenamento Azure apoiados | Tudo | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
+| Serviços de Armazenamento Azure apoiados | Todos | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
 | Armazenamento de chaves | Loja de chaves da Microsoft | Azure Key Vault | Loja chave do próprio cliente |
 | Responsabilidade de rotação chave | Peering da Microsoft | Cliente | Cliente |
 | Controlo de chaves | Peering da Microsoft | Cliente | Cliente |
@@ -68,7 +68,7 @@ Pode criar um ou mais âmbitos de encriptação para uma conta de armazenamento 
 Depois de ter criado um âmbito de encriptação, pode especificar esse âmbito de encriptação num pedido de criação de um recipiente ou de uma bolha. Para obter mais informações sobre como criar um âmbito de encriptação, consulte [Criar e gerir os âmbitos de encriptação (pré-visualização)](../blobs/encryption-scope-manage.md).
 
 > [!NOTE]
-> Os âmbitos de encriptação não são suportados com contas de armazenamento geo-redundante de acesso à leitura (RA-GRS) durante a pré-visualização.
+> Os âmbitos de encriptação não são suportados com armazenamento geo-redundante de acesso à leitura (RA-GRS) e contas de armazenamento redundante de zona de acesso à leitura (RA-GZRS) durante a pré-visualização.
 
 > [!IMPORTANT]
 > A pré-visualização dos âmbitos de encriptação destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
