@@ -1,30 +1,30 @@
 ---
-title: Amostras de modelo do Gestor de Recursos para livros de trabalho
-description: Modelos de Gestor de Recursos Azure da amostra para implantar livros do Monitor Azure.
+title: Amostras de modelo de gestor de recursos para livros
+description: Experimente os modelos do Gestor de Recursos Azure para implementar livros de trabalho do Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 72e6e085135c07e962dea6253af7d40333295a86
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854499"
 ---
-# <a name="resource-manager-template-samples-for-workbooks-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para livros de trabalho no Monitor Azure
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar livros no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-workbooks-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para livros em Azure Monitor
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar livros no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Os livros de reprodução podem ser complexos, por isso uma estratégia típica é criar o livro no portal Azure e, em seguida, gerar um modelo de Gestor de Recursos. Consulte detalhes deste método no modelo do Gestor de [Recursos Azure para a implementação](../platform/workbooks-automate.md)de livros de trabalho .
+Os livros de trabalho podem ser complexos, por isso uma estratégia típica é criar o livro no portal Azure e, em seguida, gerar um modelo de Gestor de Recursos. Consulte detalhes deste método no [modelo Azure Resource Manager para a implementação de livros.](../platform/workbooks-automate.md)
 
 ## <a name="create-a-workbook"></a>Criar um livro
-A amostra seguinte cria um livro simples.
+A amostra a seguir cria um livro simples.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -86,7 +86,7 @@ A amostra seguinte cria um livro simples.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -108,5 +108,5 @@ A amostra seguinte cria um livro simples.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
 * [Saiba mais sobre grupos de ação.](../platform/workbooks-overview.md)

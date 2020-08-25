@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782539"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749307"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões apoiadas por serviços de fala
 
 O serviço Desemaguiso permite que a sua aplicação converta áudio em texto, realize tradução de voz e texto secreto para a fala. O serviço está disponível em várias regiões com pontos finais únicos para as APIs de Discurso e REST.
 
-O portal Discurso para executar configurações personalizadas para a sua experiência de fala para todas as regiões está disponível aqui:https://speech.microsoft.com
+O portal Discurso para executar configurações personalizadas para a sua experiência de fala para todas as regiões está disponível aqui: https://speech.microsoft.com
 
-Para invocações do seu serviço Speech, certifique-se de que a chamada corresponde à região para a sua subscrição.
+Tenha em mente os seguintes pontos ao considerar as regiões:
+
+* Se a sua aplicação utilizar um [Speech SDK,](speech-sdk.md)forneça o identificador da região, por `westus` exemplo, ao criar uma configuração de fala.
+* Se a sua aplicação utilizar uma das [APIs rest](rest-apis.md)do serviço de fala, a região faz parte do ponto final que utiliza ao fazer pedidos.
+* As chaves criadas para uma região são válidas apenas naquela região. Tentar usá-los com outras regiões resultará em erros de autenticação.
 
 ## <a name="speech-sdk"></a>API de Voz
 
@@ -32,7 +36,7 @@ No [SDK](speech-sdk.md)do Discurso, as regiões são especificadas como uma cord
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Discurso-a-texto, texto-a-discurso e tradução
 
-O portal de personalização da fala está disponível aqui:https://speech.microsoft.com
+O portal de personalização da fala está disponível aqui: https://speech.microsoft.com
 
 O serviço de Discurso está disponível nestas regiões para **reconhecimento de voz,** **texto-a-discurso,** e **tradução:**
 
@@ -44,19 +48,19 @@ Se utilizar o [SDK de fala,](speech-sdk.md)as regiões são especificadas pelo *
 
 As regiões disponíveis para **reconhecimento de intenções** através do SDK de discurso são as seguintes:
 
-| Região global | Região           | Identificador da região |
+| Região global | Region           | Identificador da região |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Leste        | `eastasia`           |
-| Ásia          | Ásia Sudeste   | `southeastasia`      |
+| Asia          | Ásia Leste        | `eastasia`           |
+| Asia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
-| Europa        | Europa do Norte     | `northeurope`        |
-| Europa        | Europa Ocidental      | `westeurope`         |
+| Europe        | Europa do Norte     | `northeurope`        |
+| Europe        | Europa Ocidental      | `westeurope`         |
 | América do Norte | E.U.A. Leste          | `eastus`             |
 | América do Norte | E.U.A. Leste 2        | `eastus2`            |
 | América do Norte | E.U.A. Centro-Sul | `southcentralus`     |
 | América do Norte | E.U.A. Centro-Oeste  | `westcentralus`      |
 | América do Norte | E.U.A. Oeste          | `westus`             |
-| América do Norte | E.U.A.Oeste 2        | `westus2`            |
+| América do Norte | E.U.A. Oeste 2        | `westus2`            |
 | América do Sul | Sul do Brasil     | `brazilsouth`        |
 
 Trata-se de um subconjunto das regiões editoriais apoiado pelo [serviço de Compreensão linguística (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
@@ -65,15 +69,15 @@ Trata-se de um subconjunto das regiões editoriais apoiado pelo [serviço de Com
 
 O [Speech SDK](speech-sdk.md) suporta capacidades **de assistente** de voz nestas regiões:
 
-| Região         | Identificador da região |
+| Region         | Identificador da região |
 | -------------- | -------------------- |
 | E.U.A. Oeste        | `westus`             |
-| E.U.A.Oeste 2      | `westus2`            |
+| E.U.A. Oeste 2      | `westus2`            |
 | E.U.A. Leste        | `eastus`             |
 | E.U.A. Leste 2      | `eastus2`            |
 | Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
-| Ásia Sudeste | `southeastasia`      |
+| Sudeste Asiático | `southeastasia`      |
 
 ### <a name="speaker-recognition"></a>Reconhecimento de Orador
 

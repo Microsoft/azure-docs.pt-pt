@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 5b3893dce2d20b1de0a78f11263d880e262098d2
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84142389"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com análise de texto
@@ -155,7 +155,7 @@ Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pod
 
 Por exemplo, "Impossível" é comum tanto ao inglês como ao francês e, se for dado com um contexto limitado, a resposta basear-se-á na sugestão do país/região dos EUA. Se o texto tiver origem em França, este país poderá ser dado como sugestão.
 
-**Input**
+**Entrada**
 
 ```json
     {
@@ -224,7 +224,7 @@ Se o analisador não puder analisar a entrada, retorna `(Unknown)` . Um exemplo 
 
 O conteúdo em linguagem mista dentro do mesmo documento devolve a língua com a maior representação do conteúdo, mas com uma classificação positiva mais baixa. O rating reflete a força marginal da avaliação. No seguinte exemplo, a entrada é uma mistura de inglês, espanhol e francês. O analisador conta carateres em cada segmento para determinar o idioma predominante.
 
-**Input**
+**Entrada**
 
 ```json
     {
@@ -268,8 +268,8 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de linguagem
 + O pedido do POST é para um `/languages` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta consiste em identificadores de linguagem para cada documento ID. A saída pode ser transmitida para qualquer app que aceite o JSON. As aplicações de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Descrição Geral da Análise de Texto](../overview.md)
+* [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
 * [Novidades](../whats-new.md)

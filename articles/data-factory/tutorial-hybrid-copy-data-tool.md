@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
 ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84660938"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie os dados de uma base de dados do SQL Server para o armazenamento do Azure Blob utilizando a ferramenta Dados de Cópia
@@ -226,7 +226,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 1. Selecione o separador **Editar** à esquerda para mudar para o modo de edição. Pode atualizar os serviços ligados, conjuntos de dados e pipelines criados pela ferramenta, utilizando o editor. Selecione **Código** para ver o código JSON associado à entidade aberta no editor. Para obter detalhes sobre como editar estas entidades na IU do Data Factory, veja [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 O pipeline desta amostra copia dados de uma base de dados do SQL Server para o armazenamento blob. Aprendeu a:
 
 > [!div class="checklist"]

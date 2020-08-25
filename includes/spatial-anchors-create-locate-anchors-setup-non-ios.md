@@ -1,13 +1,13 @@
 ---
 ms.openlocfilehash: defdb89f2a9cf3ec270b0f728f90ba07b83d707b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "67183963"
 ---
-## <a name="set-up-the-session"></a>Preparar a sessão
+## <a name="set-up-the-session"></a>Marcar a sessão
 
-Invoque `Start()` para permitir que a sua sessão processe dados ambientais.
+Invocar `Start()` para permitir a sua sessão para processar dados ambientais.
 
-Para lidar com os eventos levantados pela sua sessão, prenda um manipulador de eventos.
+Para lidar com os eventos levantados pela sua sessão, anexe um manipulador de eventos.

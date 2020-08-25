@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85118887"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK
@@ -86,7 +86,7 @@ Agora que temos a maior parte do código-quadro core MVC ASP.NET que precisamos 
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e selecione **Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager,** procure e selecione **Microsoft.Azure.Cosmos**. Selecione **Instalar**.
+1. No **NuGet Package Manager,** procure e selecione **Microsoft.Azure.Cosmos**. Selecione **Install** (Instalar).
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Instalar pacote NuGet":::
 
@@ -102,7 +102,7 @@ Agora que temos a maior parte do código-quadro core MVC ASP.NET que precisamos 
 
 Agora vamos adicionar os modelos, as vistas e os controladores a esta aplicação MVC.
 
-### <a name="add-a-model"></a><a name="add-a-model"></a>Adicionar um modelo
+### <a name="add-a-model"></a><a name="add-a-model"></a> Adicionar um modelo
 
 1. No **Solution Explorer,** clique à direita na pasta **Modelos,** selecione **Add**  >  **Class**.
 
@@ -211,7 +211,7 @@ Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azu
    ```
 
 
-1. Defina a configuração noappsettings.jsdo projeto *em* arquivo, como mostrado no seguinte corte:
+1. Defina a configuração noappsettings.jsdo projeto * em* arquivo, como mostrado no seguinte corte:
 
    :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 

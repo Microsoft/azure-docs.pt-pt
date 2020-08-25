@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a gerir as operações de restauro da Cópia 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: aabf687fb1f21473c7239d3fab26819b2ea2bea6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079303"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761479"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
 
@@ -25,7 +25,7 @@ Os pontos de recuperação disponíveis de um item de backup podem ser listados 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
-Os `{containerName}` e `{protectedItemName}` são construídos [aqui.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{fabricName}`é "Azure".
+Os `{containerName}` e `{protectedItemName}` são construídos [aqui.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation) `{fabricName}` é "Azure".
 
 O *GET* URI tem todos os parâmetros necessários. Não há necessidade de um corpo de pedido adicional
 
@@ -117,7 +117,7 @@ O ponto de recuperação é identificado com o `{name}` campo na resposta acima.
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, basta restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ser redundante. Os discos, bem como a configuração do VM de reserva ("vmconfig.json") serão armazenados na conta de armazenamento dada.
+Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, basta restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos Serviços de Recuperação e não deve ser redundante. Os discos, bem como a configuração do VM de reserva ("vmconfig.json") serão armazenados na conta de armazenamento dada.
 
 Desencadear discos de restauro é um pedido *DEM.* Para saber mais sobre a operação dos discos Restore, consulte a [API REST "trigger restore".](/rest/api/backup/restores/trigger)
 
@@ -125,7 +125,7 @@ Desencadear discos de restauro é um pedido *DEM.* Para saber mais sobre a opera
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-Os `{containerName}` e `{protectedItemName}` são construídos [aqui.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{fabricName}`é "Azure" e `{recoveryPointId}` é o campo do ponto de `{name}` recuperação [acima](#example-response)mencionado .
+Os `{containerName}` e `{protectedItemName}` são construídos [aqui.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation) `{fabricName}` é "Azure" e `{recoveryPointId}` é o campo do ponto de `{name}` recuperação [acima](#example-response)mencionado .
 
 ### <a name="create-request-body"></a>Criar corpo de pedido
 

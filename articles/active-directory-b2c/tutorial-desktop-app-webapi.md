@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Conceder acesso a uma API web Node.js a partir de uma aplicação de desktop'
+title: 'Tutorial: Conceder acesso a uma API web Node.js a partir de uma aplicação de ambiente de trabalho'
 description: Tutorial sobre como usar o Ative Directory B2C para proteger uma API web Node.js e chamá-lo de uma aplicação de desktop .NET.
 services: active-directory-b2c
 author: msmimart
@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84298857"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
-Este tutorial mostra-lhe como chamar uma API web Node.js protegida pelo Azure Ative Directory B2C (Azure AD B2C) de uma aplicação de desktop da Fundação de Apresentação do Windows (WPF), também protegida pelo Azure AD B2C.
+Este tutorial mostra-lhe como chamar uma API web Node.js protegida pelo Azure Ative Directory B2C (Azure AD B2C) de uma aplicação de desktop da Windows Presentation Foundation (WPF), também protegida pelo Azure AD B2C.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
@@ -99,7 +99,7 @@ Num pré-requisito para este artigo, modificou uma [aplicação de ambiente de t
     public static string ApiEndpoint = "http://localhost:5000";
     ```
 
-### <a name="get-and-update-the-nodejs-api-sample"></a>Obter e atualizar a amostra de API node.js
+### <a name="get-and-update-the-nodejs-api-sample"></a>Obter e atualizar a amostra de API Node.js
 
 Em seguida, obtenha a amostra de código API web Node.js do GitHub e configugue-a para usar a API web que registou no seu inquilino Azure AD B2C.
 

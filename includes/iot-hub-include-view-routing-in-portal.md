@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,20 +9,20 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "67235412"
 ---
-Agora que os seus pontos finais e rotas de mensagens estão configuradas, pode ver a sua configuração no portal. Inscreva-se no [portal Azure](https://portal.azure.com) e vá aos **Grupos de Recursos.** Em seguida, selecione o seu grupo de `ContosoTestHub` recursos e, em seguida, selecione o seu hub (o nome do hub começa com este tutorial). Vê o painel do Hub IoT.
+Agora que os seus pontos finais e rotas de mensagens estão configuradas, pode visualizar a sua configuração no portal. Inscreva-se no [portal Azure](https://portal.azure.com) e vá para **grupos de recursos.** Em seguida, selecione o seu grupo de recursos e, em seguida, selecione o seu hub (o nome do hub começa `ContosoTestHub` neste tutorial). Vê-se o painel do IoT Hub.
 
-![Tela de propriedades do Hub IoT](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
+![Tela de propriedades IoT Hub](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
 
-Nas opções para o Hub IoT, selecione **Message Routing**. As rotas que montou com sucesso são exibidas com sucesso.
+Nas opções para o IoT Hub, selecione **Message Encaminhing**. As rotas que definiu com sucesso são exibidas.
 
-![As rotas que configura](./media/iot-hub-include-view-routing-in-portal/02-show-message-routes.png)
+![As rotas que estabeleceu](./media/iot-hub-include-view-routing-in-portal/02-show-message-routes.png)
 
-No ecrã de **encaminhamento de Mensagens,** selecione **Pontos Finais Personalizados** para ver os pontos finais que definiu para as rotas.
+No ecrã **de encaminhamento de mensagens,** selecione **Pontos de finalização personalizados** para ver os pontos finais definidos para as rotas.
 
-![Os pontos finais configurados para as rotas](./media/iot-hub-include-view-routing-in-portal/03-show-routing-endpoints.png)
+![Os pontos finais criados para as rotas](./media/iot-hub-include-view-routing-in-portal/03-show-routing-endpoints.png)

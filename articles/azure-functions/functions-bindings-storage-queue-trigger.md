@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1755c2d572b44f1e0d8597a108ca83d429405f25
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565660"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761700"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -311,7 +311,7 @@ public class QueueTriggerDemo {
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `QueueTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a| Deve ser definido para `queueTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção**| n/a | Nofunction.jsapenas *arquivado.* Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
-|Propriedade|Tipo|Description|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` * em*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi descoduada.|
@@ -408,7 +408,7 @@ A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escreva mensagens de armazenamento de fila (ligação de saída)](./functions-bindings-storage-blob-output.md)
+- [Escreva mensagens de armazenamento de bolhas (ligação de saída)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

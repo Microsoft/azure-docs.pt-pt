@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85250745"
 ---
 # <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações à Base de Dados SQL utilizando o CLI

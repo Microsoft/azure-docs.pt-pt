@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905211"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749013"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -88,9 +88,9 @@ Métricas que têm a ver com o encaminhamento:
 
 | Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| Mensagens Remadas | Mensagens encaminhadas (pré-visualização) | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Operação, <br>Resultado |
-| EncaminhamentoFailureRate | Taxa de falha de encaminhamento (pré-visualização) | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Operação, <br>Resultado |
-| Encaminhamento | Latência de encaminhamento (Pré-visualização) | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Operação, <br>Resultado |
+| Mensagens Remadas | Mensagens encaminhadas (pré-visualização) | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| EncaminhamentoFailureRate | Taxa de falha de encaminhamento (pré-visualização) | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| Encaminhamento | Latência de encaminhamento (Pré-visualização) | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 
 ## <a name="dimensions"></a>Dimensões
 
@@ -100,7 +100,7 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 | --- | --- |
 | Autenticação | Oauth |
 | Operação (para pedidos de API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/modelos/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/consulta/ação |
-| Operação (para encaminhamento) | Grelha de Eventos, <br>Centro de Eventos, <br>Service Bus |
+| Tipo de ponto final | Grelha de Eventos, <br>Centro de Eventos, <br>Service Bus |
 | Protocolo | HTTPS |
 | Resultado | Sucesso, <br>Falha |
 | Código de Estado | 200, 404, 500, e assim por diante. |

@@ -3,12 +3,12 @@ title: Restaurar ações de ficheiros Azure
 description: Saiba como utilizar o portal Azure para restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pelo Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503647"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761853"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar ações de ficheiros Azure
 
@@ -66,7 +66,7 @@ Pode utilizar esta opção de restauro para restaurar a partilha completa de fic
     * **Localização original**: Restaurar a partilha completa do ficheiro para o mesmo local que a fonte original.
     * **Localização Alternativa**: Restaurar a partilha completa do ficheiro para uma localização alternativa e manter a partilha original do ficheiro tal como está.
 
-#### <a name="restore-to-the-original-location"></a>Restaurar para a localização original
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Restaurar a localização original (recuperação total de ações)
 
 1. Selecione **a Localização Original** como **Destino de Recuperação**, e selecione se deve saltar ou substituir se houver conflitos, escolhendo a opção apropriada da lista de caso **de conflitos.**
 
@@ -74,7 +74,7 @@ Pode utilizar esta opção de restauro para restaurar a partilha completa de fic
 
     ![Selecione Restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Restaurar para um local alternativo (recuperação total de ações)
 
 1. Selecione **Localização Alternativa** como **Destino de Recuperação**.
 1. Selecione a conta de armazenamento de destino onde pretende restaurar o conteúdo retrossondo da lista de down-down da Conta de **Armazenamento.**
@@ -106,7 +106,7 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
     * **Localização Original**: Restaurar ficheiros ou pastas selecionados para a mesma partilha de ficheiros que a origem original.
     * **Localização Alternativa**: Restaurar ficheiros ou pastas selecionados para uma localização alternativa e manter o conteúdo original da partilha de ficheiros como está.
 
-#### <a name="restore-to-the-original-location"></a>Restaurar para a localização original
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Restaurar a localização original (recuperação ao nível do item)
 
 1. Selecione **a Localização Original** como **Destino de Recuperação**e selecione se deve saltar ou substituir se houver conflitos, escolhendo a opção apropriada da lista **em caso de conflitos.**
 
@@ -125,7 +125,7 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 
     ![Selecione Restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Restaurar para uma localização alternativa (recuperação ao nível do item)
 
 1. Selecione **Localização Alternativa** como **Destino de Recuperação**.
 1. Selecione a conta de armazenamento de destino onde pretende restaurar o conteúdo retrossondo da lista de down-down da Conta de **Armazenamento.**
@@ -162,6 +162,6 @@ Também pode monitorizar o progresso da recuperação do cofre dos Serviços de 
 
     ![Ver detalhes restaurados](./media/restore-afs/restore-details.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como gerir as [cópias de segurança de partilha de ficheiros Azure](manage-afs-backup.md).

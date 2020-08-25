@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84235029"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e ligações IoT Edge
@@ -34,8 +34,8 @@ Assim que o trabalho Azure Stream Analytics for criado com o ambiente de hospeda
    Campo|Valor
    -----|-----
    Formato de Serialização de Eventos|JSON
-   Codificação|UTF-8
-   Tipo de compressão de eventos|Nenhuma
+   Encoding|UTF-8
+   Tipo de compressão de eventos|Nenhum
 
 2. Para criar a **saída,** clique **em +Adicionar** e escolha base de dados SQL. Preencha a secção de detalhes utilizando as seguintes informações.
 
@@ -77,7 +77,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 
    _Campo_|_Valor_
    -------|-------
-   Name|Nome de registo
+   Nome|Nome de registo
    Endereço|Servidor de início de sessão
    Nome de Utilizador|Nome de utilizador
    Palavra-passe|Palavra-passe

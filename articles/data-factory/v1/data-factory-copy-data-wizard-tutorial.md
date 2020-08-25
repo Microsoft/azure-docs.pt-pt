@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85248552"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com Atividade de Cópia com o Assistente de Cópia do Data Factory
@@ -55,7 +55,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
        O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactoryAAAAMMDD) e tente criá-la novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  
       
        ![Nome do Data Factory não disponível](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Selecione a sua **subscrição** do Azure.
+   2. Selecione a sua **subscrição Azure**.
    3. No Grupo de Recursos, siga um destes passos: 
       
       - Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
@@ -91,7 +91,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
    
    1. Introduza **AzureStorageLinkedService** para **Nome do serviço ligado**.
    2. Confirme que a opção **A partir de subscrições do Azure** está selecionada para o **Método de seleção de contas**.
-   3. Selecione a sua **subscrição** do Azure.  
+   3. Selecione a sua **subscrição Azure**.  
    4. Selecione uma **Conta de armazenamento do Azure** na lista das contas de armazenamento do Azure disponíveis na subscrição selecionada. Também pode optar por introduzir manualmente as definições da conta de armazenamento selecionando a opção **Introduzir manualmente** para **Método de seleção de contas** e, em seguida, clicar em **Seguinte**. 
       
       ![Ferramenta Copiar – Especificar a conta de armazenamento de blobs do Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -114,7 +114,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
    
    1. Introduza **AzureSqlLinkedService** no campo **Nome da ligação**.
    2. Confirme que a opção **A partir de subscrições do Azure** está selecionada para o **Método de seleção de servidor/base de dados**.
-   3. Selecione a sua **subscrição** do Azure.  
+   3. Selecione a sua **subscrição Azure**.  
    4. Selecione **Nome do servidor** e **Base de dados**.
    5. Introduza o **Nome de utilizador** e a **Palavra-passe**.
    6. Clique em **Seguinte**.  

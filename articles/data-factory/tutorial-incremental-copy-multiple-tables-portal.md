@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85251159"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carregue gradualmente os dados de várias tabelas no SQL Server para uma base de dados na Base de Dados Azure SQL utilizando o portal Azure
@@ -400,7 +400,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
 1. No **separador Parâmetros,** faça os seguintes passos: 
 
-    1. Clique em **+ Novo**. 
+    1. Clique em **+ New** (+ Novo). 
     1. Introduza **tableList** no parâmetro **Nome**. 
     1. Selecione **Matriz** para o **tipo**de parâmetro .
 
@@ -410,7 +410,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
     ![Atividade ForEach - definições](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
-1. Selecione a atividade **ForEach** no pipeline, se ainda não estiver selecionada. Clique no botão **Editar (Ícone de lápis)**.
+1. Selecione a atividade **ForEach** no pipeline, se ainda não estiver selecionada. Clique no botão **Editar (ícone de lápis).**
 
 1. Na caixa de ferramentas **Atividades**, expanda **Geral**, arraste e largue a atividade **Lookup** na superfície de estruturador do pipeline e introduza **LookupOldWaterMarkActivity** em **Nome**.
 
@@ -477,10 +477,10 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
     1. Selecione **Parâmetro de importação**. 
     1. Especifique os seguintes valores para os parâmetros: 
 
-        | Name | Tipo | Valor | 
+        | Nome | Tipo | Valor | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. **Selecione Publicar Tudo** para publicar as entidades que criou para o serviço Data Factory. 
@@ -525,7 +525,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 ## <a name="review-the-results"></a>Rever os resultados
 No SQL Server Management Studio, execute as seguintes consultas na base de dados SQL de destino para verificar que os dados foram copiados das tabelas de origem para as tabelas de destino. 
 
-**Consulta** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -542,7 +542,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Consulta**
+**Query**
 
 ```sql
 select * from project_table
@@ -559,7 +559,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Consulta**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -624,7 +624,7 @@ VALUES
 ## <a name="review-the-final-results"></a>Rever os resultados finais
 No SQL Server Management Studio, execute as seguintes consultas com a base de dados SQL alvo para verificar se os dados atualizados/novos foram copiados das tabelas de origem para as tabelas de destino. 
 
-**Consulta** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -643,7 +643,7 @@ PersonID    Name    LastModifytime
 
 Repare nos valores novos de **Name** e **LastModifytime** para **PersonID** relativamente ao número 3. 
 
-**Consulta**
+**Query**
 
 ```sql
 select * from project_table
@@ -663,7 +663,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Repare que a entrada **NewProject** foi adicionada a project_table. 
 
-**Consulta**
+**Query**
 
 ```sql
 select * from watermarktable

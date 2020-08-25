@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84194496"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carrega dados de forma incremental a partir de um arquivo de dados de origem para um arquivo de dados de destino
@@ -57,7 +57,7 @@ Para modelos, consulte o seguinte:
 - [Copiar novos ficheiros por DataÚltimaModificação](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Carregar novos ficheiros apenas utilizando a pasta divisória do tempo ou o nome do ficheiro.
-Só pode copiar novos ficheiros, onde os ficheiros ou pastas já foram divididos com informações de cronometragens como parte do ficheiro ou nome da pasta (por exemplo, /yyyy/mm/dd/file.csv). É a abordagem mais performante para carregar gradualmente novos ficheiros. 
+Só pode copiar novos ficheiros, onde os ficheiros ou pastas já foram divididos com informações de cronometrs como parte do ficheiro ou nome da pasta (por exemplo, /yyyy/mm/dd/file.csv). É a abordagem mais performante para carregar gradualmente novos ficheiros. 
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 - [Copie gradualmente novos ficheiros com base na pasta ou nome de ficheiros partitionados de tempo do armazenamento de Azure Blob para o armazenamento de Azure Blob](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84266530"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Encomende um disco de caixa de dados Azure
@@ -41,7 +41,7 @@ Antes de implementar, preencha os seguintes pré-requisitos de configuração pa
 Antes de começar, certifique-se de que:
 
 * Tem um computador cliente disponível a partir do qual pode copiar os dados. O computador cliente tem de:
-  * Executar um [sistema operativo suportado.](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)
+  * Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
   * Ter outro [software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente Windows.  
 
 ## <a name="order-data-box-disk"></a>Encomendar o Data Box Disk
@@ -57,7 +57,7 @@ Tome os seguintes passos para encomendar o Disco de Caixa de Dados.
 
    ![Pesquisar o Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
-2. Clique **em Criar**.
+2. Clique em **Criar**.
 
 3. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e clique em **Aplicar**.
 

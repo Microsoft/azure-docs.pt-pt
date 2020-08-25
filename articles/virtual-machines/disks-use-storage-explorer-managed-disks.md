@@ -7,12 +7,12 @@ ms.date: 09/25/2019
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 658defef93a7dffe9a0d707e128ab5d5ef382849
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701639"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749372"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Use o Azure Storage Explorer para gerir discos geridos a Azure
 
@@ -132,6 +132,6 @@ Com o Storage Explorer, pode copiar um disco manged dentro ou em todas as regiõ
 ## <a name="next-steps"></a>Passos seguintes
 
 
-Saiba como criar um VM a [partir de um VHD utilizando o portal Azure](./windows/create-vm-specialized-portal.md).
+Saiba como criar um VM a [partir de um VHD utilizando o portal Azure](windows/create-vm-specialized-portal.md).
 
-Saiba [como anexar um disco de dados gerido a um VM do Windows utilizando o portal Azure](./windows/attach-managed-disk-portal.md).
+Saiba [como anexar um disco de dados gerido a um VM do Windows utilizando o portal Azure](windows/attach-managed-disk-portal.md).

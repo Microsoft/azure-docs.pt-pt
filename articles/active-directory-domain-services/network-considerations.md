@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054277"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749623"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
@@ -94,7 +94,7 @@ Um domínio gerido cria alguns recursos de networking durante a implantação. E
 | Recurso do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
-| Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/public-ip-addresses.md). |
 | Equilibrador de carga padrão Azure            | O Azure AD DS utiliza um balanceador de carga SKU padrão para tradução de endereços de rede (NAT) e equilíbrio de carga (quando utilizado com LDAP seguro). Para obter mais informações sobre os equilibradores de carga Azure, veja [o que é o Equilibr de Carga Azure?](../load-balancer/load-balancer-overview.md) |
 | Regras de tradução de endereços de rede (NAT) | AZure AD DS cria e utiliza três regras NAT no equilibrador de carga - uma regra para tráfego HTTP seguro e duas regras para a fixação da PowerShell. |
 | Regras do balanceador de carga                     | Quando um domínio gerido é configurado para LDAP seguro na porta TCP 636, três regras são criadas e usadas num equilibrador de carga para distribuir o tráfego. |
@@ -104,15 +104,15 @@ Um domínio gerido cria alguns recursos de networking durante a implantação. E
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança de rede e portas necessárias
 
-Um [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa um domínio gerido que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
+Um [grupo de segurança de rede (NSG)](../virtual-network/security-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa um domínio gerido que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o domínio gerido forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
-| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino AZure AD. |
-| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Sincronização com o seu inquilino AZure AD. |
+| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
 
 É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente. Não apague este grupo de segurança de rede. O equilibrador de carga não funcionará corretamente sem ele.
 

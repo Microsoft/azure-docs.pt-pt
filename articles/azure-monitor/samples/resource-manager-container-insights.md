@@ -1,29 +1,29 @@
 ---
-title: Amostras de modelo de gestor de recursos para monitor azure para recipientes
-description: Modelos de Gestor de Recursos Azure da amostra para implantar e configurar monitorAzure para recipientes.
+title: Amostras de modelo do gestor de recursos para monitor Azure para contentores
+description: Experimente os modelos do Gestor de Recursos Azure para implantar e configurar o Monitor Deazure para contentores.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 0c32ecc45d57f76a675b156543fdc5019cba509f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854517"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Amostras de modelo de gestor de recursos para monitor azure para recipientes
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implementar e configurar o agente Log Analytics para máquinas virtuais no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Amostras de modelo do gestor de recursos para monitor Azure para contentores
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o agente Log Analytics para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Ativar o cluster AKS
-A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
+A amostra seguinte permite ao Monitor Azure para contentores num cluster AKS.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -79,7 +79,7 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -107,9 +107,9 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 ```
 
 
-## <a name="enable-for-new-azure-red-hat-openshift-v3-cluster"></a>Ativar para novo cluster OpenShift v3 do chapéu vermelho azure
+## <a name="enable-for-new-azure-red-hat-openshift-v3-cluster"></a>Ativar o novo cluster V3 do Chapéu Vermelho Azure
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -246,7 +246,7 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -287,9 +287,9 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 }
 ```
 
-## <a name="enable-for-existing-azure-red-hat-openshift-v3-cluster"></a>Ativar para o aglomerado v3 v3 do chapéu vermelho azure existente
+## <a name="enable-for-existing-azure-red-hat-openshift-v3-cluster"></a>Ativar o cluster V3 do chapéu vermelho azure existente
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -334,7 +334,7 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -356,5 +356,5 @@ A amostra seguinte permite o Monitor Azure para recipientes num cluster AKS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
-* [Saiba mais sobre o Monitor Azure para os contentores.](../insights/container-insights-overview.md)
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
+* [Saiba mais sobre o Azure Monitor para recipientes.](../insights/container-insights-overview.md)

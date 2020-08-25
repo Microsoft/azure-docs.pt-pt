@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84983610"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Amostra: Explore uma aplicação de processamento de imagem com C #
@@ -91,7 +91,7 @@ Pode executar a aplicação de amostra, para ver como interage consigo e com a b
 
 1. Em **Seleção de um cenário** no painel de navegação, selecione um dos cenários atualmente incluídos com a aplicação da amostra:  
 
-   | Cenário | Description |
+   | Cenário | Descrição |
    |----------|-------------|
    |Analisar Imagem | Utiliza a operação ['Imagem de Análise'](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para analisar uma imagem local ou remota. Pode escolher as características visuais e a linguagem para a análise, e ver tanto a imagem como os resultados.  |
    |Analisar imagem com modelo de domínio | Utiliza a operação [De Modelos Específicos de Domínio lista](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) para listar os modelos de domínio a partir dos quais pode selecionar e a operação de Conteúdo Específico do Domínio de [Reconhecimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) para analisar uma imagem local ou remota utilizando o modelo de domínio selecionado. Também pode escolher o idioma para a análise. |

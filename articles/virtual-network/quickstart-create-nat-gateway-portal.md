@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84711413"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar uma porta de entrada NAT utilizando o portal Azure
@@ -97,7 +97,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
     | ------- | ----- |
     | Versão IP | Selecione **IPv4**.
     | SKU | Selecione **Standard**.
-    | Name | Insira **o myPublicIP**. |
+    | Nome | Insira **o myPublicIP**. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **myResourceGroupNAT**. |
     | Localização | Selecione **E.U.A. Leste 2**.|

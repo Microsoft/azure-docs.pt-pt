@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Connect Azure Analysis Services with Power BI Desktop [ Microsoft Docs
+title: Tutorial - Conecte serviços de análise do Azure com Power BI Desktop / Microsoft Docs
 author: minewiskan
-description: Aprenda a obter um nome de servidor de Serviços de Análise a partir do portal Azure e, em seguida, ligue-se ao servidor utilizando o Power BI Desktop.
+description: Saiba como obter um nome de servidor de Serviços de Análise a partir do portal Azure e, em seguida, conecte-se ao servidor utilizando o Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73572322"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
@@ -43,7 +43,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 ## <a name="connect-in-power-bi-desktop"></a>Ligar no Power BI Desktop
 
-1. No Power BI Desktop, clique em **Obter dados** > **Azure** > **Azure Analysis Services**base de dados .
+1. No Power BI Desktop, clique em **Obter dados**  >  **Azure**  >  **Azure Analysis Services**.
 
    ![Ligar em Obter dados](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
@@ -59,15 +59,15 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
    ![Visualizações](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. Na tabela **FIELDS** > **Internet Sales,** selecione **Internet Sales Total** and **Margin** measures. Na tabela **Categoria do Produto**, selecione **Nome da Categoria de Produto**.
+5. Na tabela **de**  >  **vendas de Internet** FIELDS, selecione medidas totais e **marginais** de vendas de **Internet.** Na tabela **Categoria do Produto**, selecione **Nome da Categoria de Produto**.
 
    ![Concluir relatório](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 
     Dispense alguns minutos para explorar o modelo de exemplo adventureworks ao criar visualizações diferentes e repartir em dados e métricas. Quando estiver satisfeito com o relatório, não se esqueça de o guardar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não está familiarizado com a forma de criar um modelo de dados, consulte o tutorial de modelação de [dados tabular Adventure Works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nos docs dos Serviços de Análise de Servidores SQL.
+Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado com a forma de criar um modelo de dados, consulte o [tutorial de modelação de dados tabulares de vendas de internet Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nos docs dos Serviços de Análise de Servidores SQL.

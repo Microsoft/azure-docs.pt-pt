@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: cc23e32db71439067421a9be8b18a1827515bd9c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563284"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749129"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -25,9 +25,8 @@ Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de n
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Uptime SLA está disponível em regiões públicas onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo de Azure onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
-* O Governo de Azure não é apoiado neste momento.
 * Azure China 21Vianet não é atualmente apoiada.
 
 ## <a name="limitations"></a>Limitações
@@ -122,7 +121,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize [Zonas de disponibilidade][availability-zones] para aumentar a disponibilidade com as cargas de trabalho do cluster AKS.
 

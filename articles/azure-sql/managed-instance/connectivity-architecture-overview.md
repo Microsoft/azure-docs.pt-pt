@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706210"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761870"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,9 +89,14 @@ Para responder aos requisitos de segurança e gestão do cliente, a SQL Managed 
 
 Com a configuração da sub-rede ajudada pelo serviço, o utilizador está em total controlo do tráfego de dados (TDS), enquanto a SQL Managed Instance assume a responsabilidade de garantir um fluxo ininterrupto de tráfego de gestão de forma a cumprir um SLA.
 
-A configuração da sub-rede apoiada pelo serviço baseia-se na funcionalidade de delegação de [sub-rede](../../virtual-network/subnet-delegation-overview.md) de rede virtual para fornecer uma gestão automática da configuração da rede e permitir pontos finais de serviço. Os pontos finais de serviço poderiam ser usados para configurar regras de firewall de rede virtuais em contas de armazenamento que mantêm cópias de segurança e registos de auditoria.
+A configuração da sub-rede apoiada pelo serviço baseia-se na funcionalidade de delegação de [sub-rede](../../virtual-network/subnet-delegation-overview.md) de rede virtual para fornecer uma gestão automática da configuração da rede e permitir pontos finais de serviço. 
 
-### <a name="network-requirements"></a>Requisitos de rede
+Os pontos finais de serviço poderiam ser usados para configurar regras de firewall de rede virtuais em contas de armazenamento que mantêm cópias de segurança e registos de auditoria. Mesmo com os pontos finais de serviço ativados, os clientes são encorajados a usar [link privado](../../private-link/private-link-overview.md) que fornece segurança adicional sobre os pontos finais do serviço.
+
+> [!IMPORTANT]
+> Devido às especificidades da configuração do plano de controlo, a configuração da sub-rede ajudada pelo serviço não permitiria pontos finais de serviço em nuvens nacionais. 
+
+### <a name="network-requirements"></a>Requisitos da rede
 
 Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
@@ -106,7 +111,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço
 
-| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |Serra Corpnet       |SUB-REDE MI  |Permitir |
@@ -116,14 +121,14 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço
 
-| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço
 
-|Name|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede-para-vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -294,7 +299,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 |mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
 ||||
 
-\*MI SUBNET refere-se ao intervalo de endereço IP para a sub-rede no formulário x.x.x.x/y. Pode encontrar esta informação no portal Azure, em propriedades da sub-rede.
+\* MI SUBNET refere-se ao intervalo de endereço IP para a sub-rede no formulário x.x.x.x/y. Pode encontrar esta informação no portal Azure, em propriedades da sub-rede.
 
 Além disso, pode adicionar entradas à tabela de rotas para o tráfego de rotas que tem no local gamas IP privadas como destino através do gateway de rede virtual ou do aparelho de rede virtual (NVA).
 
@@ -326,7 +331,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança obrigatórias de entrada
 
-| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -334,7 +339,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança obrigatórias de saída
 
-| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -342,7 +347,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 > [!IMPORTANT]
 > Assegurar que existe apenas uma regra de entrada para os portos 9000, 9003, 1438, 1440 e 1452, e uma regra de saída para os portos 443 e 12000. O fornecimento de exemplos geridos sql através de implementações do Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se estas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy` .
 
-\*MI SUBNET refere-se ao intervalo de endereço IP para a sub-rede no formulário x.x.x.x/y. Pode encontrar esta informação no portal Azure, em propriedades da sub-rede.
+\* MI SUBNET refere-se ao intervalo de endereço IP para a sub-rede no formulário x.x.x.x/y. Pode encontrar esta informação no portal Azure, em propriedades da sub-rede.
 
 > [!IMPORTANT]
 > Embora as regras de segurança de entrada necessárias permitam o tráfego de _qualquer_ fonte nos portos 9000, 9003, 1438, 1440 e 1452, estas portas estão protegidas por uma firewall incorporada. Para obter mais informações, consulte [determine o endereço final de gestão](management-endpoint-find-ip-address.md).
@@ -352,7 +357,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-|Name|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -523,7 +528,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 |mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba como [configurar uma nova rede virtual Azure](virtual-network-subnet-create-arm-template.md) ou uma [rede virtual Azure existente](vnet-existing-add-subnet.md) onde pode implementar a SQL Managed Instance.

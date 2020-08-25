@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078891"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794535"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -112,6 +112,28 @@ Pode agora definir o número de casos que pretende escalar manualmente.
 ![Definir escala manual][14]
 
 Pode sempre voltar à Autoescala clicando em **Ativar a autoescala** e, em seguida, **guardar**.
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Encaminhar o tráfego para instâncias saudáveis (Serviço de Aplicações)
+
+Quando você é dimensionado para várias instâncias, o App Service pode realizar verificações de saúde nas suas instâncias para encaminhar o tráfego apenas para as instâncias saudáveis. Para tal, abra o Portal ao seu Serviço de Aplicações e, em seguida, selecione **Verificação de Saúde** em **Monitorização**. **Selecione Ative** e forneça um caminho URL válido na sua aplicação, como `/health` ou `/api/health` . Clique em **Guardar**.
+
+### <a name="health-check-path"></a>Caminho de verificação de saúde
+
+O caminho deve responder dentro de dois minutos com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de dois minutos, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de secuidade estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP**S** ativado, então o healthcheck honrará HTTP**S** e enviará o pedido usando esse protocolo.
+
+A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
+
+### <a name="behavior"></a>Comportamento
+
+Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá procurar o caminho de verificação de saúde para garantir que as novas instâncias estão prontas para pedidos.
+
+Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído.
+
+Se um caso não for saudável durante uma hora, será substituído por uma nova instância. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
+
+### <a name="monitoring"></a>Monitorização
+
+Depois de fornecer o caminho de verificação de saúde da sua aplicação, pode monitorizar a saúde do seu site usando o Azure Monitor. A partir da lâmina **de verificação de saúde** no Portal, clique nas **Métricas** na barra de ferramentas superior. Isto abrirá uma nova lâmina onde poderá ver o estado histórico de saúde do site e criar uma nova regra de alerta. Para obter mais informações sobre a monitorização dos seus sites, [consulte o guia no Azure Monitor](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

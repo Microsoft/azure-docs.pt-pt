@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84194584"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server para o armazenamento do Azure Blob
@@ -299,7 +299,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     f. Introduza o nome de utilizador.
 
-    g. Introduza a palavra-passe que está associado ao nome de utilizador.
+    exemplo, Introduza a palavra-passe que está associado ao nome de utilizador.
 
     h. Para confirmar que o integration runtime se consegue ligar ao SQL Server selecione **Testar**.  
     ![Conectividade conseguiu](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)

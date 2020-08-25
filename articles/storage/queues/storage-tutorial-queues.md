@@ -9,17 +9,17 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.openlocfilehash: 73bc21307ff0648b7e0aab7611e57f6fa60a806b
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84809568"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Trabalhar com filas de armazenamento Azure em .NET
 
 O armazenamento da Fila Azure implementa filas baseadas em nuvem para permitir a comunicação entre componentes de uma aplicação distribuída. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente remetente e processadas por um componente recetor. Com uma fila, a sua aplicação pode escalar imediatamente para satisfazer a procura. Este artigo mostra os passos básicos para trabalhar com uma fila de armazenamento Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -133,7 +133,7 @@ Criar uma aplicação .NET Core chamada **QueueApp**. Para simplificar, esta apl
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Guarde o ficheiro **Program.cs.**
+1. Guarde o ficheiro **Program.cs**.
 
 ## <a name="add-support-for-asynchronous-code"></a>Adicionar suporte para código assíncronos
 
@@ -145,7 +145,7 @@ Uma vez que a aplicação utiliza recursos em nuvem, o código é executado de f
    static async Task Main(string[] args)
    ```
 
-1. Guarde o ficheiro **Program.cs.**
+1. Guarde o ficheiro **Program.cs**.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
@@ -159,7 +159,7 @@ Adicione o fio de ligação na aplicação para que possa aceder à conta de arm
 
 1. Mude de volta para Visual Studio Code.
 
-1. No método **Principal,** substitua o `Console.WriteLine("Hello World!");` código pela seguinte linha que obtém a cadeia de ligação da variável ambiente.
+1. No método **Principal,**  substitua o `Console.WriteLine("Hello World!");` código pela seguinte linha que obtém a cadeia de ligação da variável ambiente.
 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 

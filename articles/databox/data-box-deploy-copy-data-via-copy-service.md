@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84219167"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Utilize o serviço de cópia de dados para copiar dados na Caixa de Dados do Azure (pré-visualização)
@@ -51,7 +51,7 @@ Depois de estar ligado ao dispositivo NAS, o próximo passo é copiar os seus da
 * Se os dados estiverem a ser modificados à medida que o serviço de cópia de dados estiver a lê-lo, poderá ver falhas ou corrupção de dados.
 
 > [!IMPORTANT]
-> Certifique-se de que mantém uma cópia dos dados de origem até que possa confirmar que a Caixa de Dados transferiu os seus dados para o Azure Storage.
+> Certifique-se de que mantém uma cópia dos dados de origem até poder confirmar que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 Para copiar dados utilizando o serviço de cópia de dados, é necessário criar um trabalho:
 
@@ -64,9 +64,9 @@ Para copiar dados utilizando o serviço de cópia de dados, é necessário criar
     
     |Campo                          |Valor    |
     |-------------------------------|---------|
-    |**Nome da tarefa**                       |Um nome único com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \> , , , , , , \| \? \* \\ \: \/ e\\\.         |
+    |**Nome da tarefa**                       |Um nome único com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \> , , , , , , \| \? \* \\ \: \/ e \\\.         |
     |**Localização da fonte**                |Fornecer o caminho SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>` .        |
-    |**Nome de utilizador**                       |Nome de utilizador em `\\<DomainName><UserName>` formato para aceder à fonte de dados. Se um administrador local estiver a ligar-se, precisarão de permissões explícitas de segurança. Clique com o botão direito na pasta, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
+    |**Nome de Utilizador**                       |Nome de utilizador em `\\<DomainName><UserName>` formato para aceder à fonte de dados. Se um administrador local estiver a ligar-se, precisarão de permissões explícitas de segurança. Clique com o botão direito na pasta, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
     |**Palavra-passe**                       |Senha para aceder à fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento alvo para carregar os dados para a lista.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento alvo da lista: **Block Blob**, **Page Blob**ou **Azure Files**.        |
@@ -119,9 +119,9 @@ Para copiar dados utilizando o serviço de cópia de dados, é necessário criar
 6. Enquanto o trabalho está em andamento, na página **de dados** do Copy:
 
     - Na coluna **Status,** pode visualizar o estado do trabalho de cópia. O estado pode ser:
-        - **A executar**
-        - **Falhou**
-        - **Bem-sucedido**
+        - **Em Execução**
+        - **Com falhas**
+        - **Com êxito**
         - **A Colocar em Pausa**
         - **Em pausa**
         - **A Cancelar**

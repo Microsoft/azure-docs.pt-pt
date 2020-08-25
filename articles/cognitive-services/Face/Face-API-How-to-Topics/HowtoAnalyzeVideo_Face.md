@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: d52f4ad7be6ce31fd2d01208536945c1f9ab2d7d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84986727"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como Analisar Vídeos em Tempo Real
@@ -201,7 +201,7 @@ Na maioria dos modos, existirá um atraso visível entre o vídeo em direto à e
 
 Para começar a utilizar este exemplo, siga estes passos:
 
-1. Criar uma [conta Azure](https://azure.microsoft.com/free/cognitive-services/). Se já tem um, pode saltar para o próximo passo.
+1. Crie uma [conta do Azure](https://azure.microsoft.com/free/cognitive-services/). Se já tem um, pode saltar para o próximo passo.
 2. Crie recursos para Visão de Computador e Rosto no portal Azure para obter a sua chave e ponto final. Certifique-se de que seleciona o nível livre (F0) durante a configuração.
    - [Imagem Digitalizada](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Rosto](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Depois de os recursos serem implantados, clique em **Ir ao recurso** para recolher a sua chave e ponto final para cada recurso. 

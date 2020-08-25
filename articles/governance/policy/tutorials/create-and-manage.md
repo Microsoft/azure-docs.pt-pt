@@ -4,10 +4,10 @@ description: Neste tutorial, você usa políticas para impor padrões, controlar
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84781132"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor o cumprimento
@@ -42,7 +42,7 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
    :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Atribuir uma definição de política a partir da página atribuições" border="false":::
 
-1. No separador **'Política de Atribuição'** e **"Básicos",** selecione o **Âmbito** selecionando a elipse e selecionando um grupo de gestão ou subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.
+1. No separador **'Política de Atribuição'** e **"Básicos",** selecione o **Âmbito** selecionando a elipse e selecionando um grupo de gestão ou subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta.
    Em seguida, **selecione Selecione** na parte inferior da página **'Âmbito'.**
 
    Este exemplo utiliza a subscrição da **Contoso**. A sua subscrição vai ser diferente.
@@ -428,7 +428,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Atribuir uma definição a partir da página de definição de Iniciativa" border="false":::
 
-   Também pode clicar à direita na linha selecionada ou selecionar a elipse no final da linha para um menu contextual. Em seguida, selecione **Atribuir**.
+   Também pode clicar à direita na linha selecionada ou selecionar a elipse no final da linha para um menu contextual. Em seguida, **selecione Atribuir**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Opções alternativas para uma iniciativa" border="false":::
 
@@ -506,7 +506,7 @@ Se já acabou de trabalhar com recursos deste tutorial, use os seguintes passos 
 
 1. Clique com o botão direito do rato na linha ou selecione as reticências no fim da definição (ou atribuição) e selecione **Eliminar definição** (ou **Eliminar atribuição**).
 
-## <a name="review"></a>Rever
+## <a name="review"></a>Revisão
 
 Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 

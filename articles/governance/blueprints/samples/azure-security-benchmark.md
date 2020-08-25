@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema da Referência de Seguranç
 ms.date: 06/02/2020
 ms.topic: sample
 ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84740380"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Amostra de projeto de benchmark de segurança Azure
@@ -18,7 +18,7 @@ O exemplo de esquema da Referência de Segurança do Azure disponibiliza proteç
 
 O [mapeamento de controlo de política Azure](../../policy/samples/azure-security-benchmark.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no Benchmark de Segurança Azure. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementar
+## <a name="deploy"></a>Implementação
 
 Para implantar a amostra de projeto Azure Security Benchmark, devem ser tomadas as seguintes medidas:
 
@@ -99,20 +99,20 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Description|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de utilizadores excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de utilizadores que o grupo de administradores do Windows VM deve incluir *apenas*|Uma lista separada de todos os membros esperados do grupo local administradores. Ex: Administrador; myUser1; myUser2|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de regiões onde o Observador de Rede deve ser ativado|Para ver uma lista completa de regiões use Get-AzLocation|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Rede virtual onde os VMs devem ser conectados|Exemplo: /subscrições/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Network/virtualNetworks/Name|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Gateway de rede que as redes virtuais devem usar|Exemplo: /subscrições/YourSubscriptionId/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworkGateways/Name|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de IDs do espaço de trabalho onde os agentes do Log Analytics devem ligar|Uma lista separada de pontos de trabalho com os IDs do espaço de trabalho a que o agente Log Analytics deve ser ligado|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Definição de diagnóstico de auditoria para tipos de recursos selecionados|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Versão PHP mais recente|Versão PHP mais recente suportada para Serviços de Aplicações|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Última versão java|Versão java suportada mais recente para Serviços de Aplicações|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Versão mais recente do Windows Python|Versão python suportada mais recente para Serviços de Aplicações|
-|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de política|Última versão Linux Python|Versão python suportada mais recente para Serviços de Aplicações|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de utilizadores excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de utilizadores que o grupo de administradores do Windows VM deve incluir *apenas*|Uma lista separada de todos os membros esperados do grupo local administradores. Ex: Administrador; myUser1; myUser2|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de regiões onde o Observador de Rede deve ser ativado|Para ver uma lista completa de regiões use Get-AzLocation|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Rede virtual onde os VMs devem ser conectados|Exemplo: /subscrições/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Network/virtualNetworks/Name|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Gateway de rede que as redes virtuais devem usar|Exemplo: /subscrições/YourSubscriptionId/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworkGateways/Name|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de IDs do espaço de trabalho onde os agentes do Log Analytics devem ligar|Uma lista separada de pontos de trabalho com os IDs do espaço de trabalho a que o agente Log Analytics deve ser ligado|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Definição de diagnóstico de auditoria para tipos de recursos selecionados|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Versão PHP mais recente|Versão PHP mais recente suportada para Serviços de Aplicações|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Última versão java|Versão java suportada mais recente para Serviços de Aplicações|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Versão mais recente do Windows Python|Versão python suportada mais recente para Serviços de Aplicações|
+|Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Última versão Linux Python|Versão python suportada mais recente para Serviços de Aplicações|
 
 ## <a name="next-steps"></a>Passos seguintes
 

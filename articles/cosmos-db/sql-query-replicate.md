@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302190"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794320"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICA (Azure Cosmos DB)
  Repete um valor de cadeia um número especificado de vezes.
@@ -36,7 +36,8 @@ REPLICATE(<str_expr>, <num_expr>)
   Devolve uma expressão de corda.
   
 ## <a name="remarks"></a>Observações
-  O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (comprimento*str_expr** *num_expr*) <= 10.000.
+
+  O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (comprimento*str_expr**  *num_expr*) <= 10.000. Esta função do sistema não utilizará o índice.
 
 ## <a name="examples"></a>Exemplos
   
@@ -52,11 +53,7 @@ SELECT REPLICATE("a", 3) AS replicate
 [{"replicate": "aaa"}]
 ```  
 
-## <a name="remarks"></a>Observações
-
-Esta função do sistema não utilizará o índice.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

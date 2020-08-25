@@ -7,12 +7,12 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 688ee8552a169e9e73b339678ace1e8006c71223
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30fbf0ffb68c4bf2c594a3ca1009fada99c9346
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101848"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761836"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controlos de conformidade regulamentar da política Azure para backup Azure
 

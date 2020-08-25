@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 08/24/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115735"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794678"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -59,8 +59,8 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `verified_secondary_email` | Proveniente do Correio Secundário de Autoritária do Utilizador   | JWT        |           |        |
 | `vnet`                     | Informações do especificador VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente que solicita (quando dentro de um VNET) |
-| `ctry`                     | País/região do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor da reclamação for um código padrão de dois letras país/região, como FR, JP, SZ, e assim por diante. |
-| `tenant_ctry`              | País/região do arrendatário de recursos | JWT | | |
+| `ctry`                     | País/região do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor do campo é um código padrão de dois letras país/região, como FR, JP, SZ, e assim por diante. |
+| `tenant_ctry`              | País do inquilino de recursos | JWT | | O mesmo `ctry` que, exceto estabelecido ao nível de um inquilino por um administrador.  Deve também ser um valor normal de duas letras. |
 | `xms_pdl`             | Localização de dados preferenciais   | JWT | | Para os inquilinos multi-Geo, a localização de dados preferida é o código de três letras que mostra a região geográfica em que o utilizador se encontra. Para obter mais informações, consulte a documentação do [Azure AD Connect sobre a localização de dados preferenciais.](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)<br/>Por exemplo: `APC` para a Ásia-Pacífico. |
 | `xms_pl`                   | Linguagem preferida do utilizador  | JWT ||O idioma preferido do utilizador, se for definido. Proveniente do inquilino de casa, em cenários de acesso a hóspedes. LL-CC formatado ("en-us"). |
 | `xms_tpl`                  | Língua preferida do inquilino| JWT | | A linguagem preferida do inquilino de recursos, se definido. LL formatado ("en"). |
@@ -98,7 +98,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de haxixe são `#` substituídas por sublinhados ( `_` ), por exemplo`foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de haxixe são `#` substituídas por sublinhados ( `_` ), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -216,9 +216,9 @@ As extensões de esquema e abertas não são suportadas por reclamações opcion
 
 Ao configurar pedidos opcionais de extensão de diretório utilizando o manifesto de aplicação, utilize o nome completo da extensão (no formato: `extension_<appid>_<attributename>` ). O `<appid>` deve coincidir com a identificação do pedido de reclamação.
 
-Dentro do JWT, estas alegações serão emitidas com o seguinte formato de nome: `extn.<attributename>` .
+Dentro do JWT, estas alegações serão emitidas com o seguinte formato de nome:  `extn.<attributename>` .
 
-Dentro dos tokens SAML, estas alegações serão emitidas com o seguinte formato URI:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Dentro dos tokens SAML, estas alegações serão emitidas com o seguinte formato URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="configuring-groups-optional-claims"></a>Configurar reivindicações opcionais de grupos
 
