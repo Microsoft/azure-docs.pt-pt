@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a gerir as operações de restauro da Cópia 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763546"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826367"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
 
@@ -210,7 +210,7 @@ Uma vez que o trabalho de restauro é uma operação de longa duração, deve se
 
 ### <a name="restore-disks"></a>Restaurar discos
 
-Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, basta restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos Serviços de Recuperação e não deve ser redundante. Os discos, bem como a configuração do VM de reserva ("vmconfig.json") serão armazenados na conta de armazenamento dada. Como [explicado acima,](#restore-operations)o organismo de pedido relevante para restaurar os discos é fornecido abaixo.
+Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, pode simplesmente restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos Serviços de Recuperação e não deve ser redundante. Os discos, bem como a configuração do VM de reserva ("vmconfig.jsligado"), serão armazenados na conta de armazenamento dada. Como [explicado acima,](#restore-operations)o organismo de pedido relevante para restaurar os discos é fornecido abaixo.
 
 #### <a name="create-request-body"></a>Criar corpo de pedido
 

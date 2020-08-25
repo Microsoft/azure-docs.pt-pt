@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 0a7dc470bf6392f55b55bfa99268bea4be57e78f
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e64aa10d8ddadd367d04b2b480770a99f3ece1dc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757579"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826536"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Quickstart: Apoie uma máquina virtual em Azure com um modelo ARM
 
@@ -47,7 +47,7 @@ Para implementar o modelo, selecione **Experimente-o** para abrir a Camada de Nu
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter the location (for example, centralus)"
 $adminUsername = Read-Host -Prompt "Enter the administrator username for the virtual machine"
 $adminPassword = Read-Host -Prompt "Enter the administrator password for the virtual machine" -AsSecureString
 $dnsPrefix = Read-Host -Prompt "Enter the unique DNS Name for the Public IP used to access the virtual machine"
@@ -71,7 +71,7 @@ O modelo cria um VM e permite voltar a ser o VM. Depois de implementar o modelo,
 
 Para monitorizar o trabalho de backup, consulte [monitorar o trabalho de reserva](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar de fazer o reforço do VM, pode limpá-lo.
 

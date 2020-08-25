@@ -3,12 +3,12 @@ title: Backup offline para Gestor de Proteção de Dados (DPM) e Microsoft Azure
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e do Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261927"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826604"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
 
@@ -46,7 +46,7 @@ A cópia de segurança offline é suportada por todos os modelos de implementaç
 > * Cópia de segurança de todas as cargas de trabalho e ficheiros com MABS.
 
 >[!NOTE]
->As subscrições Azure CSP não são suportadas para utilização com sementeira offline para DPM 2019 RTM e versões anteriores, e MABS v3 RTM e versões anteriores. As cópias de segurança online da rede ainda são suportadas.
+>As subscrições do Azure CSP não são suportadas para utilização com sementeira offline para DPM 2019 RTM e versões anteriores, e MABS v3 RTM e versões anteriores. As cópias de segurança online da rede ainda são suportadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,7 +99,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 Siga estes passos para enviar manualmente o certificado de cópia de segurança offline para uma aplicação de Diretório Azure Ative anteriormente criada destinada a cópias de segurança offline.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Aceda às inscrições da **Azure Ative Directory**  >  **App**.
 1. No **separador aplicações Possuídas,** localize uma aplicação com o formato de nome de `AzureOfflineBackup _<Azure User Id` exibição.
 

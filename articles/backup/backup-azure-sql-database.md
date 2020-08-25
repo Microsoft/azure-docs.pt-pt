@@ -3,19 +3,19 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: edcc77c98737b9f4e76ade0471d273f5e0070969
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763427"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826927"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
 [O Azure Backup](backup-overview.md) oferece uma solução especializada em stream para apoiar o SQL Server em funcionamento em VMs Azure. Esta solução alinha-se com os benefícios da Azure Backup de backup de infraestruturas zero, retenção a longo prazo e gestão central. Além disso, fornece as seguintes vantagens especificamente para o SQL Server:
 
 1. Backups de trabalho conscientes que suportam todos os tipos de backup - completo, diferencial e log
-2. RPO de 15 min (objetivo de ponto de recuperação) com backups frequentes de registo
+2. RPO de 15 minutos (objetivo ponto de recuperação) com backups frequentes de registo
 3. Recuperação pontual até um segundo
 4. Backup e restauro do nível de base de dados individual
 
@@ -27,7 +27,7 @@ Esta solução aproveita as APIs nativas do SQL para obter cópias de segurança
 
 * Assim que especificar o SQL Server VM que pretende proteger e consultar as bases de dados, o serviço Azure Backup instalará uma extensão de backup de carga de trabalho na extensão do VM pela extensão do `AzureBackupWindowsWorkload` nome.
 * Esta extensão é constituída por um coordenador e um plugin SQL. Enquanto o coordenador é responsável por desencadear fluxos de trabalho para várias operações como configurar backup, backup e restauro, o plugin é responsável pelo fluxo real de dados.
-* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup aproveita a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto [ocorrer, siga estas instruções](#set-vm-permissions).
+* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup utiliza a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto [ocorrer, siga estas instruções](#set-vm-permissions).
 * Assim que acionar a proteção de configuração nas bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com os horários de backup e outros detalhes da política, que a extensão cache localmente no VM.
 * Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor SQL utilizando O VDI.  
 * O plugin envia os dados diretamente para o cofre dos Serviços de Recuperação, eliminando assim a necessidade de um local de paragem. Os dados são encriptados e armazenados pelo serviço Azure Backup em contas de armazenamento.

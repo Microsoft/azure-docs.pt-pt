@@ -3,12 +3,12 @@ title: Prepare o servidor DPM para fazer o back-ups
 description: Neste artigo, aprenda a preparar-se para backups do System Center Data Protection Manager (DPM) para a Azure, utilizando o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612661"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827312"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
 
@@ -160,8 +160,8 @@ Todas as máquinas que são apoiadas pela Azure Backup devem ter o agente De bac
     ![Encriptação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > É dono da palavra-passe de encriptação e a Microsoft não tem visibilidade.
-    > Se a frase passarda for perdida ou esquecida; A Microsoft não pode ajudar a recuperar os dados de backup.
+    > És dono da palavra-passe de encriptação e a Microsoft não tem visibilidade.
+    > Se a palavra-passe for perdida ou esquecida, a Microsoft não pode ajudar a recuperar os dados de backup.
 
 7. **Selecione Registar-se** para registar o servidor DPM no cofre.
 

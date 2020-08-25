@@ -3,12 +3,12 @@ title: Restaurar o Estado do Sistema num Servidor windows
 description: Explicação passo a passo para restaurar o Estado do Sistema do Servidor do Windows a partir de uma cópia de segurança no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827108"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
 
@@ -73,7 +73,7 @@ A terminologia utilizada nestes passos inclui:
 * *Cofre de amostras* – O cofre dos Serviços de Recuperação ao qual estão registados a *máquina Source* e a *máquina Target.*
 
 > [!NOTE]
-> As cópias de segurança retiradas de uma máquina não podem ser restauradas a uma máquina que executa uma versão anterior do sistema operativo. Por exemplo, as cópias de segurança retiradas de uma máquina do Windows Server 2016 não podem ser restauradas no Windows Server 2012 R2. No entanto, o inverso é possível. Pode utilizar cópias de segurança do Windows Server 2012 R2 para restaurar o Windows Server 2016.
+> As cópias de segurança retiradas de uma máquina não podem ser restauradas para uma máquina que executa uma versão anterior do sistema operativo. Por exemplo, as cópias de segurança retiradas de uma máquina do Windows Server 2016 não podem ser restauradas no Windows Server 2012 R2. No entanto, o inverso é possível. Pode utilizar cópias de segurança do Windows Server 2012 R2 para restaurar o Windows Server 2016.
 >
 
 1. Abra o encaixe de backup do **Microsoft Azure** na *máquina Target*.
@@ -88,7 +88,7 @@ A terminologia utilizada nestes passos inclui:
 6. No painel 'Selecionar backup', selecione a *máquina 'Fonte'* da lista de máquinas visualizadas.
 7. No painel de modo de recuperação selecionado, escolha **o Estado do Sistema** e selecione **Seguinte**.
 
-    ![Pesquisa](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No calendário no painel **de volume e data selecionados,** selecione um ponto de recuperação. Pode restaurar a partir de qualquer ponto de recuperação no tempo. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Uma vez selecionada uma data, se estiverem disponíveis vários pontos de recuperação, escolha o ponto de recuperação específico do menu de entrega do **tempo.**
 

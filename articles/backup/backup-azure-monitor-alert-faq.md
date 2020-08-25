@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Alerta 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827176"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
 
@@ -60,7 +60,7 @@ Um alerta é levantado a 20 minutos da falha de backup do Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe algum caso em que um e-mail não será enviado se as notificações estiverem configuradas?
 
-Sim. Nas seguintes situações, as notificações não são enviadas:
+Yes. Nas seguintes situações, as notificações não são enviadas:
 
 * Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
 * Quando um trabalho é cancelado

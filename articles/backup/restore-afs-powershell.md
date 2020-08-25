@@ -3,12 +3,12 @@ title: Restaurar ficheiros Azure com PowerShell
 description: Neste artigo, aprenda a restaurar os Ficheiros Azure utilizando o serviço de backup Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538552"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826502"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restaurar ficheiros Azure com PowerShell
 
@@ -17,7 +17,7 @@ Este artigo explica como restaurar uma partilha de ficheiros inteira, ou ficheir
 Pode restaurar uma partilha de ficheiros inteira ou ficheiros específicos sobre a partilha. Você pode restaurar para a localização original, ou para um local alternativo.
 
 > [!WARNING]
-> Certifique-se de que a versão PS está atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para cópias de segurança AFS. Para mais informações, consulte [a secção](backup-azure-afs-automation.md#important-notice-backup-item-identification) que descreve a exigência desta alteração.
+> Certifique-se de que a versão PowerShell está atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para cópias de segurança AFS. Para mais informações, consulte [a secção](backup-azure-afs-automation.md#important-notice-backup-item-identification) que descreve a exigência desta alteração.
 
 >[!NOTE]
 >O Azure Backup suporta agora restaurar vários ficheiros ou pastas para a localização original ou alternativa utilizando o PowerShell. Consulte [esta secção](#restore-multiple-files-or-folders-to-original-or-alternate-location) do documento para saber como.
@@ -169,6 +169,6 @@ azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM      
 
 Se pretender restaurar vários ficheiros ou pastas para uma localização alternativa, utilize as scripts acima especificando os valores dos parâmetros relacionados com a localização do alvo, como explicado acima no [Restaurar um ficheiro Azure para uma localização alternativa](#restore-an-azure-file-to-an-alternate-location).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como](restore-afs.md) restaurar os Ficheiros Azure no portal Azure.

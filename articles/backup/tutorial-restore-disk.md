@@ -4,14 +4,14 @@ description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure c
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141351"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824446"
 ---
-# <a name="restore-a-vm-with-azure-cli"></a>Restaurar um VM com Azure CLI
+# <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
 
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo explica como restaurar uma VM completa através do CLI. Neste tutorial, ficará a saber como:
 
@@ -88,7 +88,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
     ```
 
     > [!WARNING]
-    > Se o grupo de recursos-alvo não for fornecido, os discos geridos serão restaurados como discos não geridos na conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Os clientes só terão o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção for restaurar os discos geridos como não geridos, então não forneça o parâmetro do grupo de recursos-alvo e, em vez disso, forneça o parâmetro de restauro-as-não gerido-disco, como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
+    > Se o **grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Os clientes só terão o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,7 +101,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
     --restore-as-unmanaged-disk
     ```
 
-Isto irá restaurar os discos geridos como discos não geridos para a conta de armazenamento dada e não estará aproveitando a funcionalidade de restauro 'instantâneo'. Em futuras versões do CLI, será obrigatório fornecer o parâmetro do grupo de recursos-alvo ou o parâmetro "restaurar-como-não gerido-disco".
+Isto irá restaurar os discos geridos como discos não geridos para a conta de armazenamento dada e não estará aproveitando a funcionalidade de restauro 'instantâneo'. Em futuras versões do CLI, será obrigatório fornecer o parâmetro do **grupo de recursos-alvo** ou o parâmetro **de disco restaurador como não gerido.**
 
 ### <a name="unmanaged-disks-restore"></a>Discos não geridos restauram
 
@@ -224,7 +224,7 @@ O modelo blob Uri será deste formato e extrairá o nome do modelo
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Assim, o nome do modelo do exemplo acima será ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e o nome do recipiente é```myVM-daa1931199fd4a22ae601f46d8812276```
+Assim, o nome do modelo do exemplo acima será ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e o nome do recipiente é ```myVM-daa1931199fd4a22ae601f46d8812276```
 
 Agora obtenha o símbolo SAS para este recipiente e modelo como detalhado [aqui](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 
@@ -264,7 +264,7 @@ Para confirmar que a VM foi criada a partir do disco recuperado, liste as VMs no
 az vm list --resource-group myResourceGroup --output table
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, restaurou um disco a partir de um ponto de recuperação e, em seguida, criou uma VM a partir do disco. Aprendeu a:
 

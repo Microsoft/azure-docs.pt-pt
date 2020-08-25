@@ -4,16 +4,16 @@ description: Monitorize as cargas de trabalho de backup do Azure e crie alertas 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054618"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827159"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar à escala utilizando o Monitor Azure
 
-O Azure Backup fornece [capacidades de monitorização e alerta incorporadas](backup-azure-monitoring-built-in-monitor.md) num cofre dos Serviços de Recuperação. Estas capacidades estão disponíveis sem qualquer infraestrutura de gestão adicional. Mas este serviço incorporado é limitado nos seguintes cenários:
+O Azure Backup fornece [capacidades de monitorização e alerta incorporadas](backup-azure-monitoring-built-in-monitor.md) num cofre dos Serviços de Recuperação. Estas funcionalidades estão disponíveis sem infraestruturas de gestão adicionais. Mas este serviço incorporado é limitado nos seguintes cenários:
 
 - Se monitorizar dados de vários cofres dos Serviços de Recuperação através de subscrições
 - Se o canal de notificação preferido *não* for e-mail

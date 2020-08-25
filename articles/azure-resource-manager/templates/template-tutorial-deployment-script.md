@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/23/2020
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86119332"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825499"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implantação para criar um certificado auto-assinado (Pré-visualização)
 
@@ -34,7 +34,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Editar o modelo
 > * Implementar o modelo
 > * Depurar o roteiro falhado
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Para concluir este artigo, precisa de:
 
 * ** [Código de Estúdio Visual](https://code.visualstudio.com/) com a extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Uma identidade gerida atribuída pelo utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte a [identidade gerida atribuída pelo Utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
+* **Uma identidade gerida atribuída pelo utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte a [identidade gerida atribuída pelo Utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -341,7 +341,7 @@ Remova a linha **Write-Output1** e reimplante o modelo.
 
 Quando a segunda implantação for executada com sucesso, os recursos de script de implantação serão removidos pelo serviço de script, porque a propriedade **de limpezaPreference** é definida para **OnSuccess**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

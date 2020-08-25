@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506503"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824207"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -366,6 +366,12 @@ Há duas maneiras de conseguir isto:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Se estiver a utilizar as regiões EUA-Virgínia, EUA-Arizona ou China-Leste-2, estes comandos não devolvem endereços IP. Em vez disso, utilize um dos seguintes links para descarregar uma lista de endereços IP:
+        >
+        > * [Gamas IP Azure e tags de serviço para o Governo Azure](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Gamas Azure IP e tags de serviço para Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
     Quando adicionar os UDRs, defina a rota para cada prefixo de endereço IP do lote relacionado e defina __o tipo de próximo lúpulo__ para a __Internet__. A imagem a seguir mostra um exemplo desta UDR no portal Azure:
 

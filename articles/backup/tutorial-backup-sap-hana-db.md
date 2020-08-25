@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ebda6eec0f2e0866a13f04859c491662a8f9ca43
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757494"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825652"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -229,7 +229,7 @@ Especificar as definições de política da seguinte forma:
 
 7. Clique **em OK** para guardar a política e volte ao menu de política de **backup** principal.
 8. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
-   * **A Cópia de Segurança do Registo** é por definição padrão para **Ativar**. Isto não pode ser desativado, uma vez que o SAP HANA gere todas as cópias de segurança de registo.
+   * **A Cópia de Segurança do Registo** é por definição padrão para **Ativar**. Isto não pode ser desativado, uma vez que a SAP HANA gere todos os backups de registo.
    * Definimos **2 horas** como horário de reserva e **15 dias** de retenção.
 
     ![Política de backup de registo](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)

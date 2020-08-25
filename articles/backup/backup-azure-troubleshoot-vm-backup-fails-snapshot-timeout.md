@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755373"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826058"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -119,7 +119,7 @@ Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de pro
 Ação recomendada:<br>
 Para resolver este problema, retire o bloqueio do grupo de recursos do VM e revendo a operação para desencadear a limpeza.
 > [!NOTE]
-> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos do VM para armazenar a recolha de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para utilização pelo serviço De backup. O formato de nomeação do grupo de recursos criado pelo serviço Backup é: AzureBackupRG_ `<Geo>` _ `<number>` Eg: AzureBackupRG_northeurope_1
+> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos do VM para armazenar a recolha de pontos de restauração. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço De backup. O formato de nomeação do grupo de recursos criado pelo serviço De backup é: AzureBackupRG_ `<Geo>` _ `<number>` . Por exemplo: *AzureBackupRG_northeurope_1*
 
 **Passo 1: [Remover o bloqueio do grupo de recursos pontos de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [Limpar a recolha do ponto de restauração](#clean_up_restore_point_collection)**<br>
@@ -227,7 +227,7 @@ A maioria das falhas relacionadas com o agente ou relacionadas com extensões pa
 1. Siga as instruções de [atualização do agente Linux VM](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
-   > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos o download do código de agente diretamente do GitHub e atualizá-lo. Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página do [agente Do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
+   > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos baixar o código do agente diretamente do GitHub e atualizá-lo. Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página do [agente Do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
 
 2. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando: `ps -e`
 
@@ -297,7 +297,7 @@ Para limpar os pontos de restauro, siga qualquer um dos métodos:<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Limpe a recolha do ponto de restauro executando backup a pedido
 
-Depois de retirar a fechadura, desencadeie uma cópia de segurança a pedido. Esta ação assegurará que os pontos de restauro sejam automaticamente limpos. Esperemos que esta operação a pedido falhe pela primeira vez; no entanto, garantirá a limpeza automática em vez da eliminação manual dos pontos de restauro. Depois da limpeza, o seu próximo reforço deve ter sucesso.
+Depois de retirar a fechadura, desencadeie uma cópia de segurança a pedido. Esta ação assegurará que os pontos de restauro sejam automaticamente limpos. Espere que esta operação a pedido falhe da primeira vez. No entanto, garantirá uma limpeza automática em vez de eliminação manual dos pontos de restauro. Depois da limpeza, o seu próximo reforço deve ter sucesso.
 
 > [!NOTE]
 > A limpeza automática ocorrerá após algumas horas de ativação da cópia de segurança a pedido. Se a sua cópia de segurança programada ainda falhar, tente eliminar manualmente a recolha do ponto de restauro utilizando os passos [listados aqui](#clean-up-restore-point-collection-from-azure-portal).
@@ -320,4 +320,4 @@ Para limpar manualmente a recolha de pontos de restauro, que não está limpa de
 6. Volte a tentar a operação de reserva.
 
 > [!NOTE]
- >Se o recurso (RP Collection) tiver um grande número de Pontos de Restauro, então apagá-los do portal pode escamar e falhar. Trata-se de uma questão conhecida de CRP, em que todos os pontos de restauro não são suprimidos no tempo estipulado e nos tempos de funcionamento; no entanto, a operação de eliminação geralmente tem sucesso após 2 ou 3 retréis.
+ >Se o recurso (RP Collection) tiver um grande número de Pontos de Restauro, então apagá-los do portal pode escamar e falhar. Esta é uma questão conhecida de CRP, onde todos os pontos de restauro não são eliminados no tempo estipulado e os tempos de funcionamento para fora. No entanto, a operação de eliminação geralmente tem sucesso após duas ou três retrações.

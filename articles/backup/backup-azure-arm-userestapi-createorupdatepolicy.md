@@ -4,12 +4,12 @@ description: Neste artigo, você aprenderá a criar e gerir políticas de backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 2fa35ed5e03ad174407e4c82fb5d4bbe69ee8131
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497816"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826397"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos Serviços de Recuperação do Azure utilizando a API REST
 
@@ -129,7 +129,7 @@ A política diz:
 ```
 
 > [!IMPORTANT]
-> Os formatos de tempo para agendar e reter suportam apenas o DateTime. Não suportam apenas o formato Time.
+> Os formatos de tempo para agendar e reter suportam apenas o DateTime. Não suportam o formato time sozinho.
 
 ## <a name="responses"></a>Respostas
 
@@ -260,7 +260,7 @@ Uma vez concluída a operação, devolve 200 (OK) com o conteúdo da política n
 
 Se já estiver a ser utilizada uma política para proteger um item, qualquer atualização da política resultará na [modificação da proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) de todos os itens associados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Ativar a proteção para um Azure VM desprotegido](backup-azure-arm-userestapi-backupazurevms.md).
 

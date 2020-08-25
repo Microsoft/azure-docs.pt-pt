@@ -4,12 +4,12 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757035"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826910"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
 
@@ -20,7 +20,7 @@ As preocupações com questões de segurança, como malware, ransomware e intrus
 - **Recuperação**. Os dados de cópia de segurança eliminados são retidos por mais 14 dias a contar da data da eliminação. Isto garante a recuperabilidade dos dados dentro de um determinado período de tempo, por isso não há perda de dados mesmo que um ataque aconteça. Além disso, um maior número de pontos mínimos de recuperação são mantidos para proteger contra dados corruptos.
 
 > [!NOTE]
-> As funcionalidades de segurança não devem ser ativadas se estiver a utilizar a infraestrutura como cópia de segurança VM de serviço (IaaS). Estas funcionalidades ainda não estão disponíveis para a cópia de segurança da IaaS VM, pelo que permitir-lhes não terá qualquer impacto. As funcionalidades de segurança só devem ser ativadas se estiver a utilizar: <br/>
+> As funcionalidades de segurança não devem ser ativadas se estiver a utilizar a infraestrutura como cópia de segurança vM de serviço (IaaS). Estas funcionalidades ainda não estão disponíveis para a cópia de segurança da IaaS VM, pelo que permitir-lhes não terá qualquer impacto. As funcionalidades de segurança só devem ser ativadas se estiver a utilizar: <br/>
 >
 > - **Agente Azure Backup**. Agente mínimo versão 2.0.9052. Depois de ter ativado estas funcionalidades, deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
 > - **Servidor de backup Azure**. Versão 2.0.9052 do agente de backup Azure com atualização do Servidor de Backup Azure 1. <br/>

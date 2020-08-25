@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261944"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826315"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 

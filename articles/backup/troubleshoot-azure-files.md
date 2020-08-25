@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763682"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825465"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -251,7 +251,7 @@ Error Message: Azure file share snapshot correspondente ao ponto de recuperaçã
 - Certifique-se de que o instantâneo de partilha de ficheiros, correspondente ao ponto de recuperação que está a tentar utilizar para recuperação, ainda existe.
 
   >[!NOTE]
-  >Se eliminar uma imagem de partilha de ficheiros criada pela Azure Backup, os pontos de recuperação correspondentes tornam-se inutilizáveis. Recomendamos que não elimine as imagens para garantir uma recuperação garantida.
+  >Se eliminar uma imagem de partilha de ficheiros criada pela Azure Backup, os pontos de recuperação correspondentes tornam-se inutilizáveis. Recomendamos que não extinguam instantâneos para garantir uma recuperação garantida.
 
 - Tente selecionar outro ponto de restauro para recuperar os seus dados.
 

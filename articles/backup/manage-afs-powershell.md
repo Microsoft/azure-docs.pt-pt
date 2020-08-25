@@ -3,19 +3,19 @@ title: Gerir cópias de segurança de partilha de ficheiros Azure com a PowerShe
 description: Saiba como utilizar o PowerShell para gerir e monitorizar as ações de ficheiros Azure apoiadas pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538598"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826757"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gerir cópias de segurança de partilha de ficheiros Azure com a PowerShell
 
 Este artigo descreve como usar a Azure PowerShell para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pelo serviço Azure Backup.
 
 > [!WARNING]
-> Certifique-se de que a versão PS está atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para cópias de segurança AFS. Para mais detalhes, consulte [a secção](backup-azure-afs-automation.md#important-notice-backup-item-identification) que descreve a exigência desta alteração.
+> Certifique-se de que a versão PowerShell está atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para cópias de segurança AFS. Para mais detalhes, consulte [a secção](backup-azure-afs-automation.md#important-notice-backup-item-identification) que descreve a exigência desta alteração.
 
 ## <a name="modify-the-protection-policy"></a>Modificar a política de proteção
 
@@ -107,6 +107,6 @@ WorkloadName     Operation            Status         StartTime                 E
 afsfileshare     DeleteBackupData     Completed      1/26/2020 2:50:57 PM      1/26/2020 2:51:39 PM      b1a61c0b-548a-4687-9d15-9db1cc5bcc85
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como](manage-afs-backup.md) gerir as cópias de segurança do ficheiro Azure no portal Azure.

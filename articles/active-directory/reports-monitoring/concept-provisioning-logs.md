@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924035"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826876"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -94,7 +94,7 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Date
+- Data
 - Estado
 - Ação
 
@@ -118,7 +118,7 @@ Quando selecionar um prazo personalizado, pode configurar uma data de início e 
 
 O filtro **'Estado'** permite-lhe selecionar:
 
-- Tudo
+- Todos
 - Success
 - Falha
 - Ignorado
@@ -242,6 +242,8 @@ Utilize a tabela abaixo para entender melhor como resolver os erros que pode enc
 |LicençaLimitExceed|O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém licenças adicionais para a aplicação-alvo, ou revê as suas atribuições de utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.|
 |DuplicateTargets  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado da aplicação-alvo ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | Quando cada utilizador é avaliado, tentamos importar o utilizador do sistema de origem. Este erro ocorre geralmente quando o utilizador que está a ser importado está a perder a propriedade correspondente definida nos mapeamentos do seu atributo. Sem um valor presente no objeto do utilizador para o atributo correspondente, não podemos avaliar alterações de scoping, correspondência ou exportação. Note-se que a presença deste erro não indica que o utilizador esteja no âmbito, uma vez que ainda não avaliámos a verificação para o utilizador.|
+|EntradaSsynchronizationSkipped | O serviço de fornecimento solicitou com sucesso o sistema de origem e identificou o utilizador. Não foram tomadas mais medidas contra o utilizador e foram ignoradas. O salto pode dever-se ao facto de o utilizador estar fora de alcance ou de o utilizador já existir no sistema-alvo sem necessidade de mais alterações.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

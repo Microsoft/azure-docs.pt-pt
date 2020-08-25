@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a configurar, iniciar e gerir operações de 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762883"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826417"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
@@ -445,7 +445,7 @@ Devolve duas respostas: 202 (Aceite) quando outra operação é criada e, em seg
 |202 Aceito     |         |     Aceite    |
 
 > [!IMPORTANT]
-> Para proteger contra cenários de eliminação acidental, existe uma [funcionalidade de eliminação suave disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos Serviços de Recuperação. Se o estado de eliminação suave do cofre estiver definido para ativar, a operação de eliminação NÃO apagará imediatamente os dados. Será mantido por 14 dias e depois permanentemente purgado. O cliente não é cobrado para armazenamento durante este período de 14 dias. Para desfazer a operação de eliminação, consulte a [secção de eliminação](#undo-the-deletion).
+> Para proteger contra cenários de eliminação acidental, existe uma [funcionalidade de eliminação suave disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos Serviços de Recuperação. Se o estado de eliminação suave do cofre estiver definido para ativar, a operação de eliminação não apagará imediatamente os dados. Será mantido por 14 dias e depois permanentemente purgado. Não é cobrado para armazenamento por este período de 14 dias. Para desfazer a operação de eliminação, consulte a [secção de eliminação](#undo-the-deletion).
 
 ### <a name="undo-the-deletion"></a>Desfazer a eliminação
 

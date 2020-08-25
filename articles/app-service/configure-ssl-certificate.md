@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: dea07e8a2dd0f70c714c6213408db9264bd30750
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987176"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826961"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -123,6 +123,10 @@ Utilize a seguinte tabela para ajudá-lo a configurar o certificado. Quando term
 | Certificado SKU | Determina o tipo de certificado para criar, seja um certificado padrão ou um [certificado wildcard](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Termos Legais | Clique para confirmar que concorda com os termos legais. Os certificados são obtidos do GoDaddy. |
 
+> [!NOTE]
+> Os Certificados de Serviço de Aplicações adquiridos à Azure são emitidos pela GoDaddy. Para alguns domínios de alto nível, deve explicitamente permitir o GoDaddy como emitente de certificado, criando um [registo de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: `0 issue godaddy.com`
+> 
+
 ### <a name="store-in-azure-key-vault"></a>Loja em Azure Key Vault
 
 Uma vez concluído o processo de compra do certificado, há mais alguns passos que precisa de completar antes de poder começar a usar este certificado. 
@@ -195,7 +199,7 @@ Utilize a seguinte tabela para ajudá-lo a selecionar o certificado.
 | Definições | Descrição |
 |-|-|
 | Subscrição | A assinatura a que pertence o Cofre-Chave. |
-| Cofre de Chaves | O cofre com o certificado que quer importar. |
+| Key Vault | O cofre com o certificado que quer importar. |
 | Certificado | Selecione a partir da lista de certificados PKCS12 no cofre. Todos os certificados PKCS12 do cofre estão listados com as suas impressões digitais, mas nem todos são suportados no Serviço de Aplicações. |
 
 Quando a operação estiver concluída, consulte o certificado na lista **de Certificados-Chave Privados.** Se a importação falhar com um erro, o certificado não satisfaz os [requisitos do Serviço de Aplicações.](#private-certificate-requirements)

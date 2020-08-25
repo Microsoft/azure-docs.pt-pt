@@ -3,12 +3,12 @@ title: Use powerShell para apoiar cargas de trabalho de DPM
 description: Saiba como implementar e gerir o Azure Backup para o Gestor de Proteção de Dados (DPM) utilizando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762747"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825975"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -69,7 +69,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. Especificar o tipo de redundância de armazenamento a utilizar; pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção -BackupStorageRedundancy para o testVault está definida para GeoRedundant.
+4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção -BackupStorageRedundancy para o testVault está definida para GeoRedundant.
 
    > [!TIP]
    > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
@@ -177,13 +177,13 @@ Uma vez registado o DPM Server no cofre dos Serviços de Recuperação, começa 
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Todas as modificações são feitas neste objeto Local PowerShell ```$setting``` e, em seguida, o objeto completo é comprometido com DPM e Azure Backup para salvá-los usando o [cmdlet set-DPMCloudSubscriptionSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) É necessário utilizar a ```–Commit``` bandeira para garantir que as alterações são persistidos. As definições não serão aplicadas e utilizadas pela Azure Backup a menos que sejam cometidas.
+Todas as modificações são feitas neste objeto Local PowerShell ```$setting``` e, em seguida, o objeto completo é comprometido com DPM e Azure Backup para salvá-los usando o [cmdlet set-DPMCloudSubscriptionSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) É necessário utilizar a ```–Commit``` bandeira para garantir que as alterações são persistidos. As definições não serão aplicadas e utilizadas pela Azure Backup a menos que sejam comprometidas.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não existe um servidor proxy, pelo que estamos a limpar explicitamente qualquer informação relacionada com procuração.
 
@@ -220,7 +220,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 ```
 
 > [!IMPORTANT]
-> Mantenha a palavra-passe segura e segura uma vez definida. Não poderá restaurar os dados de Azure sem esta frase de passe.
+> Mantenha a palavra-passe segura e segura uma vez definida. Não conseguirá restaurar os dados de Azure sem esta frase.
 >
 >
 
@@ -262,7 +262,7 @@ Cada Agente DPM conhece a lista de fontes de dados no servidor em que está inst
 3. Pegue uma lista de todos os recursos de dados no servidor.
 4. Escolha um ou mais fontes de dados e adicione-as ao Grupo de Proteção
 
-A lista de servidores em que o DPM Agent está instalado e está a ser gerido pelo DPM Server é adquirida com o [cmdlet Get-DPMProductionServer.](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) Neste exemplo vamos filtrar e apenas configurar PS com design *produção 01* para backup.
+A lista de servidores em que o DPM Agent está instalado e está a ser gerido pelo DPM Server é adquirida com o [cmdlet Get-DPMProductionServer.](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) Neste exemplo, filtraremos e configuraremos apenas o PowerShell com o nome *de produção erador01* para cópia de segurança.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}

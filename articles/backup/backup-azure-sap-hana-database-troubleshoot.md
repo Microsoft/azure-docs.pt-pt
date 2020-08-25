@@ -3,12 +3,12 @@ title: Resolução de problemas SAP HANA erros de backup
 description: Descreve como resolver erros comuns que podem ocorrer quando utiliza o Azure Backup para fazer backup nas bases de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503613"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826995"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Backup de resolução de problemas das bases de dados SAP HANA em Azure
 
@@ -74,7 +74,7 @@ Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o
 | Mensagem de Erro      | <span style="font-weight:normal">Configuração inválida de retroint inválida detetada</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **Possíveis causas**    | Os parâmetros de suporte são especificados incorretamente para a cópia de segurança do Azure |
-| **Ação recomendada** | Verifique se estão definidos os seguintes parâmetros (backint):<br/>\*[catalog_backup_using_backint:verdade]<br/>\*[enable_accumulated_catalog_backup:falso]<br/>\*[parallel_data_backup_backint_channels:1]<br/>\*[log_backup_timeout_s:900)]<br/>\*[backint_response_timeout:7200]<br/>Se os parâmetros baseados em backint estiverem presentes no HOST, remova-os. Se os parâmetros não estiverem presentes ao nível do HOST, mas tiverem sido modificados manualmente a um nível de base de dados, reverta-os para os valores apropriados, tal como descrito anteriormente. Ou, [executar a proteção stop e reter dados](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) de backup do portal Azure e, em seguida, selecione **Retomar a cópia de segurança**. |
+| **Ação recomendada** | Verifique se estão definidos os seguintes parâmetros (backint):<br/>\* [catalog_backup_using_backint:verdade]<br/>\* [enable_accumulated_catalog_backup:falso]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Se os parâmetros baseados em backint estiverem presentes no HOST, remova-os. Se os parâmetros não estiverem presentes ao nível do HOST, mas tiverem sido modificados manualmente a um nível de base de dados, reverta-os para os valores apropriados, tal como descrito anteriormente. Ou, [executar a proteção stop e reter dados](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) de backup do portal Azure e, em seguida, selecione **Retomar a cópia de segurança**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatávelSrcTargetSystemsForRestore
 
@@ -96,7 +96,7 @@ Assuma que um exemplo de SDC HANA "H21" está apoiado. A página de itens de có
 Tenha em atenção os seguintes pontos:
 
 - Por predefinição, o nome db restaurado será preenchido com o nome do item de reserva. Neste caso, h21(sdc).
-- Selecionar o alvo como H11 NÃO alterará automaticamente o nome db restaurado. **Deve ser editado para h11(sdc)**. No que diz respeito ao SDC, o nome db restaurado será o ID de instância-alvo com letras minúsculas e 'sdc' anexados em parênteses.
+- Selecionar o alvo como H11 não alterará automaticamente o nome db restaurado. **Deve ser editado para h11(sdc)**. No que diz respeito ao SDC, o nome db restaurado será o ID de instância-alvo com letras minúsculas e 'sdc' anexados em parênteses.
 - Uma vez que o SDC pode ter apenas uma única base de dados, também precisa clicar na caixa de verificação para permitir a substituição dos dados da base de dados existentes com os dados do ponto de recuperação.
 - Linux é sensível a casos. Então tenha cuidado para preservar o caso.
 
@@ -202,6 +202,6 @@ Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
 Nos cenários anteriores, recomendamos que desencadeie uma operação de re-registo no VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja as [perguntas frequentes](./sap-hana-faq-backup-azure-vm.md) sobre o backup das bases de dados SAP HANA em VMs Azure.

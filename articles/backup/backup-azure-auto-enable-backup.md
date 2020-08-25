@@ -3,12 +3,12 @@ title: Ativar automaticamente a cópia de segurança no momento da criação da 
 description: Um artigo que descreve como usar a Política Azure para permitir automaticamente a cópia de segurança para todos os VMs criados num determinado âmbito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763597"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826077"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 
@@ -52,7 +52,7 @@ Para atribuir a apólice ao âmbito exigido, siga os passos abaixo:
 
 > [!NOTE]
 >
-> Recomenda-se que esta política não seja atribuída a mais de 200 VMs de cada vez. Se a apólice for atribuída a mais de 200 VMs, pode resultar no disparo de backup algumas horas mais tarde do que o especificado no horário.
+> Recomenda-se que esta política não seja atribuída a mais de 200 VMs de cada vez. Se a apólice for atribuída a mais de 200 VMs, pode resultar no desencadeamento da cópia de segurança algumas horas mais tarde do que o especificado no calendário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

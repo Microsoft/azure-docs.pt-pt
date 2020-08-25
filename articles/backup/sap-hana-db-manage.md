@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049463"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826706"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -129,7 +129,7 @@ Pode alterar a política subjacente a um item de backup SAP HANA.
 >[!NOTE]
 > Qualquer alteração no período de retenção será aplicada retrospetivamente a todos os pontos de recuperação mais antigos, além dos novos.
 >
-> As políticas de backup incrementais não podem ser utilizadas para bases de dados SAP HANA. A cópia de segurança incremental não é suportada atualmente para estas bases de dados.
+> As políticas incrementais de backup não podem ser usadas para bases de dados SAP HANA. A cópia de segurança incremental não é suportada para estas bases de dados.
 
 ### <a name="modify-policy"></a>Alterar Política
 
@@ -171,7 +171,7 @@ Pode parar de proteger uma base de dados SAP HANA de várias maneiras:
 
 Se optar por deixar pontos de recuperação, lembre-se destes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, todas as poda devem parar na proteção stop com os dados de retenção.
+* Todos os pontos de recuperação permanecerão intactos para sempre, e todas as poda pararão na proteção stop com os dados de retenção.
 * Será cobrado pela instância protegida e pelo armazenamento consumido. Para mais informações, consulte [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 * Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão.
 

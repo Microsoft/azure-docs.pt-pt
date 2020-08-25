@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649419"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826145"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
@@ -56,13 +56,13 @@ A.  Para ver onde os Discos de Caixa de Dados estão atualmente disponíveis, ac
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
 A. O Disco de Caixa de Dados é suportado para todas as regiões dos EUA, Canadá, Austrália, Europa Ocidental e Europa do Norte, Coreia e Japão. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>P. O meu disco de caixa de dados atravessará as fronteiras país/região durante o transporte?
-A. O Disco de Caixa de Dados é enviado de dentro do mesmo país/região que o seu destino e não atravessará nenhuma fronteira internacional. A única exceção é para as encomendas na União Europeia (UE), onde os discos podem enviar de e para qualquer país/região da UE.
+### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
+A. O Disco de Caixa de Dados é suportado para todas as regiões dos EUA, Canadá, Austrália, Europa Ocidental e Europa do Norte, Coreia e Japão. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>P. Como posso importar os meus dados de origem num país/região para uma região de Azure num país/região diferente?
-A. O Disco de Caixa de Dados suporta a ingestão de dados apenas dentro da mesma região (fronteira comercial). Em todos os outros casos, poderá ter de tomar medidas adicionais. 
+### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>P. Como posso importar dados de origem presentes na minha localização num país/região para uma região de Azure num país diferente?
+A. O Data Box Disk suporta a ingestão de dados apenas no mesmo país/região que o seu destino e não atravessará nenhuma fronteira internacional. A única exceção é para encomendas na União Europeia (UE), onde os discos de caixa de dados podem enviar de e para qualquer país/região da UE.
 
-Por exemplo, se tivesse dados no Local no Canadá que quisesse mudar-se para uma conta de armazenamento Azure WestUS, então poderia alcançá-lo da seguinte forma:
+Por exemplo, se quiser transferir dados na sua localização no Canadá para uma conta de armazenamento Azure WestUS, então poderá alcançá-lo da seguinte forma:
 
 ### <a name="option-1"></a>Opção 1: 
 
@@ -90,13 +90,13 @@ A.  No portal do Azure, aceda à encomenda do Data Box Disk e navegue para **Det
 Para obter instruções passo a passo, aceda a [Desbloquear discos num cliente Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos num cliente Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>P. Posso utilizar um computador anfitrião Linux para ligar e copiar os dados para os discos do Data Box Disk?
-A.  Sim. Os clientes Linux e Windows podem ser utilizados para ligar e copiar os dados para os discos do Data Box. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-disk-system-requirements.md) do seu computador anfitrião.
+A.  Yes. Os clientes Linux e Windows podem ser utilizados para ligar e copiar os dados para os discos do Data Box. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-disk-system-requirements.md) do seu computador anfitrião.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Os meus discos foram enviados, mas quero cancelar esta encomenda. Por que é que o botão de cancelamento não está disponível?
 A.  Só pode cancelar a encomenda depois de os discos terem sido encomendados e antes de serem enviados. Após o envio, já não pode cancelar a encomenda. No entanto, pode devolver os seus discos com uma carga. 
 
 ### <a name="q-can-i-connect-multiple-data-box-disks-at-the-same-to-the-host-computer-to-transfer-data"></a>P. Posso ligar vários discos do Data Box Disk ao mesmo computador anfitrião para transferir os dados?
-A. Sim. É possível ligar vários discos do Data Box ao mesmo computador anfitrião para transferir os dados e podem ser executados múltiplos trabalhos de cópia em paralelo.
+A. Yes. É possível ligar vários discos do Data Box ao mesmo computador anfitrião para transferir os dados e podem ser executados múltiplos trabalhos de cópia em paralelo.
 
 ## <a name="track-status"></a>Acompanhar o estado
 
@@ -107,7 +107,7 @@ A.  Pode acompanhar o estado da encomenda do Data Box Disk no portal do Azure. Q
 A.  A Microsoft fornece uma etiqueta de envio com o Data Box Disk na embalagem. Afixe a etiqueta à caixa de envio e entregue a embalagem fechada na localização da sua transportadora. Se a etiqueta estiver danificada ou se perder, aceda a **Overview > Download shipping label** (Descrição geral > Transferir etiqueta de envio) e transfira uma etiqueta de devolução nova.
 
 ### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Posso pegar o meu pedido de caixa de dados? Posso devolver os discos através de um porta-aviões que escolho?
-A. Sim. A Microsoft também oferece envios auto-geridos apenas na região do Gov dos EUA. Ao fazer a encomenda do Disco caixa de dados, pode escolher a opção de envio auto-gerida. Para recolher a sua encomenda de disco de caixa de dados, tome os seguintes passos:
+A. Yes. A Microsoft também oferece envios auto-geridos apenas na região do Gov dos EUA. Ao fazer a encomenda do Disco caixa de dados, pode escolher a opção de envio auto-gerida. Para recolher a sua encomenda de disco de caixa de dados, tome os seguintes passos:
     
 1. Depois de ter feito a encomenda, a encomenda é processada e os discos são preparados. Será notificado através de um e-mail que o seu pedido está pronto para ser recolhido. 
 2. Assim que a encomenda estiver pronta para ser recolhida, vá ao seu pedido no portal Azure e navegue até à lâmina **de visão geral.** 
@@ -195,13 +195,13 @@ A.  Após a conclusão da cópia dos dados para o Azure, os dados dos discos sã
 A.  Os discos do Data Box Disk são encriptados com a encriptação BitLocker AES-128 da Microsoft. É necessária uma chave de acesso única para desbloquear os discos e aceder aos dados.
 
 ### <a name="q-do-i-need-to-rerun-checksum-validation-if-i-add-more-data-to-the-data-box-disks"></a>P. Se adicionar mais dados aos discos do Data Box Disk, tenho de voltar a executar a validação da soma de verificação?
-A. Sim. Se decidir validar os seus dados (recomendamos que o faça!), tem de voltar a executar a validação, caso tenha adicionado mais dados aos discos.
+A. Yes. Se decidir validar os seus dados (recomendamos que o faça!), tem de voltar a executar a validação, caso tenha adicionado mais dados aos discos.
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>P. Utilizei todos os discos para transferir os dados e preciso de encomendar mais. Existe alguma forma de fazer a encomenda rapidamente?
 A. Pode clonar a encomenda anterior. A clonagem cria a mesma encomenda e permite-lhe editar os detalhes da mesma, sem ter de voltar a introduzir as informações de morada, contacto e notificação.
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>P. Copiei dados para a pasta ManagedDisk. Não vejo discos geridos com o grupo de recursos especificado para discos geridos. Os meus dados foram enviados para o Azure e como posso localizá-lo?
-A. Sim. Os seus dados foram enviados para o Azure, mas se não vir nenhum disco gerido com os grupos de recursos especificados, é provável que os dados não fossem válidos. Se as bolhas de página, as bolhas de blocos, os ficheiros Azure e os discos geridos não fossem válidos, estes iriam para as seguintes pastas:
+A. Yes. Os seus dados foram enviados para o Azure, mas se não vir nenhum disco gerido com os grupos de recursos especificados, é provável que os dados não fossem válidos. Se as bolhas de página, as bolhas de blocos, os ficheiros Azure e os discos geridos não fossem válidos, estes iriam para as seguintes pastas:
  - As bolhas de página iriam para um recipiente de blocos blob começando com *databoxdisk-invalid-pb-*.
  - A Azure Files iria para um recipiente de blocos blob começando com *databoxdisk-invalid-af-*.
  - Os discos geridos iriam para um contentor de blocos blob começando com *databoxdisk-invalid-md-*.

@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755267"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826859"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -89,7 +89,7 @@ Utilize este separador para visualizar os parâmetros de faturação das chaves 
    ![Separador de utilização](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> No caso das cargas de trabalho de DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização indicados nos relatórios em comparação com o valor de utilização agregado, tal como mostrado no separador **Overview** do cofre dos Serviços de Recuperação. Esta diferença é explicada pelo facto de que todos os servidores DPM registados para cópia de segurança têm uma fonte de dados de metadados associada que não é surgiu como um artefacto para reportar.
+> No caso das cargas de trabalho de DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização indicados nos relatórios em comparação com o valor de utilização agregado, tal como mostrado no separador **Overview** do cofre dos Serviços de Recuperação. Esta diferença é explicada pelo facto de que todos os servidores DPM registados para cópia de segurança têm uma fonte de dados de metadados associada que não é um artefacto para reportar.
 
 ##### <a name="jobs"></a>Tarefas
 
@@ -109,7 +109,7 @@ Use este separador para ganhar visibilidade em potenciais oportunidades de otimi
 
 ###### <a name="inactive-resources"></a>Recursos Inativos
 
-Utilizando esta vista, pode identificar os itens de backup que não tenham tido uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e por isso está a resultar em cópias de segurança falhadas), ou há algum problema com a máquina que está a impedir que as cópias de segurança sejam tomadas de forma fiável.
+Utilizando esta vista, pode identificar os itens de backup que não tiveram uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e por isso está a resultar em cópias de segurança falhadas), ou há algum problema com a máquina que está a impedir que as cópias de segurança sejam tomadas de forma fiável.
 
 Para visualizar recursos inativos, navegue no **separador Otimize** e selecione o azulejo **Recursos Inativos.** Selecione este azulejo apresenta uma grelha que contém detalhes de todos os recursos inativos que existem no âmbito selecionado. Por predefinição, a grelha mostra itens que não têm um ponto de recuperação nos últimos sete dias. Para encontrar recursos inativos para um intervalo de tempo diferente, pode ajustar o filtro **de intervalo** de tempo na parte superior do separador.
 

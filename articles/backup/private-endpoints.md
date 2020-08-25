@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762917"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826655"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -60,7 +60,7 @@ Identidades geridas permitem que o cofre crie e utilize pontos finais privados. 
 1. Um **ID de objeto** é gerado, que é a identidade gerida do cofre.
 
     >[!NOTE]
-    >Uma vez ativado, a Identidade Gerida NÃO deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
+    >Uma vez ativado, a Identidade Gerida **não** deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
 
 ## <a name="dns-changes"></a>Alterações no DNS
 
@@ -105,7 +105,7 @@ Se desejar criar uma zona de DNS privada separada em Azure, pode fazer o mesmo u
 
 | **Zona**                                                     | **Serviço** | **Detalhes do Grupo de Assinatura e Recursos**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota:** *geo* aqui refere-se ao código da região. Por exemplo, *wcus* e *ne* para os EUA e a Europa do Norte, respectivamente. | Cópia de segurança      | **Assinatura**: O mesmo que o Ponto Final Privado precisa de ser criado  **RG**: Qualquer RG dentro da subscrição |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota:** *geo* aqui refere-se ao código da região. Por exemplo, *wcus* e *ne* para os EUA e a Europa do Norte, respectivamente. | Backup      | **Assinatura**: O mesmo que o Ponto Final Privado precisa de ser criado  **RG**: Qualquer RG dentro da subscrição |
 
 Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para obter códigos de região.
 
@@ -497,7 +497,7 @@ Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual.
 
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Cópia de segurança      |
+| `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Blob        |
 | `privatelink.queue.core.windows.net`                           | Fila       |
 
@@ -552,7 +552,7 @@ P. Tentei proteger um objeto para o meu cofre, mas falhou e o cofre ainda não c
 A. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
 
 P. Tenho um cofre que está a usar pontos finais privados para reforços e restauros. Posso adicionar ou remover mais tarde pontos finais privados para este cofre, mesmo que eu tenha itens de reserva protegidos?<br>
-A. Sim. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
+A. Yes. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
 
 P. O ponto final privado do Azure Backup também pode ser usado para a recuperação do local de Azure?<br>
 A. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.

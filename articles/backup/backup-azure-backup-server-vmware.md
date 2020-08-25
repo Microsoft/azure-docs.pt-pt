@@ -3,12 +3,12 @@ title: Backup VMware VMs com Azure Backup Server
 description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer backup vMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 892d308df15ef745f34419ec315e2c5000b0852c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f498a7b7d2faf9ff857b504043233c46c843a961
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263542"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826944"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
 
@@ -281,7 +281,7 @@ Adicione o servidor vCenter ao Servidor de Backup Azure.
 
     ![Especificar credencial](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **Selecione Adicionar** para adicionar o servidor VMware à lista de servidores. Em seguida, selecione **Seguinte**.
+6. **Selecione Adicionar** para adicionar o servidor VMware à lista de servidores. e selecione **Seguinte**.
 
     ![Adicionar servidor VMWare e credencial](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -309,14 +309,14 @@ Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem 
 
 1. Na página do **tipo do grupo Select Protection,** selecione **Servidores** e, em seguida, selecione **Seguinte**. Aparece a página **de membros do grupo Select.**
 
-1. Nos **membros do grupo Select**, selecione as pastas VM (ou VM) que pretende fazer. Em seguida, selecione **Seguinte**.
+1. Nos **membros do grupo Select**, selecione as pastas VM (ou VM) que pretende fazer. e selecione **Seguinte**.
 
     - Quando selecionar uma pasta, ou VMs ou pastas no interior dessa pasta também são selecionados para cópia de segurança. Pode desmarcar pastas ou VMs que não quer fazer recuar.
 1. Se um VM ou uma pasta já estiver a ser apoiado, não pode selecioná-lo. Isto garante que os pontos de recuperação duplicados não são criados para um VM.
 
     ![Selecione membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na página **Select Data Protection Method,** insira um nome para o grupo de proteção e as definições de proteção. Para apoiar o Azure, desconfiem da proteção de curto prazo ao **Disk** e permitam a proteção online. Em seguida, selecione **Seguinte**.
+1. Na página **Select Data Protection Method,** insira um nome para o grupo de proteção e as definições de proteção. Para apoiar o Azure, desconfiem da proteção de curto prazo ao **Disk** e permitam a proteção online. e selecione **Seguinte**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -347,17 +347,17 @@ Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem 
 
     ![Escolha o método de criação de réplicas](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Nas **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, selecione **Seguinte**.
+1. Nas **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. e selecione **Seguinte**.
       - Pode executar verificações de consistência quando os dados de réplica se tornam inconsistentes, ou num calendário definido.
       - Se não quiser configurar verificações automáticas de consistência, pode verificar manualmente. Para isso, clique com o botão direito no grupo de proteção > **Executar verificação de consistência**.
 
-1. Na página **De Dados de Proteção Online,** selecione as pastas VM ou VM que pretende fazer o back up. Pode selecionar os membros individualmente ou selecionar **Todos** para escolher todos os membros. Em seguida, selecione **Seguinte**.
+1. Na página **De Dados de Proteção Online,** selecione as pastas VM ou VM que pretende fazer o back up. Pode selecionar os membros individualmente ou selecionar **Todos** para escolher todos os membros. e selecione **Seguinte**.
 
     ![Especificar dados de proteção on-line](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na página **'Especificar agendamento' de cópia de segurança on-line,** especifique a frequência com que pretende fazer cópias de segurança do armazenamento local para o Azure.
 
-    - Os pontos de recuperação da nuvem para os dados serão gerados de acordo com o calendário. Em seguida, selecione **Seguinte**.
+    - Os pontos de recuperação da nuvem para os dados serão gerados de acordo com o calendário. e selecione **Seguinte**.
     - Depois do ponto de recuperação ser gerado, é transferido para o cofre dos Serviços de Recuperação em Azure.
 
     ![Especificar o horário de backup on-line](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

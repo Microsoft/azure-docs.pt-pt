@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757086"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827074"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 
@@ -109,7 +109,7 @@ Estes passos incluem a seguinte terminologia:
 
     Se o ficheiro de credencial do cofre for inválido (ou expirado), descarregue um novo ficheiro de credencial de abóbada do cofre no portal Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de reserva correspondente aparece.
 
-6. Na página **'Selecionar Backup Server',** selecione a máquina de origem da lista de máquinas visualizadas e forneça a palavra-passe. Em seguida, selecione **Seguinte**.
+6. Na página **'Selecionar Backup Server',** selecione a máquina de origem da lista de máquinas visualizadas e forneça a palavra-passe. e selecione **Seguinte**.
 
     ![Screenshot do Assistente de Dados recuperar a página do servidor de backup (restaurar para máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 

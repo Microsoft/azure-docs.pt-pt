@@ -3,12 +3,12 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763444"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826978"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
@@ -29,7 +29,7 @@ Este gráfico de fluxo mostra os diferentes passos e estados de um item de backu
 
 A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de eliminações acidentais ou maliciosas.  Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Só o proprietário do cofre pode desativar esta função. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão numa remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado de apagação suave antes de desativar esta funcionalidade, permanecerão em estado de apagação suave durante o período de 14 dias. Se desejar eliminá-las imediatamente, terá de desafiá-las e eliminá-las novamente para ser permanentemente eliminada.
 
- É importante lembrar que uma vez que a eliminação suave é desativada, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez que a [pré-visualização SQL Server/ SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) está ativada para uma subscrição, não é possível desativar a exclusão suave apenas para servidor SQL ou DBs SAP HANA, mantendo-a ativada para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
+ É importante lembrar que uma vez que a eliminação suave é desativada, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez que a [pré-visualização SQL Server/ SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) está ativada para uma subscrição, não é possível desativar a exclusão suave apenas para servidor SQL ou DBs SAP HANA, mantendo-o ativado para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar a eliminação suave usando o portal Azure
 
@@ -44,9 +44,9 @@ Para desativar a eliminação suave, siga estes passos:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar a eliminação suave usando a Azure PowerShell
 
 > [!IMPORTANT]
-> A versão Az.RecoveryServices necessária para utilizar soft-delete usando Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão Az.RecoveryServices necessária para utilizar o soft-delete utilizando o Azure PowerShell é mínima de 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desativar, utilize o [cmdlet PS Set-AzRecoveryServicesVaultBackupProperty.](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)
+Para desativar, utilize o [cmdlet Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PowerShell.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -140,7 +140,7 @@ Se os itens foram eliminados antes de serem desativadas, então estarão num est
 2. Em seguida, desative a funcionalidade de eliminação suave utilizando a API REST utilizando os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
 3. Em seguida, elimine as cópias de segurança utilizando a API REST, como mencionado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Preciso de ativar a função de eliminação suave em cada cofre?
 
@@ -160,7 +160,7 @@ Não, é necessário desembolsar o recurso suave apagado para restaurar. A opera
 
 ### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos vão seguir o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
 
-Sim.
+Yes.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 

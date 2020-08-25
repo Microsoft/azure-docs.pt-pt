@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 505c4502281f4d32e1e28d913ed5a040e533cfb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762407"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824326"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -83,7 +83,7 @@ az backup container register --resource-group saphanaResourceGroup \
 ```
 
 >[!NOTE]
->Se o VM não estiver no mesmo grupo de recursos que o cofre, então *o SaphanaResourceGroup* refere-se ao grupo de recursos onde o cofre foi criado.
+>Se o VM não estiver no mesmo grupo de recursos que o cofre, então o *SaphanaResourceGroup* refere-se ao grupo de recursos onde o cofre foi criado.
 
 O registo da instância SAP HANA descobre automaticamente todas as suas bases de dados atuais. No entanto, para descobrir quaisquer novas bases de dados que possam ser adicionadas no futuro consulte as [novas bases de dados descobertas adicionadas à](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) secção de instância SAP HANA registada.
 
@@ -178,7 +178,7 @@ A resposta vai dar-lhe o nome do trabalho. Este nome de trabalho pode ser usado 
 >[!NOTE]
 >Além de agendar uma cópia de segurança completa ou diferencial, também podem ser ativados manualmente. As cópias de segurança de registo são automaticamente ativadas e geridas pela SAP HANA internamente.
 >
-> As cópias de segurança incrementais não são atualmente suportadas pelo Azure Backup.
+> As cópias de segurança incrementais não são suportadas atualmente pelo Azure Backup.
 
 ## <a name="next-steps"></a>Passos seguintes
 

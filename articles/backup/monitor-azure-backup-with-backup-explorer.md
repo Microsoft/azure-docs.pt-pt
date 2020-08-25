@@ -4,12 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para realizar moni
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092801"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824417"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
 
@@ -29,7 +29,7 @@ Estas capacidades são fornecidas fora de caixa por integração nativa com os l
 > * O Backup Explorer deve ser um dashboard operacional para visualizar informações sobre as suas cópias de segurança nos últimos 7 dias (máximo).
 > * O Backup Explorer não é suportado atualmente nas nuvens nacionais.
 > * Atualmente, a personalização do modelo backup Explorer não é suportada.
-> * Não recomendamos a escrita de automatizações personalizadas nos dados do Azure Resource Graph.
+> * Não recomendamos a escrita de automatizações personalizadas em dados do Azure Resource Graph.
 > * Atualmente, o Backup Explorer permite-lhe monitorizar backups através de um máximo de 1000 subscrições (entre inquilinos).
 
 ## <a name="get-started"></a>Introdução

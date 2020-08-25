@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a gerir bases de dados SAP HANA com apoio e
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 03e3f7450fd7282acde7988550df404656021961
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757358"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824173"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerir bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -119,7 +119,7 @@ Pode parar de proteger uma base de dados SAP HANA de várias maneiras:
 
 Se optar por deixar pontos de recuperação, lembre-se destes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, todas as poda devem parar na proteção stop com os dados de retenção.
+* Todos os pontos de recuperação permanecerão intactos para sempre, e todas as poda pararão na proteção stop com os dados de retenção.
 * Será cobrado pela instância protegida e pelo armazenamento consumido.
 * Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão.
 

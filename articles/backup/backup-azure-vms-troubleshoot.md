@@ -4,18 +4,18 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763308"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826245"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
 Pode resolver os erros encontrados durante a utilização do Azure Backup com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure.
 
@@ -26,7 +26,7 @@ Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure
 * Verifique se outro serviço de cópia de segurança não está a funcionar.
   * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, re-tentar a cópia de segurança](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verifique se o VM tem conectividade com a Internet.
-  * Certifique-se de que outro serviço de reserva não está a funcionar.
+  * Certifique-se de que outro serviço de reserva não esteja a funcionar.
 * A partir de `Services.msc` , certifique-se de que o serviço **de Agente Convidado Do Windows Azure** está **a funcionar**. Se faltar o serviço **de Agente Convidado Windows Azure,** instale-o a partir de [VMs Azure de back up num cofre dos Serviços de Recuperação](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * O **registo do Evento** pode apresentar falhas de backup que são de outros produtos de backup, por exemplo, cópia de segurança do Windows Server, e não são devidos a cópia de segurança do Azure. Utilize os seguintes passos para determinar se o problema é com a Azure Backup:
   * Se houver um erro com uma **entrada Cópia de Segurança** na fonte ou mensagem do evento, verifique se as cópias de segurança do Azure IaaS VM foram bem sucedidas e se foi criado um Ponto de Restauro com o tipo de instantâneo pretendido.
@@ -114,7 +114,7 @@ Outro procedimento que pode ajudar é executar o seguinte comando a partir de um
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-A adição desta chave de registo fará com que os fios não sejam criados para instantâneos blob e evitem o intervalo.
+A adição desta chave de registo fará com que os fios não sejam criados para as imagens blob e evitem o intervalo.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensãoConfigParsingFailure - Falha na análise do config para a extensão de backup
 
@@ -167,12 +167,12 @@ Error message: A operação snapshot falhou à medida que o limite de instantân
 
 A operação de instantâneo falhou, uma vez que o limite de instantâneo excedeu para alguns dos discos ligados. Complete as seguintes etapas de resolução de problemas e, em seguida, relemisse a operação.
 
-* Elimine as imagens de bolhas de disco que não são necessárias. Tenha cuidado para não eliminar a bolha do disco, apenas as bolhas instantâneas devem ser eliminadas.
-* Se a eliminação de soft-delete estiver ativada nas contas de armazenamento do disco VM, configure a retenção de eliminação suave de modo a que as imagens existentes sejam inferiores ao máximo permitido em qualquer momento.
+* Elimine as imagens de bolhas de disco que não são necessárias. Tenha cuidado para não apagar as bolhas de disco. Apenas as bolhas instantâneas devem ser eliminadas.
+* Se a eliminação de soft-delete estiver ativada nas contas de armazenamento do disco VM, configure a retenção de eliminação suave para que as imagens existentes sejam inferiores ao máximo permitido em qualquer momento.
 * Se a Recuperação do Sítio Azure estiver ativada no VM apoiado, então execute os passos abaixo:
 
   * Certifique-se de que o valor de **isanysnapshot falhado** é definido como falso em /etc/azure/vmbackup.conf
-  * Agendar a Recuperação do Local de Azure num momento diferente, de modo a não entrar em conflito com a operação de backup.
+  * Agende a recuperação do local de Azure num momento diferente, para que não contraia a operação de backup.
 
 ### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensãoFailedTimeoutVMNetworkUnresponsive - Operação snapshot falhou devido a recursos VM inadequados
 
@@ -336,7 +336,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

@@ -3,12 +3,12 @@ title: Resolução de problemas cópias de segurança lenta de ficheiros e pasta
 description: Fornece orientação de resolução de problemas para ajudá-lo a diagnosticar a causa de problemas de desempenho de backup Azure
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513843"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824020"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -97,6 +97,6 @@ Os seguintes indicadores podem ajudá-lo a compreender o estrangulamento e, cons
 
 Se estiver a tentar fazer backup de discos grandes, então é aconselhável utilizar a Caixa de [Dados Azure](./offline-backup-azure-data-box.md) para a primeira cópia de segurança (Replicação Inicial).  Se não puder utilizar a Data Box, quaisquer problemas transitórios de rede que ocorram no seu ambiente durante longas transferências de dados sobre a rede podem causar falhas de backup.  Para evitar estas falhas, pode adicionar algumas pastas à sua cópia de segurança inicial e continuar a adicionar mais pastas até que todas as pastas sejam apoiadas com sucesso até ao Azure.  As cópias de segurança incrementais subsequentes serão relativamente mais rápidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Perguntas comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

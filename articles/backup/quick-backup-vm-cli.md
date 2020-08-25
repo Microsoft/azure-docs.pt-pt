@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1105665296c7319c32995d1f83cb25b559abf997
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756151"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826570"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
 
@@ -60,7 +60,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-> Se a VM não se encontrar no mesmo grupo de recursos do cofre, myResourceGroup referir-se-á ao grupo de recursos em que o cofre foi criado. Em vez do nome da VM, forneça o ID da VM, conforme indicado abaixo.
+> Se o VM não está no mesmo grupo de recursos que o do cofre, então o myResourceGroup refere-se ao grupo de recursos onde o cofre foi criado. Em vez do nome da VM, forneça o ID da VM, conforme indicado abaixo.
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Ao utilizar o CLI para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy) Atualmente, o cliente do PS não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
+> Ao utilizar o CLI para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy) Atualmente, o cliente PowerShell não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 

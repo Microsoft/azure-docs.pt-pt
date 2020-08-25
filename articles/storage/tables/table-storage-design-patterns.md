@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034202"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826689"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -310,7 +310,7 @@ Note como o **RowKey** é agora uma chave composta composta composta pelo ID do 
 
 O exemplo a seguir descreve como pode recuperar todos os dados de revisão para um determinado empregado (como o empregado 000123 no departamento de Vendas):  
 
-$filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comentários  
+$filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt '000123_2012')&$select=RowKey,Manager Rating,Peer Rating,Comentários  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -710,7 +710,7 @@ As exceções lançadas quando a Biblioteca do Cliente de Armazenamento executa 
 Também deve considerar como o seu design afeta a forma como a sua aplicação de cliente lida com as operações de conuncy e atualização.  
 
 ### <a name="managing-concurrency"></a>Gerir a simultaneidade
-Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão**e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte [a Managing Concurrency no Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão**e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte  [a Managing Concurrency no Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Fundir ou substituir
 O método **de substituição** da classe **TableOperation** substitui sempre a entidade completa no serviço Tabela. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que queira remover um imóvel explicitamente de uma entidade armazenada, deve incluir todos os bens no pedido.  
