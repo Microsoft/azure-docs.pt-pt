@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763478"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827193"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -30,10 +30,10 @@ Os trabalhos das seguintes soluções Azure Backup são mostrados aqui:
 - Azure workload back up como SQL e SAP HANA
 - Agente dos Serviços de Recuperação do Microsoft Azure (MARS)
 
-Não são apresentados empregos do Gestor de Proteção de Dados do Centro de Sistema (SC-DPM), do Microsoft Azure Backup Server (MABS).
+Não são apresentados trabalhos do Gestor de Proteção de Dados do Centro de Sistema (SC-DPM), do Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
-> Cargas de trabalho azure como as cópias de segurança SQL e SAP HANA dentro dos VMs Azure têm um grande número de trabalhos de backup. Por exemplo, os backups de registo podem ser executados a cada 15 minutos. Assim, para tais cargas de trabalho DB, apenas são apresentadas operações acionadas pelo utilizador. As operações de backup programadas NÃO são apresentadas.
+> Cargas de trabalho azure como as cópias de segurança SQL e SAP HANA dentro dos VMs Azure têm um grande número de trabalhos de backup. Por exemplo, os backups de registo podem ser executados a cada 15 minutos. Assim, para tais cargas de trabalho DB, apenas são apresentadas operações acionadas pelo utilizador. As operações de reserva programadas não são apresentadas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos Serviços de Recuperação
 
@@ -95,7 +95,7 @@ Se a frequência foi definida para uma digestão de hora a hora e um alerta foi 
 
 > [!NOTE]
 >
-> - Se for realizada uma operação destrutiva como **a proteção stop com os dados de eliminação,** é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre dos Serviços de Recuperação.
+> - Se uma operação destrutiva, como **a proteção de stop com os dados de eliminação,** for efetuada uma alerta e enviar um e-mail aos proprietários de subscrições, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre dos Serviços de Recuperação.
 > - Para configurar a notificação para trabalhos bem sucedidos, utilize [o Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Alertas inativos

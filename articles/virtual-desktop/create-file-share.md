@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009227"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825448"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -127,7 +127,7 @@ Eis como obter o caminho da UNC:
 
 5. Depois de copiar o URI, faça as seguintes coisas para mudá-lo para o UNC:
 
-    - Remover `https://` e substituir por`\\`
+    - Remover `https://` e substituir por `\\`
     - Substitua o corte dianteiro `/` por um corte traseiro `\` .
     - Adicione o nome da partilha de ficheiros que criou na [Criar uma partilha de ficheiros Azure](#create-an-azure-file-share) até ao final do UNC.
 
@@ -151,15 +151,15 @@ Para configurar as suas permissões NTFS:
 
 1. Abra um pedido de comando num VM ligado ao domínio.
 
-2. Execute o seguinte cmdlet para montar a partilha de ficheiros do Azure e atribua uma letra de unidade: 
+2. Executar o seguinte comando para montar a partilha de ficheiros Azure e atribuir-lhe uma letra de unidade:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Executar o seguinte cmdlet para rever as permissões de acesso à partilha de ficheiros Azure:
+3. Executar o seguinte comando para rever as permissões de acesso à partilha de ficheiros Azure:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Para configurar as suas permissões NTFS:
 
     Tanto a *Autoridade NT\Utilizadores autenticados* como *OS Utilizadores BUILTIN\Os utilizadores* têm determinadas permissões por padrão. Estas permissões por defeito permitem que estes utilizadores leiam os recipientes de perfil de outros utilizadores. No entanto, as permissões descritas nas [permissões de armazenamento Configure para utilização com contentores de perfil e contentores de escritório](/fslogix/fslogix-storage-config-ht) não permitem que os utilizadores leiam os recipientes de perfil uns dos outros.
 
-4. Execute os seguintes cmdlets para permitir que os utilizadores do Windows Virtual Desktop criem os seus próprios recipientes de perfil enquanto bloqueiam o acesso ao seu contentor de perfil de outros utilizadores.
+4. Executar os seguintes comandos para permitir que os utilizadores do Windows Virtual Desktop criem o seu próprio recipiente de perfil enquanto bloqueiam o acesso aos seus contentores de perfil de outros utilizadores.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -181,7 +181,7 @@ Para configurar as suas permissões NTFS:
 
      Por exemplo:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"

@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756916"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826723"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -62,7 +62,7 @@ Por vezes, ou falhas aleatórias podem ocorrer em operações de backup e restau
 
 | Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As definições atuais para esta base de dados não suportam certos tipos de backup presentes na política associada. | <li>Apenas uma operação de backup de base de dados completa pode ser realizada na base de dados principal. A cópia de segurança diferencial e a cópia de segurança do registo de transações não são possíveis. </li> <li>Qualquer base de dados no modelo de recuperação simples não permite a cópia de segurança dos registos de transações.</li> | Modifique as definições da base de dados de modo a que todos os tipos de cópias de segurança da política sejam suportados. Ou, altere a política atual para incluir apenas os tipos de backup suportados. Caso contrário, os tipos de backup não suportados serão ignorados durante o backup programado ou o trabalho de backup falhará para o backup a pedido.
+| Aviso | As definições atuais para esta base de dados não suportam certos tipos de backup presentes na política associada. | <li>Apenas uma operação de backup de base de dados completa pode ser realizada na base de dados principal. A cópia de segurança diferencial e a cópia de segurança do registo de transações não são possíveis. </li> <li>Qualquer base de dados no modelo de recuperação simples não permite a cópia de segurança dos registos de transações.</li> | Modificar as definições da base de dados para que todos os tipos de backup da política sejam suportados. Ou alterar a política atual para incluir apenas os tipos de backup suportados. Caso contrário, os tipos de backup não suportados serão ignorados durante o backup programado ou o trabalho de backup falhará para o backup a pedido.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 

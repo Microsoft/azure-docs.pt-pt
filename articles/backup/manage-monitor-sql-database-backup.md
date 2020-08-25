@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756321"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826638"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -53,7 +53,7 @@ Pode parar de fazer o backup de uma base de dados do SQL Server de várias manei
 
 Se optar por deixar pontos de recuperação, lembre-se destes detalhes:
 
-- Todos os pontos de recuperação permanecerão intactos para sempre, todas as poda devem parar na proteção stop com os dados de retenção.
+- Todos os pontos de recuperação permanecerão intactos para sempre, e todas as poda pararão na proteção stop com os dados de retenção.
 - Será cobrado pela instância protegida e pelo armazenamento consumido. Para mais informações, consulte [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 - Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será sempre mantido até parar as cópias de segurança e apagar os dados.
 

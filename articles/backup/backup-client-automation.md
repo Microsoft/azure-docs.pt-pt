@@ -3,12 +3,12 @@ title: Use PowerShell para fazer o back up Windows Server para Azure
 description: Neste artigo, aprenda a usar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente Windows, e gerir a cópia de segurança e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: d0ae5165fc13193737ec75cf06060123ca4a13d4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757001"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826332"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -42,7 +42,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Especificar o tipo de redundância de armazenamento a utilizar; pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção **-BackupStorageRedundancy** para *o testVault* está definida para **GeoRedundant**.
+4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção **-BackupStorageRedundancy** para *o testVault* está definida para **GeoRedundant**.
 
    > [!TIP]
    > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
@@ -177,7 +177,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> Não utilize caminhos relativos para especificar o ficheiro de credenciais do cofre. Deve fornecer um caminho absoluto como entrada para o cmdlet.
+> Não use caminhos relativos para especificar o ficheiro de credenciais do cofre. Deve fornecer um caminho absoluto como entrada para o cmdlet.
 >
 >
 

@@ -4,12 +4,12 @@ description: Saiba como a eliminação suave para máquinas virtuais torna as c�
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763699"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826485"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminação recuperável para máquinas virtuais
 
@@ -38,7 +38,7 @@ Atualmente é apoiado nos EUA, Leste da Ásia, Canadá Central, Canadá Oriental
    ![Screenshot do portal Azure, VM em estado de exclusão suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Se houver itens de reserva apagados por elementos no cofre, o cofre não pode ser apagado nessa altura. Tente apagar o cofre depois de os itens de reserva serem permanentemente apagados, e não há nenhum item em estado de eliminação suave deixado no cofre.
+   > Se houver itens de reserva apagados no cofre, o cofre não pode ser apagado nessa altura. Tente apagar o cofre depois de os itens de reserva serem permanentemente apagados, e não há itens em estado de eliminação suave deixados no cofre.
 
 4. Para restaurar o VM apagado suave, tem primeiro de ser desesmado. Para desembolsar, escolha o VM de apagação suave e, em seguida, selecione a opção **Undelete**.
 
@@ -62,13 +62,13 @@ Atualmente é apoiado nos EUA, Leste da Ásia, Canadá Central, Canadá Oriental
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Excluir suave para VMs usando Azure PowerShell
 
 > [!IMPORTANT]
-> A versão Az.RecoveryServices necessária para utilizar soft-delete usando Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão Az.RecoveryServices necessária para utilizar o soft-delete utilizando o Azure PowerShell é mínima de 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
 Como descrito acima para o portal Azure, a sequência de passos é a mesma enquanto se utiliza Azure PowerShell também.
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de backup usando a Azure PowerShell
 
-Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Elimine o item de cópia de segurança utilizando o cmdlet de proteção Para [deficientes-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -95,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Em seguida, efetue a operação de eliminação utilizando o [cmdlet Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

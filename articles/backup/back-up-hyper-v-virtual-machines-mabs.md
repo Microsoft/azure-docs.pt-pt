@@ -3,12 +3,12 @@ title: Apoiar máquinas virtuais Hiper-V com MABS
 description: Este artigo contém os procedimentos de backup e recuperação de máquinas virtuais utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514560"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823969"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Faça backup de máquinas virtuais Hyper-V com servidor de backup Azure
 
@@ -139,7 +139,7 @@ Quando for possível recuperar uma máquina virtual com cópia de segurança, ut
     - **Recuperar para a instância original**: quando recuperar para a instância original, o VHD será eliminado. O MABS recupera o VHD e outros ficheiros de configuração para a localização original utilizando o escritor Hyper-V VSS. No final do processo de recuperação, as máquinas virtuais continuam a ter elevada disponibilidade.
         O grupo de recursos tem de estar presente para a recuperação. Se não estiver disponível, recupere para uma localização alternativa e torne a máquina virtual altamente disponível.
 
-    - **Recupere como máquina virtual para qualquer anfitrião**: O MABS suporta a recuperação alternativa da localização (ALR), que proporciona uma recuperação perfeita de uma máquina virtual Hiper-V protegida a um anfitrião Hiper-V diferente, independente da arquitetura do processador. As máquinas virtuais do Hyper-V que forem recuperadas num nó de cluster não terão elevada disponibilidade. Se escolher esta opção, o Assistente de Recuperação apresenta um ecrã adicional para identificar o destino e o caminho de destino.
+    - **Recupere como máquina virtual para qualquer anfitrião**: O MABS suporta a recuperação alternativa da localização (ALR), que proporciona uma recuperação perfeita de uma máquina virtual Hiper-V protegida a um anfitrião Hiper-V diferente, independente da arquitetura do processador. As máquinas virtuais hiper-V que são recuperadas num nó de cluster não estarão altamente disponíveis. Se escolher esta opção, o Assistente de Recuperação apresenta um ecrã adicional para identificar o destino e o caminho de destino.
 
     - **Cópia para uma pasta**de rede : O MABS suporta a recuperação do nível de item (ILR), que permite fazer a recuperação ao nível do item de ficheiros, pastas, volumes e discos rígidos virtuais (VHDs) de uma cópia de segurança ao nível do hospedeiro de máquinas virtuais Hyper-V para uma partilha de rede ou um volume num servidor protegido pelo MABS. O agente de proteção MABS não precisa de ser instalado dentro do hóspede para realizar a recuperação ao nível do item. Se escolher esta opção, o Assistente de Recuperação apresenta um ecrã adicional para identificar o destino e o caminho de destino.
 
@@ -153,6 +153,6 @@ Quando for possível recuperar uma máquina virtual com cópia de segurança, ut
 
 7. O ecrã **Estado de Recuperação** fornece informações sobre a tarefa de recuperação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Recuperar dados do Azure Backup Server](./backup-azure-alternate-dpm-server.md)

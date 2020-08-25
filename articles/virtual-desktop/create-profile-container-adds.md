@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007714"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825618"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
 
@@ -113,19 +113,25 @@ Para obter a chave de acesso à Conta de Armazenamento:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Executar o seguinte comando para conceder ao utilizador acesso total à partilha de Ficheiros Azure.
+8. Executar os seguintes comandos para permitir que os utilizadores do Windows Virtual Desktop criem o seu próprio recipiente de perfil enquanto bloqueiam o acesso aos contentores de perfil de outros utilizadores.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - `<mounted-drive-letter>`Substitua-a pela letra da unidade que pretende que o utilizador utilize.
-    - `<user-email>`Substitua-a pela UPN do utilizador que utilizará este perfil para aceder aos VMs do anfitrião da sessão.
+    - `<mounted-drive-letter>`Substitua-a pela letra da unidade que usou para mapear a unidade.
+    - `<user-email>`Substitua-se pela UPN do grupo de utilizador ou Ative Directory que contenha os utilizadores que exigirão acesso à partilha.
 
     Por exemplo:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## <a name="create-a-profile-container"></a>Criar um contentor de perfil

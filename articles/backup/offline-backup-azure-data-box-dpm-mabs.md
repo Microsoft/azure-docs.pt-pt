@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762458"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824564"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -67,7 +67,7 @@ Certifique-se do seguinte:
 Certifique-se de que os dispositivos data box necessários estão no estado *de Entrega* antes de ativar a cópia de segurança offline. Consulte [o tamanho dos dados de backup e skus de caixa de dados suportados](#backup-data-size-and-supported-data-box-skus) para encomendar o SKU mais adequado para a sua exigência. Siga os passos [deste artigo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) para encomendar e receba os seus dispositivos Data Box.
 
 > [!IMPORTANT]
-> Não selecione *BlobStorage* para o **tipo de Conta**. O servidor DPM/MABS requer uma conta que suporta As Blobs de Página que não é suportada quando *o BlobStorage* é selecionado. Selecione  **o Armazenamento V2 (propósito geral v2)** como o **tipo conta** ao criar a conta de armazenamento alvo para a sua função Azure Data Box.
+> Não selecione *BlobStorage* para o **tipo de Conta**. O servidor DPM/MABS requer uma conta que suporta Page Blobs que não é suportada quando *o BlobStorage* é selecionado. Selecione  **o Armazenamento V2 (propósito geral v2)** como o **tipo conta** ao criar a conta de armazenamento alvo para a sua função Azure Data Box.
 
 ![Configuração azure databox](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -234,7 +234,7 @@ Para resolver este problema, faça os seguintes passos e redoça a configuraçã
 2. Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, então elimine esta aplicação do **portal Azure > registos de Azure Ative Directory > App**.
 
    > [!NOTE]
-   > Verifique se a aplicação `AzureOfflineBackup_<Azure User Id>` não tem qualquer outra semente offline configurada e também nenhum outro servidor depende desta aplicação. Aceda às **definições > teclas** na secção Chaves Públicas, não deve ter mais **nenhuma chave pública** adicionada. Consulte a seguinte imagem de referência:
+   > Verifique se a aplicação `AzureOfflineBackup_<Azure User Id>` não tem nenhuma outra semente offline configurada e também nenhum outro servidor depende desta aplicação. Aceda às **definições > teclas** na secção Chaves Públicas. Não deve ter outras **chaves públicas** adicionadas. Consulte a seguinte imagem de referência:
    >
    > ![Chaves públicas](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

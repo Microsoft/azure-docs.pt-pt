@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816121"
+ms.locfileid: "88825261"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -49,7 +49,7 @@ Backups por dia (via DPM/MABS) | Dois reforços programados por dia.
 Backup mensal/anual| Não suportado quando se apoia com a extensão Azure VM. Apenas diariamente e semanalmente é suportado.<br/><br/> Pode definir a política para reter backups diários/semanais para o período de retenção mensal/anual.
 Regulação automática do relógio | Não suportado.<br/><br/> O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de um VM.<br/><br/>  Modifique a apólice manualmente, se necessário.
 [Funcionalidades de segurança para backup híbrido](./backup-azure-security-feature.md) |Não é suportado por desativação de funcionalidades de segurança.
-Apoiar o VM cujo tempo de máquina foi alterado | Não suportado.<br/><br/> Se o tempo da máquina for alterado para uma data futura depois de permitir a cópia de segurança para esse VM; no entanto, mesmo que a mudança de tempo seja revertida, o backup bem sucedido não é garantido.
+Apoiar o VM cujo tempo de máquina foi alterado | Não suportado.<br/><br/> Se o tempo da máquina for alterado para uma data futura depois de permitir a cópia de segurança para esse VM, no entanto, mesmo que a mudança de tempo seja revertida, a cópia de segurança bem sucedida não é garantida.
 VMs Azure em [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/overview.md) | A cópia de segurança e a restauração são suportadas para VMs com [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) definido para 3. <br><br>Os conjuntos de disponibilidade não são suportados.
 
 ## <a name="operating-system-support-windows"></a>Suporte ao sistema operativo (Windows)
