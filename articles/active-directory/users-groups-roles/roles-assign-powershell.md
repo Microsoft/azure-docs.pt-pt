@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243bc48f7e84951c78ecab3e7f5ee47a85a538bf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732060"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798827"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com âmbito de recursos utilizando o PowerShell no Azure Ative Directory
 
-Este artigo descreve como criar uma atribuição de papel no âmbito da organização em Azure Ative Directory (Azure AD). Atribuir um papel no âmbito da organização concede acesso a toda a organização Azure AD. Para criar uma atribuição de funções com um âmbito de um único recurso AD Azure, consulte [Como criar uma função personalizada e atribuí-la no âmbito de recursos](roles-create-custom.md). Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)
+Este artigo descreve como criar uma atribuição de papel no âmbito da organização em Azure Ative Directory (Azure AD). Atribuir um papel no âmbito da organização concede acesso a toda a organização Azure AD. Para criar uma atribuição de funções com um âmbito de um único recurso AD Azure, consulte [Como criar uma função personalizada e atribuí-la no âmbito de recursos](roles-create-custom.md). Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/?view=azureadps-2.0#directory_roles)
 
 Para obter mais informações sobre as funções de administrador da Azure AD, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](directory-assign-admin-roles.md).
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Para atribuir a função a um principal de serviço em vez de um utilizador, utilize o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Para atribuir a função a um principal de serviço em vez de um utilizador, utilize o [cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## <a name="operations-on-roledefinition"></a>Operações em RoleDefinition
 
@@ -160,7 +160,7 @@ Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b22
 Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-1'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Partilhe connosco no fórum de [funções administrativas Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Para obter mais sobre funções e atribuições de funções de administrador ad azure, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).

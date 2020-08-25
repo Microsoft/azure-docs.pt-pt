@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9712aedd3d6748f3bceea67a3270b6c080cc16f2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794288"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
  Devolve um valor numérico, arredondado para o valor inteiro mais próximo.  
@@ -34,7 +34,7 @@ ROUND(<numeric_expr>)
   
 ## <a name="remarks"></a>Observações
   
-  A operação de arredondamento realizada segue-se a meio ponto, afastando-se do zero. Se a entrada for uma expressão numérica que cai exatamente entre dois inteiros, então o resultado será o valor inteiro mais próximo de zero.  
+  A operação de arredondamento realizada segue-se a meio ponto, afastando-se do zero. Se a entrada for uma expressão numérica que cai exatamente entre dois inteiros, então o resultado será o valor inteiro mais próximo de zero. Esta função do sistema beneficiará de um [índice de intervalo.](index-policy.md#includeexclude-strategy)
   
   |<numeric_expr>|Arredondado|
   |-|-|
@@ -57,11 +57,7 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
 
-## <a name="remarks"></a>Observações
-
-Esta função do sistema beneficiará de um [índice de intervalo.](index-policy.md#includeexclude-strategy)
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

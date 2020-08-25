@@ -2,18 +2,18 @@
 title: Azure Stack Edge & notas de lançamento do Azure Data Box Gateway 2007. Microsoft Docs
 description: Descreve questões e resoluções abertas críticas para o lançamento de Azure Stack Edge e Data Box Gateway em execução em 2007.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 07/14/2020
-ms.author: v-grpr
-ms.openlocfilehash: 4964454a5636120840fbdb5f3fbdd3aee30d8e74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: twooley
+ms.openlocfilehash: f9a08cda1466dbe284a0ac3c0e34b109be236883
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532310"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783931"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-2007-release-notes"></a>Notas de lançamento de Azure Stack Edge e Azure Data Box Gateway 2007
 
@@ -45,7 +45,7 @@ Esta versão também contém as seguintes atualizações:
 
 Não são divulgados novos problemas para este lançamento. Todas as questões notadas pela libertação foram transitadas das versões anteriores. Para ver uma lista de questões conhecidas, vá a [questões conhecidas no lançamento da AG](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar Azure Stack Edge](data-box-edge-deploy-prep.md)
 - [Preparar para implementar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

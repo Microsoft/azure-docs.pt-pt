@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: dd97932d0aaa89373636a60e793f531cda18abdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091441"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762382"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor Config da Nuvem de primavera para o seu serviço
 
@@ -110,8 +110,8 @@ Todas as propriedades configuráveis usadas para configurar repositórios de Git
 | Propriedade                           | Necessário         | Funcionalidade                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | No             | Um mapa que consiste nas definições de um repositório de Git com um nome próprio. |
-| `repos."uri"`                      | Sim, em`repos` | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
-| `repos."name"`                     | Sim, em`repos` | Um nome para identificar no repositório de Git, _só requerido_ se `repos` existir. Por exemplo, *equipa A,* *equipa B.* |
+| `repos."uri"`                      | Sim, em `repos` | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
+| `repos."name"`                     | Sim, em `repos` | Um nome para identificar no repositório de Git, _só requerido_ se `repos` existir. Por exemplo, *equipa A,* *equipa B.* |
 | `repos."pattern"`                  | No             | Uma série de cordas usadas para combinar com um nome de aplicação. Para cada padrão, utilize o `{application}/{profile}` formato com wildcards. |
 | `repos."default-label"`            | No             | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
 | `repos."search-paths`"             | No             | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
@@ -146,14 +146,14 @@ Agora que os seus ficheiros de configuração são guardados num repositório, t
 
     * **Autenticação Básica**: Na secção **de repositório predefinido,** na caixa **Uri,** cole o URI do repositório e, em seguida, selecione o botão **autenticação** (ícone "lápis"). No painel **de autenticação de edição,** na lista de drop-down **do tipo autenticação,** selecione **HTTP Basic**, e, em seguida, insira o seu nome de utilizador e palavra-passe/token para garantir o acesso à Nuvem de primavera de Azure. Selecione **OK**e, em seguida, selecione **Aplicar** para terminar a configuração da sua instância Config Server.
 
-    ![O painel de autenticação de edição](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    ![O painel de autenticação de edição auth básico](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
     > Alguns servidores de repositório de Git, como o GitHub, utilizam um *token pessoal* ou um token de acesso , como uma *palavra-passe,* para **autenticação básica.** Podes usar esse tipo de símbolo como senha em Azure Spring Cloud, porque nunca expirará. Mas para outros servidores de repositório de Git, como Bitbucket e Azure DevOps, o *token de acesso* expira em uma ou duas horas. Isto significa que a opção não é viável quando se utiliza esses servidores de repositório com a Azure Spring Cloud.
 
     * **SSH**: Na secção **de repositório padrão,** na caixa **Uri,** cole o URI repositório e, em seguida, selecione o botão **autenticação** (ícone "lápis"). No painel **de autenticação de edição,** na lista de drop-down **do tipo autenticação,** selecione **SSH**e, em seguida, introduza a sua **tecla Privada**. Opcionalmente, especifique a **chave de anfitrião** e **o algoritmo da chave do anfitrião.** Certifique-se de incluir a sua chave pública no seu repositório Config Server. Selecione **OK**e, em seguida, selecione **Aplicar** para terminar a configuração da sua instância Config Server.
 
-    ![O painel de autenticação de edição](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+    ![O painel de autenticação de edição ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### <a name="pattern-repository"></a>Repositório de padrão
 
@@ -182,6 +182,48 @@ Selecione o botão **Desembaraçar as definições** de Importação e, em segui
 
 As informações do seu ficheiro YAML devem ser apresentadas no portal Azure. **Selecione Aplicar** para terminar. 
 
+## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Usando repos Azure para configuração de nuvem de primavera Azure
+
+A Azure Spring Cloud pode aceder a repositórios de Git que são públicos, protegidos pela SSH, ou protegidos usando a autenticação básica HTTP. Usaremos esta última opção, pois é mais fácil criar e gerir com o Azure Repos.
+
+### <a name="get-repo-url-and-credentials"></a>Obtenha url de repo e credenciais
+1. No portal Azure Repos para o seu projeto, clique no botão "Clone":
+
+    ![Botão clone](media/spring-cloud-tutorial-config-server/clone-button.png)
+
+1. Copie o URL do clone da caixa de texto. Este URL será tipicamente na forma:
+
+    ```Text
+    https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Remova tudo depois `https://` e `dev.azure.com` antes, incluindo o `@` . O URL resultante deve estar na forma:
+
+    ```Text
+    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Guarde este URL para utilização na secção seguinte.
+
+1. Clique em "Gerar Credenciais de Git". Aparecerá um nome de utilizador e uma palavra-passe. Guarde estes para utilização na secção seguinte.
+
+
+### <a name="configure-azure-spring-cloud-to-access-the-git-repository"></a>Configurar o Azure Spring Cloud para aceder ao repositório Git
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+
+1. Vá à sua página de **visão geral da** nuvem de primavera Azure.
+
+1. Selecione o serviço para configurar.
+
+1. No painel esquerdo da página de serviço, em **Definições,** selecione o separador **Config Server.** Configure o repositório que criamos anteriormente:
+   - Adicione o URL repositório que guardou da secção anterior
+   - Clique `Authentication` e selecione `HTTP Basic`
+   - O __nome de utilizador__ é o nome de utilizador guardado na secção anterior
+   - A __palavra-passe__ é a palavra-passe guardada na secção anterior
+   - Clique em "Apply" e aguarde que a operação tenha sucesso
+
+   ![Servidor de configuração do Spring Cloud](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
 ## <a name="delete-your-app-configuration"></a>Elimine a configuração da sua aplicação
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137659"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782180"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão reforçada de duas classes
 
@@ -22,9 +22,11 @@ Este artigo descreve um módulo no designer de Aprendizagem automática Azure (p
 
 Use este módulo para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada. 
 
-Uma árvore de decisão reforçada é um método de aprendizagem conjunto em que a segunda árvore corrige para os erros da primeira árvore, a terceira árvore corrige para os erros da primeira e segunda árvores, e assim por diante.  As previsões são baseadas em todo o conjunto de árvores juntas que faz a previsão.
+Uma árvore de decisão reforçada é um método de aprendizagem conjunto em que a segunda árvore corrige para os erros da primeira árvore, a terceira árvore corrige para os erros da primeira e segunda árvores, e assim por diante. As previsões são baseadas em todo o conjunto de árvores juntas que faz a previsão.
   
 Geralmente, quando devidamente configuradas, as árvores de decisão reforçadas são os métodos mais fáceis de obter o melhor desempenho em uma grande variedade de tarefas de aprendizagem automática. No entanto, são também um dos alunos mais intensivos de memória, e a implementação atual guarda tudo na memória. Portanto, um modelo de árvore de decisão reforçada pode não ser capaz de processar os grandes conjuntos de dados que alguns alunos lineares podem lidar.
+
+Este módulo é baseado no algoritmo LightGBM.
 
 ## <a name="how-to-configure"></a>Como configurar
 

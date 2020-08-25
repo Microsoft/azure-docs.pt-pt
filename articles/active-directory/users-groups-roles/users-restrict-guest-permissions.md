@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706160"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798436"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
 
@@ -54,7 +54,7 @@ Fizemos alterações nos controlos existentes do portal Azure para permissões d
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Atualização com a API do Gráfico microsoft
 
-Adicionámos uma nova API do Microsoft Graph para configurar permissões de hóspedes na sua organização AZure AD. As seguintes chamadas da API podem ser feitas para atribuir qualquer nível de permissão. O valor para o guestUserRoleId usado aqui é ilustrar a configuração do utilizador de hóspedes mais restrito. Para obter mais informações sobre a utilização do Microsoft Graph para definir permissões de hóspedes, consulte [o tipo de recurso de autorização](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+Adicionámos uma nova API do Microsoft Graph para configurar permissões de hóspedes na sua organização AZure AD. As seguintes chamadas da API podem ser feitas para atribuir qualquer nível de permissão. O valor para o guestUserRoleId usado aqui é ilustrar a configuração do utilizador de hóspedes mais restrito. Para obter mais informações sobre a utilização do Microsoft Graph para definir permissões de hóspedes, consulte [o tipo de recurso de autorização](/graph/api/resources/authorizationpolicy).
 
 ### <a name="configuring-for-the-first-time"></a>Configurar pela primeira vez
 
@@ -168,5 +168,5 @@ Existem requisitos de licença para esta funcionalidade? | Não, não há novos 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as permissões existentes no Azure AD, veja [quais são as permissões padrão do utilizador no Azure Ative Directory?](../fundamentals/users-default-permissions.md)
-- Para ver os métodos da Microsoft Graph API para restringir o acesso dos hóspedes, consulte [o tipo de recurso de autorização](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- Para ver os métodos da Microsoft Graph API para restringir o acesso dos hóspedes, consulte [o tipo de recurso de autorização](/graph/api/resources/authorizationpolicy).
 - Para revogar todo o acesso a um utilizador, consulte [o acesso do utilizador da Revoke em Azure AD](users-revoke-access.md).

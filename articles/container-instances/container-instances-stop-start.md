@@ -2,17 +2,19 @@
 title: Parar ou iniciar manualmente grupo de contentores
 description: Aprenda a parar manualmente ou a iniciar um grupo de contentores em Instâncias de Contentores Azure.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: f697f18459959cf40e71d3ca90cd8b42aaa74239
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74533426"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799082"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Iniciar ou parar manualmente os contentores no Azure Container Instances
 
 A definição de política de [reinício](container-instances-restart-policy.md) de um grupo de contentores determina como as instâncias de contentores iniciam ou param por defeito. Pode anular a definição predefinida, parando ou iniciando um grupo de contentores manualmente.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="stop"></a>Parar
 
@@ -44,7 +46,7 @@ Todos os contentores de um grupo de contentores são reiniciados por esta ação
 
 Depois de reiniciar manualmente um grupo de contentores, o grupo de contentores funciona de acordo com a política de reinício configurada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o reinício das definições de política](container-instances-restart-policy.md) em Instâncias de Contentores Azure.
 

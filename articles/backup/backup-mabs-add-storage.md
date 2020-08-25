@@ -3,12 +3,12 @@ title: Use armazenamento de backup moderno com servidor de backup Azure
 description: Conheça as novas funcionalidades no Azure Backup Server. Este artigo descreve como atualizar a instalação do Servidor de Cópia de Segurança.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c7533a5ee2fc65beb86c0c803a522e0acb1df6d
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513715"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762441"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -18,7 +18,7 @@ O Azure Backup Server V2 e mais tarde suporta o Modern Backup Storage que oferec
 > Para utilizar o armazenamento de backup moderno, tem de executar backup Server V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
 > Se executar o Backup Server V2 numa versão anterior do Windows Server, o Azure Backup Server não pode tirar partido do armazenamento de backup moderno. Em vez disso, protege cargas de trabalho como com o Backup Server V1. Para obter mais informações, consulte a matriz de [proteção da](backup-mabs-protection-matrix.md)versão do Servidor de Cópia de Segurança .
 >
-> Para obter desempenhos de backup melhorados, recomendamos implementar MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo da DPM "[Configurar MBS com Armazenamento Tiered](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter etapas para configurar o armazenamento hierárquico.
+> Para obter desempenhos de backup melhorados, recomendamos implementar MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo DPM "[Configurar MBS com Armazenamento Tiered](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter etapas para configurar o armazenamento hierárquico.
 
 ## <a name="volumes-in-backup-server"></a>Volumes no Servidor de Backup
 
@@ -127,7 +127,7 @@ Adicionar armazenamento no disco:
 
 3. Na lista de discos disponíveis, selecione os discos que pretende adicionar, selecione **Add**, e, em seguida, selecione **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de instalar o Backup Server, aprenda a preparar o seu servidor ou comece a proteger uma carga de trabalho.
 

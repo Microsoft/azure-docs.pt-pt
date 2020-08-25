@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75553514"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters Azure HDInsight com Azure Automation
@@ -163,7 +163,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Elimine o cluster selecionando o `hdinsight-cluster-delete` livro de recortes que criou. Selecione **Iniciar,** insira o parâmetro **CLUSTERNAME** e sselect **OK**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine a Conta de Automação Azure que foi criada para evitar encargos não intencionais. Para tal, navegue no portal Azure, selecione o grupo de recursos onde criou a Conta de Automação Azure, selecione a Conta De Automação e, em seguida, selecione **Delete**.
 

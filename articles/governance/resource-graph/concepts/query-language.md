@@ -1,14 +1,14 @@
 ---
 title: Entender a linguagem de consulta
 description: Descreve tabelas de gráficos de recursos e os tipos de dados, operadores e funções disponíveis de Kusto utilizáveis com o Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541826"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723439"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta de gráfico de recurso Azure
 
@@ -93,7 +93,7 @@ Esta consulta utiliza primeiro a consulta partilhada e, em seguida, utiliza `lim
 
 ## <a name="supported-kql-language-elements"></a>Elementos linguísticos KQL suportados
 
-O Gráfico de Recursos suporta todos os [tipos de dados](/azure/kusto/query/scalar-data-types/)KQL, [funções escalar,](/azure/kusto/query/scalarfunctions) [operadores escalar](/azure/kusto/query/binoperators)e [funções de agregação.](/azure/kusto/query/any-aggfunction) Operadores [tabulares específicos](/azure/kusto/query/queries) são suportados por Resource Graph, alguns dos quais têm comportamentos diferentes.
+O Gráfico de Recursos suporta um subconjunto de tipos de [dados](/azure/kusto/query/scalar-data-types/)KQL, [funções escalar,](/azure/kusto/query/scalarfunctions) [operadores escalares](/azure/kusto/query/binoperators)e [funções de agregação.](/azure/kusto/query/any-aggfunction) Operadores [tabulares específicos](/azure/kusto/query/queries) são suportados por Resource Graph, alguns dos quais têm comportamentos diferentes.
 
 ### <a name="supported-tabulartop-level-operators"></a>Operadores tabulares/de nível superior suportados
 
@@ -105,15 +105,15 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 |[distinto](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um pseudónimo específico](../samples/starter.md#distinct-alias-values) | |
 |[estender](/azure/kusto/query/extendoperator) |[Contar máquinas virtuais por tipo de SO](../samples/starter.md#count-os) | |
 |[juntar-se](/azure/kusto/query/joinoperator) |[Cofre de chave com nome de assinatura](../samples/advanced.md#join) |Junte os sabores suportados: [interior,](/azure/kusto/query/joinoperator#default-join-flavor) [interior,](/azure/kusto/query/joinoperator#inner-join) [canhoto.](/azure/kusto/query/joinoperator#left-outer-join) Limite de 3 `join` numa única consulta. Estratégias de junção personalizadas, como a junção de transmissão, não são permitidas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
-|[limite](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de`take` |
+|[limite](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de `take` |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador legado, use `mv-expand` em vez disso. _LinhaLimit_ max de 400. O padrão é 128. |
 |[mv-expandir](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB com locais de escrita específicos](../samples/advanced.md#mvexpand-cosmosdb) |_LinhaLimit_ max de 400. O padrão é 128. |
-|[ordem](/azure/kusto/query/orderoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de`sort` |
+|[ordem](/azure/kusto/query/orderoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `sort` |
 |[projeto](/azure/kusto/query/projectoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) | |
 |[projeto-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
-|[tipo](/azure/kusto/query/sortoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de`order` |
+|[tipo](/azure/kusto/query/sortoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `order` |
 |[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Primeira página simplificada apenas |
-|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de`limit` |
+|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de `limit` |
 |[top](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
 |[união](/azure/kusto/query/unionoperator) |[Combine resultados de duas consultas num único resultado](../samples/advanced.md#unionresults) |Tabela única permitida: _Tabela T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limite de 3 `union` pernas numa única consulta. Não é permitida a resolução fuzzy das mesas das `union` pernas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
 |[onde](/azure/kusto/query/whereoperator) |[Mostrar recursos que contenham armazenamento](../samples/starter.md#show-storage) | |
@@ -124,7 +124,7 @@ O âmbito das subscrições a partir das quais os recursos são devolvidos por u
 Na REST API e em todos os outros SDKs, a lista de subscrições a incluir recursos deve ser explicitamente definida como parte do pedido.
 
 Como **pré-visualização,** a versão REST API `2020-04-01-preview` adiciona um imóvel para estender a consulta a um [grupo de gestão](../../management-groups/overview.md). Esta API de pré-visualização também torna opcional a propriedade de subscrição. Se nenhum do grupo de gestão ou da lista de subscrição for definido, o âmbito de consulta é todos os recursos a que o utilizador autenticado pode aceder. O novo `managementGroupId` imóvel leva o ID do grupo de gestão, que é diferente do nome do grupo de gestão.
-Quando `managementGroupId` especificados, os recursos das primeiras 5000 assinaturas na hierarquia do grupo de gestão especificada são incluídos. `managementGroupId`não pode ser usado ao mesmo tempo que `subscriptions` .
+Quando `managementGroupId` especificados, os recursos das primeiras 5000 assinaturas na hierarquia do grupo de gestão especificada são incluídos. `managementGroupId` não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: Consultar todos os recursos dentro da hierarquia do grupo de gestão denominado 'My Management Group' com ID 'myMG'.
 
@@ -147,7 +147,7 @@ Exemplo: Consultar todos os recursos dentro da hierarquia do grupo de gestão de
 
 Alguns nomes de propriedade, como os que incluem um `.` `$` ou, devem ser embrulhados ou escapados na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
-- `.`- Embrulhe o nome da propriedade como tal:`['propertyname.withaperiod']`
+- `.` - Embrulhe o nome da propriedade como tal: `['propertyname.withaperiod']`
   
   Consulta de exemplo que envolve a propriedade _odata.type_:
 
@@ -155,7 +155,7 @@ Alguns nomes de propriedade, como os que incluem um `.` `$` ou, devem ser embrul
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$`- Fuja do personagem no nome da propriedade. O carácter de fuga utilizado depende do gráfico de recursos da concha.
+- `$` - Fuja do personagem no nome da propriedade. O carácter de fuga utilizado depende do gráfico de recursos da concha.
 
   - **festa** - `\`
 

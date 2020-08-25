@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164228"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798402"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
 
@@ -59,7 +59,7 @@ As funcionalidades AZURE AD que permitem a partilha de conta incluem:
 * Agente de inscrição único da palavra-passe
 * [Atribuição de grupo](groups-self-service-management.md)
 * Aplicativos de senha personalizada
-* [Painel/relatórios de utilização de aplicativos](../active-directory-passwords-get-insights.md)
+* [Painel/relatórios de utilização de aplicativos](../authentication/howto-sspr-reporting.md)
 * Portais de acesso ao utilizador final
 * [Procuração de aplicativos](../manage-apps/application-proxy.md)
 * [Mercado de Diretório Ativo](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
@@ -72,10 +72,10 @@ Para utilizar a Azure AD para partilhar uma conta, tem de:
 * Configure o pedido de senha Sign-On único (SSO)
 * Use [a atribuição baseada em grupo](groups-saasapps.md) e selecione a opção de introduzir uma credencial partilhada
 
-Também pode tornar a sua conta partilhada mais segura com a Autenticação Multi-Factor (MFA) (saiba mais sobre [a garantia de aplicações com Azure AD)](../authentication/concept-mfa-whichversion.md)e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando a gestão do grupo [de self-service Azure AD.](groups-self-service-management.md)
+Também pode tornar a sua conta partilhada mais segura com a Autenticação Multi-Factor (MFA) (saiba mais sobre [a garantia de aplicações com Azure AD)](../authentication/concept-mfa-howitworks.md)e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando a gestão do grupo [de self-service Azure AD.](groups-self-service-management.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Proteger aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
+* [Proteger aplicativos com acesso condicional](../conditional-access/overview.md)
 * [Gestão de grupos de self-service/SSAA](groups-self-service-management.md)

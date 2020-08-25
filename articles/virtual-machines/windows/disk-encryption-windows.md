@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509166"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794481"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -158,7 +158,7 @@ Os discos NVMe serão não ininitializados os seguintes cenários:
 
 - Iniciar VM após alocação de negócios
 - Cura de serviço
-- Backup
+- Cópia de segurança
 
 Nestes cenários, os discos NVMe precisam de ser inicializados após o início do VM. Para ativar a encriptação nos discos NVMe, executar o comando para ativar a Encriptação do Disco Azure novamente após a inicialização dos discos NVMe.
 
@@ -264,9 +264,8 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos de acelerador de escrita.
-- Aplicação de ADE a um VM que tenha, ou *já* teve, discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
-- Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
-
+- Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
+- Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

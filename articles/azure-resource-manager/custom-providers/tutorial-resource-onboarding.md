@@ -1,29 +1,29 @@
 ---
-title: Tutorial - recurso onboarding
-description: O embarque de recursos através de fornecedores personalizados permite-lhe manipular e estender os recursos Azure existentes.
+title: Tutorial - recurso a bordo
+description: O embarque de recursos através de fornecedores personalizados permite-lhe manipular e ampliar os recursos Azure existentes.
 ms.topic: tutorial
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75649940"
 ---
-# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Recurso a bordo com fornecedores personalizados Azure
+# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Embarque de recursos com fornecedores personalizados Azure
 
-Neste tutorial, irá implementar para o Azure um fornecedor de recursos personalizado que alarga a API do Gestor de Recursos Azure ao tipo de recursos Microsoft.CustomProviders/associações. O tutorial mostra como alargar os recursos existentes que estão fora do grupo de recursos onde se encontra a instância do fornecedor personalizado. Neste tutorial, o fornecedor de recursos personalizados é alimentado por uma aplicação lógica Azure, mas você pode usar qualquer ponto final de API público.
+Neste tutorial, irá implementar para a Azure um fornecedor de recursos personalizado que alarga a API do Gestor de Recursos Azure com o tipo de recurso Microsoft.CustomProviders/associations. O tutorial mostra como estender os recursos existentes que estão fora do grupo de recursos onde está localizada a instância do fornecedor personalizado. Neste tutorial, o fornecedor de recursos personalizados é alimentado por uma aplicação lógica Azure, mas você pode usar qualquer ponto final público da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este tutorial, precisa de saber:
 
 * As capacidades dos [Fornecedores Personalizados Azure.](overview.md)
-* Informações básicas sobre [o embarque de recursos com fornecedores personalizados.](concepts-resource-onboarding.md)
+* Informação básica sobre [o embarque de recursos com fornecedores personalizados.](concepts-resource-onboarding.md)
 
-## <a name="get-started-with-resource-onboarding"></a>Começar com recurso onboarding
+## <a name="get-started-with-resource-onboarding"></a>Começar com recursos a bordo
 
 Neste tutorial, há duas peças que precisam de ser implantadas: o fornecedor personalizado e a associação. Para facilitar o processo, pode utilizar opcionalmente um único modelo que implementa ambos.
 
@@ -203,89 +203,89 @@ O modelo utilizará estes recursos:
 }
 ```
 
-### <a name="deploy-the-custom-provider-infrastructure"></a>Implementar a infraestrutura de fornecedor personalizado
+### <a name="deploy-the-custom-provider-infrastructure"></a>Implementar a infraestrutura de fornecedores personalizados
 
-A primeira parte do modelo implementa a infraestrutura personalizada do fornecedor. Esta infraestrutura define o efeito do recurso das associações. Se não estiver familiarizado com fornecedores personalizados, consulte o [básico do fornecedor personalizado.](overview.md)
+A primeira parte do modelo implementa a infraestrutura de fornecedores personalizados. Esta infraestrutura define o efeito do recurso das associações. Se não estiver familiarizado com fornecedores personalizados, consulte [o básico do fornecedor personalizado.](overview.md)
 
-Vamos implantar a infraestrutura de fornecedores personalizados. Ou copia, economiza e desdobra o modelo anterior, ou siga e implante a infraestrutura utilizando o portal Azure.
+Vamos implantar a infraestrutura de fornecedores personalizados. Ou copie, guarde e implemente o modelo anterior, ou siga e implemente a infraestrutura utilizando o portal Azure.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 
 2. Procure **modelos** em **Todos os Serviços** ou utilizando a caixa de pesquisa principal:
 
    ![Procurar modelos](media/tutorial-resource-onboarding/templates.png)
 
-3. **Selecione Adicionar** no painel de **modelos:**
+3. **Selecione Adicionar** no **painel de modelos:**
 
    ![Selecione Adicionar](media/tutorial-resource-onboarding/templatesadd.png)
 
-4. Em **geral,** insira um **nome** e **descrição** para o novo modelo:
+4. Em **Geral,** insira um **Nome** e **Descrição** para o novo modelo:
 
-   ![Nome e descrição do modelo](media/tutorial-resource-onboarding/templatesdescription.png)
+   ![Nome do modelo e descrição](media/tutorial-resource-onboarding/templatesdescription.png)
 
-5. Crie o modelo de Gestor de Recursos copiando no modelo JSON a partir da secção "Começar com recurso onboarding" deste artigo:
+5. Crie o modelo de Gestor de Recursos copiando no modelo JSON a partir da secção "Começar com recurso no embarque" deste artigo:
 
    ![Criar um modelo do Resource Manager](media/tutorial-resource-onboarding/templatesarmtemplate.png)
 
-6. Selecione **Adicionar** para criar o modelo. Se o novo modelo não aparecer, selecione **Refresh**.
+6. **Selecione Adicionar** para criar o modelo. Se o novo modelo não aparecer, selecione **Refresh**.
 
-7. Selecione o modelo recém-criado e, em seguida, selecione **Implementar:**
+7. Selecione o modelo recém-criado e, em seguida, **selecione Implementar**:
 
    ![Selecione o novo modelo e, em seguida, selecione Implementar](media/tutorial-resource-onboarding/templateselectspecific.png)
 
-8. Introduza as definições para os campos necessários e, em seguida, selecione o grupo de subscrição e recursos. Pode deixar a caixa id do fornecedor de **recursos personalizados** vazia.
+8. Introduza as definições para os campos necessários e, em seguida, selecione o grupo de subscrição e recursos. Pode deixar a caixa **de identificação do fornecedor de recursos personalizado** vazia.
 
    | Nome da definição | Necessário? | Descrição |
    | ------------ | -------- | ----------- |
    | Localização | Sim | A localização dos recursos no modelo. |
-   | Nome da aplicação lógica | Não | O nome da aplicação lógica. |
-   | Nome do fornecedor de recursos personalizados | Não | O nome do fornecedor de recursos personalizados. |
-   | Id do fornecedor de recursos personalizado | Não | Um fornecedor de recursos personalizados existente que suporta o recurso da associação. Se especificar um valor aqui, a aplicação lógica e a implementação personalizada do fornecedor serão ignoradas. |
+   | Nome de aplicativo lógica | Não | O nome da aplicação lógica. |
+   | Nome do fornecedor de recursos personalizados | Não | O nome do fornecedor de recursos personalizado. |
+   | Id do fornecedor de recursos personalizados | Não | Um fornecedor de recursos personalizados existente que suporta o recurso de associação. Se especificar um valor aqui, a aplicação lógica e a implementação do fornecedor personalizado serão ignorados. |
    | Nome da Associação | Não | O nome do recurso da associação. |
 
    Parâmetros da amostra:
 
-   ![Introduza parâmetros de modelo](media/tutorial-resource-onboarding/templatescustomprovider.png)
+   ![Introduza os parâmetros do modelo](media/tutorial-resource-onboarding/templatescustomprovider.png)
 
-9. Vá para a colocação e espere que termine. Devias ver algo como a seguinte imagem. Deve ver o novo recurso de associação como uma saída:
+9. Vá para o destacamento e espere que termine. Devias ver algo como a seguinte imagem. Deve ver o novo recurso de associação como uma saída:
 
    ![Implementação bem-sucedida](media/tutorial-resource-onboarding/customproviderdeployment.png)
 
-   Aqui está o grupo de recursos, com **tipos ocultos do Show selecionados:**
+   Aqui está o grupo de recursos, com **tipos escondidos do Show selecionados:**
 
    ![Implementação personalizada do fornecedor](media/tutorial-resource-onboarding/showhidden.png)
 
-10. Explore a aplicação lógica **Executa** o separador de história para ver as chamadas para a associação criar:
+10. Explore a aplicação lógica Executa o separador **de história** para ver as chamadas para a associação criar:
 
-    ![App lógica Corre história](media/tutorial-resource-onboarding/logicapprun.png)
+    ![App lógica executa a história](media/tutorial-resource-onboarding/logicapprun.png)
 
 ## <a name="deploy-additional-associations"></a>Implementar associações adicionais
 
-Depois de configurar a infraestrutura personalizada do fornecedor, pode facilmente implementar mais associações. O grupo de recursos para associações adicionais não tem de ser o mesmo que o grupo de recursos onde implementou a infraestrutura de fornecedores personalizados. Para criar uma associação, é necessário ter permissões Microsoft.CustomProviders/resourceproviders/write no ID especificado do Fornecedor de Recursos Personalizados.
+Depois de configurar a infraestrutura de fornecedores personalizados, pode facilmente implementar mais associações. O grupo de recursos para associações adicionais não tem de ser o mesmo que o grupo de recursos onde implementou a infraestrutura de fornecedores personalizados. Para criar uma associação, precisa de ter permissões microsoft.CustomProviders/resourceproviders/write no ID do Fornecedor de Recursos Personalizados especificado.
 
-1. Vá ao fornecedor personalizado **Microsoft.CustomProviders/resourceProviders** recursos no grupo de recursos da implementação anterior. Terá de selecionar a caixa de verificação de **tipos ocultas show:**
+1. Aceda ao fornecedor personalizado **Microsoft.CustomProviders/resourceProviders** no grupo de recursos da implementação anterior. Terá de selecionar a caixa de verificação **dos tipos ocultos do Show:**
 
-   ![Ir para o recurso](media/tutorial-resource-onboarding/showhidden.png)
+   ![Vá para o recurso](media/tutorial-resource-onboarding/showhidden.png)
 
-2. Copie a propriedade de ID de Recursos do fornecedor personalizado.
+2. Copie a propriedade de ID de recursos do fornecedor personalizado.
 
 3. Procure **modelos** em **Todos os Serviços** ou utilizando a caixa de pesquisa principal:
 
    ![Procurar modelos](media/tutorial-resource-onboarding/templates.png)
 
-4. Selecione o modelo previamente criado e, em seguida, selecione **Implementar:**
+4. Selecione o modelo previamente criado e, em seguida, **selecione Implementar**:
 
    ![Selecione o modelo previamente criado e, em seguida, selecione Implementar](media/tutorial-resource-onboarding/templateselectspecific.png)
 
-5. Introduza as definições para os campos necessários e, em seguida, selecione a subscrição e um grupo de recursos diferentes. Para a definição id do fornecedor de **recursos personalizados,** introduza o ID de recurso que copiou do fornecedor personalizado que implementou anteriormente.
+5. Introduza as definições para os campos necessários e, em seguida, selecione a subscrição e um grupo de recursos diferente. Para a definição **de ID do Fornecedor de Recursos Personalizados,** insira o ID de recursos que copiou do fornecedor personalizado que implementou anteriormente.
 
-6. Vá para a colocação e espere que termine. Deve agora implantar apenas o recurso das novas associações:
+6. Vá para o destacamento e espere que termine. Deve agora utilizar apenas o recurso das novas associações:
 
-   ![Novos recursos de associações](media/tutorial-resource-onboarding/createdassociationresource.png)
+   ![Recurso de novas associações](media/tutorial-resource-onboarding/createdassociationresource.png)
 
-Se quiser, pode voltar à aplicação lógica **Executar o histórico** e ver que outra chamada foi feita para a aplicação lógica. Pode atualizar a aplicação lógica para aumentar a funcionalidade adicional para cada associação criada.
+Se quiser, pode voltar à aplicação lógica **Executar histórico** e ver se foi feita outra chamada para a aplicação lógica. Pode atualizar a aplicação lógica para aumentar a funcionalidade adicional para cada associação criada.
 
 ## <a name="getting-help"></a>Obter ajuda
 
-Se tiver dúvidas sobre fornecedores personalizados Azure, tente perguntar-lhes sobre [o Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a `azure-custom-providers` etiqueta para obter uma resposta rápida!
+Se tiver dúvidas sobre os Fornecedores Personalizados Azure, tente fazê-los no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a etiqueta `azure-custom-providers` para obter uma resposta rápida!
 

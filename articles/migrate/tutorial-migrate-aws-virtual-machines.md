@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMS AWS para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611437"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762424"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -379,7 +379,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 **Resposta:** Atualmente, não apoiamos a importação de avaliação para este fluxo de trabalho. Como solução alternativa, pode exportar a avaliação e, em seguida, selecionar manualmente a recomendação VM durante o passo de Replicação ativa.
   
 **Pergunta:** Estou a receber o erro "Falhei em ir buscar o BIOS GUID" enquanto tentava descobrir os meus VMs AWS   
-**Resposta:** Reveja os sistemas operativos suportados para VMs AWS.  
+**Resposta:** Utilize sempre o login para autenticação e não para qualquer pseudo utilizador. Reveja também os sistemas operativos suportados para VMs AWS.  
 
 **Pergunta:** O meu estado de replicação não está a progredir.    
 **Resposta:** Verifique se o seu aparelho de replicação satisfaz os requisitos. Certifique-se de que ativou as portas necessárias no seu aparelho de replicação TCP porta 9443 e HTTPS 443 para o transporte de dados. Certifique-se de que não existem versões duplicadas do aparelho de replicação ligadas ao mesmo projeto.   

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391898"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
@@ -44,7 +44,7 @@ Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dado
 
 Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de uma entidade, pode utilizar a seguinte sintaxe especial para identificar a entidade:
 
-**Consulta**
+**Query**
 
 ```
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
@@ -69,7 +69,7 @@ Quando estiver a criar uma cadeia de filtro, não se esqueça destas regras:
 
 Segue-se uma consulta de exemplo que mostra como filtrar pelas propriedades PartitionKey e Email com um `$filter` OData.
 
-**Consulta**
+**Query**
 
 ```
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
@@ -83,7 +83,7 @@ Para obter mais informações sobre como criar expressões de filtro para vário
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
-As consultas sobre as propriedades da hora de data não devolvem quaisquer dados quando executados na Tabela API da Azure Cosmos DB. Enquanto as lojas de armazenamento Azure Table datam valores com granularidade temporal de carrapatos, a Tabela API em Azure Cosmos DB usa a `_ts` propriedade. A `_ts` propriedade está em um segundo nível de granularidade, que não é um filtro OData. Assim, as consultas sobre as propriedades do timetamp são bloqueadas pela Azure Cosmos DB. Como uma solução alternativa, você pode definir uma data personalizada ou uma propriedade de tipo de dados longo e definir o valor da data do cliente.
+As consultas sobre as propriedades da hora de data não devolvem quaisquer dados quando executados na Tabela API da Azure Cosmos DB. Enquanto as lojas de armazenamento Azure Table datam valores com granularidade temporal de carrapatos, a Tabela API em Azure Cosmos DB usa a  `_ts` propriedade. A `_ts` propriedade está em um segundo nível de granularidade, que não é um filtro OData. Assim, as consultas sobre as propriedades do timetamp são bloqueadas pela Azure Cosmos DB. Como uma solução alternativa, você pode definir uma data personalizada ou uma propriedade de tipo de dados longo e definir o valor da data do cliente.
 
 ## <a name="query-by-using-linq"></a>Consultar com o LINQ 
 Também pode consultar com o LINQ, que traduz as expressões de consulta OData correspondentes. Segue-se um exemplo de como criar consultas com o SDK .NET:

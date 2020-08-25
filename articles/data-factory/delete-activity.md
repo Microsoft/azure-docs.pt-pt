@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 55f2ab7008644ac084782e448e8e761cd19ea37e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225789"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762339"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
 
@@ -53,7 +53,7 @@ Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -64,8 +64,11 @@ Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
             "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
-        "recursive": true/false,
-        "maxConcurrentConnections": <number>,
+        "storeSettings": {
+            "type": "<source type>",
+            "recursive": true/false,
+            "maxConcurrentConnections": <number>
+        },
         "enableLogging": true/false,
         "logStorageSettings": {
             "linkedServiceName": {
@@ -86,9 +89,9 @@ Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
 | recursivo | Indica se os ficheiros são eliminados novamente das sub-dobradeiras ou apenas a partir da pasta especificada.  | Não. A predefinição é `false`. |
 | maxConcurrentConnections | O número de ligações a ligar ao armazenamento simultaneamente para eliminar pastas ou ficheiros.   |  Não. A predefinição é `1`. |
 | enableloging | Indica se precisa de gravar a pasta ou os nomes dos ficheiros que foram eliminados. Se for verdade, precisa de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa rastrear os comportamentos da atividade Eliminar, lendo o ficheiro de registo. | No |
-| logStorageSettings | Só aplicável quando se ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou nomes de ficheiros que foram eliminados pela atividade Eliminar. | Não |
+| logStorageSettings | Só aplicável quando se ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou nomes de ficheiros que foram eliminados pela atividade Eliminar. | No |
 | linkedServiceName | Só aplicável quando se ativar = verdadeiro.<br/><br/>O serviço ligado do [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém as pastas ou nomes de ficheiros que foram eliminados pela atividade Delete. Tenha em atenção que deve ser configurado com o mesmo tipo de Tempo de Execução de Integração do utilizado pela atividade de exclusão para eliminar ficheiros. | No |
-| caminho | Só aplicável quando se ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não |
+| caminho | Só aplicável quando se ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não providenciar um caminho, o serviço cria um recipiente para si. | No |
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -116,7 +119,7 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade Elimi
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de registo de amostra da atividade eliminar
 
-| Name | Categoria | Estado | Erro |
+| Nome | Categoria | Estado | Erro |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.jsem | Ficheiro | Eliminado |  |
 | test2/hello789.txt | Ficheiro | Eliminado |  |
@@ -133,7 +136,7 @@ Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 Agora está a utilizar a atividade Eliminar para eliminar pastas ou ficheiros pela combinação de diferentes valores de propriedade do conjunto de dados e da atividade Eliminar:
 
-| apoupa (a partir do conjunto de dados) | nome de ficheiro (a partir do conjunto de dados) | recursivo (da atividade Eliminar) | Saída |
+| folderPath | fileName | recursivo | Resultado |
 |:--- |:--- |:--- |:--- |
 | Raiz/ Folder_A_2 | NULL | Falso | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Raiz/ Folder_A_2 | NULL | Verdadeiro | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -761,9 +764,9 @@ Também pode obter o modelo para mover ficheiros a partir [daqui.](solution-temp
 
 -   A atividade de exclusão não suporta a eliminação da lista de pastas descritas por wildcard.
 
--   Ao utilizar o filtro de atributos de ficheiro: ModificadoDatetimeStart e modificadoDatetimeEnd para selecionar ficheiros a eliminar, certifique-se de que define "fileName": "*" no conjunto de dados.
+-   Quando utilizar o filtro de atributos de ficheiro na atividade de eliminação: ModificadoDatetimeStart e modificadoDatetimeEnd para selecionar ficheiros a eliminar, certifique-se de que define "wildcardFileName": "*" na atividade de eliminação também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a mudança de ficheiros na Azure Data Factory.
 

@@ -4,10 +4,10 @@ description: Este tutorial descreve como expor um serviço WCF REST no local a u
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85322697"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exponha um serviço WCF REST no local a cliente externo utilizando o Azure WCF Relay
@@ -37,7 +37,7 @@ Faça as seguintes tarefas neste tutorial:
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
+* [Visual Studio 2015 ou mais tarde](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
 * Azure SDK para .NET. Instale-o a partir da [página de transferências SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Criar um espaço de nome retransmissor
@@ -179,7 +179,7 @@ A criação de um relé Azure requer que crie primeiro o contrato utilizando uma
 
 O ficheiro de configuração é semelhante a um ficheiro de configuração WCF. Inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença é que este ponto final de serviço configurado refere-se a uma ligação [NetTcpRelayBinding,](/dotnet/api/microsoft.servicebus.nettcprelaybinding) que não faz parte do Quadro .NET. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) é uma das encadernações definidas pelo serviço.
 
-1. No **Solution Explorer,** clique duas **vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
+1. No **Solution Explorer,** clique duas ** vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
 1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
 1. Dentro das etiquetas `<system.serviceModel>`, adicione um elemento `<services>`. Pode definir várias aplicações de retransmissão num único ficheiro de configuração. No entanto, este tutorial define apenas um.
 
@@ -434,7 +434,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Criar um cliente WCF para o contrato de serviço
 
-A próxima tarefa é criar uma aplicação ao cliente e definir o contrato de serviço que implementará mais tarde. Estes passos assemelham-se aos passos utilizados para criar um serviço: definir um contrato, editar um ficheiro *App.config,* usar credenciais para ligar ao serviço de retransmissão, e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+A próxima tarefa é criar uma aplicação ao cliente e definir o contrato de serviço que implementará mais tarde. Estes passos assemelham-se aos passos utilizados para criar um serviço: definir um contrato, editar um ficheiro *App.config, * usar credenciais para ligar ao serviço de retransmissão, e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
 1. Criar um novo projeto na atual solução Visual Studio para o cliente:
 
@@ -505,7 +505,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>Configurar o cliente de WCF
 
-Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cliente que acede ao serviço criado anteriormente neste tutorial. Este *ficheiroApp.config* define o contrato, vinculativo e o nome do ponto final. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cliente que acede ao serviço criado anteriormente neste tutorial. Este * ficheiroApp.config* define o contrato, vinculativo e o nome do ponto final. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
 1. No **Solution Explorer,** no projeto **EchoClient,** clique duas vezes **App.config** para abrir o ficheiro no editor do Estúdio Visual.
 1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
@@ -537,7 +537,7 @@ Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cl
 
 ### <a name="example-of-the-appconfig-file"></a>Exemplo do ficheiro App.config
 
-O seguinte código mostra o *ficheiroApp.config* para o cliente Echo.
+O seguinte código mostra o * ficheiroApp.config* para o cliente Echo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

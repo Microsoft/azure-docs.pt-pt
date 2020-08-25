@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167033"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798929"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -153,6 +153,15 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
    - Substitua o `<storage-account-name>` espaço reservado que aparece neste comando pelo nome da sua conta de armazenamento.  
 
    - Substitua o `<container-name>` espaço reservado pelo nome do seu recipiente.
+
+3. Se precisar de permissões de escrita, poderá ter de alterar o UID e o GID predefinidos que o Windows utiliza para se ligar à partilha. Para tal, executar os seguintes comandos PowerShell como administrador:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Reinicie o serviço de cliente NFS ou reinicie o servidor depois de escoar esta alteração.
 
 ---
 

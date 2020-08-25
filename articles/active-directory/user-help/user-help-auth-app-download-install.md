@@ -12,17 +12,17 @@ ms.topic: end-user-help
 ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aac6c0b903a3b2adf481a2c63847272122ce2d7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266224"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798980"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarregue e instale a aplicação Microsoft Authenticator
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente de Diretório Ativo Azure (Azure AD) na documentação administrativa do [Azure Ative Directory](https://docs.microsoft.com/azure/active-directory).
+>Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente de Diretório Ativo Azure (Azure AD) na documentação administrativa do [Azure Ative Directory](../index.yml).
 >
 > Se tiver problemas em iniciar sessão na sua conta, veja [quando não pode entrar na sua conta microsoft](https://support.microsoft.com/help/12429) para pedir ajuda.  Além disso, pode obter mais informações sobre o que fazer quando receber a mensagem ["Que a conta microsoft não existe"](https://support.microsoft.com/help/13811) quando tenta iniciar sôm na sua conta Microsoft.
 
@@ -49,7 +49,7 @@ Instale a versão mais recente da aplicação Microsoft Authenticator, com base 
 >[!Important]
 >Se não estiver atualmente no seu dispositivo móvel, ainda pode obter a aplicação Microsoft Authenticator enviando um link de descarregamento a partir da página microsoft [Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de descarregar e instalar a aplicação, consulte a visão geral da [aplicação Authenticator](user-help-auth-app-overview.md) para saber mais. Para obter mais opções de configuração, consulte:
 

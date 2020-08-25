@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
-ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 8/6/2020
+ms.openlocfilehash: 5b5840c1b668e9a509f58d7edf65175f621d9e4c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314225"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794309"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
@@ -20,7 +20,7 @@ O Azure Stream Analytics permite-lhe tirar partido de uma das principais ferrame
 
 Este artigo continua a partir do tutorial [de deteção de fraude em tempo real](stream-analytics-real-time-fraud-detection.md) do Stream Analytics. Baseia-se no fluxo de trabalho criado nesse tutorial e adiciona uma saída de Power BI para que possa visualizar chamadas telefónicas fraudulentas que são detetadas por um trabalho de Streaming Analytics. 
 
-Pode ver [um vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) que ilustra este cenário.
+Pode ver [um vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA)  que ilustra este cenário.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -39,7 +39,10 @@ No tutorial de deteção de fraudes em tempo real, a saída é enviada para o ar
 
 2. No menu esquerdo, selecione **Outputs** em **topologia de Trabalho**. Em seguida, **selecione + Adicione** e escolha Power **BI** no menu suspenso.
 
-3. Selecione **+ Adicionar**  >  **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
+3. Selecione **+ Adicionar**  >  **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e **selecione Autorizado** a usar a sua própria identidade de utilizador para ligar ao Power BI (o token é válido por 90 dias). 
+
+>[!NOTE]
+>Para trabalhos de produção, recomendamos ligar-se à [utilização da Identidade Gerida para autenticar o seu trabalho Azure Stream Analytics para o Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|
@@ -56,7 +59,7 @@ No tutorial de deteção de fraudes em tempo real, a saída é enviada para o ar
 
 4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
-8. Clique em **Create** (Criar).
+8. Clique em **Criar**.
 
 O conjunto de dados é criado com as seguintes definições:
 
@@ -99,7 +102,7 @@ Para obter mais informações sobre conjuntos de dados Power BI, consulte a refe
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
 
 ## <a name="test-the-query"></a>Testar o modelo
@@ -230,3 +233,4 @@ Depois de a autorização ter sido atualizada com o Power BI, aparece um alerta 
 * [Stream Analytics saídas](stream-analytics-define-outputs.md)
 * [Referência linguística de consulta Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência Azure Stream Analytics API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)

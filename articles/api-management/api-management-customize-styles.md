@@ -1,5 +1,5 @@
 ---
-title: Personalize o estilo de página no portal de desenvolvimento legado da API Management
+title: Personalize o estilo de página no portal de desenvolvedores legados da API Management
 titleSuffix: Azure API Management
 description: Siga os passos neste início rápido para personalizar o estilo dos elementos no portal de programador da Gestão de API do Azure.
 services: api-management
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75430739"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalize o estilo das páginas do portal do desenvolvedor
 
-Existem três formas mais comuns de personalizar o portal de desenvolvimento na Azure API Management:
+Existem três formas mais comuns de personalizar o portal de desenvolvedores na Azure API Management:
  
 * [Editar o conteúdo de páginas estáticas e elementos de esquema da página](api-management-modify-content-layout.md)
 * Atualizar os estilos utilizados para elementos de página em todo o portal de programador (explicado neste guia)
 * [Modificar os modelos utilizados para páginas geradas pelo portal](api-management-developer-portal-templates.md)(por exemplo, documentos de API, produtos, autenticação de utilizador)
 
-Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do portal de **desenvolvimento** do legado e a ver as suas alterações.
+Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do portal de **desenvolvedores** legados e a visualizar as suas alterações.
 
 ![personalizar estilo](./media/modify-developer-portal-style/developer_portal.png)
 
@@ -43,10 +43,10 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
-## <a name="customize-the-developer-portal"></a>Personalize o portal de desenvolvimento
+## <a name="customize-the-developer-portal"></a>Personalize o portal do desenvolvedor
 
 1. Selecione **Descrição geral**.
-2. Clique no botão developer **(legado)** na parte superior da janela **Overview.**
+2. Clique no botão **portal Developer (legado)** na parte superior da janela **'Vista Geral'.**
 3. No canto superior esquerdo do ecrã, verá um ícone com dois pincéis. Coloque o cursor sobre este ícone para abrir o menu de personalização do portal.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -55,11 +55,11 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
     Todos os elementos que pode personalizar com **Estilos** aparecem na página
 5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:**.
 
-    O elemento ** \@cor de cabeça** aparece na página. Esta variável controla a cor do texto.
+    O elemento ** \@ cor de títulos** aparece na página. Esta variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo ** \@** para obter a variável de cor de headings. 
+6. Clique no campo para obter a variável ** \@ cor de títulos.** 
     
     É aberto o menu pendente do selecionador de cores.
 7. No menu pendente do selecionador de cores, selecione uma nova cor.
@@ -72,7 +72,7 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 
 ## <a name="view-your-change"></a>Ver a sua alteração
 
-1. Navegue para o portal de desenvolvimento.
+1. Navegue até ao portal do desenvolvedor.
 2. Pode ver a alteração que efetuou.
 
 ## <a name="next-steps"></a>Passos seguintes

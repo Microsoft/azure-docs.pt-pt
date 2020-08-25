@@ -4,10 +4,10 @@ description: 'Tutorial: Construa uma aplicação de anfitrião Azure Relay que e
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85316643"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial de Relé WCF Azure
@@ -32,7 +32,7 @@ Faça as seguintes tarefas neste tutorial:
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
+* [Visual Studio 2015 ou mais tarde](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2019.
 * Azure SDK para .NET. Instale-o a partir da [página de transferências SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Criar um espaço de nome retransmissor
@@ -253,9 +253,9 @@ Tal como nos passos anteriores, há pouca diferença entre a implementação de 
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir a configuração para executar o serviço Web no Service Bus
 
-1. No **Solution Explorer,** clique duas **vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
+1. No **Solution Explorer,** clique duas ** vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
 
-    O *ficheiroApp.config* inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença aqui é que o ponto final de serviço configurado refere-se a uma ligação [WebHttpRelayBinding.](/dotnet/api/microsoft.servicebus.webhttprelaybinding)
+    O * ficheiroApp.config* inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença aqui é que o ponto final de serviço configurado refere-se a uma ligação [WebHttpRelayBinding.](/dotnet/api/microsoft.servicebus.webhttprelaybinding)
 
 1. O elemento XML `<system.serviceModel>` é um elemento de WCF que define um ou vários serviços. Aqui, é usado para definir o nome de serviço e ponto final. Na parte inferior do `<system.serviceModel>` elemento, mas ainda `<system.serviceModel>` dentro, adicione um `<bindings>` elemento que tenha o seguinte conteúdo:
 
@@ -390,7 +390,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-O exemplo a seguir mostra o *ficheiroApp.config* associado ao serviço.
+O exemplo a seguir mostra o * ficheiroApp.config* associado ao serviço.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -541,7 +541,7 @@ O anfitrião do serviço é o objeto de WCF que cria uma instância na aplicaç�
 
 ### <a name="example-of-the-service-contract-and-implementation"></a>Exemplo do contrato de prestação de serviços e implementação
 
-O exemplo seguinte inclui o contrato de serviço e de implementação dos passos anteriores no tutorial e aloja o serviço numa aplicação de consola. Compilar o seguinte código numImageListener.exede *nome *executável .
+O exemplo seguinte inclui o contrato de serviço e de implementação dos passos anteriores no tutorial e aloja o serviço numa aplicação de consola. Compilar o seguinte código numImageListener.exede * nome *executável .
 
 ```csharp
 using System;
@@ -627,7 +627,7 @@ Depois de compilar a solução, faça o seguinte procedimento para executar a ap
 
 Agora que construiu uma aplicação que utiliza o serviço Azure Relay, consulte os seguintes artigos para saber mais:
 
-* [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
+* [O que é o Azure Relay?](relay-what-is-it.md)
 * [Expor um serviço WCF REST no local a cliente externo utilizando o Azure WCF Relay](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

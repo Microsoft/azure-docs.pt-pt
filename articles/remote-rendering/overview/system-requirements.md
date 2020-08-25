@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300611"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798470"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
@@ -24,7 +24,7 @@ Este capítulo enumera os requisitos mínimos do sistema para trabalhar com *a r
 
 * Versão 10 do Windows 1903 ou superior.
 * Condutores gráficos atualizados.
-* Opcional: Descodificador de vídeo de hardware H265, se quiser utilizar a pré-visualização local de conteúdo renderizado remotamente (por exemplo, em Unidade).
+* Opcional: [Descodificador de vídeo de hardware H265,](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7)se quiser utilizar a pré-visualização local de conteúdos renderizados remotamente (por exemplo, em Unidade).
 
 > [!IMPORTANT]
 > A atualização do Windows nem sempre fornece os mais recentes controladores da GPU, consulte o site do fabricante da GPU para obter os mais recentes condutores:
@@ -52,7 +52,7 @@ A Azure Remote Rendering suporta atualmente apenas **o holoLens 2** e o windows 
 1. Inicie a **Microsoft Store**.
 1. Clique no botão **"..."** no topo direito.
 1. Selecione **Downloads e Atualizações**.
-1. Pesse na lista de **extensões de vídeo HEVC do Fabricante do Dispositivo**.
+1. Pesse na lista de **extensões de vídeo HEVC do Fabricante do Dispositivo**. Se este item não estiver listado em atualizações, a versão mais recente já está instalada.
 1. Certifique-se de que o codec listado tem pelo menos a versão **1.0.21821.0**.
 1. Clique no botão **Get Updates** e aguarde a sua instalação.
 
@@ -74,9 +74,9 @@ Deve ser instalado o seguinte software:
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
-* Opcional: Para visualizar o fluxo de vídeo do servidor num PC de secretária, precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Opcional: Para visualizar o fluxo de vídeo do servidor num PC de secretária, precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Certifique-se de que a versão mais recente é instalada, verificando as atualizações na loja.
 
-## <a name="unity"></a>Unidade
+## <a name="unity"></a>Unity
 
 Para o desenvolvimento com Unidade, instale
 
@@ -85,6 +85,6 @@ Para o desenvolvimento com Unidade, instale
   * **UWP** - Suporte universal de construção de plataformas windows
   * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Renderiza um modelo com Unidade](../quickstarts/render-model.md)

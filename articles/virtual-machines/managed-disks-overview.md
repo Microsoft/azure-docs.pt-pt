@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad7101bb61324db033f57bb25c068e1ba625ef8c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718072"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749684"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 
@@ -30,37 +30,37 @@ Os discos geridos são projetados para uma disponibilidade de 99.999%. Os discos
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Implantação de VM simples e escalável
 
-Utilizando discos geridos, pode criar até 50.000 **discos** VM de um tipo numa subscrição por região, permitindo-lhe criar milhares de **VMs** numa única subscrição. Esta funcionalidade também aumenta a escalabilidade dos [conjuntos de escala de máquinas virtuais,](~/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) permitindo-lhe criar até 1.000 VMs numa escala de máquina virtual definida com uma imagem de Marketplace.
+Utilizando discos geridos, pode criar até 50.000 **discos** VM de um tipo numa subscrição por região, permitindo-lhe criar milhares de **VMs** numa única subscrição. Esta funcionalidade também aumenta a escalabilidade dos [conjuntos de escala de máquinas virtuais,](../virtual-machine-scale-sets/overview.md) permitindo-lhe criar até 1.000 VMs numa escala de máquina virtual definida com uma imagem de Marketplace.
 
 ### <a name="integration-with-availability-sets"></a>Integração com conjuntos de disponibilidade
 
-Os discos geridos são integrados com conjuntos de disponibilidade para garantir que os discos de [VMs num conjunto](~/articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) de disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Os discos são automaticamente colocados em diferentes unidades de escala de armazenamento (selos). Se um carimbo falhar devido a falha de hardware ou software, apenas as instâncias VM com discos nesses selos falham. Por exemplo, digamos que tem uma aplicação em execução em cinco VMs, e os VMs estão em um Conjunto de Disponibilidade. Os discos para esses VMs não serão todos armazenados no mesmo carimbo, por isso, se um carimbo cair, as outras instâncias da aplicação continuam a ser executadas.
+Os discos geridos são integrados com conjuntos de disponibilidade para garantir que os discos de [VMs num conjunto](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) de disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Os discos são automaticamente colocados em diferentes unidades de escala de armazenamento (selos). Se um carimbo falhar devido a falha de hardware ou software, apenas as instâncias VM com discos nesses selos falham. Por exemplo, digamos que tem uma aplicação em execução em cinco VMs, e os VMs estão em um Conjunto de Disponibilidade. Os discos para esses VMs não serão todos armazenados no mesmo carimbo, por isso, se um carimbo cair, as outras instâncias da aplicação continuam a ser executadas.
 
 ### <a name="integration-with-availability-zones"></a>Integração com Zonas de Disponibilidade
 
-Os discos geridos suportam [Zonas de Disponibilidade,](~/articles/availability-zones/az-overview.md)que é uma oferta de alta disponibilidade que protege as suas aplicações contra falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor SLA de 99,99% de VM uptime.
+Os discos geridos suportam [Zonas de Disponibilidade,](../availability-zones/az-overview.md)que é uma oferta de alta disponibilidade que protege as suas aplicações contra falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor SLA de 99,99% de VM uptime.
 
 ### <a name="azure-backup-support"></a>Suporte de backup Azure
 
-Para proteger contra desastres regionais, [o Azure Backup](~/articles/backup/backup-overview.md) pode ser usado para criar um trabalho de reserva com backups baseados no tempo e políticas de retenção de backup. Isto permite-lhe realizar restauros de VM ou discos geridos à vontade. Atualmente, o Azure Backup suporta tamanhos de disco até 32 discos tebibyte (TiB). [Saiba mais](~/articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da Azure VM.
+Para proteger contra desastres regionais, [o Azure Backup](../backup/backup-overview.md) pode ser usado para criar um trabalho de reserva com backups baseados no tempo e políticas de retenção de backup. Isto permite-lhe realizar restauros de VM ou discos geridos à vontade. Atualmente, o Azure Backup suporta tamanhos de disco até 32 discos tebibyte (TiB). [Saiba mais](../backup/backup-support-matrix-iaas.md) sobre o suporte de backup da Azure VM.
 
 ### <a name="granular-access-control"></a>Controlo de acesso granular
 
-Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](~/articles/role-based-access-control/overview.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Os discos geridos expõem uma variedade de operações, incluindo ler, escrever (criar/atualizar), eliminar e recuperar uma [assinatura de acesso partilhado (SAS) URI](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Pode conceder acesso apenas às operações que uma pessoa precisa para desempenhar o seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerido para uma conta de armazenamento, pode optar por não conceder acesso à ação de exportação para esse disco gerido. Da mesma forma, se não quiser que uma pessoa utilize um SAS URI para copiar um disco gerido, pode optar por não conceder essa permissão ao disco gerido.
+Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/overview.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Os discos geridos expõem uma variedade de operações, incluindo ler, escrever (criar/atualizar), eliminar e recuperar uma [assinatura de acesso partilhado (SAS) URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Pode conceder acesso apenas às operações que uma pessoa precisa para desempenhar o seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerido para uma conta de armazenamento, pode optar por não conceder acesso à ação de exportação para esse disco gerido. Da mesma forma, se não quiser que uma pessoa utilize um SAS URI para copiar um disco gerido, pode optar por não conceder essa permissão ao disco gerido.
 
 ### <a name="upload-your-vhd"></a>Faça upload do seu vhd
 
 O upload direto facilita a transferência do vhd para um disco gerido aZure. Anteriormente, tinha de seguir um processo mais envolvido que incluísse a paragem dos seus dados numa conta de armazenamento. Agora, há menos passos. É mais fácil carregar nas instalações VMs para Azure, carregar para grandes discos geridos, e o processo de backup e restauro é simplificado. Também reduz os custos, permitindo-lhe carregar dados para discos geridos diretamente sem os anexar aos VMs. Pode utilizar o upload direto para carregar vhds até 32 TiB em tamanho.
 
-Para aprender a transferir o seu vhd para Azure, consulte os artigos [CLI](~/articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou [PowerShell.](~/articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md)
+Para aprender a transferir o seu vhd para Azure, consulte os artigos [CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) ou [PowerShell.](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 
 ## <a name="security"></a>Segurança
 
 ### <a name="private-links"></a>Links Privados
 
-O suporte private Link para discos geridos está atualmente em pré-visualização, e pode ser usado para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](~/articles/private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
+O suporte private Link para discos geridos está atualmente em pré-visualização, e pode ser usado para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](../private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
 
-Para saber como permitir links privados para importar ou exportar um disco gerido, consulte os artigos [do CLI](~/articles/virtual-machines/linux/disks-export-import-private-links-cli.md) ou [do Portal.](~/articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md)
+Para saber como permitir links privados para importar ou exportar um disco gerido, consulte os artigos [do CLI](linux/disks-export-import-private-links-cli.md) ou [do Portal.](disks-enable-private-links-for-import-export-portal.md)
 
 ### <a name="encryption"></a>Encriptação
 
@@ -70,12 +70,12 @@ Os discos geridos oferecem dois tipos diferentes de encriptação. A primeira é
 
 A encriptação do lado do servidor fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e de conformidade. A encriptação do lado do servidor é ativada por padrão para todos os discos, instantâneos e imagens geridos, em todas as regiões onde os discos geridos estão disponíveis. (Os discos temporários, por outro lado, não são encriptados por encriptação do lado do servidor, a menos que ative a encriptação no anfitrião; ver [Funções de Disco: discos temporários](#temporary-disk)).
 
-Pode permitir que o Azure gere as suas chaves, estas são chaves geridas pela plataforma, ou pode gerir as chaves por si mesmo, estas são chaves geridas pelo cliente. Visite a encriptação do lado do Servidor do artigo [de Armazenamento de Disco Azure](~/articles/virtual-machines/windows/disk-encryption.md) para obter mais detalhes.
+Pode permitir que o Azure gere as suas chaves, estas são chaves geridas pela plataforma, ou pode gerir as chaves por si mesmo, estas são chaves geridas pelo cliente. Visite a encriptação do lado do Servidor do artigo [de Armazenamento de Disco Azure](windows/disk-encryption.md) para obter mais detalhes.
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-A encriptação do disco Azure permite encriptar os discos de SISTEMA e Dados utilizados por uma Máquina Virtual IaaS. Esta encriptação inclui discos geridos. Para o Windows, as unidades são encriptadas utilizando a tecnologia de encriptação BitLocker padrão da indústria. Para o Linux, os discos são encriptados utilizando a tecnologia DM-Crypt. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para obter mais informações, consulte [a encriptação do disco Azure para Os VMs Linux](~/articles/virtual-machines/linux/disk-encryption-overview.md) ou [encriptação do disco Azure para VMs do Windows](~/articles/virtual-machines/windows/disk-encryption-overview.md).
+A encriptação do disco Azure permite encriptar os discos de SISTEMA e Dados utilizados por uma Máquina Virtual IaaS. Esta encriptação inclui discos geridos. Para o Windows, as unidades são encriptadas utilizando a tecnologia de encriptação BitLocker padrão da indústria. Para o Linux, os discos são encriptados utilizando a tecnologia DM-Crypt. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para obter mais informações, consulte [a encriptação do disco Azure para Os VMs Linux](linux/disk-encryption-overview.md) ou [encriptação do disco Azure para VMs do Windows](windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Funções de discos
 
@@ -95,7 +95,7 @@ Este disco tem uma capacidade máxima de 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria dos VMs contêm um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos, e destina-se apenas a armazenar dados como página ou ficheiros de troca. Os dados relativos ao disco temporário podem ser perdidos durante um [evento de manutenção](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando se [recolocar um VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante um reboot padrão bem sucedido do VM, os dados sobre o disco temporário persistirão. Para obter mais informações sobre VMs sem discos temporários, consulte [os tamanhos Azure VM sem disco temporário local](~/articles/virtual-machines/azure-vms-no-temp-disk.md)
+A maioria dos VMs contêm um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos, e destina-se apenas a armazenar dados como página ou ficheiros de troca. Os dados relativos ao disco temporário podem ser perdidos durante um [evento de manutenção](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando se [recolocar um VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante um reboot padrão bem sucedido do VM, os dados sobre o disco temporário persistirão. Para obter mais informações sobre VMs sem discos temporários, consulte [os tamanhos Azure VM sem disco temporário local.](azure-vms-no-temp-disk.md)
 
 Nos VMs Azure Linux, o disco temporário é tipicamente /dev/sdb e no Windows VMs o disco temporário é D: por padrão. O disco temporário não é encriptado pela encriptação do lado do servidor, a menos que ative a encriptação no anfitrião.
 
@@ -107,8 +107,8 @@ As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar u
 
 Para saber mais sobre como criar instantâneos para discos geridos, consulte os seguintes recursos:
 
-* [Criar uma imagem instantânea de um disco gerido no Windows](~/articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Crie uma imagem de um disco gerido em Linux](~/articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Criar uma imagem instantânea de um disco gerido no Windows](windows/snapshot-copy-managed-disk.md)
+- [Crie uma imagem de um disco gerido em Linux](linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imagens
 
@@ -116,8 +116,8 @@ Os discos geridos também suportam a criação de uma imagem personalizada gerid
 
 Para obter informações sobre a criação de imagens, consulte os seguintes artigos:
 
-* [Como capturar uma imagem gerida de um VM generalizado em Azure](~/articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI](~/articles/virtual-machines/linux/capture-image.md) (Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure)
+- [Como capturar uma imagem gerida de um VM generalizado em Azure](windows/capture-image-resource.md)
+- [How to generalize and capture a Linux virtual machine using the Azure CLI](linux/capture-image.md) (Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure)
 
 #### <a name="images-versus-snapshots"></a>Imagens versus instantâneos
 
@@ -141,7 +141,7 @@ Como exemplo destas limitações, um Standard_DS1v1 VM é impedido de atingir o 
 
 O Azure utiliza um canal de rede prioritário para o tráfego de discos, o que obtém a precedência sobre outra baixa prioridade do tráfego de rede. Isto ajuda os discos a manter o desempenho esperado em caso de disputas de rede. Da mesma forma, o Azure Storage lida com as disputas de recursos e outros problemas em segundo plano com o equilíbrio automático de carga. O Azure Storage atribui os recursos necessários quando cria um disco, e aplica um equilíbrio proactivo e reativo de recursos para lidar com o nível de tráfego. Isto garante ainda que os discos podem sustentar os seus alvos de IOPS e de produção esperados. Pode utilizar as métricas de nível VM e de nível de disco para acompanhar os alertas de desempenho e configuração, conforme necessário.
 
-Consulte o nosso design para artigo [de alto desempenho,](~/articles/virtual-machines/windows/premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que possa alcançar o desempenho desejado
+Consulte o nosso design para artigo [de alto desempenho,](premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que possa alcançar o desempenho desejado
 
 ## <a name="next-steps"></a>Passos seguintes
 

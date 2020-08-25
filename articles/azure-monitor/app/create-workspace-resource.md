@@ -4,13 +4,13 @@ description: Conheça os passos necessários para permitir os novos recursos bas
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824992"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783846"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho (pré-visualização)
 
@@ -27,7 +27,7 @@ Para testar a nova experiência, inscreva-se no [portal Azure](https://portal.az
 
 Se ainda não tiver um espaço de trabalho log analytics existente, [consulte a documentação de criação do espaço de trabalho Log Analytics](../learn/quick-create-workspace.md).
 
-Para a pré-visualização pública, **os recursos baseados no espaço de trabalho estão atualmente limitados a West US 2, East US e South Central US.**
+**Os recursos baseados no espaço de trabalho estão atualmente disponíveis em todas as regiões comerciais e no Governo de Azure**
 
 Uma vez criado o seu recurso, verá as informações correspondentes do espaço de trabalho no **painel de visão** geral:
 
@@ -53,10 +53,10 @@ Para uma monitorização de aplicações baseada em código, basta instalar o SD
 Para documentação detalhada sobre a criação de um SDK de Insights de Aplicação para monitorização baseada em código, consulte a documentação específica da linguagem/quadro:
 
 - [ASP.NET](./asp-net.md)
-- [Núcleo ASP.NET](./asp-net-core.md)
+- [Núcleo ASP.NET ](./asp-net-core.md)
 - [Tarefas de fundo & aplicações de consola modernas (.NET/.NET Core)](./worker-service.md)
 - [Aplicações clássicas de consola (.NET)](./console.md) 
-- [Rio Java](./java-get-started.md?tabs=maven)
+- [Rio Java ](./java-get-started.md?tabs=maven)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)
@@ -79,7 +79,7 @@ Para aceder aos comandos de Pré-visualização Do CLI do Application Insights, 
  az extension add -n application-insights
 ```
 
-Se não executar o `az extension add` comando, verá uma mensagem de erro que diz:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se não executar o `az extension add` comando, verá uma mensagem de erro que diz: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Agora pode executar o seguinte para criar o seu recurso Application Insights:
 
@@ -184,6 +184,14 @@ O `New-AzApplicationInsights` comando PowerShell não suporta atualmente a cria�
 }
 
 ```
+
+## <a name="new-capabilities"></a>Novas funcionalidades
+
+O Workspace Application Insights permite-lhe tirar partido de todas as mais recentes capacidades do Azure Monitor, incluindo:
+
+* [As Chaves Geridas pelo Cliente (CMK)](../platform/customer-managed-keys.md) fornecem encriptação em repouso para os seus dados com chaves de encriptação às quais só tem acesso.
+* [O Azure Private Link](../platform/private-link-security.md) permite-lhe ligar de forma segura os serviços Azure PaaS à sua rede virtual utilizando pontos finais privados.
+* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) dá-lhe total controlo sobre a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede para todos os dados associados ao Profiler Application Insights e ao Snapshot Debugger. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modificação do espaço de trabalho associado
 

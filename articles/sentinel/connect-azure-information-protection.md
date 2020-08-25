@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559138"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794438"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Ligar dados da Azure Information Protection
 
@@ -57,19 +57,21 @@ No entanto, se registar informações da Azure Information Protection vai para u
 
 Utilize as seguintes instruções se ainda não tiver configurado um espaço de trabalho log Analytics para a Proteção de Informações Azure, ou se precisar de alterar o espaço de trabalho que armazena as informações de registo de registo da Proteção de Informação Azure.
 
-1. Em Azure Sentinel, selecione **Os conectores de dados**e, em seguida, **Azure Information Protection (Preview)**.
+1. Em Azure Sentinel, selecione **Data connectors**  >  **Azure Information Protection (Preview)**.
 
 2. Selecione **Abrir a página do conector**.
 
-3. Na lâmina **Configure analytics (Preview),** selecione o espaço de trabalho que está a utilizar para O Azure Sentinel. Se selecionar um espaço de trabalho diferente, os dados de reporte da Azure Information Protection não estarão disponíveis para o Azure Sentinel.
+3. Em **Configuração**, selecione **Connect Azure Information Protection .**
 
-4. Quando tiver selecionado um espaço de trabalho, selecione **OK** e o **status** do conector deve agora mudar para **Connected**.
+4. Na lâmina **Configure analytics (Preview),** selecione o espaço de trabalho que utiliza atualmente para Azure Sentinel. Se selecionar um espaço de trabalho diferente, os dados de reporte da Azure Information Protection não estão disponíveis para o Azure Sentinel.
 
-5. Os dados de reporte da Azure Information Protection são armazenados na tabela **InformationProtectionLogs_CL** dentro do espaço de trabalho selecionado. 
+5. Depois de selecionar um espaço de trabalho, selecione **OK**. O conector **STATUS** muda para **Connected**.
+
+6. Os dados de reporte da Azure Information Protection são armazenados na tabela **InformationProtectionLogs_CL** no espaço de trabalho selecionado. 
     
     Para utilizar o esquema relevante no Azure Monitor para estes dados de reporte, procure **eventos de proteção de informação**. Para obter informações sobre estas funções do evento, consulte a [referência de esquema amigável para funções](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) de evento a partir da documentação Azure Information Protection.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar a Azure Information Protection ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

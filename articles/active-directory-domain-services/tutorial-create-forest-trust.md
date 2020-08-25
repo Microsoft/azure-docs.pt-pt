@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492161"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722726"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services
 
@@ -128,7 +128,7 @@ Os seguintes cenários comuns permitem validar que a confiança florestal autent
 
 Deverá ter a máquina virtual do Windows Server unida ao domínio gerido. Utilize esta máquina virtual para testar o utilizador no local que pode autenticar numa máquina virtual. Se necessário, [crie um VM do Windows e junte-o ao domínio gerido][join-windows-vm].
 
-1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e as suas credenciais de administrador AD DS Azure.
+1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](../bastion/bastion-overview.md) e as suas credenciais de administrador AD DS Azure.
 1. Abra um pedido de comando e utilize o `whoami` comando para mostrar o nome distinto do utilizador atualmente autenticado:
 
     ```console
@@ -150,7 +150,7 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 
 #### <a name="enable-file-and-printer-sharing"></a>Ativar a partilha de ficheiros e impressoras
 
-1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e as suas credenciais de administrador AD DS Azure.
+1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](../bastion/bastion-overview.md) e as suas credenciais de administrador AD DS Azure.
 
 1. Abra **as definições do Windows**e, em seguida, procure e selecione o Centro de Rede e **Partilha**.
 1. Escolha a opção para Alterar definições **de partilha avançadas.**

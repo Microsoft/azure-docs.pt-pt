@@ -3,12 +3,12 @@ title: Resolução de problemas do agente reserva da Azure
 description: Neste artigo, aprenda a resolver problemas na instalação e registo do agente Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564117"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763512"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -224,7 +224,7 @@ A operação de backup pode falhar se a pasta de cache (também designada como p
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para que as operações do agente MARS tenham sucesso, a pasta cache tem de aderir aos requisitos abaixo:
+Para que as operações do agente MARS tenham sucesso, a pasta cache tem de cumprir os seguintes requisitos:
 
 - [Certifique-se de que o espaço de volume gratuito de 5% a 10% está disponível na localização da pasta de risco](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Certifique-se de que a localização da pasta de risco é válida e acessível](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -238,15 +238,15 @@ As operações de backup podem falhar se não houver espaço suficiente de armaz
 
 - Verifique o espaço de armazenamento de sombras atual a partir da solicitação de comando elevada:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Aumente o espaço de armazenamento de sombras utilizando o comando abaixo:<br/>
+- Aumente o espaço de armazenamento de sombras utilizando o seguinte comando:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Outro processo ou software antivírus que bloqueia o acesso à pasta cache
 
 Se tiver software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação antivírus para estes ficheiros e pastas:  
 
-- A pasta de risco. A sua localização padrão é`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-- A pasta do caixote do lixo`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
+- A pasta de risco. A sua localização padrão é `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- A pasta do caixote do lixo `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,27 +258,27 @@ Esta secção cobre os erros comuns que encontra durante a utilização do agent
 
 Mensagem de erro | Ação recomendada
 --|--
-O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder à soma de verificação da cópia de segurança armazenada no local de rascunho | Para resolver este problema, execute o seguinte e reinicie o servidor <br/> - [Verifique se existe um antivírus ou outros processos que bloqueiem os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder à soma de verificação da cópia de segurança armazenada no local de rascunho | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se existe um antivírus ou outros processos que bloqueiem os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Mensagem de erro | Ação recomendada
 --|--
-O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder ao local de rascunho para inicializar o VHD | Para resolver este problema, execute o seguinte e reinicie o servidor <br/> - [Verifique se antivírus ou outros processos estão bloqueando os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder ao local de rascunho para inicializar o VHD | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se antivírus ou outros processos estão bloqueando os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Mensagem de erro | Ação recomendada
 --|--
-A cópia de segurança falhou devido a um armazenamento insuficiente no volume onde está localizada a pasta de risco | Para resolver este problema, verifique os passos abaixo e relemisse a operação:<br/>- [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
+A cópia de segurança falhou devido a um armazenamento insuficiente no volume onde está localizada a pasta de risco | Para resolver este problema, verifique os seguintes passos e retentou a operação:<br/>- [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensagem de erro | Ação recomendada
 --|--
-Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver este problema, verifique os passos abaixo e relemisse a operação:<br/> - [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
+Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver este problema, verifique os seguintes passos e retentou a operação:<br/> - [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha mais detalhes sobre como fazer backup do [Windows Server com o agente Azure Backup](tutorial-backup-windows-server-to-azure.md).
 - Se precisar de restaurar uma cópia de segurança, consulte [restaurar os ficheiros numa máquina Do Windows](backup-azure-restore-windows-server.md).

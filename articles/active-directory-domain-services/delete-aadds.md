@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 993a73a42887b3869c097d14b6945a1093ac6889
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040117"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723066"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure
 
@@ -43,12 +43,12 @@ Para eliminar um domínio gerido, complete os seguintes passos:
 
 Pode levar 15-20 minutos ou mais para eliminar o domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere [partilhar feedback][feedback] para as funcionalidades que gostaria de ver no Azure AD DS.
 
 Se quiser começar com a Azure AD DS novamente, consulte Criar e configurar um domínio gerido por [Serviços de Domínio do Diretório Ativo Azure][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: contact-us.md
+[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
 [create-instance]: tutorial-create-instance.md

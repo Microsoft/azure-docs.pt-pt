@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256633"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784016"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Capacidades de gestão para funções de Ad Azure em Gestão de Identidade Privilegiada
 
@@ -56,7 +56,7 @@ Ambas as ações iniciadas pelo utilizador requerem uma aprovação de um admini
 
 ## <a name="api-changes"></a>Alterações na API
 
-Quando os clientes tiverem a versão atualizada lançada para a sua organização AZure AD, a API de gráfico existente deixará de funcionar. Tem de fazer a transição para utilizar a [API do gráfico para funções de recurso Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerir as funções de AD Azure utilizando essa API, troque `/azureResources` com a assinatura e utilize o `/aadroles` ID do Diretório para o `resourceId` .
+Quando os clientes tiverem a versão atualizada lançada para a sua organização AZure AD, a API de gráfico existente deixará de funcionar. Tem de fazer a transição para utilizar a [API do gráfico para funções de recurso Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerir as funções de AD Azure utilizando essa API, troque `/azureResources` com a assinatura e utilize o `/aadroles` ID do Diretório para o `resourceId` .
 
 Tentámos dar o nosso melhor para chegar a todos os clientes que estão a usar a API anterior para os informar sobre esta mudança com antecedência. Se a sua organização AZure AD foi transferida para a nova versão e ainda depende da antiga API, contacte a equipa em pim_preview@microsoft.com .
 

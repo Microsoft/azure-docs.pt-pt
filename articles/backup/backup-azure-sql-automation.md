@@ -4,12 +4,12 @@ description: Faça backup e restaure bases de dados SQL em VMs Azure usando Azur
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 51c3aa13b088eb056e8b7dcaa2af80b83a606a54
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761326"
+ms.locfileid: "88763410"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer o back up e restaurar as bases de dados SQL em VMs Azure com PowerShell
 
@@ -160,7 +160,7 @@ Uma política de backup especifica o calendário para backups e quanto tempo dev
 * Consulte o calendário de política de backup predefinido usando [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
 * Utiliza o [cmdlet New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) para criar uma nova política de backup. Introduz os objetos de política de programação e retenção.
 
-Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo abaixo pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
+Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo a seguir pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"

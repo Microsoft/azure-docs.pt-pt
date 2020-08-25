@@ -6,18 +6,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/31/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a506f59d3f2d331e4c7680565f3c110b9cd12956
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029594"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799179"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o portal Azure
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar as chaves geridas pelo cliente com o Azure Key Vault através do portal do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -45,11 +45,11 @@ Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
 ## <a name="specify-a-key"></a>Especificar uma chave
 
-Depois de ativar as chaves geridas pelo cliente, terá a oportunidade de especificar uma chave para associar à conta de armazenamento. Também pode indicar se o Azure Storage deve rodar automaticamente a tecla gerida pelo cliente ou se roda a chave manualmente.
+Depois de ativar as chaves geridas pelo cliente, terá a oportunidade de especificar uma chave para associar à conta de armazenamento. Também pode indicar se o Azure Storage deve atualizar automaticamente a chave gerida pelo cliente para a versão mais recente ou se irá atualizar manualmente a versão chave.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre chave
 
-Quando seleciona uma chave gerida pelo cliente a partir de um cofre de tecla, a rotação automática da tecla é automaticamente ativada. Para gerir manualmente a versão chave, especifique a chave URI e inclua a versão chave. Para obter mais informações, consulte [Especificar uma chave como URI](#specify-a-key-as-a-uri).
+Quando seleciona uma chave gerida pelo cliente a partir de um cofre de teclas, a atualização automática da versão chave está ativada. Para gerir manualmente a versão chave, especifique a chave URI e inclua a versão chave. Para obter mais informações, consulte [Especificar uma chave como URI](#specify-a-key-as-a-uri).
 
 Para especificar uma chave de um cofre de chaves, siga estes passos:
 
@@ -64,7 +64,12 @@ Para especificar uma chave de um cofre de chaves, siga estes passos:
 
 ### <a name="specify-a-key-as-a-uri"></a>Especifique uma chave como um URI
 
-Quando especificar a chave URI, omita a versão chave para permitir a rotação automática da chave gerida pelo cliente. Se incluir a versão chave no URI chave, então a rotação automática não está ativada e tem de gerir a versão chave por si mesmo. Para obter mais informações sobre a atualização da versão chave, consulte [atualização manual da versão chave](#manually-update-the-key-version).
+O Azure Storage pode atualizar automaticamente a chave gerida pelo cliente que é usada para encriptação para usar a versão chave mais recente. Quando a tecla gerida pelo cliente for rodada no Cofre da Chave Azure, o Azure Storage começará automaticamente a utilizar a versão mais recente da chave para encriptação.
+
+> [!NOTE]
+> Para rodar uma chave, crie uma nova versão da chave no Cofre da Chave Azure. O Azure Storage não lida com a rotação da chave no Cofre da Chave Azure, pelo que terá de rodar a chave manualmente ou criar uma função para a rodar num horário.
+
+Quando especificar a chave URI, omita a versão chave do URI para permitir a atualização automática para a versão chave mais recente. Se incluir a versão chave na chave URI, então a atualização automática não está ativada, e você mesmo deve gerir a versão chave. Para obter mais informações sobre a atualização da versão chave, consulte [atualização manual da versão chave](#manually-update-the-key-version).
 
 Para especificar uma chave como URI, siga estes passos:
 
@@ -74,25 +79,25 @@ Para especificar uma chave como URI, siga estes passos:
     ![Screenshot mostrando chave de cofre chave URI](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. Nas definições da **chave de encriptação** para a sua conta de armazenamento, escolha a opção **URI da chave entrar.**
-1. Cole o URI que copiou para o campo **Key URI.** Omita a versão chave do URI para permitir a rotação automática.
+1. Cole o URI que copiou para o campo **Key URI.** Omita a versão chave do URI para permitir a atualização automática da versão chave.
 
    ![Screenshot mostrando como entrar na chave URI](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique a subscrição que contém o cofre de chaves.
 1. Guarde as alterações.
 
-Depois de ter especificado a chave, o portal Azure indica se a rotação automática da chave está ativada e exibe a versão chave atualmente em uso para encriptação.
+Depois de ter especificado a chave, o portal Azure indica se a atualização automática da versão chave está ativada e exibe a versão chave atualmente em uso para encriptação.
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando rotação automática das chaves geridas pelo cliente ativadas":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando atualização automática da versão chave ativada":::
 
 ## <a name="manually-update-the-key-version"></a>Atualizar manualmente a versão chave
 
-Por predefinição, o Azure Storage gira automaticamente as teclas geridas pelo cliente para si, conforme descrito nas secções anteriores. Se optar por gerir a versão chave, terá de atualizar a versão chave especificada para a conta de armazenamento sempre que criar uma nova versão da chave.
+Por padrão, quando cria uma nova versão de uma chave gerida pelo cliente no Key Vault, o Azure Storage utiliza automaticamente a nova versão para encriptação com teclas geridas pelo cliente, conforme descrito nas secções anteriores. Se optar por gerir a versão chave, terá de atualizar a versão chave que está associada à conta de armazenamento sempre que criar uma nova versão da chave.
 
 Para atualizar a conta de armazenamento para utilizar a nova versão chave, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento e apresente as definições **de Encriptação.**
-1. Introduza o URI para a nova versão chave. Em alternativa, pode selecionar o cofre da chave e a chave novamente para atualizar a versão.
+1. Introduza o URI para a nova versão da chave. Em alternativa, pode selecionar o cofre da chave e a chave novamente para atualizar a versão.
 1. Guarde as alterações.
 
 ## <a name="switch-to-a-different-key"></a>Mude para uma chave diferente

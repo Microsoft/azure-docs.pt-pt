@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b48fb62532402338fdf53cd6f9b15bac812c3c2c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: af321f4e9ef9e340026852a759bb70b9f03c77f6
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040219"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722947"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar DNS e criar reencaminhadores condicionalistas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -105,9 +105,9 @@ Para criar um reencaminhador condicional no seu domínio gerido, complete os seg
 
 A resolução de nomes dos recursos em outros espaços de nome de VMs ligados ao domínio gerido deve agora resolver-se corretamente. As consultas para o domínio DNS configuradas no reencaminhador condicional são transmitidas aos servidores DNS relevantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a gestão do DNS, consulte o [artigo de ferramentas DNS na Technet](https://technet.microsoft.com/library/cc753579.aspx).
+Para obter mais informações sobre a gestão do DNS, consulte o [artigo de ferramentas DNS na Technet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753579(v=ws.11)).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

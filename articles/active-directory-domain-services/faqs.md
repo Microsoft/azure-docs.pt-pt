@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6a18dbf5c00c3f3aba2b2d58f060856aba9fb080
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116704"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722903"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services
 
@@ -61,7 +61,7 @@ Não. Para autenticar os utilizadores através da NTLM ou da Kerberos, o Azure A
 No entanto, se estiver a utilizar o Azure AD Connect para sincronização de hash de palavra-passe, pode utilizar os Serviços de Domínio AD Azure porque os valores do hash da palavra-passe são armazenados em Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Posso disponibilizar serviços de domínio Azure AD em várias redes virtuais dentro da minha subscrição?
-O serviço em si não suporta diretamente este cenário. O seu domínio gerido está disponível apenas numa rede virtual de cada vez. No entanto, é possível configurar a conectividade entre várias redes virtuais para expor os Serviços de Domínio AZure AD a outras redes virtuais. Para obter mais informações, consulte [como ligar redes virtuais em Azure utilizando gateways VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) ou [espreitamento de rede virtual.](../virtual-network/virtual-network-peering-overview.md)
+O serviço em si não suporta diretamente este cenário. O seu domínio gerido está disponível apenas numa rede virtual de cada vez. No entanto, é possível configurar a conectividade entre várias redes virtuais para expor os Serviços de Domínio AZure AD a outras redes virtuais. Para obter mais informações, consulte [como ligar redes virtuais em Azure utilizando gateways VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) ou [espreitamento de rede virtual.](../virtual-network/virtual-network-peering-overview.md)
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Posso ativar os serviços de domínio Azure AD utilizando o PowerShell?
 Sim. Para obter mais informações, consulte [como ativar os Serviços de Domínio Azure AD utilizando o PowerShell](powershell-create-instance.md).
@@ -73,14 +73,14 @@ Sim, pode criar um domínio gerido por Serviços de Domínio AZure AD utilizando
 Não. O domínio fornecido pela Azure AD Domain Services é um domínio gerido. Não precisa de providenciar, configurar ou gerir controladores de domínio para este domínio. Estas atividades de gestão são fornecidas como um serviço pela Microsoft. Portanto, não é possível adicionar controladores de domínio adicionais (ler-escrever ou ler apenas) para o domínio gerido.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Os utilizadores convidados podem ser convidados para o meu diretório utilizarem os Serviços de Domínio Azure AD?
-Não. Os utilizadores convidados convidados para o seu diretório AZure AD utilizando o processo de convite [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) são sincronizados no seu domínio gerido pelos Serviços de Domínio Azure AD. No entanto, as palavras-passe para estes utilizadores não são armazenadas no seu diretório AZure AD. Por isso, a Azure AD Domain Services não tem forma de sincronizar as hashes NTLM e Kerberos para estes utilizadores no seu domínio gerido. Estes utilizadores não podem iniciar sussutil ou juntar computadores ao domínio gerido.
+Não. Os utilizadores convidados convidados para o seu diretório AZure AD utilizando o processo de convite [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) são sincronizados no seu domínio gerido pelos Serviços de Domínio Azure AD. No entanto, as palavras-passe para estes utilizadores não são armazenadas no seu diretório AZure AD. Por isso, a Azure AD Domain Services não tem forma de sincronizar as hashes NTLM e Kerberos para estes utilizadores no seu domínio gerido. Estes utilizadores não podem iniciar sussutil ou juntar computadores ao domínio gerido.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio gerido a azure AD domain para uma subscrição diferente, grupo de recursos, região ou rede virtual?
 Não. Depois de criar um domínio gerido por Azure AD Domain Services, não é possível mover o domínio gerido para um grupo de recursos diferente, rede virtual, subscrição, etc. Tenha o cuidado de selecionar a subscrição mais adequada, grupo de recursos, região e rede virtual quando implementar o domínio gerido.
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Os Serviços de Domínio AZure AD incluem opções de alta disponibilidade?
 
-Sim. Cada domínio gerido por Azure AD Domain Services inclui dois controladores de domínio. Não se gere ou se liga a estes controladores de domínio, eles fazem parte do serviço gerido. Se colocar os Serviços de Domínio Azure AD numa região que suporta Zonas de Disponibilidade, os controladores de domínio são distribuídos por zonas. Nas regiões que não suportam Zonas de Disponibilidade, os controladores de domínio são distribuídos por Conjuntos de Disponibilidade. Não tem opções de configuração ou controlo de gestão sobre esta distribuição. Para obter mais informações, consulte [as opções de Disponibilidade para máquinas virtuais em Azure.](../virtual-machines/windows/availability.md)
+Sim. Cada domínio gerido por Azure AD Domain Services inclui dois controladores de domínio. Não se gere ou se liga a estes controladores de domínio, eles fazem parte do serviço gerido. Se colocar os Serviços de Domínio Azure AD numa região que suporta Zonas de Disponibilidade, os controladores de domínio são distribuídos por zonas. Nas regiões que não suportam Zonas de Disponibilidade, os controladores de domínio são distribuídos por Conjuntos de Disponibilidade. Não tem opções de configuração ou controlo de gestão sobre esta distribuição. Para obter mais informações, consulte [as opções de Disponibilidade para máquinas virtuais em Azure.](../virtual-machines/availability.md)
 
 ## <a name="administration-and-operations"></a>Administração e operações
 
@@ -148,7 +148,7 @@ Os Serviços de Domínio Azure AD estão incluídos no teste gratuito para a Azu
 Não. Depois de ter ativado um domínio gerido pelos Serviços de Domínio AD Azure, o serviço está disponível na rede virtual selecionada até eliminar o domínio gerido. Não há como parar o serviço. A faturação continua de hora a hora até eliminar o domínio gerido.
 
 ### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Posso falhar os Serviços de Domínio Azure AD para outra região para um evento DR?
-Não. A Azure AD Domain Services não fornece atualmente um modelo de implementação geo-redundante. Está limitado a uma única rede virtual numa região de Azure. Se pretender utilizar várias regiões do Azure, tem de executar os seus Controladores de Domínio de Diretório Ativo em VMs Azure IaaS. Para obter orientação de arquitetura, consulte [Estenda o seu domínio ative directy para Azure.](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain)
+Não. A Azure AD Domain Services não fornece atualmente um modelo de implementação geo-redundante. Está limitado a uma única rede virtual numa região de Azure. Se pretender utilizar várias regiões do Azure, tem de executar os seus Controladores de Domínio de Diretório Ativo em VMs Azure IaaS. Para obter orientação de arquitetura, consulte [Estenda o seu domínio ative directy para Azure.](/azure/architecture/reference-architectures/identity/adds-extend-domain)
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Posso obter serviços de domínio Azure AD como parte da Enterprise Mobility Suite (EMS)? Preciso que o Azure AD Premium utilize os Serviços de Domínio AD da Azure?
 Não. Azure AD Domain Services é um serviço Azure pay-as-you-go e não faz parte da EMS. Os Serviços de Domínio AZure AD podem ser utilizados com todas as edições do Azure AD (Grátis e Premium). É cobrado de hora a hora, dependendo do uso.

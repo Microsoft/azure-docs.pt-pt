@@ -3,12 +3,12 @@ title: Azure Quickstart - Criar um centro de eventos utilizando o portal Azure
 description: Neste início rápido, irá aprender a criar um hub de eventos do Azure com o portal do Azure e, em seguida, enviar e receber eventos com o SDK .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 271d01ef6711c7e57538abae301ae924fb6ff351
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f2012880a7703ba07556d5e18d44d17af73326e9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142558"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794626"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -20,8 +20,6 @@ Neste início rápido, vai criar um hub de eventos com o [portal do Azure](https
 Para concluir este início rápido, certifique-se de que tem:
 
 - Subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) ou mais tarde.
-- [SDK .NET Standard](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -90,7 +88,7 @@ Para criar um hub de eventos no espaço de nomes, faça as ações seguintes:
 
     ![Centro de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:** 
 

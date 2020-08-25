@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719177"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762782"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de vídeo-análise - aplicação de deteção de objetos e movimentos no Azure IoT Central
 
@@ -40,7 +40,7 @@ Para completar esta série tutorial, precisa:
 
 ## <a name="initial-setup"></a>Configuração inicial
 
-Nestes tutoriais, atualiza-se e utiliza vários ficheiros de configuração. As versões iniciais destes ficheiros estão disponíveis no repositório [GitHub de gateway LVA.](https://github.com/Azure/live-video-analytics) O repositório também inclui um ficheiro de texto de scratchpad para que possa descarregar e utilizar para registar valores de configuração a partir dos serviços que implementa.
+Nestes tutoriais, atualiza-se e utiliza vários ficheiros de configuração. As versões iniciais destes ficheiros estão disponíveis no repositório [GitHub de gateway LVA.](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) O repositório também inclui um ficheiro de texto de scratchpad para que possa descarregar e utilizar para registar valores de configuração a partir dos serviços que implementa.
 
 Crie uma pasta chamada *configuração de Lva* na sua máquina local para guardar cópias destes ficheiros. Em seguida, clique com o botão direito em cada um dos seguintes links e escolha **Guardar como** guardar o ficheiro na pasta *de configuração de Iva:*
 

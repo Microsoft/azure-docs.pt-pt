@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de Intercâmbio para Azure B
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c9d54bb8e9875bcd622c5ce5343dc6f8baa3f2be
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091135"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763580"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Antes de continuar, certifique-se de que todos os [pré-requisitos](backup-azure
 * As credenciais de agente e cofre foram transferidas para o servidor DPM.
 * O agente está instalado no servidor DPM.
 * As credenciais do cofre foram usadas para registar o servidor DPM.
-* Se estiver a proteger o Exchange 2016, por favor atualize para DPM 2012 R2 UR9 ou mais tarde
+* Se estiver a proteger o Exchange 2016, atualize para DPM 2012 R2 UR9 ou mais tarde
 
 ## <a name="dpm-protection-agent"></a>Agente de proteção DPM
 

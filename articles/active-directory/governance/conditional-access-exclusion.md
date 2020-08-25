@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a619843f781fa24bfdc2a339e67fdb49b1bff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078844"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783693"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize avaliações de acesso Azure AD para gerir utilizadores excluídos das políticas de acesso condicional
 
@@ -63,7 +63,7 @@ Siga estes passos para criar um novo grupo AZure AD e uma política de acesso co
 
 ### <a name="create-an-exclusion-group"></a>Criar um grupo de exclusão
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Na navegação à esquerda, clique em **Azure Ative Directory** e, em seguida, clique em **Grupos**.
 
@@ -144,7 +144,7 @@ Digamos que tem uma política de Acesso Condicional que bloqueia o acesso dos ut
     ![Criar um painel de revisão de acesso, por exemplo, 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 >[!IMPORTANT] 
->Se tiver muitos grupos de exclusão e, portanto, precisar de criar várias avaliações de acesso, temos agora uma API no ponto final beta do Microsoft Graph que lhe permite criar e gerir programáticamente. Para começar, consulte o acesso a [AD Azure analisa referência API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) e [Exemplo de recuperar comentários de acesso a AD Azure através do Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>Se tiver muitos grupos de exclusão e, portanto, precisar de criar várias avaliações de acesso, temos agora uma API no ponto final beta do Microsoft Graph que lhe permite criar e gerir programáticamente. Para começar, consulte o acesso a [AD Azure analisa referência API](/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [Exemplo de recuperar comentários de acesso a AD Azure através do Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Aceder aos resultados da revisão e aos registos de auditoria
 
@@ -164,7 +164,7 @@ Agora que tem tudo no lugar, política de grupo, acesso condicional e avaliaçõ
 
 Como administrador de TI, sabe que gerir grupos de exclusão às suas políticas é, por vezes, inevitável. No entanto, a manutenção destes grupos, a sua revisão regular pelo empresário ou pelos próprios utilizadores, e a auditoria destas alterações podem ser facilitadas com revisões de acesso a AD do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419602"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722743"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -108,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 
@@ -123,4 +123,4 @@ Para problemas com os utilizadores, aprenda a resolver [problemas de sessão de 
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
-[kusto-queries]: https://docs.microsoft.com/azure/kusto/query/tutorial?pivots=azuredataexplorer
+[kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

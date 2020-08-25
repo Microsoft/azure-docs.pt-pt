@@ -1,5 +1,5 @@
 ---
-title: Node.Js, app angular que usa a API do Azure Cosmos DB para mongoB (Part1)
+title: Node.Js, app angular usando API da Azure Cosmos DB para MongoB (Part1)
 description: Saiba como criar uma aplicação MongoDB com o Angular e o Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB nesta série de tutoriais em vídeo.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,17 +11,17 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d2e7ce959edffdb2e8c929c81837e0ac3fc3da9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75444690"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Crie uma app Angular com a API da Azure Cosmos DB para o MongoDB
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Criar uma app angular com API da Azure Cosmos DB para a MongoDB
 
-Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md).
+Este tutorial multi-partes demonstra como criar uma nova app escrita em Node.js com o Express e angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para a MongoDB.](mongodb-introduction.md)
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Permite-lhe criar e consultar rapidamente documentos, bases de dados chave/valor e gráficos que beneficiam da distribuição global e capacidades de escala horizontal no núcleo da Cosmos DB. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Permite-lhe criar e consultar rapidamente documentos, bases de dados chave/valor e gráficos que beneficiam da distribuição global e das capacidades de escala horizontal no núcleo da Cosmos DB. 
 
 Este tutorial com várias parte abrange as seguintes tarefas:
 
