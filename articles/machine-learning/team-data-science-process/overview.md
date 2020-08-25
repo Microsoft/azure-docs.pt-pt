@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355340"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799269"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -26,7 +26,7 @@ Este artigo fornece uma visão geral da TDSP e dos seus principais componentes. 
 
 ## <a name="key-components-of-the-tdsp"></a>Componentes-chave do TDSP
 
-A TDSP tinha os seguintes componentes-chave:
+A TDSP tem os seguintes componentes-chave:
 
 - Uma definição **de ciclo de vida da ciência dos dados**
 - Uma **estrutura de projeto padronizada**
@@ -70,7 +70,7 @@ O diagrama seguinte proporciona uma visão da grelha das tarefas (em azul) e art
 
 Ter todos os projetos compartilhando uma estrutura de diretório e modelos de uso para documentos de projeto torna fácil para os membros da equipa encontrar informações sobre seus projetos. Todos os códigos e documentos são armazenados num sistema de controlo de versão (VCS) como Git, TFS ou Subversão para permitir a colaboração da equipa. O rastreio de tarefas e funcionalidades num sistema ágil de rastreio de projetos como Jira, Rally e Azure DevOps permite um rastreio mais próximo do código para funcionalidades individuais. Este rastreio também permite que as equipas obtenham melhores estimativas de custos. A TDSP recomenda a criação de um repositório separado para cada projeto no VCS para a versão, segurança da informação e colaboração. A estrutura padronizada para todos os projetos ajuda a construir conhecimento institucional em toda a organização.
 
-Fornecemos modelos para a estrutura da pasta e documentos necessários em locais padrão. Esta estrutura de pasta organiza os ficheiros que contêm código para a exploração de dados e extração de recursos, e que registam iterações de modelos. Estes modelos facilitam aos membros da equipa a compreensão do trabalho feito pelos outros e a adição de novos membros às equipas. É fácil visualizar e atualizar modelos de documentos em formato de marcação. Use modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados vão de encontro à qualidade esperada. Os exemplos incluem:
+Fornecemos modelos para a estrutura da pasta e documentos necessários em locais padrão. Esta estrutura de pasta organiza os ficheiros que contêm código para a exploração de dados e extração de recursos, e que registam iterações de modelos. Estes modelos facilitam aos membros da equipa a compreensão do trabalho feito pelos outros e a adição de novos membros às equipas. É fácil visualizar e atualizar modelos de documentos em formato de marcação. Use modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados vão de encontro à qualidade esperada. Alguns exemplos incluem:
 
 - uma carta de projeto para documentar o problema de negócios e âmbito do projeto
 - relatórios de dados para documentar a estrutura e as estatísticas dos dados brutos
@@ -87,7 +87,7 @@ A estrutura do diretório pode ser clonada do [GitHub.](https://github.com/Azure
 A TDSP fornece recomendações para a gestão de infraestruturas de análise e armazenamento partilhadas, tais como:
 
 - sistemas de ficheiros em nuvem para armazenar conjuntos de dados 
-- bases de dados
+- Bases de dados
 - clusters de big data (SQL ou Spark) 
 - serviço de aprendizagem automática 
 

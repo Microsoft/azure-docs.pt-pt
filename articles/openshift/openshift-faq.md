@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816240"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -45,7 +45,7 @@ Não. Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na
 
 ### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>Um cluster pode ser implantado em várias zonas de disponibilidade?
 
-Sim. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
+Yes. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
 
 ### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós dos aviões de controlo são abstraídos como estão com o Serviço Azure Kubernetes (AKS)?
 
@@ -65,25 +65,9 @@ Nos clusters Azure Red Hat OpenShift 4.x, os nós de infraestrutura não estão 
 
 Nos clusters Azure Red Hat OpenShift 3.11, os nós de infraestrutura são incluídos por padrão.
 
-## <a name="upgrades"></a>Atualizações
+## <a name="how-do-i-handle-cluster-upgrades"></a>Como lido com atualizações de cluster?
 
-###  <a name="what-is-the-general-upgrade-process"></a>Qual é o processo de atualização geral?
-
-Os patches são aplicados automaticamente no seu cluster. Não precisa de tomar nenhuma ação para receber atualizações de patch no seu cluster.
-
-Executar uma atualização é um processo seguro para ser executado e não deve perturbar os serviços de cluster. A equipa conjunta microsoft-Red Hat pode desencadear o processo de atualização quando novas versões estão disponíveis ou vulnerabilidades e exposições comuns estão pendentes. As atualizações disponíveis são testadas num ambiente de preparação e depois aplicadas aos clusters de produção. Seguir as melhores práticas ajuda a garantir o mínimo de tempo de inatividade.
-
-A manutenção planeada não está pré-programada com o cliente. As notificações relacionadas com a manutenção podem ser enviadas por e-mail.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>O que é o processo de manutenção Azure Red Hat OpenShift?
-
-Existem dois tipos de manutenção para o Azure Red Hat OpenShift: upgrades e manutenção iniciada pelo fornecedor de nuvem.
-- As atualizações incluem atualizações de software e vulnerabilidades e exposições comuns.
-- A manutenção iniciada pelo fornecedor de nuvem inclui falhas de rede, armazenamento e interrupções regionais. A manutenção depende do fornecedor de nuvem e baseia-se em atualizações fornecidas pelo fornecedor.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>E as janelas de manutenção planeadas?
-
-Não distinguimos entre os dois tipos de manutenção. As nossas equipas estão disponíveis 24/7/365 e não utilizam as tradicionais janelas de manutenção programadas "fora de horas".
+Para obter informações sobre atualizações, manutenção e versões suportadas, consulte o guia de [ciclo de vida](support-lifecycle.md)de suporte .
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Como é que o sistema operativo anfitrião e o software OpenShift serão atualizados?
 
@@ -143,7 +127,7 @@ Para agrupamentos de 4.x, é necessário expor um registo seguro e configurar a 
 
 Para 3.11 clusters, o registo de imagem docker está disponível. O registo do Docker está disponível a partir de `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Também pode utilizar o Registo do Contentor Azure.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso colocar um cluster numa rede virtual existente?
 
@@ -157,7 +141,7 @@ Os administradores de clientes e projetos individuais podem personalizar a rede 
 
 ### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou a tentar entrar numa rede virtual numa subscrição diferente, mas não consegui obter um erro do CIDR da VNet.
 
-Na subscrição que tem a rede virtual, certifique-se de registar `Microsoft.ContainerService` o fornecedor com o seguinte comando:`az provider register -n Microsoft.ContainerService --wait`
+Na subscrição que tem a rede virtual, certifique-se de registar `Microsoft.ContainerService` o fornecedor com o seguinte comando: `az provider register -n Microsoft.ContainerService --wait`
 
 ### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Podemos especificar os intervalos ip para implantação no VNet privado, evitando confrontos com outros VNets corporativos uma vez espreitados?
 
@@ -179,15 +163,15 @@ O Azure Red Hat OpenShift utiliza o Balanceador de Carga Standard Azure, e não 
 
 ### <a name="can-an-admin-manage-users-and-quotas"></a>Pode um administrador gerir utilizadores e quotas?
 
-Sim. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
+Yes. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
 
 ### <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas certos utilizadores de AD Azure?
 
-Sim. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
+Yes. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
 
 ### <a name="can-i-restrict-users-from-creating-projects"></a>Posso restringir os utilizadores à criação de projetos?
 
-Sim. Inicie sessão no seu cluster como administrador e execute este comando:
+Yes. Inicie sessão no seu cluster como administrador e execute este comando:
 
 ```
 oc adm policy \

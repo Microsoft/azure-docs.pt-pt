@@ -5,16 +5,16 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 5ebb3883304584570759ea02a2de7187efcdaf26
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718684"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757678"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -50,6 +50,7 @@ O Azure oferece dois tipos de discos.
 Discos premium - **apoiados** por disco ssd baseado, de alto desempenho, de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. Tamanhos VM com um  **S** no [nome de tamanho,](../vm-naming-conventions.md)normalmente suportam o Armazenamento Premium. Por exemplo, séries DS, séries DSv2, sérieS GS e VMs da série FS suportam armazenamento premium. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for superior a 64 GB, mas inferior a 128 GB, o tipo de disco é P10. 
 
 <br>
+
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
@@ -112,16 +113,17 @@ Crie uma ligação SSH com a máquina virtual. Substitua o endereço IP de exemp
 ssh 10.101.10.10
 ```
 
-Particione o disco com `fdisk`.
+Particione o disco com `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Escreva um sistema de ficheiros na partição com o comando `mkfs`.
+Escreva um sistema de ficheiros na partição com o comando `mkfs`. Utilize `partprobe` para sensibilizar o SO para a mudança.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Monte o disco novo para que fique acessível no sistema operativo.
@@ -130,18 +132,19 @@ Monte o disco novo para que fique acessível no sistema operativo.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-O disco pode agora ser acedido através do ponto de montagem *datadrive*, que pode ser verificado com o comando `df -h`.
+O disco pode agora ser acedido através do `/datadrive` ponto de montagem, o que pode ser verificado executando o `df -h` comando.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-A saída mostra o novo disco montado em */datadrive*.
+A saída mostra a nova unidade `/datadrive` montada.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -157,11 +160,22 @@ A saída apresenta o UUID da unidade, `/dev/sdc1` neste caso.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Adicione uma linha semelhante à seguinte ao ficheiro *etc/fstab*.
+> [!NOTE]
+> A edição indevida do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
+
+Abra o `/etc/fstab` ficheiro num editor de texto da seguinte forma:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Adicione uma linha semelhante à seguinte ao ficheiro */etc/fstab,* substituindo o valor UUID pelo seu próprio.
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
+
+Quando terminar de editar o ficheiro, use `Ctrl+O` para escrever o ficheiro e sair do `Ctrl+X` editor.
 
 Agora que o disco foi configurado, feche a sessão SSH.
 
@@ -175,7 +189,7 @@ Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de 
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 
-Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Utilize o comando [de exibição az vm](/cli/azure/vm#az-vm-show) para devolver o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
+Antes de criar uma imagem, precisa da identificação ou nome do disco. Use [o az vm show](/cli/azure/vm#az-vm-show) para filmar a identificação do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -185,7 +199,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Agora que tem o ID do disco da máquina virtual, o comando seguinte cria um instantâneo do disco.
+Agora que tem o ID, use [az snapshot criar](/cli/azure/snapshot#az-snapshot-create) para criar uma imagem do disco.
 
 ```azurecli-interactive
 az snapshot create \
@@ -196,7 +210,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Criar disco a partir de instantâneo
 
-Este instantâneo pode então ser convertido num disco, que pode ser utilizado para recriar a máquina virtual.
+Este instantâneo pode então ser convertido num disco utilizando [o disco az,](/cli/azure/disk#az-disk-create)que pode ser usado para recriar a máquina virtual.
 
 ```azurecli-interactive
 az disk create \
@@ -207,7 +221,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Restaurar a máquina virtual a partir de instantâneo
 
-Para demonstrar a recuperação da máquina virtual, elimine a máquina virtual existente.
+Para demonstrar a recuperação virtual da máquina, elimine a máquina virtual existente utilizando [a az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -229,7 +243,7 @@ az vm create \
 
 Todos os discos de dados têm de ser novamente expostos à máquina virtual.
 
-Em primeiro lugar, localize o nome do disco de dados com o comando [az disk list](/cli/azure/disk#az-disk-list). Este exemplo coloca o nome do disco numa variável designada *datadisk*, que é utilizada no próximo passo.
+Encontre o nome do disco de dados utilizando o comando [da lista de discos az.](/cli/azure/disk#az-disk-list) Este exemplo coloca o nome do disco numa variável chamada `datadisk` , que é usada no passo seguinte.
 
 ```azurecli-interactive
 datadisk=$(az disk list \

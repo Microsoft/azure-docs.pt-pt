@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660150"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756916"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -24,7 +24,7 @@ Para configurar a proteção de uma base de dados do SQL Server numa máquina vi
 
 Depois de criar e configurar um cofre dos Serviços de Recuperação, descobrir bases de dados e configurar backup é um processo em duas etapas.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Objetivo de Backup - SQL Server em Azure VM](./media/backup-azure-sql-database/sql.png)
 
 Durante a configuração de backup, se o SQL VM e as suas instâncias não forem visíveis nos **DBs discovery em VMs** e **Configure Backup** (consulte a imagem acima) certifique-se de que:
 
