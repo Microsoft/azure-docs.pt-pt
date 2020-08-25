@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 159cdef6b2c831e8c20d7249334bebac4f2061c5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 93e7a720e9d39eca6d808c8c49b3b340226997ff
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606126"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817039"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -140,7 +140,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 7. Descrição
 8. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -197,12 +197,16 @@ Forneça logotipos e imagens para a sua oferta. Todas as imagens devem estar em 
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça o logótipo da sua oferta em três tamanhos de pixel:
-- **Pequeno** (obrigatório; 48 x 48)
-- **Grande** (obrigatório; 216 x 216)
-- **Largo** (opcional; 255 x 115)
+Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center irá usá-lo para criar um logótipo **pequeno.** Pode substituir opcionalmente isto por uma imagem diferente mais tarde.
+
+- **Grande** (de 216 x 216 a 350 x 350 px, necessário)
+- **Pequeno** (48 x 48 px, opcional)
+
+Estes logótipos são utilizados em diferentes locais da listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

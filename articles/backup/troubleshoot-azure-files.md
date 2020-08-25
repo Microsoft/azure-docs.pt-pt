@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524493"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763682"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -22,10 +22,10 @@ Este artigo fornece informações de resolução de problemas para resolver quai
 - Verifique se alguma parte do ficheiro na conta de armazenamento já está protegida com outro cofre dos Serviços de Recuperação.
 
   >[!NOTE]
-  >Todas as ações de ficheiros numa Conta de Armazenamento só podem ser protegidas sob um cofre dos Serviços de Recuperação. Pode utilizar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar o cofre dos serviços de recuperação onde a sua conta de armazenamento está registada.
+  >Todas as ações de ficheiros numa Conta de Armazenamento só podem ser protegidas sob um cofre dos Serviços de Recuperação. Pode utilizar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar o cofre dos Serviços de Recuperação onde a sua conta de armazenamento está registada.
 
 - Certifique-se de que a partilha de ficheiros não está presente em nenhuma das contas de armazenamento não suportadas. Pode consultar a [matriz de suporte para a partilha de ficheiros Azure](azure-file-share-support-matrix.md) para encontrar contas de armazenamento suportadas.
-- Certifique-se de que o comprimento combinado do nome da conta de armazenamento e o nome do grupo de recursos não excedem 84 caracteres no caso de novas contas de Armazenamento e 77 caracteres em caso de contas de armazenamento clássicas. 
+- Certifique-se de que o comprimento combinado do nome da conta de armazenamento e o nome do grupo de recursos não excedem 84 caracteres no caso de novas contas de Armazenamento e 77 caracteres em caso de contas de armazenamento clássicas.
 - Verifique as definições de firewall da conta de armazenamento para garantir que a opção de permitir que os Serviços Microsoft confiáveis acedam à conta de armazenamento está ativada.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal afirma que descoberta de contas de armazenamento falhou
@@ -54,7 +54,7 @@ Recandidutar o registo. Se o problema persistir, contacte o suporte.
 No portal Azure, abra as suas contas de Armazenamento de Infraestruturas de **Backup do Cofre**e clique em Não  >  **Backup Infrastructure**  >  **Storage accounts** **registar** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
 
 >[!NOTE]
->Um cofre de serviços de recuperação só pode ser apagado depois de não registar todas as contas de armazenamento registadas no cofre.
+>Um cofre dos Serviços de Recuperação só pode ser apagado depois de não registar todas as contas de armazenamento registadas no cofre.
 
 ## <a name="common-backup-or-restore-errors"></a>Erros comuns de backup ou restauro
 
@@ -318,7 +318,7 @@ Error Message: A cópia de segurança falhou à medida que a partilha de ficheir
 
 Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção consulte [stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o backup das ações de ficheiros Azure, consulte:
 

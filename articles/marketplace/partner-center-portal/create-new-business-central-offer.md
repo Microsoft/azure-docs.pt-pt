@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606147"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817056"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -134,7 +134,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 9. Descrição
 10. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -182,16 +182,16 @@ Forneça aqui pelo menos um (e até três) documentos de marketing relacionados,
 
 ### <a name="marketplace-images"></a>Imagens do mercado
 
-Forneça logotipos e imagens para a sua oferta. Todas as imagens devem estar em formato PNG. 
+Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center irá usá-lo para criar um logótipo **pequeno.** Pode substituir opcionalmente isto por uma imagem diferente mais tarde.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+- **Grande** (de 216 x 216 a 350 x 350 px, necessário)
+- **Pequeno** (48 x 48 px, opcional)
 
-Faça upload do seu logotipo de oferta em dois tamanhos:
-
-* **Pequeno** (48 x 48 pixels)
-* **Grande** (216 x 216 pixels)
+Estes logótipos são utilizados em diferentes locais da listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.

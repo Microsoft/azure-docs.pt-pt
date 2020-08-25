@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183212"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798317"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -33,7 +33,7 @@ Crie um novo Office 365 ou um grupo de segurança com a propriedade "isAssignabl
 Se não quiser que os membros do grupo tenham acesso permanente ao papel, pode utilizar a Azure AD Gestão de Identidade Privilegiada. Atribua um grupo como membro elegível de um papel de AD Azure. Cada membro do grupo é então elegível para ter a sua atribuição ativada para o papel a que o grupo é atribuído. Podem então ativar a sua função por uma duração fixa.
 
 > [!Note]
-> Você deve estar na versão atualizada de Gestão de Identidade Privilegiada para ser capaz de atribuir um grupo para papel AZure AD via PIM. Você pode estar na versão mais antiga da PIM porque a sua organização Azure AD aproveita a API de Gestão de Identidade Privilegiada. Por favor, contacte o pseudónimo pim_preview@microsoft.com para mover a sua organização e atualizar a sua API. Saiba mais em [funções e funcionalidades da AD Azure em PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> Você deve estar na versão atualizada de Gestão de Identidade Privilegiada para ser capaz de atribuir um grupo para papel AZure AD via PIM. Você pode estar na versão mais antiga da PIM porque a sua organização Azure AD aproveita a API de Gestão de Identidade Privilegiada. Por favor, contacte o pseudónimo pim_preview@microsoft.com para mover a sua organização e atualizar a sua API. Saiba mais em [funções e funcionalidades da AD Azure em PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Por que impomos a criação de um grupo especial para atribuí-lo a um papel
 
@@ -65,7 +65,7 @@ Os seguintes cenários não são apoiados neste momento:
   - No portal PIM, **my Roles** só pode mostrar uma tarefa de papel, independentemente de quantos métodos a atribuição é concedida (através de um ou mais grupos e diretamente).
 - *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.  
 - O Exchange Admin Center ainda não reconhece a adesão ao papel através do grupo, mas o Comandante PowerShell funcionará.
-- O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. Pode [migrar para a plataforma de rotulagem unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
+- O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. Pode [migrar para a plataforma de rotulagem unificada](/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
 
 Estamos a resolver estas questões.
 

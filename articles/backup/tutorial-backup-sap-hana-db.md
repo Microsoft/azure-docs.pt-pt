@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611828"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757494"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -125,7 +125,7 @@ A saída do comando deve exibir a tecla {SID}{DBNAME}, com o utilizador apresent
 >[!NOTE]
 > Certifique-se de que tem um conjunto único de ficheiros SSFS em `/usr/sap/{SID}/home/.hdb/` . Deve haver apenas uma pasta neste caminho.
 
-## <a name="create-a-recovery-service-vault"></a>Criar um cofre de serviço de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup que estão associadas às máquinas virtuais protegidas.
 
@@ -149,7 +149,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
    ![Criar cofre dos Serviços de Recuperação](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Nome**: O nome é usado para identificar o cofre dos serviços de recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
+   * **Nome**: O nome é usado para identificar o cofre dos Serviços de Recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
    * **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de **laboratório de solução SAP HANA.**
    * **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Aqui, usamos **SAPHANADemo.**<br>
    Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
@@ -159,7 +159,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
    ![Selecione & criar](./media/tutorial-backup-sap-hana-db/review-create.png)
 
-O cofre dos serviços de recuperação está agora criado.
+O cofre dos Serviços de Recuperação está agora criado.
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 

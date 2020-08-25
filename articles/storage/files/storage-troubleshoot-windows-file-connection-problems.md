@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752330"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797790"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
@@ -369,7 +369,7 @@ Recomendamos que utilize a [ferramenta ICACLs](https://docs.microsoft.com/window
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Erro: "O serviço de diretório não pôde alocar um identificador relativo"
 
-Este errror pode ocorrer se um controlador de domínio que detém a função RID Master FSMO estiver indisponível ou tiver sido removido do domínio e restaurado da cópia de segurança.  Confirme que todos os Controladores de Domínio estão a funcionar e disponíveis.
+Este erro pode ocorrer se um controlador de domínio que detém a função RID Master FSMO estiver indisponível ou tiver sido removido do domínio e restaurado a partir de cópia de segurança.  Confirme que todos os Controladores de Domínio estão a funcionar e disponíveis.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erro: “Não é possível vincular os parâmetros posicionais, porque não foram indicados nomes”
 

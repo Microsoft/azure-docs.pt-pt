@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245558"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816495"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -27,9 +27,9 @@ A encriptação do lado do servidor utilizando teclas geridas pelo cliente utili
 
 Este artigo requer que já tenha um conjunto de encriptação de disco para usar para a sua imagem.
 
-- Para utilizar apenas uma chave gerida pelo cliente, consulte **Ativar as teclas geridas pelo cliente com encriptação do lado** do servidor utilizando o [portal Azure](./windows/disks-enable-customer-managed-keys-portal.md) ou [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Para utilizar apenas uma chave gerida pelo cliente, consulte **Ativar as teclas geridas pelo cliente com encriptação do lado** do servidor utilizando o [portal Azure](./disks-enable-customer-managed-keys-portal.md) ou [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Para utilizar as teclas geridas pela plataforma e geridas pelo cliente (para dupla encriptação), consulte **Ativar a dupla encriptação em repouso** utilizando o [portal Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) ou [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Para utilizar as teclas geridas pela plataforma e geridas pelo cliente (para dupla encriptação), consulte **Ativar a dupla encriptação em repouso** utilizando o [portal Azure](./disks-enable-double-encryption-at-rest-portal.md) ou [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > Tem de utilizar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para aceder ao portal Azure. A dupla encriptação em repouso não é atualmente visível no portal público Azure sem utilizar o link.
 

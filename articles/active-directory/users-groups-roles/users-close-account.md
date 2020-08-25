@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374581"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798334"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Feche o seu trabalho ou conta escolar numa organização não gerida da AD AZure
 
@@ -32,9 +32,9 @@ Os utilizadores de uma organização nãogerida são muitas vezes criados durant
 
 Antes de poder fechar a sua conta, deverá confirmar os seguintes itens:
 
-* Certifique-se de que é utilizador de uma organização Azure AD não gerida. Não pode fechar a sua conta se pertencer a uma organização gerida. Se pertencer a uma organização gerida e quiser fechar a sua conta, deve contactar o seu administrador. Para obter informações sobre como determinar se pertence a uma organização não administrada, consulte [Eliminar o utilizador do Inquilino Não Gerido.](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+* Certifique-se de que é utilizador de uma organização Azure AD não gerida. Não pode fechar a sua conta se pertencer a uma organização gerida. Se pertencer a uma organização gerida e quiser fechar a sua conta, deve contactar o seu administrador. Para obter informações sobre como determinar se pertence a uma organização não administrada, consulte [Eliminar o utilizador do Inquilino Não Gerido.](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 
-* Guarde todos os dados que quiser guardar. Para obter informações sobre como apresentar um pedido de exportação, consulte [aceder e exportar registos gerados pelo sistema para inquilinos não geridos.](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
+* Guarde todos os dados que quiser guardar. Para obter informações sobre como apresentar um pedido de exportação, consulte [aceder e exportar registos gerados pelo sistema para inquilinos não geridos.](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
 
 > [!WARNING]
 > Fechar a sua conta é irreversível. Ao fechar a sua conta, todos os dados pessoais serão removidos. Deixará de ter acesso à sua conta e aos dados associados à sua conta.
@@ -53,8 +53,8 @@ Para fechar uma conta de trabalho ou escola não gerido, siga estes passos:
 
     ![Meus pedidos de dados - Confirme o encerramento](./media/users-close-account/confirm-close.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é inscrição de self-service para o Azure Ative Directory?](directory-self-service-signup.md)
-- [Eliminar o utilizador de um Inquilino Não Gerido](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
-- [Aceder e exportar registos gerados pelo sistema para Inquilinos Não Geridos](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
+- [Eliminar o utilizador de um Inquilino Não Gerido](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Aceder e exportar registos gerados pelo sistema para Inquilinos Não Geridos](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

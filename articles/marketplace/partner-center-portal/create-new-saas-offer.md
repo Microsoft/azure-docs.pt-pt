@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604756"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817022"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta SaaS no mercado comercial
 
@@ -282,18 +282,19 @@ Este campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatórios) – Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens**  – Carregar imagens de logotipo em formato PNG:
+- **Imagens** (necessárias) – Existem vários locais onde as imagens do logotipo da sua oferta podem aparecer em todo o mercado. Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará isto para criar um logótipo **Pequeno** e **Médio.** Pode substituir opcionalmente estas imagens por diferentes imagens mais tarde.
 
-  - **Pequeno** (48 x 48 pixels, necessário)
-  - **Médio** (90 x 90 pixels, necessário)
-  - **Grande** (216 x 216 pixels, necessário)
-  - **Largo** (255 x 115 pixels) (opcional)
+  - **Grande** (de 216 x 216 a 350 x 350 px, necessário)
+  - **Médio** (90 x 90 px, opcional)
+  - **Pequeno** (48 x 48 px, opcional)
+  
+  Estes logótipos são utilizados em diferentes locais da listagem:
 
-   Estes três tamanhos de logotipo são usados em diferentes lugares nas lojas online:
+   - O grande logótipo aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
+   - O logótipo médio aparece quando cria um novo recurso no Microsoft Azure.
+   - O pequeno logótipo aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa.
 
-   -   O logótipo Small (48 x 48 pixels) aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa. 
-   -   O logótipo Medium (90 x 90 pixels) aparece quando cria um novo recurso no Microsoft Azure.
-   -   O grande logótipo (entre 216 x 216 x 350 x 350 pixels) aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Screenshots** (obrigatórios) – Adicione um máximo de cinco imagens que demonstrem a sua oferta, dimensionadas a 1280 x 720 pixels. Todas as imagens devem estar dentro . Formato PNG.
 - **Vídeos** (opcional) – Adicione links a vídeos que demonstrem a sua oferta. Pode utilizar links para vídeos do YouTube e/ou Vimeo, que são mostrados juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. Pode exibir um máximo de quatro vídeos por oferta.

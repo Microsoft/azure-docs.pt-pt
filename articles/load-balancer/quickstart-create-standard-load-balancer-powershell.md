@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: bdacd752ab549d0caed4d3579ac8d0c3b2606477
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 3589aeb21053525e481f3448270d236265dd698e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925707"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815322"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -56,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 ```
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga pública (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -219,7 +219,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Antes de implementar VMs e testar o seu balanceador de carga, crie os recursos de rede virtual de suporte.
 
-### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Crie uma rede virtual e anfitrião do Azure Bastion
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Criar uma rede virtual com [a New-AzVirtualNetwork:](/powershell/module/az.network/new-azvirtualnetwork)
 
@@ -228,16 +228,13 @@ Criar uma rede virtual com [a New-AzVirtualNetwork:](/powershell/module/az.netwo
 * Subnet chamado **myBackendSubnet**.
 * Rede virtual **10.0.0.0/16**.
 * Sub-rede **10.0.0.0/24**.
-* Sub-rede de bastião **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -246,35 +243,10 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
-Crie o anfitrião do bastião com [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Chamado **myBastionHost.**
-* IP público do **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-$all = 'Static'
-$sku 'Standard'
-
-## Create public IP address for Bastion host ##
-$baspubip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Name $basip -Location $loc -AllocationMethod $all -Sku $sku
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $baspubip -VirtualNetwork $vnet
-```
-Levará alguns minutos para que o hospedeiro de bastião seja implantado na rede virtual.
 
 ### <a name="create-network-security-group"></a>Criar grupo de segurança de rede
 Crie um grupo de segurança de rede para definir ligações recebidas para a sua rede virtual.
@@ -285,7 +257,7 @@ Criar uma regra de grupo de segurança de rede com [New-AzNetworkSecurityRuleCon
 * Denominado **myNSGRuleHTTP**.
 * Descrição do **Allow HTTP**.
 * Acesso do **Allow**.
-* Protocolo **TCP**.
+* Protocolo **(*)**.
 * Direção **Entrada**.
 * Prioridade **2000**.
 * Fonte da **Internet.**
@@ -298,7 +270,7 @@ Criar uma regra de grupo de segurança de rede com [New-AzNetworkSecurityRuleCon
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -596,6 +568,7 @@ Crie uma nova configuração IP frontal com [Add-AzLoadBalancerFrontendIpConfig]
 ```azurepowershell-interactive
 ## Variables for the command ##
 $fen = 'myFrontEndOutbound'
+$lbn = 'myLoadBalancer'
 
 ## Get the load balancer configuration  and apply the frontend config##
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFrontendIPConfig -Name $fen -PublicIpAddress $publicIP | Set-AzLoadBalancer
@@ -734,7 +707,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 ```
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga pública (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -885,7 +858,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Antes de implementar VMs e testar o seu balanceador de carga, crie os recursos de rede virtual de suporte.
 
-### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Crie uma rede virtual e anfitrião do Azure Bastion
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Criar uma rede virtual com [a New-AzVirtualNetwork:](/powershell/module/az.network/new-azvirtualnetwork)
 
@@ -894,16 +867,13 @@ Criar uma rede virtual com [a New-AzVirtualNetwork:](/powershell/module/az.netwo
 * Subnet chamado **myBackendSubnet**.
 * Rede virtual **10.0.0.0/16**.
 * Sub-rede **10.0.0.0/24**.
-* Sub-rede de bastião **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -912,31 +882,9 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
-```
-Crie o anfitrião do bastião com [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Chamado **myBastionHost.**
-* IP público do **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-
-## Create public IP address for Bastion host ##
-$basip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Location $loc
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $basip -VirtualNetwork $vnet
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
 
 ### <a name="create-network-security-group"></a>Criar grupo de segurança de rede
@@ -948,7 +896,7 @@ Criar uma regra de grupo de segurança de rede com [New-AzNetworkSecurityRuleCon
 * Denominado **myNSGRuleHTTP**.
 * Descrição do **Allow HTTP**.
 * Acesso do **Allow**.
-* Protocolo **TCP**.
+* Protocolo **(*)**.
 * Direção **Entrada**.
 * Prioridade **2000**.
 * Fonte da **Internet.**
@@ -961,7 +909,7 @@ Criar uma regra de grupo de segurança de rede com [New-AzNetworkSecurityRuleCon
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -1236,51 +1184,74 @@ Leva alguns minutos para criar e configurar os três VMs.
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. [Inicie sessão](https://portal.azure.com) no portal do Azure.
+Utilize [a Configuração AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) para instalar a extensão de script personalizada. 
 
-2. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, a partir da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **myResourceGroupLB.**
+A extensão executa o PowerShell Add-WindowsFeature Web-Server para instalar o webserver IIS e, em seguida, atualiza a página Default.htm para mostrar o nome de anfitrião do VM:
 
-3. Na página **'Vista Geral',** selecione **Connect**e, em seguida, **Bastion**.
+### <a name="vm1"></a>VM1 
 
-4. Introduza o nome de utilizador e a palavra-passe introduzidos durante a criação de VM.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM1'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-5. Selecione **Ligar**.
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-6. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools**Windows  >  **PowerShell**.
+### <a name="vm2"></a>VM2 
 
-7. Na Janela PowerShell, executar os seguintes comandos para:
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM2'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-    * Instale o servidor IIS
-    * Remova o ficheiro de iisstart.htm predefinido
-    * Adicione um novo ficheiro iisstart.htm que exibe o nome do VM:
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-   ```powershell
-    
-    # install IIS server role
-     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # remove default htm file
-     Remove-Item  C:\inetpub\wwwroot\iisstart.htm
-    
-    # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-   ```
-8. Feche a sessão de Bastião com **o myVM1**.
+### <a name="vm3"></a>VM3
 
-9. Repita os passos 1 a 8 para instalar o IIS e o ficheiro iisstart.htm atualizado no **myVM2** e **myVM3**.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM3'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
+
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-1. No portal Azure, encontre o endereço IP público para o balancer de carga no ecrã **de visão geral.** Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione **myPublicIP**.
+Utilize [o Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) para obter o endereço IP público do equilibrista de carga:
 
-2. Copie o endereço IP público e cole-o na barra de endereço do browser. A página predefinida do servidor Web do IIS é apresentada no browser.
+```azurepowershell-interactive
+  ## Variables for command. ##
+  $rg = 'myResourceGroupLB'
+  $ipn = 'myPublicIP'
+    
+  Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
+```
+
+Copie o endereço IP público e cole-o na barra de endereço do browser. A página predefinida do servidor Web do IIS é apresentada no browser.
 
    ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o equilibrador de carga e os recursos restantes.
 
@@ -1303,5 +1274,5 @@ Neste arranque rápido
 Para saber mais sobre o Azure Load Balancer, continue até [Load Balancer frequently asked questions](load-balancer-faqs.md) [o que é o Equilibr de Carga Azure?](load-balancer-overview.md)
 
 * Saiba mais sobre [as zonas de Balancer e Disponibilidade](load-balancer-standard-availability-zones.md)de Carga.
-* Para mais informações sobre Azure Bastion, veja [o que é Azure Bastion?](https://docs.microsoft.com/azure/bastion/bastion-overview)
+
 

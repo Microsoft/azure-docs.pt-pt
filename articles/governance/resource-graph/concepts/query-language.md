@@ -1,14 +1,14 @@
 ---
 title: Entender a linguagem de consulta
 description: Descreve tabelas de gráficos de recursos e os tipos de dados, operadores e funções disponíveis de Kusto utilizáveis com o Azure Resource Graph.
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723439"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798555"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta de gráfico de recurso Azure
 
@@ -64,6 +64,25 @@ Resources
 > [!NOTE]
 > Ao limitar os `join` resultados `project` com, o imóvel utilizado para `join` relacionar as duas tabelas, _subscriçãoId_ no exemplo acima, deve ser incluído em `project` .
 
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propriedades estendidas (pré-visualização)
+
+Como uma funcionalidade de _pré-visualização,_ alguns dos tipos de recursos no Gráfico de Recursos têm propriedades adicionais relacionadas com o tipo disponíveis para consulta além das propriedades fornecidas pelo Azure Resource Manager. Este conjunto de valores, conhecido como _propriedades estendidas,_ existe num tipo de recurso suportado em `properties.extended` . Para ver quais os tipos de recursos que têm _propriedades estendidas,_ utilize a seguinte consulta:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Exemplo: Obtenha a contagem de máquinas virtuais `instanceView.powerState.code` por:
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
 ## <a name="resource-graph-custom-language-elements"></a>Elementos de linguagem personalizada do gráfico de recurso
 
 ### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Sintaxe de consulta partilhada (pré-visualização)
@@ -101,7 +120,7 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 
 |KQL |Consulta de amostra de gráfico de recurso |Notas |
 |---|---|---|
-|[contar](/azure/kusto/query/countoperator) |[Conde cofres-chave](../samples/starter.md#count-keyvaults) | |
+|[count](/azure/kusto/query/countoperator) |[Conde cofres-chave](../samples/starter.md#count-keyvaults) | |
 |[distinto](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um pseudónimo específico](../samples/starter.md#distinct-alias-values) | |
 |[estender](/azure/kusto/query/extendoperator) |[Contar máquinas virtuais por tipo de SO](../samples/starter.md#count-os) | |
 |[juntar-se](/azure/kusto/query/joinoperator) |[Cofre de chave com nome de assinatura](../samples/advanced.md#join) |Junte os sabores suportados: [interior,](/azure/kusto/query/joinoperator#default-join-flavor) [interior,](/azure/kusto/query/joinoperator#inner-join) [canhoto.](/azure/kusto/query/joinoperator#left-outer-join) Limite de 3 `join` numa única consulta. Estratégias de junção personalizadas, como a junção de transmissão, não são permitidas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
@@ -123,8 +142,7 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 O âmbito das subscrições a partir das quais os recursos são devolvidos por uma consulta dependem do método de acesso ao Gráfico de Recursos. A Azure CLI e Azure PowerShell preenchem a lista de subscrições a incluir no pedido com base no contexto do utilizador autorizado. A lista de subscrições pode ser definida manualmente para cada uma com as **subscrições** e parâmetros **de Subscrição,** respectivamente.
 Na REST API e em todos os outros SDKs, a lista de subscrições a incluir recursos deve ser explicitamente definida como parte do pedido.
 
-Como **pré-visualização,** a versão REST API `2020-04-01-preview` adiciona um imóvel para estender a consulta a um [grupo de gestão](../../management-groups/overview.md). Esta API de pré-visualização também torna opcional a propriedade de subscrição. Se nenhum do grupo de gestão ou da lista de subscrição for definido, o âmbito de consulta é todos os recursos a que o utilizador autenticado pode aceder. O novo `managementGroupId` imóvel leva o ID do grupo de gestão, que é diferente do nome do grupo de gestão.
-Quando `managementGroupId` especificados, os recursos das primeiras 5000 assinaturas na hierarquia do grupo de gestão especificada são incluídos. `managementGroupId` não pode ser usado ao mesmo tempo que `subscriptions` .
+Como **pré-visualização,** a versão REST API `2020-04-01-preview` adiciona um imóvel para estender a consulta a um [grupo de gestão](../../management-groups/overview.md). Esta API de pré-visualização também torna opcional a propriedade de subscrição. Se um grupo de gestão ou uma lista de subscrição não estiver definido, o âmbito de consulta é todos os recursos a que o utilizador autenticado pode aceder. O novo `managementGroupId` imóvel leva o ID do grupo de gestão, que é diferente do nome do grupo de gestão. Quando `managementGroupId` especificados, os recursos das primeiras 5000 assinaturas na hierarquia do grupo de gestão especificada são incluídos. `managementGroupId` não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: Consultar todos os recursos dentro da hierarquia do grupo de gestão denominado 'My Management Group' com ID 'myMG'.
 

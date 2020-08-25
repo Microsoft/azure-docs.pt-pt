@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 45e091fe1ed77a4efc90d426b1d9a2842ae00175
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: aa16952d2b2dff6f69abfc37090a9e00b7d48a27
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88725450"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751126"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair dados do cartão de visita utilizando a API do Reconhecimento de Formulários REST com Python
 
@@ -89,7 +89,7 @@ Para começar a analisar um cartão de visita, ligue para a API do **[Cartão De
 Receberá uma `202 (Success)` resposta que inclui um **cabeçalho operação-localização,** que o script irá imprimir na consola. Este cabeçalho contém um ID de funcionamento que pode utilizar para consultar o estado da operação assíncronea e obter os resultados. No seguinte valor de exemplo, a cadeia seguinte `operations/` é o ID de funcionamento.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults{operationID}
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Obtenha os resultados do cartão de visita
@@ -127,12 +127,124 @@ while n_try < n_tries:
 1. Volte a usar o `python` comando para executar a amostra. Por exemplo, `python form-recognizer-businesscards.py`.
 
 ### <a name="examine-the-response"></a>Examinar a resposta
-
-O script imprimirá respostas à consola até que a operação **do Cartão De Visita de Análise** esteja concluída. Em seguida, imprimirá os dados de texto extraídos no formato JSON. O `"recognitionResults"` campo contém todas as linhas de texto que foram extraídas do cartão de visita, e o campo contém `"understandingResults"` informações de chave/valor para as partes mais relevantes do cartão de visita.
-
 ![Um cartão de visita da empresa Contoso](../media/business-card-english.jpg)
 
-O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O `"understandingResults"` nó contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que você encontrará pares de chaves/valor úteis como o endereço de imposto, total, comerciante, e assim por diante.
+Esta amostra ilustra a saída JSON devolvida pelo Form Recogniser. Estas amostras foram truncadas para a legibilidade do exemplo.
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2020-06-04T08:19:29Z",
+    "lastUpdatedDateTime": "2020-06-04T08:19:35Z",
+    "analyzeResult": {
+        "version": "2.1.1",
+        "readResults": [
+            {
+                "page": 1,
+                "angle": -17.0956,
+                "width": 4032,
+                "height": 3024,
+                "unit": "pixel"
+            }
+        ],
+        "documentResults": [
+            {
+                "docType": "prebuilt:businesscard",
+                "pageRange": [
+                    1,
+                    1
+                ],
+                "fields": {
+                    "ContactNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "object",
+                                "valueObject": {
+                                    "FirstName": {
+                                        "type": "string",
+                                        "valueString": "Avery",
+                                        "text": "Avery",
+                                        "boundingBox": [
+                                            703,
+                                            1096,
+                                            1134,
+                                            989,
+                                            1165,
+                                            1109,
+                                            733,
+                                            1206
+                                        ],
+                                        "page": 1
+                                },
+                                "text": "Dr. Avery Smith",
+                                "boundingBox": [
+                                    419.3,
+                                    1154.6,
+                                    1589.6,
+                                    877.9,
+                                    1618.9,
+                                    1001.7,
+                                    448.6,
+                                    1278.4
+                                ],
+                                "confidence": 0.993
+                            }
+                        ]
+                    },
+                    "Emails": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "avery.smith@contoso.com",
+                                "text": "avery.smith@contoso.com",
+                                "boundingBox": [
+                                    2107,
+                                    934,
+                                    2917,
+                                    696,
+                                    2935,
+                                    764,
+                                    2126,
+                                    995
+                                ],
+                                "page": 1,
+                                "confidence": 0.99
+                            }
+                        ]
+                    },
+                    "Websites": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "https://www.contoso.com/",
+                                "text": "https://www.contoso.com/",
+                                "boundingBox": [
+                                    2121,
+                                    1002,
+                                    2992,
+                                    755,
+                                    3014,
+                                    826,
+                                    2143,
+                                    1077
+                                ],
+                                "page": 1,
+                                "confidence": 0.995
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+O script imprimirá respostas à consola até que a operação **do Cartão De Visita de Análise** esteja concluída. O `"readResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O `"documentResults"` nó contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que encontrará pares de chaves/valor úteis como o nome da empresa, nome próprio, apelido, telefone e assim por diante.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
