@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717581"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756695"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -111,25 +111,16 @@ Se a máquina tiver atualmente uma identidade de sistema atribuída ao utilizado
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração do hóspede
 
-Cada auditoria executada pela Configuração de Hóspedes requer duas definições de política, uma definição **deployIfNotExists** e uma definição **AuditIfNotExists.** As definições de política **deployIfNotExists** gerem dependências para a realização de auditorias em cada máquina.
+As políticas de configuração do hóspede utilizam o efeito **AuditIfNotExists.** Quando a definição é atribuída, um serviço back-end lida automaticamente com o ciclo de vida de todos os requisitos no fornecedor de `Microsoft.GuestConfiguration` recursos Azure.
 
-A definição de política **implementarIfNotExists** valida e corrige os seguintes itens:
+As políticas **auditIfNotExists** não devolverão os resultados de conformidade até que todos os requisitos sejam cumpridos na máquina. As necessidades são descritas na secção [Os requisitos de implantação das máquinas virtuais Azure](#deploy-requirements-for-azure-virtual-machines)
 
-- Validar a máquina foi atribuída uma configuração para avaliar. Se não houver nenhuma atribuição presente, obtenha a atribuição e prepare a máquina através de:
-  - Autenticação na máquina utilizando uma [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Instalação da versão mais recente da extensão **Microsoft.GuestConfiguration**
-  - Instalação de ferramentas e dependências de [validação,](#validation-tools) se necessário
+> [!IMPORTANT]
+> Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e os intiaitivos estão `[Deprecated]` rotulados, mas as atribuições existentes continuarão a funcionar.
+>
+> É necessário um passo manual. Se já atribuiu as iniciativas políticas na `Guest Configuration` categoria, elimine a atribuição de políticas e atribua a nova definição. As políticas de configuração do hóspede têm um padrão de nome da seguinte forma: `Audit <Windows/Linux> machines that <non-compliant condition>`
 
-Se a atribuição **deployIfNotExists** não for compatível, pode ser utilizada uma tarefa de [reparação.](../how-to/remediate-resources.md#create-a-remediation-task)
-
-Uma vez que a atribuição **deployIfNotExists** é compatível, a atribuição de política **AuditIfNotExists** determina se a atribuição do hóspede é compatível ou não conforme. A ferramenta de validação fornece os resultados ao cliente de Configuração de Hóspedes. O cliente reencaminha os resultados para a Extensão do Hóspede, o que os disponibiliza através do fornecedor de recursos de Configuração de Hóspedes.
-
-A Azure Policy utiliza os fornecedores de recursos de configuração de hóspedes **complianceStatus** propriedade para reportar a conformidade no nó **conformidade.** Para obter mais informações, consulte [obter dados de conformidade.](../how-to/get-compliance-data.md)
-
-> [!NOTE]
-> A política **deployIfNotExists** é necessária para que a política **auditIfNotExists** devolva resultados. Sem os **DeployIfNotExists,** a política **auditIfNotExists** mostra os recursos "0 de 0" como estado.
-
-Todas as políticas incorporadas para configuração de hóspedes estão incluídas numa iniciativa para agrupar as definições de utilização em atribuições. A iniciativa incorporada denominada _ \[ Preview : Audit Password security \] inside Linux and Windows machines_ contém 18 políticas. Existem seis pares **DeployIfNotExists** e **AuditIfNotExists** para Windows e três pares para Linux. A lógica [de definição](definition-structure.md#policy-rule) de política valida que apenas o sistema operativo-alvo é avaliado.
+A Azure Policy utiliza a conformidade do fornecedor de recursos de configuração do **hóspedeSse** a propriedade para reportar a conformidade no nó **compliance.** Para obter mais informações, consulte [obter dados de conformidade.](../how-to/get-compliance-data.md)
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 

@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263406"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757086"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 
@@ -72,7 +72,7 @@ Se acidentalmente apagar um ficheiro e quiser restaurá-lo na mesma máquina (a 
 
 9. Quando terminar, na página **"Procurar e Recuperar Ficheiros",** selecione **Desmonte**. Em seguida, **selecione Sim** para confirmar que deseja desmontar o volume.
 
-    ![Screenshot do Assistente de Dados Recuperar A página de Ficheiros de Busca e Recuperação (restaurar para a mesma máquina)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Screenshot de Recuperar Assistente de Dados Navegar e Recuperar Ficheiros (restaurar a mesma máquina) - Confirmar Volume de Recuperação Desmonte](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Se não selecionar **Unmount,** o volume de recuperação permanecerá montado durante 6 horas a partir do momento em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de ficheiro em curso. Não serão executadas operações de backup enquanto o volume estiver montado. Qualquer operação de reserva programada para ser executada durante o período em que o volume é montado funcionará após o volume de recuperação ser desmontado.

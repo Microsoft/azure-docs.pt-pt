@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperfq1
+ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737636"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757817"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
 
@@ -56,11 +57,11 @@ Quando criar um novo cluster Spark, pode selecionar o Azure Blob Storage ou o Az
 
 | Store Type | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
-| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
-| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| HDFs locais | **hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
+| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Yes | Aglomerado transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Yes | Aglomerado transitório |
+| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
+| HDFs locais | **hdfs:**//url/ | **Mais rápido** | No | Cluster interativo 24/7 |
 
 Para obter uma descrição completa das opções de armazenamento, consulte opções de [armazenamento compare para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
@@ -77,7 +78,7 @@ A faísca fornece os seus próprios mecanismos nativos de caching, que podem ser
     * Usa a memória e o caching SSD.
 
 * HDFS local (recomendado)
-    * `hdfs://mycluster`caminho.
+    * `hdfs://mycluster` caminho.
     * Usa caching SSD.
     * Os dados em cache serão perdidos quando eliminar o cluster, exigindo uma reconstrução de cache.
 
@@ -86,7 +87,7 @@ A faísca fornece os seus próprios mecanismos nativos de caching, que podem ser
 Os trabalhos de faísca são distribuídos, por isso a serialização adequada dos dados é importante para o melhor desempenho.  Existem duas opções de serialização para a Spark:
 
 * A serialização de Java é o padrão.
-* `Kryo`a serialização é um formato mais recente e pode resultar numa serialização mais rápida e compacta do que java.  `Kryo`requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serializáveis.
+* `Kryo` a serialização é um formato mais recente e pode resultar numa serialização mais rápida e compacta do que java.  `Kryo` requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serializáveis.
 
 ## <a name="use-bucketing"></a>Utilizar os registos
 
@@ -100,7 +101,7 @@ Algumas características avançadas de balde são:
 
 Pode usar divisórias e baldes ao mesmo tempo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)

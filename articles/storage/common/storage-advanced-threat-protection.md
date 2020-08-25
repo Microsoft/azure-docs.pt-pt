@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e037607d1f86e6df4d3f5b12e29ba8fde447ebc9
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118426"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757936"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure a proteção avançada de ameaças para o armazenamento de Azure
 
@@ -32,6 +32,17 @@ A proteção avançada de ameaças para o Azure Storage está atualmente dispon�
 Contas com espaços hierárquicos habilitados para operações de suporte de armazenamento de data lake usando tanto as APIs de armazenamento de Azure Blob como as APIs de armazenamento de data lake. A ações de ficheiros Azure suportam transações sobre SMB.
 
 Para obter detalhes sobre os preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+A lista que se segue resume a disponibilidade de proteção avançada de ameaças para o armazenamento Azure:
+
+- Estado de libertação:
+  - [Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
+  - [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização suporta transações SMB e REST)
+  - Azure Data Lake Storage Gen2 (pré-visualização)
+- Nuvens:<br>
+    nuvens comerciais ✔<br>
+    ✔ Gov dos EUA<br>
+    ✘ China Gov, Outro Gov
 
 ## <a name="set-up-advanced-threat-protection"></a>Criar proteção avançada de ameaças
 
@@ -126,7 +137,7 @@ Pode rever e gerir os seus atuais alertas de segurança a partir do azulejo de [
 
 Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Para obter uma lista de alertas para o Armazenamento Azure, consulte a secção **de Armazenamento** na [proteção de ameaças para serviços de dados no Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [Registos em contas de Armazenamento Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 * Saiba mais sobre [o Azure Security Center](../../security-center/security-center-intro.md)

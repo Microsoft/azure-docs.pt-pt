@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749136"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757647"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
 
@@ -158,12 +158,12 @@ Para atualizar a extensão CLI de pré-visualização aks, utilize os seguintes 
 az extension update --name aks-preview
 ```
 
-### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Utilize a imagem de GPU especializada da AKS em novos clusters (pré-visualização)
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Utilize a imagem de GPU especializada da AKS em novos clusters (pré-visualização)    
 
 Configure o cluster para usar a imagem de GPU especializada da AKS quando o cluster é criado. Use a `--aks-custom-headers` bandeira para os nós de agente da GPU no seu novo cluster para usar a imagem de GPU especializada da AKS.
 
 ```azure-cli
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
 Se pretender criar um cluster utilizando as imagens AKS regulares, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada. Você também pode optar por adicionar piscinas de nó de gPU mais especializadas, conforme abaixo.
@@ -178,6 +178,12 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 ```
 
 Se quiser criar uma piscina de nó usando as imagens AKS regulares, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada. 
+
+> [!NOTE]
+> Se o seu sku gpu necessitar de máquinas virtuais de geração 2, pode criar fazer:
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Confirme que as GPUs são agendaveis
 

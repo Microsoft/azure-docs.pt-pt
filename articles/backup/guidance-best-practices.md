@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650881"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757596"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -22,7 +22,7 @@ O público-alvo principal deste artigo são os administradores de TI e aplicaç�
 
 ### <a name="how-this-article-is-organized"></a>Como este artigo é organizado
 
-Embora seja fácil começar a proteger infraestruturas e aplicações no Azure, quando você garante que os recursos Azure subjacentes são configurado corretamente e sendo usados da melhor forma, você pode acelerar o seu tempo para valorizar. Este artigo abrange uma breve visão geral das considerações de design e orientação para configurar o idealmente a sua implementação de Backup Azure. Examina os componentes principais (por exemplo, Cofre de Serviços de Recuperação, Política de Backup) e conceitos (por exemplo, governação) e como pensar neles e suas capacidades com ligações à documentação detalhada do produto.
+Embora seja fácil começar a proteger infraestruturas e aplicações no Azure, quando você garante que os recursos Azure subjacentes são configurado corretamente e sendo usados da melhor forma, você pode acelerar o seu tempo para valorizar. Este artigo abrange uma breve visão geral das considerações de design e orientação para configurar o idealmente a sua implementação de Backup Azure. Examina os componentes principais (por exemplo, cofre de serviços de recuperação, política de backup) e conceitos (por exemplo, governação) e como pensar neles e suas capacidades com ligações à documentação detalhada do produto.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -48,7 +48,7 @@ O Azure Backup permite a proteção de dados para várias cargas de trabalho (no
 
 ### <a name="management-plane"></a>Plano de gestão
 
-* **Controlo de acesso** – O cofre do Serviço de Recuperação fornece as capacidades de gestão e é acessível através do portal Azure, SDK, CLI e até mesmo ASE REST. É também um limite RBAC, proporcionando-lhe a opção de restringir o acesso a backups apenas para administradores de backup autorizados.
+* **Controlo de acessos** – O cofre dos Serviços de Recuperação fornece as capacidades de gestão e é acessível através do portal Azure, SDK, CLI e até mesmo ASE REST. É também um limite RBAC, proporcionando-lhe a opção de restringir o acesso a backups apenas para administradores de backup autorizados.
 
 * **Gestão de** políticas – As políticas de backup do Azure dentro de cada cofre definem quando as cópias de segurança devem ser ativadas e quanto tempo precisam de ser mantidas. Também pode gerir estas políticas e aplicá-las em vários itens.
 
@@ -72,7 +72,7 @@ Você pode usar um único cofre ou vários cofres para organizar e gerir o seu b
 
 * Se as suas cargas de trabalho estiverem distribuídas por subscrições, então pode criar vários cofres, um ou mais por subscrição.
   * Para simplificar a monitorização das atividades operacionais em todos os cofres, subscrições e inquilinos, você pode usar backup Explorer e relatórios. [Saiba mais aqui](monitor-azure-backup-with-backup-explorer.md) para obter uma visão agregada.
-  * Se precisa de uma política consistente através de cofres, então pode usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma definição de [Política Azure](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. A sua atribuição pode [atribuir](../governance/policy/assign-policy-portal.md) esta definição de Política Azure a um determinado âmbito (subscrição ou RG), de modo a que implemente um recurso de "política de backup" a todos os cofres de serviços de recuperação no âmbito da atribuição da Política Azure. As definições da política de backup (tais como frequência de backup, retenção, e assim por diante) devem ser especificadas pelo utilizador como parâmetros na atribuição da Política Azure.
+  * Se precisa de uma política consistente através de cofres, então pode usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma definição de [Política Azure](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. A designação pode [atribuir](../governance/policy/assign-policy-portal.md) esta definição de Política Azure a um determinado âmbito (subscrição ou RG), de modo a que implemente um recurso de "política de backup" a todos os cofres dos Serviços de Recuperação no âmbito da atribuição da Política Azure. As definições da política de backup (tais como frequência de backup, retenção, e assim por diante) devem ser especificadas pelo utilizador como parâmetros na atribuição da Política Azure.
 
 * À medida que a sua pegada organizacional aumenta, talvez queira mover cargas de trabalho através de subscrições pelas seguintes razões: alinhar por política de backup, consolidar cofres, trocar por redundância mais baixa para economizar no custo (passar de GRS para LRS).  O Azure Backup suporta a movimentação de um cofre de Serviços de Recuperação através de subscrições da Azure ou para outro grupo de recursos dentro da mesma subscrição. [Saiba mais aqui.](backup-azure-move-recovery-services-vault.md)
 
@@ -143,7 +143,7 @@ Para ajudá-lo a proteger os seus dados de backup e a satisfazer as necessidades
 
 * O Azure Backup tem vários controlos de segurança incorporados no serviço para prevenir, detetar e responder a vulnerabilidades de segurança (Saiba mais)
 
-* As contas de armazenamento utilizadas pelos cofres dos serviços de recuperação estão isoladas e não podem ser acedidas pelos utilizadores para fins maliciosos. O acesso só é permitido através de operações de gestão de Backup Azure, como a restauração.
+* As contas de armazenamento utilizadas pelos cofres dos Serviços de Recuperação estão isoladas e não podem ser acedidas pelos utilizadores para fins maliciosos. O acesso só é permitido através de operações de gestão de Backup Azure, como a restauração.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Encriptação de dados em trânsito e em repouso
 
@@ -247,7 +247,7 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
 
 * O Azure Backup fornece um mecanismo de notificação **de alerta incorporado** via e-mail para falhas, avisos e operações críticas. Pode especificar endereços de e-mail individuais ou listas de distribuição para ser notificado quando um alerta é gerado. Também pode escolher se deve ser notificado para cada alerta individual ou agrupar-se numa digestão de hora a hora e, em seguida, ser notificado.
   * Estes alertas são definidos pelo serviço e fornecem suporte para cenários limitados - falhas de backup/restauro, Parar a proteção com retenção de dados/proteção stop com dados de eliminação, e assim por diante. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)
-  * Se for realizada uma operação destrutiva como a proteção stop com os dados de eliminação, é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre do Serviço de Recuperação.
+  * Se for realizada uma operação destrutiva como a proteção stop com os dados de eliminação, é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre dos Serviços de Recuperação.
   * Certas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar que se sobreponha a alertas levantados para cada falha, os alertas são consolidados. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)
   * Os alertas incorporados não podem ser personalizados e estão restritos a e-mails definidos no portal Azure.
 

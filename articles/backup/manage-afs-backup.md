@@ -3,12 +3,12 @@ title: Gerir cópias de segurança de partilha de ficheiros do Azure
 description: Este artigo descreve tarefas comuns para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073303"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757630"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerir cópias de segurança de partilha de ficheiros do Azure
 
@@ -143,7 +143,7 @@ Para eliminar dados de backup para a partilha de ficheiros Azure:
 
 ## <a name="unregister-a-storage-account"></a>Não registar uma conta de armazenamento
 
-Para proteger as suas ações de ficheiros numa determinada conta de armazenamento utilizando um cofre de serviços de recuperação diferente, primeiro [pare a proteção para todas as ações de ficheiros](#stop-protection-on-a-file-share) nessa conta de armazenamento. Em seguida, desagrega a conta do cofre de serviços de recuperação atual utilizado para proteção.
+Para proteger as suas ações de ficheiros numa determinada conta de armazenamento utilizando um cofre diferente dos Serviços de Recuperação, [primeiro pare a proteção para todas as ações de ficheiros](#stop-protection-on-a-file-share) nessa conta de armazenamento. Em seguida, desagrega a conta do cofre atual dos Serviços de Recuperação utilizado para proteção.
 
 O procedimento seguinte pressupõe que a proteção foi interrompida para todas as ações de ficheiro na conta de armazenamento que pretende não registar.
 

@@ -3,12 +3,12 @@ title: Apoie um SQL Server VM a partir do painel VM
 description: Neste artigo, aprenda a fazer o back bases de dados do SQL Server em máquinas virtuais Azure a partir do painel VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227249"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755250"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Apoie um Servidor SQL a partir do painel VM
 
@@ -37,7 +37,7 @@ Pode ativar a cópia de segurança no seu SQL Server VM a partir do painel **de 
     >[!NOTE]
     >Não vê o estandarte? O banner é apresentado apenas para os VMs do SqL Server que são criados usando imagens do Azure Marketplace. É adicionalmente exibido para os VMs que estão protegidos com cópia de segurança Azure VM. Para outras imagens, pode configurar backup como explicado [aqui](backup-sql-server-database-azure-vms.md).
 
-2. Insira o nome do cofre dos serviços de recuperação. Um cofre é uma entidade lógica para armazenar e gerir todos os seus backups. Se criar um novo cofre:
+2. Insira o nome do cofre dos Serviços de Recuperação. Um cofre é uma entidade lógica para armazenar e gerir todos os seus backups. Se criar um novo cofre:
 
     - Será criado na mesma subscrição e região que o SQL Server VM que está a proteger.
     - Será criado com a definição de armazenamento geo-redundante (GRS) para todos os backups. Se desejar alterar o tipo de redundância, deve fazê-lo antes de proteger o VM. Para obter mais informações, consulte [este artigo](backup-create-rs-vault.md#set-storage-redundancy).
@@ -62,14 +62,14 @@ Pode ativar a cópia de segurança no seu SQL Server VM a partir do painel **de 
 
     ![A prontidão de backup não está pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. Para mais operações ou monitorização que precisa de fazer no SQL Server VM, vá ao cofre correspondente do Serviço de Recuperação. Vá a **Itens de Reserva** para ver todas as bases de dados apoiadas neste cofre, e desencadeie operações como backup a pedido e restauro. Da mesma forma, vá ao **Backup Jobs** para [monitorizar](manage-monitor-sql-database-backup.md) postos de trabalho correspondentes a operações como proteção de configuração, backup e restauro.
+8. Para mais operações ou monitorização que precisa de fazer no SQL Server VM, vá ao cofre correspondente dos Serviços de Recuperação. Vá a **Itens de Reserva** para ver todas as bases de dados apoiadas neste cofre, e desencadeie operações como backup a pedido e restauro. Da mesma forma, vá ao **Backup Jobs** para [monitorizar](manage-monitor-sql-database-backup.md) postos de trabalho correspondentes a operações como proteção de configuração, backup e restauro.
 
     ![Ver bases de dados de backup em Itens de Backup](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
 >A cópia de segurança não é configurada automaticamente em nenhuma das novas instâncias do SQL Server que podem ser adicionadas posteriormente ao VM protegido. Para configurar o backup das instâncias recém-adicionadas, você precisa ir ao cofre para o qual o VM está registrado e seguir os passos listados [aqui](backup-sql-server-database-azure-vms.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 

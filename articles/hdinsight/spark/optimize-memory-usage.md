@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 06bb8f2005dae9e36fe55547a31c81c36d0c7068
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperfq1
+ms.openlocfilehash: 056060f8b94747651c78c757150d5e5a5982c7af
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737653"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757783"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Otimização do uso da memória para Apache Spark
 
@@ -45,7 +46,7 @@ Para endereçar mensagens 'fora da memória', tente:
 
 Para obter etapas adicionais de resolução de [problemas, consulte exceções outOfMemoryError para Apache Spark em Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o armazenamento de dados para Apache Spark](optimize-data-storage.md)

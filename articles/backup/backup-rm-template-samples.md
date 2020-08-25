@@ -4,12 +4,12 @@ description: Modelos de Gestor de Recursos Azure para uso com cofres de serviço
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170994"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755199"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Azure Backup
 
@@ -28,5 +28,5 @@ A tabela seguinte inclui ligações para modelos do Azure Resource Manager para 
 |**Monitorize trabalhos de backup** |  |
 | [Use registos do Monitor Azure com backup Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implementa registos do Azure Monitor com Azure Backup, que permite monitorizar backup e restaurar trabalhos, alertas de backup e o armazenamento em Nuvem utilizado nos cofres dos Serviços de Recuperação.|  
 |**Back up SQL Server em Azure VM** |  |
-| [Back up SQL Server em Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | O modelo cria uma política de segurança específica do cofre de serviços de recuperação e da carga de trabalho. Regista o VM com o serviço de backup Azure e a Proteção de Configurações nesse VM. Atualmente, funciona apenas para imagens da SqL Gallery. |
+| [Back up SQL Server em Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | O modelo cria uma abóbada de serviços de recuperação e uma política de backup específica da carga de trabalho. Regista o VM com o serviço de backup Azure e a Proteção de Configurações nesse VM. Atualmente, funciona apenas para imagens da SqL Gallery. |
 |   |   |

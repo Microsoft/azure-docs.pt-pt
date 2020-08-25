@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6f5e05e9bfea6b14e46bbde8d17fba2d2a3b7b07
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c689b31f73d732dda37b64793f988febc409e6da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429507"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797960"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site da VuePress para visualização de aplicações web estáticas Azure
 
@@ -139,7 +139,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática de Web
 
    :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
-### <a name="build"></a>Compilação
+### <a name="build"></a>Compilar
 
 Em seguida, adiciona definições de configuração que o processo de construção utiliza para construir a sua aplicação. As seguintes definições configuram o ficheiro de fluxo de trabalho gitHub Action.
 
@@ -169,7 +169,7 @@ Um valor para _a localização_ da API não é necessário, uma vez que não est
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

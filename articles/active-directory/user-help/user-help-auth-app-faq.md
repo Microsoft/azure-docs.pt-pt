@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 07/16/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 34720a10796a1a215d541baef9f2c225857d3bc0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423631"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799473"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -58,12 +58,12 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 | Os meus códigos de senha única (OTP) não estão a funcionar. O que devo fazer? | Certifique-se de que a data e a hora do seu dispositivo estão corretas e que estão a ser sincronizadas automaticamente. Se a data e a hora estiverem erradas, ou fora de sincronização, o código não funcionará. |
 | O sistema operativo Windows 10 Mobile foi deprecado em dezembro de 2019. Será que o Autenticador Microsoft nos sistemas operativos Windows Mobile também será depreciado? | O autenticador em todos os sistemas operativos Windows Mobile não será suportado após 28 de fevereiro de 2020. Os utilizadores não serão elegíveis para receber quaisquer novas atualizações para a aplicação postar a data acima referida. Depois de 28 de fevereiro de 2020, os serviços da Microsoft que atualmente suportam autenticações utilizando o Microsoft Authenticator em todos os sistemas operativos Windows Mobile começarão a retirar o seu suporte. Para autenticar os serviços da Microsoft, encorajamos todos os nossos utilizadores a mudarem para um mecanismo de autenticação alternativo antes desta data. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver dificuldades em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de verificação do código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de [códigos de verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
 - Se quiser mais informações sobre a verificação em duas etapas, consulte [Configurar a minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
 
-- Se quiser mais informações sobre informações de segurança, consulte [a visão geral da informação de segurança (pré-visualização)](user-help-security-info-overview.md)
+- Se quiser mais informações sobre informações de segurança, consulte [a visão geral da informação de segurança (pré-visualização)](./security-info-setup-signin.md)
 
 - Se a sua pergunta não foi respondida aqui, queremos ouvir-te. Vá ao fórum da [aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) para publicar a sua pergunta e obter ajuda da comunidade, ou deixe um comentário nesta página.

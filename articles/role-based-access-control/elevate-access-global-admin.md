@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792001"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799337"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 
@@ -144,6 +144,22 @@ Para remover a atribuição de função do Administrador de Acesso ao Utilizador
     ```
 
 ## <a name="azure-cli"></a>CLI do Azure
+
+### <a name="elevate-access-for-a-global-administrator"></a>Elevar o acesso a um administrador global
+
+Utilize os seguintes passos básicos para elevar o acesso a um Administrador Global utilizando o Azure CLI.
+
+1. Utilize o comando [de repouso az](/cli/azure/reference-index?view=azure-cli-latest#az-rest) para ligar para o `elevateAccess` ponto final, o que lhe confere a função de Administrador de Acesso ao Utilizador no âmbito raiz `/` ().
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Faça as alterações necessárias para fazer no acesso elevado.
+
+    Para obter informações sobre a atribuição de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o CLI Azure](role-assignments-cli.md).
+
+1. Execute os passos numa secção posterior para remover o seu acesso elevado.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Atribuição de funções de lista no âmbito raiz (/)
 
@@ -275,7 +291,7 @@ Quando `elevateAccess` ligar, crie uma atribuição de função para si mesmo, p
     ```
         
     >[!NOTE] 
-    >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior devolver demasiadas atribuições, também pode consultar todas as atribuições apenas ao nível do diretório, e depois filtrar os resultados:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior devolver demasiadas atribuições, também pode consultar todas as atribuições apenas ao nível do diretório, e depois filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
             
 1. As chamadas anteriores devolvem uma lista de atribuições de papéis. Encontre a atribuição de funções onde está o âmbito `"/"` e o fim com o `roleDefinitionId` iD de nome de função que encontrou no passo 1 e `principalId` corresponda ao objectId do administrador de diretório. 
     
@@ -311,7 +327,7 @@ Quando `elevateAccess` ligar, crie uma atribuição de função para si mesmo, p
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)

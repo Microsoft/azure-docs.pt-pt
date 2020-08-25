@@ -1,16 +1,16 @@
 ---
-title: Quickstart - Back up a VM with the Azure portal
-description: Neste Quickstart, aprenda a criar um cofre de Serviços de Recuperação, permita proteção num VM Azure, e faça backup o VM, com o portal Azure.
+title: Quickstart - Apoiar um VM com o portal Azure
+description: Neste Quickstart, aprenda a criar um cofre dos Serviços de Recuperação, permita a proteção num VM Azure e faça backup no VM, com o portal Azure.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656923"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757613"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -24,7 +24,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma VM para fazer uma cópia de segurança
 
-Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Recuperação.
+Crie uma cópia de segurança diária simples para um cofre dos Serviços de Recuperação.
 
 1. No menu do lado esquerdo, selecione **Máquinas virtuais**.
 2. Na lista, escolha uma VM da qual pretende fazer uma cópia de segurança. Se utilizou os comandos de início rápido de VM de exemplo, a VM tem o nome *myVM* no grupo de recursos *myResourceGroup*.
@@ -65,11 +65,11 @@ Na janela **Cópia de segurança** da VM, o estado da cópia de segurança e o n
 
 Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados.
 
-Se vai continuar num tutorial de backup que explique como restaurar os dados para o seu VM, salte os passos nesta secção e vá para [os próximos passos](#next-steps).
+Se vai continuar com um tutorial de backup que explica como restaurar os dados para o seu VM, salte os passos nesta secção e vá para os [próximos passos](#next-steps).
 
 1. Selecione a opção **Cópia de segurança** para a sua VM.
 
-2. Escolha **parar a cópia de segurança**.
+2. Escolha **Parar de fazer backup**.
 
     ![Parar a cópia de segurança da VM a partir do portal do Azure](./media/quick-backup-vm-portal/stop-backup.png)
 
@@ -85,7 +85,7 @@ Se vai continuar num tutorial de backup que explique como restaurar os dados par
 
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 

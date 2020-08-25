@@ -4,16 +4,16 @@ description: Neste artigo, aprenda a gerir backup e restaurar as operações de 
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079337"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757256"
 ---
-# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre de serviços de recuperação de Azure usando REST API
+# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre dos Serviços de Recuperação Azure usando REST API
 
-Os passos para criar um Cofre de Serviços de Recuperação Azure usando a API REST são delineados na criação de documentação [API de REPOUSO DE COFRE.](/rest/api/recoveryservices/vaults/createorupdate) Usemos este documento como referência para criar um cofre chamado "testVault" em "West US".
+Os passos para criar um cofre dos Serviços de Recuperação Azure usando a API REST são delineados na criação de documentação [API de REPOUSO DO COFRE.](/rest/api/recoveryservices/vaults/createorupdate) Usemos este documento como referência para criar um cofre chamado "testVault" em "West US".
 
 Para criar ou atualizar um cofre dos Serviços de Recuperação Azure, utilize a seguinte operação *PUT.*
 
@@ -30,7 +30,7 @@ Os seguintes cabeçalhos são obrigatórios:
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Authorization:* | Necessário. Definido como um [token de acesso `Bearer` ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter mais informações sobre como criar o pedido, consulte [Componentes de um pedido/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre como criar o pedido, consulte [Componentes d
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-|Name  |Necessário  |Tipo  |Description  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   Cadeia      |  ETag opcional       |
 |localização     |  true       |Cadeia         |   Localização de recursos      |
@@ -66,7 +66,7 @@ O seguinte exemplo do corpo é usado para criar um cofre em "West US". Especifiq
 
 Existem duas respostas bem sucedidas para a operação para criar ou atualizar um cofre dos Serviços de Recuperação:
 
-|Nome  |Tipo  |Description  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Criado     | [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

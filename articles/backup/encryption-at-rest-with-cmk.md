@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589610"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763121"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -55,7 +55,7 @@ Esta secção envolve os seguintes passos:
 
 É necessário que todos estes passos sejam seguidos na ordem acima mencionada para alcançar os resultados pretendidos. Cada passo é discutido em detalhe abaixo.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Ativar a identidade gerida para o cofre dos serviços de recuperação
+### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Ativar a identidade gerida para o cofre dos Serviços de Recuperação
 
 O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar o cofre dos Serviços de Recuperação para aceder às chaves de encriptação armazenadas no Cofre da Chave Azure. Para ativar a identidade gerida para o cofre dos Serviços de Recuperação, siga os passos abaixo mencionados.
 
@@ -171,7 +171,7 @@ Para atribuir a chave:
 >[!NOTE]
 > Este processo permanece o mesmo quando pretende atualizar/alterar a chave de encriptação. Se desejar atualizar e utilizar uma chave de outro Cofre-Chave (diferente da que está a ser utilizada atualmente), certifique-se de que:
 >
-> - O Cofre-Chave está localizado na mesma região que o Cofre dos Serviços de Recuperação
+> - O Cofre-Chave está localizado na mesma região que o cofre dos Serviços de Recuperação
 >
 > - O cofre Key tem proteção de eliminação e purga ativada
 >

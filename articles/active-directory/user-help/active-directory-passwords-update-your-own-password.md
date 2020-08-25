@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799048"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reinicie o seu trabalho ou senha escolar usando informações de segurança
 
-Se esqueceu do seu trabalho ou palavra-passe escolar, nunca obteve uma palavra-passe da sua organização, ou foi bloqueado fora da sua conta, pode usar a sua informação de segurança e o seu dispositivo móvel para redefinir o seu trabalho ou senha escolar. O seu administrador deve ligar esta funcionalidade para que possa configurar as suas informações e [redefinir a sua própria senha.](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register)
+Se esqueceu do seu trabalho ou palavra-passe escolar, nunca obteve uma palavra-passe da sua organização, ou foi bloqueado fora da sua conta, pode usar a sua informação de segurança e o seu dispositivo móvel para redefinir o seu trabalho ou senha escolar. O seu administrador deve ligar esta funcionalidade para que possa configurar as suas informações e [redefinir a sua própria senha.](./active-directory-passwords-reset-register.md)
 
-Se conhece a sua palavra-passe e pretende alterá-la, consulte as secções de [passos](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de senha deste artigo.
+Se conhece a sua palavra-passe e pretende alterá-la, consulte as secções de [passos](#how-to-change-your-password) de senha deste artigo.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem utilizar uma palavra-passe de trabalho ou conta escolar esquecida ou desconhecida. Se for um administrador à procura de informações sobre como ligar a palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte o [reset da palavra-passe de autosserviço do Azure Ad deploy e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se a utilizadores que tentem utilizar uma palavra-passe de trabalho ou conta escolar esquecida ou desconhecida. Se for um administrador à procura de informações sobre como ligar a palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte o [reset da palavra-passe de autosserviço do Azure Ad deploy e outros artigos](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Como redefinir ou desbloquear a sua palavra-passe para uma conta de trabalho ou escola
 
@@ -162,8 +162,8 @@ Eis alguns casos de erro comuns e as suas soluções:
 |Depois de introduzir o meu ID do Utilizador, recebo um erro que diz: "A sua conta não está ativada para reset de palavra-passe."|O seu administrador ainda não criou a sua conta para que possa redefinir a sua própria senha.|O seu administrador não ligou a palavra-passe para a sua organização a partir do link "Não pode aceder à sua conta", ou não o licenciou para utilizar a funcionalidade.<br><br> Para redefinir a sua palavra-passe, tem de selecionar o "link de contacto com um administrador" para enviar um e-mail ao administrador da sua empresa e informá-los de que pretende redefinir a sua palavra-passe.|
 |Depois de introduzir o meu ID do utilizador, recebo um erro que diz: "Não conseguimos verificar a sua conta."|O processo de login não foi capaz de verificar a informação da sua conta.|Há duas razões para estar a ver esta mensagem.<br><br>1. O seu administrador ligou a palavra-passe para a sua organização, mas não se registou para utilizar o serviço. Para se registar para reiniciar a palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Configurar informações de segurança para utilizar uma aplicação autenticadora (pré-visualização)](security-info-setup-auth-app.md), [Configurar informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Configurar informações](security-info-setup-text-msg.md)de segurança para utilizar mensagens [de texto (pré-visualização)](security-info-setup-email.md) [Set up security info to use security questions (preview)](security-info-setup-questions.md)<br><br>2. O seu administrador não ligou a palavra-passe para a sua organização. Nesta situação, deve selecionar o "link de contacto com um administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir a sua palavra-passe.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](user-help-security-info-overview.md)
+- Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](./security-info-setup-signin.md)
 
 - Se estiver a tentar voltar a uma conta pessoal como a Xbox, hotmail.com ou outlook.com, experimente as sugestões no [When you can't sign in your Microsoft account article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

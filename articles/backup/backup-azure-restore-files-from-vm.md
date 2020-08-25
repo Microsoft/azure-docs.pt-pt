@@ -4,16 +4,16 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654162"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757154"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
-O Azure Backup fornece a capacidade de restaurar [máquinas virtuais Azure (VMs) e discos](./backup-azure-arm-restore-vms.md) de backups Azure VM, também conhecidos como pontos de recuperação. Este artigo explica como recuperar ficheiros e pastas a partir de uma cópia de segurança do Azure VM. Restaurar ficheiros e pastas só está disponível para VMs Azure implantados utilizando o modelo Gestor de Recursos e protegidos para um cofre de serviços de Recuperação.
+O Azure Backup fornece a capacidade de restaurar [máquinas virtuais Azure (VMs) e discos](./backup-azure-arm-restore-vms.md) de backups Azure VM, também conhecidos como pontos de recuperação. Este artigo explica como recuperar ficheiros e pastas a partir de uma cópia de segurança do Azure VM. Restaurar ficheiros e pastas só está disponível para VMs Azure implantados utilizando o modelo Gestor de Recursos e protegidos para um cofre dos Serviços de Recuperação.
 
 > [!NOTE]
 > Esta funcionalidade está disponível para VMs Azure implantados usando o modelo gestor de recursos e protegidos para um cofre de Serviços de Recuperação.
@@ -68,7 +68,7 @@ Consulte a secção [de requisitos de Acesso](#access-requirements) para se cert
 
 Quando executa o executável, o sistema operativo monta os novos volumes e atribui letras de acionamento. Pode utilizar o Windows Explorer ou o File Explorer para navegar nessas unidades. As letras de acionamento atribuídas aos volumes podem não ser as mesmas que a máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume da máquina virtual original for "Disco de Dados `\` (E:)", esse volume pode ser ligado no computador local como "Disco de Dados ('Qualquer letra': `\` ). Navegue por todos os volumes mencionados na saída do script até encontrar os seus ficheiros ou pasta.  
 
-   ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Volumes de recuperação anexados](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>Para Linux
 
@@ -302,7 +302,7 @@ O script também requer que os componentes Python e bash executem e conectem-se 
 Se executar o script num computador com acesso restrito, certifique-se de que há acesso a:
 
 - `download.microsoft.com`
-- URLs do Serviço de Recuperação (geo-nome refere-se à região onde reside o cofre de serviço de recuperação)
+- URLs do Serviço de Recuperação (geo-nome refere-se à região onde reside o cofre dos Serviços de Recuperação)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para as regiões públicas de Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para o Governo dos EUA)
@@ -332,7 +332,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
     - Certifique-se de que o SISTEMA é WS 2012 ou superior.
     - Certifique-se de que as teclas de registo estão definidas como sugerido abaixo no servidor de restauro e certifique-se de reiniciar o servidor. O número ao lado do GUID pode variar entre 0001 e 0005. No exemplo seguinte, é 0004. Navegue pelo caminho chave do registo até à secção de parâmetros.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Alterações das chaves do registo](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
 
 - Se o servidor de restauro for um Linux VM:
   - No ficheiro /etc/iscsi/iscsid.conf, altere a definição de:
-    - node.conn[0].timeo.noop_out_timeout = 5 a node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  Para `node.conn[0].timeo.noop_out_timeout = 30`
 - Depois de fazer a mudança acima, volte a executar o guião. Com estas mudanças, é altamente provável que a recuperação do ficheiro tenha sucesso.
 - Sempre que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará um tempo considerável. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado fazer o download de um script do Portal/PowerShell/CLI, esperar 20-30 minutos (uma heurística) e depois executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do script.
 - Após a recuperação do ficheiro, certifique-se de que volta ao portal e selecione **Discos Desmonte** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a chance de recuperação.

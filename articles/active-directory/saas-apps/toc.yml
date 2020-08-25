@@ -1877,6 +1877,8 @@
           href: zscaler-zscloud-tutorial.md
         - name: Zwayam
           href: zwayam-tutorial.md
+        - name: Zylo
+          href: zylo-tutorial.md
 - name: Tutoriais de aprovisionamento de utilizadores
   expanded: true
   items:

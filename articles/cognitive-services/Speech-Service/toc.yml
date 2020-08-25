@@ -3,10 +3,8 @@
 - name: Descrição geral
   expanded: true
   items:
-    - name: O que é o serviço de Voz?
+    - name: Descrição geral do serviço de Voz
       href: overview.md
-    - name: Experimente o serviço de Voz gratuitamente
-      href: get-started.md
     - name: Suporte de voz e idioma
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md

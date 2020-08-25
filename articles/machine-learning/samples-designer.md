@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318832"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812942"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Os oleodutos exemplo & conjuntos de dados para o designer de aprendizagem de máquinas Azure (pré-visualização)
 
@@ -55,9 +55,9 @@ Eis como usar uma amostra de designer:
 
 1. Depois de o gasoduto terminar em funcionamento, pode rever o oleoduto e ver a saída de cada módulo para saber mais. Utilize os seguintes passos para visualizar as saídas dos módulos:
 
-   1. Selecione um módulo na tela.
+   1. Clique com o botão direito no módulo na tela cuja saída gostaria de ver.
+   1. **Selecione Visualizar**.
 
-   1. No painel de detalhes do módulo à direita da tela, selecione **Outputs + logs**. Selecione o ícone do gráfico ![ visualizar o ícone ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver os resultados de cada módulo. 
 
    Utilize as amostras como pontos de partida para alguns dos cenários mais comuns de aprendizagem automática.
 
@@ -101,7 +101,7 @@ Saiba mais sobre as amostras que demonstram serviços e funcionalidades de apren
 | Amostra 9: Importância da característica da permutação | Utilizar a importância da funcionalidade de permutação para calcular as pontuações de importância para o conjunto de dados do teste. 
 | Amostra 11: Sintonizar parâmetros para classificação binária - Previsão do Rendimento de Adultos | Utilize hiperparmetros tune model para encontrar hiperparímetros ideais para construir um classificador binário. |
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjuntos de Dados
 
 Quando cria um novo oleoduto no designer Azure Machine Learning, uma série de conjuntos de dados da amostra são incluídos por padrão. Estes conjuntos de dados da amostra são utilizados pelos gasodutos de amostragem na página inicial do designer. 
 

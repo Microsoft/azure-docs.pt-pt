@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: c4211f21d78ac0e06743c97f1081804fd641f9d2
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563579"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797705"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site jekyll para a Azure Static Web Apps Preview
 
@@ -51,7 +51,7 @@ Criar uma aplicação Jekyll utilizando a Interface da Linha de Comando Jekyll (
    cd static-app
    ```
 
-1. Inicialize um novo repositório de git.
+1. Inicialize um novo repositório de Git.
 
    ```bash
     git init
@@ -96,7 +96,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Clique **em Aplicativos Web Estáticos (Pré-visualização)**.
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
 1. Para **Subscrição**, aceite a subscrição listada ou selecione uma nova da lista de drop-down.
 
@@ -120,7 +120,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
-### <a name="build"></a>Compilação
+### <a name="build"></a>Compilar
 
 Em seguida, adiciona definições de configuração que o processo de construção utiliza para construir a sua aplicação. As seguintes definições configuram o ficheiro de fluxo de trabalho gitHub Action.
 
@@ -180,7 +180,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

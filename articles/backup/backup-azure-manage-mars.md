@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b6f6d9ca94b2fda54c9f9aa8048660af450e0d31
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654230"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757171"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -154,7 +154,7 @@ Se parasse a proteção enquanto retém dados e decidisse retomar a proteção, 
 
 ## <a name="re-generate-passphrase"></a>Re-gerar frases de passe
 
-Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o backup ou restauração do seu local ou máquina local usando o agente MARS de ou para Azure. Se perdeu ou esqueceu a palavra-passe, então pode regenerar a palavra-passe (desde que a sua máquina ainda esteja registada no Cofre dos Serviços de Recuperação e a cópia de segurança esteja configurada) seguindo estes passos:
+Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o backup ou restauração do seu local ou máquina local usando o agente MARS de ou para Azure. Se perdeu ou esqueceu a palavra-passe, então pode regenerar a palavra-passe (desde que a sua máquina ainda esteja registada no cofre dos Serviços de Recuperação e a cópia de segurança esteja configurada) seguindo estes passos:
 
 1. A partir da consola de agente MARS, vá às propriedades **de Ações Pane**  >  **Change** >. Em seguida, vá ao **separador de encriptação**.<br>
 1. Selecione **Change Passphrase** checkbox.<br>
@@ -163,7 +163,7 @@ Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o ba
 
     ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Selecione **OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](./backup-azure-security-feature.md#enable-security-features) estiver ativada no portal Azure para o Cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)<br>
+1. Selecione **OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](./backup-azure-security-feature.md#enable-security-features) estiver ativada no portal Azure para o cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)<br>
 1. Cole o PIN de segurança do portal e selecione **OK** para aplicar as alterações.<br>
 
     ![Cole o PIN de segurança](./media/backup-azure-manage-mars/passphrase2.png)

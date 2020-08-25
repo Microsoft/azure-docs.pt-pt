@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741930"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798028"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realizar uma análise de acesso a partir do portal My Apps
 
@@ -28,7 +28,7 @@ Se não tiver acesso ao portal **My Apps,** contacte o seu Helpdesk para obter p
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos **utilizadores das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
+>Este conteúdo destina-se aos **utilizadores das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/index.yml)
 
 ## <a name="manage-access-reviews"></a>Gerir comentários de acesso
 
@@ -58,7 +58,7 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
     ![Aceder à página de revisão, mostrar os detalhes da análise](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >Se for um administrador e tiver permissão para rever o acesso da sua organização a grupos e aplicações, verá uma página diferente. Para obter mais informações sobre grupos de revisão ou apps para a sua organização, consulte [o acesso de Revisão a grupos ou aplicações em Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Se for um administrador e tiver permissão para rever o acesso da sua organização a grupos e aplicações, verá uma página diferente. Para obter mais informações sobre grupos de revisão ou apps para a sua organização, consulte [o acesso de Revisão a grupos ou aplicações em Azure AD Access Reviews](../governance/perform-access-review.md).
 
 6. Selecione **Sim** para manter o seu acesso ou **Não** para remover o seu acesso.
 
@@ -73,7 +73,7 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
     >[!Note]
     >Pode alterar o seu acesso a qualquer momento até que o período de revisão de acesso termine. Se remover o seu acesso a uma aplicação ou grupo, não é removido imediatamente. A remoção ocorre quando o período de revisão de acesso termina ou quando um administrador fecha a revisão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aceder e utilizar aplicativos no portal My Apps](my-apps-portal-end-user-access.md)
 - [Alterar as informações de perfil](my-apps-portal-end-user-update-profile.md)

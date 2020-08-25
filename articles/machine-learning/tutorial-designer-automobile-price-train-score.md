@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290284"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812990"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Existem vários conjuntos de dados de amostras incluídos no designer para você
 
 Pode visualizar os dados para entender o conjunto de dados que utilizará.
 
-1. Selecione o módulo de dados de preços do **automóvel (Raw).**
-
-1. No painel de detalhes do módulo à direita da tela, selecione **Outputs + log**.
-
-1. Selecione o ícone do gráfico para visualizar os dados.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texto alt aqui.":::
+1. Clique com o botão direito nos dados de preços do **automóvel (Raw)** e selecione **Visualize**.
 
 1. Selecione as diferentes colunas na janela de dados para visualizar informações sobre cada uma delas.
 
@@ -140,7 +134,7 @@ Quando treinas um modelo, tens de fazer alguma coisa em relação aos dados que 
 
 1. No painel de detalhes do módulo à direita da tela, **selecione Editar coluna**.
 
-1. Expandir os **nomes da Coluna** cair ao lado de **Incluir**, e selecione Todas **as colunas**.
+1. Expandir os **nomes da Coluna** cair ao lado de **Incluir**, e selecione Todas  **as colunas**.
 
 1. Selecione **+** o para adicionar uma nova regra.
 
@@ -291,9 +285,7 @@ Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de ga
 
 Após a execução concluída, pode ver os resultados do percurso do gasoduto. Primeiro, veja as previsões geradas pelo modelo de regressão.
 
-1. Selecione o módulo **'Modelo de Pontuação'** para visualizar a sua saída.
-
-1. No painel de detalhes do módulo à direita da tela, selecione **Outputs + logs** > ícone de gráfico ![ visualizar o ícone ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. Clique no módulo **'Modelo de Pontuação'** e selecione **Visualize** para ver a sua saída.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -303,9 +295,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
 Utilize o **Modelo de Avaliação** para ver como o modelo treinado foi bem executado no conjunto de dados de teste.
 
-1. Selecione o módulo **Modelo avaliar** para visualizar a sua saída.
-
-1. No painel de detalhes do módulo à direita da tela, selecione **Outputs + logs** > ícone de gráfico ![ visualizar o ícone ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. Clique com o botão direito no módulo **Modelo de Avaliação** e selecione **Visualize** para ver a sua saída.
 
 As seguintes estatísticas são mostradas para o seu modelo:
 

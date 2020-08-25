@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654706"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762917"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -239,9 +239,9 @@ Isto requer que você faça entradas para cada FQDN no seu ponto final privado n
 Uma vez aprovados os pontos finais privados criados para o cofre no seu VNet, pode começar a ui-los para executar as suas cópias de segurança e restauros.
 
 >[!IMPORTANT]
->Certifique-se de que preencheu com sucesso todos os passos acima mencionados no documento antes de prosseguir. Para recapitular, deve ter completado os passos na seguinte lista de verificação:
+>Certifique-se de que preencheu todas as etapas acima mencionadas no documento com sucesso antes de prosseguir. Para recapitular, deve ter completado os passos na seguinte lista de verificação:
 >
->1. Criou um (novo) Cofre de Serviços de Recuperação
+>1. Criou um cofre (novo) serviços de recuperação
 >1. Permitiu que o cofre usasse o sistema atribuído Identidade Gerida
 >1. Criou três zonas privadas de DNS (duas se utilizar uma zona de DNS integrada para backup)
 >1. Ligou as suas zonas privadas de DNS à sua Rede Virtual Azure
@@ -265,7 +265,7 @@ No entanto, se remover os pontos finais privados para o cofre depois de um agent
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Criar um cofre de Serviços de Recuperação utilizando o cliente Azure Resource Manager
 
-Pode criar o Cofre de Serviços de Recuperação e ativar a sua Identidade Gerida (ativando a Identidade Gerida, como veremos mais tarde) utilizando o cliente Azure Resource Manager. Uma amostra para fazer isto é partilhada abaixo:
+Pode criar o cofre dos Serviços de Recuperação e ativar a sua Identidade Gerida (ativando a Identidade Gerida, como veremos mais tarde) utilizando o cliente Azure Resource Manager. Uma amostra para fazer isto é partilhada abaixo:
 
 ```rest
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/Microsoft.RecoveryServices/Vaults/<vaultname>?api-version=2017-07-01-preview @C:\<filepath>\MSIVault.json

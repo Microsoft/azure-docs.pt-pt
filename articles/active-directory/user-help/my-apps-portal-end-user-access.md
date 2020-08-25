@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741972"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798045"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicie sômis e iniciem aplicações a partir do portal My Apps
 
@@ -33,7 +33,7 @@ Se não tiver acesso ao portal **My Apps,** contacte o seu Helpdesk para obter p
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos utilizadores das Minhas Apps. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
+> Este conteúdo destina-se aos utilizadores das Minhas Apps. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/index.yml)
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
@@ -59,7 +59,7 @@ Esta extensão ajuda-o:
 
 - Veja as últimas aplicações que utilizou na secção **"Recentemente Usado".**
 
-- Utilize URLs internos da empresa enquanto remoto com [Aplicação Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Utilize URLs internos da empresa enquanto remoto com [Aplicação Proxy](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Para descarregar e instalar a extensão
 
@@ -186,7 +186,7 @@ Depois de chegar ao portal **My Apps,** pode:
 >[!Note]
 >Se não vir nenhuma coleção ou categoria disponível, significa que o seu administrador não montou ou partilhou nenhuma consigo. Contacte o Helpdesk da sua organização para obter assistência ou permissões adicionais para ver coleções partilhadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de chegar à página **Apps,** pode:
 

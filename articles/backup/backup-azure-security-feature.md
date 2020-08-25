@@ -4,12 +4,12 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611250"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757035"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
 
@@ -39,7 +39,7 @@ Se estiver a criar um cofre dos Serviços de Recuperação, pode utilizar todas 
 
     ![Screenshot do portal Azure Navegue opção](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    É apresentada a lista dos cofres dos serviços de recuperação. A partir desta lista, selecione um cofre. O dashboard do cofre selecionado é aberto.
+    É apresentada a lista dos cofres dos Serviços de Recuperação. A partir desta lista, selecione um cofre. O dashboard do cofre selecionado é aberto.
 3. Da lista de itens que aparecem debaixo do cofre, em **Definições**, selecione **Properties**.
 
     ![Screenshot das opções de cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/vault-list-properties.png)

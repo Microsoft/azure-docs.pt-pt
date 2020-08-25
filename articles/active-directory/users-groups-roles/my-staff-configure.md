@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850895"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798963"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerir os seus utilizadores com o Meu Pessoal (pré-visualização)
 
@@ -64,7 +64,7 @@ Uma vez configuradas UAs, pode aplicar este âmbito aos seus utilizadores que ac
 
 Pode proteger o portal My Staff utilizando a política de acesso condicional Azure AD. Use-o para tarefas como exigir a autenticação de vários fatores antes de aceder ao My Staff.
 
-Recomendamos vivamente que proteja o Meu Pessoal utilizando [políticas de acesso condicional Azure AD.](https://docs.microsoft.com/azure/active-directory/conditional-access/) Para aplicar uma política de acesso condicional ao meu pessoal, tem de criar manualmente o diretor de serviço do My Staff utilizando o PowerShell.
+Recomendamos vivamente que proteja o Meu Pessoal utilizando [políticas de acesso condicional Azure AD.](../conditional-access/index.yml) Para aplicar uma política de acesso condicional ao meu pessoal, tem de criar manualmente o diretor de serviço do My Staff utilizando o PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional ao meu pessoal
 
@@ -129,7 +129,7 @@ Também pode pesquisar por um utilizador dentro de uma AU. Para isso, utilize a 
 
 Pode ver os registos de auditoria das ações tomadas no Meu Pessoal no portal Azure Ative Directory. Se um registo de auditoria foi gerado por uma ação tomada no My Staff, verá isso indicado em DETALHES ADICIONAIS no evento de auditoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Documentação do [meu pessoal](../user-help/my-staff-team-manager.md) 
  [Documentação das unidades administrativas](directory-administrative-units.md)

@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690685"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798844"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -79,11 +79,11 @@ O nó do processador do filtro de taxa de fotogramas permite-lhe recolher os qua
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
+O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta os formatos JPEG, PNG ou BMP.
 
 #### <a name="grpc-extension-processor"></a>processador de extensão gRPC
 
-O nó do processador de extensão gRPC leva quadros de vídeo descodificados como entrada, e retransmite esses quadros para um ponto final gRPC exposto pelo seu módulo. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final gRPC. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
+O nó do processador de extensão gRPC leva quadros de vídeo descodificados como entrada, e retransmite esses quadros para um ponto final [gRPC](terminology.md#grpc) exposto pelo seu módulo. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final gRPC. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
 
 #### <a name="signal-gate-processor"></a>Processador do portão de sinal  
 
@@ -105,7 +105,7 @@ Um nó de pia de mensagem IoT Hub permite-lhe publicar eventos no hub IoT Edge. 
 
 ## <a name="rules-on-the-use-of-nodes"></a>Regras relativas à utilização de nosdes
 
-Consulte [as quotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para regras adicionais sobre como diferentes nós podem ser usados dentro de um gráfico de mídia.
+Consulte [as limitações nas topologias de gráficos](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para obter regras adicionais sobre como diferentes nós podem ser usados dentro de um gráfico de mídia.
 
 ## <a name="scenarios"></a>Cenários
 

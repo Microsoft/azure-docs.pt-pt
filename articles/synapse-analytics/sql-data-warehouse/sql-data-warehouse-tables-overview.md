@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4cf9e2d02030021d3092629731fcd8b77566907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213946"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798572"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
 
@@ -46,7 +46,7 @@ Para mostrar a organização das mesas na piscina SQL, você poderia usar fato, 
 
 | Tabela WideWorldImportersDW  | Tipo de mesa | Conjunto de SQL |
 |:-----|:-----|:------|:-----|
-| Localidade | Dimensão | wwi. DimCity |
+| City | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. Ordem dos Factos |
 
 ## <a name="table-persistence"></a>Persistência da tabela
@@ -107,7 +107,7 @@ A categoria de tabela determina frequentemente qual a opção a escolher para di
 |:---------------|:--------------------|
 | Fact           | Utilize a distribuição de haxixe com índice de loja de colunas agrupados. O desempenho melhora quando duas tabelas de haxixe são unidas na mesma coluna de distribuição. |
 | Dimensão      | Utilize replicado para mesas mais pequenas. Se as tabelas forem demasiado grandes para armazenar em cada nó computacional, utilize hash distribuído. |
-| Processo de teste        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
+| Transição        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
 
 ## <a name="table-partitions"></a>Divisórias de mesa
 
@@ -295,6 +295,9 @@ FROM size
 ;
 ```
 
+>[!TIP]
+> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
+
 ### <a name="table-space-summary"></a>Resumo do espaço de mesa
 
 Esta consulta devolve as linhas e o espaço por mesa.  Permite-lhe ver quais as mesas que são as suas maiores mesas e se são redondas, replicadas ou distribuídas por haxixe.  Para tabelas distribuídas por haxixe, a consulta mostra a coluna de distribuição.  
@@ -373,6 +376,6 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar as tabelas para a sua piscina SQL, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina SQL.](load-data-wideworldimportersdw.md)

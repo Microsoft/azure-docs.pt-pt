@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090982"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762849"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -32,14 +32,14 @@ Em algumas circunstâncias, o serviço de backup Azure aciona cópias de seguran
 
 A cura automática como capacidade é ativada para todos os utilizadores por predefinição; No entanto, no caso de optar por não o fazer, então execute o seguinte:
 
-- Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js**no** ficheiro.
+- Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js** no** ficheiro.
 - No **ExtensionSettingsOverrides.jsem**, definir *{"EnableAutoHealer": falso}*.
 - Guarde as suas alterações e feche o ficheiro.
 - Na instância do SQL Server, abra **a Task Manage** e, em seguida, reinicie o serviço **AzureWLBackupCoordinatorSvc.**
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas são executadas no servidor SQL?
 
-Yes. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
+Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
 1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
 2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
@@ -52,7 +52,7 @@ O valor predefinido de DefaultBackupTasksThreshold é **de 20**.
  Embora este método ajude se a aplicação de backup estiver a consumir uma grande quantidade de recursos, [o SqL](/sql/relational-databases/resource-governor/resource-governor) Server Resource Governor é uma forma mais genérica de especificar limites na quantidade de CPU, IO físico e memória que os pedidos de aplicação podem usar.
 
 > [!NOTE]
-> No UX ainda pode avançar e agendar o máximo de backups em qualquer momento, no entanto eles serão processados numa janela deslizante de, digamos, 5, de acordo com o exemplo acima.
+> No UX ainda pode avançar e agendar o máximo de backups em qualquer momento. No entanto, serão processados numa janela de 5, de acordo com o exemplo acima.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso fazer uma cópia de segurança de uma réplica secundária?
 

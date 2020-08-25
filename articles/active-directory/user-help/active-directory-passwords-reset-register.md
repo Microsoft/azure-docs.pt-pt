@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e460f3fd383286b1e61a979b87a9dfa09f272313
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266105"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799031"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registe a informação do seu método de verificação para redefinir a sua própria senha
 
@@ -26,7 +26,7 @@ Se esqueceu do seu trabalho ou palavra-passe escolar, nunca obteve uma palavra-p
 O seu administrador deve ligar esta funcionalidade para poder registar as suas informações e redefinir a sua própria palavra-passe. Se não vir a opção **Esqueci da minha palavra-passe,** significa que o seu administrador não ligou a funcionalidade para a sua organização. Se você acredita que isto está errado, contacte o seu balcão de ajuda para obter assistência.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem utilizar o pedido de reposição da palavra-passe de autosserviço. Isto significa que poderá redefinir o seu próprio trabalho ou senha escolar alain@contoso.com (como), sem precisar da ajuda do seu administrador. Se for um administrador à procura de informações sobre como ligar a palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte o [reset da palavra-passe de autosserviço do Azure Ad deploy e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se a utilizadores que tentem utilizar o pedido de reposição da palavra-passe de autosserviço. Isto significa que poderá redefinir o seu próprio trabalho ou senha escolar alain@contoso.com (como), sem precisar da ajuda do seu administrador. Se for um administrador à procura de informações sobre como ligar a palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte o [reset da palavra-passe de autosserviço do Azure Ad deploy e outros artigos](../authentication/howto-sspr-deployment.md).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configurar o seu método de verificação de reset de palavra-passe
 
@@ -61,7 +61,7 @@ O seu administrador deve ligar esta funcionalidade para poder registar as suas i
 | A sua conta não está ativada para reiniciar a palavra-passe.<br>Lamentamos, mas a sua equipa de TI não criou a sua conta para uso neste serviço.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha. | Se receber esta mensagem de erro depois de escrever o seu ID do Utilizador, significa que ou a sua organização não ligou a funcionalidade de reset da palavra-passe ou não está autorizada a usá-la. Para redefinir a sua palavra-passe nesta situação, tem de selecionar o link **de contacto de um administrador.** Depois de clicar no link, é enviado um e-mail para o balcão de ajuda ou administrador da sua organização, informando-os de que pretende redefinir a sua palavra-passe. |
 | Não pudemos verificar a sua conta.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha. | Se receber esta mensagem de erro depois de escrever o seu ID do Utilizador, significa que a sua organização ligou a palavra-passe e pode usá-la, mas que não se registou para o serviço. Nesta situação, deve contactar o balcão de ajuda ou administrador da sua organização para redefinir a sua palavra-passe. Para obter informações sobre o reposição da palavra-passe após o seu dispositivo, consulte o processo acima neste artigo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Altere a sua palavra-passe utilizando o reset da palavra-passe de autosserviço](active-directory-passwords-update-your-own-password.md)
 

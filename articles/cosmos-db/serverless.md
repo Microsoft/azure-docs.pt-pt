@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: d99deea8271a3f9e630a7d2e8cd9f73bd41645a2
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608870"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757902"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)
 
@@ -82,7 +82,7 @@ Pode encontrar o mesmo gráfico quando utilizar o Azure Monitor, como descrito [
 Os recursos sem servidor produzem características de desempenho específicas que são diferentes das que os recursos de produção a forrados fornecem:
 
 - **Disponibilidade**: Após a oferta sem servidor ficar geralmente disponível, a disponibilidade de recipientes sem servidor será coberta por um Acordo de Nível de Serviço (SLA) de 99,9% quando as Zonas de Disponibilidade (redundância de zona) não forem utilizadas. O SLA é de 99,99% quando as Zonas de Disponibilidade são utilizadas.
-- **Latência**: Após a oferta sem servidor tornar-se geralmente disponível, a latência de recipientes sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para escritas. Uma operação de leitura de ponto consiste em obter um único item pelo seu valor de ID e partição.
+- **Latência**: Após a oferta sem servidor tornar-se geralmente disponível, a latência de recipientes sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para escritas. Uma operação de leitura de ponto consiste em obter um único item pelo seu valor de ID e chave de partição.
 - **Burstability**: Após a oferta sem servidor ficar geralmente disponível, a capacidade de explosão de contentores sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 95%. Isto significa que a capacidade máxima de explosão pode ser alcançada pelo menos 95% das vezes.
 
 > [!NOTE]
@@ -93,5 +93,5 @@ Os recursos sem servidor produzem características de desempenho específicas qu
 Começar com servidores sem servidor com os seguintes artigos:
 
 - [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-- [Escolha entre produção provisão e sem servidor](throughput-serverless.md)
+- [Escolha entre débito aprovisionado e um modelo sem servidor](throughput-serverless.md)
 - [Modelo de preços no Azure Cosmos DB](how-pricing-works.md)

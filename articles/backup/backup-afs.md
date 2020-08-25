@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532703"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757800"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 
@@ -29,9 +29,9 @@ Neste artigo, aprenderá a:
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="configure-backup-from-the-recovery-services-vault"></a>Configure o backup do Cofre dos Serviços de Recuperação
+## <a name="configure-backup-from-the-recovery-services-vault"></a>Configure o backup do cofre dos Serviços de Recuperação
 
-Os seguintes passos explicam como pode configurar a cópia de segurança para várias partilhas de ficheiros a partir do painel do cofre do serviço de recuperação:
+Os seguintes passos explicam como pode configurar a cópia de segurança para várias partilhas de ficheiros a partir do painel de abóbada dos Serviços de Recuperação:
 
 1. No [portal Azure,](https://portal.azure.com/)abra o cofre dos Serviços de Recuperação que pretende utilizar para configurar a cópia de segurança para a partilha de ficheiros.
 
@@ -123,16 +123,16 @@ Os seguintes passos explicam como pode configurar a cópia de segurança para as
 
 1. Para a seleção do cofre dos Serviços de Recuperação, faça um dos seguintes:
 
-    * Se já tiver um cofre, selecione o botão de rádio do cofre de serviço de recuperação **existente** e escolha um dos cofres existentes do menu Drop Down **do Nome do Cofre.**
+    * Se já tiver um cofre, selecione o botão de rádio do cofre select existente dos Serviços **de** Recuperação e escolha um dos cofres existentes do menu De entrega do **Nome do Cofre.**
 
        ![Selecione o cofre existente](./media/backup-afs/select-existing-vault.png)
 
-    * Se não tiver um cofre, selecione o **novo** botão de rádio do cofre de serviço De recuperação. Especifique um nome para o cofre. É criado na mesma região que a partilha de ficheiros. Por predefinição, o cofre é criado no mesmo grupo de recursos que a partilha de ficheiros. Se quiser escolher um grupo de recursos diferente, selecione **Criar novo** link abaixo da queda do Tipo **de Recurso** e especifique um nome para o grupo de recursos. Selecione **OK** para continuar.
+    * Se não tiver um cofre, selecione o novo botão de rádio do cofre **criar** serviços de recuperação. Especifique um nome para o cofre. É criado na mesma região que a partilha de ficheiros. Por predefinição, o cofre é criado no mesmo grupo de recursos que a partilha de ficheiros. Se quiser escolher um grupo de recursos diferente, selecione **Criar novo** link abaixo da queda do Tipo **de Recurso** e especifique um nome para o grupo de recursos. Selecione **OK** para continuar.
 
        ![Criar novo cofre](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Se a conta de armazenamento estiver registada num cofre, ou se houver poucas ações protegidas dentro da conta de armazenamento que está a tentar proteger, o nome do cofre dos serviços de recuperação será pré-povoado e não poderá editá-la [Saiba mais aqui.](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share)
+      >Se a conta de armazenamento estiver registada num cofre, ou se houver poucas ações protegidas dentro da conta de armazenamento que está a tentar proteger, o nome do cofre dos Serviços de Recuperação será pré-povoado e não poderá editá-la [Saiba mais aqui.](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share)
 
 1. Para a seleção **de Política de Backup,** faça uma das seguintes:
 
@@ -168,7 +168,7 @@ Os seguintes passos explicam como pode configurar a cópia de segurança para as
 
 Ocasionalmente, pode querer gerar uma imagem de backup, ou ponto de recuperação, fora dos horários programados na política de backup. Uma razão comum para gerar uma cópia de segurança a pedido é logo após configurar a política de reserva. Com base no horário na política de backup, pode levar horas ou dias até que uma foto seja tirada. Para proteger os dados até que a política de cópia de segurança seja aplicada, inicie uma cópia de segurança a pedido. A criação de uma cópia de segurança a pedido é muitas vezes necessária antes de escruissar as alterações planeadas nas suas ações de ficheiros.
 
-### <a name="from-the-recovery-services-vault"></a>Do cofre dos serviços de recuperação
+### <a name="from-the-recovery-services-vault"></a>Do cofre dos Serviços de Recuperação
 
 1. Abra o cofre dos Serviços de Recuperação que usou para fazer o back up da sua parte do ficheiro. No painel **de visão** geral, selecione **itens de cópia de segurança** na secção **itens protegidos.**
 

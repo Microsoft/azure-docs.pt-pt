@@ -2,13 +2,13 @@
 title: Reiniciar a política para tarefas de execução
 description: Saiba como utilizar as Instâncias do Contentor Azure para executar tarefas que vão até à sua conclusão, tais como trabalhos de construção, teste ou de renderização de imagens.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/11/2020
+ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261338"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798946"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício
 
@@ -24,9 +24,11 @@ Quando criar um [grupo de contentores](container-instances-container-groups.md) 
 
 | Política de reinício   | Descrição |
 | ---------------- | :---------- |
-| `Always` | Os contentores no grupo de contentores são sempre reiniciados. Esta é a **predefinição** aplicada quando nenhuma política de reinício é especificada durante a criação do contentor. |
+| `Always` | Os contentores no grupo de contentores são sempre reiniciados. Esta é a **predefinição** aplicada quando não é especificada nenhuma política de reinício durante a criação do contentor. |
 | `Never` | Os contentores no grupo de contentores nunca são reiniciados. Os contentores são executados, no máximo, uma vez. |
 | `OnFailure` | Os contentores no grupo de contentores são reiniciados apenas quando o processo executado no contentor falha (quando termina com um código de saída diferente de zero). Os contentores são executados, pelo menos, uma vez. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="specify-a-restart-policy"></a>Especificar uma política de reinício
 
@@ -75,7 +77,7 @@ Uma vez que o estado do recipiente de exemplo mostra *terminado,* pode ver a sua
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Saída:
+Resultado:
 
 ```bash
 [('the', 990),

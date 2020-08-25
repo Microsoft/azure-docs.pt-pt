@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4496b74f162bfaeda7205963cbbe7e355db841f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503910"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797586"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre o carregamento a granel, consulte [a carga a
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorizar a qualidade do grupo de linha
 
-O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, tais como o número de linhas em grupos de linha e a razão para aparar se houver aparar. Pode criar a seguinte vista como uma forma útil de consultar este DMV para obter informações sobre o corte de grupos de remo.
+O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, como o número de linhas em grupos de linha e a razão para aparar se houvesse aparar. Pode criar a seguinte vista como uma forma útil de consultar este DMV para obter informações sobre o corte de grupos de remo.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -68,6 +68,9 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
+
+>[!TIP]
+> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 O trim_reason_desc diz se o grupo de linha foi aparado (trim_reason_desc = NO_TRIM implica que não houve aparar e o grupo de linha é de ótima qualidade). As seguintes razões de corte indicam o corte prematuro do grupo de linha:
 

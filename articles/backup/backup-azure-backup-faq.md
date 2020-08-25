@@ -3,18 +3,18 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 96ff7fedf0574d5eb1b7bb540ccb425f4d7e9ade
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553092"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757205"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
 Este artigo responde a questões comuns sobre o serviço do Azure Backup.
 
-## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 
@@ -86,7 +86,7 @@ Windows 10 de 64 bits | Enterprise, Pro, Home | Os computadores devem estar a 
 Windows 8.1 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
-Servidor | |
+Server | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -224,7 +224,7 @@ A chave de encriptação utilizada pelo Agente microsoft Azure Recovery Services
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as outras FAQs:
 

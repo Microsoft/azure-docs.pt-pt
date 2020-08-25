@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652836"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757222"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -294,7 +294,7 @@ Para eliminar um cofre dos Serviços de Recuperação:
       [<CommonParameters>]
    ```
 
-[Saiba mais](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre a eliminação de um cofre de serviços de recuperação.
+[Saiba mais](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre a eliminação de um cofre dos Serviços de Recuperação.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Elimine o cofre dos Serviços de Recuperação utilizando o CLI
 
@@ -303,7 +303,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender 
 > [!NOTE]
 > Atualmente, o Azure Backup CLI suporta a gestão apenas de backups Azure VM, pelo que o seguinte comando para apagar o cofre funciona apenas se o cofre contiver backups Azure VM. Não é possível apagar um cofre utilizando o CLI de backup Azure, se o cofre contiver qualquer produto de backup do tipo diferente dos VMs Azure.
 
-Para eliminar o cofre de serviços de recuperação existente, execute o seguinte:
+Para eliminar o cofre dos Serviços de Recuperação existentes, execute os seguintes passos:
 
 - Para parar a proteção e eliminar os dados de backup
 
@@ -320,7 +320,7 @@ Para eliminar o cofre de serviços de recuperação existente, execute o seguint
 
     Para mais informações, consulte este [artigo.](/cli/azure/backup/protection#az-backup-protection-disable)
 
-- Eliminar um cofre de serviços de recuperação existente:
+- Eliminar um cofre dos Serviços de Recuperação existente:
 
     ```azurecli
     az backup vault delete [--force]
@@ -357,13 +357,13 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMClient REA
 1. Executar o seguinte comando utilizando o seu ID de subscrição, nome de grupo de recursos e nome do cofre. Se não tiver dependências, o cofre é apagado quando executar o seguinte comando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Se o cofre não estiver vazio, receberá a seguinte mensagem de erro: *O cofre não pode ser apagado, uma vez que existem recursos existentes dentro deste cofre.* Para remover um item ou recipiente protegido dentro de um cofre, executar o seguinte comando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. No portal Azure, certifique-se de que o cofre é apagado.

@@ -4,12 +4,12 @@ description: Saiba como as funcionalidades de encriptação no Azure Backup ajud
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586652"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763648"
 ---
 # <a name="encryption-in-azure-backup"></a>Encriptação no Azure Backup
 

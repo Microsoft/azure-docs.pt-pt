@@ -1,20 +1,20 @@
 ---
 title: Faça o back up ações de ficheiros Azure com a REST API
-description: Saiba como usar a API REST para apoiar as ações de ficheiros Azure no Cofre dos Serviços de Recuperação
+description: Saiba como usar a API REST para apoiar as ações de ficheiros Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654145"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757137"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando Azure Backup via Rest API
 
 Este artigo descreve como apoiar uma partilha de Ficheiros Azure usando a Azure Backup via REST API.
 
-Este artigo pressupõe que já criou um cofre de serviços de recuperação e uma política para configurar o backup para a sua parte do ficheiro. Se não o fez, consulte o [cofre de criação](./backup-azure-arm-userestapi-createorupdatevault.md) e crie tutoriais [de API de política](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST para criar novos cofres e políticas.
+Este artigo pressupõe que já criou um cofre dos Serviços de Recuperação e uma política para configurar a cópia de segurança para a sua parte do ficheiro. Se não o fez, consulte o [cofre de criação](./backup-azure-arm-userestapi-createorupdatevault.md) e crie tutoriais [de API de política](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST para criar novos cofres e políticas.
 
 Para este artigo, usaremos os seguintes recursos:
 
@@ -32,7 +32,7 @@ Para este artigo, usaremos os seguintes recursos:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Descubra contas de armazenamento com ações de ficheiros Azure desprotegidas
 
-O cofre precisa de descobrir todas as contas de armazenamento da Azure na subscrição com ações de ficheiros que podem ser apoiadas até ao Cofre dos Serviços de Recuperação. Isto é acionado utilizando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação ASSíncrona *POST* que garante que o cofre obtém a mais recente lista de todas as ações de arquivo azure desprotegidas na subscrição atual e 'caches' delas. Uma vez que a partilha de ficheiros é 'cached', os serviços de recuperação podem aceder à partilha de ficheiros e protegê-la.
+O cofre precisa de descobrir todas as contas de armazenamento da Azure na subscrição com ações de ficheiros que podem ser apoiadas até ao cofre dos Serviços de Recuperação. Isto é acionado utilizando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação ASSíncrona *POST* que garante que o cofre obtém a mais recente lista de todas as ações de arquivo azure desprotegidas na subscrição atual e 'caches' delas. Uma vez que a partilha de ficheiros é 'cached', os serviços de recuperação podem aceder à partilha de ficheiros e protegê-la.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -156,7 +156,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Uma vez que podemos localizar a conta de armazenamento *testvault2* no corpo de resposta com o nome amigável, a operação de atualização realizada acima foi bem sucedida. O cofre dos serviços de recuperação pode agora descobrir com sucesso contas de armazenamento com ficheiros desprotegidos na mesma subscrição.
+Uma vez que podemos localizar a conta de armazenamento *testvault2* no corpo de resposta com o nome amigável, a operação de atualização realizada acima foi bem sucedida. O cofre dos Serviços de Recuperação pode agora descobrir com sucesso contas de armazenamento com ficheiros desprotegidos na mesma subscrição.
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Conta de armazenamento registre com cofre dos Serviços de Recuperação
 

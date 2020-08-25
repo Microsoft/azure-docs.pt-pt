@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128057"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799354"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Stream de conteúdo com integração de CDN
 
@@ -47,7 +47,7 @@ Este tópico discute a integração do [CDN.](#enable-azure-cdn-integration) Tam
 
 Depois de um ponto final de streaming ser a provisionado com CDN ativado, há um tempo de espera definido nos Serviços de Mídia antes de a atualização do DNS ser feita para mapear o ponto final de streaming para o ponto final da CDN.
 
-Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming deve estar no estado **de paragem.** Pode levar até duas horas para que a integração do Azure CDN seja ativada e para que as alterações estejam ativas em todos os POPs do CDN. No entanto, pode iniciar o seu ponto final de streaming e transmitir sem interrupções a partir do ponto final de streaming. Uma vez concluída a integração, o fluxo é entregue a partir do CDN. Durante o período de provisionamento, o seu ponto final de streaming estará no estado **inicial** e poderá observar um desempenho degradado.
+Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming deve estar no estado **de paragem.** Uma vez iniciado o ponto final de streaming, pode levar até duas horas para que a integração do CDN do Azure seja ativada e para que as alterações estejam ativas em todos os POPs do CDN. No entanto, pode iniciar o seu ponto final de streaming e transmitir sem interrupções a partir do ponto final de streaming. Uma vez concluída a integração, o fluxo é entregue a partir do CDN. Durante o período de provisionamento, o seu ponto final de streaming estará no estado **inicial** e poderá observar um desempenho degradado.
 
 Quando o ponto final de streaming Standard é criado, é configurado por padrão com Standard Verizon. Pode configurar fornecedores Premium Verizon ou Standard Akamai utilizando APIs REST.
 

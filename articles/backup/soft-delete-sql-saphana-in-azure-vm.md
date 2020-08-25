@@ -3,12 +3,12 @@ title: Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de traba
 description: Saiba como a eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM torna as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538195"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757477"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
 
@@ -62,7 +62,7 @@ O Azure Backup agora fornece uma eliminação suave para o servidor SQL em Azure
 >[!NOTE]
 >Estas instruções aplicam-se também ao SAP HANA em Azure VM.
 
-1. Para eliminar os dados de cópia de segurança de uma base de dados num servidor SQL, a cópia de segurança tem de ser interrompida. No portal Azure, vá ao cofre dos seus serviços de recuperação, vá ao item de reserva e escolha **'Parar de fazer backup'.**
+1. Para eliminar os dados de cópia de segurança de uma base de dados num servidor SQL, a cópia de segurança tem de ser interrompida. No portal Azure, vá ao cofre dos Serviços de Recuperação, vá ao item de reserva e escolha **'Parar de fazer backup'.**
 
    ![Parar o backup](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
@@ -70,7 +70,7 @@ O Azure Backup agora fornece uma eliminação suave para o servidor SQL em Azure
 
    ![Eliminar dados de cópia de segurança](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
-3. Durante esses 14 dias, no Cofre dos Serviços de Recuperação, o item apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
+3. Durante esses 14 dias, no cofre dos Serviços de Recuperação, o item apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
 
    ![Itens apagados suaves](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
@@ -129,7 +129,7 @@ O **DeleteState** do item de cópia de segurança reverterá para **NotDeleted**
 
 Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar a eliminação suave](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suaves
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

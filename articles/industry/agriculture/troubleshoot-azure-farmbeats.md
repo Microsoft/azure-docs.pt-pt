@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497068"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797943"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Resolver problemas do Azure FarmBeats
 
-Este artigo fornece soluções para problemas comuns do Azure FarmBeats. Para obter ajuda adicional, contacte o nosso [Fórum de Apoio](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para farmbeatssupport@microsoft.com .
+Este artigo fornece soluções para problemas comuns do Azure FarmBeats. Para obter ajuda adicional, contacte o nosso [Q&A Support Forum](https://aka.ms/farmbeatssupport) ou envie-nos um e-mail para farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote para priorizar o apoio a organizações críticas de saúde e segurança. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) mais informações. Terá de solicitar que os VM sejam atribuídos à conta Batch para executar empregos com sucesso.
