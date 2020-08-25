@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.author: diberry
 ms.openlocfilehash: 956aa308bf1cb3736c491031239661ec6b295ddb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77279671"
 ---
-A aplicação do cliente precisa de saber se uma expressão não é significativa ou adequada para a aplicação. A intenção **None** é adicionada a cada aplicação como parte do processo de criação para determinar se uma expressão não deve ser respondida pela aplicação do cliente.
+A aplicação do cliente precisa de saber se uma expressão não é significativa ou apropriada para a aplicação. A intenção **de Nenhum** é adicionada a cada aplicação como parte do processo de criação para determinar se uma expressão não deve ser respondida pela aplicação do cliente.
 
-Se o LUIS devolver a intenção **de nenhuma** intenção de uma expressão, a sua aplicação de cliente pode perguntar se o utilizador quer terminar a conversa ou dar mais instruções para continuar a conversação.
+Se o LUIS devolver a intenção **de Nenhum** para uma expressão, a sua aplicação do cliente pode perguntar se o utilizador quer terminar a conversa ou dar mais instruções para continuar a conversa.
 
-Se deixar a intenção **de "Nenhum"** vazia, uma expressão que deve ser prevista fora do domínio sujeito será prevista numa das intenções de domínio do sujeito existentes. O resultado é que a aplicação do cliente, como um chat bot, irá realizar operações incorretas com base numa previsão incorreta.
+Se deixar a intenção **de Zero** vazia, uma expressão que deve ser prevista fora do domínio do assunto será prevista numa das intenções de domínio existentes. O resultado é que a aplicação do cliente, como um chat bot, realizará operações incorretas com base numa previsão incorreta.
 
 1. Selecione **Intents** (Intenções) no painel esquerdo.
 
-1. Selecione a intenção **None** (Nenhuma). Adicione três declarações que o seu utilizador pode introduzir, mas não são relevantes para a sua aplicação de encomenda pizza:
+1. Selecione a intenção **None** (Nenhuma). Adicione três expressões que o seu utilizador pode introduzir, mas não são relevantes para a sua aplicação de encomendas Pizza:
 
-    |`None`expressões exemplo|
+    |`None` palavras exemplo|
     |--|
     |`Barking dogs are annoying`|
     |`Penguins in the ocean`|
 
-    Estes exemplos não devem usar palavras que `pizza`se `cheese` `crust`espera `pickup` `deliver`no seu domínio de assunto, tais como, .
+    Estes exemplos não devem usar palavras que se esperam no seu domínio sujeito, tais `pizza` `cheese` como, `crust` . . `pickup` `deliver` . .

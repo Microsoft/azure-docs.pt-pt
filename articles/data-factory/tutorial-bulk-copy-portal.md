@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
 ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86081643"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
@@ -75,7 +75,7 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Vá ao [portal Azure.](https://portal.azure.com) 
+1. Aceda ao [portal do Azure](https://portal.azure.com). 
 1. À esquerda do menu do portal Azure, **selecione Criar uma**Fábrica de  >  **Analytics**  >  **Dados**de Análise de Recursos . 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na nova página de **fábrica de dados,** insira **a ADFTutorialBulkCopyDF** para **obter o nome**. 
@@ -211,7 +211,7 @@ O pipeline **GetTableListAndTriggerCopyData** realiza duas ações:
 * Procura a tabela do sistema da Base de Dados SQL do Azure para obter a lista de tabelas a copiar.
 * Aciona o pipeline **IterateAndCopySQLTables** para fazer a cópia de dados real.
 
-O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro. Para cada tabela da lista, copia dados da tabela na Base de Dados Azure SQL para Azure Synapse Analytics (anteriormente SQL DW) utilizando cópia encenada e PolyBase.
+O oleoduto  **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro. Para cada tabela da lista, copia dados da tabela na Base de Dados Azure SQL para Azure Synapse Analytics (anteriormente SQL DW) utilizando cópia encenada e PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Criar o pipeline IterateAndCopySQLTables
 
@@ -223,7 +223,7 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
 
 1. Mude para o separador **Parâmetros** e execute as ações seguintes: 
 
-    a. Clique em **+ Novo**. 
+    a. Clique em **+ New** (+ Novo). 
     
     b. Introduza **tabela Lista** para o **nome**do parâmetro .
     
@@ -394,7 +394,7 @@ Este gasoduto faz duas ações:
 
 1. Confirme que os dados foram copiados para o target Azure Synapse Analytics (anteriormente SQL DW) que usou neste tutorial. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

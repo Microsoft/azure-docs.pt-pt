@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: ce35f3af38b98f43ebbd0d3f42136ab8358b19a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233725"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua aplicação Core ASP.NET para o Azure Service Fabric utilizando o Azure DevOps Starter
@@ -33,7 +33,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Consolidar as alterações ao Git e implementar automaticamente no Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,7 +132,7 @@ Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando 
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se estiver a testar, pode evitar acumular encargos de faturação limpando os seus recursos. Quando já não são necessários, pode eliminar o cluster Azure Service Fabric e os recursos conexos que criou neste tutorial. Para tal, utilize a funcionalidade **Eliminar** no painel de arranque de DevOps.
 
@@ -153,7 +153,7 @@ Opcionalmente, pode modificar os pipelines de CI/CD do Azure para satisfazer as 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 Para saber mais sobre o Service Fabric e microserviços, consulte:
 

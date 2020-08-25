@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77593279"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Serviço Kubernetes do Azure (AKS)
@@ -17,21 +17,21 @@ ms.locfileid: "77593279"
 O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Cria e implementa as suas próprias aplicações e serviços num cluster do Kubernetes, e permite que o cluster gira a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Saiba como:
 
 > [!div class="checklist"]
-> * Atualizar um ficheiro manifesto Kubernetes
+> * Atualizar um ficheiro manifesto de Kubernetes
 > * Executar uma aplicação no Kubernetes
 > * Testar a aplicação
 
 Em tutoriais adicionais, esta aplicação é dimensionada e atualizada.
 
-Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para mais informações, consulte os [conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
+Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para obter mais informações, consulte [os conceitos fundamentais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, a imagem foi carregada para o Azure Container Registry e foi criado um cluster de Kubernetes.
 
-Para concluir este tutorial, precisa do ficheiro de manifesto previamente criado do Kubernetes `azure-vote-all-in-one-redis.yaml`. Este ficheiro foi transferido com o código de origem da aplicação num tutorial anterior. Verifique se clonou o repo, e que mudou os diretórios para o repo clonado. Se ainda não fez estes passos, e gostaria de seguir em frente, comece com [tutorial 1 – Criar imagens][aks-tutorial-prepare-app]de contentores .
+Para concluir este tutorial, precisa do ficheiro de manifesto previamente criado do Kubernetes `azure-vote-all-in-one-redis.yaml`. Este ficheiro foi transferido com o código de origem da aplicação num tutorial anterior. Verifique se clonou o repo, e que transformou os diretórios no repo clonado. Se não fez estes passos e gostaria de seguir em frente, comece com [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que esteja a executar a versão 2.0.53 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Atualizar o ficheiro de manifesto
 
@@ -43,7 +43,7 @@ Obtenha o nome do servidor de início de sessão ACR com o comando [az acr list]
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Certifique-se de que está no diretório de *aplicações-redis* de voto em azure clonado `vi`e, em seguida, abra o ficheiro manifesto com um editor de texto, tais como:
+O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Certifique-se de que está no diretório clonado *azure-vote-app-redis,* e depois abra o ficheiro manifesto com um editor de texto, tais `vi` como:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -65,7 +65,7 @@ containers:
   image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Guarde e feche o ficheiro. Dentro, `vi` `:wq`use.
+Guarde e feche o ficheiro. Em `vi` , use `:wq` .
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 
@@ -88,7 +88,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>Testar a aplicação
 
-Quando a aplicação é executado, um serviço Kubernetes expõe a extremidade frontal da aplicação à internet. Este processo pode demorar alguns minutos a concluir.
+Quando a aplicação é executado, um serviço Kubernetes expõe a linha frontal da aplicação para a internet. Este processo pode demorar alguns minutos a concluir.
 
 Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -96,13 +96,13 @@ Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o *IP EXTERNO* para o serviço de frente para voto *sinuoso* é apresentado como *pendente:*
+Inicialmente, o *IP EXTERNO* para o serviço de frente de *voto azul* é apresentado como *pendente:*
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-Quando o endereço *EXTERNO-IP* passar de *pendente* para `CTRL-C` um `kubectl` endereço IP público real, utilize para parar o processo de observação. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *EXTERNAL-IP* mudar de *pendente* para um endereço IP público real, use `CTRL-C` para parar o processo do `kubectl` relógio. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
@@ -112,11 +112,11 @@ Para ver a aplicação em ação, abra um navegador web para o endereço IP exte
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Se o pedido não tiver carregado, pode ser devido a um problema de autorização com o registo de imagem. Para ver o estado dos seus contentores, utilize o comando `kubectl get pods`. Se as imagens do recipiente não puderem ser puxadas, consulte [Authenticate com registo de contentores Azure do Serviço Azure Kubernetes](cluster-container-registry-integration.md).
+Se o pedido não foi carregado, pode ser devido a um problema de autorização com o seu registo de imagem. Para ver o estado dos seus contentores, utilize o comando `kubectl get pods`. Se as imagens do contentor não puderem ser retiradas, consulte [authenticate com registo de contentores Azure do Serviço Azure Kubernetes](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, uma amostra de aplicação de voto azure foi implantada para um cluster Kubernetes em AKS. Aprendeu a:
+Neste tutorial, uma amostra Azure vote application foi implantada para um cluster Kubernetes em AKS. Aprendeu a:
 
 > [!div class="checklist"]
 > * Atualizar ficheiros de manifesto Kubernetes

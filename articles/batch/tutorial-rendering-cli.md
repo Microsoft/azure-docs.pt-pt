@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc
 ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82117136"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
@@ -163,7 +163,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Para escrever ficheiros de saída para o contentor, o Batch tem de utilizar um token de Assinatura de Acesso Partilhado (SAS). Crie o token com o comando [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Este exemplo cria um símbolo para escrever a qualquer recipiente de blob na conta, e o token expira em 15 de novembro de 2020:
+Para escrever ficheiros de saída para o contentor, o Batch tem de utilizar um token de Assinatura de Acesso Partilhado (SAS). Crie o token com o comando [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Este exemplo cria um símbolo para escrever a qualquer recipiente de bolhas na conta, e o token expira em 15 de novembro de 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -312,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-As tarefas geram ficheiros de saída *chamados dragon0002.jpg* - *dragon0007.jpg* nos nós da computação e enviam-nos para o recipiente *de emprego-myrenderjob* na sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
+As tarefas geram ficheiros de saída nomeados *dragon0002.jpg*  -  *dragon0007.jpg* nos nós de computação e enviam-nos para o contentor *de trabalho-myrenderjob* na sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -325,7 +325,7 @@ Abra um dos ficheiros no seu computador. O fotograma composto 6 é semelhante ao
 ![Fotograma composto dragon 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 

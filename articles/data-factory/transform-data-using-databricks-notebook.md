@@ -1,5 +1,5 @@
 ---
-title: Executar um Caderno de Databricks com a atividade
+title: Executar um Caderno databricks com a atividade
 description: Saiba como pode utilizar a Atividade do Databricks Notebook num Azure Data Factory para executar um Databricks Notebook no cluster de tarefas do Databricks.
 services: data-factory
 ms.service: data-factory
@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81418988"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
@@ -34,7 +34,7 @@ Vai executar os seguintes passos neste tutorial:
 
   - Monitorizar a execução do pipeline.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Para uma introdução e demonstração de onze minutos desta funcionalidade, veja o seguinte vídeo:
 
@@ -42,7 +42,7 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-  - **Área de trabalho do Azure Databricks**. [Crie um espaço de trabalho databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou use um existente. Crie um Python Notebook na sua área de trabalho do Azure Databricks. Em seguida, execute o Notebook e transmita os parâmetros ao mesmo através do Azure Data Factory.
+  - **Área de trabalho do Azure Databricks**. [Crie um espaço de trabalho Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou use um existente. Crie um Python Notebook na sua área de trabalho do Azure Databricks. Em seguida, execute o Notebook e transmita os parâmetros ao mesmo através do Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -54,7 +54,7 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  No painel **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**.
 
-    O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize ** \<o seu nome\>ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules).
+    O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize ** \<yourname\> a ADFTutorialDataFactory).** Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Indicar um nome para a nova fábrica de dados](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -62,7 +62,7 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  Em **Grupo de Recursos**, efetue um destes passos:
     
-    - Selecione Utilize o **uso existente** e selecione um grupo de recursos existente a partir da lista de drop-down.
+    - Selecione **Utilize o grupo de** recursos existente na lista de drop-down.
     
     - Selecione **Criar novo** e insira o nome de um grupo de recursos.
 
@@ -116,7 +116,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
     
     1.  Em **Funções de trabalho**, introduza **2**.
     
-    1.  Selecione **Terminar**
+    1.  Selecione **Acabamento**
 
         ![Concluir a criação do serviço ligado](media/transform-data-using-databricks-notebook/new-databricks-linkedservice.png)
 
@@ -142,7 +142,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     b. Selecione **AzureDatabricks\_LinkedService** (criado no procedimento anterior).
 
-    c. Mude para o separador **Definições**
+    c. Mudar para o **separador Definições**
 
     c. Navegue para selecionar um **caminho do Databricks Notebook**. Vamos criar um Notebook e especificar o caminho aqui. O Caminho do Notebook é obtido ao seguir os próximos passos.
 
@@ -152,7 +152,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Crie um novo caderno](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de **mynotebook** sob pasta **adftutorial,** clique **em Criar.**
+       1. [Crie um novo caderno](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo **de mynotebook** sob pasta **adftutorial,** clique em **Criar.**
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -179,9 +179,9 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
        ![Adicionar um parâmetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Nomeie o parâmetro como **entrada** e forneça o valor como gasoduto de ** \@expressão().parâmetros.nome**.
+    b.  Nomeie o parâmetro como **entrada** e forneça o valor como ** \@ pipeline de expressão().parâmetros.name**.
 
-1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela ** \> ** de validação, selecione o botão (seta direita).
+1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o **\>\>** botão (seta direita).
 
     ![Validar o pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
@@ -201,7 +201,7 @@ A caixa de diálogo **Execução do Pipeline** pede-lhe o parâmetro **name**. U
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1.  Mude para o separador **Monitor.** Confirme se vê um gasoduto a funcionar. A criação de um cluster de trabalhos do Databricks, onde o Notebook vai ser executado, demora aproximadamente entre 5 a 8 minutos.
+1.  Mude para o **separador Monitor.** Confirme que vê um gasoduto a funcionar. A criação de um cluster de trabalhos do Databricks, onde o Notebook vai ser executado, demora aproximadamente entre 5 a 8 minutos.
 
     ![Monitorizar o pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 

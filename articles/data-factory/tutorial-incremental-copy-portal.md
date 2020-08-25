@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86082663"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
@@ -34,7 +34,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline.
-> * Resultados da revisão
+> * Rever resultados
 > * Adicionar mais dados à origem.
 > * Executar o pipeline novamente.
 > * Monitorizar a segunda execução do pipeline
@@ -125,7 +125,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```sql
     Select * from watermarktable
     ```
-    Saída:
+    Resultado:
 
     ```
     TableName  | WatermarkValue
@@ -273,10 +273,10 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     1. Para **o nome do procedimento armazenado,** selecione **usp_write_watermark**.
     2. Para especificar valores para os parâmetros do procedimento armazenado, clique em **Importar parâmetro** e introduza os seguintes valores para os parâmetros:
 
-        | Name | Tipo | Valor |
+        | Nome | Tipo | Valor |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   
@@ -382,7 +382,7 @@ PersonID | Name | LastModifytime
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes:
 
 > [!div class="checklist"]
@@ -393,7 +393,7 @@ Neste tutorial, executou os passos seguintes:
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline.
-> * Resultados da revisão
+> * Rever resultados
 > * Adicionar mais dados à origem.
 > * Executar o pipeline novamente.
 > * Monitorizar a segunda execução do pipeline

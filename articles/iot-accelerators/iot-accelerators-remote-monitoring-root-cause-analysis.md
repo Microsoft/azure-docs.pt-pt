@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77565473"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Realizar uma análise da causa raiz num alerta
@@ -30,7 +30,7 @@ Neste tutorial:
 > * Realizar uma análise da causa raiz
 > * Criar uma nova regra com base no que aprendeu
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -38,45 +38,45 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Para selecionar os dispositivos ligados que são apresentados na página **Dashboard**, utilize os filtros. Para apresentar apenas os dispositivos de **Camião**, escolha o filtro **Camiões** incorporado na lista pendente de filtros:
 
-[![Filtro para camiões no tablier](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
+[![Filtro para camiões no painel de instrumentos](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-Quando aplica um filtro, apenas os dispositivos que correspondem às condições do filtro são apresentados no mapa e no painel de telemetria no **Painel de Instrumentos**. Pode ver que existem dois camiões ligados ao acelerador de soluções, incluindo o **truck-02**.
+Quando se aplica um filtro, apenas os dispositivos que correspondem às condições do filtro são apresentados no mapa e no painel de telemetria no **painel do painel do painel .** Pode ver que existem dois camiões ligados ao acelerador de soluções, incluindo o **truck-02**.
 
 ## <a name="view-real-time-telemetry"></a>Ver telemetria em tempo real
 
 O acelerador de soluções rastreia a telemetria em tempo real no gráfico na página **Dashboard**. Por predefinição, o gráfico mostra a telemetria de altitude, que varia ao longo do tempo:
 
-[![Lote de telemetria de altitude do caminhão](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
+[![Enredo de telemetria de altitude do caminhão](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
 
 Para ver a telemetria de temperatura dos camiões, clique em **Temperatura** no **Painel de Telemetria**. Pode ver como a temperatura dos dois camiões variou durante os últimos 15 minutos. Também pode ver que foi acionado um alerta de temperatura baixa para o delivery-truck-02 no painel de alertas.
 
-[![Painel de instrumentos RM com alerta de baixa temperatura](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
+[![Painel RM com baixo alerta temporário](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
 
 ## <a name="explore-the-data"></a>Explorar os dados
 
 Para identificar a causa do alarme de temperatura baixa, abra os dados telemétricos do camião de entregas no explorador do Time Series Insights. Clique em qualquer uma das ligações **Explorar no Time Series Insights** no dashboard:
 
-[![Painel de instrumentos RM com links TSI em destaque](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
+[![Painel RM com links TSI em destaque](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
 
 Quando inicia o explorador, vê uma lista de todos os seus dispositivos:
 
-[![Vista inicial do Explorador TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
+[![Vista inicial do TSI Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
-Filtrar os dispositivos digitando o **caminhão de entrega** na caixa do filtro e selecione **a temperatura** como **medida** no painel esquerdo:
+Filtrar os dispositivos digitando o **caminhão de entrega** na caixa do filtro e selecione a **temperatura** como **medida** no painel esquerdo:
 
 [![Temperatura do caminhão TSI Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-Vê a mesma vista que viu no painel de monitorização remota. Além disso, pode agora aproximar-se do prazo em que o alerta foi desencadeado dentro:
+Vê a mesma vista que viu no painel de monitorização remota. Além disso, pode agora aproximar-se do prazo em que o alerta foi acionado dentro de:
 
-[![Zoom do Explorador TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
+[![Zoom TSI Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
 Também pode adicionar outros fluxos de telemetria provenientes dos camiões. Clique no botão **Adicionar** no canto superior esquerdo. É apresentado um novo painel:
 
-[![Explorador TSI com novo painel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
+[![TSI Explorer com novo painel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-No novo painel, mude o nome da nova etiqueta para **Dispositivos**, para que corresponda à anterior. Selecione **altitude** como **medida** e **iothub-connection-device-id** como o **valor Split By** para adicionar a telemetria de altitude à sua vista:
+No novo painel, mude o nome da nova etiqueta para **Dispositivos**, para que corresponda à anterior. Selecione a **altitude** como **medida** e **id id id de ligação id** como split **por** valor para adicionar a telemetria de altitude na sua vista:
 
-[![Explorador TSI com temperatura e altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
+[![TSI Explorer com temperatura e altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>Diagnosticar o alerta
 
@@ -84,13 +84,13 @@ Quando olhamos para os riachos na vista atual, podemos ver que os perfis de alti
 
 Para confirmar a suspeita de que os camiões estão a fazer percursos diferentes, adicione outro painel ao painel lateral com o botão **Adicionar**. No novo painel, mude o nome da nova etiqueta para **Dispositivos**, para que corresponda à anterior. Selecione **longitude** como a **Medida** e **iothub-connection-device-id** como o valor **Dividir Por** para adicionar a telemetria de longitude à sua vista. Pode ver que os camiões fizeram percursos diferentes ao observar a diferença entre os fluxos de **longitude**:
 
-[![Explorador TSI com temperatura, altitude e longitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
+[![TSI Explorer com temperatura, altitude e longitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
 
 ## <a name="create-a-new-rule"></a>Criar uma nova regra
 
-Embora as rotas dos camiões sejam tipicamente otimizadas com antecedência, percebe-se que os padrões de tráfego, o tempo e outros eventos imprevisíveis podem causar atrasos e deixar decisões de última hora para os camionistas com base no seu melhor julgamento. No entanto, uma vez que a temperatura dos seus ativos dentro do veículo é crítica, deverá criar uma regra adicional na sua solução de Monitorização Remota. Esta regra é garantir que recebe um aviso se a altitude média num intervalo de 1 minuto for superior a 350 pés:
+Embora as rotas dos camiões sejam normalmente otimizadas com antecedência, percebe-se que os padrões de tráfego, as condições meteorológicas e outros eventos imprevisíveis podem causar atrasos e deixar decisões de última hora para os camionistas com base no seu melhor julgamento. No entanto, uma vez que a temperatura dos seus ativos dentro do veículo é crítica, deverá criar uma regra adicional na sua solução de Monitorização Remota. Esta regra é garantir que recebe um aviso se a altitude média num intervalo de 1 minuto for superior a 350 pés:
 
-[![Regras de monitorização remota regras do separador definir regra de altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
+[![Regras de controlo remoto definir regra de altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
 Para saber como criar e editar regras, consulte o tutorial anterior sobre como [detetar problemas de dispositivo](iot-accelerators-remote-monitoring-automate.md).
 

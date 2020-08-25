@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648739"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723848"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Permitir o registo em ações de treino do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,9 @@ O Azure Machine Learning também pode registar informações de outras fontes du
 Para obter informações sobre métricas de registo no designer de aprendizagem automática Azure (pré-visualização), consulte [como registar métricas no designer (pré-visualização)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
-O seguinte caderno demonstra conceitos neste artigo:
+
+Os seguintes cadernos demonstram conceitos neste artigo:
+* [como usar-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [como usar-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

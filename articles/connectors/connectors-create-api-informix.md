@@ -4,17 +4,17 @@ description: Automatizar tarefas e fluxos de trabalho que gerem os recursos arma
 services: logic-apps
 ms.suite: integration
 author: gplarsen
-ms.author: plarsen
+ms.author: daberry
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76757973"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761649"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerir os recursos de base de dados da IBM Informix utilizando apps Azure Logic
 
@@ -60,15 +60,15 @@ Este tópico mostra-lhe como usar o conector numa aplicação lógica para proce
 
    | Ação | Descrição | Propriedades e descrições |
    |--------|-------------|-----------------------------|
-   | **Obter mesas** | Listar as tabelas de bases de dados executando uma declaração de Chamada Informix. | Nenhuma |
+   | **Obter mesas** | Listar as tabelas de bases de dados executando uma declaração de Chamada Informix. | Nenhum |
    | **Obter filas** | Pegue todas as linhas na tabela especificada executando uma declaração de `SELECT *` Informix. | **Nome da tabela**: O nome da tabela Informix que deseja <p><p>Para adicionar outras propriedades a esta ação, selecione-as da nova lista **de parâmetros Adicionar.** Para mais informações, consulte o [tópico de referência do conector.](/connectors/informix/) |
-   | **Obter fila** | Pegue uma linha da tabela especificada executando uma declaração de `SELECT WHERE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha, por exemplo,`9999` |
+   | **Obter fila** | Pegue uma linha da tabela especificada executando uma declaração de `SELECT WHERE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha, por exemplo, `9999` |
    | **Inserir linha** | Adicione uma linha à tabela Informix especificada executando uma declaração de `INSERT` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **item**: A linha com os valores a adicionar |
-   | **Linha de atualização** | Altere uma linha na tabela Informix especificada executando uma declaração de `UPDATE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha atualizar, por exemplo,`9999` <br>- **Linha**: A linha com os valores atualizados, por exemplo,`102` |
-   | **Eliminar linha** | Remova uma linha da tabela Informix especificada executando uma declaração de `DELETE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha para apagar, por exemplo,`9999` |
+   | **Linha de atualização** | Altere uma linha na tabela Informix especificada executando uma declaração de `UPDATE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha atualizar, por exemplo, `9999` <br>- **Linha**: A linha com os valores atualizados, por exemplo, `102` |
+   | **Eliminar linha** | Remova uma linha da tabela Informix especificada executando uma declaração de `DELETE` Informix. | - **Nome da tabela**: O nome da tabela Informix que deseja <br>- **ID de linha**: O ID único para a linha para apagar, por exemplo, `9999` |
    ||||
 
-1. Guarde a aplicação lógica. Agora, ou [testa a tua aplicação lógica](#test-logic-app) ou continua a construir a tua aplicação lógica.
+1. Guarde a sua aplicação lógica. Agora, ou [testa a tua aplicação lógica](#test-logic-app) ou continua a construir a tua aplicação lógica.
 
 <a name="create-connection"></a>
 
@@ -80,12 +80,12 @@ Este tópico mostra-lhe como usar o conector numa aplicação lógica para proce
 
    | Propriedade | Propriedade JSON | Necessário | Valor de exemplo | Descrição |
    |----------|---------------|----------|---------------|-------------|
-   | Nome da ligação | `name` | Sim | `informix-demo-connection` | O nome a utilizar para a ligação à sua base de dados Informix |
-   | Server | `server` | Sim | - Nuvem:`informixdemo.cloudapp.net:9089` <br>- No local:`informixdemo:9089` | O endereço TCP/IP ou pseudónimo que se encontra no formato IPv4 ou IPv6, seguido de um cólon e um número de porta TCP/IP |
-   | Base de Dados | `database` | Sim | `nwind` | O nome da base de dados relacional DRDA (RDBNAM) ou nome da base de dados Informix (dbname). Informix aceita uma corda de 128 bytes. |
+   | Nome da ligação | `name` | Yes | `informix-demo-connection` | O nome a utilizar para a ligação à sua base de dados Informix |
+   | Server | `server` | Yes | - Nuvem: `informixdemo.cloudapp.net:9089` <br>- No local: `informixdemo:9089` | O endereço TCP/IP ou pseudónimo que se encontra no formato IPv4 ou IPv6, seguido de um cólon e um número de porta TCP/IP |
+   | Base de Dados | `database` | Yes | `nwind` | O nome da base de dados relacional DRDA (RDBNAM) ou nome da base de dados Informix (dbname). Informix aceita uma corda de 128 bytes. |
    | Autenticação | `authentication` | Apenas no local | **Básico** ou **Windows** (kerberos) | O tipo de autenticação que é exigido pela sua base de dados Informix. Esta propriedade só aparece quando seleciona **Connect via gateway de dados no local.** |
-   | Nome de utilizador | `username` | Não | <*nome do utilizador da base de dados*> | Um nome de utilizador para a base de dados |
-   | Palavra-passe | `password` | Não | <*palavra-passe de base de dados*> | Uma senha para a base de dados |
+   | Nome de utilizador | `username` | No | <*nome do utilizador da base de dados*> | Um nome de utilizador para a base de dados |
+   | Palavra-passe | `password` | No | <*palavra-passe de base de dados*> | Uma senha para a base de dados |
    | Gateway | `gateway` | Apenas no local | - <*assinatura Azure*> <br>- <*Azure-on-premises-data-gateway-recurso*> | A subscrição Azure e o nome de recurso Azure para o portal de dados no local que criou no portal Azure. A propriedade **gateway** e sub-propriedades só aparecem quando seleciona **Connect via gateway de dados no local.** |
    ||||||
 
@@ -99,7 +99,7 @@ Este tópico mostra-lhe como usar o conector numa aplicação lógica para proce
 
      ![Informações de ligação à base de dados no local](./media/connectors-create-api-informix/informix-on-premises-connection.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 <a name="test-logic-app"></a>
 
@@ -145,6 +145,6 @@ Este tópico mostra-lhe como usar o conector numa aplicação lógica para proce
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição do Conector Swagger, consulte a [página de referência do conector](/connectors/informix/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](apis-list.md)

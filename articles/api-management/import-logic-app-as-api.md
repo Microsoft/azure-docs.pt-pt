@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82202779"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 
-Este artigo mostra como importar uma App Lógica como API e testar a API importada.
+Este artigo mostra como importar uma App Lógica como Uma API e testar a API importada.
 
 Neste artigo, vai aprender a:
 
@@ -33,31 +33,31 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
--   Certifique-se de que existe uma Aplicação Lógica na sua subscrição que expõe um ponto final http. Para mais informações, [Trigger fluxos de trabalho com pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)
+-   Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-started-create-service-instance.md)
+-   Certifique-se de que existe uma App Lógica na sua subscrição que expõe um ponto final HTTP. Para mais informações, [desencadeie fluxos de trabalho com pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
-1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** do menu.
+1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 2. Selecione **Aplicação Lógica** na lista **Adicionar uma nova API**.
 
     ![Aplicação lógica](./media/import-logic-app-as-api/logic-app-api.png)
 
-3. Pressione **O Venopara** ver a lista de Aplicações Lógicas com o gatilho HTTP na sua subscrição. (Note que as Aplicações Lógicas sem gatilho HTTP não aparecerão na lista.)
+3. Prima Procurar para ver a lista de Aplicações **Lógicas** com gatilho HTTP na sua subscrição. (Note que as aplicações lógicas sem o gatilho HTTP não aparecerão na lista.)
 4. Selecione a aplicação. A API Management encontra a arrogância associada à app selecionada, vai buscá-la e importa-a.
-5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de Gestão de API. Tem de ser único neste caso de Gestão API.
+5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de Gestão de API. Tem de ser único neste caso de Gestão da API.
 6. Publique a API ao associá-la a um produto. Neste caso, é utilizado o produto "_Unlimited_". Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
 
-    Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se criou a instância de Gestão API, já é administrador, pelo que é subscrito a cada produto por defeito.
+    Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se criou a instância de Gestão da API, já é administrador, pelo que é subscrito por padrão em todos os produtos.
 
     Por predefinição, cada instância daAPI Management é fornecida com dois produtos de exemplo:
 
     - **Inicial**
     - **Ilimitado**
 
-7. Introduza outras definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao separador **Definições.** As definições são explicadas no Importar e publicar o seu primeiro tutorial [API.](import-and-publish.md#-import-and-publish-a-backend-api)
+7. Introduza outras definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#-import-and-publish-a-backend-api)
 8. Selecione **Criar**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testar a API no portal do Azure
@@ -85,4 +85,4 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
 
 > [!div class="nextstepaction"]
 >
-> [Transforme e proteja um api publicado](transform-api.md)
+> [Transformar e proteger uma api publicada](transform-api.md)

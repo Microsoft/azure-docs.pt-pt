@@ -1,31 +1,55 @@
 ---
-title: Descarrega dashboard no mercado comercial da Microsoft análise no Partner Center
+title: Descarrega dashboard no mercado comercial da Microsoft análise no Partner Center - Azure Marketplace
 description: Saiba como aceder a pedidos de descarregamento para as suas ofertas de marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245677"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750284"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Transferências na análise de mercados comerciais
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Descarrega dashboard em análise de mercado comercial
 
 Este artigo fornece informações sobre o dashboard Downloads no Partner Center. Este dashboard apresenta uma lista dos seus pedidos de descarregamento nos últimos 30 dias.
 
-Para aceder ao dashboard Downloads, abra o painel **[de instrumentos De analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace Comercial.
+Para aceder ao dashboard Downloads, abra o painel de instrumentos **[De analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sob o mercado comercial.
 
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise de mercado comercial.](./faq-terminology.md)
 
 ## <a name="downloads-dashboard"></a>Dashboard de transferências
 
-O painel de **transferências** do menu **Analyze** apresenta pedidos para quaisquer downloads que contenham mais de 1000 linhas de dados de clientes ou encomendas. Estes downloads de dados estarão disponíveis durante 30 dias e depois removidos.
+O painel de **transferências** do menu **Analyze** apresenta pedidos para quaisquer downloads que contenham mais de 1000 linhas de dados de clientes ou encomendas.
+
+Receberá uma notificação pop-up contendo um link para o dashboard **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
+
+## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportação vitalícia de mercado comercial Relatórios de análise
+
+Na página Downloads, o utilizador final pode fazer o seguinte:
+
+- Exportação vitalícia do mercado comercial Relatórios de análise em formato CSV e TSV.
+- Exportação de mercado comercial Relatórios analytics para qualquer intervalo de datas.
+- Exportação de mercado comercial Relatórios analytics por duração de 6 ou 12 meses.
+
+Relatórios de suporte para a exportação vitalícia de analytics:
+
+| Relatório | Exportação vitalícia | Qualquer duração com base na data |
+| - | - | - |
+| Encomendas | ![Marca de verificação verde](media/check-green-yes.png) | ![Marca de verificação verde](media/check-green-yes.png) |
+| Clientes | ![Marca de verificação verde](media/check-green-yes.png) | ![Marca de verificação verde](media/check-green-yes.png) |
+| Insights de Mercado | ![Marca de verificação verde](media/check-green-yes.png) | ![Marca de verificação verde](media/check-green-yes.png) |
+| Utilização | ![Marca X preta](media/check-black-no.png) | Máximo de um ano |
+|
+
+Um utilizador pode agendar transferências assíncronos de relatórios da secção Downloads:
+
+[![agendamento assíncronos de downloads de relatórios da secção Downloads](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

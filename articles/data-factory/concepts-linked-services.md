@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: b4cd1fefb728da797d5ff56fe833662f21630c58
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338129"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796413"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -66,22 +66,22 @@ Um serviço ligado na Data Factory é definido no formato JSON da seguinte forma
 
 A tabela a seguir descreve propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
-tipo | Tipo de serviço ligado. Por exemplo: Azure Storage (data store) ou AzureBatch (cálculo). Consulte a descrição para tipos de propriedades. | Sim |
-typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e suas propriedades de tipo, consulte a tabela [do tipo conjunto de dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Sim |
+tipo | Tipo de serviço ligado. Por exemplo: AzureBlobStorage (data store) ou AzureBatch (computação). Consulte a descrição para tipos de propriedades. | Sim |
+typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e as suas propriedades de tipo, consulte o artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Sim |
 connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não
 
 ## <a name="linked-service-example"></a>Exemplo de serviço ligado
 
-O seguinte serviço ligado é um serviço ligado ao Azure Storage. Note que o tipo está definido para Azure Storage. As propriedades do tipo para o serviço ligado ao Armazenamento Azure incluem uma cadeia de ligação. O serviço Data Factory utiliza esta cadeia de ligação para ligar à loja de dados em tempo de execução.
+O seguinte serviço ligado é um serviço ligado ao armazenamento Azure Blob. Note que o tipo está definido para o armazenamento Azure Blob. As propriedades do tipo para o serviço ligado ao armazenamento Azure Blob incluem uma cadeia de ligação. O serviço Data Factory utiliza esta cadeia de ligação para ligar à loja de dados em tempo de execução.
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
@@ -108,7 +108,7 @@ Pode encontrar a lista de lojas de dados suportadas pela Data Factory a partir d
 
 Ambientes [computativos](compute-linked-services.md) de referência suportados para detalhes sobre diferentes ambientes de computação a que pode ligar a partir da sua fábrica de dados, bem como as diferentes configurações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seguinte tutorial para obter instruções passo a passo para a criação de oleodutos e conjuntos de dados utilizando uma destas ferramentas ou SDKs.
 

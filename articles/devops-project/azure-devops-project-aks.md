@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233334"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementar aplicativos core ASP.NET para o serviço Azure Kubernetes com Azure DevOps Starter
@@ -35,7 +35,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -144,7 +144,7 @@ Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando 
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se estiver a testar, pode evitar acumular encargos de faturação limpando os seus recursos. Quando já não são necessários, pode eliminar o cluster AKS e os recursos relacionados que criou neste tutorial. Para tal, utilize a funcionalidade **Eliminar** no painel de arranque de DevOps.
 
@@ -166,7 +166,7 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 Para saber mais sobre a utilização do painel Kubernetes, consulte:
 

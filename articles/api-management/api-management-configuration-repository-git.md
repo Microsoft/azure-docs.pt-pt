@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254848"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723950"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como guardar e configurar a sua configuração do serviço de Gestão de API com Git
 
@@ -82,7 +82,7 @@ Para gerar uma palavra-passe, certifique-se primeiro de que a **Expiração** es
 
 Os exemplos a seguir utilizam a ferramenta Git Bash do [Git para Windows,](https://www.git-scm.com/downloads) mas pode utilizar qualquer ferramenta Git que conheça.
 
-Abra a sua ferramenta Git na pasta desejada e executar o seguinte comando para clonar o repositório de git para a sua máquina local, utilizando o comando fornecido pelo portal Azure.
+Abra a sua ferramenta Git na pasta desejada e executar o seguinte comando para clonar o repositório Git para a sua máquina local, utilizando o comando fornecido pelo portal Azure.
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -146,7 +146,7 @@ Para obter informações sobre a realização desta operação utilizando a API 
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência da estrutura de arquivo e pasta do repositório local de Git
 
-Os ficheiros e pastas do repositório de git local contêm as informações de configuração sobre a instância de serviço.
+Os ficheiros e pastas do repositório local do Git contêm as informações de configuração sobre a instância de serviço.
 
 | Item | Descrição |
 | --- | --- |
@@ -222,41 +222,41 @@ A definição final, `$ref-policy` , mapas para o arquivo de declarações de po
 ### <a name="apis-folder"></a>pasta apis
 A `apis` pasta contém uma pasta para cada API na placa de serviço, que contém os seguintes itens.
 
-* `apis\<api name>\configuration.json`- esta é a configuração para a API e contém informações sobre o URL de serviço de backend e as operações. Esta é a mesma informação que seria devolvida se ligasse para [obter uma API específica](/rest/api/apimanagement/2019-12-01/apis/get) em `export=true` `application/json` formato.
+* `apis\<api name>\configuration.json` - esta é a configuração para a API e contém informações sobre o URL de serviço de backend e as operações. Esta é a mesma informação que seria devolvida se ligasse para [obter uma API específica](/rest/api/apimanagement/2019-12-01/apis/get) em `export=true` `application/json` formato.
 * `apis\<api name>\api.description.html`- esta é a descrição da API e corresponde à `description` propriedade da [entidade API.](/java/api/com.microsoft.azure.storage.table.entityproperty)
-* `apis\<api name>\operations\`- esta pasta contém `<operation name>.description.html` ficheiros que mapeiam as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para a `description` propriedade da entidade de [operação](/rest/api/visualstudio/operations/list#operationproperties) na API REST.
+* `apis\<api name>\operations\` - esta pasta contém `<operation name>.description.html` ficheiros que mapeiam as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para a `description` propriedade da entidade de [operação](/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta grupos
 A `groups` pasta contém uma pasta para cada grupo definido na instância de serviço.
 
-* `groups\<group name>\configuration.json`- esta é a configuração para o grupo. Esta é a mesma informação que seria devolvida se ligasse para a Get a uma operação [específica de grupo.](/rest/api/apimanagement/2019-12-01/group/get)
+* `groups\<group name>\configuration.json` - esta é a configuração para o grupo. Esta é a mesma informação que seria devolvida se ligasse para a Get a uma operação [específica de grupo.](/rest/api/apimanagement/2019-12-01/group/get)
 * `groups\<group name>\description.html`- esta é a descrição do grupo e corresponde à `description` propriedade da entidade do [grupo.](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)
 
 ### <a name="policies-folder"></a>pasta de políticas
 A `policies` pasta contém as declarações de política para a sua instância de serviço.
 
-* `policies\global.xml`- contém políticas definidas no âmbito global para a sua instância de serviço.
-* `policies\apis\<api name>\`- se tiver alguma política definida no âmbito da API, estas estão contidas nesta pasta.
-* `policies\apis\<api name>\<operation name>\`pasta - se tiver alguma política definida no âmbito de funcionamento, estas estão contidas nesta pasta em `<operation name>.xml` ficheiros que mapeiam as declarações de política para cada operação.
-* `policies\products\`- se tiver alguma política definida no âmbito do produto, estas estão contidas nesta pasta, que contém `<product name>.xml` ficheiros que mapeiam as declarações políticas de cada produto.
+* `policies\global.xml` - contém políticas definidas no âmbito global para a sua instância de serviço.
+* `policies\apis\<api name>\` - se tiver alguma política definida no âmbito da API, estas estão contidas nesta pasta.
+* `policies\apis\<api name>\<operation name>\` pasta - se tiver alguma política definida no âmbito de funcionamento, estas estão contidas nesta pasta em `<operation name>.xml` ficheiros que mapeiam as declarações de política para cada operação.
+* `policies\products\` - se tiver alguma política definida no âmbito do produto, estas estão contidas nesta pasta, que contém `<product name>.xml` ficheiros que mapeiam as declarações políticas de cada produto.
 
 ### <a name="portalstyles-folder"></a>portalStyles pasta
 A `portalStyles` pasta contém folhas de configuração e estilo para personalização do portal do desenvolvedor para a instância de serviço.
 
-* `portalStyles\configuration.json`- contém os nomes das folhas de estilo utilizadas pelo portal do desenvolvedor
-* `portalStyles\<style name>.css`- cada `<style name>.css` ficheiro contém estilos para o portal do desenvolvedor `Preview.css` (e por `Production.css` defeito).
+* `portalStyles\configuration.json` - contém os nomes das folhas de estilo utilizadas pelo portal do desenvolvedor
+* `portalStyles\<style name>.css` - cada `<style name>.css` ficheiro contém estilos para o portal do desenvolvedor `Preview.css` (e por `Production.css` defeito).
 
 ### <a name="products-folder"></a>pasta de produtos
 A `products` pasta contém uma pasta para cada produto definido na instância de serviço.
 
-* `products\<product name>\configuration.json`- esta é a configuração do produto. Esta é a mesma informação que seria devolvida se ligasse para a Get a uma operação [específica do produto.](/rest/api/apimanagement/2019-12-01/product/get)
-* `products\<product name>\product.description.html`- esta é a descrição do produto e corresponde à `description` propriedade da entidade do [produto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
+* `products\<product name>\configuration.json` - esta é a configuração do produto. Esta é a mesma informação que seria devolvida se ligasse para a Get a uma operação [específica do produto.](/rest/api/apimanagement/2019-12-01/product/get)
+* `products\<product name>\product.description.html` - esta é a descrição do produto e corresponde à `description` propriedade da entidade do [produto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
 
 ### <a name="templates"></a>modelos
 A `templates` pasta contém configuração para os modelos de [e-mail](api-management-howto-configure-notifications.md) da instância de serviço.
 
-* `<template name>\configuration.json`- esta é a configuração para o modelo de e-mail.
-* `<template name>\body.html`- este é o corpo do modelo de e-mail.
+* `<template name>\configuration.json` - esta é a configuração para o modelo de e-mail.
+* `<template name>\body.html` - este é o corpo do modelo de e-mail.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:

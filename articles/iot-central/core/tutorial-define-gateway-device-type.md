@@ -1,6 +1,6 @@
 ---
-title: Defina um novo tipo de dispositivo gateway em Azure IoT Central [ Central De entrada de gateways] Microsoft Docs
-description: Este tutorial mostra-lhe, como construtor, como definir um novo tipo de dispositivo ioT gateway na sua aplicação Azure IoT Central.
+title: Defina um novo tipo de dispositivo gateway no Azure IoT Central Microsoft Docs
+description: Este tutorial mostra-lhe, como construtor, como definir um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central.
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -10,162 +10,162 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81758126"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
-Este tutorial mostra-lhe, como construtor de soluções, como usar um modelo de dispositivo de gateway para definir um dispositivo de gateway na sua aplicação IoT Central. Em seguida, configura vários dispositivos a jusante que se ligam à sua aplicação IoT Central através do dispositivo gateway. 
+Este tutorial mostra-lhe, como construtor de soluções, como usar um modelo de dispositivo gateway para definir um dispositivo de gateway na sua aplicação IoT Central. Em seguida, configura vários dispositivos a jusante que se ligam à sua aplicação IoT Central através do dispositivo gateway. 
 
-Neste tutorial, você cria um modelo de dispositivo de gateway **Smart Building.** Um dispositivo de gateway **Smart Building** tem relações com outros dispositivos a jusante.
+Neste tutorial, você cria um modelo de dispositivo de gateway **smart building.** Um dispositivo **smart building** gateway tem relações com outros dispositivos a jusante.
 
 ![Diagrama de relação entre dispositivo de gateway e dispositivos a jusante](./media/tutorial-define-gateway-device-type/gatewaypattern.png)
 
-Além de permitir que os dispositivos a jusante se comuniquem com a sua aplicação IoT Central, um dispositivo gateway também pode:
+Além de permitir que os dispositivos a jusante comuniquem com a sua aplicação IoT Central, um dispositivo de gateway também pode:
 
 * Envie a sua própria telemetria, como a temperatura.
-* Responda a atualizações de propriedade reempreensíveis feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
-* Responda a comandos, tais como reiniciar o dispositivo.
+* Responda às atualizações de propriedades escritas efetuadas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
+* Responda aos comandos, tais como reiniciar o dispositivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial, é necessário [criar uma aplicação Azure IoT Central.](./quick-deploy-iot-central.md)
+Para completar este tutorial, precisa criar [uma aplicação Azure IoT Central](./quick-deploy-iot-central.md).
 
 ## <a name="create-downstream-device-templates"></a>Criar modelos de dispositivo a jusante
 
-Este tutorial utiliza modelos de dispositivos para um dispositivo **Sensor S1** e um dispositivo **Sensor de Ocupação RS40** para gerar dispositivos a jusante simulados.
+Este tutorial utiliza modelos de dispositivo para um dispositivo **S1 Sensor** e um dispositivo **de sensor de ocupação RS40** para gerar dispositivos simulados a jusante.
 
 Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de Dispositivo .** Em seguida, selecione **+** para começar a adicionar o modelo.
 
-1. Desloque-se para baixo até poder ver o azulejo do dispositivo **Sensor S1.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
+1. Desloque-se para baixo até ver o azulejo do dispositivo **S1 Sensor.** Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
 
-1. Na página **'Rever',** selecione **Criar** para adicionar o modelo do dispositivo à sua aplicação. 
+1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
-Para criar um modelo de dispositivo para um dispositivo sensor de**ocupação RS40:**
+Para criar um modelo de dispositivo para um dispositivo *** RS40 Sensor de Ocupação:**
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de Dispositivo .** Em seguida, selecione **+** para começar a adicionar o modelo.
 
-1. Desloque-se para baixo até poder ver o azulejo do dispositivo *** RS40 Ocupação Sensor.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
+1. Desloque-se para baixo até ver o azulejo do dispositivo ***RS40 Occupancy Sensor.** Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
 
-1. Na página **'Rever',** selecione **Criar** para adicionar o modelo do dispositivo à sua aplicação. 
+1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
-Agora tem modelos de dispositivo para os dois tipos de dispositivos a jusante:
+Tem agora modelos de dispositivo para os dois tipos de dispositivos a jusante:
 
 ![Modelos de dispositivos para dispositivos a jusante](./media/tutorial-define-gateway-device-type/downstream-device-types.png)
 
 
 ## <a name="create-a-gateway-device-template"></a>Criar um modelo de dispositivo de gateway
 
-Neste tutorial cria-se um modelo de dispositivo para um dispositivo de gateway de raiz. Usa este modelo mais tarde para criar um dispositivo de gateway simulado na sua aplicação.
+Neste tutorial cria-se um modelo de dispositivo para um dispositivo de gateway de raiz. Utilize este modelo mais tarde para criar um dispositivo de gateway simulado na sua aplicação.
 
-Para adicionar um novo modelo de dispositivo de gateway à sua aplicação:
+Para adicionar um novo modelo de dispositivo gateway à sua aplicação:
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de Dispositivo .** Em seguida, selecione **+** para começar a adicionar o modelo.
 
-1. Na página do **modelo Select,** selecione o azulejo **do Dispositivo IoT** e, em seguida, selecione **Seguinte: Personalizar**.
+1. Na página **do modelo Select,** selecione o **azulejo do dispositivo IoT** e, em seguida, selecione **Seguinte: Personalize**.
 
-1. Na página personalizar o **dispositivo,** selecione a caixa de verificação do **dispositivo Gateway.**
+1. Na página do **dispositivo Personalizar,** selecione a caixa de verificação do **dispositivo Gateway.**
 
-1. Na página **'Rever',** selecione **Criar**. 
+1. Na página **'Revisão',** **selecione Criar**. 
 
-1. Introduza o **dispositivo de gateway smart building** como o nome do modelo.
+1. Introduza **o dispositivo de gateway smart building** como o nome do modelo.
 
-1. Na página Criar um modelo de **capacidade,** selecione o azulejo **Personalizado.**
+1. Na página **'Criar um modelo de capacidade',** selecione o azulejo **personalizado.**
 
-1. Selecione **+** para adicionar uma interface.  Escolha a interface padrão de Informação do **Dispositivo.**
+1. Selecione **+** para adicionar uma interface.  Escolha a interface padrão informação do **dispositivo.**
 
 ### <a name="add-relationships"></a>Adicionar relacionamentos
 
-Em seguida, adicione relações aos modelos para os modelos do dispositivo a jusante:
+Em seguida, adicione relacionamentos aos modelos para os modelos de dispositivo a jusante:
 
-1. No modelo de dispositivo de **gateway Smart Building,** selecione **Relationships**.
+1. No modelo do **dispositivo de gateway Smart Building,** selecione **Relacionamentos**.
 
-1. Selecione **+ Adicionar relacionamento**. Introduza o **Sensor Ambiental** como nome de exibição e selecione **O Sensor S1** como alvo.
+1. Selecione **+ Adicionar relacionamento**. Introduza o **Sensor Ambiental** como o nome do visor e selecione **o Sensor S1** como alvo.
 
-1. Selecione **+ Adicione** a relação novamente. Introduza o **Sensor de Ocupação** como nome de exibição e selecione o Sensor de Ocupação **RS40** como alvo.
+1. Selecione + Adicione novamente **a relação.** Introduza **o Sensor de Ocupação** como nome de visor e selecione o Sensor de Ocupação **RS40** como alvo.
 
 1. Selecione **Guardar**.
 
-![Modelo de dispositivo de gateway de construção inteligente, mostrando relacionamentos](./media/tutorial-define-gateway-device-type/relationships.png)
+![Modelo de dispositivo de gateway de porta de entrada de edifício inteligente, mostrando relacionamentos](./media/tutorial-define-gateway-device-type/relationships.png)
 
-### <a name="add-cloud-properties"></a>Adicione propriedades da nuvem
+### <a name="add-cloud-properties"></a>Adicionar propriedades da cloud
 
-Um modelo de dispositivo de gateway pode incluir propriedades na nuvem. As propriedades da nuvem só existem na aplicação IoT Central, e nunca são enviadas para, ou recebidas de um dispositivo.
+Um modelo de dispositivo de gateway pode incluir propriedades na nuvem. As propriedades em nuvem só existem na aplicação IoT Central, e nunca são enviadas para, ou recebidas de um dispositivo.
 
-Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart Building.**
+Para adicionar propriedades de nuvem ao modelo de **dispositivo de gateway smart building.**
 
-1. No modelo de dispositivo de **gateway Smart Building,** selecione **propriedades cloud**.
+1. No modelo do **dispositivo de gateway Smart Building,** selecione propriedades **cloud**.
 
-1.  Utilize as informações na tabela seguinte para adicionar duas propriedades na nuvem ao seu modelo de dispositivo de gateway.
+1.  Utilize as informações na tabela seguinte para adicionar duas propriedades de nuvem ao modelo do dispositivo gateway.
 
-    | Nome a apresentar      | Semantic type (Tipo de semântica) | Esquema |
+    | Nome a apresentar      | Tipo de semântica | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhuma          | Date   |
-    | Nome do cliente     | Nenhuma          | String |
+    | Data da Última Assistência | Nenhum          | Data   |
+    | Nome do Cliente     | Nenhum          | Cadeia |
 
 2. Selecione **Guardar**.
 
 ### <a name="create-views"></a>Criar vistas
 
-Como construtor, pode personalizar a aplicação para apresentar informações relevantes sobre o dispositivo de sensor ambiental a um operador. As suas personalizações permitem ao operador gerir os dispositivos de sensores ambientais ligados à aplicação. Pode criar dois tipos de pontos de vista para um operador utilizar para interagir com dispositivos:
+Como construtor, pode personalizar a aplicação para apresentar informações relevantes sobre o dispositivo sensor ambiental a um operador. As suas personalizações permitem ao operador gerir os dispositivos sensores ambientais ligados à aplicação. Pode criar dois tipos de vista para um operador utilizar para interagir com dispositivos:
 
-* Formulários para visualizar e editar dispositivo e propriedades em nuvem.
+* Formulários para visualizar e editar propriedades de dispositivos e nuvem.
 * Dashboards para visualizar dispositivos.
 
-Para gerar as vistas padrão para o modelo de dispositivo de **gateway Smart Building:**
+Para gerar as vistas padrão para o modelo do **dispositivo de gateway Smart Building:**
 
-1. No modelo de dispositivo de **gateway Smart Building,** selecione **Views**.
+1. No modelo do **dispositivo de gateway Smart Building,** selecione **Vistas**.
 
-1. Selecione **Generate versões predefinidas** e certifique-se de que todas as opções são selecionadas.
+1. **Selecione Gerar azulejos predefinidos** e certifique-se de que todas as opções estão selecionadas.
 
-1. **Selecione Gere a visão padrão do dashboard**.
+1. **Selecione Gerer a visão padrão do painel de instrumentos**.
 
-## <a name="publish-the-device-template"></a>Publique o modelo do dispositivo
+## <a name="publish-the-device-template"></a>Publicar o modelo de dispositivo
 
-Antes de poder criar um dispositivo de gateway simulado ou ligar um verdadeiro dispositivo de gateway, tem de publicar o modelo do seu dispositivo.
+Antes de criar um dispositivo de gateway simulado ou ligar um verdadeiro dispositivo de gateway, tem de publicar o modelo do dispositivo.
 
 Para publicar o modelo do dispositivo gateway:
 
-1. Selecione o modelo de dispositivo de **gateway smart building** na página de modelos do **dispositivo.**
+1. Selecione o modelo do **dispositivo de gateway smart building** a partir da página de **modelos do dispositivo.**
 
 2. Selecione **Publicar**.
 
-3. Na caixa de diálogo **'Modelo** de Publicação', escolha **Publicar**.
+3. Na caixa de diálogo **do modelo do dispositivo,** escolha **publicar**.
 
-Depois de publicado um modelo de dispositivo, é visível na página **dispositivos** e no operador. Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade de dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e visualizações, num modelo de dispositivo publicado. Estas atualizações não fazem com que seja criada uma nova versão. Depois de então fazer quaisquer alterações, selecione **Publicar** para empurrar essas alterações para o seu operador.
+Após a publicação de um modelo de dispositivo, é visível na página **dispositivos** e no operador. Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade do dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado. Estas atualizações não fazem com que uma nova versão seja criada. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
 
 ## <a name="create-the-simulated-devices"></a>Criar os dispositivos simulados
 
-Este tutorial utiliza dispositivos a jusante simulados e um dispositivo de gateway simulado.
+Este tutorial utiliza dispositivos simulados a jusante e um dispositivo de gateway simulado.
 
 Para criar um dispositivo de gateway simulado:
 
-1. Na página **dispositivos,** selecione o **dispositivo de gateway Smart Building** na lista de modelos do dispositivo.
+1. Na página **Dispositivos,** selecione o **dispositivo smart building gateway** na lista de modelos do dispositivo.
 
 1. Selecione **+** para começar a adicionar um novo dispositivo.
 
-1. Mantenha o **id do dispositivo** gerado e o nome do **dispositivo**. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
 
-Para criar um dispositivo a jusante simulado:
+Para criar um dispositivo simulado a jusante:
 
-1. Na página **dispositivos,** selecione **Sensor de Ocupação RS40** na lista de modelos do dispositivo.
-
-1. Selecione **+** para começar a adicionar um novo dispositivo.
-
-1. Mantenha o **id do dispositivo** gerado e o nome do **dispositivo**. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
-
-1. Na página **Dispositivos,** selecione **Sensor S1** na lista de modelos do dispositivo.
+1. Na página **dispositivos,** selecione **o Sensor de Ocupação RS40** na lista de modelos do dispositivo.
 
 1. Selecione **+** para começar a adicionar um novo dispositivo.
 
-1. Mantenha o **id do dispositivo** gerado e o nome do **dispositivo**. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+
+1. Na página **dispositivos,** selecione **S1 Sensor** na lista de modelos do dispositivo.
+
+1. Selecione **+** para começar a adicionar um novo dispositivo.
+
+1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
 
 ![Dispositivos simulados na sua aplicação](./media/tutorial-define-gateway-device-type/simulated-devices.png)
 
@@ -173,43 +173,43 @@ Para criar um dispositivo a jusante simulado:
 
 Agora que tem os dispositivos simulados na sua aplicação, pode criar as relações entre os dispositivos a jusante e o dispositivo gateway:
 
-1. Na página **dispositivos,** selecione **Sensor S1** na lista de modelos do dispositivo e, em seguida, selecione o seu dispositivo s1 **sensor** simulado.
+1. Na página **dispositivos,** selecione o **Sensor S1** na lista de modelos do dispositivo e, em seguida, selecione o seu dispositivo **simulado S1 Sensor.**
 
 1. Selecione **Ligar ao gateway**.
 
-1. No **Connect a um** diálogo de gateway, selecione o modelo de dispositivo de **gateway Smart Building** e, em seguida, selecione a instância simulada que criou anteriormente.
+1. No **'Ligar' a um** diálogo de gateway, selecione o modelo do **dispositivo de gateway Smart Building** e, em seguida, selecione a instância simulada que criou anteriormente.
 
-1. Selecione **Juntar**.
+1. Selecione **Join**.
 
-1. Na página **dispositivos,** selecione sensor de **ocupação RS40** na lista de modelos do dispositivo e, em seguida, selecione o seu dispositivo de sensor de **ocupação RS40** simulado.
+1. Na página **dispositivos,** selecione o **Sensor de Ocupação RS40** na lista de modelos do dispositivo e, em seguida, selecione o seu dispositivo simulado **de Sensor de Ocupação RS40.**
 
 1. Selecione **Ligar ao gateway**.
 
-1. No **Connect a um** diálogo de gateway, selecione o modelo de dispositivo de **gateway Smart Building** e, em seguida, selecione a instância simulada que criou anteriormente.
+1. No **'Ligar' a um** diálogo de gateway, selecione o modelo do **dispositivo de gateway Smart Building** e, em seguida, selecione a instância simulada que criou anteriormente.
 
-1. Selecione **Juntar**.
+1. Selecione **Join**.
 
-Ambos os seus dispositivos a jusante simulados estão agora ligados ao seu dispositivo de gateway simulado. Se navegar para a vista **de Dispositivos Downstream** para o seu dispositivo gateway, pode ver os dispositivos a jusante relacionados:
+Ambos os seus dispositivos simulados a jusante estão agora ligados ao seu dispositivo de gateway simulado. Se navegar para a vista **dos Dispositivos a jusante** para o seu dispositivo gateway, pode ver os dispositivos a jusante relacionados:
 
-![Visão de dispositivos a jusante](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
+![Vista de dispositivos a jusante](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
-Selecione um modelo de dispositivo de gateway e uma instância do dispositivo gateway e selecione **Juntar**.
+Selecione um modelo de dispositivo de gateway e a instância do dispositivo gateway e **selecione 'Junte-se'.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
-* Crie um novo portal IoT como modelo de dispositivo.
+* Crie um novo gateway IoT como modelo de dispositivo.
 * Criar propriedades em nuvem.
-* Criar personalizações.
+* Crie personalizações.
 * Defina uma visualização para a telemetria do dispositivo.
 * Adicione relacionamentos.
 * Publique o modelo do seu dispositivo.
 
 > [!NOTE]
-> A geração de códigos baseado em Código VS não é suportada atualmente para dispositivos gateway modelados em IoT Central.
+> A geração de código baseada em VS Code não é atualmente suportada para dispositivos gateway modelados na IoT Central.
 
-Em seguida, como desenvolvedor de dispositivos, pode aprender a:
+Em seguida, como desenvolvedor de dispositivos, você pode aprender a:
 
 > [!div class="nextstepaction"]
-> [Adicione um dispositivo Azure IoT Edge à sua aplicação Central Azure IoT](tutorial-add-edge-as-leaf-device.md)
+> [Adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

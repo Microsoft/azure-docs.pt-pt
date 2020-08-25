@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Back up a app'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como fazer o backup de uma aplicação.
+title: 'CLI: Apoiar uma aplicação'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como fazer o back up de uma aplicação.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -10,15 +10,15 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: fd310e81c6a86e651e27518acfdefa66980fa938
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80059141"
 ---
-# <a name="back-up-an-app-using-cli"></a>Back up uma aplicação usando CLI
+# <a name="back-up-an-app-using-cli"></a>Fazer o back up de uma aplicação usando o CLI
 
-Este script de amostra cria uma aplicação no App Service com os seus recursos relacionados, e depois cria uma cópia de segurança única para o mesmo. 
+Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
 | [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria uma cópia de segurança para uma aplicação de Serviço de Aplicações. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para uma aplicação de Serviço de Aplicações. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para uma aplicação do Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

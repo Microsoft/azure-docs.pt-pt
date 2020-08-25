@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
 ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109581"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
@@ -160,7 +160,7 @@ O aparelho Azure Migrate liga-se ao servidor vCenter para descobrir e migrar VMs
 Em alternativa, pode criar uma conta. Em seguida, crie um papel, e atribua-o à conta, da seguinte forma:
 
 1. Inscreva-se no Cliente Web da Esfera como administrador do servidor vCenter
-2. Selecione a instância do servidor vCenter > **Criar função**.
+2. Selecione a instância do servidor vCenter >  **Criar função**.
 3. Especifique um nome de função, por exemplo <em>Azure_Migrate</em>, e atribua as [permissões necessárias](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless) para a função.
 
     ![privilégios de conta vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
@@ -188,7 +188,7 @@ Pode migrar VMware VMs usando [migração sem agentes ou baseada em agentes.](se
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

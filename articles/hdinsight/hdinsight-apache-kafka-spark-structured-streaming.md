@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 8aa7401a2ee7a0d87736e6b18fc814f983e2afa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82184202"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
-Este tutorial demonstra como usar o [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) para ler e escrever dados com Apache [Kafka](./kafka/apache-kafka-introduction.md) no Azure HDInsight.
+Este tutorial demonstra como usar [o Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) para ler e escrever dados com Apache [Kafka](./kafka/apache-kafka-introduction.md) em Azure HDInsight.
 
 Spark Structured Streaming é um motor de processamento de fluxo construído em Spark SQL. Permite-lhe expressar computações de transmissão em fluxo, tal como a computação em lotes o faz em dados estáticos.  
 
@@ -25,15 +25,15 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Use um modelo de Gestor de Recursos Azure para criar clusters
-> * Use spark structured streaming com Kafka
+> * Use o streaming estruturado de faíscas com Kafka
 
-Quando terminar os passos deste documento, lembre-se de apagar os clusters para evitar excessos de encargos.
+Quando terminar os passos deste documento, lembre-se de apagar os clusters para evitar encargos excessivos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* jq, um processador JSON de linha de comando.  Vê. [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
+* jq, um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
 
-* Familiaridade com a utilização de [Cadernos Jupyter](https://jupyter.org/) com Faísca no HDInsight. Para mais informações, consulte os [dados da Carga e execute consultas com a Apache Spark no documento HDInsight.](spark/apache-spark-load-data-run-query.md)
+* Familiaridade com a utilização de [Cadernos Jupyter](https://jupyter.org/) com Spark on HDInsight. Para obter mais informações, consulte os [dados de Carga e execute consultas com Apache Spark no documento HDInsight.](spark/apache-spark-load-data-run-query.md)
 
 * Familiaridade com a linguagem de programação Scala. O código utilizado neste tutorial está escrito em Scala.
 
@@ -94,9 +94,9 @@ Em ambos os fragmentos, os dados são lidos a partir do Kafka e escritos num fic
 | `write` | `writeStream` |
 | `save` | `start` |
 
-A operação de `awaitTermination(30000)`streaming também utiliza , que para o fluxo após 30.000 ms.
+A operação de streaming também usa `awaitTermination(30000)` , que para o fluxo após 30.000 ms.
 
-Para utilizar a Transmissão em Fluxo Estruturada com o Kafka, o projeto tem de ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para o Spark 2.2.0 (disponível no HDInsight 3.6), pode [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar)encontrar a informação de dependência para diferentes tipos de projeto em .
+Para utilizar a Transmissão em Fluxo Estruturada com o Kafka, o projeto tem de ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para Spark 2.2.0 (disponível em HDInsight 3.6), pode encontrar a informação de dependência para diferentes tipos de projeto em [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar) .
 
 Para o Caderno Jupyter usado com este tutorial, a seguinte célula carrega esta dependência do pacote:
 
@@ -112,7 +112,7 @@ Para o Caderno Jupyter usado com este tutorial, a seguinte célula carrega esta 
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não dá acesso aos corretores Kafka através da internet pública. Tudo o que utilize Kafka tem de estar na mesma rede virtual do Azure. Neste tutorial, os clusters do Kafka e do Spark estão localizados na mesma rede virtual do Azure.
+Apache Kafka na HDInsight não dá acesso aos corretores Kafka através da internet pública. Tudo o que utilize Kafka tem de estar na mesma rede virtual do Azure. Neste tutorial, os clusters do Kafka e do Spark estão localizados na mesma rede virtual do Azure.
 
 O diagrama seguinte mostra como a comunicação flui entre o Spark e o Kafka:
 
@@ -127,7 +127,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    O modelo do Gestor de **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**Recursos Azure está localizado em .
+    O modelo do Gestor de Recursos Azure está localizado em **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json** .
 
     Este modelo cria os seguintes recursos:
 
@@ -154,7 +154,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
     ![Captura de ecrã do modelo personalizado](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. Leia os **Termos e Condições**, em seguida, selecione **Concordo com os termos e condições acima indicados**.
+3. Leia os **Termos e Condições,** em seguida, selecionar **Concordo com os termos e condições acima indicados**.
 
 4. Selecione **Comprar**.
 
@@ -163,9 +163,9 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
 ## <a name="use-spark-structured-streaming"></a>Utilizar o streaming estruturado de faíscas
 
-Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDInsight. Utiliza dados sobre viagens de táxi, que são fornecidas pela cidade de Nova Iorque.  O conjunto de dados utilizado por este caderno é de Dados de Viagem de Táxi Verde de [2016.](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb)
+Este exemplo demonstra como usar o Streaming Estruturado de Faísca com Kafka em HDInsight. Usa dados sobre viagens de táxi, que são fornecidas pela cidade de Nova Iorque.  O conjunto de dados utilizado por este caderno é de [2016 Green Taxi Trip Data](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Reúna informações do anfitrião. Use os comandos de caracóis e [jq](https://stedolan.github.io/jq/) abaixo para obter o seu ZooKeeper Kafka e o corretor acolhe informações. Os comandos foram concebidos para um pedido de comando windows, pequenas variações serão necessárias para outros ambientes. Substitua-o `KafkaCluster` pelo nome do `KafkaPassword` seu cluster Kafka e pela senha de login do cluster. Além `C:\HDI\jq-win64.exe` disso, substitua-o pelo caminho real para a sua instalação jq. Introduza os comandos num pedido de comando windows e guarde a saída para utilização em etapas posteriores.
+1. Reúna informações de anfitrião. Use os comandos curl e [jq](https://stedolan.github.io/jq/) abaixo para obter as informações do seu Kafka ZooKeeper e do corretor. Os comandos são projetados para uma solicitação de comando do Windows, serão necessárias ligeiras variações para outros ambientes. `KafkaCluster`Substitua-o pelo nome do seu cluster Kafka e `KafkaPassword` pela palavra-passe de login do cluster. Além disso, `C:\HDI\jq-win64.exe` substitua-o pelo caminho real para a sua instalação jq. Introduza os comandos num pedido de comando do Windows e guarde a saída para utilização em etapas posteriores.
 
     ```cmd
     REM Enter cluster name in lowercase
@@ -178,13 +178,13 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/KAFKA/components/KAFKA_BROKER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")"
     ```
 
-1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/jupyter`onde `CLUSTERNAME` está o nome do seu cluster. Quando lhe for pedido, introduza o início de sessão do cluster (admin) e a palavra-passe utilizada quando criou o cluster.
+1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/jupyter` para, onde `CLUSTERNAME` está o nome do seu cluster. Quando lhe for pedido, introduza o início de sessão do cluster (admin) e a palavra-passe utilizada quando criou o cluster.
 
 1. Selecione **New > Spark** para criar um caderno.
 
-1. O streaming de faíscas tem microbatching, o que significa que os dados vêm como lotes e executores executam nos lotes de dados. Se o executor tiver um tempo inativo inferior ao tempo necessário para processar o lote, então os executores serão constantemente adicionados e removidos. Se o tempo limite dos executores for maior do que a duração do lote, o executor nunca é removido. Por **isso, recomendamos que desative a atribuição dinâmica definindo spark.dynamicAllocation.habilitado a falsear ao executar aplicações** de streaming.
+1. O streaming de faíscas tem microbatching, o que significa que os dados vêm à medida que os lotes e executores funcionam nos lotes de dados. Se o executor tiver um tempo de inatividade inferior ao tempo necessário para processar o lote, então os executores serão constantemente adicionados e removidos. Se o tempo de tempo de marcha lenta de marcha lenta for superior à duração do lote, o executor nunca será removido. Por **isso, recomendamos que desative a alocação dinâmica definindo spark.dynamicAllocation.ativado para falso ao executar aplicações de streaming.**
 
-    Carregue os pacotes utilizados pelo Caderno, inserindo as seguintes informações numa célula do Caderno. Executar o comando utilizando **CTRL + ENTER**.
+    Carregue os pacotes utilizados pelo Caderno introduzindo as seguintes informações numa célula portátil. Executar o comando utilizando **CTRL + ENTER**.
 
     ```configuration
     %%configure -f
@@ -197,7 +197,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     }
     ```
 
-1. Crie o tópico kafka. Editar o comando abaixo `YOUR_ZOOKEEPER_HOSTS` substituindo-se pela informação do hospedeiro zookeeper extraída no primeiro passo. Insira o comando editado no seu `tripdata` Caderno Jupyter para criar o tópico.
+1. Crie o tópico Kafka. Edite o comando abaixo substituindo as `YOUR_ZOOKEEPER_HOSTS` informações do anfitrião zookeeper extraídas no primeiro passo. Insira o comando editado no seu Caderno Jupyter para criar o `tripdata` tópico.
 
     ```scala
     %%bash
@@ -206,7 +206,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
     ```
 
-1. Recolha dados sobre viagens de táxi. Insira o comando na próxima célula para carregar dados em viagens de táxi em Nova Iorque. Os dados são carregados num quadro de dados e, em seguida, o dataframe é apresentado como a saída da célula.
+1. Recupere dados sobre viagens de táxi. Insira o comando na próxima cela para carregar dados sobre viagens de táxi em Nova Iorque. Os dados são carregados num dataframe e, em seguida, o dataframe é apresentado como a saída da célula.
 
     ```scala
     import spark.implicits._
@@ -222,7 +222,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     taxiDF.show()
     ```
 
-1. Despinde o corretor Kafka recebe informações. Substitua-a `YOUR_KAFKA_BROKER_HOSTS` pelo corretor que acolhe informações extraídas no passo 1.  Introduza o comando editado na próxima célula jupyter Notebook.
+1. Desa estação, o corretor Kafka acolhe informações. `YOUR_KAFKA_BROKER_HOSTS`Substitua-o pela informação dos anfitriões do corretor que extraiu no passo 1.  Introduza o comando editado na próxima célula do Caderno Jupyter.
 
     ```scala
     // The Kafka broker hosts and topic used to write to Kafka
@@ -232,7 +232,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-1. Envie os dados para Kafka. No comando seguinte, `vendorid` o campo é usado como o valor chave para a mensagem Kafka. A chave é usada por Kafka ao dividir dados. Todos os campos estão guardados na mensagem Kafka como um valor de corda JSON. Insira o seguinte comando em Jupyter para guardar os dados para Kafka usando uma consulta de lote.
+1. Envie os dados para Kafka. No comando seguinte, o `vendorid` campo é usado como o valor chave para a mensagem Kafka. A chave é usada por Kafka ao dividir dados. Todos os campos estão armazenados na mensagem Kafka como um valor de cadeia JSON. Introduza o seguinte comando em Jupyter para guardar os dados para Kafka usando uma consulta de lote.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.
@@ -241,7 +241,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Data sent to Kafka")
     ```
 
-1. Declare um esquema. O seguinte comando demonstra como usar um esquema ao ler dados da JSON de kafka. Entra no comando na tua próxima célula Jupyter.
+1. Declare um esquema. O seguinte comando demonstra como usar um esquema ao ler dados do JSON de kafka. Insira o comando na sua próxima célula Jupyter.
 
     ```scala
     // Import bits useed for declaring schemas and working with JSON data
@@ -277,7 +277,7 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Schema declared")
     ```
 
-1. Selecione dados e inicie o fluxo. O seguinte comando demonstra como recuperar dados de Kafka usando uma consulta de lote. E depois escreva os resultados para o HDFS no cluster Spark. Neste exemplo, `select` a mensagem (campo de valor) de Kafka e aplica-lhe o esquema. Os dados são então escritos para HDFS (WASB ou ADL) em formato parquet. Entra no comando na tua próxima célula Jupyter.
+1. Selecione dados e inicie o fluxo. O seguinte comando demonstra como obter dados de Kafka usando uma consulta de lote. E, em seguida, escreva os resultados para o HDFS no cluster Spark. Neste exemplo, a `select` mensagem (campo de valor) de Kafka e aplica o esquema a ela. Os dados são então escritos para HDFS (WASB ou ADL) em formato parquet. Insira o comando na sua próxima célula Jupyter.
 
     ```scala
     // Read a batch from Kafka
@@ -289,14 +289,14 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Wrote data to file")
     ```
 
-1. Pode verificar se os ficheiros foram criados entrando no comando na sua próxima célula Jupyter. Lista os ficheiros `/example/batchtripdata` no diretório.
+1. Pode verificar se os ficheiros foram criados introduzindo o comando na sua próxima célula Jupyter. Lista os ficheiros do `/example/batchtripdata` diretório.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/batchtripdata
     ```
 
-1. Enquanto o exemplo anterior usava uma consulta de lote, o seguinte comando demonstra como fazer a mesma coisa usando uma consulta de streaming. Entra no comando na tua próxima célula Jupyter.
+1. Embora o exemplo anterior tenha usado uma consulta de lote, o seguinte comando demonstra como fazer a mesma coisa usando uma consulta de streaming. Insira o comando na sua próxima célula Jupyter.
 
     ```scala
     // Stream from Kafka
@@ -307,14 +307,14 @@ Este exemplo demonstra como usar o Spark Structured Streaming com kafka no HDIns
     println("Wrote data to file")
     ```
 
-1. Verifique a célula seguinte para verificar se os ficheiros foram escritos pela consulta de streaming.
+1. Verifique a seguinte célula para verificar se os ficheiros foram escritos pela consulta de streaming.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/streamingtripdata
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recursos. A eliminação do grupo de recursos também elimina o cluster HDInsight associado. E quaisquer outros recursos associados ao grupo de recursos.
 
@@ -331,7 +331,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a usar o Apache Spark Structured Streaming. Para escrever e ler dados de Apache Kafka no HDInsight. Use o seguinte link para aprender a usar a Tempestade Apache com Kafka.
+Neste tutorial, aprendeu a usar o Apache Spark Structured Streaming. Para escrever e ler dados de Apache Kafka em HDInsight. Use o seguinte link para aprender a usar a Tempestade Apache com Kafka.
 
 > [!div class="nextstepaction"]
-> [Use apache tempestade com Apache Kafka](hdinsight-apache-storm-with-kafka.md)
+> [Use a Tempestade Apache com Apache Kafka](hdinsight-apache-storm-with-kafka.md)

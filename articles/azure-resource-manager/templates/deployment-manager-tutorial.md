@@ -6,10 +6,10 @@ ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86056893"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
@@ -334,7 +334,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
     Se executar este script a partir de uma sessão de PowerShell diferente daquela que executou o roteiro [Prepare os artefactos,](#prepare-the-artifacts) precisa de repovoar as variáveis primeiro, que incluem **$resourceGroupName** e **$filePath**.
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment`é uma chamada assíncronea. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a colocação, consulte o passo 2 e o passo 4 deste procedimento.
+    > `New-AzResourceGroupDeployment` é uma chamada assíncronea. A mensagem de sucesso significa apenas que a implantação começou com sucesso. Para verificar a colocação, consulte o passo 2 e o passo 4 deste procedimento.
 
 2. Utilize o portal do Azure para confirmar que a topologia de serviço e os recursos sublinhados foram criados com êxito:
 
@@ -427,7 +427,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 2. Navegue para as aplicações Web criadas recentemente, nos grupos de recursos novos que foram criados com a implementação do lançamento.
 3. Abra a aplicação Web num browser. Verifique a localização e a versão no ficheiro index.html.
 
@@ -455,6 +455,6 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 5. Repita os dois últimos passos para eliminar outros grupos de recursos criados neste tutorial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar o Gestor de Implementações do Azure. Para integrar a monitorização de saúde no Azure Deployment Manager, consulte [Tutorial: Use o exame de saúde no Gestor de Implementação do Azure](./deployment-manager-tutorial-health-check.md).

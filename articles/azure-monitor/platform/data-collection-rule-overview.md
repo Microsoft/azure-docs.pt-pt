@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640740"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723865"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -28,7 +28,7 @@ Uma regra de recolha de dados inclui os seguintes componentes.
 
 | Componente | Descrição |
 |:---|:---|
-| Origens de dados | Fonte única de monitorização de dados com o seu próprio formato e método expondo os seus dados. Exemplos de uma fonte de dados incluem registo de eventos do Windows, contadores de desempenho e syslog. Cada fonte de dados corresponde a um determinado tipo de fonte de dados, conforme descrito abaixo. |
+| Origens de dados | Fonte única de monitorização de dados com o seu próprio formato e método de exposição dos seus dados. Exemplos de uma fonte de dados incluem registo de eventos do Windows, contadores de desempenho e syslog. Cada fonte de dados corresponde a um determinado tipo de fonte de dados, conforme descrito abaixo. |
 | Fluxos | Cabo único que descreve um conjunto de fontes de dados que serão transformadas e schematizadas como um tipo. Cada fonte de dados requer um ou mais fluxos, e um fluxo pode ser usado por várias fontes de dados. Todas as fontes de dados num fluxo partilham um esquema comum. Utilize vários fluxos, por exemplo, quando pretender enviar uma determinada fonte de dados para várias tabelas no mesmo espaço de trabalho do Log Analytics. |
 | Destinos | Conjunto de destinos para onde os dados devem ser enviados. Exemplos incluem log analytics espaço de trabalho, métricas de monitor Azure e Hubs de Eventos Azure. | 
 | Fluxos de dados | Definição dos fluxos a que os destinos devem ser enviados. | 
@@ -44,7 +44,7 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão VM |
 | performanceCounters | Contadores de desempenho tanto para Windows como Linux |
-| syslog | Eventos syslog na máquina virtual Linux |
+| syslog | Eventos Syslog em Linux |
 | windowsEventLogs | Registo de eventos do Windows |
 
 
@@ -54,14 +54,14 @@ O quadro que se segue lista os limites que atualmente se aplicam a cada regra de
 | Limite | Valor |
 |:---|:---|
 | Número máximo de fontes de dados | 10 |
-| Especificadores máximos de contadores no desempenho | 100 |
-| Nomes máximos de instalações no SysLog | 20 |
-| Consultas máximas de XPath no EventLog | 100 |
-| Fluxos máximos de dados | 10 |
-| Fluxos máximos de dados | 10 |
+| Número máximo de especificadores de contadores no contador de desempenho | 100 |
+| Número máximo de nomes de instalações no Syslog | 20 |
+| Número máximo de consultas XPath no Registo de Eventos | 100 |
+| Número máximo de fluxos de dados | 10 |
+| Número máximo de fluxos de dados | 10 |
 | Número máximo de extensões | 10 |
 | Tamanho máximo das definições de extensão | 32 Kb |
-| Espaços de trabalho máximos de Log Analytics | 10 |
+| Número máximo de espaços de trabalho log analytics | 10 |
 
 
 ## <a name="create-a-dcr"></a>Criar um DCR
@@ -83,8 +83,7 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
   - Recolhe eventos de Debug, Critical e Emergência das instalações da Cron.
   - Recolhe eventos de alerta, crítico e emergência das instalações do syslog.
 - Destinos
-  - Envia todos os dados para um espaço de trabalho log analytics chamado centralTeamWorkspace.
-  - Envia dados de desempenho para Azure Monitor Metrics na subscrição atual.
+  - Envia todos os dados para um espaço de trabalho Log Analytics chamado centralWorkspace.
 
 ```json
 {
@@ -157,7 +156,7 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

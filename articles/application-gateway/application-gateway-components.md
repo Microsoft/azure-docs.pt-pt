@@ -1,20 +1,20 @@
 ---
-title: Componentes do Gateway de Aplicação
+title: Componentes de gateway de aplicação
 description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicação
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.author: absha
-ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.author: surmb
+ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088092"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723321"
 ---
-# <a name="application-gateway-components"></a>Componentes do Gateway de Aplicação
+# <a name="application-gateway-components"></a>Componentes de gateway de aplicação
 
  Um gateway de aplicação serve como único ponto de contacto para os clientes. Distribui o tráfego de aplicações de entrada em vários pools de backend, que incluem VMs Azure, conjuntos de escala de máquinas virtuais, Serviço de Aplicações Azure e servidores externos no local. Para distribuir tráfego, um gateway de aplicações utiliza vários componentes descritos neste artigo.
 
@@ -69,9 +69,9 @@ Há dois tipos de ouvintes:
 
 - **Básico**. Este tipo de ouvinte ouve um único site de domínio, onde tem um único mapeamento dns para o endereço IP do gateway de aplicações. Esta configuração do ouvinte é necessária quando hospeda um único site atrás de um gateway de aplicações.
 
-- **Multi-site**. Esta configuração do ouvinte é necessária quando pretende configurar o encaminhamento com base no nome do anfitrião ou no nome de domínio para mais de uma aplicação web no mesmo gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicações. Criaria três [ouvintes multi-locais](multiple-site-overview.md) e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
+- **Multi-site**. Esta configuração do ouvinte é necessária quando pretende configurar o encaminhamento com base no nome do anfitrião ou no nome de domínio para mais de uma aplicação web no mesmo gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as implementações ao adicionar até 100 sites a um gateway de aplicação. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicação. Criaria três [ouvintes multi-locais](multiple-site-overview.md) e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
 
-    Também pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+    Além disso, pode definir nomes de anfitrião de caráter universal num serviço de escuta com vários sites e até cinco nomes de anfitrião por serviço de escuta. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
     Para obter mais informações sobre como configurar um ouvinte multi-site, consulte [o alojamento em vários locais em Application Gateway utilizando o portal Azure](create-multiple-sites-portal.md).
 
@@ -99,7 +99,7 @@ Pode escolher o alvo de redirecionamento para ser outro ouvinte (o que pode ajud
 
 Para obter mais informações, consulte [redirecionar o tráfego no seu gateway de aplicações.](redirect-overview.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
+### <a name="rewrite-http-headers-and-url"></a>Rescrever cabeçalhos HTTP e URL
 
 Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S), bem como os parâmetros de trajetória e de consulta de URL, à medida que os pacotes de pedido e resposta se movem entre o cliente e as piscinas de backend através do gateway de aplicação.
 

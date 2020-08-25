@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a restaurar as bases de dados SAP HANA que 
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500832"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762288"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar as bases de dados SAP HANA num Azure VM usando Azure CLI
 
@@ -89,7 +89,7 @@ Neste tutorial, você vai restaurar para um ponto de restauro anterior. [Veja a 
 Utilizando o nome de ponto de restauro acima e o modo de restauro, vamos criar o objeto config de recuperação de recuperação usando o cmdlet [de recuperação de backup az.](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) Vamos ver o que cada um dos parâmetros restantes neste cmdlet significa:
 
 * **--nome-alvo-item** Este é o nome que a base de dados restaurada vai usar. Neste caso, usamos o nome *restored_database.*
-* **--nome-alvo-servidor** Este é o nome de um servidor SAP HANA que está registado com sucesso num cofre de serviços de recuperação e encontra-se na mesma região que a base de dados a ser restaurada. Para este tutorial, vamos restaurar a base de dados para o mesmo servidor SAP HANA que protegemos, chamado *hxehost*.
+* **--nome-alvo-servidor** Este é o nome de um servidor SAP HANA que está registado com sucesso num cofre dos Serviços de Recuperação e encontra-se na mesma região que a base de dados a ser restaurada. Para este tutorial, vamos restaurar a base de dados para o mesmo servidor SAP HANA que protegemos, chamado *hxehost*.
 * **--tipo-alvo-servidor** Para a restauração das bases de dados SAP HANA, a **Base SapHanaData** deve ser utilizada.
 
 ```azurecli-interactive
@@ -181,7 +181,7 @@ Para este tutorial, escolheremos o ponto de tempo anterior `28-11-2019-09:53:00`
 
 Utilizando o nome do ponto de restauro acima e o modo de restauro, vamos criar o objeto config de recuperação de recuperação utilizando o cmdlet [de recuperação de backup az.](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) Vamos ver o que cada um dos parâmetros restantes neste cmdlet significa:
 
-* **--nome-alvo-contentor** Este é o nome de um servidor SAP HANA que está registado com sucesso num cofre de serviços de recuperação e encontra-se na mesma região que a base de dados a ser restaurada. Para este tutorial, vamos restaurar a base de dados como ficheiros para o mesmo servidor SAP HANA que protegemos, chamado *hxehost*.
+* **--nome-alvo-contentor** Este é o nome de um servidor SAP HANA que está registado com sucesso num cofre dos Serviços de Recuperação e encontra-se na mesma região que a base de dados a ser restaurada. Para este tutorial, vamos restaurar a base de dados como ficheiros para o mesmo servidor SAP HANA que protegemos, chamado *hxehost*.
 * **--rp-nome** Para um ponto no tempo restaurar o nome do ponto de restauro será **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
@@ -290,7 +290,7 @@ Mova estes ficheiros restaurados para o servidor SAP HANA, onde pretende restaur
     chown -R <SID>adm:sapsys <directory>
     ```
 
-1. Executar o próximo conjunto de comandos como`<SID>adm`
+1. Executar o próximo conjunto de comandos como `<SID>adm`
 
     ```bash
     su - <sid>adm
@@ -304,9 +304,9 @@ Mova estes ficheiros restaurados para o servidor SAP HANA, onde pretende restaur
 
     No comando acima:
 
-    * `<DataFileDir>`- a pasta que contém as cópias de segurança completas
-    * `<LogFilesDir>`- a pasta que contém as cópias de segurança de registo
-    * `<PathToPlaceCatalogFile>`- a pasta onde o ficheiro de catálogo gerado deve ser colocado
+    * `<DataFileDir>` - a pasta que contém as cópias de segurança completas
+    * `<LogFilesDir>` - a pasta que contém as cópias de segurança de registo
+    * `<PathToPlaceCatalogFile>` - a pasta onde o ficheiro de catálogo gerado deve ser colocado
 
 1. Restaurar usando o arquivo de catálogo recém-gerado através do HANA Studio ou executar a consulta de restauro HDBSQL com este catálogo recentemente gerado. As consultas HDBSQL estão listadas abaixo:
 
@@ -320,13 +320,13 @@ Mova estes ficheiros restaurados para o servidor SAP HANA, onde pretende restaur
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>`- Nome da nova base de dados ou base de dados existente que pretende restaurar
-        * `<Timestamp>`- Prazo exato do ponto no tempo restaurado
-        * `<DatabaseName@HostName>`- Nome da base de dados cuja cópia de segurança é utilizada para restauro e o nome do servidor **host** /SAP HANA no qual esta base de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que a cópia de segurança de dados (utilizada para restauro) é de uma base de dados com um SID ou nome diferente do alvo da máquina SAP HANA. Portanto, não precisa de ser especificado para restauros feitos no mesmo servidor HANA de onde a cópia de segurança é tomada.
-        * `<PathToGeneratedCatalogInStep3>`- Caminho para o arquivo de catálogo gerado no **Passo 3**
-        * `<DataFileDir>`- a pasta que contém as cópias de segurança completas
-        * `<LogFilesDir>`- a pasta que contém as cópias de segurança de registo
-        * `<BackupIdFromJsonFile>`- o **BackupId** extraído no **passo 3**
+        * `<DatabaseName>` - Nome da nova base de dados ou base de dados existente que pretende restaurar
+        * `<Timestamp>` - Prazo exato do ponto no tempo restaurado
+        * `<DatabaseName@HostName>` - Nome da base de dados cuja cópia de segurança é utilizada para restauro e o nome do servidor **host** /SAP HANA no qual esta base de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que a cópia de segurança de dados (utilizada para restauro) é de uma base de dados com um SID ou nome diferente do alvo da máquina SAP HANA. Portanto, não precisa de ser especificado para restauros feitos no mesmo servidor HANA de onde a cópia de segurança é tomada.
+        * `<PathToGeneratedCatalogInStep3>` - Caminho para o arquivo de catálogo gerado no **Passo 3**
+        * `<DataFileDir>` - a pasta que contém as cópias de segurança completas
+        * `<LogFilesDir>` - a pasta que contém as cópias de segurança de registo
+        * `<BackupIdFromJsonFile>` - o **BackupId** extraído no **passo 3**
 
     * Para restaurar a uma cópia de segurança completa ou diferencial:
 
@@ -336,13 +336,13 @@ Mova estes ficheiros restaurados para o servidor SAP HANA, onde pretende restaur
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>`- o nome da nova base de dados ou da base de dados existente que pretende restaurar
-        * `<Timestamp>`- a data exata da restauração do ponto no tempo
-        * `<DatabaseName@HostName>`- o nome da base de dados cuja cópia de segurança é utilizada para restauro e o nome do servidor **host** /SAP HANA no qual esta base de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que a cópia de segurança de dados (utilizada para restauro) é de uma base de dados com um SID ou nome diferente do alvo da máquina SAP HANA. Portanto, não precisa de ser especificado para restauros feitos no mesmo servidor HANA de onde a cópia de segurança é tomada.
-        * `<PathToGeneratedCatalogInStep3>`- o caminho para o arquivo de catálogo gerado no **Passo 3**
-        * `<DataFileDir>`- a pasta que contém as cópias de segurança completas
-        * `<LogFilesDir>`- a pasta que contém as cópias de segurança de registo
-        * `<BackupIdFromJsonFile>`- o **BackupId** extraído no **passo 3**
+        * `<DatabaseName>` - o nome da nova base de dados ou da base de dados existente que pretende restaurar
+        * `<Timestamp>` - a data exata da restauração do ponto no tempo
+        * `<DatabaseName@HostName>` - o nome da base de dados cuja cópia de segurança é utilizada para restauro e o nome do servidor **host** /SAP HANA no qual esta base de dados reside. A `USING SOURCE <DatabaseName@HostName>`  opção especifica que a cópia de segurança de dados (utilizada para restauro) é de uma base de dados com um SID ou nome diferente do alvo da máquina SAP HANA. Portanto, não precisa de ser especificado para restauros feitos no mesmo servidor HANA de onde a cópia de segurança é tomada.
+        * `<PathToGeneratedCatalogInStep3>` - o caminho para o arquivo de catálogo gerado no **Passo 3**
+        * `<DataFileDir>` - a pasta que contém as cópias de segurança completas
+        * `<LogFilesDir>` - a pasta que contém as cópias de segurança de registo
+        * `<BackupIdFromJsonFile>` - o **BackupId** extraído no **passo 3**
 
 ## <a name="next-steps"></a>Passos seguintes
 

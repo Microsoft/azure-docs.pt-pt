@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836909"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723571"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -24,7 +24,7 @@ Azure Form Recogniser é um serviço cognitivo que utiliza tecnologia de machine
 
 O Form Recogniser é composto pelos seguintes serviços:
 * **Modelos personalizados** - Extrair pares de chaves/valor e dados de tabela a partir de formulários. Estes modelos são treinados com os seus próprios dados, por isso são adaptados aos seus formulários.
-* **Modelo de recibo pré-construído** - Extrair dados dos recibos de venda dos EUA utilizando um modelo pré-construído.
+* **Modelos pré-construídos** - Extrair dados de tipos de formulários únicos utilizando modelos pré-construídos. Atualmente disponíveis estão modelos pré-construídos para recibos de venda e cartões de visita em inglês.
 * **Layout API** - Extrair texto e estruturas de mesa, juntamente com as suas coordenadas de caixa de delimitação, a partir de documentos.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ Quando treina com dados rotulados, o modelo supervisiona a aprendizagem para ext
 
 O Form Recogniser utiliza a [API do Layout](#layout-api) para aprender os tamanhos e posições esperados de elementos de texto impressos e manuscritos. Em seguida, utiliza etiquetas especificadas pelo utilizador para aprender as associações chave/valor nos documentos. Recomendamos que utilize cinco formas de marca manual do mesmo tipo para começar a treinar um novo modelo e adicionar mais dados rotulados conforme necessário para melhorar a precisão do modelo.
 
-## <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
+## <a name="prebuilt-models"></a>Modelos pré-construídos
 
-O Formulário Recogniser também inclui um modelo para a leitura dos recibos de vendas ingleses dos Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, retalhistas, e assim por diante[(recibo de amostra).](./media/contoso-receipt-small.png) Este modelo extrai informações-chave, tais como a hora e a data da transação, informações sobre comerciantes, montantes de impostos e totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo.
+O Form Recogniser também inclui modelos pré-construídos para tipos de formas únicos.
+### <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
+O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo. 
+
+![recibo de amostra](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-construídos
+O modelo cartões de visita permite-lhe extrair informações como o nome da pessoa, título de emprego, endereço, e-mail, empresa e números de telefone de cartões de visita em inglês. 
+
+![cartão de visita amostra](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>Layout API
 
@@ -90,7 +99,7 @@ Explore a [documentação de referência da API](https://westus2.dev.cognitive.m
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
+### <a name="prebuilt"></a>Pré-construído
 
 Os requisitos de entrada para o modelo de receção são ligeiramente diferentes.
 

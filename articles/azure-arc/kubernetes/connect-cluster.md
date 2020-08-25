@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080495"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723746"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
@@ -57,12 +57,12 @@ Verifique se tem os seguintes requisitos prontos:
 * E.U.A. Leste
 * Europa Ocidental
 
-## <a name="network-requirements"></a>Requisitos de rede
+## <a name="network-requirements"></a>Requisitos da rede
 
 Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída funcionem.
 
-* TCP no porto 443 -- >`https://:443`
-* TCP no porto 9418 -- >`git://:9418`
+* TCP no porto 443 -- > `https://:443`
+* TCP no porto 9418 -- > `git://:9418`
 
 | Ponto final (DNS)                                                                                               | Descrição                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -72,6 +72,7 @@ Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 | `https://github.com`git://github.com                                                                         | Exemplo GitOps repos estão hospedados no GitHub. O agente de configuração requer conectividade com qualquer ponto final que especifique. |
 | `https://login.microsoftonline.com`                                                                            | Necessário para buscar e atualizar fichas do Gestor de Recursos Azure                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Obrigado a retirar imagens de contentores para agentes do Azure Arc                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Obrigado a retirar certificados de identidade geridos atribuídos pelo sistema                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registe os dois fornecedores da Azure Arc habilitado a Kubernetes:
 
@@ -101,7 +102,7 @@ Em primeiro lugar, crie um grupo de recursos para manter o recurso de cluster co
 az group create --name AzureArcTest -l EastUS -o table
 ```
 
-**Saída:**
+**Resultado:**
 
 ```console
 Location    Name
@@ -113,14 +114,14 @@ eastus      AzureArcTest
 
 Em seguida, ligaremos o nosso cluster Kubernetes ao Azure. O fluxo de trabalho `az connectedk8s connect` para é o seguinte:
 
-1. Verifique a conectividade com o seu cluster Kubernetes: `KUBECONFIG` `~/.kube/config` via, ou`--kube-config`
+1. Verifique a conectividade com o seu cluster Kubernetes: `KUBECONFIG` `~/.kube/config` via, ou `--kube-config`
 1. Implementar agentes Azure Arc para Kubernetes usando Helm 3, no espaço de `azure-arc` nome
 
 ```console
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-**Saída:**
+**Resultado:**
 
 ```console
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
@@ -158,7 +159,7 @@ Listar os seus agrupamentos ligados:
 az connectedk8s list -g AzureArcTest -o table
 ```
 
-**Saída:**
+**Resultado:**
 
 ```console
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
@@ -174,7 +175,7 @@ Também pode ver este recurso no [portal Azure.](https://portal.azure.com/) Assi
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Conecte-se usando um servidor de procuração de saída
 
-Se o seu cluster estiver por trás de um servidor de procuração de saída, a Azure CLI e o Arc ativaram os agentes kubernetes que precisam de encaminhar os seus pedidos através do servidor de procuração de saída. A seguinte configuração ajuda a conseguir isso:
+Se o seu cluster estiver por trás de um servidor de procuração de saída, a Azure CLI e o Arc ativaram os agentes kubernetes que precisam de encaminhar os seus pedidos através do servidor de procuração de saída. A seguinte configuração permite que:
 
 1. Verifique a versão da `connectedk8s` extensão instalada na sua máquina executando este comando:
 
@@ -213,7 +214,7 @@ Azure Arc habilitado a Kubernetes implanta alguns operadores no `azure-arc` espa
 kubectl -n azure-arc get deployments,pods
 ```
 
-**Saída:**
+**Resultado:**
 
 ```console
 NAME                                        READY   UP-TO-DATE AVAILABLE AGE

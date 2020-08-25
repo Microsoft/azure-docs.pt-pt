@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e0188a35289c22da784ca856c80212638052a609
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1e3546239dfcfd4c6ef23ad16f3340f34f958901
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040287"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723219"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -85,12 +85,12 @@ Para criar um OU personalizado, utilize as Ferramentas Administrativas do Diret�
 
     ![UO personalizado disponível para uso no Ative Directory Administrative Center](./media/create-ou/create-ou-done.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a utilização das ferramentas administrativas ou a criação e utilização de contas de serviço, consulte os seguintes artigos:
 
-* [Ative Directory Administrative Center: Começar](https://technet.microsoft.com/library/dd560651.aspx)
-* [Guia Passo a Passo de Contas de Serviço](https://technet.microsoft.com/library/dd548356.aspx)
+* [Ative Directory Administrative Center: Começar](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Guia Passo a Passo de Contas de Serviço](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

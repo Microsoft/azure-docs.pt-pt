@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d48c5f94de7aa663f618401e13fdc19777d42095
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 91c42e391d1a23e9ac494af9271c92e3e9b5d6c4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039658"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722658"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de sessão de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -70,13 +70,13 @@ Por padrão, se houver 5 tentativas de senha estragada em 2 minutos, a conta fic
 
 Para obter mais informações e como resolver problemas de bloqueio de conta, consulte [problemas de bloqueio de conta de resolução de problemas em Azure AD DS][troubleshoot-account-lockout].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda tiver problemas em juntar o seu VM ao domínio gerido, [encontre ajuda e abra um bilhete de apoio para o Azure Ative Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-ad-connect-phs]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[azure-ad-connect-phs]: ./tutorial-configure-password-hash-sync.md
 [enable-user-accounts]:  tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

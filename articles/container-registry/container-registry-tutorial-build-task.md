@@ -1,24 +1,24 @@
 ---
-title: Tutorial - Construir imagem no código comprometa
-description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Contentores Azure para ativar automaticamente a imagem do contentor na nuvem quando compromete o código fonte a um repositório Git.
+title: Tutorial - Construa imagem no código comprometendo-se
+description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Contentores Azure para ativar automaticamente as construções de imagem de contentores na nuvem quando se compromete código fonte a um repositório de Git.
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78402841"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizaa imagem de contentor constrói-se na nuvem quando comete código fonte
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagens de contentor na cloud ao consolidar o código fonte
 
-Além de uma [tarefa rápida,](container-registry-tutorial-quick-task.md)a ACR Tasks suporta a imagem automatizada do contentor Docker na nuvem quando compromete código fonte a um repositório Git. Os contextos git suportados para tarefas ACR incluem os repos gitHub ou azure públicos ou privados.
+Além de uma [tarefa rápida,](container-registry-tutorial-quick-task.md)a ACR Tasks suporta a imagem automatizada do contentor Docker na nuvem quando compromete o código fonte a um repositório git. Os contextos de Git apoiados para tarefas ACR incluem repos públicos ou privados gitHub ou Azure.
 
 > [!NOTE]
-> Atualmente, a ACR Tasks não suporta comprometer ou puxar gatilhos de pedido em repos gitHub Enterprise.
+> Atualmente, a ACR Tasks não suporta o commit ou pull request triggers nos repos da GitHub Enterprise.
 
-Neste tutorial, a sua tarefa ACR constrói e empurra uma única imagem de recipiente especificada num Dockerfile quando compromete código fonte a um repo Git. Para criar uma [tarefa em várias etapas](container-registry-tasks-multi-step.md) que utilize um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes no compromisso de código, consulte [Tutorial: Executar um fluxo de trabalho de contentores em várias etapas na nuvem quando cometer código fonte](container-registry-tutorial-multistep-task.md). Para uma visão geral das tarefas ACR, consulte [Automatizar OS e patching de quadro com tarefas ACR](container-registry-tasks-overview.md)
+Neste tutorial, a sua tarefa ACR constrói e empurra uma única imagem de recipiente especificada num Dockerfile quando compromete o código fonte a um repo Git. Para criar uma [tarefa em várias etapas](container-registry-tasks-multi-step.md) que utilize um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes no código cometer, consulte [Tutorial: Executar um fluxo de trabalho de contentor em várias etapas na nuvem quando cometer código fonte](container-registry-tutorial-multistep-task.md). Para uma visão geral das tarefas ACR, consulte [automatizar o SISTEMA e a correção de enquadramento com tarefas ACR](container-registry-tasks-overview.md)
 
 Neste tutorial:
 
@@ -40,9 +40,9 @@ Se desejar utilizar a CLI do Azure localmente, tem de ter a versão **2.0.46** o
 
 Agora que concluiu os passos necessários para ativar o ACR Tasks para ler o estado de consolidação e criar webhooks num repositório, pode criar uma tarefa de compilação que acione uma compilação da imagem do contentor nas consolidações para o repositório.
 
-Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não povoar estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
+Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não preencher estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
 
-[![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento incorporado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry

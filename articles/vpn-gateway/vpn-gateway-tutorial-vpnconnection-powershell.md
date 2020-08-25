@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: Criar e gerir ligações VPN S2S: Tutorial'
+title: 'Gateway Azure VPN: Criar e gerir ligações VPN S2S: Tutorial'
 description: Tutorial - Criar e Gerir ligações VPN S2S com o módulo Azure PowerShell
 services: vpn-gateway
 author: yushwang
@@ -9,13 +9,13 @@ ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80616404"
 ---
-# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Criar e gerir ligações VPN S2S usando powerShell
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Criar e gerir ligações S2S VPN utilizando PowerShell
 
 As ligações VPN S2S do Azure fornecem conectividade segura em vários locais entre as instalações do cliente e o Azure. Este tutorial explica os ciclos de vida das ligações VPN S2S IPsec, como criar e gerir uma ligação VPN S2S. Saiba como:
 
@@ -35,15 +35,15 @@ O diagrama seguinte mostra a topologia para este tutorial:
 
 ## <a name="requirements"></a>Requisitos
 
-Complete o primeiro tutorial: Crie o [gateway VPN com o Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para criar os seguintes recursos:
+Complete o primeiro tutorial: [Criar gateway VPN com Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para criar os seguintes recursos:
 
 1. Grupo de recursos (TestRG1), rede virtual (VNet1) e gatewaySubnet
 2. Gateway de VPN (VNet1GW)
 
-Os valores dos parâmetros de rede virtual são listados abaixo. Tenha em anotaos os valores adicionais para o portal de rede local que representam a sua rede no local. Altere os valores abaixo com base no seu ambiente e configuração da rede, em seguida, copie e cole para definir as variáveis para este tutorial. Se a sua sessão Cloud Shell passar do tempo, ou precisar de utilizar uma janela PowerShell diferente, copiar e colar as variáveis à sua nova sessão e continuar o tutorial.
+Os valores dos parâmetros de rede virtual são listados abaixo. Note os valores adicionais para o gateway de rede local que representa a sua rede no local. Altere os valores abaixo com base no seu ambiente e configuração de rede, em seguida, copie e cole para definir as variáveis para este tutorial. Se a sessão cloud Shell tiver tempo para fora, ou se precisar de utilizar uma janela PowerShell diferente, copie e cole as variáveis para a sua nova sessão e continue o tutorial.
 
 >[!NOTE]
-> Se estiver a usar isto para fazer uma ligação, certifique-se de alterar os valores para combinar com a sua rede no local. Se está apenas a passar estes passos como tutorial, não precisa de fazer alterações, mas a ligação não funcionará.
+> Se estiver a utilizar isto para fazer uma ligação, não se esqueça de alterar os valores para corresponder à sua rede no local. Se está apenas a executar estes passos como tutorial, não precisa de fazer alterações, mas a ligação não vai funcionar.
 >
 
 ```azurepowershell-interactive
@@ -82,7 +82,7 @@ Um gateway de rede local representa a sua rede no local. Pode especificar as pro
 * Espaço de endereços no local
 * (Opcional) Atributos BGP (endereço IP do elemento de rede BGP e número de AS)
 
-Crie um portal de rede local com o comando [New-AzLocalNetworkGateway.](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway)
+Crie uma porta de entrada de rede local com o comando [New-AzLocalNetworkGateway.](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway)
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -91,7 +91,7 @@ New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>Criar uma ligação VPN S2S
 
-Em seguida, crie uma ligação VPN site-to-site entre o seu portal de rede virtual e o seu dispositivo VPN com a [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). Repare que o “-ConnectionType” relativo a Rede de VPNs é *IPsec*.
+Em seguida, crie uma ligação VPN site-to-site entre o seu gateway de rede virtual e o seu dispositivo VPN com a [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). Repare que o “-ConnectionType” relativo a Rede de VPNs é *IPsec*.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -102,13 +102,13 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-Adicione a propriedade "**-EnableBGP $True**" opcional para ativar o BGP para a ligação se estiver a utilizar o BGP. Está desativado por predefinição. O parâmetro 'ConnectionProtocol' é opcional com o IKEv2 como padrão. Pode criar a ligação com protocolos IKEv1 especificando **-ConnectionProtocol IKEv1**.
+Adicione a propriedade "**-EnableBGP $True**" opcional para ativar o BGP para a ligação se estiver a utilizar o BGP. Está desativado por predefinição. O parâmetro 'ConnectionProtocol' é opcional com o IKEv2 como padrão. Pode criar a ligação com os protocolos IKEv1 especificando **-ConnectionProtocol IKEv1**.
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>Atualizar a chave pré-partilhada, o BGP e a política IPsec/IKE da ligação VPN
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Ver e atualizar a chave pré-partilhada
 
-A ligação VPN S2S do Azure utiliza uma chave pré-partilhada (segredo) para fazer a autenticação entre o dispositivo VPN no local e o gateway de VPN do Azure. Pode visualizar e atualizar a chave pré-partilhada para uma ligação com [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) e [Set-AzVirtualNetworkGatewayConnectionSharedKey .](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey)
+A ligação VPN S2S do Azure utiliza uma chave pré-partilhada (segredo) para fazer a autenticação entre o dispositivo VPN no local e o gateway de VPN do Azure. Pode visualizar e atualizar a chave pré-partilhada para uma ligação com [o Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) e [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey).
 
 > [!IMPORTANT]
 > A chave pré-partilhada é uma cadeia de **carateres ASCII imprimíveis** com um máximo de 128 carateres.
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-A saída será "**Azure\@!b2C3**" seguindo o exemplo acima. Utilize o comando abaixo para alterar o valor-chave pré-partilhado para "**Azure\@!_b2=C3**":
+A saída será "**Azure \@ !b2C3**" seguindo o exemplo acima. Utilize o comando abaixo para alterar o valor da chave pré-partilhada para "**Azure \@ !_b2=C3**":
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `
@@ -136,9 +136,9 @@ O gateway de VPN do Azure suporta o protocolo de encaminhamento dinâmico BGP. P
 * ASN do gateway de rede local no local
 * Endereço IP do elemento de rede BGP do gateway de rede local no local
 
-Se não configurar as propriedades BGP, os seguintes comandos adicionam estas propriedades ao seu gateway VPN e gateway de rede local: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) e [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway).
+Se não tiver configurado as propriedades BGP, os seguintes comandos adicionam estas propriedades ao seu gateway VPN e gateway de rede local: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) e [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway).
 
-Utilize o seguinte exemplo para configurar propriedades bGP:
+Utilize o seguinte exemplo para configurar propriedades BGP:
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -149,7 +149,7 @@ Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Ativar o BGP com [a Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection).
+Ativar o BGP com [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection).
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection `
@@ -184,7 +184,7 @@ Consulte o artigo [Política IPsec/IKE para ligações S2S ou VNet a VNet](vpn-g
 
 ## <a name="add-another-s2s-vpn-connection"></a>Adicionar outra ligação VPN S2S
 
-Adicione uma ligação VPN S2S adicional ao mesmo gateway VPN, crie outro portal de rede local e crie uma nova ligação entre o novo gateway de rede local e o gateway VPN. Utilize os seguintes exemplos, certificando-se de modificar as variáveis para refletir a sua própria configuração de rede.
+Adicione uma ligação S2S VPN adicional ao mesmo gateway VPN, crie outro gateway de rede local e crie uma nova ligação entre o novo gateway de rede local e o gateway VPN. Use os seguintes exemplos, certificando-se de modificar as variáveis para refletir a sua própria configuração de rede.
 
 ```azurepowershell-interactive
 # On-premises network - LNGIP2 is the VPN device public IP address
@@ -212,7 +212,7 @@ Agora, existem duas ligações VPN S2S para o seu gateway de VPN do Azure.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Eliminar uma ligação VPN S2S
 
-Elimine uma ligação VPN S2S com [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection).
+Eliminar uma ligação S2S VPN com [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection).
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
@@ -224,7 +224,7 @@ Elimine o gateway de rede local se já não precisar dele. Não é possível eli
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se esta configuração fizer parte de um protótipo, teste ou implementação de prova de conceito, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o gateway VPN e todos os recursos relacionados.
 

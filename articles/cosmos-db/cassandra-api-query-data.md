@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Dados de consulta de uma conta da API cassandra em Azure Cosmos DB'
-description: Este tutorial mostra como consultar os dados dos utilizadores de uma conta API Da API da Azure Cosmos DB, utilizando uma aplicação Java.
+title: 'Tutorial: Dados de consulta de uma conta da API de Cassandra em Azure Cosmos DB'
+description: Este tutorial mostra como consultar os dados dos utilizadores a partir de uma conta Azure Cosmos DB Cassandra API utilizando uma aplicação Java.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,27 +9,27 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.openlocfilehash: 28bb69dc21702a7c98755dc07389ea4147848f7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82853019"
 ---
-# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Dados de consulta de uma conta da API cassandra em Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Dados de consulta de uma conta da API de Cassandra em Azure Cosmos DB
 
-Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar uma conta Cassandra API no Azure Cosmos DB para armazenar e consultar os dados chave/valor. Este tutorial mostra como consultar os dados dos utilizadores de uma conta Cassandra API em Azure Cosmos DB utilizando uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e consulta os dados do utilizador, tais como id do utilizador, nome do utilizador e cidade utilizadora. 
+Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar uma conta API da Cassandra na Azure Cosmos DB para armazenar e consultar os dados chave/valor. Este tutorial mostra como consultar os dados dos utilizadores a partir de uma conta API cassandra em Azure Cosmos DB usando uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e consulta os dados do utilizador, tais como iD do utilizador, nome de utilizador e cidade utilizadora. 
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Dados de consulta de uma mesa de Cassandra
+> * Dados de consulta de uma tabela cassandra
 > * Executar a aplicação
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Este artigo pertence a um tutorial com várias partes. Antes de começar, certifique-se de completar os passos anteriores para criar a conta Cassandra API, espaço de chave, tabela e dados de amostra de [carga na tabela](cassandra-api-load-data.md). 
+* Este artigo pertence a um tutorial com várias partes. Antes de iniciar, certifique-se de completar os passos anteriores para criar a conta API cassandra, espaço-chave, tabela e [carregar dados de amostras na tabela](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Consultar dados
 
@@ -106,11 +106,11 @@ Utilize os seguintes passos para consultar dados da sua conta de API para Cassan
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não são necessários, pode eliminar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para isso, selecione o grupo de recursos para a máquina virtual, selecione **Eliminar**, e, em seguida, confirmar o nome do grupo de recursos para apagar.
+Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a consultar dados de uma conta da Cassandra API em Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
+Neste tutorial, aprendeu a consultar dados de uma conta da API da Cassandra em Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
 
 > [!div class="nextstepaction"]
 > [Migrar dados para a conta da API para Cassandra](cassandra-import-data.md)

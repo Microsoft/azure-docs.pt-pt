@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506333"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723168"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Crie uma floresta de recursos de serviços de diretório ativo Azure e uma confiança florestal de saída para um domínio no local usando a Azure PowerShell
 
@@ -148,15 +148,15 @@ Antes de começar, certifique-se de compreender as [considerações e recomenda�
 
 1. Crie a conectividade híbrida da sua rede no local para a Azure utilizando uma ligação Azure VPN ou Azure ExpressRoute. A configuração da rede híbrida está fora do âmbito desta documentação, e pode já existir no seu ambiente. Para mais detalhes sobre cenários específicos, consulte os seguintes artigos:
 
-    * [VPN local-a-local do Azure.](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-    * [Visão geral do Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [VPN local-a-local do Azure.](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+    * [Visão geral do Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Se criar a ligação diretamente à rede virtual do seu domínio gerido, utilize uma sub-rede de gateway separada. Não crie o portal na sub-rede do domínio gerido.
 
 1. Para administrar um domínio gerido, cria-se um VM de gestão, junta-o ao domínio gerido e instala as ferramentas de gestão de DS AD necessárias.
 
-    Enquanto a floresta de recursos de domínio gerido está a ser implantada, [crie um VM do Servidor do Windows,](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) [em seguida, instale as ferramentas de gestão de DS AD core](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) para instalar as ferramentas de gestão necessárias. Aguarde para se juntar ao VM de gestão até que um dos seguintes passos após a implementação do domínio seja implementado com sucesso.
+    Enquanto a floresta de recursos de domínio gerido está a ser implantada, [crie um VM do Servidor do Windows,](./join-windows-vm.md) [em seguida, instale as ferramentas de gestão de DS AD core](./tutorial-create-management-vm.md) para instalar as ferramentas de gestão necessárias. Aguarde para se juntar ao VM de gestão até que um dos seguintes passos após a implementação do domínio seja implementado com sucesso.
 
 1. Valide a conectividade da rede entre a sua rede no local e a rede virtual Azure.
 
@@ -260,7 +260,7 @@ Deverá ter a máquina virtual do Windows Server unida ao domínio de recursos d
 1. Ligue-se ao Windows Server VM ligado à floresta de recursos de domínio gerida utilizando o Ambiente de Trabalho Remoto e as credenciais de administrador de domínio gerido. Se tiver um erro de autenticação de nível de rede (NLA), verifique se a conta de utilizador utilizada não é uma conta de utilizador de domínio.
 
     > [!TIP]
-    > Para ligar de forma segura aos seus VMs aderidos aos Serviços de Domínio AD Azure, pode utilizar o [Serviço de Anfitriões Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) em regiões de Azure suportadas.
+    > Para ligar de forma segura aos seus VMs aderidos aos Serviços de Domínio AD Azure, pode utilizar o [Serviço de Anfitriões Azure Bastion](../bastion/bastion-overview.md) em regiões de Azure suportadas.
 
 1. Abra um pedido de comando e utilize o `whoami` comando para mostrar o nome distinto do utilizador atualmente autenticado:
 
@@ -286,7 +286,7 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos de 
 1. Ligue-se ao Windows Server VM ligado à floresta de recursos de domínio gerida utilizando o Ambiente de Trabalho Remoto e as credenciais de administrador de domínio gerido. Se tiver um erro de autenticação de nível de rede (NLA), verifique se a conta de utilizador utilizada não é uma conta de utilizador de domínio.
 
     > [!TIP]
-    > Para ligar de forma segura aos seus VMs aderidos aos Serviços de Domínio AD Azure, pode utilizar o [Serviço de Anfitriões Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) em regiões de Azure suportadas.
+    > Para ligar de forma segura aos seus VMs aderidos aos Serviços de Domínio AD Azure, pode utilizar o [Serviço de Anfitriões Azure Bastion](../bastion/bastion-overview.md) em regiões de Azure suportadas.
 
 1. Abra **as definições do Windows**e, em seguida, procure e selecione o Centro de Rede e **Partilha**.
 1. Escolha a opção para Alterar definições **de partilha avançadas.**

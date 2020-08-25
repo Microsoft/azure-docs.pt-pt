@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489525"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762407"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -19,7 +19,7 @@ Este documento pressupõe que já tem uma base de dados SAP HANA instalada num A
 
 > [!div class="checklist"]
 >
-> * Criar um cofre dos serviços de recuperação
+> * Criar um cofre dos Serviços de Recuperação 
 > * Registe a instância SAP HANA e descubra a base de dados(s) nele
 > * Ativar a cópia de segurança numa base de dados SAP HANA
 > * Desencadear uma cópia de segurança a pedido
@@ -30,7 +30,7 @@ Confira os [cenários que apoiamos atualmente](./sap-hana-backup-support-matrix.
 
 Para instalar e utilizar o CLI localmente, tem de executar a versão Azure CLI xx.xxx.x ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Um cofre dos Serviços de Recuperação é um recipiente lógico que armazena os dados de backup para cada recurso protegido, como VMs Azure ou cargas de trabalho em funcionamento em VMs Azure - como bases de dados SQL ou HANA. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Para que a instância SAP HANA (o VM com SAP HANA instalado nele) seja descoberta pelos serviços Azure, deve ser executado um [script pré-registo](https://aka.ms/scriptforpermsonhana) na máquina SAP HANA. Certifique-se de que todos os [pré-requisitos](./tutorial-backup-sap-hana-db.md#prerequisites) são cumpridos antes de executar o script. Para saber mais sobre o que o script faz, consulte a secção [O que o script de pré-registo faz.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-Uma vez que o script é executado, a instância SAP HANA pode ser registrada com o cofre de serviços de recuperação que criamos anteriormente. Para registar a ocorrência, utilize o cmdlet do [registo do contentor de reserva az.](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) *VMResourceId* é o ID de recurso do VM que criou para instalar o SAP HANA.
+Uma vez que o script é executado, a instância SAP HANA pode ser registrada com o cofre dos Serviços de Recuperação que criamos anteriormente. Para registar a ocorrência, utilize o cmdlet do [registo do contentor de reserva az.](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) *VMResourceId* é o ID de recurso do VM que criou para instalar o SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
