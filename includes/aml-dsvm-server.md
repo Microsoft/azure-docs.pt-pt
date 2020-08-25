@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -10,13 +10,13 @@ ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
 ms.openlocfilehash: 2504245a14eee5308e046148f8073cf34ffa8143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79485989"
 ---
-1. [Crie um espaço de trabalho azure machine learning.](../articles/machine-learning/how-to-manage-workspace.md)
+1. Criar um espaço de trabalho para [aprendizagem automática Azure.](../articles/machine-learning/how-to-manage-workspace.md)
 
 1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
 
@@ -26,9 +26,9 @@ ms.locfileid: "79485989"
 
 1. Adicione um ficheiro de configuração do espaço de trabalho ao diretório clonado utilizando qualquer um destes métodos:
 
-    * No [portal Azure,](https://ms.portal.azure.com)selecione **Download config.json** da secção **de visão geral** do seu espaço de trabalho. 
+    * No [portal Azure,](https://ms.portal.azure.com)selecione  **Baixar config.jsna** secção **Visão Geral** do seu espaço de trabalho. 
 
-    ![Baixar config.json](./media/aml-dsvm-server/download-config.png)
+    ![Baixar config.jsem](./media/aml-dsvm-server/download-config.png)
 
     * Crie um novo espaço de trabalho utilizando código no caderno [configuração.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) no seu diretório clonado.
 

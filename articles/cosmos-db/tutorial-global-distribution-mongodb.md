@@ -1,6 +1,6 @@
 ---
-title: Tutorial para criar distribuição global com Azure Cosmos DB API para MongoDB
-description: Aprenda a configurar a distribuição global utilizando a API da Azure Cosmos DB para o MongoDB.
+title: Tutorial para configurar distribuição global com Azure Cosmos DB API para MongoDB
+description: Saiba como configurar a distribuição global usando a API da Azure Cosmos para a MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,26 +9,26 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.openlocfilehash: b446697977395aa9bbbcf2192aa232fbc85a0b68
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75444674"
 ---
-# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Criar base de dados global distribuída utilizando a API da Azure Cosmos DB para o MongoDB
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Configurar base de dados distribuída global usando a API da Azure Cosmos para a MongoDB
 
-Neste artigo, mostramos como usar o portal Azure para criar uma base de dados global distribuída e ligar-se a ele usando a API da Azure Cosmos DB para o MongoDB.
+Neste artigo, mostramos como usar o portal Azure para configurar uma base de dados distribuída global e conectá-la usando a API da Azure Cosmos DB para o MongoDB.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configure a distribuição global utilizando a [API do Azure Cosmos DB para mongoDB](mongodb-introduction.md)
+> * Configure a distribuição global usando a [API da Azure Cosmos para a MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup"></a>Verificação da sua configuração regional 
-Uma forma simples de verificar a sua configuração global com a API da Cosmos DB para mongoDB é executar o comando *isMaster()* da Mongo Shell.
+Uma forma simples de verificar a sua configuração global com a API da Cosmos DB para a MongoDB é executar o comando *isMaster ()* a partir da Mongo Shell.
 
 A partir da Shell de Mongo:
 
@@ -64,7 +64,7 @@ Resultados de exemplo:
 
 ## <a name="connecting-to-a-preferred-region"></a>Ligação a uma região preferida 
 
-A API do Azure Cosmos DB para MongoDB permite especificar a preferência de leitura da sua coleção para uma base de dados distribuída globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima*. Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
+A API da Azure Cosmos DB para o MongoDB permite-lhe especificar a preferência de leitura da sua coleção para uma base de dados distribuída globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima*. Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -94,9 +94,9 @@ Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configure a distribuição global utilizando a API do Cosmos DB para mongoDB
+> * Configure a distribuição global utilizando a API da Cosmos DB para a MongoDB
 
 Agora, pode avançar para o próximo tutorial para saber como desenvolver localmente com o emulador local do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador Azure Cosmos DB](local-emulator.md)
+> [Desenvolva-se localmente com o emulador Azure Cosmos DB](local-emulator.md)

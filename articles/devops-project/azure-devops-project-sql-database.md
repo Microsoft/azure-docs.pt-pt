@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85318629"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua app de ASP.NET e código de base de dados Azure SQL utilizando o Azure DevOps Starter
@@ -66,7 +66,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Selecione os seus serviços de subscrição Azure. Opcionalmente, para ver as definições adicionais de configuração do Azure e identificar o nome de utilizador na secção De Detalhes de Login do **Servidor de Bases de Dados,** pode selecionar **Alterar**. Guarde o nome de utilizador para os passos seguintes deste tutorial. Se realizar este passo opcional, saia da área de configuração Azure antes de selecionar **'Fazer'**
  
-1. Selecione **Done** (Concluído). Após alguns minutos, o processo está concluído e o painel de arranque de DevOps abre no portal Azure. Também pode navegar para o painel diretamente a partir de **todos os recursos** do portal Azure. À direita, **selecione Procurar** para ver a sua aplicação de execução.
+1. Selecione **Concluído**. Após alguns minutos, o processo está concluído e o painel de arranque de DevOps abre no portal Azure. Também pode navegar para o painel diretamente a partir de **todos os recursos** do portal Azure. À direita, **selecione Procurar** para ver a sua aplicação de execução.
     
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 

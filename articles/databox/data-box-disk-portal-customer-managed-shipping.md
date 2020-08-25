@@ -2,18 +2,18 @@
 title: Microsoft Azure Data Box Disk auto-gerido Envio / Microsoft Docs em dados
 description: Descreve fluxo de trabalho de envio auto-gerido para dispositivos Azure Data Box Disk
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 95c0a884b335920df9803a9b468ab522646b26a1
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.author: twooley
+ms.openlocfilehash: f3292e2088397e332323bec71f9a5965eddd0fe0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258747"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783234"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilize o envio auto-gerido para o disco Azure Data Box no portal Azure
 

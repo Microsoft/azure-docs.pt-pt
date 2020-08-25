@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045302"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados utilizando a Azure HDInsight
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 2. Na página, selecione os seguintes valores:
 
-   | Name | Valor |
+   | Nome | Valor |
    | --- | --- |
    | Filtrar Ano |2013 |
    | Filtrar Período |Janeiro |
@@ -122,7 +122,7 @@ Nesta secção, você usa Beeline para dirigir um trabalho de Apache Hive.
 
 Como parte do trabalho da Apache Hive, você importa os dados do ficheiro .csv para uma tabela apache colmeia chamada **atrasos**.
 
-1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar e editar um novo ficheiro chamado **flightdelays.hql**:
+1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar e editar um novo ficheiro chamado     **flightdelays.hql**:
 
    ```bash
    nano flightdelays.hql
@@ -226,7 +226,7 @@ Como parte do trabalho da Apache Hive, você importa os dados do ficheiro .csv p
 
 Precisa do nome do servidor da Base de Dados SQL para esta operação. Complete estes passos para encontrar o nome do seu servidor.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 
 2. Selecione **bases de dados SQL**.
 
@@ -300,7 +300,7 @@ Precisa do nome do servidor da Base de Dados SQL para esta operação. Complete 
 
 ## <a name="export-and-load-the-data"></a>Exportar e carregar os dados
 
-Nas secções anteriores, copiou os dados transformados no `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` local. Nesta secção, utiliza o Sqoop para exportar os dados `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela que criou na Base de Dados Azure SQL.
+Nas secções anteriores, copiou os dados transformados no  `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` local. Nesta secção, utiliza o Sqoop para exportar os dados `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela que criou na Base de Dados Azure SQL.
 
 1. Utilize o seguinte comando para verificar se o Sqoop pode ver a sua base de dados SQL:
 
@@ -339,7 +339,7 @@ Nas secções anteriores, copiou os dados transformados no `abfs://<container-na
 
 Todos os recursos utilizados neste tutorial são pré-existentes. Não é necessária limpeza.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender mais formas de trabalhar com os dados em HDInsight, consulte o seguinte artigo:
 

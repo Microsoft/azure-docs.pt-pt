@@ -4,10 +4,10 @@ description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure B
 ms.date: 05/06/2020
 ms.topic: tutorial
 ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85969646"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
@@ -151,10 +151,10 @@ Após a publicação da definição de planta, pode atribuí-la a uma subscriç�
 
      Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual são definidos. Estes parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) porque são definidos durante a atribuição da planta. Para cada artefacto, desa um valor de parâmetro para o que vê na coluna **Valor.**
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Description|
+     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A.Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
      |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_é Standard_LRS .|
 
 1. Depois de introduzir todos os parâmetros, **selecione Atribuir** na parte inferior da página.

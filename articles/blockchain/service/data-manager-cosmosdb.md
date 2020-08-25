@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "79533186"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Use o Gestor de Dados blockchain para enviar dados para a Azure Cosmos DB
@@ -285,7 +285,7 @@ Agora que ligou o seu Gestor de Dados blockchain ao Azure Cosmos DB, pode ver as
 
 Parabéns! Criou com sucesso um explorador de mensagens de transação utilizando o Blockchain Data Manager e o Azure Cosmos DB.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode eliminar os recursos e grupos de recursos utilizados para este tutorial. Para eliminar um grupo de recursos:
 

@@ -163,6 +163,10 @@
               href: howto-manage-preferences.md
             - name: Ativar/desativar chat ao vivo
               href: howto-show-hide-chat.md
+    - name: Resolução de problemas
+      items: null
+      '-name': Device connections
+      href: troubleshoot-connection.md
 - name: Referência
   items:
     - name: CLI do Azure

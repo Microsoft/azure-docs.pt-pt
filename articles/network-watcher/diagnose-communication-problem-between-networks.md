@@ -15,10 +15,10 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76834692"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o Portal do Azure
@@ -101,7 +101,7 @@ Um gateway está ligado a outras redes através de uma ligação de gateway. O g
 
     Para resolver o problema, tem de garantir que o gateway de VPN no local está [configurado corretamente](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e de alterar o endereço IP configurado pelo script do gateway de rede local para o endereço público real do gateway de VPN no local.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tiver criado um gateway de VPN com o script nos [pré-requisitos](#prerequisites) somente para concluir este tutorial e já não precisar dele, elimine o grupo de recursos e todos os recursos nele contidos:
 

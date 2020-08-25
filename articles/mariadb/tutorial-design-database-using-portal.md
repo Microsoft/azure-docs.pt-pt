@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Designar uma Base de Dados Azure para MariaDB - Portal Azure'
+title: 'Tutorial: Desenhe uma Base de Dados Azure para MariaDB - Portal Azure'
 description: Este tutorial explica como criar e gerir um servidor e uma base de dados do Azure Database for MariaDB com o portal do Azure.
 author: ajlam
 ms.author: andrela
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80063794"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure Database for MariaDB com o portal do Azure
@@ -41,33 +41,33 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-2. Selecione **Bases de** > **dados Azure Base de dados para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
+2. Selecione **Base de Dados**  >  **Azure Databases para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
 
    ![Aceder ao MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Selecione a Base de **Dados Azure para azulejos MariaDB.** Introduza ou selecione as informações necessárias.
+3. Selecione a **Base de Dados Azure para** a tilha MariaDB. Introduza ou selecione as informações necessárias.
 
    ![Formulário de criação](./media/tutorial-design-database-using-portal/2-create-form.png)
 
     Definição | Valor sugerido | Descrição do campo
     ---|---|---
     Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o seu Azure Database for MariaDB Server. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é anexado ao nome do servidor que introduzir. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
-    Subscrição | *sua assinatura* | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual é cobrado pelo recurso.
-    Grupo de recursos | **myresourcegroup** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente.
+    Subscrição | *a sua subscrição* | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual é cobrado pelo recurso.
+    Grupo de recursos | **grupo myresource** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente.
     Selecionar origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Se estiver a criar um servidor a partir de uma cópia de segurança de área geográfica de um servidor do Azure Database for MariaDB Server existente, selecione **Cópia de segurança**).
     Início de sessão de administrador do servidor | **myadmin** | Uma conta de início de sessão a utilizar quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *a região mais próxima dos seus utilizadores*| Selecione a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
-    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione O Objetivo**Geral** **do nível** > de Preços . Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. **Selecione o nível de preços**  >  **Finalidade Geral**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Com o **crescimento automático** ativado o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
+   > Com **o crescimento automático** ativado, o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
 
-4. Clique em **Rever + criar**. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação. A implantação pode demorar até 20 minutos.
+4. Clique em **Rever + criar**. Pode clicar no botão Notificações na barra de **ferramentas** para monitorizar o processo de implementação. A implantação pode demorar até 20 minutos.
 
 ## <a name="configure-the-firewall"></a>Configurar a firewall
 
@@ -93,7 +93,7 @@ Obtenha os valores de **Nome do servidor** (completamente qualificado) e **Nome 
 
    ![Propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-No nosso exemplo, o nome do servidor é **mydemoserver.mariadb.database.azure.com** e o nome de login do servidor é **myadmin\@mydemoserver**.
+No nosso exemplo, o nome do servidor é **mydemoserver.mariadb.database.azure.com** e o nome de login do administrador do servidor é **myadmin \@ mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Ligar ao servidor com o mysql
 

@@ -17,24 +17,25 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144488"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794925"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
 > [!NOTE] 
-> Atualmente, estes cmdlets Powershell funcionam apenas com o Módulo [de Pré-Visualização AD Azure.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Tenha em atenção que o módulo de pré-visualização não é sugerido para utilização na produção. 
+> Atualmente, estes cmdlets PowerShell funcionam apenas com o Módulo [de Pré-visualização AZURE AD.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Tenha em atenção que o módulo de pré-visualização não é sugerido para utilização na produção. 
 
 Para instalar o lançamento de pré-visualização pública, utilize o seguinte. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-Para obter mais informações sobre como ligar-se ao Azure AD usando a powershell , consulte o artigo [Azure AD Powershell para gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+
+Para obter mais informações sobre como ligar-se ao Azure AD usando o PowerShell, consulte o artigo [Azure AD PowerShell para gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Com relatórios do Azure Ative Directory (Azure AD), pode obter detalhes sobre todas as atividades em torno de todas as operações de escrita na sua direção (registos de auditoria) e dados de autenticação (registos de login). Embora a informação esteja disponível utilizando a API do Ms Graph, agora pode recuperar os mesmos dados utilizando os cmdlets Azure AD PowerShell para reporte.
 

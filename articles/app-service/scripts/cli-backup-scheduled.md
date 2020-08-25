@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Criar um backup agendado'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como criar um backup programado para uma aplicação.
+title: 'CLI: Criar uma cópia de segurança programada'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como criar uma cópia de segurança programada para uma aplicação.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -10,15 +10,15 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 327b48052e0134ae97f0a97f0a43f36e75f2e003
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80058781"
 ---
-# <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Criar uma cópia de segurança agendada para uma aplicação do App Service utilizando o CLI
+# <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Crie uma cópia de segurança programada para uma aplicação do Serviço de Aplicações utilizando o CLI
 
-Este script de amostra cria uma aplicação no App Service com os seus recursos relacionados, e depois cria uma cópia de segurança agendada para o mesmo. 
+Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados e, em seguida, cria uma cópia de segurança programada para o mesmo. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,9 +44,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Gera um token SAS para um contentor de armazenamento do Azure.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | Conere uma nova programação de backup para uma aplicação de Serviço de Aplicações. |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | Mostra a programação de backup para uma aplicação de Serviço de Aplicações. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para uma aplicação de Serviço de Aplicações. |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | Configura um novo horário de backup para uma aplicação do Serviço de Aplicações. |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | Mostra a agenda de backup para uma aplicação do Serviço de Aplicações. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para uma aplicação do Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

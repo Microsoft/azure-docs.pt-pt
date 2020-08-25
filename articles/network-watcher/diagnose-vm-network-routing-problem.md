@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diagnosticar um problema de encaminhamento de rede VM - Portal Azure'
+title: 'Tutorial: Diagnosticar um problema de encaminhamento de rede VM - portal Azure'
 titleSuffix: Azure Network Watcher
 description: Neste tutorial, saiba como diagnosticar um problema de encaminhamento de rede de máquina virtual ao utilizar a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76845219"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: diagnosticar um problema de encaminhamento de rede de máquina virtual com o Portal do Azure
@@ -36,7 +36,7 @@ Quando implementa uma máquina virtual (VM), o Azure cria várias rotas predefin
 
 Se preferir, pode diagnosticar um problema de encaminhamento de rede de máquina virtual com a [CLI do Azure](diagnose-vm-network-routing-problem-cli.md) ou o [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +46,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
-3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
+3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
@@ -69,12 +69,12 @@ Para testar a comunicação de rede com o Observador de Rede, primeiro tem de at
 
 Se já tiver um observador de rede ativado em pelo menos uma região, avance para [Utilizar o próximo salto](#use-next-hop).
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
 
     ![Ativar o Observador de Rede](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Selecione **Ativar o Observador de Rede**.
+3. Selecione **Ativar Observador de Rede**.
 
 ### <a name="use-next-hop"></a>Utilizar o próximo salto
 
@@ -108,7 +108,7 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
 
     No entanto, quando executou o teste com 172.31.0.100, o resultado informou que não existia um tipo de próximo salto. Como pode ver na imagem anterior, embora exista uma rota predefinida para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **TIPO DE PRÓXIMO SALTO** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, tiver adicionado o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure muda o **TIPO DE PRÓXIMO SALTO** para **Rede virtual** para a rota. Uma verificação iria mostrar **Rede virtual** como o **TIPO DE PRÓXIMO SALTO**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 

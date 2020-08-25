@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Design a server - Portal Azure - Base de Dados Azure para MySQL'
-description: Este tutorial explica como criar e gerir a Base de Dados Azure para servidor MySQL e base de dados usando o portal Azure.
+title: 'Tutorial: Design de um servidor - Portal Azure - Base de Dados Azure para MySQL'
+description: Este tutorial explica como criar e gerir a Base de Dados Azure para servidor e base de dados MySQL utilizando o portal Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: c0d0e9f0994f7d4d75a67911a5191d6e4ffecaa8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80382805"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
@@ -41,11 +41,11 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-2. Selecione **Base de** > **Dados de Dados Azure para MySQL**. Se não conseguir encontrar o MySQL Server na categoria Bases de **Dados,** clique em **Ver tudo** para mostrar todos os serviços de base de dados disponíveis. Também pode escrever **Base de Dados do Azure para MySQL** na caixa de pesquisa para encontrar rapidamente o serviço.
+2. Selecione **Base de Dados**  >  **Azure Databases para o MySQL**. Se não conseguir encontrar o MySQL Server na categoria **Bases de Dados,** clique em **Ver tudo** para mostrar todos os serviços de base de dados disponíveis. Também pode escrever **Base de Dados do Azure para MySQL** na caixa de pesquisa para encontrar rapidamente o serviço.
    
    ![Navegar para o MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
 
-3. Clique na **Base de Dados Azure para azulejomySQL.** Preencha o formulário da Base de Dados do Azure para MySQL.
+3. Clique **em Azure Database para azulejos MySQL.** Preencha o formulário da Base de Dados do Azure para MySQL.
    
    ![Formulário de criação](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -53,21 +53,21 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     ---|---|---
     Nome do servidor | Nome de servidor exclusivo | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. Por exemplo, mydemoserver. O nome de domínio *.mysql.database.azure.com* é acrescentado ao nome de servidor que indicar. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
     Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
-    Grupo de recursos | *myresourcegroup* | Forneça um novo nome do grupo de recursos ou um existente.
+    Grupo de recursos | *grupo myresource* | Forneça um novo nome do grupo de recursos ou um existente.
     Selecionar origem | *Em branco* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
     Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
-    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o nível de preços**. Em seguida, selecione o separador **Objetivo Geral.** *Gen 5*, *2 vCores,* *5 GB*, e *7 dias* são os valores predefinidos para A **Geração Computacional,** **vCore,** **Armazenamento**e Período de Retenção de **Cópias**de Segurança . Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do seu servidor em armazenamento geo-redundante, **selecione Geograficamente Redundante** das Opções de **Redundância**de Backup . Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. **Selecione o nível de preços**. Em seguida, selecione o separador **Finalidade Geral.** *Gen 5*, *2 vCores*, *5 GB*e *7 dias* são os valores padrão para **Compute Generation**, **vCore,** **Storage**, e Backup **Retention Period**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento geo-redundante, selecione **Geographically Redundante** das **Opções de Redundância de Backup**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Com o **crescimento automático** ativado o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
+   > Com **o crescimento automático** ativado, o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
 
-4. Clique em **Rever + criar**. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação. A implantação pode demorar até 20 minutos.
+4. Clique em **Rever + criar**. Pode clicar no botão Notificações na barra de **ferramentas** para monitorizar o processo de implementação. A implantação pode demorar até 20 minutos.
 
 ## <a name="configure-firewall"></a>Configurar a firewall
 
@@ -91,7 +91,7 @@ Obtenha o **Nome do servidor** completamente qualificado e o **Nome de início d
 2. Na página **Descrição geral**, aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
    ![4-2 propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com*, e o login de administração do servidor é *myadmin\@mydemoserver*.
+Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com*, e o login de administrador do servidor é *myadmin \@ mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 
@@ -179,7 +179,7 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    - **Localização**: a região é a mesma que o servidor de origem e não pode ser alterada.
    - **Escalão de preço**: o escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
    
-3. Clique em **OK** para restaurar o servidor para [restaurar a um ponto no tempo](./howto-restore-server-portal.md) antes de a tabela ser eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar.
+3. Clique **em OK** para restaurar o servidor para restaurar um ponto no [tempo](./howto-restore-server-portal.md) antes da tabela ser eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

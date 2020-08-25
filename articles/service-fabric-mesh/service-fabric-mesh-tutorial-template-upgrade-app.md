@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Atualize uma aplicação em execução em Malha de Tecido de Serviço Azure
+title: Tutorial- Atualize uma app em execução na malha de tecido de serviço Azure
 description: Neste tutorial, vai ficar a saber como atualizar uma aplicação do Service Fabric em execução no Service Fabric Mesh.
 author: dkkapur
 ms.topic: tutorial
@@ -7,15 +7,15 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75351734"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar uma aplicação do Service Fabric em execução no Service Fabric Mesh
 
-Este tutorial é a terceira parte de uma série. Vai ficar a saber como atualizar uma aplicação do Service Fabric que foi [implementada anteriormente no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) ao aumentar o número de recursos alocados da CPU.  Quando terminar, terá um serviço frontal web com maiores recursos cpu.
+Este tutorial é a terceira parte de uma série. Vai ficar a saber como atualizar uma aplicação do Service Fabric que foi [implementada anteriormente no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) ao aumentar o número de recursos alocados da CPU.  Quando terminar, terá um serviço frontal web com recursos de CPU mais elevados.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -50,7 +50,7 @@ Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anter
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-No modelo de implementação do recurso da aplicação, cada serviço tem uma propriedade *cpu* que pode ser utilizada para definir os recursos da CPU pedidos. Uma aplicação pode consistir em vários serviços, cada um com uma definição de *cpu* exclusiva, que são implementados e geridos em conjunto. Para aumentar os recursos de CPU do serviço frontal web, modifique o valor *do cpue* no modelo de implementação ou ficheiro de parâmetros.  Em seguida, atualize a aplicação.
+No modelo de implementação do recurso da aplicação, cada serviço tem uma propriedade *cpu* que pode ser utilizada para definir os recursos da CPU pedidos. Uma aplicação pode consistir em vários serviços, cada um com uma definição de *cpu* exclusiva, que são implementados e geridos em conjunto. A fim de aumentar os recursos cpu do serviço frontal web, modifique o valor *cpue* no modelo de implementação ou no ficheiro de parâmetros.  Em seguida, atualize a aplicação.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implementação
 

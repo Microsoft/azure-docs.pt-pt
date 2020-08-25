@@ -1,25 +1,25 @@
 ---
-title: Implementar uma aplicação de contentores com CI/CD
-description: Neste tutorial, aprende-se a configurar uma integração contínua e implantação para uma aplicação de contentores Azure Service Fabric utilizando o Visual Studio Azure DevOps.
+title: Implementar uma aplicação de contentor com CI/CD
+description: Neste tutorial, você aprende a configurar integração contínua e implementação para uma aplicação de recipiente de tecido de serviço Azure usando Visual Studio Azure DevOps.
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75614136"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric
 
-Este tutorial é a segunda parte de uma série e descreve como configurar a integração contínua e a implantação para uma aplicação de contentores Azure Service Fabric utilizando o Visual Studio e o Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
+Este tutorial é a segunda parte de uma série e descreve como configurar a integração e implementação contínuas para uma aplicação de contentor de tecido de serviço Azure usando Visual Studio e Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
 
 Na segunda parte da série, saiba como:
 
 > [!div class="checklist"]
 > * Adicionar controlo de origem ao seu projeto
-> * Criar uma definição de construção no Visual Studio Team Explorer
+> * Crie uma definição de construção no Visual Studio Team Explorer
 > * Criar uma definição de lançamento no Visual Studio Team Explorer
 > * Implementar e atualizar uma aplicação automaticamente
 
@@ -40,38 +40,38 @@ Escolha um perfil de destino no seu projeto de aplicação para utilizar para o 
 
 ## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Azure DevOps
 
-Partilhe os seus ficheiros de origem de aplicação para um projeto de equipa em Azure DevOps para que possa gerar construções.
+Partilhe os seus ficheiros de origem de aplicações num projeto de equipa em Azure DevOps para que possa gerar construções.
 
-Crie um novo repo git local para o seu projeto selecionando **Add to Source Control** -> **Git** na barra de estado no canto inferior direito do Visual Studio.
+Crie um novo repo Git local para o seu projeto selecionando **Add to Source Control**  ->  **Git** na barra de estado no canto inferior direito do Visual Studio.
 
 Na vista **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para o Azure DevOps**.
 
 ![Repositório Git de push][push-git-repo]
 
-Verifique o seu e-mail e selecione a sua organização na **conta** drop-down. Talvez tenha saqueado uma organização se já não tiver uma. Introduza o nome do seu repositório e selecione **Publicar repositório**.
+Verifique o seu e-mail e selecione a sua organização na entrega da **Conta.** Talvez tenha que criar uma organização se ainda não tiver uma. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
 ![Repositório Git de push][publish-code]
 
 A publicação do repositório cria um novo projeto de equipa na sua conta com o mesmo nome que o repositório local. Para criar o repositório num projeto de equipa existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto de equipa. Pode ver o código na Web, selecionando **Ver na Web**.
 
-## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configure entrega contínua com gasodutos Azure
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar entrega contínua com gasodutos Azure
 
-Uma definição de construção Azure DevOps descreve um fluxo de trabalho que é composto por um conjunto de passos de construção que são executados sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre o Azure DevOps [construir definições.](https://www.visualstudio.com/docs/build/define/create) 
+Uma definição de construção de Azure DevOps descreve um fluxo de trabalho que é composto por um conjunto de passos de construção que são executados sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre a Azure DevOps [construir definições.](https://www.visualstudio.com/docs/build/define/create) 
 
-Uma definição de libertação de Azure DevOps descreve um fluxo de trabalho que implementa um pacote de aplicação para um cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [as definições](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)de lançamento da Azure DevOps.
+Uma definição de libertação de Azure DevOps descreve um fluxo de trabalho que implementa um pacote de aplicação para um cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [as definições de lançamento](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Azure DevOps .
 
 ### <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
-Abra o seu novo projeto https://dev.azure.com de equipa navegando num navegador web e selecionando a sua organização, seguida do novo projeto. 
+Abra o seu novo projeto de equipa navegando para https://dev.azure.com um navegador web e selecionando a sua organização, seguido do novo projeto. 
 
-Selecione a opção **Pipelines** no painel esquerdo e, em seguida, clique em **New Pipeline**.
+Selecione a opção **Pipelines** no painel esquerdo e, em seguida, clique em **Novo Pipeline**.
 
 >[!NOTE]
 >Se não vir o modelo de definição de compilação, certifique-se de que a funcionalidade **Nova experiência de criação do pipeline YAML** está desativada. Esta funcionalidade está configurada na secção **Funcionalidades de Pré-visualização** da sua conta de DevOps.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Azure Repos Git** como fonte, o nome do projeto team, o seu repositório de projeto, e o **ramo padrão principal** ou as construções manuais e programadas.  Em seguida, clique em **Continuar**.
+Selecione **Azure Repos Git** como fonte, o nome do seu projeto Team, o seu projeto Repositório, e o ramo **Padrão mestre** ou construções manuais e programadas.  Em seguida, clique **em Continuar**.
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicação do Azure Service Fabric com suporte do Docker** e clique em **Aplicar**.
 
@@ -93,17 +93,17 @@ Em **Tipo de Registo de Contentor**, selecione **Azure Container Registry**. Sel
 
 ![Selecionar Enviar imagens do Docker][select-push-images]
 
-Sob o separador **Triggers,** permita a integração contínua verificando **A integração contínua .** Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
+No **separador Gatilhos,** possibilite a integração contínua verificando **Ativar a integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
 
 Na caixa de diálogo **Guardar pipeline de compilação e fila**, clique em **Guardar e colocar em fila** para iniciar manualmente uma compilação.
 
 ![Selecionar acionadores][save-and-queue]
 
-As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da sua construção, mude para o separador **Builds.**  Assim que verificar se a construção executa com sucesso, defina uma definição de libertação que implemente a sua aplicação num cluster.
+As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da sua construção, mude para o **separador Builds.**  Assim que verificar se a construção executa com sucesso, defina uma definição de libertação que implemente a sua aplicação num cluster.
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione a opção **Pipelines** no painel esquerdo e, em seguida, **liberta,** em **seguida+ Novo gasoduto**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione a opção **Pipelines** no painel esquerdo e, em seguida, **desbloqueia**e, em seguida, **+ Novo gasoduto**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -134,7 +134,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 ![Ativar o acionador][enable-trigger]
 
-Selecione **+ Desbloqueio** -> **Criar um lançamento** -> **para** criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
+Selecione **+**  ->  **Desbloqueie criar um desbloqueio**  ->  **Create** para criar manualmente um desbloqueio. Pode monitorizar o progresso da versão no separador **Versões**.
 
 Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
 
