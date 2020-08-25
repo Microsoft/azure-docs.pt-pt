@@ -3,12 +3,12 @@ title: Restaurar ações de ficheiros Azure
 description: Saiba como utilizar o portal Azure para restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pelo Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761853"
+ms.locfileid: "88762829"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar ações de ficheiros Azure
 
@@ -59,7 +59,7 @@ Pode utilizar esta opção de restauro para restaurar a partilha completa de fic
     ![Selecione ponto de restauro](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Por predefinição, o **painel Select Restore Point** lista pontos de restauro dos últimos 30 dias. Se pretender olhar para os pontos de restauro criados durante uma duração específica, por favor especifique o intervalo selecionando a **hora** de início e **o tempo de início** adequados e clique no botão **Refresh.**
+    >Por predefinição, o **painel Select Restore Point** lista pontos de restauro dos últimos 30 dias. Se pretender olhar para os pontos de restauro criados durante uma duração específica, especifique o intervalo selecionando a **hora** de início e **o tempo de início** adequados e clique no botão **Refresh.**
 
 1. O próximo passo é escolher a **Localização De Restauro.** Na secção **Destino de Recuperação,** especifique onde ou como restaurar os dados. Selecione uma das duas opções seguintes utilizando o botão de alternar:
 

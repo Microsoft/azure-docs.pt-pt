@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84343769"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
@@ -100,7 +100,7 @@ A sonda define como o Azure verifica quais das instâncias do SQL Server detém 
    | --- | --- |
    | **Nome** |Um nome de texto representando a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
-   | **Porto** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
+   | **Porta** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
    | **Limiar com funcionamento incorreto** |*2* |
 
@@ -129,10 +129,10 @@ As regras de equilíbrio de carga configuram como o balanceador de carga encamin
    | --- | --- |
    | **Nome** |Um nome de texto que representa as regras de equilíbrio de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
-   | **Porto** |*1433* |
-   | **Porto backend** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno direto do servidor)**. |
+   | **Porta** |*1433* |
+   | **Porta de back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno direto do servidor)**. |
    | **Sonda** |Utilize o nome da sonda que criou para este equilibrador de carga. |
-   | **Persistência da sessão** |**Nenhum** |
+   | **Persistência da sessão** |**Nenhuma** |
    | **Tempo de 20 minutos (minutos)** |*4* |
    | **IP flutuante (retorno direto do servidor)** |**Ativado** |
 
@@ -176,7 +176,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
 
     ```output
     Location Constraints:

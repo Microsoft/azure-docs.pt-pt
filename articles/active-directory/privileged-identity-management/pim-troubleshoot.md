@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ba5806e23aa87e5d7787be300512444f95b25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02b8f3b94d191c7439aadf5a56ec0e2a1c38e28
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742152"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782503"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Resolver problemas com gestão de identidade privilegiada
 
@@ -36,9 +36,9 @@ Este problema pode ocorrer quando a função de Administrador de Acesso ao Utili
 
 ### <a name="resolution"></a>Resolução
 
-Atribua a função de Administrador de Acesso ao Utilizador ao nome principal do serviço de gestão de identidade privilegiado (MS-PIM) ao nível da subscrição. Esta atribuição deve permitir ao serviço privilegiado de Gestão de Identidade aceder aos recursos do Azure. A função pode ser atribuída a nível de grupo de gestão ou ao nível da subscrição, dependendo dos seus requisitos. Para obter mais informações, consulte [Atribuir uma aplicação a uma função.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)
+Atribua a função de Administrador de Acesso ao Utilizador ao nome principal do serviço de gestão de identidade privilegiado (MS-PIM) ao nível da subscrição. Esta atribuição deve permitir ao serviço privilegiado de Gestão de Identidade aceder aos recursos do Azure. A função pode ser atribuída a nível de grupo de gestão ou ao nível da subscrição, dependendo dos seus requisitos. Para obter mais informações, consulte [Atribuir uma aplicação a uma função.](../develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Requisitos de licença para utilizar a Gestão de Identidade Privilegiada](subscription-requirements.md)
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

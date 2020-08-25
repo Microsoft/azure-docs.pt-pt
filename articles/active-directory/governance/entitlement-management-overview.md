@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034407"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783897"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -149,7 +149,7 @@ As licenças Azure AD Premium P2 **não** são necessárias para as seguintes ta
 - Não são necessárias licenças para utilizadores que tenham sido delegadas tarefas administrativas, tais como criador de catálogos, proprietário de catálogos e gestor de pacotes de acesso.
 - Não são necessárias licenças para os hóspedes que **possam** solicitar pacotes de acesso, mas **não** solicitem um pacote de acesso.
 
-Por cada licença Azure AD Premium P2 paga que você compra para os seus utilizadores membros (funcionários), você pode usar Azure AD B2B para convidar até 5 utilizadores convidados. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../b2b/licensing-guidance.md).
+Por cada licença Azure AD Premium P2 paga que você compra para os seus utilizadores membros (funcionários), você pode usar Azure AD B2B para convidar até 5 utilizadores convidados. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 

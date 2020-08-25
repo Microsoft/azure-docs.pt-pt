@@ -3,13 +3,15 @@ title: Use GPUs no serviço Azure Kubernetes (AKS)
 description: Saiba como utilizar GPUs para cargas de trabalho de alto desempenho ou de alta performance intensiva em Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/27/2020
-ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/21/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213177"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749136"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
 
@@ -117,6 +119,65 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 
 daemonset "nvidia-device-plugin" created
 ```
+
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>Utilize a imagem gpu especializada da AKS (pré-visualização)
+
+Como alternativa a estes passos, a AKS está a fornecer uma imagem AKS totalmente configurada que já contém o plugin de [dispositivo NVIDIA para Kubernetes.][nvidia-github]
+
+> [!WARNING]
+> Não deve instalar manualmente o conjunto de plugin daemon do dispositivo NVIDIA para clusters utilizando a nova imagem de GPU especializada em AKS.
+
+
+Registar a `GPUDedicatedVHDPreview` função:
+
+```azurecli
+az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
+```
+
+Pode levar vários minutos para que o estado seja apresentado como **Registado**. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature?view=azure-cli-latest#az-feature-list)
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
+```
+
+Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider?view=azure-cli-latest#az-provider-register)
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Para instalar a extensão CLI de pré-visualização aks, utilize os seguintes comandos Azure CLI:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Para atualizar a extensão CLI de pré-visualização aks, utilize os seguintes comandos Azure CLI:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Utilize a imagem de GPU especializada da AKS em novos clusters (pré-visualização)
+
+Configure o cluster para usar a imagem de GPU especializada da AKS quando o cluster é criado. Use a `--aks-custom-headers` bandeira para os nós de agente da GPU no seu novo cluster para usar a imagem de GPU especializada da AKS.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Se pretender criar um cluster utilizando as imagens AKS regulares, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada. Você também pode optar por adicionar piscinas de nó de gPU mais especializadas, conforme abaixo.
+
+
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>Utilize a imagem de GPU especializada da AKS em clusters existentes (pré-visualização)
+
+Configure uma nova piscina de nós para usar a imagem de GPU especializada da AKS. Use a `--aks-custom-headers` bandeira de bandeira para os nós de agente da GPU na sua nova piscina de nós para usar a imagem de GPU especializada da AKS.
+
+```azure-cli
+az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Se quiser criar uma piscina de nó usando as imagens AKS regulares, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada. 
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Confirme que as GPUs são agendaveis
 
@@ -319,7 +380,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover os objetos Kubernetes associados criados neste artigo, utilize o comando [de trabalho de eliminação de kubectl][kubectl delete] da seguinte forma:
 

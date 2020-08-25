@@ -1,5 +1,5 @@
 ---
-title: Criar e consultar uma piscina Sinapse SQL com Azure PowerShell
+title: Crie uma piscina Sinapse SQL com Azure PowerShell
 description: Crie rapidamente uma piscina Sinapse SQL com uma regra de firewall ao nível do servidor utilizando a Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,14 +11,14 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 21ca3968065df2575b101efa7735d56f87683938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211082"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751913"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL com Azure PowerShell
+# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Criar uma piscina Sinapse SQL com Azure PowerShell
 
 Crie um pool Sinapse SQL (armazém de dados) em Azure Synapse Analytics utilizando a Azure PowerShell.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você agora criou uma piscina SQL, criou uma regra de firewall, conectada à sua piscina SQL, e executar algumas consultas. Para saber mais, continue os dados de Carga no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)
+Criou agora uma piscina SQL, criou uma regra de firewall e está ligado à sua piscina SQL. Para saber mais, continue os dados de Carga no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use uma identidade gerida para aceder ao Cofre chave Azure - Linux - Azure AD
+title: Tutorial `:` Utilize uma identidade gerida para aceder ao Cofre da Chave Azure - Linux - Azure AD
 description: Um tutorial que o orienta pelo processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74232176"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault 
@@ -44,7 +44,7 @@ Com as identidades de serviço geridas para recursos do Azure, o seu código pod
 
 Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida atribuída pelo sistema da nossa VM ao Key Vault.   
 
-1. No topo da barra de navegação esquerda, selecione **Criar um recurso** > Segurança +**Cofre de Chave****de Identidade** > .  
+1. Na parte superior da barra de navegação esquerda, **selecione Criar um**cofre de segurança de recursos + chave de  >  **identidade**  >  **Key Vault**.  
 2. Indique um **Nome** para o novo Key Vault. 
 3. Localize o Key Vault na mesma subscrição e grupo de recursos da VM que criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar novo**. 

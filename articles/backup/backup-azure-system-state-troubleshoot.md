@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na Cópia de Segurança 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513856"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763393"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
 
@@ -17,7 +17,7 @@ Este artigo descreve soluções para problemas que poderá encontrar durante a u
 
 ## <a name="basic-troubleshooting"></a>Resolução de problemas básicos
 
-Recomendamos que efetue a validação abaixo, antes de começar a resolver problemas na cópia de segurança do Estado do Sistema:
+Recomendamos que execute os seguintes passos de validação, antes de começar a resolver problemas na cópia de segurança do Estado do Sistema:
 
 - [Certifique-se de que o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Recomendamos que efetue a validação abaixo, antes de começar a resolver probl
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de resolvermos o Sistema de Backup do Estado com Azure Backup, execute a verificação de pré-requisitos abaixo.  
+Antes de resolvermos a cópia de segurança do Estado do Sistema com a Azure Backup, execute a seguinte verificação de pré-requisitos.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verifique se a cópia de segurança do servidor do Windows está instalada
 
@@ -56,7 +56,7 @@ Se a saída apresentar o **Estado de Instalação** como **disponível,** signif
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>Método 1: Instalar backup do Servidor do Windows utilizando o PowerShell
 
-Para instalar a Cópia de Segurança do Servidor do Windows utilizando o PowerShell, execute o comando abaixo:
+Para instalar a Cópia de Segurança do Servidor do Windows utilizando o PowerShell, executar o seguinte comando:
 
   ```powershell
   Install-WindowsFeature -Name Windows-Server-Backup
@@ -64,7 +64,7 @@ Para instalar a Cópia de Segurança do Servidor do Windows utilizando o PowerSh
 
 #### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Método 2: Instalar backup do Servidor do Windows utilizando o Gestor do Servidor
 
-Para instalar a Cópia de Segurança do Servidor do Windows utilizando o Gestor do Servidor, execute os passos abaixo:
+Para instalar a Cópia de Segurança do Servidor do Windows utilizando o Gestor do Servidor, execute os seguintes passos:
 
 1. Na **Manjedoura de Servidor,** clique em **Adicionar papéis e funcionalidades**. Aparece **o assistente de adicionar funções e funcionalidades.**
 
@@ -77,20 +77,20 @@ Para instalar a Cópia de Segurança do Servidor do Windows utilizando o Gestor 
 3. Selecione um servidor a partir da piscina do servidor e clique em **Seguinte**. Na Função Servidor, deixe a seleção predefinida e clique em **Seguinte**.
 4. Selecione **backup do Servidor do Windows** no separador **Funcionalidades** e clique em **Seguinte**.
 
-    ![funcionalidades](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Selecione a janela de funcionalidades](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. No **separador Confirmação,** clique em **Instalar** para iniciar o processo de instalação.
 6. No separador **Resultados,** apresentará a função de Backup do Servidor do Windows instalada com sucesso no seu Servidor Windows.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Resultados da instalação](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permissão de informação do Volume do Sistema
 
-Certifique-se de que o SISTEMA Local tem controlo total na pasta **informação sobre volume do sistema** localizada no volume onde o Windows está instalado. Normalmente, isto é **C:\Informação de volume do sistema.** A cópia de segurança do Windows Server pode falhar se as permissões acima não forem definidas corretamente
+Certifique-se de que o SISTEMA Local tem controlo total na pasta **informação sobre volume do sistema** localizada no volume onde o Windows está instalado. Normalmente, isto é **C:\Informação de volume do sistema.** A cópia de segurança do Windows Server pode falhar se as permissões acima não estiverem corretamente definidas.
 
 ### <a name="dependent-services"></a>Serviços dependentes
 
-Certifique-se de que os serviços abaixo estão em funcionamento:
+Certifique-se de que os serviços abaixo estão no estado de funcionamento:
 
 **Nome do Serviço** | **Tipo de Arranque**
 --- | ---
@@ -113,7 +113,7 @@ Para validar o estado de backup do Servidor do Windows, execute os seguintes pas
 
     - Se falhar com este erro, reinstale a função de backup do Servidor do Windows na máquina do servidor, tal como mencionado no passo 1 dos pré-requisitos.
 
-  - Certifique-se de que a cópia de segurança do WSB está a funcionar corretamente, executando o comando abaixo a partir de uma solicitação de comando elevada:
+  - Certifique-se de que a cópia de segurança do WSB está a funcionar corretamente, executando o seguinte comando a partir de uma solicitação de comando elevada:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
@@ -145,6 +145,6 @@ Se o trabalho falhar, indica um problema WSB que resultaria na falha de backups 
 | -- | --
 | O agente MARS falha com a mensagem de erro: "A cópia de segurança do estado do sistema falhou à medida que a partição do sistema EFI está bloqueada. Isto pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou a um software de back-up" | - Se o problema for devido a um software de segurança de terceiros, então tem de contactar o fornecedor Anti Virus para que eles possam permitir o agente MARS <br/><br/> - Se um software de backup de terceiros estiver em execução, então espere que termine e, em seguida, volte a tentar
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o estado do sistema Windows na implementação do Gestor de Recursos, consulte [o Estado do Sistema do Servidor do Windows](backup-azure-system-state.md)

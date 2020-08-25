@@ -1,32 +1,32 @@
 ---
-title: Amostras de modelo do Gestor de Recursos para consultas de registo
-description: Modelos de Gestor de Recursos Azure da amostra para implementar consultas de registo do Monitor Azure.
+title: Amostras de modelo de gestor de recursos para consultas de registo
+description: Experimente os modelos do Gestor de Recursos Azure para implementar consultas de registo do Monitor Azure.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: f874e69ff2e08b9be11e6d3e267808d37c084d81
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854529"
 ---
-# <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para consultas de log no Monitor Azure
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar consultas de registo no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para consultas de registo no Azure Monitor
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar consultas de registo no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="template-references"></a>Referências do modelo
+## <a name="template-references"></a>Referências de modelo
 
-- [Microsoft.OperationalInsights espaços de trabalho/savedSearches](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/savedsearches)
+- [Microsoft.OperationalInsights workspaces/saveSearches](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/savedsearches)
 
-## <a name="simple-log-query"></a>Consulta de registo simples
-A amostra seguinte adiciona uma consulta de log a um espaço de trabalho log Analytics.
+## <a name="simple-log-query"></a>Consulta simples de log
+A amostra seguinte adiciona uma consulta de log a um espaço de trabalho Log Analytics.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -69,7 +69,7 @@ A amostra seguinte adiciona uma consulta de log a um espaço de trabalho log Ana
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -86,10 +86,10 @@ A amostra seguinte adiciona uma consulta de log a um espaço de trabalho log Ana
 }
 ```
 
-## <a name="log-query-as-a-function"></a>Consulta de log como uma função
-A amostra seguinte adiciona uma consulta de registo em função a um espaço de trabalho log Analytics.
+## <a name="log-query-as-a-function"></a>Consulta de registo como uma função
+A amostra seguinte adiciona uma consulta de log como função a um espaço de trabalho Log Analytics.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -138,7 +138,7 @@ A amostra seguinte adiciona uma consulta de registo em função a um espaço de 
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -156,12 +156,12 @@ A amostra seguinte adiciona uma consulta de registo em função a um espaço de 
 ```
 
 ## <a name="parameterized-function"></a>Função parametrizada
-A amostra seguinte adiciona uma consulta de registo como uma função que utiliza um parâmetro para um espaço de trabalho log Analytics. Uma segunda consulta de registo é incluída que utiliza a função parametrizada.
+A amostra seguinte adiciona uma consulta de log como uma função que usa um parâmetro para um espaço de trabalho Log Analytics. Uma segunda consulta de log é incluída que usa a função parametrizada.
 
 > [!NOTE]
-> O modelo de recurso é atualmente o único método que pode ser usado para funções parametrizadas. Qualquer consulta de registo pode utilizar a função uma vez instalada no espaço de trabalho.
+> O modelo de recursos é atualmente o único método que pode ser usado para funções parametrizadas. Qualquer consulta de registo pode utilizar a função uma vez instalada no espaço de trabalho.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -219,7 +219,7 @@ A amostra seguinte adiciona uma consulta de registo como uma função que utiliz
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -239,6 +239,6 @@ A amostra seguinte adiciona uma consulta de registo como uma função que utiliz
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
-* [Saiba mais sobre consultas](../log-query/log-query-overview.md)de registo.
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
+* [Saiba mais sobre consultas de registo.](../log-query/log-query-overview.md)
 * [Saiba mais sobre funções.](../log-query/functions.md)

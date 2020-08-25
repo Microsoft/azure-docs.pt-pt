@@ -9,17 +9,17 @@ ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84750707"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
 
 Quando liga a sua rede no local a uma rede virtual Azure para criar uma rede híbrida, a capacidade de controlar o acesso aos recursos da rede Azure é uma parte importante de um plano de segurança global.
 
-Pode utilizar o Azure Firewall para controlar o acesso à rede numa rede híbrida utilizando regras que definem tráfego de rede permitido e negado.
+Pode utilizar o Azure Firewall para controlar o acesso à rede numa rede híbrida ao utilizar regras que definem o tráfego de rede permitido e negado.
 
 Para este tutorial, cria três redes virtuais:
 
@@ -29,7 +29,7 @@ Para este tutorial, cria três redes virtuais:
 
 ![Firewall numa rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Declarar as variáveis
@@ -60,7 +60,7 @@ Uma rede híbrida utiliza o modelo de arquitetura hub-and-spoke para encaminhar 
 Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber como estas rotas são criadas.
 
 >[!NOTE]
->O Azure Firewall deve ter conectividade direta na Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
+>O Azure Firewall tem de ter conectividade Internet direta. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
 >
 >A Azure Firewall pode ser configurada para suportar túneis forçados. Para mais informações, consulte [o Azure Firewall forjando túneis.](forced-tunneling.md)
 
@@ -143,9 +143,9 @@ Agora, insi(implantado a firewall na rede virtual do hub de firewall.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**FW-Hybrid-Test** |
-   |Name     |**AzFW01**|
+   |Nome     |**AzFW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Utilizar existente**:<br> **VNet-hub**|
+   |Escolher uma rede virtual     |**Utilização existente:**<br> **VNet-hub**|
    |Endereço IP público     |Create new (Criar novo): <br>**Nome**  -  **fw-pip**. |
 
 5. Selecione **Rever + criar**.

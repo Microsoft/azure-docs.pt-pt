@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374853"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749175"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
@@ -92,7 +92,7 @@ Não existe um caminho de upgrade suportado das versões anteriores do HDInsight
 * HDInsight 4.0 não suporta MapReduce para a Colmeia Apache. Use o Apache Tez em vez disso. Saiba mais sobre o [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 não suporta a Tempestade Apache.
 * HDInsight 4.0 não suporta o tipo de cluster ML Services.
-* A Hive View já não está disponível em HDInsight 4.0.
+* O Hive View só está disponível em clusters HDInsight 4.0 com um número de versão igual ou superior a 4.1. Este número de versão está disponível em Ambari Admin -> Versões.
 * O intérprete de conchas em Apache Zeppelin não é apoiado em agrupamentos de faíscas e consultas interativas.
 * Não pode *desativar* o LLAP num cluster do Apache Spark-LLAP. Pode apenas desligar o LLAP.
 * Azure Data Lake Storage Gen2 não consegue salvar os cadernos do Jupyter num aglomerado de faíscas.
@@ -100,7 +100,7 @@ Não existe um caminho de upgrade suportado das versões anteriores do HDInsight
 * A integração do Spark SQL Ranger para a segurança da linha e da coluna é depreciada
 * Spark 2.4 e Kafka 2.1 estão disponíveis em HDInsight 4.0, pelo que a Spark 2.3 e a Kafka 1.1 já não estão suportadas. Recomendamos a utilização do Spark 2.4 & Kafka 2.1 e superior em HDInsight 4.0.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Documentação do Azure HDInsight](index.yml)
+* [Documentação Azure HDInsight](index.yml)
 * [Notas de lançamento](hdinsight-release-notes.md)

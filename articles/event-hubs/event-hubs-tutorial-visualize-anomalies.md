@@ -4,10 +4,10 @@ description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real e
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85315623"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
@@ -172,7 +172,7 @@ Agora, pode transmitir dados em fluxo para o seu hub de eventos. Para utilizar e
 
    **Nome da tarefa**: utilize **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
 
-   **Subscrição**: Selecione a sua subscrição.
+   **Subscrição**: selecione a sua subscrição.
 
    **Grupo de recursos**: utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
 
@@ -197,7 +197,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
    **Alias de entrada**: utilize **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
 
-   **Subscrição**: Selecione a sua subscrição.
+   **Subscrição**: selecione a sua subscrição.
 
    **Espaço de nomes dos Hubs de Eventos**: selecione o seu espaço de nomes do Hub de Eventos ($**eventHubNamespace**). 
 

@@ -6,13 +6,13 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447916"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763563"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
 
@@ -120,7 +120,7 @@ Para outros ambientes, o provedor de revisão ou documentos específicos do cond
 * Um [teste de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) deve simular dados do mundo real numa velocidade de alimentação constante. Testar aplicações e funções sob o stress do mundo real pode identificar e resolver problemas de exaustão portuária SNAT com antecedência.
 * Certifique-se de que os serviços de back-end podem devolver rapidamente as respostas. Para resolver problemas de desempenho com a Base de Dados Azure SQL, reveja [problemas de desempenho da Base de Dados Azure SQL com Insights Inteligentes](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Dimensione o plano do Serviço de Aplicações para mais instâncias. Para obter mais informações sobre o dimensionamento, consulte [Scale uma aplicação no Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Cada instância de trabalho num plano de serviço de aplicações é atribuída a uma série de portas SNAT. Se espalhar a sua utilização em mais instâncias, poderá obter a utilização da porta SNAT por exemplo abaixo do limite recomendado de 100 ligações de saída, por ponto final remoto único.
-* Considere mudar-se para [o App Service Environment (ASE),](https://docs.microsoft.com/azure/app-service/environment/using-an-ase)onde lhe é atribuído um único endereço IP de saída, e os limites para ligações e portas SNAT são muito mais elevados.
+* Considere mudar-se para [o App Service Environment (ASE),](https://docs.microsoft.com/azure/app-service/environment/using-an-ase)onde lhe é atribuído um único endereço IP de saída, e os limites para ligações e portas SNAT são muito mais elevados. Numa ASE, o número de portos SNAT por exemplo baseia-se na [tabela de pré-alocação](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) do balançador de carga Azure - por exemplo, um ASE com 1-50 casos de trabalhadores tem 1024 portos pré-locados por exemplo, enquanto um ASE com 51-100 casos de trabalhadores tem 512 portas pré-locadas por instância.
 
 Evitar os limites de saída da TCP é mais fácil de resolver, uma vez que os limites são definidos pelo tamanho do seu trabalhador. Pode ver os limites em [Limites Numéricos Cross VM da Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 

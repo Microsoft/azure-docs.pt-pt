@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.author: aahi
 ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84141250"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
@@ -23,7 +23,7 @@ A funcionalidade de Análise de Sentimento da API de Text Analytics avalia os re
 
 Após o envio de um pedido de análise de sentimento, a API devolve rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento.
 
-A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
+A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para mais informações, consulte [as línguas apoiadas.](../text-analytics-supported-languages.md)
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e funcionalidades de Análise de Sentimento
 
@@ -59,7 +59,7 @@ Por exemplo, se um cliente deixar feedback sobre um hotel como "o quarto era ót
 
 | Aspeto | Opinião    | Sentimento |
 |--------|------------|-----------|
-| sala   | Ótimo      | positiva  |
+| sala   | Ótimo      | positivo  |
 | pessoal  | hostil | negativo  |
 
 Para obter a mineração de opinião nos seus resultados, deve incluir a `opinionMining=true` bandeira num pedido de análise de sentimento. Os resultados da mineração de opinião serão incluídos na resposta da análise do sentimento.
@@ -68,7 +68,7 @@ Para obter a mineração de opinião nos seus resultados, deve incluir a `opinio
 
 ### <a name="preparation"></a>Preparação
 
-A análise de sentimento produz um resultado de maior qualidade quando lhe dá pequenas quantidades de texto para trabalhar. O mesmo já não acontece com a extração de expressões-chave, que tem um melhor desempenho com blocos de texto maiores. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
+A análise de sentimento produz um resultado de maior qualidade quando lhe dá pequenas quantidades de texto para trabalhar. O mesmo já não acontece com a extração de expressões-chave, que tem um melhor desempenho com blocos de texto maiores. Para obter os melhores resultados em ambas as operações, considere reestruturar as entradas em conformidade.
 
 Você deve ter documentos JSON neste formato: ID, texto e idioma.
 
@@ -287,8 +287,8 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 + O pedido do POST é para um `/sentiment` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer app que aceite o JSON. Por exemplo, Excel e Power BI.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Descrição Geral da Análise de Texto](../overview.md)
+* [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
 * [Novidades](../whats-new.md)

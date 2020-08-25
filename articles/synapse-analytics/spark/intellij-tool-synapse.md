@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85194953"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar aplicações Apache Spark com IntelliJ usando um espaço de trabalho synapse
@@ -24,7 +24,7 @@ Este tutorial demonstra como usar o Azure Toolkit para o plug-in IntelliJ para d
 - Aceda aos recursos das suas piscinas Spark.
 - Desenvolver e executar uma aplicação Scala Spark localmente.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Utilize o kit de ferramentas Azure para o plug-in IntelliJ

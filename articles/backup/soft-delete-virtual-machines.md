@@ -4,12 +4,12 @@ description: Saiba como a eliminação suave para máquinas virtuais torna as c�
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503545"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763699"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminação recuperável para máquinas virtuais
 
@@ -25,7 +25,7 @@ Atualmente é apoiado nos EUA, Leste da Ásia, Canadá Central, Canadá Oriental
 
 ## <a name="soft-delete-for-vms-using-azure-portal"></a>Excluir suave para VMs usando o portal Azure
 
-1. Para eliminar os dados de backup de um VM, a cópia de segurança tem de ser interrompida. No portal Azure, vá ao cofre dos seus serviços de recuperação, clique com o botão direito no item de backup e escolha **Stop backup**.
+1. Para eliminar os dados de backup de um VM, a cópia de segurança tem de ser interrompida. No portal Azure, vá ao cofre dos Serviços de Recuperação, clique com o botão direito no item de backup e escolha **Stop backup**.
 
    ![Screenshot de Itens de Backup do portal Azure](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
@@ -33,12 +33,12 @@ Atualmente é apoiado nos EUA, Leste da Ásia, Canadá Central, Canadá Oriental
 
    ![Screenshot do portal Azure, ecrã stop backup](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. Durante esses 14 dias, no Cofre dos Serviços de Recuperação, o VM apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
+3. Durante esses 14 dias, no cofre dos Serviços de Recuperação, o VM apagado suave aparecerá com um ícone vermelho de "soft-delete" ao lado.
 
    ![Screenshot do portal Azure, VM em estado de exclusão suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Se houver itens de reserva apagados por elementos no cofre, o cofre não pode ser apagado nessa altura. Tente a eliminação do cofre depois de os itens de reserva serem permanentemente apagados, e não há nenhum item em estado de eliminação suave deixado no cofre.
+   > Se houver itens de reserva apagados por elementos no cofre, o cofre não pode ser apagado nessa altura. Tente apagar o cofre depois de os itens de reserva serem permanentemente apagados, e não há nenhum item em estado de eliminação suave deixado no cofre.
 
 4. Para restaurar o VM apagado suave, tem primeiro de ser desesmado. Para desembolsar, escolha o VM de apagação suave e, em seguida, selecione a opção **Undelete**.
 
@@ -110,13 +110,13 @@ O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Ma
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Excluir suave para VMs usando REST API
 
 - Elimine as cópias de segurança utilizando a API REST, como mencionado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)
-- Se o utilizador pretender desfazer estas operações de eliminação, consulte as etapas [aqui mencionadas](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Se o utilizador pretender desfazer estas operações de eliminação, consulte as etapas [aqui mencionadas](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## <a name="how-to-disable-soft-delete"></a>Como desativar a eliminação suave
 
 Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar a eliminação suave](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suaves
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

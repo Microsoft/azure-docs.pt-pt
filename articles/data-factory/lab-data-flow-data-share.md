@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
 ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85252666"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
@@ -226,7 +226,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
     ![Portal](media/lab-data-flow-data-share/join1.png)
 1. Nomeie a sua transformação de junção 'InnerJoinWithTripFares'. Selecione 'TripFaresSQL' a partir do dropdown de fluxo certo. Selecione **Interior** como o tipo de junção. Para saber mais sobre os diferentes tipos de junção no fluxo de dados de mapeamento, consulte [os tipos de junção](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
 
-    Selecione quais as colunas que deseja combinar a partir de cada corrente através do dropdown **das condições de Junção.** Para adicionar uma condição adicional de junção, clique no ícone plus ao lado de uma condição existente. Por predefinição, todas as condições de junção são combinadas com um operador E, o que significa que todas as condições devem ser satisfeitas para uma correspondência. Neste laboratório, queremos combinar com `medallion` `hack_license` colunas, `vendor_id` e`pickup_datetime`
+    Selecione quais as colunas que deseja combinar a partir de cada corrente através do dropdown **das condições de Junção.** Para adicionar uma condição adicional de junção, clique no ícone plus ao lado de uma condição existente. Por predefinição, todas as condições de junção são combinadas com um operador E, o que significa que todas as condições devem ser satisfeitas para uma correspondência. Neste laboratório, queremos combinar com `medallion` `hack_license` colunas, `vendor_id` e `pickup_datetime`
 
     ![Portal](media/lab-data-flow-data-share/join2.png)
 1. Verifique se juntou 25 colunas com sucesso juntamente com uma pré-visualização de dados.
@@ -336,7 +336,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
     ![Partilhar detalhes](media/lab-data-flow-data-share/ads-details.png)
 
-1. Selecione **Continuar**. 
+1. **Selecione Continuar**. 
 
 1. Selecione **Adicionar conjuntos de dados** 
 
@@ -382,7 +382,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Reveja os conjuntos de dados que foram adicionados. Deverá ter uma tabela SQL e uma pasta ADLSGen2 adicionadas à sua partilha de dados. 
 
-1. **Selecione Continuar**
+1. Selecione **Continuar**
 
 1. Neste ecrã, pode adicionar destinatários à sua partilha de dados. Os destinatários que adicionar receberão convites para a sua partilha de dados. Para efeitos deste laboratório, deve adicionar 2 endereços de e-mail:
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: cc5964bb243216233300e8616b0460b7a1a043d9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661542"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782333"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -160,6 +160,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 |Malaio| `ms`        |
 |Maltês|   `mt`    |
 |Norueguês| `nb`    |
+|Rio Pashto|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Português (Brasil)|   `pt-br` |
@@ -196,19 +197,19 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
-| Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
+| Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
-| Canarês | `kn` | Canarês `Knda` | --> | Latim `Latn` |
-| Malaiala | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
-| Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
+| Canarês | `kn` | Canarês `Knda` | <--> | Latim `Latn` |
+| Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
+| Marata | `mr` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latim `Latn` |
 | Punjabi | `pa` | Rio Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
-| Tâmil | `ta` | Tâmil `Taml` | --> | Latim `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latim `Latn` |
+| Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dicionário

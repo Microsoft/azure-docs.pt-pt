@@ -1,28 +1,28 @@
 ---
-title: Amostras de modelo do Gestor de Recursos para agentes
-description: Modelos do Gestor de Recursos Azure para implementar e configurar o agente de Log Analytics e a extensão de diagnóstico no Monitor Azure.
+title: Amostras de modelo de gestor de recursos para agentes
+description: Experimente os modelos do Gestor de Recursos Azure para implementar e configurar o agente de Log Analytics e a extensão de diagnóstico no Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 8b0673e534826acb5ff2d3747053f58fb39ff285
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854451"
 ---
-# <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para agentes no Monitor Azure
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implementar e configurar o [agente Log Analytics](../platform/log-analytics-agent.md) e a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para máquinas virtuais no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para agentes no Azure Monitor
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o [agente Log Analytics](../platform/log-analytics-agent.md) e a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="windows-log-analytics-agent"></a>Agente de Análise de Registo do Windows
-A amostra seguinte instala o agente Log Analytics numa máquina virtual Windows Azure. Isto é feito permitindo a [extensão](../../virtual-machines/extensions/oms-windows.md)da máquina virtual Log Analytics para windows .
+## <a name="windows-log-analytics-agent"></a>Agente do Windows Log Analytics
+A amostra que se segue instala o agente Log Analytics numa máquina virtual Do Windows Azure. Isto é feito permitindo a [extensão da máquina virtual Log Analytics para o Windows](../../virtual-machines/extensions/oms-windows.md).
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -90,7 +90,7 @@ A amostra seguinte instala o agente Log Analytics numa máquina virtual Windows 
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -114,10 +114,10 @@ A amostra seguinte instala o agente Log Analytics numa máquina virtual Windows 
 ```
 
 
-## <a name="linux-log-analytics-agent"></a>Agente de Análise de Log Linux
-A amostra seguinte instala o agente Log Analytics numa máquina virtual Linux Azure. Isto é feito permitindo a [extensão](../../virtual-machines/extensions/oms-linux.md)da máquina virtual Log Analytics para windows .
+## <a name="linux-log-analytics-agent"></a>Linux Log Analytics agente
+A amostra que se segue instala o agente Log Analytics numa máquina virtual Linux Azure. Isto é feito permitindo a [extensão da máquina virtual Log Analytics para o Windows](../../virtual-machines/extensions/oms-linux.md).
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -184,7 +184,7 @@ A amostra seguinte instala o agente Log Analytics numa máquina virtual Linux Az
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -210,9 +210,9 @@ A amostra seguinte instala o agente Log Analytics numa máquina virtual Linux Az
 
 
 ## <a name="windows-diagnostic-extension"></a>Extensão de diagnóstico do Windows
-A amostra seguinte permite e configura a extensão de diagnóstico numa máquina virtual Windows Azure. Para mais detalhes sobre a configuração, consulte o esquema de [extensão](../platform/diagnostics-extension-schema-windows.md)de diagnóstico do Windows .
+A amostra que se segue permite e configura a extensão de diagnóstico numa máquina virtual Do Windows Azure. Para obter mais informações sobre a configuração, consulte [o esquema de extensão de diagnóstico do Windows](../platform/diagnostics-extension-schema-windows.md).
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -345,7 +345,7 @@ A amostra seguinte permite e configura a extensão de diagnóstico numa máquina
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -374,10 +374,10 @@ A amostra seguinte permite e configura a extensão de diagnóstico numa máquina
 }
 ```
 
-## <a name="linux-diagnostic-setting"></a>Configuração de diagnóstico linux
-A amostra seguinte permite e configura a extensão de diagnóstico numa máquina virtual Linux Azure. Para mais detalhes sobre a configuração, consulte o esquema de [extensão](../../virtual-machines/extensions/diagnostics-linux.md)de diagnóstico do Windows .
+## <a name="linux-diagnostic-setting"></a>Definição de diagnóstico linux
+A amostra que se segue permite e configura a extensão de diagnóstico numa máquina virtual Linux Azure. Para obter mais informações sobre a configuração, consulte [o esquema de extensão de diagnóstico do Windows](../../virtual-machines/extensions/diagnostics-linux.md).
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -565,7 +565,7 @@ A amostra seguinte permite e configura a extensão de diagnóstico numa máquina
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -596,6 +596,6 @@ A amostra seguinte permite e configura a extensão de diagnóstico numa máquina
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
-* [Saiba mais sobre](../platform/log-analytics-agent.md)o agente Log Analytics .
-* [Saiba mais sobre a extensão de diagnóstico](../platform/diagnostics-extension-overview.md).
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
+* [Saiba mais sobre o agente Log Analytics.](../platform/log-analytics-agent.md)
+* [Saiba mais sobre a extensão de diagnóstico.](../platform/diagnostics-extension-overview.md)

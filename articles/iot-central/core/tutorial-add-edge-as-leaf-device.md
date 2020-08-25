@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 1b90364bee42b31843ac8d84f5a692a3eeb6d3f1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84417609"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central
@@ -21,7 +21,7 @@ ms.locfileid: "84417609"
 
 Este tutorial mostra-lhe como configurar e adicionar um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central. O tutorial utiliza uma máquina virtual Linux (VM) ativada pelo IoT Edge para simular um dispositivo IoT Edge. O dispositivo IoT Edge utiliza um módulo que gera telemetria ambiental simulada. Você vê a telemetria num dashboard na sua aplicação IoT Central.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie um modelo de dispositivo para um dispositivo IoT Edge
@@ -36,7 +36,7 @@ Para completar os passos neste tutorial, precisa de uma subscrição ativa do Az
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Descarregue o ficheiro manifesto IoT Edge do GitHub. Clique com o botão direito no seguinte link e, em seguida, **selecione Guardar link como**: [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
+Descarregue o ficheiro manifesto IoT Edge do GitHub. Clique com o botão direito no link seguinte e, em seguida, **selecione Guardar link como**:EnvironmentalSensorManifest.js[ em](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
 ## <a name="create-device-template"></a>Criar modelo de dispositivo
 
@@ -50,7 +50,7 @@ Para criar um modelo de dispositivo a partir de um manifesto IoT Edge:
 
 1. Na página **de tipo de modelo Select,** selecione o azulejo **Azure IoT Edge.** Em seguida, **selecione Seguinte: Personalize**.
 
-1. Na página manifesto de **implementação do Azure IoT Edge,** insira o *Dispositivo de Borda do Sensor Ambiental* como o nome do modelo do dispositivo. Em seguida, **selecione Browse** para carregar o **EnvironmentalSensorManifest.json** que descarregou anteriormente. Em seguida, selecione **Seguinte: Revisão**.
+1. Na página manifesto de **implementação do Azure IoT Edge,** insira o *Dispositivo de Borda do Sensor Ambiental* como o nome do modelo do dispositivo. Em seguida, **selecione Browse** para carregar o **EnvironmentalSensorManifest.jsem** que descarregou anteriormente. Em seguida, selecione **Seguinte: Revisão**.
 
 1. Na página **'Revisão',** **selecione Criar**.
 
@@ -120,7 +120,7 @@ Antes de poder adicionar um dispositivo que utilize o modelo do **Dispositivo de
 
 Navegue para o modelo do **dispositivo de borda do sensor ambiental** e selecione **Publicar**. No modelo de publicação deste dispositivo para o painel **de aplicações,** selecione **Publicar** para publicar o modelo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publique o modelo do dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicar o modelo de dispositivo":::
 
 ## <a name="add-iot-edge-device"></a>Adicionar dispositivo IoT Edge
 
@@ -152,7 +152,7 @@ Já terminou de configurar a sua aplicação IoT Central para permitir a ligaç�
 
 Neste tutorial, você usa um Linux VM ativado por Azure IoT Edge, criado no Azure para simular um dispositivo IoT Edge. Para criar o VM ativado pelo IoT Edge na sua subscrição Azure, clique em:
 
-[![Implementar para o botão Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+[![Botão Implementar no Azure iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 Na página **de implementação personalizada:**
 
@@ -228,7 +228,7 @@ Para configurar ioT Edge no VM para utilizar DPS para registar e ligar à sua ap
     ```
 
     > [!TIP]
-    > Certifique-se de que não há mais espaço na frente de`provisioning:`
+    > Certifique-se de que não há mais espaço na frente de `provisioning:`
 
 1. `{scope_id}`Substitua-o pelo **ID Scope** que fez uma nota anterior.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84417842"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Criar um GATEWAY NAT utilizando o portal Azure e testar o serviço NAT
@@ -105,7 +105,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
     | ------- | ----- |
     | Versão IP | Selecione **IPv4**.
     | SKU | Selecione **Standard**.
-    | Name | Insira **o myPublicIPsource**. |
+    | Nome | Insira **o myPublicIPsource**. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **myResourceGroupNAT**. |
     | Localização | Selecione **E.U.A. Leste 2**.|

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84310007"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e passear através do modelo de aplicação de monitorização do painel solar 
@@ -52,7 +52,7 @@ Pode criar esta aplicação em três passos simples:
     * **Ensaio gratuito de 7 dias**: Se já tiver uma subscrição Azure, recomenda-se a definição predefinida. Se não tiver uma assinatura Azure, comece com o teste gratuito.
     * **Billing Info**: A aplicação em si é gratuita. Os detalhes do Diretório, Azure e Região são necessários para a disponibilização dos recursos para a sua aplicação.
     * Clique em **Criar** botão na parte inferior da página e a sua aplicação será criada em um minuto ou mais.
-        ![Novo formulário de candidatura](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Formulário de nova aplicação](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
         ![Nova informação de faturação do formulário de candidatura](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 

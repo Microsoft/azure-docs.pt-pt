@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Push update to geo-replicated registry
-description: Empurre uma imagem atualizada do Docker para o seu registo de contentores Azure geo-replicado e, em seguida, veja as alterações automaticamente implementadas para aplicações web que executam em várias regiões. Parte três de uma série com três partes.
+title: Tutorial - Empurre atualização para o registo geo-replicado
+description: Empurre uma imagem de Docker atualizada para o seu registo geo-replicado do contentor Azure e, em seguida, veja as alterações automaticamente implementadas para aplicações web em execução em várias regiões. Parte três de uma série com três partes.
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74454702"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Empurre uma imagem de contentor atualizada para um registo de contentores geo-replicado para implementações regionais de aplicações web
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Empurre uma imagem de recipiente atualizada para um registo de contentores geo-replicados para implementações regionais de aplicações web
 
 Esta é a parte três de um tutorial de três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), a georreplicação foi configurada para duas implementações regionais de Aplicações Web. Neste tutorial, comece por modificar a aplicação e, em seguida, crie uma nova imagem de contentor e envie-a para o seu registo georreplicado. Finalmente, verá a alteração, implementada automaticamente pelos webhooks do Azure Container Registry, em ambas as instâncias de Aplicações Web.
 

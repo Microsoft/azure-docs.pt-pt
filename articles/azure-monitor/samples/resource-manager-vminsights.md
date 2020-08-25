@@ -1,29 +1,29 @@
 ---
-title: Amostras de modelo de gestor de recursos para Monitor Azure para VMs
-description: Modelos de Gestor de Recursos Azure da amostra para implantar e configurar monitorAzure para VMs.
+title: Amostras de modelo de gestor de recursos para monitor Azure para VMs
+description: Experimente os modelos do Gestor de Recursos Azure para implementar e configurar o Monitor deAzure para VMs.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 3bd14b1caa9ff905a585b12b7e3887d3a7a81d58
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854511"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Amostras de modelo de gestor de recursos para Monitor Azure para VMs
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para permitir o Monitor Azure para VMs em máquinas virtuais. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Amostras de modelo de gestor de recursos para monitor Azure para VMs
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para permitir o Monitor Azure para VMs em máquinas virtuais. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
-A amostra seguinte permite o Monitor Azure para VMs para um espaço de trabalho log Analytics.
+A amostra seguinte permite o Azure Monitor para VMs para um espaço de trabalho Log Analytics.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -79,7 +79,7 @@ A amostra seguinte permite o Monitor Azure para VMs para um espaço de trabalho 
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -98,10 +98,10 @@ A amostra seguinte permite o Monitor Azure para VMs para um espaço de trabalho 
 
 
 ## <a name="onboard-an-azure-virtual-machine"></a>A bordo de uma máquina virtual Azure
-A amostra seguinte adiciona uma máquina virtual Azure ao Monitor Azure para VMs.
+A amostra seguinte adiciona uma máquina virtual Azure ao Azure Monitor para VMs.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -193,7 +193,7 @@ A amostra seguinte adiciona uma máquina virtual Azure ao Monitor Azure para VMs
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -219,10 +219,10 @@ A amostra seguinte adiciona uma máquina virtual Azure ao Monitor Azure para VMs
 
 
 ## <a name="onboard-an-azure-virtual-machine-scale-set"></a>A bordo de um conjunto de escala de máquina virtual Azure
-A amostra seguinte adiciona uma escala de máquina virtual Azure ao Monitor Azure para VMs.
+A amostra seguinte adiciona uma balança de máquina virtual Azure definida ao Azure Monitor para VMs.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -314,7 +314,7 @@ A amostra seguinte adiciona uma escala de máquina virtual Azure ao Monitor Azur
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -340,5 +340,5 @@ A amostra seguinte adiciona uma escala de máquina virtual Azure ao Monitor Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
-* [Saiba mais sobre o Monitor Azure para VMs.](../insights/vminsights-overview.md)
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
+* [Saiba mais sobre o Azure Monitor para VMs](../insights/vminsights-overview.md).

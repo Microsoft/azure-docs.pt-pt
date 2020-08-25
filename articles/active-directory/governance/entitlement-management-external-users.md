@@ -16,26 +16,26 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338216"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783863"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 
-A gestão de direitos da AD Azure utiliza [a Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) para colaborar com pessoas fora da sua organização em outro diretório. Com o Azure AD B2B, os utilizadores externos autenticam-se no seu diretório de origem, mas têm uma representação no seu diretório. A representação no seu diretório permite ao utilizador ter acesso aos seus recursos.
+A gestão de direitos da AD Azure utiliza [a Azure AD business-to-business (B2B)](../external-identities/what-is-b2b.md) para colaborar com pessoas fora da sua organização em outro diretório. Com o Azure AD B2B, os utilizadores externos autenticam-se no seu diretório de origem, mas têm uma representação no seu diretório. A representação no seu diretório permite ao utilizador ter acesso aos seus recursos.
 
 Este artigo descreve as definições que pode especificar para reger o acesso a utilizadores externos.
 
 ## <a name="how-entitlement-management-can-help"></a>Como a gestão de direitos pode ajudar
 
-Ao utilizar a experiência de convite [Azure AD B2B,](../b2b/what-is-b2b.md) já deve conhecer os endereços de e-mail dos utilizadores convidados externos que pretende trazer para o seu diretório de recursos e trabalhar com eles. Isto funciona muito bem quando está a trabalhar num projeto de menor ou de curto prazo e já conhece todos os participantes, mas isso é mais difícil de gerir se tiver muitos utilizadores com quem quer trabalhar ou se os participantes mudam ao longo do tempo.  Por exemplo, pode estar a trabalhar com outra organização e ter um ponto de contacto com essa organização, mas com o passar do tempo utilizadores adicionais dessa organização também precisarão de acesso.
+Ao utilizar a experiência de convite [Azure AD B2B,](../external-identities/what-is-b2b.md) já deve conhecer os endereços de e-mail dos utilizadores convidados externos que pretende trazer para o seu diretório de recursos e trabalhar com eles. Isto funciona muito bem quando está a trabalhar num projeto de menor ou de curto prazo e já conhece todos os participantes, mas isso é mais difícil de gerir se tiver muitos utilizadores com quem quer trabalhar ou se os participantes mudam ao longo do tempo.  Por exemplo, pode estar a trabalhar com outra organização e ter um ponto de contacto com essa organização, mas com o passar do tempo utilizadores adicionais dessa organização também precisarão de acesso.
 
 Com a gestão de direitos, pode definir uma política que permite aos utilizadores de organizações que especificar para poderem auto-solicitar um pacote de acesso. Pode especificar se é necessária a aprovação e uma data de validade para o acesso. Se for necessária a aprovação, também pode convidar um ou mais utilizadores da organização externa para o seu diretório e designá-los como aprovadores - uma vez que são suscetíveis de saber quais os utilizadores externos da sua organização que precisam de acesso. Uma vez configurado o pacote de acesso, pode enviar o link do pacote de acesso para a sua pessoa de contacto (patrocinador) na organização externa. Esse contacto pode partilhar com outros utilizadores da organização externa, e podem usar este link para solicitar o pacote de acesso. Os utilizadores dessa organização que já foram convidados para o seu diretório também podem usar esse link.
 
-Quando um pedido for aprovado, a gestão de direitos irá providenciar ao utilizador o acesso necessário, o que pode incluir convidar o utilizador se ainda não estiver no seu diretório. O Azure AD criará automaticamente uma conta de hóspedes B2B para eles. Note que um administrador pode ter limitado previamente quais as organizações que são permitidas para colaboração, estabelecendo uma [lista B2B de permitir ou negar convites](../b2b/allow-deny-list.md) para outras organizações.  Se o utilizador não for autorizado pela lista de admissões ou bloqueios, então não serão convidados.
+Quando um pedido for aprovado, a gestão de direitos irá providenciar ao utilizador o acesso necessário, o que pode incluir convidar o utilizador se ainda não estiver no seu diretório. O Azure AD criará automaticamente uma conta de hóspedes B2B para eles. Note que um administrador pode ter limitado previamente quais as organizações que são permitidas para colaboração, estabelecendo uma [lista B2B de permitir ou negar convites](../external-identities/allow-deny-list.md) para outras organizações.  Se o utilizador não for autorizado pela lista de admissões ou bloqueios, então não serão convidados.
 
 Uma vez que não pretende que o acesso do utilizador externo dure para sempre, especifique uma data de validade na apólice, como 180 dias. Após 180 dias, se o seu acesso não for prolongado, a gestão de direitos removerá todos os acessos associados a esse pacote de acesso. Por padrão, se o utilizador que foi convidado através da gestão de direitos não tiver outras atribuições de pacotes de acesso, então quando perderem a sua última atribuição, a sua conta de hóspedes ficará impedida de iniciar sessão durante 30 dias e posteriormente removida. Isto impede a proliferação de contas desnecessárias. Como descrito nas seguintes secções, estas definições são configuráveis.
 
@@ -57,7 +57,7 @@ O diagrama e as etapas seguintes fornecem uma visão geral de como os utilizador
 
 1. O pedido vai para o [estado de entrega.](entitlement-management-process.md)
 
-1. Utilizando o processo de convite B2B, é criada uma conta de utilizador convidada no seu**diretório (Requestor A (Convidado)** neste exemplo. Se for definida uma [lista de admissões ou uma lista de negação,](../b2b/allow-deny-list.md) a definição da lista será aplicada.
+1. Utilizando o processo de convite B2B, é criada uma conta de utilizador convidada no seu**diretório (Requestor A (Convidado)** neste exemplo. Se for definida uma [lista de admissões ou uma lista de negação,](../external-identities/allow-deny-list.md) a definição da lista será aplicada.
 
 1. O utilizador convidado tem acesso a todos os recursos do pacote de acesso. Pode levar algum tempo para que as alterações sejam feitas no AD AZure e em outros Serviços Microsoft Online ou aplicações SaaS conectadas. Para obter mais informações, consulte [Quando as alterações são aplicadas](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -84,8 +84,8 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 - Permitir que os hóspedes convidem outros hóspedes para o seu diretório significa que os convites dos hóspedes podem ocorrer fora da gestão de direitos. Recomendamos que **os hóspedes possam convidar** para o **Nº** apenas para permitir convites devidamente governados.
 - Se estiver a utilizar a lista de autorizações B2B, deve certificar-se de que qualquer domínio que pretenda associar-se à gestão de direitos é adicionado à lista. Em alternativa, se estiver a utilizar a lista de negação B2B, deve certificar-se de que qualquer domínio com o qual pretende associar-se não é adicionado à lista.
 - Se criar uma política de gestão de direitos para **todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), qualquer B2B permite ou nega definições de lista que tenha terá precedência. Portanto, certifique-se de incluir os domínios que pretende incluir nesta política na sua lista de autorizações se estiver a utilizar um, e exclua-os da sua lista de negação se estiver a utilizar uma lista de negação.
-- Se pretender criar uma política de gestão de direitos que inclua **Todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), tem primeiro de ativar a autenticação de código de acesso de e-mail para o seu diretório. Para obter mais informações, consulte a autenticação de código de acesso de [email (pré-visualização)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
-- Para obter mais informações sobre as definições de colaboração externa Azure AD B2B, consulte [a colaboração externa do Enable B2B e gere quem pode convidar os hóspedes.](../b2b/delegate-invitations.md)
+- Se pretender criar uma política de gestão de direitos que inclua **Todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), tem primeiro de ativar a autenticação de código de acesso de e-mail para o seu diretório. Para obter mais informações, consulte a autenticação de código de acesso de [email (pré-visualização)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Para obter mais informações sobre as definições de colaboração externa Azure AD B2B, consulte [a colaboração externa do Enable B2B e gere quem pode convidar os hóspedes.](../external-identities/delegate-invitations.md)
 
     ![Definições de colaboração externa Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
 
@@ -97,17 +97,17 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Reveja as definições de partilha externa do SharePoint Online
 
-- Se pretender incluir sites SharePoint Online nos seus pacotes de acesso para utilizadores externos, certifique-se de que a definição de partilha externa ao nível da organização é definida para **Qualquer pessoa** (os utilizadores não necessitam de iniciar sposição) ou **os hóspedes novos e existentes** (os hóspedes devem iniciar sposição ou fornecer um código de verificação). Para obter mais informações, consulte [Ligue ou desligue a partilha externa](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se pretender incluir sites SharePoint Online nos seus pacotes de acesso para utilizadores externos, certifique-se de que a definição de partilha externa ao nível da organização é definida para **Qualquer pessoa** (os utilizadores não necessitam de iniciar sposição) ou **os hóspedes novos e existentes** (os hóspedes devem iniciar sposição ou fornecer um código de verificação). Para obter mais informações, consulte [Ligue ou desligue a partilha externa](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Se quiser restringir qualquer partilha externa fora da gestão de direitos, pode definir a definição de partilha externa para **os hóspedes existentes.** Em seguida, apenas os novos utilizadores que são convidados através da gestão de direitos poderão ter acesso a esses sites. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se quiser restringir qualquer partilha externa fora da gestão de direitos, pode definir a definição de partilha externa para **os hóspedes existentes.** Em seguida, apenas os novos utilizadores que são convidados através da gestão de direitos poderão ter acesso a esses sites. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Certifique-se de que as definições de nível do site permitem o acesso ao hóspede (as mesmas opções que as seleções anteriormente listadas). Para obter mais informações, consulte [Turn external sharing on or off for a site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+- Certifique-se de que as definições de nível do site permitem o acesso ao hóspede (as mesmas opções que as seleções anteriormente listadas). Para obter mais informações, consulte [Turn external sharing on or off for a site](/sharepoint/change-external-sharing-site).
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Reveja as definições de partilha de grupos microsoft 365
 
-- Se pretender incluir os grupos Microsoft 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que **os utilizadores do Let adicionam novos hóspedes à organização** está definido para o **On** para permitir o acesso dos hóspedes. Para obter mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Microsoft 365.](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)
+- Se pretender incluir os grupos Microsoft 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que **os utilizadores do Let adicionam novos hóspedes à organização** está definido para o **On** para permitir o acesso dos hóspedes. Para obter mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Microsoft 365.](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)
 
-- Se pretender que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo Microsoft 365, certifique-se de que liga a partilha externa do SharePoint Online. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se pretender que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo Microsoft 365, certifique-se de que liga a partilha externa do SharePoint Online. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Para obter informações sobre como definir a política de hóspedes para os grupos Microsoft 365 ao nível do diretório no PowerShell, consulte [exemplo: Configurar a política do Convidado para grupos ao nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
@@ -145,7 +145,7 @@ Pode selecionar o que acontece quando um utilizador externo, que foi convidado p
 
 1. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar uma organização associada](entitlement-management-organization.md)
 - [Para utilizadores que não estão no seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

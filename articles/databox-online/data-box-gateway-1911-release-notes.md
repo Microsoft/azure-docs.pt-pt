@@ -2,18 +2,18 @@
 title: Azure Stack Edge & notas de lançamento da Azure Data Box Gateway 1911 Microsoft Docs
 description: Descreve questões e resoluções abertas críticas para o Azure Stack Edge e data box gateway em execução de 1911.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 03/13/2020
-ms.author: v-grpr
-ms.openlocfilehash: c22ba44c3d567d363b1fec702fecb81ca203a48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 4c5c6b423c9013719a703b5112e2a897d35454d1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322481"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783965"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-1911-release-notes"></a>Notas de lançamento de Azure Stack Edge e Azure Data Box Gateway 1911
 
@@ -37,7 +37,7 @@ Não existem novas funcionalidades no lançamento de 1911, apenas correções de
 
 Não são divulgados novos problemas para este lançamento. Todas as questões notadas pela libertação foram transitadas das versões anteriores. Para ver uma lista de questões conhecidas, vá a [questões conhecidas no lançamento da AG](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar Azure Stack Edge](azure-stack-edge-deploy-prep.md)
 - [Preparar para implementar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652751"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763376"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -196,7 +196,7 @@ Uma política de proteção de apoio está associada a pelo menos uma política 
 * O [cmdlet New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cria um objeto PowerShell que contém informações de política de backup.
 * Os objetos de política de programação e retenção são usados como entradas para o cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo abaixo pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
+Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo a seguir pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -516,7 +516,7 @@ Assim que restaurar os discos, vá à secção seguinte para criar o VM.
 
 ## <a name="replace-disks-in-azure-vm"></a>Substitua os discos em Azure VM
 
-Para substituir os discos e as informações de configuração, execute os passos abaixo:
+Para substituir os discos e as informações de configuração, execute os seguintes passos:
 
 * Passo 1: [Restaurar os discos](backup-azure-vms-automation.md#restore-the-disks)
 * Passo 2: [Desprender o disco de dados utilizando o PowerShell](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-powershell)
@@ -638,7 +638,7 @@ A secção seguinte lista as etapas necessárias para criar um VM utilizando o f
 
     * **VMs não geridos e encriptados sem Azure AD (apenas BEK)** - Para VMs não geridos e encriptados sem Azure AD (encriptados apenas com BEK), se **a chave-fonteVault/secret não estiver disponível** restaurar os segredos para o cofre de chaves usando o procedimento em [Restaurar uma máquina virtual não encriptada a partir de um ponto de recuperação de Backup Azure](backup-azure-restore-key-secret.md). Em seguida, execute os seguintes scripts para definir detalhes de encriptação na bolha de SO restaurada (este passo não é necessário para uma bolha de dados). O $dekurl pode ser recolhido a partir da chave restauradaVault.
 
-    O script abaixo só precisa de ser executado quando a chave de origem/segredo não estiver disponível.
+    O seguinte script só precisa de ser executado quando a chave de origem/segredo não estiver disponível.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"

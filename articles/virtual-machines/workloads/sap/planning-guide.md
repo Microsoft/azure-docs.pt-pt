@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a7c3dca733590c9e5249e12dcb3a3bcb520e5dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 84ebb878510fd3667da70f045c55faa70e6601d9
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688696"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752653"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -1870,7 +1870,6 @@ Implementando algumas instâncias de servidor de aplicações SAP nos seus VMs d
 
 ![HA de Servidores de Aplicações SAP em Azure][planning-guide-figure-3000]
 
-Mais detalhes podem ser encontrados nesta documentação: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Alta Disponibilidade para Serviços Centrais SAP em Azure
 
