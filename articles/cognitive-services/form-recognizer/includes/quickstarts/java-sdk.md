@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8e96a666ece7fea64df59c9ed51944534c96bd6b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 9af48feb0156fefb59dd99a504a571adf9ecffc0
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246171"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88753028"
 ---
 [Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -89,7 +89,7 @@ No ficheiro *build.gradle.kts* do seu projeto, certifique-se de incluir a biblio
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
 }
 ```
 

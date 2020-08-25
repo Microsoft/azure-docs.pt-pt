@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Crie e gerencie um trabalho de Stream Analytics usando o portal Azure
+title: Tutorial - Criar e gerir um trabalho de Stream Analytics utilizando o portal Azure
 description: Este tutorial fornece uma demonstração ponto a ponto de como utilizar o Azure Stream Analytics para analisar chamadas fraudulentas num fluxo de chamadas telefónica.
 author: mamccrea
 ms.author: mamccrea
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697392"
 ---
-# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no dashboard Power BI
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no painel Power BI
 
-Este tutorial ensina como analisar dados de chamadas telefónicas com o Azure Stream Analytics. Os dados de chamadas telefónicas, gerados por uma aplicação de cliente, contêm algumas chamadas fraudulentas, que serão filtradas pelo trabalho do Stream Analytics.
+Este tutorial ensina como analisar dados de chamadas telefónicas com o Azure Stream Analytics. Os dados da chamada telefónica, gerados por uma aplicação do cliente, contêm algumas chamadas fraudulentas, que serão filtradas pelo trabalho stream Analytics.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Gerar dados de uma chamada telefónica de exemplo e enviá-los para os Hubs de Eventos do Azure
@@ -32,7 +32,7 @@ Neste tutorial, vai aprender a:
 
 Antes de começar, faça as seguintes ações:
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * Transfira a aplicação geradora de eventos de chamadas telefónicas [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) no Centro de Transferências da Microsoft ou obtenha o código fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Irá precisar de uma conta do Power BI.
@@ -46,19 +46,19 @@ Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chama
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso**Internet of  >  **Things**  >  **Event Hubs**.
 
-   ![Criar um Hub de Eventos Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
+   ![Criar um Azure Event Hub no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. Preencha o painel **Create Namespace** com os seguintes valores:
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
-   |Subscrição     |   \<A sua subscrição\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
+   |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
+   |Subscrição     |   \<Your subscription\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
    |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
    |Localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
 
 4. Utilize as opções predefinidas nas restantes definições e selecione **Criar**.
 
-   ![Criar espaço de nome sinuoso de evento sintetiza no portal Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
+   ![Criar espaço de nome de hub de eventos no portal Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando a implementação do espaço de nomes terminar, aceda a **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Selecione *myEventHubsNS* para abri-lo.
 6. Em seguida, selecione **+ Hub de Eventos** e introduza o **Nome** como *MyEventHub* ou outro nome à sua escolha. Utilize as opções predefinidas nas restantes definições e selecione **Criar**. Em seguida, aguarde até que a implementação seja executada com êxito.
@@ -97,7 +97,7 @@ Antes de iniciar a aplicação TelcoGenerator, deve configurá-la para enviar da
 3. Atualize o elemento `<appSettings>` no ficheiro de configuração com os seguintes detalhes:
 
    * Defina o valor da chave *EventHubName* como o valor de EntityPath na cadeia de ligação.
-   * Detete o valor da chave *Microsoft.ServiceBus.ConnectionString* para a cadeia de ligação sem o valor Da EntidadePath (não se esqueça de remover o ponto e vírgula que a precede).
+   * Desaponte o valor da tecla *Microsoft.ServiceBus.ConnectionString* para a cadeia de ligação sem o valor EntityPath (não se esqueça de remover o ponto de e vírgula que o precede).
 
 4. Guarde o ficheiro.
 5. Em seguida, abra uma janela de comando e mude para a pasta onde deszipou a aplicação TelcoGenerator. Em seguida, introduza o seguinte comando:
@@ -109,14 +109,14 @@ Antes de iniciar a aplicação TelcoGenerator, deve configurá-la para enviar da
    Este comando recebe os seguintes parâmetros:
    * Número de registos de dados de chamada por hora.
    * Percentagem de probabilidade de fraude, que corresponde à frequência com que a aplicação deve simular uma chamada fraudulenta. O valor 0.2 significa que cerca de 20% dos registos de chamada parecerão fraudulentos.
-   * Duração em horas, que corresponde ao número de horas que a aplicação deve ser executada. Também pode parar a aplicação a qualquer momento, terminando o processo **(Ctrl+C**) na linha de comando.
+   * Duração em horas, que corresponde ao número de horas que a aplicação deve ser executada. Também pode parar a aplicação a qualquer momento, terminando o processo **(Ctrl+C)** na linha de comando.
 
    Após alguns segundos, a aplicação começa a apresentar registos de chamadas telefónicas no ecrã, à medida que os envia para o hub de eventos. Os dados das chamadas telefónicas contêm os seguintes campos:
 
-   |**Record**  |**Definição**  |
+   |**Registo**  |**Definição**  |
    |---------|---------|
    |CallrecTime    |  O carimbo de data/hora da hora de início da chamada.       |
-   |SwitchNum     |  O comutador de telefone utilizado para estabelecer a chamada. Por este exemplo, os interruptores são cordas que representam o país/região de origem (EUA, China, Reino Unido, Alemanha ou Austrália).       |
+   |SwitchNum     |  O comutador de telefone utilizado para estabelecer a chamada. Por exemplo, os interruptores são cordas que representam o país/região de origem (EUA, China, Reino Unido, Alemanha ou Austrália).       |
    |CallingNum     |  O número de telefone do chamador.       |
    |CallingIMSI     |  A Identidade Internacional de Assinante Móvel (IMSI). É um identificador exclusivo do chamador.       |
    |CalledNum     |   O número de telefone do destinatário da chamada.      |
@@ -128,20 +128,20 @@ Agora que tem um fluxo de eventos de chamada, pode criar uma tarefa do Stream An
 
 1. Para criar uma tarefa do Stream Analytics, navegue até ao [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso**Internet of  >  **Things**Stream  >  **Analytics trabalho**.
+2. Selecione **Criar um recurso**internet of  >  **things**stream  >  **Analytics job**.
 
 3. Preencha o painel **Nova Tarefa do Stream Analytics** com os seguintes valores:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Nome da tarefa     |  ASATutorial       |   Um nome exclusivo para identificar o espaço de nomes do hub de eventos.      |
-   |Subscrição    |  \<A sua subscrição\>   |   Selecione uma subscrição do Azure onde pretende criar a tarefa.       |
+   |Subscrição    |  \<Your subscription\>   |   Selecione uma subscrição do Azure onde pretende criar a tarefa.       |
    |Grupo de recursos   |   MyASADemoRG      |   Selecione **Utilizar existente** e introduza um novo nome de grupo de recursos para a sua conta.      |
    |Localização   |    E.U.A. Oeste 2     |      Localização onde a tarefa pode ser implementada. É recomendado colocar a tarefa e o hub de eventos na mesma região para obter o melhor desempenho e para que não pague a transferência de dados entre regiões.      |
-   |Ambiente de alojamento    | Nuvem        |     As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A Cloud permite-lhe implantar para azure Cloud, e edge permite-lhe implementar para um dispositivo IoT Edge.    |
+   |Ambiente de alojamento    | Cloud        |     As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A Cloud permite-lhe implantar para a Azure Cloud, e o Edge permite-lhe implementar para um dispositivo IoT Edge.    |
    |Unidades de transmissão em fluxo     |    1       |      As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).      |
 
-4. Utilize as opções predefinidas nas definições restantes, selecione **Criar**, e aguarde que a implementação tenha sucesso.
+4. Utilize opções predefinidos nas definições restantes, **selecione Criar**e aguarde que a implementação tenha sucesso.
 
    ![Criar uma tarefa do Azure Stream Analytics](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
@@ -158,14 +158,14 @@ A próxima etapa consiste em definir uma origem de entrada para a tarefa ler dad
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada     |  CallStream       |  Indique um nome amigável para identificar a entrada. O alias de entrada só pode conter carateres alfanuméricos, hífenes e carateres de sublinhado, e tem de ter entre 3 e 63 carateres.       |
-   |Subscrição    |   \<A sua subscrição\>      |   Selecione a subscrição do Azure onde criou o hub de eventos. O hub de eventos pode estar na mesma subscrição ou numa subscrição diferente da tarefa do Stream Analytics.       |
+   |Subscrição    |   \<Your subscription\>      |   Selecione a subscrição do Azure onde criou o hub de eventos. O hub de eventos pode estar na mesma subscrição ou numa subscrição diferente da tarefa do Stream Analytics.       |
    |Espaço de nomes do hub de eventos    |  myEventHubsNS       |  Selecione o espaço de nomes do hub de eventos que criou na secção anterior. Todos os espaços de nomes dos hubs de eventos disponíveis na sua subscrição atual são apresentados na lista pendente.       |
-   |O nome do hub de eventos    |   MyEventHub      |  Selecione o hub de eventos que criou na secção anterior. Todos os hubs de eventos disponíveis na sua subscrição atual são apresentados na lista pendente.       |
+   |Nome do Hub de Eventos    |   MyEventHub      |  Selecione o hub de eventos que criou na secção anterior. Todos os hubs de eventos disponíveis na sua subscrição atual são apresentados na lista pendente.       |
    |Nome da política do Hub de Eventos   |  MyPolicy       |  Selecione a política de acesso partilhado do hub de eventos que criou na secção anterior. Todas as políticas dos hubs de eventos disponíveis na sua subscrição atual são apresentados na lista pendente.       |
 
 4. Utilize as opções predefinidas nas restantes definições e selecione **Guardar**.
 
-   ![Configure entrada de Análise de Fluxo de Azure](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
+   ![Configure Azure Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
 
 ## <a name="configure-job-output"></a>Configurar a saída da tarefa
 
@@ -183,7 +183,7 @@ O último passo consiste em definir um sink de saída para a tarefa, onde possa 
    |Nome do conjunto de dados  |   ASAdataset  |
    |Nome da tabela |  ASATable  |
 
-   ![Configure stream analytics saída](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
+   ![Configure Stream Analytics saída](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
 4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
@@ -193,7 +193,7 @@ O próximo passo consiste em criar uma transformação que analisa os dados em t
 
 Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo utilizador num intervalo de cinco segundos, mas em localizações diferentes. Por exemplo, o mesmo utilizador não pode legitimamente fazer uma chamada do E.U.A. e da Austrália ao mesmo tempo. Para definir a consulta de transformação para a tarefa de Stream Analytics:
 
-1. A partir do portal Azure, abra o painel **de todos os recursos** e navegue para o trabalho **ASATutorial** Stream Analytics que criou anteriormente.
+1. A partir do portal Azure, abra o painel **de todos os recursos** e navegue até ao trabalho **asATutorial** Stream Analytics que criou anteriormente.
 
 2. Na secção **Topologia da Tarefa** do painel de tarefas do Stream Analytics, selecione a opção **Consulta**. A janela de consulta apresenta uma lista das entradas e saídas que estão configuradas para a tarefa e permite-lhe criar uma consulta para transformar o fluxo de entrada.
 
@@ -216,7 +216,7 @@ Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo utilizador num in
 
 4. **Guarde** a consulta.
 
-   ![Defina consulta de Stream Analytics no portal](media/stream-analytics-manage-job/define-stream-analytics-query.png)
+   ![Defina a consulta stream analytics no portal](media/stream-analytics-manage-job/define-stream-analytics-query.png)
 
 ## <a name="test-your-query"></a>Testar a consulta
 
@@ -230,7 +230,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
    Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são eliminados e terá de criar um novo conjunto de dados de exemplo se quiser testar. Em alternativa, pode utilizar um ficheiro JSON de dados de exemplo a partir do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) e, em seguida, carregar esse ficheiro JSON para utilizar como dados de exemplo para a entrada *CallStream*.
 
-   ![Visual de como recolher dados de entrada para stream analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
+   ![Visual de como recolher dados de entrada para Stream Analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
 
 4. Selecione **Testar** para testar a consulta. Deverá ver os seguintes resultados:
 
@@ -246,7 +246,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 4. Na sua área de trabalho do Power BI, selecione **+ Criar** para criar um novo dashboard com o nome *Chamadas Fraudulentas*.
 
-5. Na parte superior da janela, selecione **Adicionar mosaico**. Em seguida, selecione **Dados de Transmissão em Fluxo Personalizados** e **Seguinte**. Escolha o conjunto de dados **ASAdataset** em **Conjuntos de dados**. Selecione **cartão** do **tipo visualização** dropdown e adicione **chamadas fraudulentas** para **Fields**. Selecione **Seguinte** para introduzir um nome para o mosaico e, em seguida, selecione **Aplicar** para criar o mosaico.
+5. Na parte superior da janela, selecione **Adicionar mosaico**. Em seguida, selecione **Dados de Transmissão em Fluxo Personalizados** e **Seguinte**. Escolha o conjunto de dados **ASAdataset** em **Conjuntos de dados**. Selecione **o Cartão** a partir do **dropdown do tipo visualização** e adicione **chamadas fraudulentas** a **Fields**. Selecione **Seguinte** para introduzir um nome para o mosaico e, em seguida, selecione **Aplicar** para criar o mosaico.
 
    ![Criar azulejos de painel power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -256,24 +256,24 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
    * Adicione um valor e selecione **fraudulentcalls**.
    * Para **Janela de tempo a apresentar**, selecione os últimos 10 minutos.
 
-7. O dashboard deve ter um aspeto semelhante ao seguinte depois de ambos os mosaicos serem adicionados. Note que, se a aplicação do remetente do site de eventos e a aplicação streaming Analytics estiverem em execução, o seu painel de instrumentos Power BI atualiza periodicamente à medida que novos dados chegam.
+7. O dashboard deve ter um aspeto semelhante ao seguinte depois de ambos os mosaicos serem adicionados. Note que, se a aplicação deendernerte do hub de eventos e a aplicação streaming Analytics estiverem em execução, o seu painel power BI atualiza periodicamente à medida que novos dados chegam.
 
-   ![Ver resultados no painel power bi](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
+   ![Ver resultados no painel Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Incorporar o seu Power BI Dashboard numa aplicação web
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Incorporando o seu Painel de Poder BI numa Aplicação Web
 
-Para esta parte do tutorial, você usará uma amostra [ASP.NET](https://asp.net/) aplicação web criada pela equipa power BI para incorporar o seu dashboard. Para obter mais informações sobre a incorporação de dashboards, veja o artigo [Incorporação com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Para esta parte do tutorial, você usará uma amostra [ASP.NET](https://asp.net/) aplicação web criada pela equipa Power BI para incorporar o seu dashboard. Para obter mais informações sobre a incorporação de dashboards, veja o artigo [Incorporação com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar a aplicação, dirija-se ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções sob a secção **User Owns Data** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações web integradas).** Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **de aplicação web integrado** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
+Para configurar a aplicação, vá ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções na secção **De Dados do Utilizador** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações integrativas** da web). Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **integrado-web-app** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
 Quando a aplicação estiver em execução no browser, siga estes passos para incorporar o dashboard que criou anteriormente na página Web:
 
-1. Selecione **Iniciar sessão no Power BI,** que concede à aplicação acesso aos dashboards na sua conta Power BI.
+1. Selecione **Iniciar sômposições no Power BI,** que concede à aplicação acesso aos dashboards na sua conta Power BI.
 
 2. Selecione o botão **Obter Dashboards**, que apresenta os Dashboards da sua conta numa tabela. Localize o nome do dashboard que criou anteriormente **powerbi-embedded-dashboard** e copie o **EmbedUrl** correspondente.
 
 3. Por fim, cole o **EmbedUrl** no campo de texto correspondente e selecione **Incorporar Dashboard**. Agora, pode ver o mesmo dashboard incorporado numa aplicação Web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma tarefa simples do Stream Analytics, analisou os dados de entrada e apresentou os resultados num dashboard do Power BI. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 

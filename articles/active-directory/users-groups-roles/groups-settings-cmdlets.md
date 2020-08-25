@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fc6726811ac01b585dd51b2086966f7a3f7c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213600"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797909"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -28,11 +28,11 @@ Este artigo contém instruções para a utilização de cmdlets PowerShell (Azur
 > [!IMPORTANT]
 > Algumas configurações requerem uma licença Azure Ative Directory Premium P1. Para obter mais informações, consulte a tabela [de definições do modelo.](#template-settings)
 
-Para obter mais informações sobre como evitar que os utilizadores não administradores criem grupos de segurança,  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` definidos como descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Para obter mais informações sobre como evitar que os utilizadores não administradores criem grupos de segurança,  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` definidos como descrito em [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 As definições de grupos da Microsoft 365 são configuradas utilizando um objeto Definições e um objeto SetsTemplate. Inicialmente, não vê nenhum objeto de Definições no seu diretório, porque o seu diretório está configurado com as definições predefinidas. Para alterar as definições predefinidos, tem de criar um novo objeto de definições utilizando um modelo de definições. Os modelos de definições são definidos pela Microsoft. Existem vários modelos de configurações diferentes. Para configurar as definições do grupo Microsoft 365 para o seu diretório, utilize o modelo denominado "Group.Unified". Para configurar as definições do grupo Microsoft 365 num único grupo, utilize o modelo denominado "Group.Unified.Guest". Este modelo é usado para gerir o acesso dos hóspedes a um grupo Microsoft 365. 
 
-Os cmdlets fazem parte do módulo PowerShell V2 do Diretório Ativo Azure. Para obter instruções sobre como descarregar e instalar o módulo no seu computador, consulte o artigo [Azure Ative Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Pode instalar a versão 2 do módulo a partir [da galeria PowerShell.](https://www.powershellgallery.com/packages/AzureAD/)
+Os cmdlets fazem parte do módulo PowerShell V2 do Diretório Ativo Azure. Para obter instruções sobre como descarregar e instalar o módulo no seu computador, consulte o artigo [Azure Ative Directory PowerShell Version 2](/powershell/azure/active-directory/overview). Pode instalar a versão 2 do módulo a partir [da galeria PowerShell.](https://www.powershellgallery.com/packages/AzureAD/)
 
 ## <a name="install-powershell-cmdlets"></a>Instalar cmdlets do PowerShell
 
@@ -114,7 +114,7 @@ Para atualizar o valor para UsageGuideLinesUrl no modelo de definição, leia as
    $Setting.Values
    ```
    
-   Saída:
+   Resultado:
    ```powershell
     Name                          Value
     ----                          -----

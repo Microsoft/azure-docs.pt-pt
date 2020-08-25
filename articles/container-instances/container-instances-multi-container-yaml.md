@@ -3,12 +3,12 @@ title: Tutorial - Implementar grupo multi-contentores - YAML
 description: Neste tutorial, aprende-se a implantar um grupo de contentores com vários contentores em Instâncias de Contentores Azure utilizando um ficheiro YAML com o Azure CLI.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2673f1066db705e4d2e850230c5f96dc2690a85c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259562"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750916"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementar um grupo multi-contentores usando um ficheiro YAML
 
@@ -76,7 +76,7 @@ properties:
       port: 80
     - protocol: tcp
       port: 8080
-tags: null
+tags: {exampleTag: tutorial}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
@@ -129,7 +129,7 @@ Ver a saída de registo de um recipiente utilizando o comando [de registos de co
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Saída:
+Resultado:
 
 ```console
 listening on port 80
@@ -144,7 +144,7 @@ Para ver os registos do contentor do sidecar, executar um comando semelhante esp
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Saída:
+Resultado:
 
 ```console
 Every 3s: curl -I http://localhost                          2020-07-02 20:36:41

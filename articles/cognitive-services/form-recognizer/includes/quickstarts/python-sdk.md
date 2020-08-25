@@ -7,15 +7,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 4d2beeb93922d826ca57d7ea1c3fecc69166b266
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: b7ee606ab17171c5f2fcf20d94ff18de8b05b773
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246285"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88753039"
 ---
+> [!IMPORTANT]
+> * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
+> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
+
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Pacote (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -23,47 +27,38 @@ ms.locfileid: "88246285"
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451)da amostra .
 * [Python 2.7, ou 3.5 ou mais tarde](https://www.python.org/)
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="create-a-form-recognizer-azure-resource"></a>Criar um recurso de reconhecimento de formulários Azure
-
-[!INCLUDE [create resource](../create-resource.md)]
-
-### <a name="create-environment-variables"></a>Criar variáveis de ambiente
-
-[!INCLUDE [environment-variables](../environment-variables.md)]
-
-
-### <a name="create-a-new-python-application"></a>Criar uma nova aplicação python
-
-Crie uma nova aplicação Python no seu editor preferido ou IDE. Em seguida, importe as seguintes bibliotecas.
-
-```python
-import os
-import azure.ai.formrecognizer
-from azure.core.credentials import AzureKeyCredential
-from azure.core.exceptions import ResourceNotFoundError
-```
-
-Crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, IDE ou concha para aceder à variável.
-
-```python
-endpoint = os.environ["FORM_RECOGNIZER_ENDPOINT"]
-key = os.environ["FORM_RECOGNIZER_KEY"]
-```
-
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Depois de instalar o Python, pode instalar a biblioteca do cliente com:
+Depois de instalar o Python, pode instalar a versão mais recente da biblioteca do cliente Do Reconhecimento de Formulários com:
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-<!-- 
-tbd object model
--->
+### <a name="create-a-new-python-application"></a>Criar uma nova aplicação python
+
+Crie uma nova aplicação Python no seu editor preferido ou IDE. Em seguida, importe as seguintes bibliotecas. Lembre-se que estamos importando as bibliotecas necessárias para o treino e para o reconhecimento de forma.
+
+```python
+import os
+from azure.core.exceptions import ResourceNotFoundError
+from azure.ai.formrecognizer import FormRecognizerClient
+from azure.ai.formrecognizer import FormTrainingClient
+from azure.core.credentials import AzureKeyCredential
+```
+
+Crie variáveis para o ponto final e chave Azure do seu recurso. 
+
+```python
+endpoint = "<paste-your-form-recognizer-endpoint-here>"
+key = "<paste-your-form-recognizer-key-here>"
+```
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -79,143 +74,111 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Aqui, autenticará dois objetos clientes utilizando as variáveis de subscrição acima definidas. Utilizará um objeto **AzureKeyCredential,** para que, se necessário, possa atualizar a tecla API sem criar novos objetos de cliente.
+Aqui, autenticará dois objetos clientes utilizando as variáveis de subscrição acima definidas. Você usará um `AzureKeyCredential` objeto, para que, se necessário, possa atualizar a tecla API sem criar novos objetos de cliente.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
+form_recognizer_client = FormRecognizerClient(endpoint, AzureKeyCredential(key))
 form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
-## <a name="define-variables"></a>Definir variáveis
+## <a name="assets-for-testing"></a>Ativos para testes
 
-> [!NOTE]
-> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 Também terá de adicionar referências aos URLs para os seus dados de treino e teste.
 * Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
-* Para obter um URL de um formulário para testar, você pode usar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. Ou, pegue o URL de um documento localizado em outro lugar.
-* Utilize o método acima para obter o URL de uma imagem de receção também, ou use o URL de imagem de amostra fornecido.
+* Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponível no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
-```python
-trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>"
-formUrl = "<SAS-URL-of-a-form-in-blob-storage>"
-receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png"
-```
+> [!NOTE]
+> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação de referência](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 ## <a name="recognize-form-content"></a>Reconhecer o conteúdo da forma
 
 Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo.
 
-Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o método **begin_recognize_content.**
+Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o `begin_recognize_content` método. O valor devolvido é uma coleção de `FormPage` objetos: um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
 
 ```Python
+formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf"
+
 poller = form_recognizer_client.begin_recognize_content_from_url(formUrl)
-contents = poller.result()
+page = poller.result()
+
+table = page[0].tables[0] # page 1, table 1
+print("Table found on page {}:".format(table.page_number))
+for cell in table.cells:
+    print("Cell text: {}".format(cell.text))
+    print("Location: {}".format(cell.bounding_box))
+    print("Confidence score: {}\n".format(cell.confidence))
 ```
 
-O valor devolvido é uma coleção de objetos **FormPage:** um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
+### <a name="output"></a>Resultado
 
-```python
-for idx, content in enumerate(contents):
-    print("----Recognizing content from page #{}----".format(idx))
-    print("Has width: {} and height: {}, measured with unit: {}".format(
-        content.width,
-        content.height,
-        content.unit
-    ))
-    for table_idx, table in enumerate(content.tables):
-        print("Table # {} has {} rows and {} columns".format(table_idx, table.row_count, table.column_count))
-        for cell in table.cells:
-            print("...Cell[{}][{}] has text '{}' within bounding box '{}'".format(
-                cell.row_index,
-                cell.column_index,
-                cell.text,
-                format_bounding_box(cell.bounding_box)
-            ))
-    for line_idx, line in enumerate(content.lines):
-        print("Line # {} has word count '{}' and text '{}' within bounding box '{}'".format(
-            line_idx,
-            len(line.words),
-            line.text,
-            format_bounding_box(line.bounding_box)
-        ))
-    print("----------------------------------------")
-```
+```console
+Table found on page 1:
+Cell text: Invoice Number
+Location: [Point(x=0.5075, y=2.8088), Point(x=1.9061, y=2.8088), Point(x=1.9061, y=3.3219), Point(x=0.5075, y=3.3219)]
+Confidence score: 1.0
 
-O código acima utiliza uma função de ajudante `format_bounding_box` para simplificar as coordenadas de uma caixa de delimitação. Defina-o separadamente:
+Cell text: Invoice Date
+Location: [Point(x=1.9061, y=2.8088), Point(x=3.3074, y=2.8088), Point(x=3.3074, y=3.3219), Point(x=1.9061, y=3.3219)]
+Confidence score: 1.0
 
-```python
-def format_bounding_box(bounding_box):
-    if not bounding_box:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+Cell text: Invoice Due Date
+Location: [Point(x=3.3074, y=2.8088), Point(x=4.7074, y=2.8088), Point(x=4.7074, y=3.3219), Point(x=3.3074, y=3.3219)]
+Confidence score: 1.0
+
+Cell text: Charges
+Location: [Point(x=4.7074, y=2.8088), Point(x=5.386, y=2.8088), Point(x=5.386, y=3.3219), Point(x=4.7074, y=3.3219)]
+Confidence score: 1.0
+
+...
+
 ```
 
 ## <a name="recognize-receipts"></a>Reconhecer recibos
 
-Esta secção demonstra como reconhecer e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para reconhecer os recibos de um URL, utilize o método **begin_recognize_receipts_from_url.** 
+Esta secção demonstra como reconhecer e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para reconhecer os recibos de um URL, utilize o `begin_recognize_receipts_from_url` método. 
 
 ```python
+receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png"
+
 poller = form_recognizer_client.begin_recognize_receipts_from_url(receiptUrl)
-receipts = poller.result()
+result = poller.result()
+
+for receipt in result:
+    for name, field in receipt.fields.items():
+        if name == "Items":
+            print("Receipt Items:")
+            for idx, items in enumerate(field.value):
+                print("...Item #{}".format(idx + 1))
+                for item_name, item in items.value.items():
+                    print("......{}: {} has confidence {}".format(item_name, item.value, item.confidence))
+        else:
+            print("{}: {} has confidence {}".format(name, field.value, field.confidence))
 ```
 
-O valor devolvido é uma coleção de objetos **RecognizedReceipt:** um para cada página no documento submetido. O seguinte bloco de código imprime informações básicas de recibo para a consola.
+### <a name="output"></a>Resultado
 
-```python
-for idx, receipt in enumerate(receipts):
-    print("--------Recognizing receipt #{}--------".format(idx))
-    receipt_type = receipt.fields.get("ReceiptType")
-    if receipt_type:
-        print("Receipt Type: {} has confidence: {}".format(receipt_type.value, receipt_type.confidence))
-    merchant_name = receipt.fields.get("MerchantName")
-    if merchant_name:
-        print("Merchant Name: {} has confidence: {}".format(merchant_name.value, merchant_name.confidence))
-    transaction_date = receipt.fields.get("TransactionDate")
-    if transaction_date:
-        print("Transaction Date: {} has confidence: {}".format(transaction_date.value, transaction_date.confidence))
+```console
+ReceiptType: Itemized has confidence 0.659
+MerchantName: Contoso Contoso has confidence 0.516
+MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
+MerchantPhoneNumber: None has confidence 0.99
+TransactionDate: 2019-06-10 has confidence 0.985
+TransactionTime: 13:59:00 has confidence 0.968
+Receipt Items:
+...Item #1
+......Name: 8GB RAM (Black) has confidence 0.916
+......TotalPrice: 999.0 has confidence 0.559
+...Item #2
+......Quantity: None has confidence 0.858
+......Name: SurfacePen has confidence 0.858
+......TotalPrice: 99.99 has confidence 0.386
+Subtotal: 1098.99 has confidence 0.964
+Tax: 104.4 has confidence 0.713
+Total: 1203.39 has confidence 0.774
 ```
-
-O próximo bloco de códigos iteração através dos itens individuais detetados no recibo e imprime os seus dados para a consola.
-
-
-```python
-    print("Receipt items:")
-    for idx, item in enumerate(receipt.fields.get("Items").value):
-        print("...Item #{}".format(idx))
-        item_name = item.value.get("Name")
-        if item_name:
-            print("......Item Name: {} has confidence: {}".format(item_name.value, item_name.confidence))
-        item_quantity = item.value.get("Quantity")
-        if item_quantity:
-            print("......Item Quantity: {} has confidence: {}".format(item_quantity.value, item_quantity.confidence))
-        item_price = item.value.get("Price")
-        if item_price:
-            print("......Individual Item Price: {} has confidence: {}".format(item_price.value, item_price.confidence))
-        item_total_price = item.value.get("TotalPrice")
-        if item_total_price:
-            print("......Total Item Price: {} has confidence: {}".format(item_total_price.value, item_total_price.confidence))
-```
-
-Finalmente, o último bloco de código imprime o resto dos principais detalhes do recibo.
-
-```python
-    subtotal = receipt.fields.get("Subtotal")
-    if subtotal:
-        print("Subtotal: {} has confidence: {}".format(subtotal.value, subtotal.confidence))
-    tax = receipt.fields.get("Tax")
-    if tax:
-        print("Tax: {} has confidence: {}".format(tax.value, tax.confidence))
-    tip = receipt.fields.get("Tip")
-    if tip:
-        print("Tip: {} has confidence: {}".format(tip.value, tip.confidence))
-    total = receipt.fields.get("Total")
-    if total:
-        print("Total: {} has confidence: {}".format(total.value, total.confidence))
-    print("--------------------------------------")
-```
-
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
@@ -228,62 +191,152 @@ Esta secção demonstra como treinar um modelo com os seus próprios dados. Um m
 
 Treine modelos personalizados para reconhecer todos os campos e valores encontrados nas suas formas personalizadas sem rotular manualmente os documentos de treino.
 
-O seguinte código utiliza o cliente de formação com a função **begin_training** para treinar um modelo num determinado conjunto de documentos.
+O seguinte código utiliza o cliente de formação com a `begin_training` função para treinar um modelo num determinado conjunto de documentos. O objeto devolvido `CustomFormModel` contém informações sobre os tipos de formulários que o modelo pode reconhecer e os campos que pode extrair de cada tipo de formulário. O bloco de código que se segue imprime esta informação para a consola.
 
 ```python
+# To train a model you need an Azure Storage account.
+# Use the SAS URL to access your training files.
+trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>"
+
 poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
-```
 
-O objeto **customFormSubmodel** devolvido contém informações sobre os tipos de formulários que o modelo pode reconhecer e os campos que pode extrair de cada tipo de formulário. O bloco de código que se segue imprime esta informação para a consola.
-
-```python
-# Custom model information
 print("Model ID: {}".format(model.model_id))
 print("Status: {}".format(model.status))
-print("Created on: {}".format(model.requested_on))
-print("Last modified: {}".format(model.completed_on))
+print("Training started on: {}".format(model.training_started_on))
+print("Training completed on: {}".format(model.training_completed_on))
 
-print("Recognized fields:")
-# Looping through the submodels, which contains the fields they were trained on
+print("\nRecognized fields:")
 for submodel in model.submodels:
-    print("...The submodel has form type '{}'".format(submodel.form_type))
-    for name, field in submodel.fields.items():
-        print("...The model found field '{}' to have label '{}'".format(
-            name, field.label
-        ))
+    print(
+        "The submodel with form type '{}' has recognized the following fields: {}".format(
+            submodel.form_type,
+            ", ".join(
+                [
+                    field.label if field.label else name
+                    for name, field in submodel.fields.items()
+                ]
+            ),
+        )
+    )
+
+# Training result information
+for doc in model.training_documents:
+    print("Document name: {}".format(doc.name))
+    print("Document status: {}".format(doc.status))
+    print("Document page count: {}".format(doc.page_count))
+    print("Document errors: {}".format(doc.errors))
+```
+
+### <a name="output"></a>Resultado
+
+Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
+
+```console
+Model ID: 628739de-779c-473d-8214-d35c72d3d4f7
+Status: ready
+Training started on: 2020-08-20 23:16:51+00:00
+Training completed on: 2020-08-20 23:16:59+00:00
+
+Recognized fields:
+The submodel with form type 'form-0' has recognized the following fields: Additional Notes:, Address:, Company Name:, Company Phone:, Dated As:, Details, Email:, Hero Limited, Name:, Phone:, Purchase Order, Purchase Order #:, Quantity, SUBTOTAL, Seattle, WA 93849 Phone:, Shipped From, Shipped To, TAX, TOTAL, Total, Unit Price, Vendor Name:, Website:
+Document name: Form_1.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_2.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_3.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_4.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_5.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
 ```
 
 ### <a name="train-a-model-with-labels"></a>Treine um modelo com rótulos
 
-Também pode treinar modelos personalizados rotulando manualmente os documentos de treino. O treino com rótulos leva a um melhor desempenho em alguns cenários. 
+Também pode treinar modelos personalizados rotulando manualmente os documentos de treino. O treino com rótulos leva a um melhor desempenho em alguns cenários. A `CustomFormModel` devolvição indica os campos que o modelo pode extrair, juntamente com a sua precisão estimada em cada campo. O bloco de código que se segue imprime esta informação para a consola.
 
 > [!IMPORTANT]
-> Para treinar com etiquetas, é necessário ter ficheiros de informações especiais de etiquetas* \<filename\> (.pdf.labels.js) no*seu recipiente de armazenamento de bolhas ao lado dos documentos de treino. A [ferramenta de rotulagem da amostra do Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma UI para ajudá-lo a criar estes ficheiros de etiqueta. Uma vez que os tenha, pode ligar para a função **begin_training** com o *parâmetro use_training_labels* definido para `true` .
+> Para treinar com etiquetas, precisa de ter ficheiros de informações especiais de etiquetas `\<filename\>.pdf.labels.json` () no seu recipiente de armazenamento de bolhas ao lado dos documentos de treino. A [ferramenta de rotulagem da amostra do Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma UI para ajudá-lo a criar estes ficheiros de etiqueta. Uma vez que os tenha, pode ligar para a `begin_training` função com o *parâmetro use_training_labels* definido para `true` .
 
 ```python
+# To train a model you need an Azure Storage account.
+# Use the SAS URL to access your training files.
+trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>"
+
 poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
-```
 
-O **modelo CustomFormSubmodel** devolvido indica os campos que o modelo pode extrair, juntamente com a sua precisão estimada em cada campo. O bloco de código que se segue imprime esta informação para a consola.
-
-```python
-# Custom model information
 print("Model ID: {}".format(model.model_id))
 print("Status: {}".format(model.status))
-print("Created on: {}".format(model.created_on))
-print("Last modified: {}".format(model.last_modified))
+print("Training started on: {}".format(model.training_started_on))
+print("Training completed on: {}".format(model.training_completed_on))
 
-print("Recognized fields:")
-# looping through the submodels, which contains the fields they were trained on
-# The labels are based on the ones you gave the training document.
+print("\nRecognized fields:")
 for submodel in model.submodels:
-    print("...The submodel with form type {} has accuracy '{}'".format(submodel.form_type, submodel.accuracy))
-    for name, field in submodel.fields.items():
-        print("...The model found field '{}' to have name '{}' with an accuracy of {}".format(
-            name, field.name, field.accuracy
-        ))
+    print(
+        "The submodel with form type '{}' has recognized the following fields: {}".format(
+            submodel.form_type,
+            ", ".join(
+                [
+                    field.label if field.label else name
+                    for name, field in submodel.fields.items()
+                ]
+            ),
+        )
+    )
+
+# Training result information
+for doc in model.training_documents:
+    print("Document name: {}".format(doc.name))
+    print("Document status: {}".format(doc.status))
+    print("Document page count: {}".format(doc.page_count))
+    print("Document errors: {}".format(doc.errors))
+```
+
+### <a name="output"></a>Resultado
+
+Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
+
+```console
+Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91
+
+Status: ready
+Training started on: 2020-08-20 23:20:56+00:00
+Training completed on: 2020-08-20 23:20:57+00:00
+
+Recognized fields:
+The submodel with form type 'form-ae636292-0b14-4e26-81a7-a0bfcbaf7c91' has recognized the following fields: CompanyAddress, CompanyName, CompanyPhoneNumber, DatedAs, Email, Merchant, PhoneNumber, PurchaseOrderNumber, Quantity, Signature, Subtotal, Tax, Total, VendorName, Website
+Document name: Form_1.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_2.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_3.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_4.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
+Document name: Form_5.jpg
+Document status: succeeded
+Document page count: 1
+Document errors: []
 ```
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analisar formas com um modelo personalizado
@@ -293,37 +346,50 @@ Esta secção demonstra como extrair informações de chave/valor e outros conte
 > [!IMPORTANT]
 > Para implementar este cenário, já deve ter treinado um modelo para que possa passar o seu ID para o método abaixo. Consulte a secção [Modelo train.](#train-a-model-without-labels)
 
-Vais usar o método **begin_recognize_custom_forms_from_url.** O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada página no documento submetido.
+<<<<<<< CABEÇA Usará o `begin_recognize_custom_forms_from_url` método. O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada página no documento submetido. O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
+======== Usará o método **begin_recognize_custom_forms_from_url.** O valor devolvido é uma coleção de objetos **RecognizedForm.** Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
+>>>>>>> 4c76de6b4e93d2a466995300c5686837b3be13c
 
 ```python
-# Make sure your form's type is included in the list of form types the custom model can recognize
+# Model ID from when you trained your model.
+model_id = "<your custom model id>"
+
 poller = form_recognizer_client.begin_recognize_custom_forms_from_url(
-    model_id=model.model_id, form_url=formUrl)
-forms = poller.result()
+    model_id=model_id, form_url=formUrl)
+result = poller.result()
+
+for recognized_form in result:
+    print("Form type: {}".format(recognized_form.form_type))
+    for name, field in recognized_form.fields.items():
+        print("Field '{}' has label '{}' with value '{}' and a confidence score of {}".format(
+            name,
+            field.label_data.text if field.label_data else name,
+            field.value,
+            field.confidence
+        ))
 ```
 
-O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
+### <a name="output"></a>Resultado
 
-```python
-for idx, form in enumerate(forms):
-    print("--------Recognizing Form #{}--------".format(idx))
-    print("Form {} has type {}".format(idx, form.form_type))
-    for name, field in form.fields.items():
-        # each field is of type FormField
-        # The value of the field can also be a FormField, or a list of FormFields
-        # In our sample, it is just a FormField.
-        print("...Field '{}' has value '{}' with a confidence score of {}".format(
-            name, field.value, field.confidence
-        ))
-        # label data is populated if you are using a model trained with unlabeled data, since the service needs to make predictions for
-        # labels if not explicitly given to it.
-        if field.label_data:
-            print("...Field '{}' has label '{}' with a confidence score of {}".format(
-                name,
-                field.label_data.text,
-                field.confidence
-            ))
-    print("-----------------------------------")
+Utilizando o modelo a partir do exemplo anterior, é fornecida a seguinte saída.
+
+```console
+Form type: form-ae636292-0b14-4e26-81a7-a0bfcbaf7c91
+Field 'Merchant' has label 'Merchant' with value 'Invoice For:' and a confidence score of 0.116
+Field 'CompanyAddress' has label 'CompanyAddress' with value '1 Redmond way Suite 6000 Redmond, WA' and a confidence score of 0.258
+Field 'Website' has label 'Website' with value '99243' and a confidence score of 0.114
+Field 'VendorName' has label 'VendorName' with value 'Charges' and a confidence score of 0.145
+Field 'CompanyPhoneNumber' has label 'CompanyPhoneNumber' with value '$56,651.49' and a confidence score of 0.249
+Field 'CompanyName' has label 'CompanyName' with value 'PT' and a confidence score of 0.245
+Field 'DatedAs' has label 'DatedAs' with value 'None' and a confidence score of None
+Field 'Email' has label 'Email' with value 'None' and a confidence score of None
+Field 'PhoneNumber' has label 'PhoneNumber' with value 'None' and a confidence score of None
+Field 'PurchaseOrderNumber' has label 'PurchaseOrderNumber' with value 'None' and a confidence score of None
+Field 'Quantity' has label 'Quantity' with value 'None' and a confidence score of None
+Field 'Signature' has label 'Signature' with value 'None' and a confidence score of None
+Field 'Subtotal' has label 'Subtotal' with value 'None' and a confidence score of None
+Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
+Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
 ## <a name="manage-your-custom-models"></a>Gerir os seus modelos personalizados
@@ -335,11 +401,16 @@ Esta secção demonstra como gerir os modelos personalizados armazenados na sua 
 O bloco de códigos que se segue verifica quantos modelos guardou na sua conta Desemaçador de Formulários e compara-os ao limite da conta.
 
 ```python
-# First, we see how many custom models we have, and what our limit is
 account_properties = form_training_client.get_account_properties()
 print("Our account has {} custom models, and we can have at most {} custom models".format(
     account_properties.custom_model_count, account_properties.custom_model_limit
 ))
+```
+
+### <a name="output"></a>Resultado
+
+```console
+Our account has 5 custom models, and we can have at most 5000 custom models
 ```
 
 ### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Listar os modelos atualmente armazenados na conta de recursos
@@ -359,17 +430,42 @@ for model in custom_models:
     print(model.model_id)
 ```
 
+### <a name="output"></a>Resultado
+
+Esta é uma amostra da conta de teste.
+
+```console
+We have models with the following ids:
+453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
+628739de-779c-473d-8214-d35c72d3d4f7
+ae636292-0b14-4e26-81a7-a0bfcbaf7c91
+b4b5df77-8538-4ffb-a996-f67158ecd305
+c6309148-6b64-4fef-aea0-d39521452699
+```
+
 ### <a name="get-a-specific-model-using-the-models-id"></a>Obtenha um modelo específico usando o ID do modelo
 
 O bloco de código que se segue utiliza o ID do modelo guardado na secção anterior e utiliza-o para recuperar detalhes sobre o modelo.
 
 ```python
-# Now we'll get the first custom model in the paged list
-custom_model = form_training_client.get_custom_model(model_id=first_model.model_id)
+model_id = "<model_id from the Train a Model sample>"
+
+custom_model = form_training_client.get_custom_model(model_id=model_id)
 print("Model ID: {}".format(custom_model.model_id))
 print("Status: {}".format(custom_model.status))
-print("Created on: {}".format(custom_model.requested_on))
-print("Last modified: {}".format(custom_model.completed_on))
+print("Training started on: {}".format(custom_model.training_started_on))
+print("Training completed on: {}".format(custom_model.training_completed_on))
+```
+
+### <a name="output"></a>Resultado
+
+Esta é a saída da amostra para o modelo personalizado criado no exemplo anterior.
+
+```console
+Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91
+Status: ready
+Training started on: 2020-08-20 23:20:56+00:00
+Training completed on: 2020-08-20 23:20:57+00:00
 ```
 
 ### <a name="delete-a-model-from-the-resource-account"></a>Eliminar um modelo da conta de recursos
@@ -379,12 +475,10 @@ Também pode eliminar um modelo da sua conta fazendo referência ao seu ID. Este
 ```python
 form_training_client.delete_model(model_id=custom_model.model_id)
 
-# Confirm deletion:
 try:
     form_training_client.get_custom_model(model_id=custom_model.model_id)
 except ResourceNotFoundError:
     print("Successfully deleted model with id {}".format(custom_model.model_id))
-}
 ```
 
 ## <a name="run-the-application"></a>Executar a aplicação
@@ -448,5 +542,6 @@ Neste quickstart, você usou a biblioteca cliente Do Reconhecimento de Formulár
 > [!div class="nextstepaction"]
 > [Criar um conjunto de dados de preparação](../../build-training-data-set.md)
 
+## <a name="see-also"></a>Ver também
+
 * [O que é o Reconhecedor de Formato?](../../overview.md)
-* O código de amostra deste guia (e muito mais) pode ser encontrado no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).

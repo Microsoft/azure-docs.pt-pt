@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bcf589e685d0a35a58bb1e8069a6ce3699b61c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728389"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797127"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a adesão do grupo estático à dinâmica no Azure Ative Directory
 
@@ -57,7 +57,7 @@ Os passos seguintes são um exemplo de mudança de grupo de estática para membr
 ## <a name="change-membership-type-for-a-group-powershell"></a>Alterar o tipo de membro para um grupo (PowerShell)
 
 > [!NOTE]
-> Para alterar propriedades dinâmicas do grupo, terá de utilizar cmdlets a partir da **versão de pré-visualização da** Versão 2 do [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização na [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar propriedades dinâmicas do grupo, terá de utilizar cmdlets a partir da **versão de pré-visualização da** Versão 2 do [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização na [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Aqui está um exemplo de funções que mudam a gestão de membros num grupo existente. Neste exemplo, é tomado cuidado para manipular corretamente a propriedade GroupTypes e preservar quaisquer valores que não estejam relacionados com a adesão dinâmica.
 
@@ -115,7 +115,7 @@ Para fazer uma dinâmica de grupo:
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre grupos no Diretório Ativo Azure.
 

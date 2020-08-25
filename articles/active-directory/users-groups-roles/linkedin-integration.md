@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727199"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797994"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory
 
@@ -33,7 +33,7 @@ Pode permitir que os utilizadores da sua organização acedam às suas ligaçõe
 > * A definição é cancelada por defeito para as organizações AZure AD a provisionadas na Alemanha. Note que a definição não está disponível para clientes que usam o Microsoft Cloud Germany.
 > * A definição é por defeito para as organizações a provisionadas em França.
 >
-> Uma vez que as ligações de conta LinkedIn são ativadas para a sua organização, as ligações de conta funcionam após o consentimento dos utilizadores para aplicações que acedem aos dados da empresa em seu nome. Para obter informações sobre a definição de consentimento do utilizador, consulte [Como remover o acesso de um utilizador a uma aplicação](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Uma vez que as ligações de conta LinkedIn são ativadas para a sua organização, as ligações de conta funcionam após o consentimento dos utilizadores para aplicações que acedem aos dados da empresa em seu nome. Para obter informações sobre a definição de consentimento do utilizador, consulte [Como remover o acesso de um utilizador a uma aplicação](../manage-apps/methods-for-removing-user-access.md).
 
 ## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Ativar as ligações de conta LinkedIn no portal Azure
 
@@ -71,7 +71,7 @@ Substituímos a opção 'Seleccionado' que especifica uma lista de utilizadores 
 1. Crie um ficheiro CSV dos utilizadores selecionados para ligações de conta LinkedIn.
 1. Inscreva-se no Microsoft 365 com a sua conta de administrador.
 1. Inicie o PowerShell.
-1. Instale o módulo AD Azure em execução`Install-Module AzureAD`
+1. Instale o módulo AD Azure em execução `Install-Module AzureAD`
 1. Execute o seguintes script:
 
   ``` PowerShell
@@ -101,7 +101,7 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
 
 Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Se os utilizadores desativarem o LinkedIn nas suas aplicações office 2016, ainda podem ver as funcionalidades do LinkedIn no Office 365.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consentimento do utilizador e partilha de dados para o LinkedIn](linkedin-user-consent.md)
 

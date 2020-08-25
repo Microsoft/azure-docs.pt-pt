@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612440"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755267"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -89,7 +89,7 @@ Utilize este separador para visualizar os parâmetros de faturação das chaves 
    ![Separador de utilização](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> No caso das cargas de trabalho de DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização indicados nos relatórios em comparação com o valor de utilização agregado, tal como mostrado no separador de visão geral do cofre dos serviços recovery. Esta diferença é explicada pelo facto de que todos os servidores DPM registados para cópia de segurança têm uma fonte de dados de metadados associada que não é surgiu como um artefacto para reportar.
+> No caso das cargas de trabalho de DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização indicados nos relatórios em comparação com o valor de utilização agregado, tal como mostrado no separador **Overview** do cofre dos Serviços de Recuperação. Esta diferença é explicada pelo facto de que todos os servidores DPM registados para cópia de segurança têm uma fonte de dados de metadados associada que não é surgiu como um artefacto para reportar.
 
 ##### <a name="jobs"></a>Tarefas
 

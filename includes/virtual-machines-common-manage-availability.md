@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2c8f2d95e7e06f2fff3d8344a3fffa5b19648ede
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655299"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760604"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem levar a que a máquina virtual em Azure seja afetada: manutenção de hardware não planeada, tempo de paragem inesperado e manutenção planeada.
@@ -34,7 +34,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 * [Utilizar discos geridos para VMs num conjunto de disponibilidade]
 * [Use eventos programados para responder proativamente aos eventos com impacto em VM](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configure cada nível de aplicação em conjuntos de disponibilidade separados]
-* [Combinar um Balanceador de Carga com conjuntos de disponibilidade]
+* [Combine um equilibrador de carga com zonas de disponibilidade ou conjuntos]
 * [Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter
@@ -110,7 +110,7 @@ Para obter um tutorial sobre como carregar o equilíbrio entre zonas de disponib
 
 <!-- Link references -->
 [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Combinar um Balanceador de Carga com conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Combine um equilibrador de carga com zonas de disponibilidade ou conjuntos]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilizar discos geridos para VMs num conjunto de disponibilidade]: #use-managed-disks-for-vms-in-an-availability-set
 [Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter]: #use-availability-zones-to-protect-from-datacenter-level-failures

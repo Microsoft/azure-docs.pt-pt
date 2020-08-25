@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142524"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796566"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -21,9 +21,9 @@ A Azure API para FHIR fornece uma implementação totalmente gerida do Microsoft
 
 ## <a name="fhir-version"></a>Versão FHIR
 
-Versão mais recente suportada:`4.0.1`
+Versão mais recente suportada: `4.0.1`
 
-As versões anteriores também suportadas incluem:`3.0.2`
+As versões anteriores também suportadas incluem: `3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
@@ -46,7 +46,7 @@ As versões anteriores também suportadas incluem:`3.0.2`
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transação                    | Não        | Sim       | Não        |                                                     |
 | histórico                        | Sim       | Sim       | Sim       |                                                     |
-| paging                         | Parcial   | Parcial   | Parcial   | `self`e `next` são apoiados                     |
+| paging                         | Parcial   | Parcial   | Parcial   | `self` e `next` são apoiados                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
 
 ## <a name="search"></a>Pesquisa
@@ -57,7 +57,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 |-----------------------|-----------|-----------|-----------|---------|
 | Número                | Sim       | Sim       | Sim       |         |
 | Data/Data         | Sim       | Sim       | Sim       |         |
-| String                | Sim       | Sim       | Sim       |         |
+| Cadeia                | Sim       | Sim       | Sim       |         |
 | Token                 | Sim       | Sim       | Sim       |         |
 | Referência             | Sim       | Sim       | Sim       |         |
 | Composto             | Sim       | Sim       | Sim       |         |
@@ -72,14 +72,14 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 |`:exact`               | Sim       | Sim       | Sim       |         |
 |`:contains`            | Sim       | Sim       | Sim       |         |
 |`:text`                | Sim       | Sim       | Sim       |         |
-|`:in`(símbolo)          | Não        | Não        | Não        |         |
-|`:below`(símbolo)       | Não        | Não        | Não        |         |
-|`:above`(símbolo)       | Não        | Não        | Não        |         |
-|`:not-in`(símbolo)      | Não        | Não        | Não        |         |
-|`:[type]`(referência)  | Não        | Não        | Não        |         |
-|`:below`(uri)         | Sim       | Sim       | Sim       |         |
+|`:in` (símbolo)          | Não        | Não        | Não        |         |
+|`:below` (símbolo)       | Não        | Não        | Não        |         |
+|`:above` (símbolo)       | Não        | Não        | Não        |         |
+|`:not-in` (símbolo)      | Não        | Não        | Não        |         |
+|`:[type]` (referência)  | Não        | Não        | Não        |         |
+|`:below` (uri)         | Sim       | Sim       | Sim       |         |
 |`:not`                 | Não        | Não        | Não        |         |
-|`:above`(uri)         | Não        | Não        | Não        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:above` (uri)         | Não        | Não        | Não        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Parâmetro de pesquisa comum | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -90,7 +90,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
-| `_list`                 | Não        | Sim       | Sim       |         |
+| `_list`                 | Sim       | Sim       | Sim       |         |
 | `_has`                  | Não        | Não        | Não        |         |
 | `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |
@@ -101,7 +101,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_sort`                 | Não        | Não        | Não        |         |
 | `_score`                | Não        | Não        | Não        |         |
 | `_count`                | Sim       | Sim       | Sim       |         |
-| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count`é apoiado |
+| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é apoiado |
 | `_include`              | Não        | Sim       | Não        |         |
 | `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos estão limitados a 100. |
 | `_contained`            | Não        | Não        | Não        |         |
@@ -121,7 +121,7 @@ O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/se
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

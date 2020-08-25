@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233215"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Crie um pipeline CI/CD para gitHub repo usando Azure DevOps Starter
@@ -32,7 +32,7 @@ Irá:
 > * Configurar Azure DevOps e uma subscrição da Azure 
 > * Comprometa alterações no GitHub e desloque-as automaticamente para a Azure
 > * Examinar o gasoduto Azure Pipelines CI/CD
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ O Azure DevOps Starter configura automaticamente um gasoduto CI/CD em Pipelines 
 
 1. Selecione o **separador Gatilhos.** Azure DevOps Projects cria automaticamente um gatilho CI com algumas definições predefinidas. Pode definir gatilhos tais como Permitir a **integração contínua** para executar uma construção cada vez que cometer uma alteração de código. Também pode definir gatilhos para agendar construções para executar em momentos específicos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar do Azure App Service e dos recursos relacionados que criou neste tutorial, pode eliminá-los. Utilize a funcionalidade **Eliminar** no painel de projetos de DevOps.
 

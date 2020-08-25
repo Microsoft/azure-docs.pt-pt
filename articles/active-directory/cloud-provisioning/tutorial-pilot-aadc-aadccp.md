@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86146819"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
@@ -118,7 +118,7 @@ Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, 
 Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, grupo e contacto).
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instale o agente de provisionamento Azure AD Connect
-1. Faça o s-sete no servidor que utilizará com permissões de administração da empresa.  Se estiver a utilizar o tutorial [básico de AD e ambiente Azure,](tutorial-basic-ad-azure.md) seria CP1.
+1. Faça o s-sete no servidor que utilizará com permissões de administração da empresa.  Se estiver a utilizar o tutorial  [básico de AD e ambiente Azure,](tutorial-basic-ad-azure.md) seria CP1.
 2. Descarregue o agente de provisionamento de nuvem Azure AD Connect utilizando os passos [descritos aqui.](how-to-install.md#install-the-agent)
 3. Executar o provisionamento em nuvem Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. No ecrã de respingo, **aceite** os termos de licenciamento e clique em **Instalar**.</br>
@@ -141,7 +141,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente do portal Azure
 Para verificar se o agente está a ser visto pela Azure siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Manage provisioning (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 

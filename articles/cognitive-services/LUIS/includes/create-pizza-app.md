@@ -1,15 +1,15 @@
 ---
 title: Criar passos de aplicativo de pizza
-description: Passos para criar uma app de pizza LUIS.
+description: Passos para criar uma app de pizzas LUIS.
 ms.date: 05/05/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 583394a31d220878eb403f702ba82b2f525d4dda
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83588963"
 ---
 1. Inscreva-se no portal LUIS com o URL de [https://www.luis.ai](https://www.luis.ai) .
@@ -19,7 +19,7 @@ ms.locfileid: "83588963"
     > [!div class="mx-imgBorder"]
     > [![Captura de ecrã a mostrar a página My Apps (As Minhas Aplicações) do Language Understanding (LUIS)](../media/create-app-in-portal.png "Captura de ecrã a mostrar a página My Apps (As Minhas Aplicações) do Language Understanding (LUIS)")](../media/create-app-in-portal.png#lightbox)
 
-1. Na caixa de diálogo pop-up, introduza o nome `Pizza tutorial` e mantenha a cultura predefinida, **Inglês**. Os outros campos são opcionais, não os coloque. Selecione **Done** (Concluído).
+1. Na caixa de diálogo pop-up, introduza o nome `Pizza tutorial` e mantenha a cultura predefinida, **Inglês**. Os outros campos são opcionais, não os definem. Selecione **Concluído**.
 
     ![Insira o nome da nova app LUIS](../media/create-pizza-tutorial-app-in-portal.png)
 

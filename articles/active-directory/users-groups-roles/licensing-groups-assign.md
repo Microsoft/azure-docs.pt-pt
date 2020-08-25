@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e8beb8d694b0ee155e3707faef34dff6d56eb3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727658"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797756"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores por membro do grupo no Azure Ative Directory
 
@@ -93,13 +93,13 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
 1. Para resolver este conflito, remova o utilizador do grupo de utilizadores do **Quiosque.** Após o Azure AD processar a mudança, as licenças **do Departamento de RH** são corretamente atribuídas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o conjunto de funcionalidades para atribuição de licenças utilizando grupos, consulte os seguintes artigos:
 
-- [O que é o licenciamento baseado em grupo no Azure Ative Directory?](/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [O que é o licenciamento baseado em grupo no Azure Ative Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 - [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 - [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 - [Como migrar utilizadores entre licenças de produtos utilizando licenças baseadas em grupo no Azure Ative Directory](licensing-groups-change-licenses.md)
-- [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](../active-directory-licensing-group-advanced.md)
+- [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](./licensing-group-advanced.md)
 - [Exemplos powerShell para licenciamento baseado em grupo no Azure Ative Directory](licensing-ps-examples.md)

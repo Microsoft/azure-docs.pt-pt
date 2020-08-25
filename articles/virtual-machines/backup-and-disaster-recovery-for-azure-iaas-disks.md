@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eef2af8b48bba7408a887947c20f8c9407f8a4da
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658165"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754978"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastres para discos Azure IaaS
 
@@ -48,7 +48,7 @@ Devido a esta arquitetura, a Azure tem consistentemente proporcionado durabilida
 
 Falhas de hardware localizadas no hospedeiro computacional ou na plataforma de armazenamento podem, por vezes, resultar na indisponibilidade temporária do VM que é coberto pelo [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidade de VM. O Azure também fornece um SLA líder na indústria para instâncias VM únicas que usam SSDs premium Azure.
 
-Para salvaguardar as cargas de trabalho da aplicação devido à indisponibilidade temporária de um disco ou VM, os clientes podem utilizar [conjuntos de disponibilidade](~/articles/virtual-machines/windows/manage-availability.md). Duas ou mais máquinas virtuais num conjunto de disponibilidade fornecem redundância para a aplicação. Azure cria então estes VMs e discos em domínios de avaria separados com diferentes componentes de potência, rede e servidor.
+Para salvaguardar as cargas de trabalho da aplicação devido à indisponibilidade temporária de um disco ou VM, os clientes podem utilizar [conjuntos de disponibilidade](windows/manage-availability.md). Duas ou mais máquinas virtuais num conjunto de disponibilidade fornecem redundância para a aplicação. Azure cria então estes VMs e discos em domínios de avaria separados com diferentes componentes de potência, rede e servidor.
 
 Devido a estes domínios de avaria separados, falhas de hardware localizadas normalmente não afetam vários VMs no conjunto ao mesmo tempo. Ter domínios de avaria separados proporciona alta disponibilidade para a sua aplicação. É considerado uma boa prática usar conjuntos de disponibilidade quando é necessária alta disponibilidade. A secção seguinte abrange o aspeto da recuperação de desastres.
 
@@ -97,24 +97,24 @@ Problemas de dados de aplicação iaaS são outra possibilidade. Considere uma a
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastres: Azure Backup 
 
-[O Azure Backup](https://azure.microsoft.com/services/backup/) é utilizado para backups e DR, e funciona com [discos geridos,](~/articles/virtual-machines/managed-disks-overview.md) bem como discos não geridos. Você pode criar um trabalho de backup com backups baseados no tempo, fácil restauro VM e políticas de retenção de backup.
+[O Azure Backup](https://azure.microsoft.com/services/backup/) é utilizado para backups e DR, e funciona com [discos geridos,](managed-disks-overview.md) bem como discos não geridos. Você pode criar um trabalho de backup com backups baseados no tempo, fácil restauro VM e políticas de retenção de backup.
 
-Se utilizar [SSDs premium,](~/articles/virtual-machines/disks-types.md) [discos geridos](~/articles/virtual-machines/managed-disks-overview.md)ou outros tipos de discos com a opção de armazenamento [localmente redundante,](~/articles/storage/common/storage-redundancy-lrs.md) é especialmente importante fazer cópias de segurança periódicas de DR. A Azure Backup armazena os dados no cofre dos seus serviços de recuperação para retenção a longo prazo. Escolha a opção [de armazenamento geo-redundante](~/articles/storage/common/storage-redundancy-grs.md) para o cofre dos serviços de recuperação de backup. Esta opção garante que os backups sejam replicados numa região de Azure diferente para a salvaguarda de catástrofes regionais.
+Se utilizar [SSDs premium,](disks-types.md) [discos geridos](managed-disks-overview.md)ou outros tipos de discos com a opção de armazenamento [localmente redundante,](../storage/common/storage-redundancy.md#locally-redundant-storage) é especialmente importante fazer cópias de segurança periódicas de DR. A Azure Backup armazena os dados no cofre dos seus serviços de recuperação para retenção a longo prazo. Escolha a opção [de armazenamento geo-redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) para o cofre dos serviços de recuperação de backup. Esta opção garante que os backups sejam replicados numa região de Azure diferente para a salvaguarda de catástrofes regionais.
 
 Para discos não geridos, pode utilizar o tipo de armazenamento localmente redundante para discos IaaS, mas certifique-se de que o Azure Backup está ativado com a opção de armazenamento geo-redundante para o cofre de serviços de recuperação.
 
 > [!NOTE]
-> Se utilizar a opção [de armazenamento geo-redundante ou](~/articles/storage/common/storage-redundancy-grs.md) de acesso de leitura [para](~/articles/storage/common/storage-redundancy.md) os seus discos não geridos, ainda precisa de instantâneos consistentes para backup e DR. Utilize backup [Azure](https://azure.microsoft.com/services/backup/) ou [instantâneos consistentes](#alternative-solution-consistent-snapshots).
+> Se utilizar a opção [de armazenamento geo-redundante ou](../storage/common/storage-redundancy.md#geo-redundant-storage) de acesso de leitura [para](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)  os seus discos não geridos, ainda precisa de instantâneos consistentes para backup e DR. Utilize backup [Azure](https://azure.microsoft.com/services/backup/) ou [instantâneos consistentes](#alternative-solution-consistent-snapshots).
 
  O quadro a seguir é um resumo das soluções disponíveis para DR.
 
 | Cenário | Replicação automática | Solução DR |
 | --- | --- | --- |
-| Discos SSD Premium | Local[(armazenamento localmente redundante)](~/articles/storage/common/storage-redundancy-lrs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed disks | Local[(armazenamento localmente redundante)](~/articles/storage/common/storage-redundancy-lrs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Discos de armazenamento localmente redundantes não geridos | Local[(armazenamento localmente redundante)](~/articles/storage/common/storage-redundancy-lrs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Discos de armazenamento geo-redundantes não geridos | Região transversal[(armazenamento geodussa redundante)](~/articles/storage/common/storage-redundancy-grs.md) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
-| Discos de armazenamento geo-redundantes de acesso não geridos | Região transversal[(armazenamento geo-redundante de acesso à leitura)](~/articles/storage/common/storage-redundancy.md) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
+| Discos SSD Premium | Local[(armazenamento localmente redundante)](../storage/common/storage-redundancy.md#locally-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed disks | Local[(armazenamento localmente redundante)](../storage/common/storage-redundancy.md#locally-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Discos de armazenamento localmente redundantes não geridos | Local[(armazenamento localmente redundante)](../storage/common/storage-redundancy.md#locally-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Discos de armazenamento geo-redundantes não geridos | Região transversal[(armazenamento geodussa redundante)](../storage/common/storage-redundancy.md#geo-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
+| Discos de armazenamento geo-redundantes de acesso não geridos | Região transversal[(armazenamento geo-redundante de acesso à leitura)](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
 
 A alta disponibilidade é melhor satisfeita utilizando discos geridos num conjunto de disponibilidade juntamente com a Azure Backup. Se utilizar discos não geridos, ainda pode utilizar a Cópia de Segurança Azure para DR. Se não conseguir utilizar o Azure Backup, então tirar [fotografias consistentes](#alternative-solution-consistent-snapshots), como descrito numa secção posterior, é uma solução alternativa para backup e DR.
 
@@ -127,19 +127,19 @@ As suas escolhas para alta disponibilidade, backup e DR nos níveis de aplicaç�
 
 ### <a name="using-azure-backup"></a>Utilizar o Azure Backup 
 
-[O Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) pode fazer backup dos seus VMs que executam o Windows ou o Linux até ao cofre dos serviços de recuperação do Azure. O backup e a restauração de dados críticos do negócio é complicado pelo facto de os dados críticos do negócio devem ser apoiados enquanto as aplicações que produzem os dados estão em execução. 
+[O Azure Backup](../backup/backup-azure-vms-introduction.md) pode fazer backup dos seus VMs que executam o Windows ou o Linux até ao cofre dos serviços de recuperação do Azure. O backup e a restauração de dados críticos do negócio é complicado pelo facto de os dados críticos do negócio devem ser apoiados enquanto as aplicações que produzem os dados estão em execução. 
 
-Para resolver este problema, o Azure Backup fornece cópias de segurança consistentes para a Microsoft. Utiliza o serviço de sombra de volume para garantir que os dados são escritos corretamente para o armazenamento. Para os VMs Do Linux, o modo de consistência de backup padrão é cópia de segurança consistente com ficheiros, uma vez que o Linux não possui funcionalidades equivalentes ao serviço de sombra de volume, como no caso do Windows. Para máquinas Linux, consulte [a cópia de segurança consistente da aplicação dos VMs Azure Linux](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Para resolver este problema, o Azure Backup fornece cópias de segurança consistentes para a Microsoft. Utiliza o serviço de sombra de volume para garantir que os dados são escritos corretamente para o armazenamento. Para os VMs Do Linux, o modo de consistência de backup padrão é cópia de segurança consistente com ficheiros, uma vez que o Linux não possui funcionalidades equivalentes ao serviço de sombra de volume, como no caso do Windows. Para máquinas Linux, consulte [a cópia de segurança consistente da aplicação dos VMs Azure Linux](../backup/backup-azure-linux-app-consistent.md).
 
 ![Fluxo de backup Azure][1]
 
 Quando o Azure Backup inicia um trabalho de backup na hora programada, aciona a extensão de backup instalada no VM para tirar uma foto pontual. Um instantâneo é tirado em coordenação com o serviço de sombra de volume para obter uma imagem consistente dos discos na máquina virtual sem ter que desligá-lo. A extensão de backup no VM lava todas as gravações antes de tirar uma imagem consistente de todos os discos. Depois de tirar a foto, os dados são transferidos pela Azure Backup para o cofre de reserva. Para tornar o processo de backup mais eficiente, o serviço identifica e transfere apenas os blocos de dados que mudaram após a última cópia de segurança.
 
-Para restaurar, pode ver as cópias de segurança disponíveis através do Azure Backup e, em seguida, iniciar uma restauração. Pode criar e restaurar as cópias de segurança do Azure através do [portal Azure,](https://portal.azure.com/)utilizando o [PowerShell,](~/articles/backup/backup-azure-vms-automation.md)ou utilizando o [Azure CLI](/cli/azure/).
+Para restaurar, pode ver as cópias de segurança disponíveis através do Azure Backup e, em seguida, iniciar uma restauração. Pode criar e restaurar as cópias de segurança do Azure através do [portal Azure,](https://portal.azure.com/)utilizando o [PowerShell,](../backup/backup-azure-vms-automation.md)ou utilizando o [Azure CLI](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Passos para permitir uma cópia de segurança
 
-Utilize os seguintes passos para permitir cópias de segurança dos seus VMs utilizando o [portal Azure](https://portal.azure.com/). Há alguma variação dependendo do seu cenário exato. Consulte a documentação [da Reserva Azure](~/articles/backup/backup-azure-vms-introduction.md) para obter todos os detalhes. O Azure Backup também [suporta VMs com discos geridos.](https://azure.microsoft.com/blog/azure-managed-disk-backup/)
+Utilize os seguintes passos para permitir cópias de segurança dos seus VMs utilizando o [portal Azure](https://portal.azure.com/). Há alguma variação dependendo do seu cenário exato. Consulte a documentação [da Reserva Azure](../backup/backup-azure-vms-introduction.md) para obter todos os detalhes. O Azure Backup também [suporta VMs com discos geridos.](https://azure.microsoft.com/blog/azure-managed-disk-backup/)
 
 1.  Criar um cofre de serviços de recuperação para um VM:
 
@@ -151,11 +151,11 @@ Utilize os seguintes passos para permitir cópias de segurança dos seus VMs uti
 
 1.  Configure a política de backup e selecione o VM da mesma UI.
 
-1.  Certifique-se de que o Agente de Reserva está instalado no VM. Se o seu VM for criado utilizando uma imagem da galeria Azure, então o Agente de Reserva já está instalado. Caso contrário (isto é, se utilizar uma imagem personalizada), utilize as instruções para [instalar o agente VM numa máquina virtual](~/articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+1.  Certifique-se de que o Agente de Reserva está instalado no VM. Se o seu VM for criado utilizando uma imagem da galeria Azure, então o Agente de Reserva já está instalado. Caso contrário (isto é, se utilizar uma imagem personalizada), utilize as instruções para [instalar o agente VM numa máquina virtual](../backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Após a conclusão dos passos anteriores, a cópia de segurança funciona em intervalos regulares, conforme especificado na política de backup. Se necessário, pode ativar manualmente a primeira cópia de segurança do painel de abóbadas do portal Azure.
 
-Para automatizar o Azure Backup utilizando scripts, consulte [os cmdlets PowerShell para obter cópias de segurança VM](~/articles/backup/backup-azure-vms-automation.md).
+Para automatizar o Azure Backup utilizando scripts, consulte [os cmdlets PowerShell para obter cópias de segurança VM](../backup/backup-azure-vms-automation.md).
 
 ### <a name="steps-for-recovery"></a>Passos para a recuperação
 
@@ -165,17 +165,17 @@ Se precisar de reparar ou reconstruir um VM, pode restaurar o VM a partir de qua
 
 -   Pode restaurar os discos e, em seguida, usar o modelo para o VM personalizar e reconstruir o VM restaurado.
 
-Para obter mais informações, consulte as instruções para [utilizar o portal Azure para restaurar as máquinas virtuais.](~/articles/backup/backup-azure-arm-restore-vms.md) Este documento também explica os passos específicos para restaurar os VMs apoiados num datacenter emparelhado, utilizando o seu cofre de backup geo-redundante se houver um desastre no centro de dados primário. Nesse caso, o Azure Backup utiliza o serviço Compute da região secundária para criar a máquina virtual restaurada.
+Para obter mais informações, consulte as instruções para [utilizar o portal Azure para restaurar as máquinas virtuais.](../backup/backup-azure-arm-restore-vms.md) Este documento também explica os passos específicos para restaurar os VMs apoiados num datacenter emparelhado, utilizando o seu cofre de backup geo-redundante se houver um desastre no centro de dados primário. Nesse caso, o Azure Backup utiliza o serviço Compute da região secundária para criar a máquina virtual restaurada.
 
-Também pode utilizar o PowerShell para [criar um novo VM a partir de discos restaurados.](~/articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+Também pode utilizar o PowerShell para [criar um novo VM a partir de discos restaurados.](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: Instantâneos consistentes
 
 Se não conseguir utilizar o Azure Backup, pode implementar o seu próprio mecanismo de backup utilizando instantâneos. Criar instantâneos consistentes para todos os discos usados por um VM e, em seguida, replicar esses instantâneos para outra região é complicado. Por esta razão, a Azure considera usar o serviço de Backup como uma opção melhor do que construir uma solução personalizada.
 
-Se utilizar armazenamento geo-redundante de acesso de leitura/armazenamento geo-redundante para discos, as imagens são automaticamente replicadas num centro de dados secundário. Se utilizar armazenamento localmente redundante para discos, tem de replicar os dados por si mesmo. Para obter mais informações, consulte [discos VM não geridos por Azure com instantâneos incrementais](~/articles/virtual-machines/windows/incremental-snapshots.md).
+Se utilizar armazenamento geo-redundante de acesso de leitura/armazenamento geo-redundante para discos, as imagens são automaticamente replicadas num centro de dados secundário. Se utilizar armazenamento localmente redundante para discos, tem de replicar os dados por si mesmo. Para obter mais informações, consulte [discos VM não geridos por Azure com instantâneos incrementais](windows/incremental-snapshots.md).
 
-Um instantâneo é uma representação de um objeto num ponto específico do tempo. Um instantâneo incorre na faturação para o tamanho incremental dos dados que detém. Para obter mais informações, consulte [Criar uma imagem de bolha.](~/articles/storage/blobs/storage-blob-snapshots.md)
+Um instantâneo é uma representação de um objeto num ponto específico do tempo. Um instantâneo incorre na faturação para o tamanho incremental dos dados que detém. Para obter mais informações, consulte [Criar uma imagem de bolha.](../storage/blobs/snapshots-overview.md)
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Crie instantâneos enquanto o VM está em execução
 
@@ -187,9 +187,9 @@ Para evitar esta situação, o processo de backup deve implementar as seguintes 
 
 1.  Despeje todas as gravações pendentes.
 
-1.  [Crie uma imagem de bolha](~/articles/storage/blobs/storage-blob-snapshots.md) para todos os discos.
+1.  [Crie uma imagem de bolha](../storage/blobs/snapshots-manage-dotnet.md) para todos os discos.
 
-Algumas aplicações do Windows, como o SQL Server, fornecem um mecanismo de backup coordenado através de um serviço de sombra de volume para criar cópias de segurança consistentes com aplicações. No Linux, pode utilizar uma ferramenta como *o fsfreeze* para coordenar os discos. Esta ferramenta fornece cópias de segurança consistentes com ficheiros, mas não imagens consistentes com aplicações. Este processo é complexo, pelo que deve considerar a utilização de [Backup Azure](~/articles/backup/backup-azure-vms-introduction.md) ou uma solução de backup de terceiros que já implementa este procedimento.
+Algumas aplicações do Windows, como o SQL Server, fornecem um mecanismo de backup coordenado através de um serviço de sombra de volume para criar cópias de segurança consistentes com aplicações. No Linux, pode utilizar uma ferramenta como *o fsfreeze* para coordenar os discos. Esta ferramenta fornece cópias de segurança consistentes com ficheiros, mas não imagens consistentes com aplicações. Este processo é complexo, pelo que deve considerar a utilização de [Backup Azure](../backup/backup-azure-vms-introduction.md) ou uma solução de backup de terceiros que já implementa este procedimento.
 
 O processo anterior resulta numa recolha de instantâneos coordenados para todos os discos VM, representando uma visão específica do ponto de tempo do VM. Este é um ponto de restauro de reserva para o VM. Pode repetir o processo em intervalos programados para criar cópias de segurança periódicas. Consulte [copiar as cópias de segurança para outra região](#copy-the-snapshots-to-another-region) para obter etapas para copiar os instantâneos para outra região para DR.
 
@@ -201,7 +201,7 @@ Outra opção para criar cópias de segurança consistentes é desligar o VM e t
 
 1. Crie uma imagem de cada bolha de disco rígido virtual, que leva apenas alguns segundos.
 
-    Para criar um instantâneo, pode utilizar o [PowerShell](~/articles/storage/common/storage-powershell-guide-full.md), o [API AZure Storage REST,](https://msdn.microsoft.com/library/azure/ee691971.aspx) [Azure CLI,](/cli/azure/)ou uma das bibliotecas do cliente do Azure Storage, como [a biblioteca do cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Para criar um instantâneo, pode utilizar o [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), o [API AZure Storage REST,](https://msdn.microsoft.com/library/azure/ee691971.aspx) [Azure CLI,](/cli/azure/)ou uma das bibliotecas do cliente do Azure Storage, como [a biblioteca do cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 1. Inicie o VM, que termina o tempo de inatividade. Normalmente, todo o processo termina em poucos minutos.
 
@@ -218,13 +218,13 @@ Se utilizar armazenamento geo-redundante ou armazenamento geo-redundante de aces
 
 Se utilizar armazenamento localmente redundante, deve copiar as imagens para uma conta de armazenamento diferente imediatamente após a criação do instantâneo. O alvo da cópia pode ser uma conta de armazenamento localmente redundante numa região diferente, resultando em que a cópia esteja numa região remota. Também pode copiar o instantâneo para uma conta de armazenamento geo-redundante de acesso à leitura na mesma região. Neste caso, o instantâneo é preguiçosamente replicado para a região secundária remota. A sua cópia de segurança está protegida contra desastres no local primário após a cópia e replicação estar concluída.
 
-Para copiar as suas imagens incrementais para DR de forma eficiente, reveja as instruções em [Back up Azure discos VM não geridos com instantâneos incrementais](~/articles/virtual-machines/windows/incremental-snapshots.md).
+Para copiar as suas imagens incrementais para DR de forma eficiente, reveja as instruções em [Back up Azure discos VM não geridos com instantâneos incrementais](windows/incremental-snapshots.md).
 
 ![Apoiar discos VM não geridos da Azure com instantâneos incrementais][2]
 
 ### <a name="recovery-from-snapshots"></a>Recuperação de instantâneos
 
-Para recuperar uma foto, copie-a para fazer uma nova bolha. Se estiver a copiar o instantâneo da conta primária, pode copiar o instantâneo para a bolha de base do instantâneo. Este processo reverte o disco para o instantâneo. Este processo é conhecido como promoção do instantâneo. Se estiver a copiar a cópia de segurança instantânea de uma conta secundária, no caso de uma conta de armazenamento geo-redundante de acesso à leitura, deve copiá-la para uma conta primária. Pode copiar uma imagem [utilizando o PowerShell](~/articles/storage/common/storage-powershell-guide-full.md) ou utilizando o utilitário AzCopy. Para obter mais informações, consulte [os dados de transferência com o utilitário de linha de comando AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Para recuperar uma foto, copie-a para fazer uma nova bolha. Se estiver a copiar o instantâneo da conta primária, pode copiar o instantâneo para a bolha de base do instantâneo. Este processo reverte o disco para o instantâneo. Este processo é conhecido como promoção do instantâneo. Se estiver a copiar a cópia de segurança instantânea de uma conta secundária, no caso de uma conta de armazenamento geo-redundante de acesso à leitura, deve copiá-la para uma conta primária. Pode copiar uma imagem [utilizando o PowerShell](https://docs.microsoft.com/powershell/module/az.storage) ou utilizando o utilitário AzCopy. Para obter mais informações, consulte [os dados de transferência com o utilitário de linha de comando AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 Para VMs com vários discos, deve copiar todos os instantâneos que fazem parte do mesmo ponto de restauro coordenado. Depois de copiar as imagens para bolhas VHD, pode utilizar as bolhas para recriar o seu VM utilizando o modelo para o VM.
 
@@ -232,7 +232,7 @@ Para VMs com vários discos, deve copiar todos os instantâneos que fazem parte 
 
 ### <a name="sql-server"></a>SQL Server
 
-O SQL Server a funcionar num VM tem as suas próprias capacidades incorporadas para fazer o back-up do seu SQL Server até ao armazenamento do Azure Blob ou a uma partilha de ficheiros. Se a conta de armazenamento for armazenamento geo-redundante ou armazenamento geo-redundante de acesso à leitura, pode aceder a essas cópias de segurança no centro de dados secundário da conta de armazenamento em caso de desastre, com as mesmas restrições que previamente discutidas. Para obter mais informações, consulte [Back up e restauro para O SQL Server em máquinas virtuais Azure](~/articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Além de fazer back up e restaurar, [os grupos de disponibilidade sql Server AlwaysOn](~/articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) podem manter réplicas secundárias de bases de dados. Esta capacidade reduz consideravelmente o tempo de recuperação de desastres.
+O SQL Server a funcionar num VM tem as suas próprias capacidades incorporadas para fazer o back-up do seu SQL Server até ao armazenamento do Azure Blob ou a uma partilha de ficheiros. Se a conta de armazenamento for armazenamento geo-redundante ou armazenamento geo-redundante de acesso à leitura, pode aceder a essas cópias de segurança no centro de dados secundário da conta de armazenamento em caso de desastre, com as mesmas restrições que previamente discutidas. Para obter mais informações, consulte [Back up e restauro para O SQL Server em máquinas virtuais Azure](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Além de fazer back up e restaurar, [os grupos de disponibilidade sql Server AlwaysOn](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) podem manter réplicas secundárias de bases de dados. Esta capacidade reduz consideravelmente o tempo de recuperação de desastres.
 
 ## <a name="other-considerations"></a>Outras considerações
 
@@ -257,11 +257,11 @@ A principal diferença entre o armazenamento geo-redundante e o armazenamento ge
 
 Se se revelar uma paragem significativa, a equipa Azure pode desencadear uma falha de geo-falha e alterar as entradas primárias de DNS para apontar para o armazenamento secundário. Neste momento, se tiver armazenamento geo-redundante ou armazenamento geo redundante de acesso à leitura, pode aceder aos dados da região que costumava ser o secundário. Por outras palavras, se a sua conta de armazenamento for um armazenamento geo-redundante e houver um problema, só poderá aceder ao armazenamento secundário se houver uma falha geo-failover.
 
-Para obter informações, veja [O que fazer em caso de falha do Armazenamento do Azure](~/articles/storage/common/storage-disaster-recovery-guidance.md).
+Para obter informações, veja [O que fazer em caso de falha do Armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ver [Back up Discos de Máquina Virtual não geridos com instantâneos incrementais](./linux/incremental-snapshots.md).
+Ver [Back up Discos de Máquina Virtual não geridos com instantâneos incrementais](linux/incremental-snapshots.md).
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

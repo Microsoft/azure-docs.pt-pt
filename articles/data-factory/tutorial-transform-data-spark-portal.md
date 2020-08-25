@@ -1,5 +1,5 @@
 ---
-title: 'Transforme dados utilizando a Spark na Fábrica de Dados Azure '
+title: 'Transforme os dados utilizando a Spark in Azure Data Factory '
 description: Este tutorial fornece instruções passo a passo para transformar dados através de uma atividade do Spark no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409267"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
@@ -31,22 +31,22 @@ Vai executar os seguintes passos neste tutorial:
 > * Acionar uma execução de pipeline.
 > * Monitorizar a execução do pipeline.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Conta de armazenamento do Azure**. Tem de criar um script Python e um ficheiro de entrada, e carregá-los para o Armazenamento do Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
+* **Conta de armazenamento Azure**. Tem de criar um script Python e um ficheiro de entrada, e carregá-los para o Armazenamento do Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
 
 > [!NOTE]
 > O HdInsight suporta apenas contas de armazenamento para fins gerais com o escalão standard. Confirme que a conta não é uma conta de armazenamento apenas de blobs ou premium.
 
-* **Azure PowerShell.** Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Carregar o script Python para a conta de armazenamento de Blobs
-1. Crie um ficheiro Python chamado **WordCount_Spark.py** com o seguinte conteúdo: 
+1. Criar um ficheiro Python chamado **WordCount_Spark.py** com o seguinte conteúdo: 
 
     ```python
     import sys
@@ -71,7 +71,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
     if __name__ == "__main__":
         main()
     ```
-1. Substitua * &lt;&gt; * o Nome do Depósito de Contas pelo nome da sua conta de armazenamento Azure. Em seguida, guarde o ficheiro. 
+1. Substitua * &lt; o armazenamentoAme &gt; * de contagem de armazenamento pelo nome da sua conta de armazenamento Azure. Em seguida, guarde o ficheiro. 
 1. No armazenamento de Blobs do Azure, crie um contentor com o nome **adftutorial**, caso ainda não exista. 
 1. Crie uma pasta com o nome **spark**.
 1. Crie uma subpasta com o nome **script** na pasta **spark**. 
@@ -93,7 +93,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
       
    ![Painel "Nova fábrica de dados"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize ** &lt;o seu nome&gt;ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
+   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize ** &lt; o seu nome de &gt; nome ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
@@ -118,7 +118,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 Nesta secção, vai criar dois serviços ligados: 
     
 - Um **serviço ligado do Armazenamento do Azure** que liga uma conta de armazenamento do Azure à fábrica de dados. Este armazenamento é utilizado pelo cluster do HDInsight a pedido. Também contém o script Spark que vai ser executado. 
-- Um **serviço ligado hDInsight**a pedido. O Azure Data Factory cria automaticamente um cluster do HDInsight e executa o programa Spark. Em seguida, elimina o cluster do HDInsight depois de o cluster estar inativo durante um período de tempo pré-configurado. 
+- Um **serviço ligado a pedido hdinsight**. O Azure Data Factory cria automaticamente um cluster do HDInsight e executa o programa Spark. Em seguida, elimina o cluster do HDInsight depois de o cluster estar inativo durante um período de tempo pré-configurado. 
 
 ### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
@@ -149,17 +149,17 @@ Nesta secção, vai criar dois serviços ligados:
    
    b. Para **Tipo**, confirme se está selecionado **HDInsight a pedido**.
    
-   c. Para **o Serviço Ligado ao Armazenamento Azure,** selecione **AzureBlobStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
+   c. Para **o serviço Azure Storage Linked**, selecione **AzureBlobStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
    
    d. Para **Tipo de cluster**, selecione **spark**.
    
    e. Para **ID do principal de serviço**, introduza o ID do principal de serviço que tem permissão para criar um cluster do HDInsight. 
    
-      Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do grupo de recursos no qual o cluster é criado. Para obter mais informações, veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). O **id principal** do Serviço é equivalente ao ID de *aplicação,* e uma **chave principal** de serviço é equivalente ao valor para um segredo *cliente*.
+      Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do grupo de recursos no qual o cluster é criado. Para obter mais informações, veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). O **ID principal** do Serviço é equivalente ao ID de *aplicação,* e uma **chave principal do Serviço** é equivalente ao valor para um segredo *do Cliente.*
    
    f. Para **Chave do principal de serviço**, introduza a chave. 
    
-   g. Para **Grupo de recursos**, selecione o mesmo grupo de recursos que utilizou ao criar a fábrica de dados. O cluster do Spark é criado neste grupo de recursos. 
+   exemplo, Para **Grupo de recursos**, selecione o mesmo grupo de recursos que utilizou ao criar a fábrica de dados. O cluster do Spark é criado neste grupo de recursos. 
    
    h. Expandir **tipo de SO**.
    
@@ -191,7 +191,7 @@ Nesta secção, vai criar dois serviços ligados:
    ![Especificar um serviço ligado do HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Mude para o separador **Script/Jar** e conclua os seguintes passos: 
 
-   a. Para **o serviço ligado ao trabalho,** selecione **AzureBlobStorage1**.
+   a. Para **o Serviço de Emprego Ligado**, selecione **AzureBlobStorage1**.
    
    b. Selecione **Procurar no Armazenamento**.
 
@@ -208,13 +208,13 @@ Nesta secção, vai criar dois serviços ligados:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
-**Selecione Adicionar gatilho** na barra de ferramentas e, em seguida, selecione **'Gatilho' agora**. 
+**Selecione Adicionar Gatilho** na barra de ferramentas e, em seguida, selecione Trigger **Now**. 
 
 ![Botões "Acionar" e "Acionar Agora"](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o separador **Monitor.** Confirme se vê um gasoduto a funcionar. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
+1. Mude para o **separador Monitor.** Confirme que vê um gasoduto a funcionar. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
    
 1. Selecione **Atualizar** periodicamente para verificar o estado da execução do pipeline. 
 
@@ -224,7 +224,7 @@ Nesta secção, vai criar dois serviços ligados:
 
    ![Estado da execução do pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Pode voltar à vista de funcionamento do gasoduto selecionando a ligação **All Pipeline Runs** na parte superior.
+   Pode voltar a mudar para a vista de execuções do gasoduto selecionando a ligação **All Pipeline Runs** na parte superior.
 
    ![Vista "Execuções de Atividades"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -255,7 +255,7 @@ O pipeline, neste exemplo, transforma dados através de uma atividade do Spark e
 Para aprender a transformar dados ao executar o script Hive num cluster do Azure HDInsight numa rede virtual, avance para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Transforme dados usando a Hive na Rede Virtual Azure](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Tutorial: Transformar dados usando a Colmeia na Rede Virtual Azure](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

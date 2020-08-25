@@ -1,65 +1,65 @@
 ---
-title: 'Tutorial: Testes em lote para encontrar problemas - LUIS'
-description: Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação Language Understanding (LUIS).
+title: 'Tutorial: Teste de lote para encontrar problemas - LUIS'
+description: Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação de Compreensão linguística (LUIS).
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83681624"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste de lote
 
-Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação Language Understanding (LUIS).
+Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação de Compreensão linguística (LUIS).
 
-O teste do lote permite-lhe validar o estado do modelo ativo e treinado com um conjunto conhecido de expressões e entidades etiquetadas. No ficheiro de lote formado pela JSON, adicione as palavras e coloque as etiquetas de entidade que precisa previstas dentro da expressão.
+O teste de lote permite validar o estado do modelo ativo e treinado com um conjunto conhecido de expressões e entidades rotuladas. No ficheiro de lote com formato JSON, adicione as expressões e desave as etiquetas da entidade que precisa previstas dentro da expressão.
 
-Requisitos para o teste do lote:
+Requisitos para o ensaio do lote:
 
-* Máximo de 1000 expressões por teste.
+* Máximo de 1000 proclamações por teste.
 * Sem duplicados.
-* Tipos de entidades permitidos: apenas entidades aprendidas com máquinas.
+* Tipos de entidades permitidos: apenas entidades com aprendizagem automática.
 
-Ao utilizar uma aplicação diferente deste tutorial, *não* utilize as declarações de exemplo já adicionadas à sua aplicação.
+Quando utilizar uma aplicação diferente deste tutorial, *não* utilize as palavras de exemplo já adicionadas à sua app.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * App de exemplo de importação
 > * Criar um ficheiro de teste de lote
-> * Realizar um teste de lote
-> * Analisar os resultados dos testes
+> * Fazer um teste de lote
+> * Rever os resultados dos testes
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>App de exemplo de importação
 
-Importar uma app que requer uma encomenda de pizza como `1 pepperoni pizza on thin crust` .
+Importe uma aplicação que leve uma encomenda de pizza como `1 pepperoni pizza on thin crust` .
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
-1. Importe o JSON numa nova app, nomeie a app `Pizza app` .
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Importe o JSON numa nova aplicação, nomeie a `Pizza app` app.
 
 
-1. Selecione **Comboio** no canto superior direito da navegação para treinar a aplicação.
+1. Selecione **Train** no canto superior direito da navegação para treinar a aplicação.
 
-## <a name="what-should-the-batch-file-utterances-include"></a>O que as expressões do ficheiro do lote devem incluir
+## <a name="what-should-the-batch-file-utterances-include"></a>O que devem as expressões de ficheiros de lote incluem
 
-O ficheiro do lote deve incluir expressões com entidades de aprendizagem automática de alto nível rotuladas, incluindo a posição de início e fim. As declarações não devem fazer parte dos exemplos já na aplicação. Devem ser declarações que pretende prever positivamente para intenções e entidades.
+O ficheiro do lote deve incluir expressões com entidades de aprendizagem automática de alto nível rotuladas, incluindo posição inicial e final. As declarações não devem fazer parte dos exemplos já na app. Devem ser expressões que se pretende prever positivamente para as intenções e entidades.
 
 Pode separar os testes por intenção e/ou entidade ou ter todos os testes (até 1000 expressões) no mesmo ficheiro.
 
-## <a name="batch-file"></a>Ficheiro de lote
+## <a name="batch-file"></a>Arquivo de lote
 
-O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar como é um ficheiro de teste. Nos seus próprios testes, deve ter muitas declarações com a intenção correta e entidade de aprendizagem automática rotulada.
+O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar como é um ficheiro de teste. Nos seus próprios testes, deve ter muitas expressões com a intenção correta e a entidade de aprendizagem automática rotulada.
 
-1. Crie num editor de `pizza-with-machine-learned-entity-test.json` texto ou [descarregue-o.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
+1. Crie `pizza-with-machine-learned-entity-test.json` num editor de texto ou [descarregue-o.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
 
-2. No ficheiro de lote formado pela JSON, adicione uma expressão com a **Intenção** que pretende prevista no teste.
+2. No ficheiro de lote em formatado JSON, adicione uma expressão com a **Intenção** que pretende prever no teste.
 
    [!code-json[Add the intents to the batch test file](~/samples-cognitive-services-data-files/luis/batch-tests/pizza-with-machine-learned-entity-test.json "Add the intent to the batch test file")]
 
@@ -67,76 +67,76 @@ O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar com
 
 1. Selecione **Teste** na barra de navegação superior.
 
-2. Selecione **painel de ensaio** de lote no painel do lado direito.
+2. Selecione painel de **testes** de lote no painel do lado direito.
 
-3. Selecione **conjunto de dados de importação**.
+3. Selecione **Conjunto de dados de importação**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da app LUIS com conjunto de dados de importação em destaque](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
-4. Escolha a localização do ficheiro do `pizza-with-machine-learned-entity-test.json` ficheiro.
+4. Escolha a localização do ficheiro `pizza-with-machine-learned-entity-test.json` do ficheiro.
 
-5. Nomeie o conjunto de dados `pizza test` e selecione **Done**.
+5. Nomeie o conjunto de dados `pizza test` e selecione **Feito**.
 
     > [!div class="mx-imgBorder"]
     > ![Selecione ficheiro](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
 
-6. Selecionar o botão **Executar**.
+6. Selecione o botão **Run** (Executar).
 
 7. Selecione **Ver resultados**.
 
-8. A revisão resulta no gráfico e na lenda.
+8. Rever os resultados no gráfico e na lenda.
 
 ## <a name="review-batch-results-for-intents"></a>Rever os resultados do lote para intenções
 
-Os resultados dos testes mostram graficamente como as declarações dos testes foram previstas contra a versão ativa.
+Os resultados dos testes mostram graficamente como as declarações de teste foram previstas contra a versão ativa.
 
-O gráfico do lote apresenta quatro quadrantes de resultados. À direita da tabela está um filtro. O filtro contém intenções e entidades. Quando selecionar uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, a expressão associada(s) mostra abaixo do gráfico.
+O gráfico do lote apresenta quatro quadrantes de resultados. À direita da tabela está um filtro. O filtro contém intenções e entidades. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro da tabela, o(s) visualização de expressão associada abaixo da tabela.
 
-Enquanto paira sobre a tabela, uma roda de rato pode ampliar ou reduzir o visor na tabela. Isto é útil quando há muitos pontos na tabela agrupados firmemente.
+Enquanto paira sobre a tabela, uma roda de rato pode ampliar ou reduzir o visor na tabela. Isto é útil quando há muitos pontos na tabela agrupados firmemente juntos.
 
-O gráfico está em quatro quadrantes, com duas das secções expostas a vermelho.
+O gráfico está em quatro quadrantes, com duas das secções exibidas a vermelho.
 
-1. Selecione a intenção **De ModificarOrder** na lista de filtros.
+1. Selecione a intenção **modificar-se** na lista de filtros.
 
     > [!div class="mx-imgBorder"]
-    > ![Selecione modificar a intenção de Modificar Order da lista de filtros](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
+    > ![Selecione Modificar Intenção de Modificar da lista de filtros](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
 
-    A expressão é prevista como um **True Positive,** o que significa que a expressão correspondeu com sucesso à sua previsão positiva listada no ficheiro do lote.
+    A expressão é prevista como um **Verdadeiro Positivo,** o que significa que a expressão correspondeu com sucesso à sua previsão positiva listada no ficheiro do lote.
 
     > [!div class="mx-imgBorder"]
     > ![A expressão correspondeu com sucesso à sua previsão positiva](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
 
-    As marcas de verificação verdes na lista de filtros também indicam o sucesso do teste para cada intenção. Todas as outras intenções são listadas com uma pontuação positiva de 1/1 porque a expressão foi testada contra cada intenção, como um teste negativo para quaisquer intenções não enumeradas no teste do lote.
+    As marcas verdes na lista de filtros também indicam o sucesso do teste para cada intenção. Todas as outras intenções são listadas com uma pontuação positiva de 1/1 porque a expressão foi testada contra cada intenção, como um teste negativo para quaisquer intenções não listadas no teste do lote.
 
-1. Selecione a intenção de **confirmação.** Esta intenção não está listada no teste do lote, por isso este é um teste negativo da expressão que está listada no teste do lote.
+1. Selecione a intenção **de confirmação.** Esta intenção não está listada no teste do lote, pelo que este é um teste negativo da expressão que está listada no teste do lote.
 
     > [!div class="mx-imgBorder"]
-    > ![Utterance previu negativamente com sucesso para intenção não listada em ficheiro de lote](./media/luis-tutorial-batch-testing/true-negative-intent.png)
+    > ![Pronunciação com sucesso previu negativo para intenção não cotada no ficheiro de lote](./media/luis-tutorial-batch-testing/true-negative-intent.png)
 
-    O teste negativo foi bem sucedido, como notado com o texto verde no filtro, e a grelha.
+    O teste negativo foi bem sucedido, como se nota com o texto verde no filtro e na grelha.
 
 ## <a name="review-batch-test-results-for-entities"></a>Rever os resultados dos testes de lote para entidades
 
-A entidade ModificarOrder, como entidade máquina com subentidades, exibe se a entidade de alto nível corresponde e mostra como as subentidades são previstas.
+A entidade ModificarOrder, enquanto entidade de máquina com subentidades, exibe se a entidade de nível superior corresponde e mostrar como as subentígios são previstas.
 
 1. Selecione a entidade **ModificarOrder** na lista de filtros e, em seguida, selecione o círculo na grelha.
 
-1. A previsão da entidade mostra abaixo do gráfico. O ecrã inclui linhas sólidas para previsões que correspondem às expectativas e linhas pontilhadas para previsões que não correspondem à expectativa.
+1. A previsão da entidade apresenta abaixo do gráfico. O ecrã inclui linhas sólidas para previsões que correspondem às expectativas e linhas pontilhadas para previsões que não correspondem às expectativas.
 
     > [!div class="mx-imgBorder"]
-    > ![Entidade-mãe prevista com sucesso em ficheiro de lote](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
+    > ![Progenitor da entidade com sucesso previsto em ficheiro de lote](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
 
 ## <a name="finding-errors-with-a-batch-test"></a>Encontrar erros com um teste de lote
 
-Este tutorial mostrou-lhe como fazer um teste e interpretar resultados. Não cobriu a filosofia de teste nem como reagir a testes falhados.
+Este tutorial mostrou-lhe como fazer um teste e interpretar resultados. Não cobria a filosofia de teste ou como responder a testes falhados.
 
-* Certifique-se de cobrir as declarações positivas e negativas no seu teste, incluindo as expressões que podem ser previstas para uma intenção diferente, mas relacionada.
-* Para falhar as expressões, execute as seguintes tarefas e execute novamente os testes:
-    * Reveja os exemplos atuais para intenções e entidades, validar as declarações exemplo da versão ativa são corretas tanto para a intenção como para a rotulagem de entidades.
+* Certifique-se de cobrir expressões positivas e negativas no seu teste, incluindo expressões que podem ser previstas para uma intenção diferente, mas relacionada.
+* Para não obter declarações falhadas, execute as seguintes tarefas e, em seguida, execute novamente os testes:
+    * Reveja os exemplos atuais para intenções e entidades, valide as declarações de exemplo da versão ativa são corretas tanto para a intenção como para a rotulagem de entidades.
     * Adicione funcionalidades que ajudam a sua app a prever intenções e entidades
-    * Adicione mais declarações positivas de exemplo
-    * Rever o balanço das declarações de exemplo através das intenções
+    * Adicione mais palavras de exemplo positivas
+    * Rever o equilíbrio das expressões de exemplo através de intenções
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -147,5 +147,5 @@ Este tutorial mostrou-lhe como fazer um teste e interpretar resultados. Não cob
 O tutorial usou um teste de lote para validar o modelo atual.
 
 > [!div class="nextstepaction"]
-> [Saiba sobre padrões](luis-tutorial-pattern.md)
+> [Saiba mais sobre padrões](luis-tutorial-pattern.md)
 

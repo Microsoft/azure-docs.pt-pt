@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422453"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798181"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerencie as suas organizações conectadas a partir da página organizações
 
@@ -30,7 +30,7 @@ A página **organizações** do portal **My Account** ajuda-o a gerir as organiz
 - **Outras organizações.** As outras organizações são qualquer grupo em que se inscreveu anteriormente usando o seu trabalho ou conta escolar. Pode deixar qualquer uma destas organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar as informações da organização ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index)da Enterprise .
+>Este artigo destina-se a utilizadores que tentem atualizar as informações da organização ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](../users-groups-roles/index.yml)da Enterprise .
 
 ## <a name="view-your-organizations"></a>Ver as suas organizações
 
@@ -57,11 +57,11 @@ Pode deixar qualquer organização que não seja a sua organização.
 
     ![Página de organizações com link de organização de licença em destaque](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ver as suas organizações, pode:
 
-- Ver ou gerir a sua [informação de segurança.](user-help-security-info-overview.md)
+- Ver ou gerir a sua [informação de segurança.](./security-info-setup-signin.md)
 
 - Ver ou gerir os [seus dispositivos ligados](my-account-portal-devices-page.md).
 

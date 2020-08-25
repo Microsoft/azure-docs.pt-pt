@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 4249f753181ea4b54d7e1e1f098717ef669bae4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744032"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798113"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicações no portal My Apps
 
@@ -26,7 +26,7 @@ Quando utiliza aplicações organizacionais no portal **My Apps,** muitas vezes 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces)
+>Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/access-panel-collections.md)
 
 ## <a name="manage-app-permissions"></a>Gerir permissões de aplicações
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: ae431d27af4a1717a32e348ba852f9b2b9fe9331
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451106"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760588"
 ---
 | Recurso | Ações de ficheiros padrão | Ações de ficheiros premium |
 |----------|---------------|------------------------------------------|
@@ -17,7 +17,7 @@ ms.locfileid: "87451106"
 | Tamanho máximo de uma partilha de ficheiros | 100 TiB*, 5 TiB | 100 TiB |
 | Tamanho máximo de um ficheiro numa partilha de ficheiros | 1 TiB | 4 TiB |
 | Número máximo de ficheiros numa partilha de ficheiros | Sem limite | Sem limite |
-| IOPS máximo por ação | 10.000 IOPS*, 1.000 OPS | 100.000 OPS |
+| IOPS máximo por ação | 10.000 IOPS*, 1.000 IOPS ou 100 pedidos em 100ms | 100.000 OPS |
 | Número máximo de políticas de acesso armazenadas por partilha de ficheiros | 5 | 5 |
 | Produção de destino para uma única partilha de ficheiros | até 300 MiB/seg*, até 60 MiB/seg,  | Ver valores de entradas e saídas de ficheiros premium|
 | Saída máxima para uma única partilha de ficheiros | Ver produção-alvo de partilha de ficheiros padrão | Até 6.204 MiB/s |
@@ -27,4 +27,4 @@ ms.locfileid: "87451106"
 | Comprimento máximo do nome do objeto (diretórios e ficheiros) | 2.048 caracteres | 2.048 caracteres |
 | Componente de nome de pathname máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |
 
-\*O predefinimento das ações de ficheiros padrão é 5 TiB, ver [Enable e criar grandes ações de ficheiros](../articles/storage/files/storage-files-how-to-create-large-file-share.md) para os detalhes sobre como aumentar a escala de ações de ficheiros padrão até 100 TiB.
+\* O predefinimento das ações de ficheiros padrão é 5 TiB, ver [Enable e criar grandes ações de ficheiros](../articles/storage/files/storage-files-how-to-create-large-file-share.md) para os detalhes sobre como aumentar a escala de ações de ficheiros padrão até 100 TiB.

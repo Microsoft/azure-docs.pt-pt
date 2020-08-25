@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185762"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750875"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -47,7 +47,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Description|
+|Configuração de exibição | Descrição|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -62,7 +62,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Description |
+|Etapas de exibição &nbsp;| Descrição |
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
@@ -108,7 +108,7 @@ Guarda-costas|Estado|Condição &nbsp; para &nbsp; o gatilho
 **Imputação de valores de recurso em falta** |Passado <br><br><br> Concluído| Não foram detetados valores de recurso em falta nos seus dados de treino. Saiba mais sobre [a imputação de valor em falta.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de recurso em falta foram detetados nos seus dados de treino e foram imputados.
 **Alto tratamento de recurso cardinalício** |Passado <br><br><br> Concluído| As suas entradas foram analisadas, e não foram detetadas características de alto cardeal. <br><br> As características de alta cardinalidade foram detetadas nas suas entradas e foram tratadas.
 **Tratamento dividido de validação** |Concluído| A configuração de validação foi definida `'auto'` e os dados de treino continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada através da validação cruzada. Saiba mais sobre [dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> A configuração de validação foi definida para `'auto'` , e os dados de treino continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos num conjunto de dados de formação e num conjunto de dados de validação para validação do modelo.
-**Deteção de equilíbrio de classes** |Passado <br><br>Alertado <br><br>Concluído | As suas entradas foram analisadas e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br><br> As aulas desequilibradas foram detetadas nas suas entradas. Para corrigir o viés do modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)<br><br><br> As classes desequilibradas foram detetadas nas suas entradas e a lógica abrangente determinou aplicar o equilíbrio.
+**Deteção de equilíbrio de classes** |Passado <br><br><br><br>Alertado <br><br><br>Concluído | As suas entradas foram analisadas e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br> As aulas desequilibradas foram detetadas nas suas entradas. Para corrigir o viés do modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)<br><br> As classes desequilibradas foram detetadas nas suas entradas e a lógica abrangente determinou aplicar o equilíbrio.
 **Deteção de problemas de memória** |Passado <br><br><br><br> Concluído |<br> Os valores selecionados (horizonte, lag, janela rolante) foram analisados e não foram detetados potenciais problemas fora da memória. Saiba mais sobre [as configurações de previsão de séries temporq.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>Os valores selecionados (horizonte, lag, janela rolante) foram analisados e potencialmente farão com que a sua experiência fique sem memória. As configurações de lag ou janela de rolamento foram desligadas.
 **Deteção de frequências** |Passado <br><br><br><br> Concluído |<br> As séries horárias foram analisadas e todos os pontos de dados estão alinhados com a frequência detetada. <br> <br> As séries horárias foram analisadas e foram detetados pontos de dados que não se alinham com a frequência detetada. Estes pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de séries de tempo](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 
@@ -182,7 +182,7 @@ Esta lista inclui todos os nomes de recursos projetados.
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
 
-Saída
+Resultado
 
   ```
   [{'RawFeatureName': 'A',
@@ -207,7 +207,7 @@ Saída
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   |Saída|Definição|
+   |Resultado|Definição|
    |----|--------|
    |RawFeatureName|Denominação/nome da coluna a partir do conjunto de dados fornecido.|
    |TipoDetectado|Tipo de dados detetado da função de entrada.|
@@ -312,7 +312,7 @@ Para o BERT, o modelo é afinado e treinado utilizando as etiquetas fornecidas p
 
 ### <a name="bert-steps"></a>Passos BERT
 
-Para invocar o BERT, tem de definir `enable_dnn: True` o seu automl_settings e utilizar um cálculo gpu (por `vm_size = "STANDARD_NC6"` exemplo, ou uma GPU superior). Se for utilizado um cálculo CPU, em vez de BERT, o AutoML permite o aditador BiLSTM DNN.
+Para invocar o BERT, tem de definir  `enable_dnn: True` o seu automl_settings e utilizar um cálculo gpu (por `vm_size = "STANDARD_NC6"` exemplo, ou uma GPU superior). Se for utilizado um cálculo CPU, em vez de BERT, o AutoML permite o aditador BiLSTM DNN.
 
 A AutoML dá os seguintes passos para o BERT. 
 

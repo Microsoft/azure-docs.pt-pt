@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ac32c41bd6b30c3edce68d67adc376e066d0bf5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213963"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797603"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação na piscina Sinaapse SQL
 
@@ -142,6 +142,9 @@ GROUP BY
 ,       t.[name]
 ;
 ```
+
+>[!TIP]
+> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 Agora que criou a vista, faça esta consulta para identificar tabelas com grupos de linha com menos de 100 mil linhas. Claro que pode querer aumentar o limiar de 100 mil se estiver à procura de uma qualidade de segmento mais ótima.
 
@@ -285,6 +288,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 Para obter mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [utilizar divisórias na piscina Sinapse SQL](sql-data-warehouse-tables-partition.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o desenvolvimento de tabelas, consulte [tabelas de desenvolvimento.](sql-data-warehouse-tables-overview.md)

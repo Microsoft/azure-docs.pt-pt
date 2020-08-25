@@ -11,19 +11,19 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422521"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798198"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Altere a palavra-passe do seu trabalho ou da conta escolar a partir da página Change Password
 
 A página de **palavra-passe Change** do portal **Minha Conta** ajuda-o a atualizar uma palavra-passe existente para o seu trabalho ou conta escolar, assumindo que se lembra da palavra-passe e que não está trancada fora da sua conta. Se não se lembrar da sua palavra-passe, se estiver bloqueado fora da sua conta, ou se nunca tiver recebido uma palavra-passe da sua organização, pode utilizar a sua informação de segurança e o seu dispositivo móvel para redefinir a sua palavra-passe.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar uma palavra-passe conhecida para uma conta de trabalho ou escola existente. Se for um utilizador a tentar entrar numa conta pessoal, como por exemplo para a Xbox, Hotmail ou Outlook.com, experimente as sugestões no [When you can't't iniciar sôm no seu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo de conta Microsoft. Se for um administrador a tentar encontrar mais informações sobre como testar a redefinição da palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte [a palavra-passe de self-service reposta](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
+>Este artigo destina-se a utilizadores que tentem atualizar uma palavra-passe conhecida para uma conta de trabalho ou escola existente. Se for um utilizador a tentar entrar numa conta pessoal, como por exemplo para a Xbox, Hotmail ou Outlook.com, experimente as sugestões no [When you can't't iniciar sôm no seu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo de conta Microsoft. Se for um administrador a tentar encontrar mais informações sobre como testar a redefinição da palavra-passe de autosserviço para os seus colaboradores ou outros utilizadores, consulte [a palavra-passe de self-service reposta](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Atualize uma palavra-passe a partir da página de senha de alteração
 
@@ -41,11 +41,11 @@ A página de **palavra-passe Change** do portal **Minha Conta** ajuda-o a atuali
 
     A sua palavra-passe será alterada e ser-lhe-á pedido que volte a inscrever-se na sua conta de trabalho ou escola.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de alterar a sua palavra-passe, pode:
 
-- Ver ou gerir a sua [informação de segurança.](user-help-security-info-overview.md)
+- Ver ou gerir a sua [informação de segurança.](./security-info-setup-signin.md)
 
 - Ver ou gerir os [seus dispositivos ligados](my-account-portal-devices-page.md).
 

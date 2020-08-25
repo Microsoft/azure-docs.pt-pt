@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659590"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756321"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -16,15 +16,11 @@ Este artigo descreve tarefas comuns para gerir e monitorizar bases de dados do S
 
 Se ainda não tiver configurado cópias de segurança para as bases de dados do SQL Server, consulte [bases de dados do SQL Server em VMs Azure](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorize trabalhos de backup manual no portal
+## <a name="monitor-backup-jobs-in-the-portal"></a>Monitorize trabalhos de backup no portal
 
-A Azure Backup mostra todos os trabalhos desencadeados manualmente no portal **de empregos de reserva.** Os trabalhos que você vê neste portal incluem descoberta e registo de bases de dados, e operações de backup e restauro.
+O Azure Backup mostra todas as operações programadas e a pedido sob **trabalhos de Backup** no portal, exceto as cópias de segurança programadas, uma vez que podem ser muito frequentes. Os trabalhos que você vê neste portal incluem descoberta e registo de bases de dados, configurar backup, e backup e restaurar operações.
 
 ![O portal de empregos de reserva](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> O **portal de empregos de reserva** não mostra trabalhos de reserva programados. Utilize o SQL Server Management Studio para monitorizar os trabalhos de backup programados, conforme descrito na secção seguinte.
->
 
 Para mais informações sobre os cenários de monitorização, vá à [Monitorização no portal Azure](backup-azure-monitoring-built-in-monitor.md) e monitorização utilizando o [Monitor Azure](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -162,7 +158,7 @@ Desativar uma instância do SQL Server depois de desativar a proteção, mas ant
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Re-registrar extensão no SQL Server VM
 
-Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razão ou outra. Nesses casos, todas as operações desencadeadas no VM começarão a falhar. Poderá então ser necessário voltar a registar a extensão no VM. A operação **de re-registo** reinstala a extensão de backup da carga de trabalho no VM para que as operações continuem. Pode encontrar esta opção em **Infraestrutura de Backup** no Cofre do Serviço de Recuperação.
+Por vezes, a extensão da carga de trabalho no VM pode ser impactada por uma razão ou outra. Nesses casos, todas as operações desencadeadas no VM começarão a falhar. Poderá então ser necessário voltar a registar a extensão no VM. A operação **de re-registo** reinstala a extensão de backup da carga de trabalho no VM para que as operações continuem. Pode encontrar esta opção em **Infraestrutura de Backup** no cofre dos Serviços de Recuperação.
 
 ![Servidores protegidos em infraestrutura de backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

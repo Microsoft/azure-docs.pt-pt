@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
-ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 08/21/2020
+ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565832"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751056"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de um índice de pesquisa cognitiva de Power Apps
 
@@ -47,7 +47,7 @@ Um conector em Power Apps é uma ligação de fonte de dados. Neste passo, irá 
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu de conector personalizado" border="true":::
 
-1. Selecione **+ Novo conector personalizado**e, em seguida, selecione Criar a partir de **branco**.
+1. Selecione  **+ Novo conector personalizado**e, em seguida, selecione Criar a partir de **branco**.
 
     :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Criar a partir do menu em branco" border="true":::
 
@@ -72,9 +72,9 @@ Um conector em Power Apps é uma ligação de fonte de dados. Neste passo, irá 
 
 1. Rola para baixo. Em Pedidos, selecione **+ Importar do** botão de amostra para configurar um pedido de consulta para o seu serviço de pesquisa:
 
-   * Selecione o verbo`GET`
+   * Selecione o verbo `GET`
 
-   * Para o URL introduza uma consulta de amostra para o seu índice de pesquisa `search=*` (devolve todos os `$select=` documentos, permite-lhe escolher campos). A versão API é necessária. Totalmente especificado, um URL pode parecer assim:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
+   * Para o URL introduza uma consulta de amostra para o seu índice de pesquisa `search=*` (devolve todos os `$select=` documentos, permite-lhe escolher campos). A versão API é necessária. Totalmente especificado, um URL pode parecer assim: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
    * Para cabeçalhos, escreva `Content-Type` . 
 
@@ -92,7 +92,7 @@ Um conector em Power Apps é uma ligação de fonte de dados. Neste passo, irá 
 
 1. Para *selecionar*: Desafina `HotelName,Description,Address/City` como o valor **predefinido,** definido **como** *Falso*, e desatado **visibilidade** a *nenhum*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadados de parâmetros de versão" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Selecione metadados de parâmetros" border="true":::
 
 1. Para *a versão api*: Desafina `2020-06-30` como o valor **predefinido**, definido **para** *Verdadeiro*, e desate a **visibilidade** como *interna*.  
 

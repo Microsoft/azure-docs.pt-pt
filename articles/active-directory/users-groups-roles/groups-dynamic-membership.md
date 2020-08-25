@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213804"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797110"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -135,7 +135,7 @@ Para as propriedades utilizadas para as regras do dispositivo, consulte [regras 
 
 A tabela que se segue lista todos os operadores apoiados e a sua sintaxe para uma única expressão. Os operadores podem ser utilizados com ou sem o prefixo hífen (-) prefixo.
 
-| Operador | Sintaxe |
+| Operador | Syntax |
 | --- | --- |
 | Não é igual |-ne |
 | Igual a |-eq |
@@ -213,7 +213,7 @@ Seguem-se exemplos de regras de adesão devidamente construídas com múltiplas 
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedência de operadores
+### <a name="operator-precedence"></a>Precedência dos operadores
 
 Todos os operadores estão listados abaixo por ordem de precedência do mais alto para o mais baixo. Os operadores na mesma linha têm igual precedência:
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propriedades de extensão e propriedades de extensão personalizadas
 
-Os atributos de extensão e as propriedades de extensão personalizadas são suportados como propriedades de cordas em regras dinâmicas de adesão. [Os atributos](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) de extensão são sincronizados a partir do AD do Servidor de Janela no local e tomam o formato de "ExtensionAttributeX", onde X é igual a 1 - 15. Aqui está um exemplo de uma regra que usa um atributo de extensão como propriedade:
+Os atributos de extensão e as propriedades de extensão personalizadas são suportados como propriedades de cordas em regras dinâmicas de adesão. [Os atributos](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) de extensão são sincronizados a partir do AD do Servidor de Janela no local e tomam o formato de "ExtensionAttributeX", onde X é igual a 1 - 15. Aqui está um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[As propriedades de extensão personalizada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) são sincronizadas a partir de AD do Windows Server ou de uma aplicação SaaS conectada e são do formato de `user.extension_[GUID]_[Attribute]` , onde:
+[As propriedades de extensão personalizada](../hybrid/how-to-connect-sync-feature-directory-extensions.md) são sincronizadas a partir de AD do Windows Server ou de uma aplicação SaaS conectada e são do formato de `user.extension_[GUID]_[Attribute]` , onde:
 
 * [GUID] é o identificador único em Azure AD para a aplicação que criou o imóvel em Azure AD
 * [Atributo] é o nome da propriedade tal como foi criado
@@ -393,7 +393,7 @@ Podem ser utilizados os seguintes atributos do dispositivo.
  systemLabels | qualquer cadeia que combine a propriedade do dispositivo Intune para marcar dispositivos do Local de Trabalho Moderno | (device.systemLabels -contém "M365Managed")
 
 > [!Note]  
-> Para o dispositivoSaonerar ao criar Grupos Dinâmicos para dispositivos, é necessário definir o valor igual a "Empresa". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte os [Tipos Proprietários](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
+> Para o dispositivoSaonerar ao criar Grupos Dinâmicos para dispositivos, é necessário definir o valor igual a "Empresa". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte os [Tipos Proprietários](/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

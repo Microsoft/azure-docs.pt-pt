@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729035"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795427"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory
 
@@ -85,7 +85,7 @@ Pode colocar uma subscrição no estado **Deprovisionado** a ser eliminada em tr
 
    ![Eliminar link para eliminar subscrição](./media/directory-delete-howto/delete-command.png)
 
-6. Selecione Eliminar a **subscrição** para eliminar a subscrição e aceitar os termos e condições. Todos os dados são permanentemente eliminados dentro de três dias. Pode [reativar a subscrição](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideias.
+6. Selecione Eliminar a **subscrição** para eliminar a subscrição e aceitar os termos e condições. Todos os dados são permanentemente eliminados dentro de três dias. Pode [reativar a subscrição](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideias.
   
    ![ler cuidadosamente termos e condições](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,18 +97,18 @@ Pode colocar uma subscrição no estado **Deprovisionado** a ser eliminada em tr
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de teste que bloqueia a eliminação.
 
-Existem [produtos de inscrição de self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como o Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, cada um dos utilizadores pode inscrever-se através do Office 365, o que também cria um utilizador convidado para autenticação na sua organização Azure AD. Estes produtos de self-service bloqueiam as eliminações do diretório até que os produtos sejam totalmente eliminados da organização, para evitar a perda de dados. Só podem ser eliminados pelo administrador Azure AD se o utilizador se inscreveu individualmente ou foi designado o produto.
+Existem [produtos de inscrição de self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como o Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, cada um dos utilizadores pode inscrever-se através do Office 365, o que também cria um utilizador convidado para autenticação na sua organização Azure AD. Estes produtos de self-service bloqueiam as eliminações do diretório até que os produtos sejam totalmente eliminados da organização, para evitar a perda de dados. Só podem ser eliminados pelo administrador Azure AD se o utilizador se inscreveu individualmente ou foi designado o produto.
 
 Existem dois tipos de produtos de autosserviço de inscrição na forma como são atribuídos: 
 
 * Atribuição ao nível org: Um administrador AD Azure atribui o produto a toda a organização e um utilizador pode estar ativamente a utilizar o serviço com esta atribuição ao nível org mesmo que não sejam licenciados individualmente.
 * Atribuição ao nível do utilizador: Um utilizador individual durante a inscrição de autosserviço atribui essencialmente o produto a si próprio sem administração. Uma vez que a organização é gerida por um administrador (ver [Administrador assumir uma organização não gerida](domains-admin-takeover.md), então o administrador pode atribuir diretamente o produto aos utilizadores sem inscrição de autosserviço.  
 
-Quando inicia a eliminação do produto de inscrição de autosserviço, a ação elimina permanentemente os dados e remove todo o acesso do utilizador ao serviço. Qualquer utilizador que tenha sido atribuído a oferta individualmente ou a nível da organização fica então impedido de iniciar sessão ou aceder a quaisquer dados existentes. Se pretender evitar a perda de dados com o produto de inscrição de autosserviço, como os dashboards Do Microsoft Power BI ou [a configuração da política dos Serviços de Gestão de](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy) [Direitos,](https://docs.microsoft.com/power-bi/service-export-to-pbix) certifique-se de que os dados são apoiados e guardados noutro local.
+Quando inicia a eliminação do produto de inscrição de autosserviço, a ação elimina permanentemente os dados e remove todo o acesso do utilizador ao serviço. Qualquer utilizador que tenha sido atribuído a oferta individualmente ou a nível da organização fica então impedido de iniciar sessão ou aceder a quaisquer dados existentes. Se pretender evitar a perda de dados com o produto de inscrição de autosserviço, como os dashboards Do Microsoft Power BI ou [a configuração da política dos Serviços de Gestão de](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy) [Direitos,](/power-bi/service-export-to-pbix) certifique-se de que os dados são apoiados e guardados noutro local.
 
-Para obter mais informações sobre produtos e serviços de autosserviço disponíveis, consulte os [programas de self-service disponíveis.](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)
+Para obter mais informações sobre produtos e serviços de autosserviço disponíveis, consulte os [programas de self-service disponíveis.](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)
 
-Para o que esperar quando uma assinatura do Escritório 365 expirar (sem incluir parceiro/CSP pago, Acordo de Empresa ou Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o ciclo de vida de retenção de dados e subscrição do Office [365, veja o que acontece aos meus dados e acesso quando o meu Office 365 para subscrição de negócios termina?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
+Para o que esperar quando uma assinatura do Escritório 365 expirar (sem incluir parceiro/CSP pago, Acordo de Empresa ou Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o ciclo de vida de retenção de dados e subscrição do Office [365, veja o que acontece aos meus dados e acesso quando o meu Office 365 para subscrição de negócios termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
 
 Estado do produto | Dados | Acesso aos dados
 ------------- | ---- | --------------
@@ -141,6 +141,6 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
     ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/delete-organization.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Documentação do Azure Active Directory](../index.yml)

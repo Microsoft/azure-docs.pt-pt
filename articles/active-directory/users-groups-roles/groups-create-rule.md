@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213870"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797178"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
@@ -80,7 +80,7 @@ Se a regra que inseriu não for válida, uma explicação do porquê da regra n�
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas
 
-Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Verifique o estado de processamento de uma regra
 

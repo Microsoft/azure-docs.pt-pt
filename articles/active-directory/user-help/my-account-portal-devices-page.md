@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422488"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798215"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerencie os seus dispositivos conectados a partir da página dispositivos
 
@@ -27,7 +27,7 @@ A página **dispositivos** do portal **My Account** ajuda-o a gerir os dispositi
 - Desative todos os dispositivos que já não possui, perdeu ou que foram roubados.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar as informações do dispositivo ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre a gestão do dispositivo para os seus colaboradores e outras utilizações, consulte a [Documentação de Identidades do Dispositivo](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Este artigo destina-se a utilizadores que tentem atualizar as informações do dispositivo ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre a gestão do dispositivo para os seus colaboradores e outras utilizações, consulte a [Documentação de Identidades do Dispositivo](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Ver os seus dispositivos conectados
 
@@ -64,11 +64,11 @@ Se estiver bloqueado fora do seu dispositivo ou tiver um erro fatal, pode ir a o
 
 2. Selecione **ver as teclas Bitlocker** para o dispositivo bloqueado e anota a tecla BitLocker para o seu dispositivo bloqueado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de visualizar os seus dispositivos conectados, pode:
 
-- Selecione para ver ou gerir as suas [informações de segurança.](user-help-security-info-overview.md)
+- Selecione para ver ou gerir as suas [informações de segurança.](./security-info-setup-signin.md)
 
 - Ver e gerir as suas [organizações.](my-account-portal-organizations-page.md)
 

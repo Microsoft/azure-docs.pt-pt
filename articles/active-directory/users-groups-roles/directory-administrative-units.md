@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093f4f3cd54f1e4638a0fbcd161a2af4fecba5da
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475792"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795903"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestão de unidades administrativas no Diretório Ativo Azure (pré-visualização)
 
@@ -47,8 +47,8 @@ A utilização de unidades administrativas requer uma licença Azure Ative Direc
 Nesta versão de pré-visualização, pode gerir unidades administrativas utilizando o portal Azure, cmdlets e scripts PowerShell ou o Microsoft Graph. Pode consultar a nossa documentação para mais detalhes:
 
 - [Criar, remover, preencher e adicionar funções às unidades administrativas](roles-admin-units-manage.md): Complete os procedimentos de como fazer
-- [Trabalhar com unidades de administração](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): Como trabalhar com unidades administrativas utilizando o PowerShell
-- [Suporte de gráfico de unidade administrativa](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): Documentação detalhada no Microsoft Graph para unidades administrativas.
+- [Trabalhar com unidades de administração](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): Como trabalhar com unidades administrativas utilizando o PowerShell
+- [Suporte de gráfico de unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-beta): Documentação detalhada no Microsoft Graph para unidades administrativas.
 
 ### <a name="planning-your-administrative-units"></a>Planejando as suas unidades administrativas
 

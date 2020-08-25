@@ -1,28 +1,28 @@
 ---
 title: Conceitos - Controlo de acesso baseado em funções (RBAC)
-description: Conheça as principais capacidades do controlo de acesso baseado em funções para Azure VMware Solution (AVS)
+description: Conheça as principais capacidades do controlo de acesso baseado em funções para a Azure VMware Solution
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8628c88c300ef8ed271f5e06a8e8dfae40231fec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9e83f0442953f59d02c42514a8550301ea947b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660905"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752248"
 ---
-# <a name="role-based-access-control-rbac-for-azure-vmware-solution-avs"></a>Controlo de acesso baseado em funções (RBAC) para Solução VMware Azure (AVS)
+# <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Controlo de acesso baseado em funções (RBAC) para Azure VMware Solution
 
-Numa implementação vCenter e ESXi no local, o administrador tem acesso à conta vCenter administrator@vsphere.local e pode ter utilizadores/grupos ativos adicionais atribuídos. No entanto, numa implementação da Azure VMware Solution (AVS), o administrador não tem acesso à conta de utilizador do administrador, mas pode atribuir utilizadores e grupos de AD à função CloudAdmin no vCenter.  Além disso, o utilizador privado de nuvem AVS não tem permissão para aceder ou configurar componentes de gestão específicos suportados e geridos pela Microsoft, tais como clusters, anfitriões, datastores e comutadores virtuais distribuídos.
+Numa implementação vCenter e ESXi no local, o administrador tem acesso à conta vCenter administrator@vsphere.local e pode ter utilizadores/grupos ativos adicionais atribuídos. No entanto, numa implementação da Azure VMware Solution, o administrador não tem acesso à conta de utilizador do administrador, mas pode atribuir utilizadores e grupos de AD à função CloudAdmin no vCenter.  Além disso, o utilizador privado de nuvem Azure VMware Solution não tem permissão para aceder ou configurar componentes de gestão específicos suportados e geridos pela Microsoft, tais como clusters, anfitriões, datastores e comutadores virtuais distribuídos.
 
 
-No AVS, o vCenter tem um utilizador local incorporado chamado cloudadmin que é atribuído ao papel cloudAdmin incorporado. O utilizador local de cloudadmin é utilizado para configurar utilizadores adicionais em AD. O papel cloudAdmin, em geral, tem o privilégio de criar e gerir cargas de trabalho na sua nuvem privada (máquinas virtuais, conjuntos de recursos, datastores e redes). O papel cloudAdmin em AVS tem um conjunto específico de privilégios vCenter que diferem de outras soluções de nuvem VMware.   
+Na Azure VMware Solution, o vCenter tem um utilizador local incorporado chamado cloudadmin que é atribuído ao papel cloudAdmin incorporado. O utilizador local de cloudadmin é utilizado para configurar utilizadores adicionais em AD. O papel cloudAdmin, em geral, tem o privilégio de criar e gerir cargas de trabalho na sua nuvem privada (máquinas virtuais, conjuntos de recursos, datastores e redes). O papel cloudAdmin na Azure VMware Solution tem um conjunto específico de privilégios vCenter que diferem de outras soluções de nuvem VMware.   
 
 > [!NOTE]
-> ATUALMENTE, o AVS não oferece funções personalizadas no vCenter ou no portal AVS. 
+> A Azure VMware Solution não oferece atualmente funções personalizadas no vCenter ou no portal Azure VMware Solution. 
 
-## <a name="avs-cloudadmin-role-on-vcenter"></a>Papel de AVS CloudAdmin no vCenter
+## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin de Solução VMware Azure no vCenter
 
-Pode ver os privilégios concedidos ao papel AVS CloudAdmin no seu vCenter de nuvem privada AVS.
+Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMware no seu VMware Solution privado VMware Solution vCenter.
 
 1. Inicie sessão no SDDC vSphere Client e vá para a **Menu**  >  **Administração**do Menu.
 1. Sob **controlo de acesso**, selecione **Roles**.
@@ -30,7 +30,7 @@ Pode ver os privilégios concedidos ao papel AVS CloudAdmin no seu vCenter de nu
 
    :::image type="content" source="media/rbac-cloudadmin-role-privileges.png" alt-text="Como ver os privilégios de papel cloudAdmin no vSphere Client":::
 
-O papel cloudAdmin em AVS tem os seguintes privilégios no vCenter. Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
+O papel cloudAdmin na Azure VMware Solution tem os seguintes privilégios no vCenter. Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 
 | Privilege | Descrição |
 | --------- | ----------- |
@@ -55,7 +55,7 @@ O papel cloudAdmin em AVS tem os seguintes privilégios no vCenter. Consulte a d
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 

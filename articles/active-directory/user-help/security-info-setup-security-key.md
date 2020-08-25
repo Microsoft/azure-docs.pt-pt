@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: 91138f104c787148042b187f4cf59a60bc1448d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744418"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797671"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Crie uma chave de segurança como o seu método de verificação
 
@@ -158,13 +158,13 @@ Pode criar um novo PIN de chave de segurança para a sua chave de segurança.
 
 ## <a name="additional-security-info-methods"></a>Métodos adicionais de informação de segurança
 
-Para registar uma chave de segurança, deve ter pelo menos um método adicional de verificação de segurança registado. Consulte a [secção Geral para](security-info-add-update-methods-overview.md) mais informações. 
+Para registar uma chave de segurança, deve ter pelo menos um método adicional de verificação de segurança registado. Consulte a [secção Geral para](./security-info-setup-auth-app.md) mais informações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre métodos de verificação sem palavras-passe, a [leitura do Azure AD da Microsoft inicia a pré-visualização pública das teclas de segurança FIDO2, permitindo o blog de login sem palavras-passe](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou leia o [que é a app microsoft Authenticator?](user-help-auth-app-overview.md) [Windows Hello overview](https://www.microsoft.com/windows/windows-hello)
 
-- Para obter informações mais detalhadas sobre [as chaves de segurança compatíveis com a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Para obter informações mais detalhadas sobre [as chaves de segurança compatíveis com a Microsoft](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Reinicie a sua palavra-passe se a tiver perdido ou esquecido, a partir do [portal de reset password](https://passwordreset.microsoftonline.com/) ou siga os passos no artigo de Reposição do seu trabalho ou [palavra-passe escolar.](active-directory-passwords-update-your-own-password.md)
 

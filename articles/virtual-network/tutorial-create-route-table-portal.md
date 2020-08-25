@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86079654"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas funções de rede, tais como o encaminhamento e a otimização de firewall. Este tutorial pressupõe que está a utilizar **o Centro de Dados 2016 do Windows Server**. Pode selecionar um sistema operativo diferente, se quiser.
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 1. Escolha **o Centro**de  >  **Dados 2016 do Security Windows Server**.
 
@@ -53,14 +53,14 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
     | **Detalhes do projeto** | Subscrição | Escolha a sua subscrição. |
     | | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e selecione **OK**. |
     | **Detalhes da instância** | Nome da máquina virtual | Insira *myVmNva*. |
-    | | Região | Escolha **(EUA) Leste DOS EUA.** |
+    | | Region | Escolha **(EUA) Leste DOS EUA.** |
     | | Opções de disponibilidade | Escolha **Não é necessário um despedimento de infraestrutura**. |
     | | Imagem | Escolha **o Centro de Dados 2016 do Windows Server**. |
     | | Tamanho | Mantenha o padrão, **Standard DS1 v2**. |
     | **Conta de administrador** | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | | Palavra-passe | Introduza uma palavra-passe à sua escolha, que deve ter pelo menos 12 caracteres de comprimento e satisfaça os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
     | | Confirmar Palavra-passe | Introduza a senha novamente. |
-    | **Regras da porta de entrada** | Portos de entrada pública | Escolha **Nenhum.** |
+    | **Regras da porta de entrada** | Portas de entrada públicas | Escolha **Nenhum.** |
     | **Poupe dinheiro** | Já tem uma licença do Windows Server? | Escolha **nº.** |
 
     ![Básico, Criar uma máquina virtual, portal Azure](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
@@ -82,7 +82,7 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
         | Nome da sub-rede | Intervalo de endereços |
         | ----------- | ------------- |
         | *Público* | *10.0.0.0/24* |
-        | *Privado* | *10.0.1.0/24* |
+        | *Privada* | *10.0.1.0/24* |
         | *Rede de Perímetro* | *10.0.2.0/24* |
 
     1. Selecione **OK** para sair da caixa de diálogo.
@@ -118,7 +118,7 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 2. Na caixa de pesquisa, introduza a *tabela Rota*. Quando **a tabela Rota** aparecer nos resultados da pesquisa, selecione-a.
 
@@ -207,10 +207,10 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | --- | ------- | ----- |
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPublic* |
-| | Portos de entrada pública | **Permitir portas selecionadas** |
+| | Portas de entrada públicas | **Permitir portas selecionadas** |
 | | Selecione portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
-| | Subrede | **Público (10.0.0.0/24)** |
+| | Sub-rede | **Público (10.0.0.0/24)** |
 | | Endereço IP público | O padrão |
 | Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
 
@@ -220,10 +220,10 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | --- | ------- | ----- |
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPrivate* |
-| | Portos de entrada pública | **Permitir portas selecionadas** |
+| | Portas de entrada públicas | **Permitir portas selecionadas** |
 | | Selecione portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
-| | Subrede | **Privado (10.0.1.0/24)** |
+| | Sub-rede | **Privado (10.0.1.0/24)** |
 | | Endereço IP público | O padrão |
 | Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
 
@@ -351,7 +351,7 @@ Quando o grupo de recursos já não for necessário, elimine *o myResourceGroup*
 
 1. Na caixa de diálogo de confirmação, insira *o myResourceGroup* para **TYPE THE RESOURCE GROUP NAME**e, em seguida, selecione **Delete**. O Azure elimina o *myResourceGroup* e todos os recursos ligados a esse grupo de recursos, incluindo as suas tabelas de rotas, contas de armazenamento, redes virtuais, VMs, interfaces de rede e endereços IP públicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma tabela de rotas e associou-a a uma sub-rede. Criou uma NVA simples que encaminhou o tráfego de uma sub-rede pública para uma privada. Agora pode implementar diferentes NVAs pré-configurados do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), que fornecem muitas funções de rede úteis. Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 

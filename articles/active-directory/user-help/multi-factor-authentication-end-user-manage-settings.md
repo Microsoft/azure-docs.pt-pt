@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983310"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798385"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Altere o seu método e configurações de verificação de dois fatores
 
@@ -31,10 +31,10 @@ Depois de configurar os seus métodos de verificação de segurança para o seu 
 
 ## <a name="using-the-additional-security-verification-page"></a>Utilização da página adicional de verificação de segurança
 
-Se a sua organização lhe forneceu passos específicos sobre como ligar e gerir a sua verificação de dois fatores, deve seguir essas instruções primeiro. Caso contrário, pode chegar às definições do seu método de verificação de segurança a partir da página adicional de [verificação de segurança.](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time)
+Se a sua organização lhe forneceu passos específicos sobre como ligar e gerir a sua verificação de dois fatores, deve seguir essas instruções primeiro. Caso contrário, pode chegar às definições do seu método de verificação de segurança a partir da página adicional de [verificação de segurança.](./multi-factor-authentication-end-user-first-time.md)
 
 >[!Note]
->Se o que está a ver no seu ecrã não corresponder ao que está a ser coberto neste artigo, significa que ou o seu administrador ligou a experiência **de informações de Segurança (pré-visualização)** ou que a sua organização forneceu o seu próprio portal personalizado. Para obter mais informações sobre a nova experiência de informação de segurança, consulte [a informação de segurança (pré-visualização) visão geral](user-help-security-info-overview.md). Para mais informações sobre o portal personalizado da sua organização, deve contactar o balcão de ajuda da sua organização.
+>Se o que está a ver no seu ecrã não corresponder ao que está a ser coberto neste artigo, significa que ou o seu administrador ligou a experiência **de informações de Segurança (pré-visualização)** ou que a sua organização forneceu o seu próprio portal personalizado. Para obter mais informações sobre a nova experiência de informação de segurança, consulte [a informação de segurança (pré-visualização) visão geral](./security-info-setup-signin.md). Para mais informações sobre o portal personalizado da sua organização, deve contactar o balcão de ajuda da sua organização.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Para chegar à página adicional de verificação de segurança
 
@@ -130,7 +130,7 @@ Dependendo das definições da sua organização, pode ver uma caixa de verifica
 
 A partir da página [ **de verificação de segurança adicional,** ](#to-get-to-the-additional-security-verification-page)selecione **Restaurar a autenticação de vários fatores em dispositivos previamente fidedignos**. Da próxima vez que iniciar sedução em qualquer dispositivo, será solicitado para fazer uma verificação de dois fatores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de adicionar ou atualizar as definições de verificação de dois fatores, pode gerir as suas palavras-passe da aplicação, iniciar sôs ou obter ajuda com alguns problemas comuns relacionados com a verificação de dois fatores.
 

@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755726"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763478"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -70,7 +70,7 @@ Há poucas exceções quando um alerta não é levantado sobre um fracasso. A sa
 - O trabalho de backup VM falha porque o Azure VM apoiado já não existe
 - [Alertas Consolidados](#consolidated-alerts)
 
-As exceções acima referidas são concebidas a partir do entendimento de que o resultado destas operações (principalmente o utilizador desencadeado) aparece imediatamente nos clientes portal/PS/CLI. Assim, o utilizador está imediatamente ciente e não precisa de uma notificação.
+As exceções acima são concebidas a partir do entendimento de que o resultado destas operações (principalmente o utilizador desencadeado) aparece imediatamente nos clientes portal/PS/CLI. Assim, o utilizador está imediatamente ciente e não precisa de uma notificação.
 
 ### <a name="alert-types"></a>Tipos de alerta
 

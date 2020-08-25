@@ -3,18 +3,18 @@ title: Gerir cofres e servidores dos Serviços de Recuperação Azure
 description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654213"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756066"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
 Este artigo explica como usar o painel **de visão geral** do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação. Quando abre um cofre dos Serviços de Recuperação da lista, abre-se o painel **de controlo** geral do cofre selecionado. O painel fornece vários detalhes sobre o cofre. Há *azulejos* que mostram: o estado dos alertas críticos e de alerta, os trabalhos de backup em curso e os empregos de reserva falhados, e a quantidade de armazenamento localmente redundante (LRS) e armazenamento geodu redundante (GRS) utilizados. Se fizer cópias de segurança dos VMs Azure para o cofre, o azulejo [ **de pré-verificação de cópia** de segurança apresenta quaisquer itens críticos ou de aviso](#backup-pre-check-status). A imagem a seguir é o **painel de visão** geral para **o cima da câmara de Contoso.** O **azulejo de Itens de Reserva** mostra que há nove itens registados no cofre.
 
-![painel de abóbadas de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Painel de abóbada de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Os pré-requisitos para este artigo são: uma assinatura Azure, um cofre dos Serviços de Recuperação, e que há pelo menos um item de reserva configurado para o cofre.
 
@@ -32,11 +32,11 @@ Para monitorizar alertas, ou ver dados de gestão sobre um cofre dos Serviços d
 
 3. Na caixa de diálogo **de todos os serviços,** tipo **Serviços de Recuperação.** À medida que começa a escrever, a lista filtra com base na sua entrada. Quando aparecer a opção **de cofres dos Serviços de Recuperação,** selecione-a para abrir a lista de cofres dos Serviços de Recuperação na sua subscrição.
 
-    ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Criar serviços de recuperação passo 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. Da lista de cofres, selecione um cofre para abrir o painel **de visão** geral.
 
-    ![painel de abóbadas de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Painel de abóbada de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     O painel de visão geral utiliza azulejos para fornecer alertas e dados de trabalho de backup.
 
@@ -65,7 +65,7 @@ O menu Alertas de Cópia de Segurança, na imagem acima, é filtrado por: Status
 
 ### <a name="backup-pre-check-status"></a>Estado de pré-verificação de backup
 
-Pré-Verificação de cópias de segurança Verifique a configuração dos seus VMs para problemas que possam afetar negativamente as cópias de segurança. Agregam estas informações para que possa vê-la diretamente a partir do painel de instrumentos de recuperação do Cofre e fornecer recomendações para medidas corretivas para garantir cópias de segurança consistentes com sucesso em ficheiros ou de aplicações. Não necessitam de infraestruturas e não têm custos adicionais.  
+Pré-Verificação de cópias de segurança Verifique a configuração dos seus VMs para problemas que possam afetar negativamente as cópias de segurança. Agregam estas informações para que possa vê-la diretamente do painel de abóbada dos Serviços de Recuperação e fornecer recomendações para medidas corretivas para garantir cópias de segurança consistentes com sucesso em ficheiros ou de aplicações. Não necessitam de infraestruturas e não têm custos adicionais.  
 
 Os Pré-Verificações de Backup funcionam como parte das operações de backup programadas para os seus VMs Azure. Concluem com um dos seguintes estados:
 
@@ -73,9 +73,9 @@ Os Pré-Verificações de Backup funcionam como parte das operações de backup 
 * **Aviso:** Este estado indica um ou mais problemas na configuração do VM que *podem* levar a falhas de backup. Fornece medidas *recomendadas* para garantir cópias de segurança bem sucedidas. Por exemplo, não ter o mais recente Agente VM instalado pode fazer com que as cópias de segurança falhem intermitentemente. Esta situação proporcionará um estado de alerta.
 * **Crítico**: Este estado indica um ou mais problemas críticos na configuração do VM que *levarão* a falhas de backup e fornece as medidas *necessárias* para garantir cópias de segurança bem sucedidas. Por exemplo, um problema de rede causado por uma atualização das regras NSG de um VM, irá causar falhas nas cópias de segurança, uma vez que impede o VM de comunicar com o serviço de Backup Azure. Esta situação proporcionará um estado crítico.
 
-Siga os passos abaixo para começar a resolver quaisquer problemas reportados por Backup Pré-Verificações de cópias de segurança VM no seu Cofre de Serviços de Recuperação.
+Siga os passos abaixo para começar a resolver quaisquer problemas reportados por Backup Pré-Verificações de cópias de segurança VM no seu cofre de Serviços de Recuperação.
 
-* Selecione o **azulejo pré-verificação de cópia de segurança (VMs)** no painel de instrumentos de recuperação do cofre.
+* Selecione o **azulejo pré-verificação de cópia de segurança (Azure VMs)** no painel de abóbada dos Serviços de Recuperação.
 * Selecione qualquer VM com um pré-verificação de cópia de segurança de **um crítico** ou **aviso**. Esta ação abrirá o painel de detalhes do **VM.**
 * Selecione a notificação do painel na parte superior do painel para revelar a descrição do problema de configuração e os passos de reparação.
 

@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86080486"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com Azure Stack Edge para fluxo avançado de implementação
@@ -66,7 +66,7 @@ Para configurar o cálculo no seu Azure Stack Edge, irá criar um recurso IoT Hu
     |Campo  |Valor  |
     |---------|---------|
     |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Name     |Insira um nome para o seu recurso IoT Hub.         |
+    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 

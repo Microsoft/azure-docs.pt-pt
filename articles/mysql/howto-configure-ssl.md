@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ab0192d6b7e69f3915281acd080d2c7baabfb241
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 219a41874f4bb4a5b7773c5726638fce6b90f200
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851924"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724188"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para o MySQL
 A Azure Database for MySQL suporta ligar a sua Base de Dados Azure para o servidor MySQL a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -66,7 +66,7 @@ Execute o comando **de estado** mysql para verificar se ligou ao seu servidor My
 ```dos
 mysql> status
 ```
-Confirme que a ligação é encriptada através da revisão da saída, que deve mostrar: **SSL: Cifra em uso é AES256-SHA** 
+Confirme que a ligação é encriptada através da revisão da saída, que deve mostrar:  **SSL: Cifra em uso é AES256-SHA** 
 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma ligação segura à Base de Dados Azure para o MySQL sobre SSL a partir da sua aplicação, consulte as seguintes amostras de código:
@@ -134,7 +134,7 @@ client = Mysql2::Client.new(
         :username => 'myadmin@mydemoserver',
         :password => 'yourpassword',
         :database => 'quickstartdb',
-        :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+        :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
     )
 ```
 

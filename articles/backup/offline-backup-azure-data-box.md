@@ -3,12 +3,12 @@ title: Backup offline usando Azure Data Box
 description: Saiba como pode utilizar a Caixa de Dados do Azure para semear dados de backup iniciais do Agente MARS para um cofre dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091033"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761564"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup Azure backup offline usando Azure Data Box
 
@@ -259,13 +259,13 @@ Quando configurar a cópia de segurança offline, poderá enfrentar um problema 
 
 Para ver se o seu problema é o mesmo que o anteriormente descrito, faça um dos seguintes passos.
 
-#### <a name="step-1"></a>Passo 1
+#### <a name="step-1-of-verification"></a>Passo 1 da verificação
 
 Verifique se a seguinte mensagem de erro aparece na consola MAB quando configurar a cópia de segurança offline.
 
 ![Incapaz de criar a política de backup offline para a conta Azure atual](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Passo 2
+#### <a name="step-2-of-verification"></a>Passo 2 da verificação
 
 1. Abra a pasta **Temporária** no caminho de instalação. O caminho da pasta temporária predefinida é *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Procure o ficheiro *CBUICurr* e abra o ficheiro.
 
@@ -275,11 +275,11 @@ Verifique se a seguinte mensagem de erro aparece na consola MAB quando configura
 
 Como uma solução alternativa para resolver este problema, faça os seguintes passos e reforce a configuração da política.
 
-#### <a name="step-1"></a>Passo 1
+#### <a name="step-1-of-workaround"></a>Passo 1 da solução alternativa
 
 Inscreva-se no PowerShell que aparece no UI MAB utilizando uma conta diferente com acesso administrativo à subscrição que terá o emprego de importação ou exportação criado.
 
-#### <a name="step-2"></a>Passo 2
+#### <a name="step-2-of-workaround"></a>Passo 2 da solução alternativa
 
 Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, elimine esta aplicação. Selecione **registos**de aplicações do portal  >  **Azure Ative Directory**  >  **App registrations**.
 

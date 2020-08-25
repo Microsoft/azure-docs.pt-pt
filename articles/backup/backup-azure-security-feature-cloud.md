@@ -3,12 +3,12 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538841"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763444"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
@@ -69,7 +69,7 @@ Os dados de backup em estado apagado suave antes de desativar esta funcionalidad
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-Siga estes passos:
+Siga estes passos.
 
 1. Siga os passos para [desativar a eliminação suave](#enabling-and-disabling-soft-delete).
 
@@ -136,15 +136,15 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Se os itens foram eliminados antes de serem desativadas, então estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
 
-1. Em primeiro lugar, desfaça as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)mencionados.
+1. Em primeiro lugar, desfaça as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)mencionados.
 2. Em seguida, desative a funcionalidade de eliminação suave utilizando a API REST utilizando os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
 3. Em seguida, elimine as cópias de segurança utilizando a API REST, como mencionado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Preciso de ativar a função de eliminação suave em cada cofre?
 
-Não, é incorporado e habilitado por defeito para todos os cofres dos serviços de recuperação.
+Não, é incorporado e habilitado por defeito para todos os cofres dos Serviços de Recuperação.
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>Posso configurar o número de dias para os quais os meus dados serão retidos em estado de eliminação suave após a conclusão da operação de eliminação?
 
@@ -160,7 +160,7 @@ Não, é necessário desembolsar o recurso suave apagado para restaurar. A opera
 
 ### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos vão seguir o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
 
-Yes.
+Sim.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 
@@ -178,6 +178,6 @@ Não. Não é possível forçar a eliminação dos itens apagados. São apagados
 
 As operações de eliminação suave podem ser efetuadas utilizando o PowerShell. Atualmente, o CLI não é apoiado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

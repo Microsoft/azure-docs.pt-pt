@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204664"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795614"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
@@ -48,6 +48,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
+
+>[!TIP]
+> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 > [!NOTE] 
 > Numa tabela de CCI encomendada, os novos dados resultantes do mesmo lote de DML ou operações de carregamento de dados são classificados dentro desse lote, não existindo uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados na tabela.  No Synapse SQL, o índice de loja de colunas REBUILD é uma operação offline.  Para uma mesa dividida, o REBUILD é feito uma divisória de cada vez.  Os dados na partição que está a ser reconstruída estão "offline" e indisponíveis até que o REBUILD esteja completo para essa partição. 
@@ -153,6 +156,6 @@ ORDER (ProductKey, SalesAmount)
 WITH (DROP_EXISTING = ON)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

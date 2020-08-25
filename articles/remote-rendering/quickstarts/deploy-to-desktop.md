@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566170"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796821"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar a amostra de Unidade para desktop
 
@@ -57,7 +57,7 @@ Apenas aplicações de ambiente de trabalho planas são atualmente suportadas no
 1. Altere a configuração para **Release** e **x86**.
 1. Mude o modo de depuração para **Máquina Local**.\
   ![Configuração de solução](./media/unity-deploy-config-pc.png)
-1. Construa a solução (F7).
+1. Compilar a solução.
 
 ## <a name="launch-the-sample-project"></a>Lançar o projeto de amostra
 
