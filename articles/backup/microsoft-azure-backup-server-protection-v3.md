@@ -3,12 +3,12 @@ title: O que o Azure Backup Server V3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Serve V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661287"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763614"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção V3 RTM do servidor de backup Azure
 
@@ -92,7 +92,7 @@ Com o acompanhamento público: Garantir o acesso aos seguintes domínios/endere�
 * `.microsoftonline.com`
 * `.windows.net`
 
-Com o olhar da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
+Com o estomamento da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
 
 * Diretório Ativo Azure (12076:5060)
 * Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)

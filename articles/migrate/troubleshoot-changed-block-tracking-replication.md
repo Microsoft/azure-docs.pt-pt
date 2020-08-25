@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718701"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796940"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -246,7 +246,7 @@ Se tiver uma máquina virtual com vários discos, poderá encontrar este erro se
 
 ### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Error Message: Ocorreu um erro interno. [Gere snapshot Hung]
 
-Esta questão ocorre quando a geração instantânea é pendurada. Quando este problema ocorre, pode ver a criação de paragens de tarefa instantânea a 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para ultrapassar este problema.
+Esta questão ocorre quando a geração instantânea deixa de responder. Quando este problema ocorre, pode ver a criação de paragens de tarefa instantânea a 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para ultrapassar este problema.
 
 ### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Error Message: Ocorreu um erro interno. [Falhou na consolidação dos discos em VM _[Razões]_]
 

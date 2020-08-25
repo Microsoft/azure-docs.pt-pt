@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86131996"
 ---
 # <a name="fail-over--vmware-vms"></a>Falha em VMware VMs
@@ -65,7 +65,7 @@ Verifique as propriedades da seguinte forma:
 ## <a name="run-a-failover-to-azure"></a>Executar uma ativação pós-falha para o Azure
 
 1. Em **Definições**  >  **Itens Replicados**, selecione o VM que pretende falhar e, em seguida, selecione **Failover**.
-2. Em **Failover**, selecione um **Ponto de Recuperação** para falhar. Pode utilizar uma das opções seguintes:
+2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual irá realizar a ativação pós-falha. Pode utilizar uma das opções seguintes:
    * **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Fornece o menor Objetivo de Ponto de Recuperação (RPO) porque o VM Azure que é criado após o failover tem todos os dados que foram replicados para a Recuperação do Local quando a falha foi desencadeada.
    * **Processo mais recente**: Esta opção falha o VM até ao último ponto de recuperação processado pela Recuperação do Site. Esta opção fornece um BAIXO RTO (Objetivo do Tempo de Recuperação) porque não é gasto tempo a processar dados não processados.
    * **Aplicações mais recentes consistentes**: Esta opção falha o VM para o mais recente ponto de recuperação consistente da aplicação processado pela Recuperação do Site.

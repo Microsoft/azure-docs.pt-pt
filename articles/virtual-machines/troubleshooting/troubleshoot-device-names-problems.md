@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084397"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756831"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Resolução de problemas Alterações no nome do dispositivo Linux VM
 
@@ -42,7 +42,7 @@ O problema ocorre porque a digitalização do dispositivo no Linux está agendad
 
 Para resolver este problema, use o nome persistente. Existem quatro formas de usar o nome persistente: por etiqueta de sistema de ficheiros, por UUID, por ID ou por caminho. Recomendamos a utilização da etiqueta do sistema de ficheiros ou UUID para VMs Azure Linux.
 
-A maioria das distribuições fornecem os `fstab` parâmetros **nofalil** ou **nobootwait.** Estes parâmetros permitem que um sistema arranque quando o disco não é montado no arranque. Consulte a sua documentação de distribuição para obter mais informações sobre estes parâmetros. Para obter informações sobre como configurar um VM Linux para utilizar um UUID quando adicionar um disco de dados, consulte [Connect to the Linux VM para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+A maioria das distribuições fornecem os `fstab` parâmetros **nofalil** ou **nobootwait.** Estes parâmetros permitem que um sistema arranque quando o disco não é montado no arranque. Consulte a sua documentação de distribuição para obter mais informações sobre estes parâmetros. Para obter informações sobre como configurar um VM Linux para utilizar um UUID quando adicionar um disco de dados, consulte [Connect to the Linux VM para montar o novo disco](../linux/add-disk.md#format-and-mount-the-disk).
 
 Quando o agente Azure Linux é instalado num VM, o agente utiliza as regras Udev para construir um conjunto de ligações simbólicas sob o caminho /dev/disco/azul. Aplicações e scripts usam regras Udev para identificar discos que estão ligados ao VM, juntamente com o tipo de disco e o disco LUNs.
 
@@ -162,7 +162,7 @@ Para obter as mais recentes regras de Armazenamento Azure, execute os seguintes 
 # sudo udevadm trigger --subsystem-match=block
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Para obter mais informações, veja os seguintes artigos:
 

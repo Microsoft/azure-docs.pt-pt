@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperfq1
+ms.openlocfilehash: 3ed4f8d4d8ca0a68a4ccf01a38ae5f8e66cc26df
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737670"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757834"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Otimização de processamento de dados para Apache Spark
 
@@ -64,7 +65,7 @@ A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Otimizar o armazenamento de dados para Apache Spark](optimize-data-storage.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)

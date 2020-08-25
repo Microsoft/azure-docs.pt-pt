@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 08/14/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 577c184f78c5784b29db7562f3c33a3cb7518f0c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1d84d25e5605ede064ddc853a4249ba49d59513d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142048"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257759"
 ---
 ::: zone target="docs"
 
@@ -352,7 +352,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box no Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
+Se estiver a utilizar o Data Box nas seguintes regiões: US Government, Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental, e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
 
 1. Tome nota do Código de autorização apresentado na página Preparação para envio da IU da Web local do Data Box após este passo ser concluído com êxito.
 2. Desligue o dispositivo e remova os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo na parte de trás do mesmo.

@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/16/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5e7060b31a936bd54dc0a1f084f823beb076044
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089401"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756814"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -46,10 +46,10 @@ A tabela seguinte compara as opções de gestão chave para a encriptação do A
 | Parâmetro de gestão chave | Chaves geridas pela Microsoft | Chaves geridas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de encriptação/desencriptação | Azure | Azure | Azure |
-| Serviços de Armazenamento Azure apoiados | Todos | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
+| Serviços de Armazenamento Azure apoiados | Tudo | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
 | Armazenamento de chaves | Loja de chaves da Microsoft | Azure Key Vault | Loja chave do próprio cliente |
-| Responsabilidade de rotação chave | Microsoft | Customer | Customer |
-| Controlo de chaves | Microsoft | Customer | Customer |
+| Responsabilidade de rotação chave | Peering da Microsoft | Cliente | Cliente |
+| Controlo de chaves | Peering da Microsoft | Cliente | Cliente |
 
 <sup>1</sup> Para obter informações sobre a criação de uma conta que suporte a utilização de chaves geridas pelo cliente com armazenamento de fila, consulte [Criar uma conta que suporte chaves geridas pelo cliente para filas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Para obter informações sobre a criação de uma conta que suporte a utilização de chaves geridas pelo cliente com armazenamento de mesa, consulte [Criar uma conta que suporte chaves geridas pelo cliente para tabelas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).

@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de amostras de modelos do Azure Resou
 ms.topic: sample
 ms.date: 07/07/2020
 ms.openlocfilehash: 910012adf2dc930e6f1a26f1a7fc41f5ed0580c9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119060"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Modelos do Azure Resource Manager para Event Grid
@@ -20,7 +20,7 @@ Para que a sintaxe JSON e as propriedades utilizem num modelo, consulte os [tipo
 - [Subscrição de azure ou subscrição do grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) - Subscreve eventos para um grupo de recursos ou subscrição Azure. O grupo de recursos que especificar como destino durante a implementação é a origem de eventos. A subscrição utiliza um WebHook para o ponto final. 
 - [Conta de armazenamento blob e subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) - Implementa uma conta de armazenamento Azure Blob e subscreve eventos para essa conta de armazenamento. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte as seguintes amostras:
 
 - [Exemplos do PowerShell](powershell-samples.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 192e939d21cae3b67cafe190e32e7202cd8bdb20
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 03e9f99301444032d867bc1c2f854c807380844e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429678"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797739"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site gatsby para pré-visualização de aplicações web estáticas Azure
 
@@ -52,7 +52,7 @@ Criar uma aplicação Gatsby utilizando a Interface da Linha de Comando Gatsby (
    cd static-web-app
    ```
 
-1. Inicialize um repo git
+1. Inicialize um git repo
 
    ```bash
    git init
@@ -114,7 +114,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
    :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
-### <a name="build"></a>Compilação
+### <a name="build"></a>Compilar
 
 Em seguida, adicione as definições de configuração que o processo de construção utiliza para construir a sua aplicação.
 
@@ -144,7 +144,7 @@ Em seguida, adicione as definições de configuração que o processo de constru
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

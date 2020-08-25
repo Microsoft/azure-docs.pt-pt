@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741175"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799439"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 
@@ -33,11 +33,11 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 > [!Important]
 > A aplicação Microsoft Authenticator funciona com qualquer conta que utilize verificação de dois fatores e suporte os padrões de senha única (TOTP) baseados no tempo.
 >
->Este artigo destina-se a utilizadores que tentem descarregar e utilizar a aplicação Microsoft Authenticator como método de verificação de segurança. Se for um administrador à procura de informações sobre como ativar o acesso sem palavras-passe utilizando a aplicação Authenticator para os seus colaboradores e outras utilizações, consulte o [iniciar sing-in sem palavras-passe com a app Microsoft Authenticator (pré-visualização)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Este artigo destina-se a utilizadores que tentem descarregar e utilizar a aplicação Microsoft Authenticator como método de verificação de segurança. Se for um administrador à procura de informações sobre como ativar o acesso sem palavras-passe utilizando a aplicação Authenticator para os seus colaboradores e outras utilizações, consulte o [iniciar sing-in sem palavras-passe com a app Microsoft Authenticator (pré-visualização)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologia
 
-| Termo|Description|
+| Termo|Descrição|
 | ----|-----------|
 | Verificação de dois fatores | Um processo de verificação que requer que você use especificamente apenas duas peças de informação de verificação, como uma senha e um PIN. A aplicação Microsoft Authenticator suporta tanto a verificação padrão de dois fatores como o sign-in sem palavras-passe. |
 | Multi-Factor Authentication (MFA) | Toda a verificação de dois fatores é a autenticação de vários fatores, obrigando-o a utilizar *pelo menos* duas peças de informação de verificação, com base nos requisitos da sua organização. |
@@ -71,7 +71,7 @@ Dependendo do seu tipo de conta, a sua organização pode decidir que deve usar 
 
 ## <a name="in-this-section"></a>Nesta secção
 
-| Artigo | Description |
+| Artigo | Descrição |
 | ------ | ------------ |
 | [Transferir e instalar a aplicação](user-help-auth-app-download-install.md) | Descreve onde e como obter e instalar a aplicação Microsoft Authenticator para dispositivos que executam Android e iOS. |
 | [Adicione o seu trabalho ou contas escolares](user-help-auth-app-add-work-school-account.md) | Descreve como adicionar as suas várias contas de trabalho ou escola e pessoais à aplicação Microsoft Authenticator. |

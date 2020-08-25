@@ -5,147 +5,161 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 0aaa454df05cd8981b314abe238163caced7864c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797637"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestão de custos para serviços do Azure Lab
 
-A gestão dos custos pode ser dividida em duas áreas distintas: estimativa de custos e análise de custos.  A estimativa de custos ocorre ao criar o laboratório para garantir que a estrutura inicial do laboratório se encaixará dentro do orçamento esperado.  A análise de custos ocorre geralmente no final do mês para analisar os custos e determinar as ações necessárias para o próximo mês.
+Para a Azure Lab Services, a gestão de custos pode ser dividida em duas áreas distintas: estimativa de custos e análise de custos. A estimativa de custos ocorre quando está a configurar o laboratório para garantir que a estrutura inicial do laboratório se encaixe dentro do orçamento esperado. A análise de custos ocorre geralmente no final do mês para determinar as ações necessárias para o próximo mês.
 
 ## <a name="estimate-the-lab-costs"></a>Estimar os custos do laboratório
 
-Cada painel de laboratório tem uma secção **de custos & Billing** que estabelece uma estimativa aproximada do que o laboratório vai custar para o mês.  A estimativa de custos resume o uso da hora com o número máximo de utilizadores pelo custo estimado por hora.  Para obter a estimativa mais precisa, o laboratório, incluindo o [horário,](how-to-create-schedules.md)e o painel de instrumentos refletirá o custo estimado.  
+Cada painel de laboratório tem uma secção **de custos & Billing** que estabelece uma estimativa aproximada do que o laboratório vai custar para o mês. A estimativa de custos resume o uso da hora com o número máximo de utilizadores pelo custo estimado por hora. Para obter a estimativa mais precisa, crie o laboratório, incluindo o [horário.](how-to-create-schedules.md) O painel refletirá o custo estimado. 
 
-Esta estimativa pode não ser todos os custos possíveis, há alguns recursos que não estão incluídos.  O custo de preparação do modelo não é contabilizado na estimativa de custos.  Pode variar significativamente no tempo necessário para criar o modelo. O custo para executar o modelo é o mesmo que o custo geral do laboratório por hora. Quaisquer custos [de galeria de imagens partilhadas](how-to-use-shared-image-gallery.md) não estão incluídos no painel de instrumentos, uma vez que uma galeria pode ser partilhada entre vários laboratórios.  Por último, as horas incorridas quando o criador do laboratório inicia uma máquina são excluídas desta estimativa.
+Esta estimativa pode não mostrar todos os custos possíveis. Alguns recursos não estão incluídos:
 
-> [!div class="mx-imgBorder"]
-> ![Estimativa de custos do painel](./media/cost-management-guide/dashboard-cost-estimation.png)
-
-## <a name="analyze-previous-months-usage"></a>Analisar o uso de meses anteriores
-
-A análise de custos é para rever o uso de meses anteriores para ajudar a determinar quaisquer ajustes para o laboratório.  A repartição dos custos no passado pode ser encontrada na Análise de Custos de [Subscrição.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis)  No portal Azure, pode escrever "Subscrições" no campo de pesquisa superior e selecionar a opção Subscrições.  
+- O custo de preparação do modelo. Pode variar significativamente no tempo necessário para criar o modelo. O custo para executar o modelo é o mesmo que o custo geral do laboratório por hora. 
+- Qualquer [galeria de imagens partilhada](how-to-use-shared-image-gallery.md) custa, porque uma galeria pode ser partilhada entre vários laboratórios. 
+- Horas incorridas quando o criador do laboratório inicia uma máquina virtual (VM).
 
 > [!div class="mx-imgBorder"]
-> ![Pesquisa de assinaturas](./media/cost-management-guide/subscription-search.png)
+> ![Screenshot que mostra a estimativa de custos do painel.](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-Selecione a subscrição específica que deve ser revista.
+## <a name="analyze-the-previous-months-usage"></a>Analise o uso do mês anterior
 
-> [!div class="mx-imgBorder"]
-> ![Seleção de assinaturas](./media/cost-management-guide/subscription-select.png)
-
- Selecione "Análise de Custos" no painel esquerdo sob **Gestão de Custos**.
+A análise de custos é para rever o uso do mês anterior para ajudá-lo a determinar quaisquer ajustes para o laboratório. Pode encontrar a repartição dos custos anteriores na análise de custos de [subscrição.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis) No portal Azure, pode introduzir **Subscrições** na caixa de pesquisa e, em seguida, selecionar a opção **Subscrições.** 
 
 > [!div class="mx-imgBorder"]
-> ![Análise de custos de subscrição](./media/cost-management-guide/subscription-cost-analysis.png)
+> ![Screenshot que mostra a caixa de pesquisa e a opção Subscrições.](./media/cost-management-guide/subscription-search.png)
 
-Este dashboard permitirá uma análise aprofundada dos custos, incluindo a capacidade de exportar para diferentes tipos de ficheiros num horário.  A Gestão de Custos tem inúmeras capacidades para mais informações, consulte [a Visão Geral da Faturação de Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
+Selecione a subscrição específica que pretende rever.
 
-Filtragem pelo tipo de recurso: `microsoft.labservices/labaccounts` mostrará apenas o custo associado aos Serviços de Laboratório.
+> [!div class="mx-imgBorder"]
+> ![Screenshot que mostra a seleção de subscrição.](./media/cost-management-guide/subscription-select.png)
+
+Selecione **Análise de Custos** no painel esquerdo sob **Gestão de Custos**.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot que mostra uma análise de custo de subscrição em um gráfico.](./media/cost-management-guide/subscription-cost-analysis.png)
+
+Este dashboard permite uma análise aprofundada dos custos, incluindo a capacidade de exportar para diferentes tipos de ficheiros num horário. Para mais informações, consulte [a visão geral da Gestão de Custos + Faturação.](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
+
+Pode filtrar por tipo de recurso. A utilização `microsoft.labservices/labaccounts` mostrará apenas o custo associado aos Serviços de Laboratório.
 
 ## <a name="understand-the-usage"></a>Compreender o uso
 
-Abaixo está uma amostra da análise de custos.
+A imagem a seguir é um exemplo de uma análise de custos.
 
 > [!div class="mx-imgBorder"]
-> ![Análise de custos de subscrição](./media/cost-management-guide/cost-analysis.png)
+> ![Screenshot que mostra uma análise de custos de exemplo para uma subscrição.](./media/cost-management-guide/cost-analysis.png)
 
-Por predefinição existem seis colunas: Recurso, Tipo de Recurso, Localização, Nome do grupo de recursos, Tags, Custo.  A coluna de recursos contém a informação sobre a conta do Laboratório, o Nome do Laboratório e o VM.  As linhas com conta Lab / Nome de Laboratório /padrão é o custo para o laboratório, que pode ser visto na segunda e terceira linhas.  Os VMs usados terão um custo sob a conta Lab / Nome do Laboratório / nome padrão / VM.  Neste exemplo, adicionando a primeira linha com a segunda linha, ambos começando com "aaalab/ dockerlab" vai dar-lhe o custo total para o laboratório "dockerlab" na Conta de Laboratório "aaalab".
+Por predefinição, existem seis colunas: **Recurso**, **Tipo de Recurso,** **Localização,** **Nome do grupo de recursos,** **Tags**e **Custo**. A coluna **de recursos** contém a informação sobre a conta do laboratório, nome do laboratório e VM. As filas que mostram a conta do laboratório, o nome do laboratório e o padrão (segunda e terceira filas) são o custo para o laboratório. Os VMs usados têm um custo que você pode ver para as linhas que mostram a conta de laboratório, nome de laboratório, padrão, e nome VM. 
 
-Para obter informações partilhadas na galeria de imagens, altere o tipo de recurso para `Microsoft.Compute/Galleries` , o que lhe dará o custo global para a galeria de imagens.  As galerias Share Image podem não aparecer nos custos dependendo do local onde a galeria está armazenada.
+Neste exemplo, adicionar a primeira e segunda linhas (ambas começam com **aaalab/dockerlab)** vai dar-lhe o custo total para o laboratório "dockerlab" na conta de laboratório "aaalab".
+
+Para obter o custo global da galeria de imagens, altere o tipo de recurso para `Microsoft.Compute/Galleries` . Uma galeria de imagens partilhada pode não aparecer nos custos, dependendo do local onde a galeria está armazenada.
 
 > [!NOTE]
-> A Galeria de Imagens Partilhada está ligada à conta do laboratório.  Significa que vários laboratórios podem usar a mesma imagem.
+> Uma galeria de imagens partilhada está ligada à conta do laboratório. Significa que vários laboratórios podem usar a mesma imagem.
 
-## <a name="separating-costs"></a>Custos de separação
+## <a name="separate-the-costs"></a>Separar os custos
 
-Algumas universidades usaram a conta de laboratório e o grupo de recursos como formas de separar as diferentes classes.  Cada turma terá a sua própria conta de laboratório e grupo de recursos. No painel de análise de custos, adicione um filtro baseado no nome do grupo de recursos com o nome de grupo de recursos apropriado para a classe e apenas os custos para essa classe serão visíveis.  Isto permite uma delimitação mais clara entre as diferentes classes ao ver os custos.  A funcionalidade [de exportação programada](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) da análise de Custos permite que os custos de cada classe sejam descarregados em ficheiros separados.
+Algumas universidades usaram a conta de laboratório e o grupo de recursos como formas de separar as aulas. Cada turma tem a sua própria conta de laboratório e grupo de recursos. 
 
-## <a name="managing-costs"></a>Gestão de custos
+No painel de análise de custos, adicione um filtro baseado no nome do grupo de recursos com o nome de grupo de recursos apropriado para a classe. Então, só os custos para esta classe serão visíveis. Isto permite uma delimitação mais clara entre as classes quando você está vendo os custos. Pode utilizar a funcionalidade [de exportação programada](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) da análise de custos para baixar os custos de cada classe em ficheiros separados.
 
-Dependendo do tipo de aula, existem formas de gerir os custos para reduzir que os VMs estão a funcionar sem que um aluno utilize a máquina.
+## <a name="manage-costs"></a>Gerir os custos
 
-### <a name="maximize-cost-control-with-auto-shutdown-settings"></a>Maximizar o controlo de custos com definições de paragem automática
+Dependendo do tipo de aula, existem formas de gerir os custos para reduzir os casos de VMs que estão a funcionar sem que um aluno os utilize.
 
-As funcionalidades de controlo de custos de paragem automática permitem evitar o desperdício de horas de utilização de máquinas virtuais dentro dos laboratórios. A combinação das três funcionalidades de paragem e desconexão automáticas que se seguem captura a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
+### <a name="automatic-shutdown-settings-for-cost-control"></a>Definições automáticas de paragem para controlo de custos
+
+As funções de paragem automática permitem evitar horas de utilização em VM desperdiçadas nos laboratórios. As seguintes definições capturam a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
 
 > [!div class="mx-imgBorder"]
-> ![Análise de custos de subscrição](./media/cost-management-guide/auto-shutdown-disconnect.png)
+> ![Screenshot que mostra as três definições automáticas de paragem.](./media/cost-management-guide/auto-shutdown-disconnect.png)
 
-Estas definições podem ser configuradas tanto ao nível da conta do laboratório como ao nível do laboratório. Se as definições estiverem ativadas ao nível da conta do laboratório, são aplicadas a todos os laboratórios dentro da conta do laboratório. Para todas as novas contas de laboratório, estas definições são ligadas por defeito. 
+Pode configurar estas definições tanto ao nível da conta do laboratório como ao nível do laboratório. Se os ativares ao nível da conta do laboratório, são aplicados a todos os laboratórios dentro da conta do laboratório. Para todas as novas contas de laboratório, estas definições são ligadas por defeito. 
 
-#### <a name="details-about-auto-shutdown-settings"></a>Detalhes sobre definições de paragem automática
+#### <a name="automatically-disconnect-users-from-virtual-machines-that-the-os-deems-idle"></a>Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativos
 
-* Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativas (apenas para o Windows).
+> [!NOTE]
+> Esta definição está disponível apenas para máquinas virtuais do Windows.
 
-    > [!NOTE]
-    > Esta definição só está disponível para máquinas virtuais do Windows.
+Quando os **utilizadores desligarem quando as máquinas virtuais estão inativas,** o utilizador é desligado de quaisquer máquinas do laboratório quando o Windows OS considera que a sessão está inativa (incluindo as máquinas virtuais do modelo). A [definição de ocioso do Windows OS](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utiliza dois critérios: 
 
-    Quando a definição é ligada, o utilizador é desligado de quaisquer máquinas do laboratório quando o Windows OS considera que a sessão está inativa (incluindo as máquinas virtuais do modelo). [A definição de ociosidade do Windows OS](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utiliza dois critérios: 
+* Ausência do utilizador: sem entrada de teclado ou rato.
+* Falta de consumo de recursos: Todos os processadores e todos os discos ficaram inativos durante uma certa percentagem de tempo.
 
-    * Ausência do utilizador - sem entrada de teclado ou rato.
-    * Falta de consumo de recursos – todos os processadores e todos os discos ficaram inativos durante um certo período de tempo
+Os utilizadores verão uma mensagem como esta no VM antes de serem desligados: 
 
-    Os utilizadores verão uma mensagem como esta dentro da máquina virtual antes de serem desligadas: 
+> [!div class="mx-imgBorder"]
+> ![Screenshot que mostra uma mensagem de aviso de que uma sessão foi inativa sobre o seu tempo limite e será desligada.](./media/cost-management-guide/idle-timer-expired.png)
+ 
+A máquina virtual ainda está em funcionamento quando o utilizador está desligado. Se o utilizador voltar a ligar-se à máquina virtual iniciando sessão, janelas ou ficheiros que estavam abertos ou funcionando que não foram salvos antes da desconexão ainda lá estiver. Neste estado, como a máquina virtual está em funcionamento, ainda conta como ativo e acumula custo. 
+ 
+Para desligar automaticamente as máquinas virtuais do Windows desligadas, utilize a combinação de **utilizadores desligados quando as máquinas virtuais estão inativas** e **desligue as máquinas virtuais quando os utilizadores desligam** as definições.
 
-    > [!div class="mx-imgBorder"]
-    > ![Análise de custos de subscrição](./media/cost-management-guide/idle-timer-expired.png)
-    
-    A máquina virtual ainda está em funcionamento quando o utilizador está desligado. Se o utilizador voltar a ligar-se à máquina virtual iniciando sessão, janelas ou ficheiros que estavam abertos ou não-salvos trabalhos anteriores à desconexão, continuará a existir. Neste estado, como a máquina virtual está em funcionamento, ainda conta como ativo e acumula custo. 
-    
-    Para desligar automaticamente as máquinas virtuais do Windows desligadas, utilize a combinação de **utilizadores desligados quando as máquinas virtuais estão inativas** e **desligue as máquinas virtuais quando os utilizadores desligam** as definições.
+Por exemplo, se configurar as definições da seguinte forma:
+ 
+* **Desligue os utilizadores quando as máquinas virtuais estiverem inativas:** 15 minutos após a deteção do estado de marcha lenta.
+* **Desligue as máquinas virtuais quando os utilizadores desligarem:** 5 minutos após o utilizador desligar.
+ 
+As máquinas virtuais do Windows desligam-se automaticamente 20 minutos após o utilizador deixar de as utilizar. 
+ 
+> [!div class="mx-imgBorder"]
+> ![Diagrama que ilustra a combinação de configurações que resulta em paragem automática de VM.](./media/cost-management-guide/vm-idle-diagram.png)
 
-    Por exemplo, se configurar as definições da seguinte forma:
-    
-    * Desligue os utilizadores quando as máquinas virtuais estão inativas – 15 minutos após a deteção do estado inativo.
-    * Desligue as máquinas virtuais quando os utilizadores desligarem - 5 minutos após a desconexão do utilizador.
-    
-    As máquinas virtuais do Windows desligam-se automaticamente 20 minutos após o utilizador deixar de as utilizar. 
-    
-    > [!div class="mx-imgBorder"]
-    > ![Análise de custos de subscrição](./media/cost-management-guide/vm-idle-diagram.png)
-* Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam (Windows & Linux).
-    
-    Esta definição suporta máquinas virtuais Windows e Linux. Quando esta regulação estiver acesa, ocorrerá uma paragem automática quando:
-    
-    * Para o Windows, a ligação de ambiente de trabalho remoto (RDP) está desligada.
-    * Para o Linux, a ligação SSH está desligada .
-    
-    > [!NOTE]
-    > Apenas são suportadas [distribuições e versões específicas do Linux.](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions)
-    
-    Pode especificar quanto tempo as máquinas virtuais devem esperar que o utilizador se reconecte antes de desligar automaticamente. 
-* Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.
-     
-    Dentro de um laboratório, um utilizador pode iniciar uma máquina virtual, mas nunca ligar-se a ela. Por exemplo:
-    
-    * Um horário no laboratório começa todas as máquinas virtuais para uma sessão de aula, mas alguns alunos não aparecem e não se ligam às suas máquinas.  
-    * Um utilizador inicia uma máquina virtual, mas esquece-se de se ligar. 
-    
-    A definição "Desligar as máquinas virtuais quando os utilizadores não se ligam" apanha estas caixas e desliga automaticamente as máquinas virtuais.  
-    
+#### <a name="automatically-shut-down-virtual-machines-when-users-disconnect"></a>Desligue automaticamente as máquinas virtuais quando os utilizadores desligam
+ 
+As **máquinas virtuais desligadas quando os utilizadores desligam** a definição suportam máquinas virtuais Windows e Linux. Quando esta regulação estiver acesa, ocorrerá uma paragem automática quando:
+ 
+* Para o Windows, uma ligação de ambiente de trabalho remoto (RDP) está desligada.
+* Para o Linux, uma ligação SSH está desligada.
+ 
+> [!NOTE]
+> Apenas são suportadas [distribuições e versões específicas do Linux.](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions)
+ 
+Pode especificar quanto tempo as máquinas virtuais devem esperar que o utilizador se reconecte antes de desligar automaticamente. 
+
+#### <a name="automatically-shut-down-virtual-machines-that-are-started-but-users-dont-connect"></a>Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam
+ 
+Num laboratório, um utilizador pode iniciar uma máquina virtual, mas nunca ligar-se a ela. Por exemplo:
+ 
+* Um horário no laboratório começa todas as máquinas virtuais para uma sessão de aula, mas alguns alunos não aparecem e não se ligam às suas máquinas. 
+* Um utilizador inicia uma máquina virtual mas esquece-se de se ligar. 
+ 
+As **máquinas virtuais desligadas quando os utilizadores não ligam** a definição irão capturar estas caixas e desligar automaticamente as máquinas virtuais. 
+ 
 Para obter informações sobre como configurar e permitir o encerramento automático de VMs na desconexão, consulte estes artigos:
 
 * [Configure o encerramento automático de VMs para uma conta de laboratório](how-to-configure-lab-accounts.md)
 * [Configure o encerramento automático de VMs para um laboratório](how-to-enable-shutdown-disconnect.md)
 
-### <a name="quota-vs-scheduled-time"></a>Quota vs hora marcada
+### <a name="scheduled-time-vs-quota-time"></a>Hora programada vs. tempo de quota
 
-Compreender o [tempo de quota](classroom-labs-concepts.md#quota) vs hora [programada](classroom-labs-concepts.md#schedules) permitirá ao proprietário do laboratório configurar o laboratório para melhor se adaptar às necessidades do professor e dos alunos.  A hora programada é uma hora definida onde todos os VMs do aluno foram iniciados e estão disponíveis para se conectar.  Normalmente programado é usado na situação em que todos os alunos terão o seu próprio VM, e estão seguindo as instruções do professor em uma hora definida durante o dia como horas de aula.  A desvantagem é que todos os VMs do aluno são iniciados e estão a acumular custos, mesmo que um aluno não faça login no VM.  O tempo de quota é atribuído a cada aluno que pode usar a seu critério e é frequentemente utilizado para estudar independentemente. Os VMs só começam quando o aluno iniciar o VM.  
+Compreender [o tempo programado](classroom-labs-concepts.md#schedules) e o tempo de [quota](classroom-labs-concepts.md#quota) irá ajudá-lo a configurar um laboratório para melhor se adaptar às necessidades do professor e dos alunos. 
 
-Um laboratório pode usar o tempo da quota, hora marcada, ou uma combinação de ambos. Se uma classe não precisa do tempo programado, use apenas o tempo de quota para o uso mais eficaz dos VMs.
+A hora programada é uma hora definida onde todos os VMs do aluno foram iniciados e estão disponíveis para ligação. A hora programada é comumente usada quando todos os alunos têm os seus próprios VMs e estão seguindo as instruções do professor a uma hora definida durante o dia (como horas de aula). A desvantagem é que todos os VMs do aluno são iniciados e estão a acumular custos, mesmo que um aluno não faça login num VM. 
 
-### <a name="scheduled-event---stop-only"></a>Evento agendado - pare apenas
+O tempo de quota é atribuído a cada aluno para uso a seu critério e é frequentemente utilizado para o estudo independente. Os VMs só começam quando o aluno começar o VM. 
 
-Na Agenda pode adicionar um tipo de evento apenas stop, que irá parar todas as máquinas num momento específico.  Alguns proprietários de laboratórios marcaram um evento único para todos os dias à meia-noite para reduzir o custo e o uso de quotas quando um aluno se esquece de desligar o VM que está a usar.  A desvantagem deste tipo de evento é que todos os VMs serão encerrados mesmo que o aluno esteja a usar o VM.
+Um laboratório pode usar o tempo da quota ou a hora programada, ou uma combinação de ambos. Se uma classe não precisa de tempo programado, use apenas o tempo de quota para o uso mais eficaz dos VMs.
+
+### <a name="scheduled-event-stop-only"></a>Evento agendado: apenas parar
+
+Na programação, pode adicionar um tipo de evento stop-only que irá parar todas as máquinas num momento específico. Alguns donos de laboratórios marcaram um evento só para parar todos os dias à meia-noite para reduzir o custo e o uso de quotas quando um aluno se esquece de desligar o VM que está a usar. A desvantagem deste tipo de evento é que todos os VMs serão encerrados, mesmo que um aluno esteja a usar um VM.
 
 ### <a name="other-costs-related-to-labs"></a>Outros custos relacionados com laboratórios 
 
-Há custos que não são colocados nos serviços de laboratório, mas que podem ser ligados a um serviço de laboratório.  Uma galeria de imagens partilhada pode ser conectada a laboratórios, mas não mostra sob os custos dos serviços do Laboratório e tem custos.  Para ajudar a manter os custos globais baixos, deve remover quaisquer imagens não uusadas da galeria, uma vez que as imagens têm um custo de armazenamento herdado.  Os laboratórios podem ter ligações com outro recurso Azure por uma rede virtual (VNet) quando um laboratório é removido, deve remover o VNet e os outros recursos.
+Alguns custos não são colocados nos Serviços de Laboratório, mas podem ser ligados a um serviço de laboratório. Pode ligar uma galeria de imagens partilhada a um laboratório, mas não vai aparecer sob os custos dos Serviços de Laboratório e tem custos. Para ajudar a reduzir os custos globais, deve remover quaisquer imagens não usudas da galeria porque as imagens têm um custo de armazenamento inerente. 
+
+Os laboratórios podem ter ligações com outros recursos Azure através de uma rede virtual. Quando um laboratório é removido, deve remover a rede virtual e os outros recursos.
 
 ## <a name="conclusion"></a>Conclusão
 
-Esperemos que a informação acima lhe dará uma melhor compreensão dos custos de utilização e como usar as ferramentas fornecem para reduzir os custos excedentários.
+Esperemos que a informação neste artigo lhe tenha dado uma melhor compreensão das ferramentas que podem ajudá-lo a reduzir os custos de utilização.

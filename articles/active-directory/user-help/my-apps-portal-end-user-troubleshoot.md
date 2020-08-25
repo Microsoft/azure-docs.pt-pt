@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741873"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798011"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemas de resolução de problemas com o portal My Apps
 
@@ -51,7 +51,7 @@ Se tiver problemas em iniciar sessão no portal **My Apps,** pode experimentar o
 
 - Certifique-se de que a sua palavra-passe está correta e que ainda não expirou. Para obter mais informações, consulte [Redefinir o seu trabalho ou a palavra-passe da escola.](active-directory-passwords-update-your-own-password.md)
 
-- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](multi-factor-authentication-end-user.md) [alterando os seus métodos e informações de informação de segurança](security-info-add-update-methods-overview.md).
+- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
 
 - Adicione o URL do portal **My App** à configuração de sites de segurança > segurança > > **de segurança.**
 
@@ -75,13 +75,13 @@ Se receber uma mensagem **Access Negada** depois de iniciar uma aplicação a pa
 
 - Certifique-se de que a sua palavra-passe está correta e que ainda não expirou. Para obter mais informações, consulte [Redefinir o seu trabalho ou a palavra-passe da escola.](active-directory-passwords-update-your-own-password.md)
 
-- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](multi-factor-authentication-end-user.md) [alterando os seus métodos e informações de informação de segurança](security-info-add-update-methods-overview.md).
+- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
 
 - Limpe a cache do seu navegador e tente entrar novamente.
 
 Se depois de experimentar estas coisas ainda não conseguir aceder à sua aplicação, deve contactar o balcão de ajuda da sua organização para obter assistência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de iniciar sessão no portal **My Apps,** também pode atualizar as informações de perfil e conta, as informações do seu grupo e aceder a informações de revisão (se tiver permissão).
 

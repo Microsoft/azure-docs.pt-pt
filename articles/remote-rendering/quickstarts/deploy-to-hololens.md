@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557051"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796804"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Quickstart: Implementar a amostra de unidade para hololens
 
@@ -44,7 +44,7 @@ Certifique-se de que as suas credenciais são guardadas corretamente com a cena 
 1. Alterar a configuração para **Release** e **ARM64**
 1. Mude o modo de depuração para **Máquina Remota**\
     ![Configuração de solução](media/unity-deploy-config.png)
-1. Construir a solução (F7)
+1. Compilar a solução
 1. Para o projeto 'Quickstart', vá à *Properties > Debugging*
     1. Certifique-se de que a configuração *Desbloqueia*
     1. Definir *Debugger para lançar* para máquina **remota**

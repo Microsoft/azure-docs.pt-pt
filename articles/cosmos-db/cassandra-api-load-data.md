@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: App Java para carregar dados de amostras numa tabela DaPi Cassandra em Azure Cosmos DB'
-description: Este tutorial mostra como carregar dados de utilizadores de amostras para uma tabela Cassandra API em Azure Cosmos DB usando uma aplicação java.
+title: 'Tutorial: Aplicativo Java para carregar dados da amostra numa tabela da API de Cassandra em Azure Cosmos DB'
+description: Este tutorial mostra como carregar os dados do utilizador da amostra para uma tabela API cassandra em Azure Cosmos DB usando uma aplicação java.
 author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -9,33 +9,33 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 6a12db8e34421dd16c12d167896ef66b3377d524
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82853041"
 ---
-# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carregue dados da amostra numa tabela DaPi Cassandra em Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carregue os dados da amostra numa tabela da API de Cassandra no Azure Cosmos DB
 
-Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar a conta Cassandra API no Azure Cosmos DB para armazenar e gerir dados chave/valor. Este tutorial mostra como carregar dados de utilizadores de amostras para uma tabela numa conta Cassandra API em Azure Cosmos DB usando uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e carrega dados de utilizador como id do utilizador, nome do utilizador e cidade utilizadora. 
+Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar a conta API da Cassandra na Azure Cosmos DB para armazenar e gerir dados chave/valor. Este tutorial mostra como carregar os dados dos utilizadores da amostra para uma tabela numa conta da API da Cassandra em Azure Cosmos DB utilizando uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e carrega dados do utilizador, como iD do utilizador, nome de utilizador e cidade utilizadora. 
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Carregue os dados numa tabela cassandra
+> * Carregue os dados numa tabela de Cassandra
 > * Executar a aplicação
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Este artigo pertence a um tutorial com várias partes. Antes de começar com este doc, certifique-se de [criar a conta Cassandra API, keyspace e tabela](create-cassandra-api-account-java.md).   
+* Este artigo pertence a um tutorial com várias partes. Antes de começar com este doc, certifique-se de [criar a conta API Cassandra, espaço-chave e tabela](create-cassandra-api-account-java.md).   
 
 ## <a name="load-data-into-the-table"></a>Carregar dados para a tabela
 
 Utilize os seguintes passos para carregar dados para a sua tabela da API para Cassandra:
 
-1. Abra o ficheiro "UserRepository.java" sob a pasta "src\main\java\com\azure\cosmosdb\cassandra" e apreenda o código para inserir os campos de user_id, user_name e user_bcity na tabela:
+1. Abra o ficheiro "UserRepository.java" sob a pasta "src\main\java\com\azure\cosmosdb\cassandra" e anexa o código para inserir os campos de user_id, user_name e user_bcity na tabela:
 
    ```java
    /**
@@ -61,7 +61,7 @@ Utilize os seguintes passos para carregar dados para a sua tabela da API para Ca
    }
    ```
  
-2. Abra o ficheiro "UserProfile.java" sob a pasta "src\main\java\com\azure\cosmosdb\cassandra". Esta classe contém o método principal que chama os métodos createKeyspace e createTable definidos anteriormente. Agora, anexe o seguinte código para inserir alguns dados de exemplo na tabela da API para Cassandra.
+2. Abra o ficheiro "UserProfile.java" na pasta "src\main\java\com\azure\cosmosdb\cassandra". Esta classe contém o método principal que chama os métodos createKeyspace e createTable definidos anteriormente. Agora, anexe o seguinte código para inserir alguns dados de exemplo na tabela da API para Cassandra.
 
    ```java
    //Insert rows into user table
@@ -75,7 +75,7 @@ Utilize os seguintes passos para carregar dados para a sua tabela da API para Ca
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-Abra uma janela de comando ou terminal e mude o caminho da pasta para onde criou o projeto. Execute o comando "mvn clean install" para gerar o ficheiro cosmosdb-cassandra-exemplos.jar dentro da pasta alvo e executar a aplicação. 
+Abra uma janela de comando ou terminal e altere o caminho da pasta para onde criou o projeto. Executar o comando "mvn clean install" para gerar o ficheiro cosmosdb-cassandra-exemplos.jar dentro da pasta alvo e executar a aplicação. 
 
 ```bash
 cd "cassandra-demo"
@@ -89,7 +89,7 @@ Agora, pode abrir o Data Explorer no portal do Azure para verificar se as inform
     
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a carregar dados de amostras para uma conta da Cassandra API em Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
+Neste tutorial, aprendeu a carregar dados de amostras numa conta da API da Cassandra em Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
 
 > [!div class="nextstepaction"]
 > [Consultar dados da conta da API para Cassandra](cassandra-api-query-data.md)

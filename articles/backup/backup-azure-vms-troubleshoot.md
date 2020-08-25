@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761768"
+ms.locfileid: "88763308"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -44,7 +44,7 @@ Seguem-se problemas comuns com falhas de backup em máquinas virtuais Azure.
 Código de erro: VMRestorePointInternalError
 
 Se no momento da cópia de segurança, os registos da **Aplicação do Visualizador** de Eventos apresentarem o nome da **aplicação falhando a mensagem: IaaSBcdrExtension.exe** então confirma-se que o antivírus configurado no VM está a restringir a execução da extensão de backup.
-Para resolver este problema, exclua abaixo os diretórios na configuração antivírus e refemina a operação de backup.
+Para resolver este problema, exclua os diretórios abaixo na configuração antivírus e refemina a operação de backup.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -93,8 +93,8 @@ A operação de backup falhou devido a um problema com a aplicação **do Sistem
 * Se não conseguir reiniciar o serviço, reinstale o serviço **de Coordenador de Transações Distribuídas** seguindo os passos abaixo:
   * Pare o serviço MS DTC
   * Abra uma linha de comandos (cmd)
-  * Executar comando "msdtc -desinstalar"
-  * Executar comando "msdtc -instalar"
+  * Execute o comando `msdtc -uninstall`
+  * Execute o comando `msdtc -install`
   * Inicie o serviço MS DTC
 * Inicie a **aplicação**do sistema com o serviço Windows COM+ . Após o início da **Aplicação do Sistema COM+,** desencadeie uma tarefa de backup a partir do portal Azure.</ol>
 
@@ -165,7 +165,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de res
 Código de erro: ExtensãoFailedSnapshotLimitReachedError  <br/>
 Error message: A operação snapshot falhou à medida que o limite de instantâneo é ultrapassado para alguns dos discos ligados
 
-A operação de instantâneo falhou, uma vez que o limite de instantâneo excedeu para alguns dos discos ligados. Complete os passos de resolução de problemas abaixo e, em seguida, redoça a operação.
+A operação de instantâneo falhou, uma vez que o limite de instantâneo excedeu para alguns dos discos ligados. Complete as seguintes etapas de resolução de problemas e, em seguida, relemisse a operação.
 
 * Elimine as imagens de bolhas de disco que não são necessárias. Tenha cuidado para não eliminar a bolha do disco, apenas as bolhas instantâneas devem ser eliminadas.
 * Se a eliminação de soft-delete estiver ativada nas contas de armazenamento do disco VM, configure a retenção de eliminação suave de modo a que as imagens existentes sejam inferiores ao máximo permitido em qualquer momento.
@@ -183,7 +183,7 @@ A operação de backup no VM falhou devido ao atraso nas chamadas de rede durant
 
 **Passo 1**: Criar instantâneo através do anfitrião
 
-Numa linha de comandos elevada (administrador), execute o comando abaixo:
+A partir de um pedido de comando elevado (administrador), executar o seguinte comando:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f

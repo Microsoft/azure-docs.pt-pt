@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206407"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763665"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a Base de Dados do Azure para MySQL?
 
@@ -37,6 +37,9 @@ Este artigo é uma introdução à Base de Dados Azure para conceitos e funciona
 Para obter um conjunto de amostras da CLI do Azure, veja:
 
 - [Exemplo da CLI do Azure para a Base de Dados do Azure para MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Aplicação de patches automatizada
+O serviço executa patching automatizado do hardware subjacente, sistema operativo e motor de base de dados. O patching inclui atualizações de segurança e software para o hardware subjacente, o SISTEMA e o motor da base de dados. Para o motor MySQL, as atualizações de versão menor são automáticas e incluídas como parte do lançamento de patching. Quando a comunidade lança uma versão menor, é automaticamente integrada como parte do ciclo de testes para o serviço. O teste da versão menor é realizado em algumas das cargas de trabalho canónicas para o MySQL. O lançamento de versões menores do motor MySQL é avaliado para fiabilidade (sem falhas), disponibilidade, segurança e desempenho. Nem todas as versões menores são lançadas para produção no serviço, mas é evalida com base na criticidade das correções de bugs e no novo valor incremental. Isto é para encontrar o equilíbrio certo entre o novo valor incremental e minimizar as variáveis no sistema de estabilidade. Não é necessária nenhuma ação do utilizador ou configurações para remendar. A frequência de remendação é gerida com base na criticidade da carga útil. Em geral, o serviço segue o horário de lançamento mensal como parte da integração e libertação contínuas. Os utilizadores podem subscrever a [notificação de manutenção planeada](concepts-monitoring.md) para receber a notificação da próxima manutenção 72 horas antes do evento.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 A Base de Dados Azure para o serviço MySQL oferece vários níveis de serviço: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [os níveis de preços](concepts-service-tiers.md) para mais detalhes.

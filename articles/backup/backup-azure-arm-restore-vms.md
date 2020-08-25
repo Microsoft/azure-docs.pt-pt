@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66d29294d74e9fee28dd88d34f67ed3bdc4b8e7b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651153"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756491"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -65,7 +65,7 @@ Se não tiver permissões, pode [restaurar um disco](#restore-disks), e depois d
     - **Criar nova**: Utilize esta opção se quiser criar um novo VM. Pode criar um VM com configurações simples, ou restaurar um disco e criar um VM personalizado.
     - **Substitua a existência:** Utilize esta opção se pretender substituir discos num VM existente.
 
-        ![Restaurar o assistente de configuração](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Restaurar o assistente de configuração da máquina virtual](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Especifique as definições para a opção de restauro selecionada.
 
@@ -79,7 +79,7 @@ Como uma das opções de [restauro,](#restore-options)pode criar um VM rapidamen
 1. Na **rede Virtual,** selecione o VNet no qual o VM será colocado. Todos os VNets associados à subscrição são apresentados. Selecione a sub-rede. A primeira sub-rede é selecionada por predefinição.
 1. No **Local de Preparação,** especifique a conta de armazenamento do VM. [Saiba mais](#storage-accounts).
 
-    ![Restaurar o assistente de configuração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Restaurar o assistente de configuração - escolha opções de restauro](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. **Selecione Restaurar** para ativar a operação de restauro.
 

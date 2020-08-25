@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266258"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795988"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página Verificação adicional?
 
@@ -33,7 +33,7 @@ A verificação de dois fatores é mais segura do que apenas uma palavra-passe p
 A verificação de dois fatores pode ajudar a impedir que hackers maliciosos finjam ser vocês. Mesmo que tenham a sua senha, as probabilidades são de que eles não tenham o seu dispositivo também.
 
 >[!Important]
->Se é um administrador à procura de informações sobre como ativar a verificação de dois fatores para os seus colaboradores ou outros utilizadores, consulte a documentação de autenticação do [Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/authentication/). Este artigo destina-se a utilizadores que tentem utilizar a verificação de dois fatores com uma conta de trabalho ou escola alain@contoso.com (como).
+>Se é um administrador à procura de informações sobre como ativar a verificação de dois fatores para os seus colaboradores ou outros utilizadores, consulte a documentação de autenticação do [Diretório Ativo Azure](../authentication/index.yml). Este artigo destina-se a utilizadores que tentem utilizar a verificação de dois fatores com uma conta de trabalho ou escola alain@contoso.com (como).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se usa esta funcionalidade?
 
@@ -60,7 +60,7 @@ Depois de a sua organização iniciar a verificação de dois fatores, sempre qu
 
 2. Na página **de verificação de segurança adicional,** selecione o método de verificação de dois fatores para verificar se é quem diz ser quando se inscreve na sua conta de trabalho ou escola. Pode selecionar:
 
-    | Método de contato | Description |
+    | Método de contato | Descrição |
     | --- | --- |
     | Aplicação móvel | <ul><li>**Receber notificações para verificação.** Esta opção empurra uma notificação para a aplicação autenticadora no seu smartphone ou tablet. Ver a notificação e, se for legítimo, **selecione Authenticate** na aplicação. O seu trabalho ou escola pode exigir que introduza um PIN antes de autenticar.</li><li>**Use o código de verificação.** Neste modo, a aplicação gera um código de verificação que atualiza a cada 30 segundos. Introduza o código de verificação mais atual no ecrã de entrada.<br>A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594)</li></ul> |
     | Telefone de autenticação | <ul><li>**A chamada telefónica** coloca uma chamada de voz automatizada para o número de telefone que fornece. Atende a chamada e prima a tecla da libra (#) no teclado do telefone para autenticar.</li><li>**A mensagem de** texto termina uma mensagem de texto contendo um código de verificação. Seguindo o pedido no texto, responda à mensagem de texto ou introduza o código de verificação fornecido na interface de entrada.</li></ul> |

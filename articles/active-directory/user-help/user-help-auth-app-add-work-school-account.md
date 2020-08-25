@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741544"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797654"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicione o seu trabalho ou conta escolar à aplicação Microsoft Authenticator
 
@@ -30,7 +30,7 @@ Se a sua organização utilizar a verificação de dois fatores, pode configurar
 1. No seu computador, aceda à página [adicional de verificação de segurança.](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)
 
     >[!Note]
-    >Se não vir a página **de verificação de segurança adicional,** é possível que o seu administrador tenha ligado a experiência de informação de segurança (pré-visualização). Se for esse o caso, deve seguir as instruções na informação de segurança Configurar para utilizar uma secção [de aplicação autenticadora.](security-info-setup-auth-app.md) Se não for esse o caso, terá de contactar o Help Desk da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [a informação de segurança (pré-visualização) visão geral](user-help-security-info-overview.md).
+    >Se não vir a página **de verificação de segurança adicional,** é possível que o seu administrador tenha ligado a experiência de informação de segurança (pré-visualização). Se for esse o caso, deve seguir as instruções na informação de segurança Configurar para utilizar uma secção [de aplicação autenticadora.](security-info-setup-auth-app.md) Se não for esse o caso, terá de contactar o Help Desk da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [a informação de segurança (pré-visualização) visão geral](./security-info-setup-signin.md).
 
 2. Verifique a caixa ao lado **da aplicação Authenticator**e, em seguida, selecione **Configure**.
 
@@ -52,7 +52,7 @@ Se a sua organização utilizar a verificação de dois fatores, pode configurar
 
     ![Tela de contas](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de adicionar as suas contas à aplicação, pode iniciar sôms usando a aplicação Authenticator no seu dispositivo. Para obter mais informações, consulte [Iniciar sção usando a aplicação.](user-help-auth-app-sign-in.md)
 

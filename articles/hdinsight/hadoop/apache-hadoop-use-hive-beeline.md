@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/21/2020
+ms.custom: contperfq1
+ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207746"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755097"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com o Apache Hive
 
@@ -25,7 +25,7 @@ Beeline é um cliente da Hive que está incluído nos nós da cabeça do seu clu
 
 * Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Reparem no esquema URI para o armazenamento primário do seu cluster. Por exemplo, `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2, ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI é `wasbs://` . Para mais informações, consulte [a transferência segura.](../../storage/common/storage-require-secure-transfer.md)
+* Reparem no esquema URI para o armazenamento primário do seu cluster. Por exemplo,  `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2, ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI é `wasbs://` . Para mais informações, consulte [a transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 
 * Opção 1: Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria dos passos deste documento assume que está a usar a Beeline de uma sessão de SSH para o cluster.
 
@@ -113,7 +113,7 @@ Este exemplo baseia-se na utilização do cliente Beeline a partir de uma ligaç
     |CRIAR TABELA EXTERNA|Cria uma mesa **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
     |FORMATO DE LINHA|Como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
     |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Onde os dados são armazenados e em que formato de ficheiro.|
-    |SELECT|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta consulta devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.|
+    |SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta consulta devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.|
     |INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que só deve devolver dados de ficheiros que terminam em .log.|
 
    > [!NOTE]  

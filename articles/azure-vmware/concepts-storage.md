@@ -1,18 +1,18 @@
 ---
 title: Conceitos - Armazenamento
-description: Saiba mais sobre as principais capacidades de armazenamento em Azure VMware Solution (AVS) Pré-visualizar nuvens privadas.
+description: Saiba mais sobre as principais capacidades de armazenamento em Azure VMware Solution Preview nuvens privadas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604121"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752224"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (AVS) Pré-visualização de conceitos de armazenamento
+# <a name="azure-vmware-solution-preview-storage-concepts"></a>Conceitos de armazenamento de pré-visualização de solução VMware Azure VMware
 
-As nuvens privadas AVS fornecem armazenamento nativo, em todo o cluster, com VMware vSAN. Todo o armazenamento local de cada hospedeiro num cluster é usado numa loja de dados vSAN, e a encriptação de dados em repouso está disponível e ativada por padrão. Você pode usar recursos de armazenamento Azure para estender as capacidades de armazenamento das suas nuvens privadas.
+As nuvens privadas Azure VMware Solution fornecem armazenamento nativo, em todo o cluster, com VMware vSAN. Todo o armazenamento local de cada hospedeiro num cluster é usado numa loja de dados vSAN, e a encriptação de dados em repouso está disponível e ativada por padrão. Você pode usar recursos de armazenamento Azure para estender as capacidades de armazenamento das suas nuvens privadas.
 
 ## <a name="vsan-clusters"></a>vSAN clusters
 
@@ -38,7 +38,7 @@ A capacidade de armazenamento de clusters nativo é dimensionada adicionando hos
 
 Você pode usar serviços de armazenamento Azure em cargas de trabalho em execução na sua nuvem privada. Os serviços de armazenamento Azure incluem Contas de Armazenamento, Armazenamento de Mesa e Armazenamento de Blob. A ligação de cargas de trabalho aos serviços de armazenamento Azure não atravessa a internet. Esta conectividade proporciona segurança adicional e permite-lhe utilizar serviços de armazenamento Azure baseados em SLA nas suas cargas de trabalho em nuvem privada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo passo é aprender sobre [conceitos privados de identidade em nuvem.][concepts-identity]
 

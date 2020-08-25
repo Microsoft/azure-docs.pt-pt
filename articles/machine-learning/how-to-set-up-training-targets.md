@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ef9c578a936160379e1daabbe62b3c3fa5bdd172
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: ced05e8ccd04775df189e9dff1af1fdaa990f3b2
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723882"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751667"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -149,17 +149,101 @@ Utilize qualquer uma destas formas de especificar um VM de baixa prioridade:
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
     ```
 
+ ### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurar identidade gerida
+
+ Os clusters de computação Azure Machine Learning também suportam [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para autenticar o acesso aos recursos do Azure sem incluir credenciais no seu código. Existem dois tipos de identidades geridas:
+
+* Uma **identidade gerida atribuída pelo sistema** é ativada diretamente no cluster de cálculo de Aprendizagem de Máquinas Azure. O ciclo de vida de uma identidade atribuída ao sistema está diretamente ligado ao cluster compute. Se o cluster de cálculo for eliminado, o Azure limpa automaticamente as credenciais e a identidade em Azure AD.
+* Uma **identidade gerida atribuída ao utilizador** é um recurso autónomo da Azure fornecido através do serviço de Identidade Gerida Azure. Pode atribuir uma identidade gerida atribuída ao utilizador a vários recursos, e persiste durante o tempo que quiser.
+
+Utilize qualquer uma destas formas de especificar uma identidade gerida para um cluster de cálculo:
+    
+* No estúdio, quando computa a criação de clusters ou ao editar detalhes do cluster compute, **altere Atribuir uma identidade gerida** e especificar uma identidade atribuída ao sistema ou identidade atribuída ao utilizador.
+    
+* Com o Python SDK, desa estale o `identity_type` atributo na sua configuração de provisionamento.  
+    
+    ```python
+    # configure cluster with a system-assigned managed identity
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            max_nodes=5,
+                                                            identity_type="SystemAssigned",
+                                                            )
+
+    # configure cluster with a user-assigned managed identity
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            max_nodes=5,
+                                                            identity_type="UserAssigned",
+                                                            identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+
+    cpu_cluster_name = "cpu-cluster"
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+    ```
+
+* Com o Python SDK, desa estale os `identity_type` atributos e `identity_id` (se criar uma identidade gerida atribuída pelo utilizador) na sua configuração de provisionamento.  
+    
+    ```python
+    # add a system-assigned managed identity
+    cpu_cluster.add_identity(identity_type="SystemAssigned")
+
+    # add a user-assigned managed identity
+    cpu_cluster.add_identity(identity_type="UserAssigned", 
+                                identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+    ```
+    
+* Utilizando o CLI, desapedaça o atributo durante a `assign-identity` criação do cluster:
+    
+    ```azurecli
+    # create a cluster with a user-assigned managed identity
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+
+    # create a cluster with a system-managed identity
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
+
+* Using the CLI, execute the following commands to assign a managed identity on an existing cluster:
+    
+    ```azurecli
+    # add a user-assigned managed identity
+    az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+
+    # add a system-assigned managed identity
+    az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
+
+> [!NOTE]
+> Azure Machine Learning compute clusters support only **one system-assigned identity** or **multiple user-assigned identities**, not both concurrently.
+> 
+> Additionally, you can assign only one managed identity from the studio.
+
+#### Managed identity usage
+
+AML defines the **default managed identity** as the system-assigned managed identity or the first user-assigned managed identity.
+
+During a run there are two applications of an identity:
+1. The system uses an identity to setup the user's storage mounts, container registry, and datastores.
+    * In this case, the system will use the default managed identity.
+
+1. The user applies an identity to access resources from within the code for a submitted run
+    
+    * In this case, the user must provide the *client_id* corresponding to the managed identity they want to use to retrieve a credential. 
+    * Alternatively, AML exposes the user-assigned identity's client id through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
+    
+    For example, to retrieve a token for a datastore with the default managed identity:
+    
+    ```python
+    client_id = os.environ.get('DEFAULT_IDENTITY_CLIENT_ID')
+    credential = ManagedIdentityCredential(client_id=client_id)
+    token = credential.get_token('https://storage.azure.com/')
 
 
-### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Instância de computação do Azure Machine Learning
 
-[A azure Machine Learning compute instance](concept-compute-instance.md) é uma infraestrutura de computação gerida que permite criar facilmente um único VM. O cálculo é criado dentro da sua região do espaço de trabalho, mas ao contrário de um cluster de cálculo, um caso não pode ser partilhado com outros utilizadores no seu espaço de trabalho. Também o caso não diminui automaticamente.  Tem de parar o recurso para evitar cargas em curso.
+### <a id="instance"></a>Azure Machine Learning compute instance
 
-Uma instância computacional pode executar vários trabalhos em paralelo e tem uma fila de emprego. 
+[Azure Machine Learning compute instance](concept-compute-instance.md) is a managed-compute infrastructure that allows you to easily create a single VM. The compute is created within your workspace region, but unlike a compute cluster, an instance cannot be shared with other users in your workspace. Also the instance does not automatically scale down.  You must stop the resource to prevent ongoing charges.
 
-As instâncias computacional podem executar empregos de forma segura num [ambiente de rede virtual,](how-to-enable-virtual-network.md#compute-instance)sem exigir que as empresas abram portas SSH. O trabalho executa num ambiente contentorizado e embala as dependências do seu modelo num contentor Docker. 
+A compute instance can run multiple jobs in parallel and has a job queue. 
 
-1. **Criar e anexar:** 
+Compute instances can run jobs securely in a [virtual network environment](how-to-enable-virtual-network.md#compute-instance), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
+
+1. **Create and attach**: 
     
     ```python
     import datetime

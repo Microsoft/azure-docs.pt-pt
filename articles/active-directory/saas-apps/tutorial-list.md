@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 6d5632e6c50b33396eee5b476281c7a2c0a8366e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534018"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751255"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutorials for integrating SaaS applications with Azure Active Directory (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
@@ -31,11 +31,11 @@ Utilize o portal da [rede de aplicações](https://docs.microsoft.com/azure/acti
 
 | Logótipo | Tutorial de aplicação para um único sinal | Tutorial de aplicação para provisionamento de utilizadores |
 | :--- | :--- | :--- |
-| ![logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Nuvem Atlassiana - Provisionamento de Utilizadores](atlassian-cloud-provisioning-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - Fornecimento de Utilizadores](servicenow-provisioning-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Provisioning do Utilizador](slack-provisioning-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - Fornecimento de Utilizadores](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Dias úteis - Provisionamento de Utilizadores](workday-inbound-tutorial.md)|
+| ![Nuvem atlassiana de logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Nuvem Atlassiana - Provisionamento de Utilizadores](atlassian-cloud-provisioning-tutorial.md)|
+| ![logo-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - Fornecimento de Utilizadores](servicenow-provisioning-tutorial.md)|
+| ![logotipo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Provisioning do Utilizador](slack-provisioning-tutorial.md)|
+| ![logo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - Fornecimento de Utilizadores](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logo-Dia de trabalho](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Dias úteis - Provisionamento de Utilizadores](workday-inbound-tutorial.md)|
 
 Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 
@@ -43,73 +43,81 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 
 | Logótipo | Tutorial de aplicação para um único sinal | Tutorial de aplicação para provisionamento de utilizadores |
 | :--- | :--- | :--- |
-| ![logotipo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Consola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Consola Amazon Web Services (AWS) - Provisioning de funções](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Fun bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
-| ![logotipo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Provisioning de utilizadores](google-apps-provisioning-tutorial.md) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Fornecimento de Utilizadores](salesforce-provisioning-tutorial.md) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem SAP](saphana-tutorial.md)|[Plataforma de Identidade cloud SAP - Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![Consola de Serviços Web da Amazon (AWS)](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Consola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Consola Amazon Web Services (AWS) - Provisioning de funções](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
+| ![Serviço nuvem logo-Alibaba (Fun bases SSO)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Fun bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
+| ![Plataforma nuvem do logotipo-Google](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Provisioning de utilizadores](google-apps-provisioning-tutorial.md) |
+| ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Fornecimento de Utilizadores](salesforce-provisioning-tutorial.md) |
+| ![Plataforma de Identidade de Nuvem de logotipo-SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem SAP](saphana-tutorial.md)|[Plataforma de Identidade cloud SAP - Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 
 | Logótipo | Tutorial de aplicação para um único sinal |
 | :--- | :--- |
-| ![logotipo](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-appraisd-tutorial.png)| [Appraisd](appraisd-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-drift-tutorial.png)| [Drift](drift-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [People](people-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-watch-by-colors-tutorial.png)| [Watch by Colors](watch-by-colors-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|  
-| ![logotipo](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|  
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)|  
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|  
-| ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|
+| ![logotipo-8x8](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
+| ![logotipo-AcquireIO](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
+| ![logotipo-Aha!](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
+| ![logo-AlertaOps](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
+| ![logo-Amplitude](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|
+| ![logo-Avaliado](./media/tutorial-list/active-directory-saas-appraisd-tutorial.png)| [Appraisd](appraisd-tutorial.md)|
+| ![Empresa logo-ArcGIS](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
+| ![Nuvem atlassiana de logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
+| ![Backup de ponto final de logotipo-Carbonite](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
+| ![logotipo-CakeHR](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
+| ![logo-Cisco Webex](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-spark-tutorial.md)|
+| ![logo-Deskradar](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|
+| ![logo-Displayr](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|
+| ![logo-dmarcian](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|
+| ![logo-DocuSign](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|
+| ![logotipo-Dome9 Arc](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
+| ![logotipo-Deriva](./media/tutorial-list/active-directory-saas-drift-tutorial.png)| [Drift](drift-tutorial.md)|
+| ![logo-Dropbox para Negócios](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|
+| ![logotipo-Hélio](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|
+| ![logotipo-enviado](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|
+| ![logotipo-Evernote](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
+| ![logotipo-DespesaSIn](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
+| ![logo-EZOfficeInventory](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
+| ![logotipo-Foodee](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
+| ![logo-Freedcamp](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
+| ![logo-Freshservice](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
+| ![logotipo-Arnês](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|
+| ![Logo-Help Scout](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
+| ![logotipo-Hightail](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
+| ![logo-HRworks Single Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
+| ![logo-Jamf Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo-Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
+| ![logo-Conhecimento Em qualquer lugar LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
+| ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
+| ![logotipo-MyWorkDrive](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|
+| ![logotipo-Nuclino](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|
+| ![logotipo-OneDesk](./media/tutorial-list/active-directory-saas-onedesk-tutorial.png)| [OneDesk](onedesk-tutorial.md)|
+| ![logotipo-Pessoas](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [People](people-tutorial.md)|
+| ![logotipo-produto](./media/tutorial-list/active-directory-saas-productboard-tutorial.png)| [productboard](productboard-tutorial.md)|
+| ![logotipo-PureHR](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
+| ![logotipo-RingCentral](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|
+| ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|
+| ![Empresa de escala de logotipo](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|
+| ![logotipo-Screencast-O-Matic](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Screencast-O-Matic](screencast-tutorial.md)|
+| ![logo-SmartDraw](./media/tutorial-list/active-directory-saas-smartdraw-tutorial.png)| [SmartDraw](smartdraw-tutorial.md)|
+| ![logo-Soloinsight-CloudGate SSO](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|
+| ![logotipo-TargetProcess](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|
+| ![logotipo-Teamphoria](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
+| ![logo-TextMagic](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
+| ![LOGOTIPO-Velpic SAML](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|
+| ![logo-Wandera](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|
+| ![logo-Relógio por Cores](./media/tutorial-list/active-directory-saas-watch-by-colors-tutorial.png)| [Watch by Colors](watch-by-colors-tutorial.md)|
+| ![logotipo-Way We Do](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
+| ![logo-Workplace by Facebook](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|
+| ![logo-Workteam](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
+| ![logotipo-XaitPorter](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|
+| ![logotipo-Yodeck](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|  
+| ![logotipo-Zendesk](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|  
+| ![logo-Zscaler](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)|
+| ![logo-Zscaler Beta](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|
+| ![logo-Zscaler One](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|
+| ![acesso privado logo-Zscaler (ZPA)](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)|  
+| ![logotipo-Zscaler Três](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)|
+| ![logotipo-Zscaler Dois](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|  
+| ![logo-Zscaler ZSCloud](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|
 
 ## <a name="next-steps"></a>Passos seguintes
 

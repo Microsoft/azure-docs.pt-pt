@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871765"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795784"
 ---
 # <a name="configure-database-settings"></a>Configurar definições de base de dados 
 
@@ -26,14 +26,17 @@ A produção deve ser disponibilizada para garantir que estão sempre disponíve
 > À medida que diferentes operações consomem um número diferente de RU, devolvemos o número real de RUs consumidos em cada chamada de API em cabeçalho de resposta. Desta forma pode perfilar o número de RUs consumidos pela sua aplicação.
 
 ## <a name="update-throughput"></a>Atualização de produção
+
 Para alterar esta definição no portal Azure, navegue na API Azure para FHIR e abra a lâmina base de dados. Em seguida, altere a produção do Provisionado para o valor pretendido, dependendo das suas necessidades de desempenho. Pode alterar o valor até um máximo de 10.000 RU/s. Se precisar de um valor mais elevado, contacte o suporte da Azure.
+
+Se o rendimento da base de dados for superior a 10.000 RU/s ou se os dados armazenados na base de dados forem superiores a 50 GB, a sua aplicação ao cliente deve ser capaz de lidar com fichas de continuação. Uma nova partição é criada na base de dados para cada aumento de produção de 10.000 RU/s ou se a quantidade de dados armazenados for superior a 50 GB. Múltiplas divisórias criam uma resposta de várias páginas na qual a paginação é implementada usando tokens de continuação.
 
 > [!NOTE] 
 > Valor mais elevado significa API Azure mais elevado para a produção de FHIR e custos mais elevados do serviço.
 
 ![Config Cosmos DB](media/database/database-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a atualizar as suas RUs para Azure API para FHIR. Em seguida, implementar uma Azure API totalmente gerida para FHIR:
  

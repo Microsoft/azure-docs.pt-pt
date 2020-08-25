@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
+ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: e93d750dd2feaa70692ab1077ee4333c835417db
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076781"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754961"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conecte-se ao Apache Beeline no HDInsight ou instale-o localmente
 
@@ -146,7 +146,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
 
 1. Alterar ainda mais o ficheiro bashrc. Tens de identificar o caminho para onde os arquivos foram desempacotados. Se utilizar o [Subsistema Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10), e seguisse exatamente os passos, o seu caminho seria `/mnt/c/Users/user/` , onde está o seu nome de `user` utilizador.
 
-    1. Abra o ficheiro:`nano ~/.bashrc`
+    1. Abra o ficheiro: `nano ~/.bashrc`
 
     1. Modifique os comandos abaixo com o caminho apropriado e, em seguida, insira-os no final do ficheiro bashrc:
 
@@ -162,7 +162,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
 
 1. Teste a sua ligação. Utilize o formato de ligação a partir de [pontos finais públicos ou privados,](#over-public-or-private-endpoints)acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Por exemplo, utilizando o cliente Beeline com a Colmeia Apache, consulte [Use Apache Beeline com Apache Hive](apache-hadoop-use-hive-beeline.md)
 * Para obter informações mais gerais sobre a Colmeia em HDInsight, consulte [Use Apache Hive com Apache Hadoop em HDInsight](hdinsight-use-hive.md)

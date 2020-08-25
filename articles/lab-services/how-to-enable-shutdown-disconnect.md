@@ -3,12 +3,12 @@ title: Configure o encerramento automático de VMs para um laboratório nos Serv
 description: Saiba como ativar ou desativar o encerramento automático de VMs quando uma ligação remota do ambiente de trabalho estiver desligada.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0df3fdcaea99c00461caac37a3b655d152a0e527
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604879"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798487"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configure o encerramento automático de VMs para um laboratório
 
@@ -20,7 +20,7 @@ Pode ativar várias funcionalidades de controlo de custos de paragem automática
 * Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam (Windows & Linux).
 * Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.
 
-Reveja mais detalhes sobre as funcionalidades de paragem automática no controlo de custos Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings)
+Reveja mais detalhes sobre as funcionalidades de paragem automática no controlo de custos Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#automatic-shutdown-settings-for-cost-control)
 
 Um administrador de conta de laboratório pode configurar esta definição para a conta de laboratório na qual cria laboratórios. Para obter mais informações, consulte [configurar o encerramento automático de VMs para uma conta de laboratório](how-to-configure-lab-accounts.md). Como dono de laboratório, pode anular a definição ao criar um laboratório ou depois de o laboratório ser criado. 
 
@@ -34,7 +34,7 @@ Pode configurar a definição de paragem automática nos Serviços de [Laborató
 > [!div class="mx-imgBorder"]
 > ![Configurar no momento da criação de laboratório](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
 
-Certifique-se de rever os detalhes sobre a paragem automática no controlo de custos Do Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings)
+Certifique-se de rever os detalhes sobre a paragem automática no controlo de custos Do Maximize com a secção [de definições de paragem automática.](cost-management-guide.md#automatic-shutdown-settings-for-cost-control)
 
 > [!WARNING]
 > Se desligar o sistema operativo Windows (OS) num VM antes de desligar uma sessão DE PDR para o VM, a função de autoshutdown não funcionará corretamente.  

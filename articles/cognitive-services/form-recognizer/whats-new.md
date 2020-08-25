@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724137"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751084"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -30,7 +30,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 - **Rest A referência API está disponível** - Ver a [referência v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
 - **Novas línguas suportadas Para além**do inglês, as seguintes línguas são agora apoiadas: para `Layout` e : Inglês `Train Custom Model` (EN), chinês (Simplificado) (ZH-ZH), holandês (NL), francês (FR), alemão (DE), italiano (IT), português (PT) e espanhol (ES).
 - **Deteção de marca de verificação / Seleção** – O Reconhecimento de Formulários suporta a deteção e extração de marcas de seleção, tais como caixas de verificação e botões de rádio. As marcas de seleção são extraídas `Layout` e agora também pode rotular e treinar em Comboio com `Train Custom Model`  -  _Etiquetas_ para extrair pares de valores chave para marcas de seleção. 
-- **O Model Compose** permite que vários modelos sejam compostos e chamados com um único modelo Id. Quando um documento é submetido a ser analisado com um Id de modelo composto, é primeiro realizado um passo de classificação para encaminhá-lo para o modelo personalizado correto. O modelo composição está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
+- **O Model Compose** permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O modelo composição está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
 - **O nome do modelo** adiciona um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.
 - **Novo modelo pré-construído para cartões de visita** para extrair campos comuns em inglês, cartões de visita em língua.
 - **Novas localidades para recibos pré-construídos** para além da EN-US, o suporte está agora disponível para EN-AU, EN-CA, EN-GB, EN-IN
@@ -50,8 +50,10 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 ## <a name="july-2020"></a>Julho de 2020
 
 ### <a name="new-features"></a>Novas funcionalidades
+
 * **v2.0 referência disponível** Ver a [referência v2.0 API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python,](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python) [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * **Melhoramentos de mesa e extração** incluem melhorias de precisão e melhorias de extrações de mesa, especificamente, a capacidade de aprender cabeçalhos de mesa e estruturas em _comboios personalizados sem etiquetas._ 
+
 * **Suporte cambial** Deteção e extração de símbolos de moeda global.
 * **Azure Gov** O Form Recogniser também está disponível em Azure Gov.
 * **Características de segurança reforçadas:** 
@@ -76,8 +78,8 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 * **Suporte SDK para reconhecimento de formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
    * [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [SDK Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-   * [SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
+   * [SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
 
   O novo SDK suporta todas as funcionalidades da API v2.0 REST para o Reconhecimento de Formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e extrair texto, pares de valor chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário SDK Feedback](https://aka.ms/FR_SDK_v1_feedback).
  

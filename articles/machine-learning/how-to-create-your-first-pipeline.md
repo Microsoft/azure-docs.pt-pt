@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ca1419fe95e9ca383c09c7bc33a16ce148549cb6
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244059"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755080"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -55,7 +55,11 @@ Criar os recursos necessários para executar um gasoduto ML:
 
 * Crie uma datastore utilizada para aceder aos dados necessários nas etapas do gasoduto.
 
-* Configure um `Dataset` objeto para apontar para dados persistentes que vivem ou estão acessíveis numa datastore. Configure um `PipelineData` objeto para dados temporários passados entre as etapas do gasoduto. 
+* Configure um `Dataset` objeto para apontar para dados persistentes que vivem ou estão acessíveis numa datastore. Configure um `OutputFileDatasetConfig` objeto para dados temporários passados entre etapas de gasoduto ou para criar saídas. 
+> [!NOTE]
+>A `OutputFileDatasetConfig` aula é uma funcionalidade de pré-visualização experimental, e pode mudar a qualquer momento.
+>
+>Para obter mais informações, consulte https://aka.ms/azuremlexperimental.
 
 * Desaponte os [alvos de cálculo](concept-azure-machine-learning-architecture.md#compute-targets) nos quais os seus passos de gasoduto irão funcionar.
 
@@ -90,7 +94,7 @@ Um oleoduto consiste em um ou mais passos. Um passo é uma unidade executada num
 
 Para saber mais sobre a ligação do seu pipeline aos seus dados, consulte os artigos [Como Aceder aos Dados](how-to-access-data.md) e [Como Registar Conjuntos de Dados.](how-to-create-register-datasets.md) 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Configure dados usando `Dataset` e `PipelineData` objetos
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Configurar dados com `Dataset` e `OutputFileDatasetConfig` objetos
 
 Acabou de criar uma fonte de dados que pode ser referenciada num oleoduto como uma entrada para um passo. A forma preferida de fornecer dados a um pipeline é um objeto [dataset.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) O `Dataset` objeto aponta para dados que vivem dentro ou estão acessíveis a partir de uma datastore ou em um URL web. A `Dataset` classe é abstrata, por isso irá criar um exemplo de um `FileDataset` (referindo-se a um ou mais ficheiros) ou de um `TabularDataset` que é criado por um ou mais ficheiros com colunas de dados delimitadas.
 
@@ -104,18 +108,17 @@ from azureml.core import Dataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
-Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
+Os dados intermédios (ou saída de um passo) são representados por um objeto [OutputFileDatasetConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `OutputFileDatasetConfig` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
+
+`OutputFileDatasetConfig` os objetos devolvem um diretório e, por predefinição, escreve a saída para a datastore predefinido do espaço de trabalho.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig()
 ```
 
-Mais detalhes e código de amostra para trabalhar com conjuntos de dados e dados do gasoduto estão em [mover dados para dentro e entre etapas de gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md).
+Mais detalhes e código de amostra para trabalhar com conjuntos de dados e objetos OutputFileConfig estão em [mover dados para dentro e entre etapas de gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="set-up-a-compute-target"></a>Configurar um alvo de computação
 
@@ -316,8 +319,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -326,7 +327,7 @@ data_prep_step = PythonScriptStep(
 
 O código acima mostra um passo típico do gasoduto inicial. O seu código de preparação de dados está numa subdiretório (neste exemplo, `"prepare.py"` no `"./dataprep.src"` diretório). Como parte do processo de criação do gasoduto, este diretório é fechado e carregado para o `compute_target` e o passo executa o script especificado como o valor para `script_name` .
 
-Os `arguments` `inputs` valores , e `outputs` valores especificam as entradas e saídas do passo. No exemplo acima, os dados de base são o `my_dataset` conjunto de dados. Os dados correspondentes serão descarregados para o recurso computacional uma vez que o código os especifica como `as_download()` . O script `prepare.py` faz quaisquer tarefas de transformação de dados adequadas à tarefa em questão e produz os dados para `output_data1` , de tipo `PipelineData` . Para obter mais informações, consulte [a deslocação de dados para e entre os passos do gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
+Os `arguments` valores especificam as entradas e saídas do passo. No exemplo acima, os dados de base são o `my_dataset` conjunto de dados. Os dados correspondentes serão descarregados para o recurso computacional uma vez que o código os especifica como `as_download()` . O script `prepare.py` faz quaisquer tarefas de transformação de dados adequadas à tarefa em questão e produz os dados para `output_data1` , de tipo `OutputFileDatasetConfig` . Para obter mais informações, consulte [a deslocação de dados para e entre os passos do gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
 O passo será executado na máquina definida `compute_target` por, utilizando a configuração `aml_run_config` . 
 
@@ -338,24 +339,20 @@ A reutilização dos resultados anteriores `allow_reuse` () é fundamental quand
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(
-    "training_results",
-    datastore=def_blob_store,
-    output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+                                           destination = def_blob_store)
 
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
     arguments=["--prepped_data", output_data1, "--training_results", training_results],
-    inputs=[output_data1],
-    outputs=[training_results],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-O código acima é muito semelhante ao da etapa de preparação de dados. O código de formação encontra-se num diretório separado do código de preparação de dados. A `PipelineData` saída do passo de preparação de dados, é usada como `output_data1` _entrada_ para o passo de treino. Um novo `PipelineData` objeto é criado para manter os `training_results` resultados para uma comparação subsequente ou passo de implementação. 
+O código acima é muito semelhante ao da etapa de preparação de dados. O código de formação encontra-se num diretório separado do código de preparação de dados. A `OutputFileDatasetConfig` saída do passo de preparação de dados, é usada como `output_data1` _entrada_ para o passo de treino. Um novo `OutputFileDatasetConfig` objeto é criado para manter os `training_results` resultados para uma comparação subsequente ou passo de implementação. 
 
 Depois de definir os seus passos, constrói o oleoduto utilizando alguns ou todos esses passos.
 
@@ -397,10 +394,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados 
 
-Conjuntos de dados criados a partir do armazenamento de Azure Blob, Ficheiros Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever saída para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se pretender escrever dados para uma loja de dados específica utilizar [o PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Conjuntos de dados criados a partir do armazenamento de Azure Blob, Ficheiros Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever output para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se pretender escrever dados para uma loja de dados específica, utilize [outputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> A produção de dados de volta para uma loja de dados utilizando o PipelineData é suportada apenas para as lojas de dados de partilha de ficheiros Azure Blob e Azure File. Esta funcionalidade não é suportada para [datastores da ADLS Gen 2](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) neste momento.
+> A produção de dados de volta para uma datastore que utiliza `OutputFileDatasetConfig` é suportada apenas para Azure Blob, Azure File share, ADLS Gen 1 e ADLS Gen 2 datastores.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -454,7 +451,7 @@ Quando se faz um oleoduto pela primeira vez, a Azure Machine Learning:
 * Descarrega o instantâneo do projeto para o alvo do cálculo a partir do armazenamento Blob associado ao espaço de trabalho.
 * Constrói uma imagem docker correspondente a cada passo no oleoduto.
 * Descarrega a imagem do Docker para cada passo para o alvo do cálculo a partir do registo do contentor.
-* Configura o acesso a `Dataset` `PipelineData` e objetos. Como `as_mount()` modo de acesso, o FUSE é utilizado para fornecer acesso virtual. Se a montagem não for suportada ou se o utilizador tiver especificado o acesso como `as_download()` , os dados são copiados para o alvo do cálculo.
+* Configura o acesso a `Dataset` `OutputFileDatasetConfig` e objetos. Para `as_mount()` o modo de acesso, o FUSE é utilizado para fornecer acesso virtual. Se a montagem não for suportada ou se o utilizador tiver especificado o acesso como `as_upload()` , os dados são copiados para o alvo do cálculo.
 * Corre o passo no alvo do cálculo especificado na definição do passo. 
 * Cria artefactos, tais como troncos, estalidos e stderr, métricas e saídas especificadas pelo passo. Estes artefactos são então carregados e mantidos na loja de dados predefinidos do utilizador.
 

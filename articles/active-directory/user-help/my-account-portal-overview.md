@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422420"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798164"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?
 
@@ -33,11 +33,11 @@ Pode chegar ao portal **My Account** ( , a partir da versão atual de qualquer u
 ![Portal da Minha Conta, Página geral](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem chegar ao portal My Account para atualizar as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, configurações linguísticas, privacidade ou informações de entrada prévias. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação AD AD do Azure para administradores.](https://docs.microsoft.com/azure/active-directory/)
+>Este artigo destina-se a utilizadores que tentem chegar ao portal My Account para atualizar as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, configurações linguísticas, privacidade ou informações de entrada prévias. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação AD AD do Azure para administradores.](../index.yml)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Selecione para ver ou gerir as suas [informações de segurança](user-help-security-info-overview.md)
+- Selecione para ver ou gerir as suas [informações de segurança](./security-info-setup-signin.md)
 
 - Ver ou gerir os seus [dispositivos conectados](my-account-portal-devices-page.md)
 

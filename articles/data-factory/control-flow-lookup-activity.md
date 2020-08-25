@@ -3,22 +3,23 @@ title: Atividade de procura na Fábrica de Dados Azure
 description: Aprenda a usar a atividade de Lookup para procurar um valor a partir de uma fonte externa. Esta saída pode ser ainda referenciada através de atividades de sucesso.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: linda33wj
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 7a0b4e52d729c3f13d5ac425627970d67b87979e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418006"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795886"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade de procura pode recuperar um conjunto de dados de qualquer uma das fontes de dados suportadas pela Azure Data Factory. Utilize-o no seguinte cenário:
@@ -36,28 +37,27 @@ As seguintes fontes de dados são suportadas para a atividade de Procura. O maio
 
 ```json
 {
-    "name": "LookupActivity",
-    "type": "Lookup",
-    "typeProperties": {
-        "source": {
-            "type": "<source type>"
-            <additional source specific properties (optional)>
+    "name":"LookupActivity",
+    "type":"Lookup",
+    "typeProperties":{
+        "source":{
+            "type":"<source type>"
         },
-        "dataset": { 
-            "referenceName": "<source dataset name>",
-            "type": "DatasetReference"
+        "dataset":{
+            "referenceName":"<source dataset name>",
+            "type":"DatasetReference"
         },
-        "firstRowOnly": false
+        "firstRowOnly":<true or false>
     }
 }
 ```
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Name | Description | Tipo | Necessário?
+Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
-conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Yes
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
+conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
 > [!NOTE]
@@ -66,23 +66,24 @@ firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas.
 > * **A estrutura** não é suportada nas definições de conjunto de dados. Para ficheiros de formato de texto, utilize a linha do cabeçalho para fornecer o nome da coluna.
 > * Se a sua fonte de procura for um ficheiro JSON, a `jsonPathDefinition` definição para remodelar o objeto JSON não é suportada. Todos os objetos serão recuperados.
 
-## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>A utilização da atividade de Lookup resulta numa atividade subsequente
+## <a name="use-the-lookup-activity-result"></a>Utilize o resultado da atividade de Lookup
 
 O resultado da procura é devolvido na `output` secção do resultado da execução da atividade.
 
-* **Quando `firstRowOnly` definido para `true` (predefinido)**, o formato de saída é como mostrado no código seguinte. O resultado da procura está sob uma `firstRow` chave fixa. Para utilizar o resultado em atividades subsequentes, utilize o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}` .
+* **Quando `firstRowOnly` definido para `true` (predefinido)**, o formato de saída é como mostrado no código seguinte. O resultado da procura está sob uma `firstRow` chave fixa. Para utilizar o resultado em atividades subsequentes, utilize o padrão de  `@{activity('LookupActivity').output.firstRow.table` .
 
     ```json
     {
         "firstRow":
         {
             "Id": "1",
-            "TableName" : "Table1"
+            "schema":"dbo",
+            "table":"Table1"
         }
     }
     ```
 
-* **Quando `firstRowOnly` estiver `false` definido para **, o formato de saída é como mostrado no código seguinte. Um `count` campo indica quantos registos são devolvidos. Os valores detalhados são apresentados sob uma `value` matriz fixa. Neste caso, a atividade De Procura é seguida por uma [atividade forecível](control-flow-for-each-activity.md). Você passa a `value` matriz para o campo de atividades ForEach `items` usando o padrão de `@activity('MyLookupActivity').output.value` . Para aceder aos elementos da `value` matriz, utilize a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Um exemplo é `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quando `firstRowOnly` estiver `false` definido para **, o formato de saída é como mostrado no código seguinte. Um `count` campo indica quantos registos são devolvidos. Os valores detalhados são apresentados sob uma `value` matriz fixa. Neste caso, a atividade De Procura é seguida por uma [atividade forecível](control-flow-for-each-activity.md). Você passa a `value` matriz para o campo de atividades ForEach `items` usando o padrão de `@activity('MyLookupActivity').output.value` . Para aceder aos elementos da `value` matriz, utilize a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Um exemplo é `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {
@@ -90,26 +91,29 @@ O resultado da procura é devolvido na `output` secção do resultado da execuç
         "value": [
             {
                 "Id": "1",
-                "TableName" : "Table1"
+                "schema":"dbo",
+                "table":"Table1"
             },
             {
                 "Id": "2",
-                "TableName" : "Table2"
+                "schema":"dbo",
+                "table":"Table2"
             }
         ]
     } 
     ```
 
-### <a name="copy-activity-example"></a>Exemplo de Atividade de Cópia
-Neste exemplo, copy Activity copia dados de uma tabela SQL na sua caixa de dados Azure SQL para armazenamento Azure Blob. O nome da tabela SQL está guardado num ficheiro JSON no armazenamento Blob. A atividade de Lookup procura o nome da mesa no tempo de execução. O JSON é modificado dinamicamente utilizando esta abordagem. Não é necessário recolocar oleodutos ou conjuntos de dados. 
+## <a name="example"></a>Exemplo
+
+Neste exemplo, o gasoduto contém duas atividades: **Lookup** e **Copy**. A Copy Activity copia dados de uma tabela SQL na sua caixa de base de dados Azure SQL para o armazenamento de Azure Blob. O nome da tabela SQL está guardado num ficheiro JSON no armazenamento Blob. A atividade de Lookup procura o nome da mesa no tempo de execução. O JSON é modificado dinamicamente utilizando esta abordagem. Não é necessário recolocar oleodutos ou conjuntos de dados. 
 
 Este exemplo demonstra a procura apenas para a primeira linha. Para procurar todas as linhas e acorrentar os resultados com a atividade ForEach, consulte as amostras em [Copiar várias tabelas a granel utilizando a Azure Data Factory](tutorial-bulk-copy.md).
 
+
 ### <a name="pipeline"></a>Pipeline
-Este oleoduto contém duas atividades: Procura e Cópia. 
 
 - A atividade de Lookup está configurada para utilizar **o LookupDataset,** que se refere a uma localização no armazenamento Azure Blob. A atividade de Lookup lê o nome da tabela SQL a partir de um ficheiro JSON neste local. 
-- Copy Activity utiliza a saída da atividade Lookup, que é o nome da tabela SQL. A **propriedade tableName** no **SourceDataset** está configurada para utilizar a saída da atividade Lookup. Copiar A Atividade copia os dados da tabela SQL para uma localização no armazenamento da Azure Blob. A localização é especificada pela propriedade **SinkDataset.** 
+- A Atividade copy utiliza a saída da atividade Lookup, que é o nome da tabela SQL. A **propriedade tableName** no **SourceDataset** está configurada para utilizar a saída da atividade Lookup. Copiar A Atividade copia os dados da tabela SQL para uma localização no armazenamento da Azure Blob. A localização é especificada pela propriedade **SinkDataset.** 
 
 ```json
 {
@@ -119,161 +123,241 @@ Este oleoduto contém duas atividades: Procura e Cópia.
             {
                 "name": "LookupActivity",
                 "type": "Lookup",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
                 "typeProperties": {
                     "source": {
-                        "type": "BlobSource"
+                        "type": "JsonSource",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageReadSettings",
+                            "recursive": true
+                        },
+                        "formatSettings": {
+                            "type": "JsonReadSettings"
+                        }
                     },
-                    "dataset": { 
-                        "referenceName": "LookupDataset", 
-                        "type": "DatasetReference" 
-                    }
+                    "dataset": {
+                        "referenceName": "LookupDataset",
+                        "type": "DatasetReference"
+                    },
+                    "firstRowOnly": true
                 }
             },
             {
                 "name": "CopyActivity",
                 "type": "Copy",
-                "typeProperties": {
-                    "source": { 
-                        "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
-                    },
-                    "sink": { 
-                        "type": "BlobSink" 
+                "dependsOn": [
+                    {
+                        "activity": "LookupActivity",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
                     }
-                },                
-                "dependsOn": [ 
-                    { 
-                        "activity": "LookupActivity", 
-                        "dependencyConditions": [ "Succeeded" ] 
-                    }
-                 ],
-                "inputs": [ 
-                    { 
-                        "referenceName": "SourceDataset", 
-                        "type": "DatasetReference" 
-                    } 
                 ],
-                "outputs": [ 
-                    { 
-                        "referenceName": "SinkDataset", 
-                        "type": "DatasetReference" 
-                    } 
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": {
+                            "value": "select * from [@{activity('LookupActivity').output.firstRow.schema}].[@{activity('LookupActivity').output.firstRow.table}]",
+                            "type": "Expression"
+                        },
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
+                    },
+                    "sink": {
+                        "type": "DelimitedTextSink",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageWriteSettings"
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextWriteSettings",
+                            "quoteAllText": true,
+                            "fileExtension": ".txt"
+                        }
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        }
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "SourceDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "schemaName": {
+                                "value": "@activity('LookupActivity').output.firstRow.schema",
+                                "type": "Expression"
+                            },
+                            "tableName": {
+                                "value": "@activity('LookupActivity').output.firstRow.table",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "SinkDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "schema": {
+                                "value": "@activity('LookupActivity').output.firstRow.schema",
+                                "type": "Expression"
+                            },
+                            "table": {
+                                "value": "@activity('LookupActivity').output.firstRow.table",
+                                "type": "Expression"
+                            }
+                        }
+                    }
                 ]
             }
-        ]
+        ],
+        "annotations": [],
+        "lastPublishTime": "2020-08-17T10:48:25Z"
     }
 }
 ```
 
 ### <a name="lookup-dataset"></a>Conjunto de dados de procura
-O conjunto de dados **de procura** é osourcetable.js**ficheiro na** pasta de procuração Azure Storage especificada pelo tipo **AzureStorageLinkedService.** 
+
+O conjunto de dados **de procura** é osourcetable.js**ficheiro na** pasta de procuração Azure Storage especificada pelo tipo **AzureBlobStorageLinkedService.** 
 
 ```json
 {
     "name": "LookupDataset",
     "properties": {
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": "lookup",
-            "fileName": "sourcetable.json",
-            "format": {
-                "type": "JsonFormat",
-                "filePattern": "SetOfObjects"
-            }
-        },
         "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
+            "referenceName": "AzureBlobStorageLinkedService",
             "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "sourcetable.json",
+                "container": "lookup"
+            }
         }
     }
 }
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>Conjunto de dados de **origem** para atividade de cópia
+
 O conjunto de dados de **origem** utiliza a saída da atividade Desatenção, que é o nome da tabela SQL. Copiar A Atividade copia os dados desta tabela SQL para uma localização no armazenamento da Azure Blob. A localização é especificada pelo conjunto de dados da **pia.** 
 
 ```json
 {
     "name": "SourceDataset",
     "properties": {
-        "type": "AzureSqlTable",
-        "typeProperties":{
-            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
-        },
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "AzureSqlDatabase",
             "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "schemaName": {
+                "type": "string"
+            },
+            "tableName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": {
+                "value": "@dataset().schemaName",
+                "type": "Expression"
+            },
+            "table": {
+                "value": "@dataset().tableName",
+                "type": "Expression"
+            }
         }
     }
 }
 ```
 
 ### <a name="sink-dataset-for-copy-activity"></a>**Conjunto** de dados de sumidouro para atividade de cópia
-Copiar A Atividade copia os dados da tabela SQL para o ficheiro **filebylookup.csv** na pasta **csv** no Azure Storage. O ficheiro é especificado pela propriedade **AzureStorageLinkedService.** 
+
+Copiar A Atividade copia os dados da tabela SQL para o ficheiro **filebylookup.csv** na pasta **csv** no Azure Storage. O ficheiro é especificado pela propriedade **AzureBlobStorageLinkedService.** 
 
 ```json
 {
     "name": "SinkDataset",
     "properties": {
-        "type": "AzureBlob",
-        "typeProperties": {
-            "folderPath": "csv",
-            "fileName": "filebylookup.csv",
-            "format": {
-                "type": "TextFormat"                                                                    
+        "linkedServiceName": {
+            "referenceName": "AzureBlobStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "schema": {
+                "type": "string"
+            },
+            "table": {
+                "type": "string"
             }
         },
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
-        }
-    }
-}
-```
-
-### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
-Esta conta de armazenamento contém o ficheiro JSON com os nomes das tabelas SQL. 
-
-```json
-{
-    "properties": {
-        "type": "AzureStorage",
+        "annotations": [],
+        "type": "DelimitedText",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
-        }
-    },
-        "name": "AzureStorageLinkedService"
-}
-```
-
-### <a name="azure-sql-database-linked-service"></a>Serviço ligado da Base de Dados SQL do Azure
-Esta instância da Base de Dados Azure SQL contém os dados a copiar para o armazenamento blob. 
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
-        }
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": {
+                    "value": "@{dataset().schema}_@{dataset().table}.csv",
+                    "type": "Expression"
+                },
+                "container": "csv"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": []
     }
 }
 ```
 
 ### <a name="sourcetablejson"></a>sourcetable.jsem
 
+Pode utilizar dois tipos de formatos para **sourcetable.jsficheiro.**
+
 #### <a name="set-of-objects"></a>Conjunto de objetos
 
 ```json
 {
-  "Id": "1",
-  "tableName": "Table1"
+   "Id":"1",
+   "schema":"dbo",
+   "table":"Table1"
 }
 {
-   "Id": "2",
-  "tableName": "Table2"
+   "Id":"2",
+   "schema":"dbo",
+   "table":"Table2"
 }
 ```
 
@@ -283,11 +367,13 @@ Esta instância da Base de Dados Azure SQL contém os dados a copiar para o arma
 [ 
     {
         "Id": "1",
-        "tableName": "Table1"
+        "schema":"dbo",
+        "table":"Table1"
     },
     {
         "Id": "2",
-        "tableName": "Table2"
+        "schema":"dbo",
+        "table":"Table2"
     }
 ]
 ```

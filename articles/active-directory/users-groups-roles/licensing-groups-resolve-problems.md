@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611293"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799558"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -107,7 +107,7 @@ Se utilizar o Exchange Online, alguns utilizadores da sua organização poderão
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para obter mais informações sobre este problema, consulte [a mensagem de erro "Proxy já está a ser utilizada" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar-se ao Exchange Online utilizando o PowerShell remoto.](https://technet.microsoft.com/library/jj984289.aspx)
+> Para obter mais informações sobre este problema, consulte [a mensagem de erro "Proxy já está a ser utilizada" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar-se ao Exchange Online utilizando o PowerShell remoto.](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)
 
 Depois de resolver quaisquer problemas de procuração para os utilizadores afetados, certifique-se de forçar o processamento de licenças no grupo para se certificar de que as licenças podem agora ser aplicadas.
 
@@ -173,7 +173,7 @@ Dependendo dos passos que tomou para resolver os erros, pode ser necessário aci
 
 Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de ativar o processamento do utilizador. Para reprocessar um utilizador, vá ao painel de utilizador, abra **licenças**e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre outros cenários para a gestão de licenças através de grupos, consulte o seguinte:
 

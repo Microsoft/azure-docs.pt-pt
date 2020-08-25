@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302921"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798589"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Retorna a expressão traduzida para um Array. Se a expressão não puder ser traduzida, retorna indefinidamente.  
@@ -33,7 +33,7 @@ StringToArray(<str_expr>)
   Devolve uma expressão de matriz ou indefinida. 
   
 ## <a name="remarks"></a>Observações
-  Os valores das cordas aninhadas devem ser escritos com ações duplas para serem JSON válidos. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)
+  Os valores das cordas aninhadas devem ser escritos com ações duplas para serem JSON válidos. Para mais informações sobre o formato JSON, consulte [json.org](https://json.org/). Esta função do sistema não utilizará o índice.
   
 ## <a name="examples"></a>Exemplos
   
@@ -91,11 +91,7 @@ Aqui está o conjunto de resultados.
 [{}]
 ```
 
-## <a name="remarks"></a>Observações
-
-Esta função do sistema não utilizará o índice.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
