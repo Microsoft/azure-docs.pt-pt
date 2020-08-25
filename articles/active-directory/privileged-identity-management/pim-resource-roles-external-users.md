@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743784"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782741"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide os utilizadores convidados e atribua funções de recursos da Azure na Gestão de Identidade Privilegiada
 
@@ -45,7 +45,7 @@ Aqui estão alguns exemplos de quando você pode convidar convidados para a sua 
 
 ## <a name="how-does-collaboration-using-b2b-guests-work"></a>Como funciona a colaboração com os hóspedes B2B?
 
-Quando utilizar a colaboração B2B, pode convidar um utilizador externo para a sua organização como convidado. O hóspede pode ser gerido como um utilizador na sua organização, mas um hóspede tem de ser autenticado na sua organização doméstica e não na sua organização Azure AD. Isto significa que se o hóspede já não tiver acesso à sua organização doméstica, também perde acesso à sua organização. Por exemplo, se o hóspede deixar a sua organização, eles automaticamente perdem o acesso a quaisquer recursos que partilhou com eles em Azure AD sem que você tenha que fazer nada. Para obter mais informações sobre a colaboração B2B, consulte [o que é o acesso do utilizador convidado no Azure Ative Directory B2B?](../b2b/what-is-b2b.md)
+Quando utilizar a colaboração B2B, pode convidar um utilizador externo para a sua organização como convidado. O hóspede pode ser gerido como um utilizador na sua organização, mas um hóspede tem de ser autenticado na sua organização doméstica e não na sua organização Azure AD. Isto significa que se o hóspede já não tiver acesso à sua organização doméstica, também perde acesso à sua organização. Por exemplo, se o hóspede deixar a sua organização, eles automaticamente perdem o acesso a quaisquer recursos que partilhou com eles em Azure AD sem que você tenha que fazer nada. Para obter mais informações sobre a colaboração B2B, consulte [o que é o acesso do utilizador convidado no Azure Ative Directory B2B?](../external-identities/what-is-b2b.md)
 
 ![Diagrama mostrando como um utilizador convidado é autenticado no seu diretório de casa](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
@@ -163,7 +163,7 @@ Pode ver os registos de auditoria para acompanhar o que os hóspedes estão a fa
 
     ![Data de listagem de registos de auditoria de diretório, alvo, iniciado por, e atividade](./media/pim-resource-roles-external-users/audit-directory.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de administrador da Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
-- [O que é o acesso do utilizador convidado na colaboração Azure AD B2B?](../b2b/what-is-b2b.md)
+- [O que é o acesso do utilizador convidado na colaboração Azure AD B2B?](../external-identities/what-is-b2b.md)

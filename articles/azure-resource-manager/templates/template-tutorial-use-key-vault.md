@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119281"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integre o cofre da chave Azure na sua implementação do modelo ARM
@@ -167,7 +167,7 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça *o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça * o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
@@ -190,7 +190,7 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
 
 Depois de ter implantado com sucesso a máquina virtual, teste as credenciais de entrada utilizando a palavra-passe que está armazenada no cofre da chave.
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos de recursos**  >  **\<*YourResourceGroupName*>**  >  **simplesWinVM**.
 1. Selecione **ligar** na parte superior.
@@ -209,7 +209,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, recuperaste um segredo do teu cofre de chaves Azure. Em seguida, usou o segredo na sua implementação do modelo. Para aprender a utilizar extensões de máquinas virtuais para executar tarefas de implantação pós-implantação, consulte:
 

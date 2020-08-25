@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535694"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782214"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Azure App Service
 
@@ -29,7 +29,7 @@ Para completar este como::
 
 ## <a name="bind-the-domain-name-preemptively"></a>Ligue o nome de domínio preventivamente
 
-Quando liga um domínio personalizado preventivamente, realiza ambos os seguintes antes de efetivo quaisquer alterações nos seus registos DNS:
+Quando liga um domínio personalizado preventivamente, realiza ambos os seguintes antes de efetivo quaisquer alterações nos registos DNS existentes:
 
 - Verificar a propriedade do domínio
 - Ativar o nome de domínio da sua aplicação
@@ -38,26 +38,24 @@ Quando, finalmente, migrar o nome DNS personalizado do antigo site para a aplica
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### <a name="get-domain-verification-id"></a>Obtenha iD de verificação de domínio
+
+Obtenha o ID de verificação de domínio para a sua aplicação seguindo os passos no [Get domain Verification ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+
 ### <a name="create-domain-verification-record"></a>Criar registo de verificação de domínio
 
-Para verificar a propriedade do domínio, adicione um registo TXT. Os mapas de registos do TXT _awverificam. &lt; subdomínio>_ para _ &lt; appname>.azurewebsites.net_. 
-
-O registo TXT de que necessita depende do registo DNS que pretende migrar. Por exemplo, consulte a tabela seguinte `@` (normalmente representa o domínio raiz):
+Para verificar a propriedade do domínio, adicione um registo TXT para verificação de domínio. O nome de anfitrião para o registo TXT depende do tipo de registo DNS que pretende mapear. Consulte a tabela seguinte `@` (normalmente representa o domínio raiz):
 
 | DnS exemplo de registo | Anfitrião TXT | Valor TXT |
 | - | - | - |
-| \@(raiz) | _awverificar_ | _&lt;appname>.azurewebsites.net_ |
-| www(sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \*(wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (raiz) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| www(sub) | _asuid.www_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
 
 Na sua página de registos DNS, note o tipo de registo do nome DNS que pretende migrar. O Serviço de Aplicações suporta mapeamentos de registos CNAME e A.
 
 > [!NOTE]
-> Para certos fornecedores, como o CloudFlare, `awverify.*` não é um registo válido. `*`Use apenas em vez disso.
-
-> [!NOTE]
 > `*`Os registos wildcard não validam subdomínios com um registo cname existente. Pode ser necessário criar explicitamente um registo TXT para cada subdomínio.
-
 
 ### <a name="enable-the-domain-for-your-app"></a>Ativar o domínio da sua aplicação
 
@@ -69,7 +67,7 @@ Na página **de domínios personalizados,** selecione o **+** ícone ao lado do 
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado para o qual adicionou o registo TXT, tal como `www.contoso.com` . Para um domínio wildcard (como \* .contoso.com), pode utilizar qualquer nome DNS que corresponda ao domínio wildcard. 
+Digite o nome de domínio totalmente qualificado que pretende migrar, que corresponda ao registo TXT que cria, como `contoso.com` `www.contoso.com` , ou `*.contoso.com` .
 
 Selecione **Validar**.
 
@@ -121,7 +119,7 @@ Guarde as suas definições.
 
 As consultas de DNS devem começar a ser resolvidas para a sua aplicação de Serviço de Aplicações imediatamente após a propagação do DNS acontecer.
 
-## <a name="active-domain-in-azure"></a>Domínio ativo em Azure
+## <a name="migrate-domain-from-another-app"></a>Migrar domínio de outra app
 
 Pode migrar um domínio personalizado ativo em Azure, entre subscrições ou dentro da mesma subscrição. No entanto, tal migração sem tempo de inatividade requer que a app de origem e a aplicação-alvo sejam atribuídas ao mesmo domínio personalizado num determinado momento. Por isso, é necessário certificar-se de que as duas aplicações não são implantadas na mesma unidade de implementação (internamente conhecida como webspace). Um nome de domínio pode ser atribuído a apenas uma aplicação em cada unidade de implantação.
 

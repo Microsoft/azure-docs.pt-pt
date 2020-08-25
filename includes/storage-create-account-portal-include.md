@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76759858"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
@@ -32,9 +32,9 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
    |---------|---------|
    |Modelo de implementação     |Resource Manager         |
    |Desempenho     |Standard         |
-   |Tipo de conta     |StorageV2 (general-purpose v2)         |
+   |Tipo de conta     |StorageV2 (fins gerais v2)         |
    |Replicação     |Armazenamento georredundante com acesso de leitura (RA-GRS)         |
-   |Escalão de acesso     |Acesso Frequente         |
+   |Camada de acesso     |Frequente         |
 
 8. Se planeia utilizar [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)escolha o separador **Avançado** e, em seguida, desempate o espaço de **nome hierárquico** para **Ativado**.
 9. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.

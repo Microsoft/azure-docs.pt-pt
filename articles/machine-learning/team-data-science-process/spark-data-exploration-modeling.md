@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86027516"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
@@ -61,7 +61,7 @@ taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windo
 modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 ```
 
-### <a name="import-libraries"></a>Bibliotecas de importação
+### <a name="import-libraries"></a>Importar bibliotecas
 
 A instalação requer também a importação de bibliotecas necessárias. Definir o contexto de faísca e importar bibliotecas necessárias com o seguinte código:
 
@@ -1113,7 +1113,7 @@ Reforço daTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassific
 
 ReforçotreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 
 Agora que criou modelos de regressão e classificação com o Spark MlLib, está pronto para aprender a pontuar e avaliar estes modelos. O notebook avançado de pesquisa de dados e modelação mergulha mais profundamente na inclusão de validação cruzada, varredura de hiper-parâmetros e avaliação de modelos. 
 

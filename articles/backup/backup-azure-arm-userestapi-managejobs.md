@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a rastrear e gerir backup e restaurar os trab
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079320"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761632"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe o backup e restaure os trabalhos usando a API REST
 
@@ -17,7 +17,7 @@ O serviço Azure Backup desencadeia trabalhos que funcionam em segundo plano em 
 
 ## <a name="fetch-job-information-from-operations"></a>Recolher informações sobre o trabalho das operações
 
-Uma operação como o detonamento de backup irá sempre devolver um trabalhoID. Por exemplo: A resposta final de uma [operação de backup de backup de gatilho REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
+Uma operação como o detonamento de backup irá sempre devolver um trabalhoID. Por exemplo: A resposta final de uma [operação de backup de backup de gatilho REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) é a seguinte:
 
 ```http
 {

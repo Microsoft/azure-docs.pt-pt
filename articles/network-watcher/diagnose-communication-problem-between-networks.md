@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Diagnosticar problema de comunicação entre redes que utilizam o portal Azure
+title: Tutorial - Diagnosticar problema de comunicação entre redes utilizando o portal Azure
 titleSuffix: Azure Network Watcher
-description: Neste tutorial, aprenda a diagnosticar um problema de comunicação entre uma rede virtual Azure ligada a uma rede no local, ou outra rede virtual, através de um portal de rede virtual Azure, utilizando a capacidade de diagnóstico VPN do Network Watcher.
+description: Neste tutorial, aprenda a diagnosticar um problema de comunicação entre uma rede virtual Azure ligada a uma rede virtual no local, ou outra rede virtual, através de um gateway de rede virtual Azure, utilizando a capacidade de diagnóstico VPN do Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,10 +15,10 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76834692"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o Portal do Azure
@@ -30,7 +30,7 @@ Um gateway de rede virtual liga uma rede virtual do Azure a outras redes virtuai
 > * Diagnosticar um problema com uma ligação de gateway
 > * Resolver um problema com um gateway
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -38,7 +38,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar o diagnóstico de VPN, tem de ter um gateway de VPN existente e em execução. Se não tiver um gateway de VPN existente para diagnosticar, pode implementar um com o [script do PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Pode executar o script do PowerShell a partir de:
-- **Uma instalação local powerShell**: O script `Az` requer o módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+- **Uma instalação local da PowerShell**: O script requer o módulo Azure PowerShell. `Az` Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - **O Azure Cloud Shell**: o [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalada e configurada e inicia a sua sessão no Azure.
 
 O script demora aproximadamente uma hora para criar um gateway de VPN. Os passos restantes presumem que o gateway que está a diagnosticar é aquele implementado por este script. Se diagnosticar o seu próprio gateway existente, os resultados variam.
@@ -51,12 +51,12 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para [Diagnosticar um gateway](#diagnose-a-gateway).
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
 
     ![Ativar o Observador de Rede](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 
-3. Selecione **Ativar o Observador de Rede**.
+3. Selecione **Ativar Observador de Rede**.
 
 ## <a name="diagnose-a-gateway"></a>Diagnosticar um gateway
 

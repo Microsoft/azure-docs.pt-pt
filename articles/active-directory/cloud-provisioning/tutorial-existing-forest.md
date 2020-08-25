@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86146832"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
@@ -53,7 +53,7 @@ Neste cenário, existe uma floresta existente sincronizada utilizando a sincroni
    - Para validação de certificados, desbloqueie os seguintes URLs: **mscrl.microsoft.com:80,** **crl.microsoft.com:80,** **ocsp.msocsp.com:80**e **www \. microsoft.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instale o agente de provisionamento Azure AD Connect
-1. Inscreva-se no servidor de união de domínio.  Se estiver a usar o tutorial [básico de AD e ambiente Azure,](tutorial-basic-ad-azure.md) seria DC1.
+1. Inscreva-se no servidor de união de domínio.  Se estiver a usar o tutorial  [básico de AD e ambiente Azure,](tutorial-basic-ad-azure.md) seria DC1.
 2. Inscreva-se no portal Azure usando credenciais de administração globais apenas em nuvem.
 3. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Manage provisioning (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
@@ -80,7 +80,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente do portal Azure
 Para verificar se o agente está a ser visto pela Azure siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Manage provisioning (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 
@@ -125,9 +125,9 @@ Irá agora verificar se os utilizadores que tinha no nosso diretório no local f
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Iniciar sessão de teste com um dos nossos utilizadores
 
-1. Navegue para[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inscreva-se com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de iniciar sção utilizando o seguinte formato: user@domain.onmicrosoft.com (). Utilize a mesma palavra-passe que o utilizador utiliza para iniciar sins insição no local.</br>
-   ![Verificar](media/tutorial-single-forest/verify1.png)</br>
+   ![Verificação](media/tutorial-single-forest/verify1.png)</br>
 
 Criou agora com sucesso um ambiente de identidade híbrida que pode usar para testar e familiarizar-se com o que o Azure tem para oferecer.
 

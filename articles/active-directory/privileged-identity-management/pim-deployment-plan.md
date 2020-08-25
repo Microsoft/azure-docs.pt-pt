@@ -14,12 +14,12 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008100"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783217"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -291,7 +291,7 @@ Nesta tabela, identifique os utilizadores de teste que verificarão se as defini
 
 ### <a name="test-implementation"></a>Implementação do teste
 
-Agora que identificou os utilizadores do teste, use este passo para configurar a Gestão de Identidade Privilegiada para os seus utilizadores de teste. Se a sua organização pretende incorporar o fluxo de trabalho de Gestão de Identidade Privilegiada na sua própria aplicação interna em vez de utilizar a Gestão de Identidade Privilegiada no portal Azure, todas as operações em Gestão de Identidade Privilegiada também são suportadas através do nosso [gráfico API.](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root)
+Agora que identificou os utilizadores do teste, use este passo para configurar a Gestão de Identidade Privilegiada para os seus utilizadores de teste. Se a sua organização pretende incorporar o fluxo de trabalho de Gestão de Identidade Privilegiada na sua própria aplicação interna em vez de utilizar a Gestão de Identidade Privilegiada no portal Azure, todas as operações em Gestão de Identidade Privilegiada também são suportadas através do nosso [gráfico API.](/graph/api/resources/privilegedidentitymanagement-root)
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Configure Gestão de Identidade Privilegiada para funções de AD Azure
 

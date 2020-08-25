@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109625"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs hiper-V para Azure
@@ -100,7 +100,7 @@ Atribua a função contribuinte da máquina virtual à conta, para que tenha per
 
 Pode preparar o Hyper-V para avaliação de VM manualmente ou utilizando um script de configuração. Estes são os passos de preparação. Se se preparar com um script, estes são configurados automaticamente.
 
-**Passo** | **Roteiro** | **Manual**
+**Passo** | **Script** | **Manual**
 --- | --- | ---
 **Verifique os requisitos do hospedeiro Hyper-V** | O script verifica se o anfitrião está a executar uma versão suportada do Hyper-V e o papel de Hiper-V.<br/><br/> Ativa o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no anfitrião (necessário para a recolha de metadados). | Verifique os [requisitos do anfitrião Hyper-V](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) para avaliação do servidor.<br/><br/> Certifique-se de que as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estão abertas nos anfitriões Hiper-V.
 **Verificar a versão PowerShell** | Verifica se está a executar o script numa versão suportada do PowerShell. | Verifique se está a executar a versão 4.0 do PowerShell ou mais tarde no anfitrião Hyper-V.
@@ -133,7 +133,7 @@ Execute o guião da seguinte forma:
 
 Os valores do haxixe são:
 
-| **Haxixe** | **Valor** |
+| **Hash** | **Valor** |
 | --- | --- |
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
@@ -179,7 +179,7 @@ Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no tutor se
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86057012"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
@@ -56,8 +56,8 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupLBAZ* na caixa de texto.|
-    | Name                   | *myLoadBalancer*                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Nome                   | *myLoadBalancer*                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
@@ -233,6 +233,6 @@ Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, 
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).

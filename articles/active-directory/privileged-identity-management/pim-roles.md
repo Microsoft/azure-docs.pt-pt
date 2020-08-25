@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495629"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782486"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre as funções clássicas de administrador de 
 
 ## <a name="what-about-office-365-admin-roles"></a>E os papéis de administrador do Office 365?
 
-Apoiamos todas as funções do Office365 na experiência do portal AD Roles e Administradores do Azure, como o Administrador de Câmbio e o Administrador SharePoint, mas não apoiamos funções específicas dentro do RBAC de Câmbio ou do SharePoint RBAC. Para mais informações sobre estes serviços do Office 365, consulte [as funções de administrador do Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Apoiamos todas as funções do Office365 na experiência do portal AD Roles e Administradores do Azure, como o Administrador de Câmbio e o Administrador SharePoint, mas não apoiamos funções específicas dentro do RBAC de Câmbio ou do SharePoint RBAC. Para mais informações sobre estes serviços do Office 365, consulte [as funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Os utilizadores elegíveis para a função de administrador do SharePoint, a função de administrador do dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center podem sofrer atrasos de até algumas horas após a ativação da sua função. Estamos a trabalhar com essas equipas para resolver os problemas.

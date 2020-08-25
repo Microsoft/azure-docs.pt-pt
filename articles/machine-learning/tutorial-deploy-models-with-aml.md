@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
 ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86025680"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em Instâncias de Contentores Azure
@@ -47,7 +47,7 @@ Este tutorial também está disponível no [GitHub](https://github.com/Azure/Mac
 > Mude agora para o caderno Jupyter se quiser ler enquanto executar o código.
 > Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-## <a name="set-up-the-environment"></a><a name="start"></a>Configurar o ambiente
+## <a name="set-up-the-environment"></a><a name="start"></a>Configure o ambiente
 
 Comece por configurar um ambiente de teste.
 
@@ -354,7 +354,7 @@ service.delete()
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre todas as opções de [implementação para Azure Machine Learning](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço web.](how-to-consume-web-service.md)

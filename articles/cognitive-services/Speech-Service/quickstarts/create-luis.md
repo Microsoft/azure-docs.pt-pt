@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
 ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391609"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Quickstart: Obter uma chave de ponta LUIS
@@ -35,7 +35,7 @@ LUIS usa três tipos de chaves:
 |--------|-------|
 |Criação|Permite criar e modificar aplicações LUIS programáticamente|
 |Inicial|Permite testar a sua aplicação LUIS apenas com texto|
-|Ponto Final |Autoriza o acesso a uma determinada aplicação LUIS|
+|Ponto final |Autoriza o acesso a uma determinada aplicação LUIS|
 
 Para este tutorial, precisa do tipo chave de ponta. O tutorial usa o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app de domótica Utilização.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
 

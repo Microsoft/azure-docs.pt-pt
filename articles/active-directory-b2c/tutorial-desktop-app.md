@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Autenticar utilizadores numa aplicação de cliente nativo'
+title: 'Tutorial: Autenticar os utilizadores numa aplicação de cliente nativo'
 titleSuffix: Azure AD B2C
-description: Tutorial sobre como usar o Diretório Ativo Azure B2C para fornecer login ao utilizador para uma aplicação de ambiente de trabalho .NET.
+description: Tutorial sobre como utilizar o Azure Ative Directory B2C para fornecer login do utilizador para uma aplicação de desktop .NET.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,39 +12,39 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "78186204"
 ---
-# <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: Autenticar utilizadores num cliente nativo de desktop usando o Diretório Ativo Azure B2C
+# <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: Autenticar os utilizadores num cliente de ambiente de trabalho nativo utilizando o Azure Ative Directory B2C
 
-Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para iniciar sessão e inscrever os utilizadores numa aplicação de ambiente de trabalho da Windows Presentation Foundation (WPF). O Azure AD B2C permite que as suas aplicações se autentiquem a contas sociais, contas empresariais e contas de Diretório Ativo Azure utilizando protocolos padrão abertos.
+Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para iniciar seduções e inscrever utilizadores numa aplicação de desktop da Windows Presentation Foundation (WPF). O Azure AD B2C permite que as suas aplicações autentem para as contas sociais, contas empresariais e contas do Azure Ative Directory utilizando protocolos de série aberta.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicione a aplicação de cliente nativo
 > * Configure a amostra para utilizar a aplicação
-> * Inscreva-se utilizando o fluxo do utilizador
+> * Inscreva-se usando o fluxo do utilizador
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie fluxos de utilizador](tutorial-create-user-flows.md) para permitir as experiências do utilizador na sua aplicação.
-- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o desenvolvimento do ambiente de **trabalho .NET** e ASP.NET e trabalhos de **trabalho de desenvolvimento web.**
+- [Crie fluxos](tutorial-create-user-flows.md) de utilizador para permitir experiências do utilizador na sua aplicação.
+- Instale [o Visual Studio 2019](https://www.visualstudio.com/downloads/) com **trabalhos de desenvolvimento** de desktop .NET e **ASP.NET e desenvolvimento web.**
 
 ## <a name="add-the-native-client-application"></a>Adicione a aplicação de cliente nativo
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
+Grave o **ID da Aplicação (cliente)** para utilização num passo posterior.
 
 ## <a name="configure-the-sample"></a>Configure a amostra
 
-Neste tutorial, configura uma amostra que pode descarregar a partir do GitHub. A aplicação de ambiente de trabalho WPF da amostra demonstra o início, o início de sessão e pode chamar uma API web protegida em Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
+Neste tutorial, você configura uma amostra que você pode baixar a partir de GitHub. A aplicação de ambiente de trabalho WPF de amostra demonstra a inscrição, o súplico e pode chamar uma API web protegida em Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
@@ -52,8 +52,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Para atualizar a aplicação para trabalhar com o seu inquilino Azure AD B2C e invocar os seus fluxos de utilizador em vez dos do inquilino de demonstração padrão:
 
-1. Abra a solução **active-directy-b2c-wpf** ()`active-directory-b2c-wpf.sln`no Estúdio Visual.
-2. No projeto **active-directy-b2c-wpf,** abra o ficheiro *App.xaml.cs* e encontre as seguintes definições variáveis. Substitua `{your-tenant-name}` pelo nome do seu inquilino `{application-ID}` Azure AD B2C e pelo ID de inscrição que gravou anteriormente.
+1. Abra a solução **active-directório-b2c-wpf** `active-directory-b2c-wpf.sln` () em Visual Studio.
+2. No projeto **active-directy-b2c-wpf,** abra o ficheiro *App.xaml.cs* e encontre as seguintes definições variáveis. Substitua `{your-tenant-name}` pelo nome do seu inquilino Azure AD B2C e pelo `{application-ID}` ID de aplicação que gravou anteriormente.
 
     ```csharp
     private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
@@ -61,7 +61,7 @@ Para atualizar a aplicação para trabalhar com o seu inquilino Azure AD B2C e i
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Atualize as variáveis de nome de política com os nomes dos fluxos de utilizador que criou como parte dos pré-requisitos. Por exemplo:
+3. Atualize as variáveis de nome da política com os nomes dos fluxos de utilizador que criou como parte dos pré-requisitos. Por exemplo:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
@@ -75,8 +75,8 @@ Pressione **F5** para construir e executar a amostra.
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
-1. Selecione **Iniciar sessão** para se inscrever como utilizador. Isto utiliza o **fluxo de utilizador B2C_1_signupsignin1.**
-2. Azure AD B2C apresenta um sinal na página com um **link De Sinal agora.** Uma vez que ainda não tem uma conta, selecione o link **'Iniciar' agora.**
+1. Selecione **Iniciar s inscrição** como utilizador. Isto utiliza o fluxo de utilizador **B2C_1_signupsignin1.**
+2. Azure AD B2C apresenta um sinal na página com uma ligação **de inscrição agora.** Uma vez que ainda não tem uma conta, selecione o link **'Iniciar s-se).**
 3. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também recolhe a palavra-passe do utilizador e os atributos solicitados definidos no fluxo do utilizador.
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
@@ -85,11 +85,11 @@ Pressione **F5** para construir e executar a amostra.
 
 4. Selecione **Criar** para criar uma conta local no inquilino Azure AD B2C.
 
-O utilizador pode agora utilizar o seu endereço de e-mail para iniciar sessão e utilizar a aplicação de ambiente de trabalho. Após uma inscrição ou inscrição bem sucedida, os detalhes do símbolo são apresentados no painel inferior da aplicação WPF.
+O utilizador pode agora utilizar o seu endereço de e-mail para iniciar sôm e utilizar a aplicação para desktop. Após uma inscrição ou sposição bem sucedida, os detalhes do token são apresentados no painel inferior da aplicação WPF.
 
-![Detalhes simbólicos mostrados no painel inferior da aplicação do ambiente de trabalho wPF](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
+![Detalhes simbólicos mostrados no painel inferior da aplicação de ambiente de trabalho WPF](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
-Se selecionar o botão **Call API,** é apresentada uma **mensagem de erro.** Encontra-se o erro porque, no seu estado atual, a aplicação está a `fabrikamb2c.onmicrosoft.com`tentar aceder a uma API protegida pelo inquilino da demonstração, . Uma vez que o seu token de acesso é válido apenas para o seu inquilino Azure AD B2C, a chamada da API não é, portanto, autorizada.
+Se selecionar o botão **Call API,** é apresentada uma **mensagem de erro.** Encontra-se o erro porque, no seu estado atual, a aplicação está a tentar aceder a uma API protegida pelo inquilino de demonstração, `fabrikamb2c.onmicrosoft.com` . Uma vez que o seu token de acesso é válido apenas para o seu inquilino Azure AD B2C, a chamada da API é, portanto, não autorizada.
 
 Continue até ao próximo tutorial para registar uma API web protegida no seu próprio inquilino e ativar a funcionalidade **Call API.**
 
@@ -100,9 +100,9 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Adicione a aplicação de cliente nativo
 > * Configure a amostra para utilizar a aplicação
-> * Inscreva-se utilizando o fluxo do utilizador
+> * Inscreva-se usando o fluxo do utilizador
 
-Em seguida, para ativar a funcionalidade do botão **Call API,** conceda à aplicação de desktop WPF acesso a uma API web registada no seu próprio inquilino Azure AD AD B2C:
+Em seguida, para ativar a funcionalidade do botão **Call API,** conceder à aplicação de desktop WPF acesso a uma API web registada no seu próprio inquilino Azure AD B2C:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Conceder acesso a uma API web Node.js a partir de uma aplicação de desktop >](tutorial-desktop-app-webapi.md)

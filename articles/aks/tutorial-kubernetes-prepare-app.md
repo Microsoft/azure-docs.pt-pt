@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77593165"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar uma aplicação para o Azure Kubernetes Service (AKS)
@@ -25,9 +25,9 @@ Depois de concluída, a aplicação seguinte é executada no seu ambiente de des
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Em tutoriais adicionais, a imagem do recipiente é enviada para um registo de contentores Azure, e depois implantada num cluster AKS.
+Em tutoriais adicionais, a imagem do contentor é enviada para um registo de contentores Azure e depois implantada num cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Introdução ao Docker][docker-get-started].
 
@@ -74,7 +74,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Executar o comando [do docker PS][docker-ps] para ver os recipientes de corrida:
+Executar o [comando do PS][docker-ps] para ver os contentores de funcionamento:
 
 ```
 $ docker ps
@@ -100,7 +100,7 @@ Pare e remova as instâncias de contentor e os recursos com o comando [docker-co
 docker-compose down
 ```
 
-Quando a aplicação local foi removida, você tem uma imagem Docker que contém a aplicação Azure Vote, *azure-vote front*, para uso com o próximo tutorial.
+Quando a aplicação local for removida, você tem uma imagem docker que contém o pedido de voto *Azure, azure-vote-front*, para ser usado com o próximo tutorial.
 
 ## <a name="next-steps"></a>Passos seguintes
 

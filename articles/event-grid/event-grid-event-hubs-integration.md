@@ -4,10 +4,10 @@ description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Ev
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86117564"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
@@ -61,7 +61,7 @@ Neste passo, você implanta a infraestrutura necessária com um [modelo de Gesto
     ![Portal do Azure](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Você vê a Cloud Shell aberta na parte inferior do navegador.
 
-    ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
+    ![Cloud Shell,](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
 4. Na Cloud Shell, se vir uma opção para selecionar entre **Bash** e **PowerShell,** selecione **Bash**. 
 5. Se estiver a utilizar o Cloud Shell pela primeira vez, crie uma conta de armazenamento selecionando **Criar armazenamento**. A Azure Cloud Shell requer uma conta de armazenamento Azure para armazenar alguns ficheiros. 
 
@@ -79,7 +79,7 @@ Neste passo, você implanta a infraestrutura necessária com um [modelo de Gesto
         ```azurecli
         az group create -l eastus -n rgDataMigration
         ```
-    2. Prima **ENTER**. 
+    2. Pressione **ENTER**. 
 
         Segue-se um exemplo:
     
@@ -201,7 +201,7 @@ Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehous
 
 ## <a name="publish-the-azure-functions-app"></a>Publicar a aplicação de Funções do Azure
 
-1. Inicie o Visual Studio.
+1. Lançamento Visual Studio.
 2. Abra a solução **EventHubsCaptureEventGridDemo.sln** que descarregou do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) como parte dos pré-requisitos.
 3. No Explorador de Soluções, clique com o botão direito do rato em **FunctionEGDWDumper** e selecione **Publicar**.
 
@@ -307,7 +307,7 @@ O Event Grid distribui dados de eventos para os subscritores. O exemplo a seguir
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as diferenças dos serviços de mensagens do Azure, veja [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

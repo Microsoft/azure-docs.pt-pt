@@ -4,10 +4,10 @@ description: Extrair dados estruturados a partir de uma expressão utilizando a 
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045608"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados da expressão do utilizador com entidades de aprendizagem automática em Compreensão linguística (LUIS)
@@ -114,7 +114,7 @@ Adicionar uma lista de tamanhos conhecidos que a aplicação do cliente reconhec
 
     |Valor normalizado|Sinónimos|
     |--|--|
-    |Pequeno|sm, sml, minúsculo, menor|
+    |Small|sm, sml, minúsculo, menor|
     |Médio|md, mdm, regular, média, meio|
     |Grande|lg, lrg, grande|
     |XLarge|xl, maior, gigante|
@@ -302,7 +302,7 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, a aplicação utiliza uma entidade de aprendizagem automática para encontrar a intenção da expressão de um utilizador e extrair detalhes dessa expressão. A utilização da entidade de aprendizagem automática permite-lhe decompor os detalhes da entidade.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar dispositivos em Solução de Monitorização Remota - Azure [ Microsoft Docs
-description: Este tutorial mostra-lhe como configurar dispositivos ligados ao acelerador de soluções de monitorização remota.
+title: Configurar dispositivos em Solução de Monitorização Remota - Azure / Microsoft Docs
+description: Este tutorial mostra-lhe como configurar dispositivos ligados ao acelerador de solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,17 +10,17 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73890910"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configure dispositivos ligados à sua solução de monitorização
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos ligados à sua solução de monitorização
 
-Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Adicione um novo dispositivo ao acelerador de soluções e configure o dispositivo.
+Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Adicione um novo dispositivo ao acelerador de solução e configuure o dispositivo.
 
-A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, adicione um novo dispositivo de motor simulado ao acelerador de solução de monitorização remota e teste que este dispositivo simulado responde corretamente às atualizações de configuração. Enquanto este tutorial utiliza dispositivos simulados, um desenvolvedor de dispositivos pode implementar métodos diretos num dispositivo real ligado ao acelerador de [soluções de monitorização remota](iot-accelerators-connecting-devices.md).
+A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, adicione um novo dispositivo simulado do motor ao acelerador de solução de monitorização remota e teste que este dispositivo simulado responde corretamente às atualizações de configuração. Enquanto este tutorial utiliza dispositivos simulados, um desenvolvedor de dispositivos pode implementar métodos diretos num [dispositivo real ligado ao acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
 
 Neste tutorial:
 
@@ -30,29 +30,29 @@ Neste tutorial:
 > * Reconfigurar um dispositivo.
 > * Organizar os seus dispositivos.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 
-Navegue para a página **do Explorer** do Dispositivo na solução e, em seguida, clique em + **Novo dispositivo:**
+Navegue na página **Do Explorador de Dispositivos** na solução e clique **em + Novo dispositivo**:
 
-[![Provisionamento de um dispositivo simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
+[![Fornecimento de um dispositivo simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
 No painel **Novo dispositivo**, selecione **Simulado**, deixe o número de dispositivos a aprovisionar em **1**, selecione o modelo de dispositivo **Motor com Falhas** e, em seguida, selecione **Aplicar** para criar o dispositivo simulado:
 
-[![Provisionamento de um dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
+[![Fornecimento de um dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
 
 ## <a name="test-the-simulated-device"></a>Testar o dispositivo simulado
 
-Para testar o seu dispositivo de motor simulado está a enviar valores de telemetria e de propriedade de reporte, selecione-o na lista de dispositivos na página **do Device Explorer.** São apresentadas informações em direto sobre o motor no painel **Detalhes do Dispositivo**:
+Para testar o seu dispositivo de motor simulado está a enviar valores de telemetria e de reporte de propriedade, selecione-o na lista de dispositivos na página **Device Explorer.** São apresentadas informações em direto sobre o motor no painel **Detalhes do Dispositivo**:
 
-[![Veja o novo dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
+[![Veja o novo dispositivo simulado do motor](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
 Em **Detalhes do Dispositivo**, verifique se o dispositivo novo está a enviar telemetria. Para ver o fluxo de telemetria de vibração do dispositivo, clique em **Vibração**:
 
-[![Selecione um fluxo de telemetria para ver](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
+[![Selecione um fluxo de telemetria para visualizar](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 O painel **Detalhes do Dispositivo** apresenta outras informações sobre o dispositivo, como valores de etiqueta, os métodos que suporta e as propriedades comunicadas pelo dispositivo.
 
@@ -60,17 +60,17 @@ Para ver diagnósticos detalhados, desloque-se para baixo no painel **Detalhes d
 
 ## <a name="reconfigure-a-device"></a>Reconfigurar um dispositivo
 
-Para testar que pode atualizar as propriedades de configuração do motor, selecione-o na lista do dispositivo na página **do Device Explorer.** Em seguida, clique em **Jobs**, e depois escolha **Propriedades**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
+Para testar que pode atualizar as propriedades de configuração do motor, selecione-o na lista de dispositivos na página **Device Explorer.** Em seguida, clique em **Jobs**e, em seguida, escolha **Propriedades**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
 
 [![Reconfigurar um dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
 Para atualizar a localização do motor, defina o nome da tarefa como **UpdateEngineLocation**, defina a longitude como **-122,15**, defina a localização como **Fábrica 2**, defina a latitude como **47,62** e clique em **Aplicar**:
 
-[![Atualizar um valor de propriedade do dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
+[![Atualizar o valor da propriedade do dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
 
 Para controlar o estado da tarefa, clique em **Ver estado da tarefa**:
 
-[![Atualizar um valor de propriedade do dispositivo](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-expanded.png#lightbox)
+[![Atualizar o valor da propriedade do dispositivo](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-expanded.png#lightbox)
 
 Depois de concluída a tarefa, navegue para a página **Dashboard**. O dispositivo de motor é apresentado no mapa na sua nova localização:
 
@@ -83,7 +83,7 @@ Para facilitar a organização e a gestão dos seus dispositivos por um operador
 * A equipa Smart Vehicle gere camiões e dispositivos para criação de protótipos.
 * A equipa Smart Building gere chillers, elevadores e motores.
 
-Para exibir todos os seus dispositivos, navegue para a página **do Device Explorer** e escolha o filtro Todos os **dispositivos:**
+Para exibir todos os seus dispositivos, navegue na página **Device Explorer** e escolha o filtro Todos **os dispositivos:**
 
 [![Mostrar todos os dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ No painel **Tarefas**, selecione **Etiqueta**, defina o nome da tarefa como **Ad
 
 ### <a name="create-filters"></a>Criar filtros
 
-Agora, pode utilizar os valores de etiqueta para criar filtros. Na página do Explorer do **Dispositivo,** clique em **Gerir grupos de dispositivos:**
+Agora, pode utilizar os valores de etiqueta para criar filtros. Na página Do Explorador de **Dispositivos,** clique **em Gerir grupos de dispositivos:**
 
 [![Gerir grupos de dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

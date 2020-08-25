@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Alerta 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989574"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761122"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
 
@@ -48,22 +48,6 @@ Sim, pode ver relatórios através de cofres e assinaturas, bem como de regiões
 
 Se é um utilizador [do Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado às subscrições dos seus clientes ou espaços de trabalho de LA, pode utilizar relatórios de backup para visualizar dados em todos os seus inquilinos.
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora o estatuto de agente de reserva do Azure a refletir no portal?
-
-O portal Azure pode demorar até 15 minutos para refletir o estado de trabalho do agente de reserva da Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>When a backup job fails, how long does it take to raise an alert? (Quanto tempo demora a emitir um alerta quando um trabalho de criação de cópia de segurança falha?)
-
-Um alerta é levantado a 20 minutos da falha de backup do Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe algum caso em que um e-mail não será enviado se as notificações estiverem configuradas?
-
-Sim. Nas seguintes situações, as notificações não são enviadas.
-
-* Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
-* Quando um trabalho é cancelado
-* Se um segundo trabalho de reserva falhar porque o trabalho de reserva original está em andamento
-
 ## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora o estatuto de agente de reserva do Azure a refletir no portal?
@@ -82,7 +66,7 @@ Sim. Nas seguintes situações, as notificações não são enviadas:
 * Quando um trabalho é cancelado
 * Se um segundo trabalho de reserva falhar porque o trabalho de reserva original está em andamento
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as outras FAQs:
 

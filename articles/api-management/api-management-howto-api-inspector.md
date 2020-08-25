@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75768537"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
@@ -49,10 +49,10 @@ Neste tutorial, ficará a saber como:
 
    > [!NOTE]
    > * Se Ocp-Apim-Subscription-Key não estiver preenchido automaticamente, pode obtê-lo ao ir ao Portal do Programador e expor as chaves na página de perfil.
-   > * Para obter um vestígio quando o cabeçalho Ocp-Apim-Trace HTTP for utilizado, a definição de **rastreio de permitir** a chave de assinatura deve ser ativada. Para configurar a definição **de rastreio de rastreio,** sob **gestão de API** no menu esquerdo, selecione **Subscrições**.
-   >   ![Permitir rastreio sondar o painel de assinaturas de gestão da API](media/api-management-howto-api-inspector/allowtracing.png)
+   > * Para obter um rastreio quando o cabeçalho Ocp-Apim-Trace HTTP for utilizado, a definição **de rastreio de permitir** a tecla de subscrição deve ser ativada. Para configurar a **definição de rastreio de permitir,** em **gestão da API** no menu esquerdo, selecione **Subscrições**.
+   >   ![Permitir rastreio no painel de assinaturas de gestão da API](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Clique **em Enviar** para fazer uma chamada aPi. 
+6. Clique **em Enviar** para fazer uma chamada de API. 
 7. Aguarde pela conclusão da chamada. 
 8. Vá para o separador **Rastreio** na **consola API**. Pode clicar em qualquer uma das ligações seguintes para ir para as informações de rastreio de detalhado: **entrada**, **back-end**, **saída**.
 

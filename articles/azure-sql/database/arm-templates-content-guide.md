@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85983644"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de gestor de recursos Azure para Azure SQL Database & SQL Managed Instance
@@ -27,12 +27,12 @@ Os modelos do Azure Resource Manager permitem definir a infraestrutura como cód
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Database.
 
-|Ligação |Description|
+|Ligação |Descrição|
 |---|---|
 | [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP de nível do servidor. |
 | [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para a Base de Dados Azure SQL. |
 | [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implantar uma piscina elástica e atribuir-lhe bases de dados. |
-| [Grupos de failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores, uma única base de dados e um grupo de failover na Base de Dados Azure SQL.|
+| [Grupos de ativação pós-falha](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores, uma única base de dados e um grupo de failover na Base de Dados Azure SQL.|
 | [Deteção de Ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite-lhe implementar um servidor e um conjunto de bases de dados com Deteção de Ameaças ativadas, com um endereço de e-mail para alertas para cada base de dados. A Deteção de Ameaças faz parte da oferta de Proteção avançada de ameaças (ATP) sql e fornece uma camada de segurança que responde a potenciais ameaças sobre servidores e bases de dados.|
 | [Auditoria ao armazenamento da Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um armazenamento blob. A auditoria ao Azure SQL Database rastreia eventos de base de dados e escreve-os para um registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Centros de Eventos.|
 | [Auditoria ao Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um centro de eventos existente. Para enviar eventos de auditoria para os Centros de Eventos, defina definições de auditoria `Enabled` `State` com, e definir `IsAzureMonitorTargetEnabled` como `true` . Além disso, configurar definições de diagnóstico com a `SQLSecurityAuditEvents` categoria de registo na base de `master` dados (para auditoria ao nível do servidor). A auditoria rastreia eventos de base de dados e escreve-os para um registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Centros de Eventos.|
@@ -46,7 +46,7 @@ A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azu
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azure SQL Managed Instance.
 
-|Ligação|Description|
+|Ligação|Descrição|
 |---|---|
 | [SQL Managed Instance em um novo VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Gestor de Recursos Azure cria uma nova rede virtual Azure configurada e gerido na rede virtual. |
 | [Ambiente de rede para sql caso gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementação criará uma rede virtual Azure configurada com duas sub-redes, uma que será dedicada às suas instâncias geridas e outra onde poderá colocar outros recursos (por exemplo, VMs, ambientes de Serviço de Aplicações, etc.). Este modelo criará um ambiente de networking devidamente configurado onde pode implementar casos geridos. |

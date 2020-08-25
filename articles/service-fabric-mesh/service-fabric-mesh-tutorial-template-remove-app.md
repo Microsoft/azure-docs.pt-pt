@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Remova uma aplicação em execução em malha de tecido de serviço Azure
+title: Tutorial- Remova uma app em execução na malha de tecido de serviço Azure
 description: Neste tutorial, vai ficar a saber como remover uma aplicação em execução no Service Fabric Mesh e como eliminar recursos.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75351804"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Tutorial: Remover uma aplicação e os recursos

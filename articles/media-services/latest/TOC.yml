@@ -8,19 +8,41 @@
       displayName: release notes
       href: release-notes.md
 - name: Guias de Início Rápido
-  expanded: true
   items:
-    - name: Evento em direto com o portal e Wirecast
-      displayName: 'live, event, portal, wirecast'
-      href: live-events-wirecast-quickstart.md
-    - name: Evento em direto com o portal e OBS
-      displayName: 'live, event, portal, obs'
-      href: live-events-obs-quickstart.md
-    - name: 'Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo'
-      href: manage-assets-quickstart.md
-    - name: Utilizar o portal para encriptar conteúdo
-      displayName: 'protect, drm, aes'
-      href: encrypt-content-quickstart.md
+    - name: Configurar o seu ambiente
+      items:
+        - name: Encontrar a sua subscrição do Azure
+          href: how-to-set-azure-subscription.md
+        - name: Criar uma conta dos Media Services
+          href: create-account-howto.md
+        - name: Aceder à API
+          href: access-api-howto.md
+        - name: Configurar o Azure Cloud Shell
+          href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+        - name: Desenvolver com REST
+          items:
+            - name: Ligar com Postman
+              href: media-rest-apis-with-postman.md
+        - name: Desenvolver com SDKs
+          items:
+            - name: Ligar com Java
+              href: configure-connect-java-howto.md
+            - name: Ligar com .NET
+              href: configure-connect-dotnet-howto.md
+            - name: Ligar com Node.js
+              href: configure-connect-nodejs-howto.md
+            - name: Ligar com Python
+              href: configure-connect-python-howto.md
+    - name: Experimentar os Serviços de Multimédia no portal do Azure
+      items:
+        - name: Evento em direto com o portal e Wirecast
+          href: live-events-wirecast-quickstart.md
+        - name: Evento em direto com o portal e OBS
+          href: live-events-obs-quickstart.md
+        - name: 'Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo'
+          href: manage-assets-quickstart.md
+        - name: Utilizar o portal para encriptar conteúdo
+          href: encrypt-content-quickstart.md
 - name: Tutoriais
   items:
     - name: Codificar um ficheiro remoto e transmitir o vídeo
@@ -56,6 +78,7 @@
     - name: Exemplos de REST dos Serviços de Multimédia v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Conceitos
+  expanded: true
   items:
     - name: Descrição geral
       href: concepts-overview.md
@@ -207,6 +230,8 @@
               href: live-event-error-codes.md
             - name: Códigos de erro das tarefas
               href: job-error-codes.md
+        - name: Repor as credenciais da conta
+          href: cli-reset-account-credentials.md
     - name: Migrar da versão v2 para a v3
       items:
         - name: v2 vs v3
@@ -217,70 +242,30 @@
           displayName: naming
 - name: Guias de procedimentos
   items:
-    - name: Introdução
-      items:
-        - name: Encontrar a sua subscrição do Azure
-          href: how-to-set-azure-subscription.md
-        - name: Criar uma conta dos Media Services
-          href: create-account-howto.md
-          displayName: 'portal, cli, storage'
-        - name: API de acesso
-          displayName: 'portal, cli'
-          href: access-api-howto.md
-        - name: Desenvolver com REST
-          items:
-            - name: Ligar com Postman
-              href: media-rest-apis-with-postman.md
-        - name: Desenvolver com SDKs
-          items:
-            - name: Ligar com Java
-              href: configure-connect-java-howto.md
-            - name: Ligar com .NET
-              href: configure-connect-dotnet-howto.md
-            - name: Ligar com Node.js
-              href: configure-connect-nodejs-howto.md
-            - name: Ligar com Python
-              href: configure-connect-python-howto.md
-        - name: Repor as credenciais da conta
-          href: cli-reset-account-credentials.md
-    - name: Criar e gerir recursos
+    - name: Criar recursos e carregar multimédia
       items:
         - name: Criar um recurso
           href: how-to-create-asset.md
-    - name: Carregar conteúdo
-      items:
-        - name: De HTTPS
-          displayName: upload
-          href: job-input-from-http-how-to.md
-        - name: A partir de um ficheiro local
-          items:
-            - name: Com o .NET
-              displayName: upload
-              href: job-input-from-local-file-how-to.md
-            - name: Com o REST
-              displayName: upload
-              href: upload-files-rest-how-to.md
-            - name: Com a CLI
-              href: cli-upload-file-asset.md
+        - name: Carregar multimédia
+          href: how-to-upload-media.md
     - name: Criar transformações e tarefas
       items:
         - name: Criar transformações
           href: cli-create-transform.md
         - name: Criar tarefas
           href: cli-create-jobs.md
+        - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
+          displayName: upload
+          href: job-input-from-local-file-how-to.md
         - name: Tarefas com várias saídas de transformação
           href: job-multiple-transform-outputs.md
     - name: Codificar conteúdo
       items:
         - name: HTTPS como entrada da tarefa
-          displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
         - name: Ficheiro local como entrada da tarefa
-          displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Codificar com uma transformação personalizada
-        - name: Dimensionar unidades reservadas de multimédia
-          href: media-reserved-units-cli-how-to.md
           items:
             - name: Com o .NET
               displayName: 'encode, encoding, custom, transform'
@@ -299,6 +284,8 @@
               href: custom-preset-rest-howto.md
             - name: Gerar miniaturas com o REST
               href: media-services-generate-thumbnails-rest.md
+            - name: Dimensionar unidades reservadas de multimédia
+              href: media-reserved-units-cli-how-to.md
         - name: Fazer um subclip de um vídeo
           items:
             - name: Com o .NET

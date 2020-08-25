@@ -4,12 +4,12 @@ description: Faça backup e restaure bases de dados SQL em VMs Azure usando Azur
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513800"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761326"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer o back up e restaurar as bases de dados SQL em VMs Azure com PowerShell
 
@@ -193,7 +193,7 @@ NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 
 
 ### <a name="registering-the-sql-vm"></a>Registo do SQL VM
 
-Para cópias de segurança Azure VM e ações do Azure File, o serviço de backup pode ligar-se a estes recursos do Azure Resource Manager e obter os detalhes relevantes. Uma vez que o SQL é uma aplicação dentro de um Azure VM, o serviço de backup precisa de permissão para aceder à aplicação e obter os detalhes necessários. Para isso, é necessário *"registar"* o Azure VM que contém a aplicação SQL com um cofre de serviços de Recuperação. Uma vez registado um SQL VM com um cofre, pode proteger os SQL DBs apenas para aquele cofre. Utilize [o Cmdlet Register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS para registar o VM.
+Para cópias de segurança Azure VM e ações do Azure File, o serviço de backup pode ligar-se a estes recursos do Azure Resource Manager e obter os detalhes relevantes. Uma vez que o SQL é uma aplicação dentro de um Azure VM, o serviço de backup precisa de permissão para aceder à aplicação e obter os detalhes necessários. Para isso, é necessário *"registar"* o Azure VM que contém a aplicação SQL com um cofre dos Serviços de Recuperação. Uma vez registado um SQL VM com um cofre, pode proteger os SQL DBs apenas para aquele cofre. Utilize [o Cmdlet Register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS para registar o VM.
 
 ```powershell
  $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -522,6 +522,7 @@ Para editar uma política existente, utilize o comando [Set-AzRecoveryServicesBa
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
 ```
+
 Verifique os trabalhos de reserva depois de algum tempo passado para rastrear quaisquer falhas. Se houver, tens de resolver os problemas. Em seguida, reexame o comando de política de edição com o parâmetro **FixForInconsistentItems** para voltar a tentar editar a política em todos os itens de backup para os quais a operação falhou anteriormente.
 
 ```powershell

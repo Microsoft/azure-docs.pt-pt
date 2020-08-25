@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação web utilizando o Serviço SignalR e a autenticação GitHub
+title: Criar aplicativo web usando o Serviço SignalR e a autenticação do GitHub
 description: Exemplo de Script da CLI do Azure – Criar uma aplicação Web que utiliza o Serviço SignalR e a autenticação do GitHub
 author: sffamily
 ms.service: signalr
@@ -9,10 +9,10 @@ ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: d30804d132eec3c9f324413acd68014d1adaa710
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74158038"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Criar uma aplicação Web que utiliza o Serviço SignalR e a autenticação do GitHub

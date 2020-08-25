@@ -4,10 +4,10 @@ description: Use padrões para aumentar a intenção e a previsão da entidade, 
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86039505"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos comuns de expressão de modelo de padrão para melhorar as previsões
@@ -33,7 +33,7 @@ Existem dois tipos de expressões armazenadas na app LUIS:
 
 Adicionar expressões de modelo como um padrão permite-lhe fornecer menos palavras de exemplo em geral a uma intenção.
 
-Um padrão é aplicado como uma combinação de correspondência de texto e machine learning.  A expressão do modelo no padrão, juntamente com as expressões de exemplo na intenção, dão a LUIS uma melhor compreensão do que as expressões se encaixam na intenção.
+Um padrão é aplicado como uma combinação de correspondência de texto e aprendizagem automática.  A expressão de modelo no padrão, juntamente com as expressões de exemplo na intenção, dá ao LUIS uma melhor compreensão de quais as expressões que se ajustam à intenção.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>App de exemplo de importação e clone para nova versão
 
@@ -204,8 +204,8 @@ Alguns exemplos de expressões de modelo para esta intenção incluem:
 
 |Exemplos de expressões de modelo|significado da sintaxe|
 |--|--|
-|`Who does {EmployeeListEntity} report to[?]`|permutável`{EmployeeListEntity}`<br>ignorar`[?]`|
-|`Who reports to {EmployeeListEntity}[?]`|permutável`{EmployeeListEntity}`<br>ignorar`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|permutável `{EmployeeListEntity}`<br>ignorar `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|permutável `{EmployeeListEntity}`<br>ignorar `[?]`|
 
 A sintaxe `{EmployeeListEntity}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe opcional, `[?]` marca palavras, ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
 
@@ -249,7 +249,7 @@ Para que um padrão seja igualado a uma expressão, _primeiro_ as entidades dent
 
 Agora que os padrões são adicionados à app, treine, publique e questione a app no ponto final de tempo de previsão.
 
-1. Selecione **Comboio**. Após a conclusão do treino, **selecione Publicar** e selecione a ranhura **de Produção** e, em seguida, selecione **Fazer**.
+1. Selecione **Train** (Preparar). Após a conclusão do treino, **selecione Publicar** e selecione a ranhura **de Produção** e, em seguida, selecione **Fazer**.
 
 1. Após a publicação estar concluída, altere os separadores do navegador de volta para o separador URL do ponto final.
 
@@ -533,7 +533,7 @@ Este tutorial acrescentou padrões para ajudar LUIS a prever a intenção com um
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 > [!div class="nextstepaction"]

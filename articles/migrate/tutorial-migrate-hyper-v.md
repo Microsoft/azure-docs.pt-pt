@@ -7,10 +7,10 @@ ms.custom:
 - MVC
 - fasttrack-edit
 ms.openlocfilehash: 0e909a91d610c032bc1d9d003efae7c555afd8bc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86108231"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
@@ -42,7 +42,7 @@ Antes de começar este tutorial, tem de:
 1. [Reveja](hyper-v-migration-architecture.md) a arquitetura de migração Hyper-V.
 2. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Requisitos de hospedeiro hiper-V para migração, e os URLs Azure aos quais os anfitriões e agrupamentos Hiper-V precisam de acesso para a migração de VM.
 3. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para Os Hiper-VMs que pretende migrar para Azure.
-4. Recomendamos que [avalie os Hiper-VM](tutorial-assess-hyper-v.md) antes de os migrar para Azure, mas não é preciso.
+4. Recomendamos que  [avalie os Hiper-VM](tutorial-assess-hyper-v.md) antes de os migrar para Azure, mas não é preciso.
 
    
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Adicione a ferramenta Azure Migrate:Server Migration
@@ -235,6 +235,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

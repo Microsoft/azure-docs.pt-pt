@@ -3,12 +3,12 @@ title: Restaurar ações de ficheiros Azure com a REST API
 description: Saiba como usar a API REST para restaurar ações de ficheiros Azure ou ficheiros específicos a partir de um ponto de restauração criado pelo Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538161"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761802"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar ações de arquivo Azure usando REST API
 
@@ -64,7 +64,7 @@ O GET URI tem todos os parâmetros necessários. Não há necessidade de um corp
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### <a name="example-response"></a>Resposta de exemplo
+### <a name="example-response-for-fetch-recovery-points"></a>Resposta de exemplo para pontos de recuperação de busca
 
 Uma vez que o GET URI é submetido, uma resposta de 200 é devolvida:
 
@@ -168,7 +168,7 @@ Para obter a lista completa das definições do organismo de pedido e outros det
 
 ### <a name="restore-to-original-location"></a>Restaurar a localização original
 
-#### <a name="request-body-example"></a>Solicitar exemplo corporal
+#### <a name="request-body-example-for-restore-to-original-location"></a>Solicite o exemplo do corpo para restaurar a localização original
 
 O seguinte órgão de pedido define as propriedades necessárias para desencadear uma restauração da partilha de ficheiros Azure:
 
@@ -192,7 +192,7 @@ Especificar os seguintes parâmetros para a recuperação alternativa da localiz
 * **nome**: A partilha de ficheiros dentro da conta de armazenamento-alvo para a qual o conteúdo de ressarimento é restaurado.
 * **targetFolderPath**: A pasta sob a partilha de ficheiros para a qual os dados são restaurados.
 
-#### <a name="request-body-example"></a>Solicitar exemplo corporal
+#### <a name="request-body-example-for-restore-to-alternate-location"></a>Solicite o exemplo do corpo para restaurar a localização alternativa
 
 O seguinte órgão de pedido restaura a parte de ficheiros *azurefiles* na conta de armazenamento *afsaccount* para a parte de ficheiro *azurefiles1* na conta de armazenamento *afaccount1.*
 
@@ -366,7 +366,7 @@ Os valores {containerName} e {protectedItemName} são como [definidos aqui](#fet
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Criar corpo de pedido
+### <a name="create-request-body-for-item-level-recovery-using-rest-api"></a>Criar corpo de pedido para recuperação de nível de item usando REST API
 
 Para desencadear uma restauração de uma partilha de ficheiros Azure, são os seguintes os componentes do organismo de pedido:
 
@@ -376,7 +376,7 @@ Propriedades | AzureFileShareRestoreRequest | Restaurar propriedades RequestReso
 
 Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [documento API do gatilho Restore REST](/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Restaurar a localização original
+### <a name="restore-to-original-location-for-item-level-recovery-using-rest-api"></a>Restaurar a localização original para a recuperação do nível do item usando a API REST
 
 O seguinte órgão de pedido é restaurar o ficheiro *Restoretest.txt* na parte de ficheiros *azurefiles* na conta de armazenamento *afsaccount.*
 
@@ -402,7 +402,7 @@ Criar Corpo de Pedido
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Restaurar para localização alternativa
+### <a name="restore-to-alternate-location-for-item-level-recovery-using-rest-api"></a>Restaurar a localização alternativa para a recuperação do nível do item usando a API REST
 
 O seguinte órgão de pedido é restaurar o ficheiro *Restoretest.txt* na parte de ficheiros *azurefiles* na conta de armazenamento *afsaccount* para a pasta de reposição de *dados* da parte de *ficheiros azurefiles1* na conta de armazenamento *afaccount1.*
 
@@ -433,6 +433,6 @@ Criar corpo de pedido
 
 A resposta deve ser tratada da mesma forma que explica acima para [a totalidade das ações restauradas](#full-share-recovery-using-rest-api).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como gerir a [cópia de segurança do ficheiro Azure utilizando a API rest](manage-azure-file-share-rest-api.md).

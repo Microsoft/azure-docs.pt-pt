@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use uma identidade gerida para aceder à Azure Data Lake Store - Windows - Azure AD
+title: Tutorial `:` Utilize uma identidade gerida para aceder à Azure Data Lake Store - Windows - Azure AD
 description: Um tutorial que lhe mostra como utilizar uma identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75977883"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: como utilizar a identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Data Lake Store
@@ -55,7 +55,7 @@ No seu Data Lake Store, crie uma nova pasta e conceda à identidade atribuída p
 3. Clique em **Data Explorer** na barra de comandos.
 4. A pasta raiz do Data Lake Store fica selecionada.  Clique em **Acesso** na barra de comandos.
 5. Clique em **Adicionar**.  No campo **Selecionar**, introduza o nome da sua VM, por exemplo **DevTestVM**.  Clique para selecionar a sua VM nos resultados da pesquisa e clique em **Selecionar**.
-6. Clique em **Selecionar Permissões**.  Selecione **Ler** e **Executar**, adicione a **Esta pasta**e adicione como **Apenas uma permissão de acesso**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
+6. Clique **em Selecionar Permissões**.  Selecione **Ler** e **Executar**, adicione a **Esta pasta**e adicione como **Apenas uma permissão de acesso**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
 7. Feche o painel **Acesso**.
 8. Neste tutorial, vai criar uma nova pasta.  Clique em **Nova Pasta** na barra de comandos e dê um nome à pasta, por exemplo **TestFolder**.  Clique em **OK**.
 9. Clique na pasta que criou e clique em **Acesso** na barra de comandos.
@@ -75,8 +75,8 @@ Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data L
 
 1. No portal, navegue para **Máquinas Virtuais**, aceda à sua VM do Windows e, na **Descrição Geral** clique em **Ligar**.
 2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
-3. Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a **PowerShell** na sessão remota. 
-4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos `https://datalake.azure.net/`da Data Lake Store é .  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
+3. Agora que criou uma **Ligação de Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
+4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos da Data Lake Store é `https://datalake.azure.net/` .  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

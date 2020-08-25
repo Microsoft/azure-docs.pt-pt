@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391218"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
@@ -59,7 +59,7 @@ Para utilizar o seu modelo de inquilino com o Speech SDK, precisa de um recurso 
 1. Selecione **Criar um recurso**.
 1. Na caixa **de Pesquisa,** escreva **Discurso**.
 1. Na lista de resultados, selecione **Speech**e, em seguida, selecione **Criar**.
-1. Siga as instruções no ecrã para criar o seu recurso. Confirme que:
+1. Siga as instruções no ecrã para criar o seu recurso. Certifique-se de que:
    * **A localização** está definida para **este** ou **oeste.**
    * **O nível de preços** está definido para **S0**.
 1. Selecione **Criar**.

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86120641"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy
@@ -172,7 +172,7 @@ Para obter mais informações sobre como criar uma tarefa agendada no Windows, v
 
 Para validar que a tarefa agendada/tarefa Cron é executada corretamente, crie novos ficheiros no diretório `myFolder`. Aguarde cinco minutos para confirmar que os novos ficheiros foram carregados para a conta de armazenamento. Aceda ao diretório de registos para ver os registos de saída da tarefa agendada ou tarefa Cron.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre formas de mover os dados no local para o Armazenamento do Azure e vice-versa, siga esta ligação:
 
@@ -184,7 +184,7 @@ Para mais informações sobre a AzCopy, consulte qualquer um destes artigos:
 
 * [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
 
-* [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+* [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 
 * [Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
  

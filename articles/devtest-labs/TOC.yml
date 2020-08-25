@@ -83,6 +83,8 @@
           href: devtest-lab-internal-support-message.md
         - name: Definir políticas e agendamentos
           href: devtest-lab-set-lab-policy.md
+        - name: "Configurar a identidade do laboratório\_"
+          href: configure-lab-identity.md
         - name: Configurar um laboratório para utilizar um gateway de ambiente de trabalho remoto
           href: configure-lab-remote-desktop-gateway.md
         - name: Publicar anúncio num laboratório
@@ -95,8 +97,6 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Dimensionar o laboratório
           href: devtest-lab-scale-lab.md
-        - name: Ativar identidades geridas para VMs de laboratório
-          href: enable-managed-identities-lab-vms.md
         - name: Gerir bases de máquinas virtuais
           items:
             - name: Configurar imagens do Azure Marketplace
@@ -167,6 +167,8 @@
           href: start-machines-use-automation-runbooks.md
         - name: Importar as máquinas virtuais a partir de outro laboratório
           href: import-virtual-machines-from-another-lab.md
+        - name: Ativar identidades geridas para VMs de laboratório
+          href: enable-managed-identities-lab-vms.md
     - name: Utilizar ambientes num laboratório
       items:
         - name: Criar um ambiente

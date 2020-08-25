@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2020
+ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: f14b0050aefc598d26dec7a7781a3378ccaa7570
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294506"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761730"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerir melhor o SOC com métricas de incidentes
 
@@ -41,8 +41,30 @@ Sempre que criar ou atualizar um incidente, será adicionada uma nova entrada de
 
 Por exemplo, se quiser devolver uma lista de todos os incidentes classificados pelo seu número de incidentes, mas apenas quiser devolver o registo mais recente por incidente, pode fazê-lo utilizando o [operador de resumo](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) KQL com a `arg_max()` [função de agregação:](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction)
 
-`SecurityIncident` <br>
-`| summarize arg_max(LastModifiedTime, *) by IncidentNumber`
+
+```Kusto
+SecurityIncident
+| summarize arg_max(LastModifiedTime, *) by IncidentNumber
+```
+### <a name="more-sample-queries"></a>Mais consultas de amostra
+
+Tempo médio para encerrar:
+```Kusto
+SecurityIncident
+| summarize arg_max(TimeGenerated,*) by IncidentNumber 
+| extend TimeToClosure =  (ClosedTime - CreatedTime)/1h
+| summarize 5th_Percentile=percentile(TimeToClosure, 5),50th_Percentile=percentile(TimeToClosure, 50), 
+  90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
+```
+
+Tempo médio para triagem:
+```Kusto
+SecurityIncident
+| summarize arg_max(TimeGenerated,*) by IncidentNumber 
+| extend TimeToTriage =  (FirstModifiedTime - CreatedTime)/1h
+| summarize 5th_Percentile=max_of(percentile(TimeToTriage, 5),0),50th_Percentile=percentile(TimeToTriage, 50), 
+  90th_Percentile=percentile(TimeToTriage, 90),99th_Percentile=percentile(TimeToTriage, 99) 
+```
 
 ## <a name="security-operations-efficiency-workbook"></a>Livro de eficiência de operações de segurança
 

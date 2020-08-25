@@ -4,10 +4,10 @@ description: 'Tutorial: A grelha de eventos Azure pode acionar em uploads de bol
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86105817"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos
@@ -63,7 +63,7 @@ az provider register --namespace Microsoft.EventGrid
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-As Funções do Azure requerem uma conta de armazenamento geral. Além da conta de armazenamento Blob que criou no tutorial anterior, crie uma conta de armazenamento geral separada no grupo de recursos utilizando o comando de criação de [conta de armazenamento az.](/cli/azure/storage/account) Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
+As Funções do Azure requerem uma conta de armazenamento geral. Além da conta de armazenamento Blob que criou no tutorial anterior, crie uma conta de armazenamento geral separada no grupo de recursos utilizando o comando de criação de [conta de armazenamento az.](/cli/azure/storage/account) Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
 
 1. Detenha uma variável para manter o nome do grupo de recursos que criou no tutorial anterior.
 
@@ -107,7 +107,7 @@ As Funções do Azure requerem uma conta de armazenamento geral. Além da conta 
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
-## <a name="create-a-function-app"></a>Criar uma aplicação de função  
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções  
 
 Precisa de uma aplicação de funções para alojar a execução da sua função. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Utilize o comando [az functionapp create](/cli/azure/functionapp) para criar uma aplicação Function App.
 
@@ -247,7 +247,7 @@ Para obter mais informações sobre esta função, veja os [ficheiros function.j
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-Para saber mais sobre esta função, consulte os [ficheirosfunction.jse index.js ficheiros](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+Para saber mais sobre esta função, consulte os [ ficheirosfunction.jse index.js ficheiros](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
 
 ---
 
@@ -279,7 +279,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | **Nome tópico do sistema** | imagenstoragesystópica | Especifique um nome para o tópico do sistema. Para conhecer os tópicos do sistema, consulte [a visão geral dos tópicos do Sistema.](system-topics.md) |    
     | **Tipos de evento** | Criado pelo Blob | Desmarque todos os tipos diferentes de **Criado pelo Blob**. Apenas os tipos de evento de `Microsoft.Storage.BlobCreated` são transmitidos à função. |
     | **Tipo de ponto final** | gerado automaticamente | Pré-definido como **Função Azure**. |
-    | **Ponto Final** | gerado automaticamente | Nome da função. Neste caso, é **miniatura.** |
+    | **Ponto final** | gerado automaticamente | Nome da função. Neste caso, é **miniatura.** |
 
 1. Mude para o **separador Filtros** e faça as seguintes ações:
     1. Selecione Ative a opção **de filtragem do assunto.**

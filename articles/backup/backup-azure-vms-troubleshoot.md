@@ -4,18 +4,18 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371741"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761768"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
 Pode resolver os erros encontrados durante a utilização do Azure Backup com as informações listadas abaixo:
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure.
 
@@ -56,7 +56,7 @@ Mensagem de erro: Copiar dados com cópias de segurança do cofre cronometrados
 
 Isto pode acontecer devido a erros de armazenamento transitórios ou a uma conta de armazenamento insuficiente IOPS para o serviço de cópia de segurança transferir dados para o cofre dentro do período de tempo. Configure a cópia de segurança VM utilizando estas [melhores práticas](backup-azure-vms-introduction.md#best-practices) e refaça a operação de backup.
 
-### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM não está num estado que permita cópias de segurança
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState – a VM não está num estado que permita cópias de segurança
 
 Código de erro: UserErrorVmNotInDesirableState <br/>
 Error message: VM is not in a state that allows backups.<br/>
@@ -162,7 +162,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de res
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensãoFailedSnapshotLimitReachedError - A operação Snapshot falhou, uma vez que o limite de instantâneo é ultrapassado para alguns dos discos ligados
 
-Código de erro: ExtensãoFailedSnapshotLimitReachedError <br/>
+Código de erro: ExtensãoFailedSnapshotLimitReachedError  <br/>
 Error message: A operação snapshot falhou à medida que o limite de instantâneo é ultrapassado para alguns dos discos ligados
 
 A operação de instantâneo falhou, uma vez que o limite de instantâneo excedeu para alguns dos discos ligados. Complete os passos de resolução de problemas abaixo e, em seguida, redoça a operação.
@@ -248,7 +248,7 @@ Código de erro: ExtensãoVCRedistInstallationFailure <br/> Error message: A ope
 * Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, defina o valor **iniciar** **em HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **o MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** a partir de uma solicitação de comando elevada.
 * Verifique o registo do evento para verificar se está a notar problemas relacionados com o acesso. Por exemplo: *Produto: Microsoft Visual C++ 2013 x64 Tempo mínimo de funcionação - 12.0.21005 -- Erro 1401.Não foi possível criar a chave: Software\Classes.  Erro do sistema 5.  Verifique se tem acesso suficiente a essa chave ou contacte o seu pessoal de apoio.* <br><br> Certifique-se de que o administrador ou a conta do utilizador têm permissões suficientes para atualizar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o Windows Azure Guest Agent.<br><br> <li> Se tiver produtos antivírus no lugar, certifique-se de que têm as regras de exclusão adequadas para permitir a instalação.
 
-### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - Uma política inválida está configurada no VM que está a impedir a operação Snapshot
+### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – foi configurada uma política inválida na VM e está a impedir a Operação de instantâneo
 
 Código de erro: UserErrorRequestDisallowedByPolicy <BR> Error message: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot.
 
@@ -289,23 +289,23 @@ Se o seu backup demorar mais de 12 horas, ou restaurar leva mais de 6 horas, rev
 
 Tipicamente, o Agente VM já está presente em VMs que são criados a partir da galeria Azure. Mas as máquinas virtuais que são migradas de datacenters no local não terão o Agente VM instalado. Para esses VMs, o Agente VM precisa de ser instalado explicitamente.
 
-#### <a name="windows-vms"></a>VMs do Windows
+#### <a name="windows-vms---set-up-the-agent"></a>Windows VMs - Configurar o agente
 
 * Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios de administrador para terminar a instalação.
 * Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais Azure Resource Manager.
 
-#### <a name="linux-vms"></a>VMs do Linux
+#### <a name="linux-vms---set-up-the-agent"></a>Linux VMs - Configurar o agente
 
 * Instale a versão mais recente do agente a partir do repositório de distribuição. Para mais informações sobre o nome do pacote, consulte o [repositório do Agente Linux.](https://github.com/Azure/WALinuxAgent)
 * Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o Agente VM
 
-#### <a name="windows-vms"></a>VMs do Windows
+#### <a name="windows-vms---update-the-agent"></a>VMs do Windows - Atualizar o agente
 
 * Para atualizar o Agente VM, reinstale os [binários do Agente VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não ocorrem operações de backup durante a atualização do Agente VM.
 
-#### <a name="linux-vms"></a>VMs do Linux
+#### <a name="linux-vms---update-the-agent"></a>Linux VMs - Atualizar o agente
 
 * Para atualizar o Agente Linux VM, siga as instruções do artigo [Atualização do Agente Linux VM](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

@@ -4,10 +4,10 @@ description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LU
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85445904"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de idioma em C #
@@ -74,7 +74,7 @@ O processo de criação de serviços bot também cria uma nova app LUIS com inte
 |Voo do livro|`Travel to Paris`|
 |Cancelar|`bye`|
 |GetWeather|`what's the weather like?`|
-|Nenhuma|Tudo o que estiver fora do domínio da aplicação.|
+|Nenhum|Tudo o que estiver fora do domínio da aplicação.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Teste o bot no Web Chat
 

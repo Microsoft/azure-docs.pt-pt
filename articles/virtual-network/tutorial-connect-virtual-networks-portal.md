@@ -1,5 +1,5 @@
 ---
-title: Conecte redes virtuais com peering VNet - tutorial - portal Azure
+title: Conecte redes virtuais com o peering VNet - tutorial - Portal Azure
 description: Neste tutorial, irá aprender a ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77201303"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
@@ -32,7 +32,7 @@ Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes vi
 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-connect-virtual-networks-cli.md) ou o [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -42,17 +42,17 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 1. No portal Azure, selecione **Criar um recurso**.
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
-3. No separador **Basics,** introduza ou selecione as seguintes informações e aceite as predefinições para as restantes definições:
+3. No separador **Básicos,** introduza ou selecione as seguintes informações e aceite as padrão para as definições restantes:
 
     |Definição|Valor|
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
-    |Região| Selecione **East US**.|
+    |Region| Selecione **East US**.|
     |Nome|myVirtualNetwork1|
 
-4. No separador **endereços IP,** introduza 10.0.0.0.16 para o campo **'Espaço endereço'.** Clique no botão **adicionar subnet** abaixo e *introduza subnet1* para nome de **sub-rede** e 10.0.0.0/24 para a **gama de endereços subnet**.
-5. Selecione **Rever + Criar** e, em seguida, selecione **Criar**.
+4. No separador **endereços IP, insira** 10.0.0.0/16 para o campo **Address Space.** Clique no botão **de sub-rede Adicionar** abaixo e introduza *a Sub-rede1* para **nome da sub-rede** e 10.0.0.0/24 para **a gama de endereços sub-rede**.
+5. Selecione **'Rever + Criar'** e, em seguida, selecione **Criar.**
    
 5. Execute novamente os passos 1 a 5, com as seguintes alterações:
 
@@ -75,14 +75,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
     |Definição|Valor|
     |---|---|
-    |Nome do peering do myVirtualNetwork1 para rede virtual remota|myVirtualNetwork1-myVirtualNetwork2 - Quando a página for primeira a carregar, verá a frase "rede virtual remota" aqui. Depois de escolher a rede virtual remota, a expressão "rede virtual remota" será substituída pelo nome da rede virtual remota.|
+    |Nome do espreitamento do myVirtualNetwork1 para rede virtual remota|myVirtualNetwork1-myVirtualNetwork2 - Quando a página for carregada pela primeira vez, verá a frase "rede virtual remota" aqui. Depois de escolher a rede virtual remota, a expressão "rede virtual remota" será substituída pelo nome da rede virtual remota.|
     |Subscrição| Selecione a sua subscrição.|
-    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2,* selecione **a rede Virtual,** em seguida, selecione **myVirtualNetwork2 (myResourceGroup)**. Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
-    |Nome do peering do myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
+    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2,* selecione **rede Virtual,** selecione **myVirtualNetwork2 (myResourceGroup)**. Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
+    |Nome do peering da myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Definições de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    O **ESTATUTO DE PEERING** está *ligado,* como mostra a seguinte imagem:
+    O **ESTADO DE PEERING** está *ligado,* como mostra a seguinte imagem:
 
     ![Estado de peering](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
@@ -107,16 +107,16 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Selecione um tamanho VM para a opção **Tamanho.**
-5. Selecione os seguintes valores para o **networking:**
+5. Selecione os seguintes valores para em **Rede:**
 
     |Definição|Valor|
     |---|---|
     |Rede virtual| myVirtualNetwork1 - Se ainda não estiver selecionado, selecione **a rede Virtual** e, em seguida, selecione **myVirtualNetwork1**.|
-    |Subrede| Subnet1 - Se ainda não estiver selecionado, selecione **Subnet** e, em seguida, selecione **Subnet1**.|
+    |Sub-rede| Sub-rede1 - Se ainda não estiver selecionado, selecione **Sub-rede** e, em seguida, selecione **Subnet1**.|
    
-6. Selecione **Rede**. Escolha **Permitir portas selecionadas** para a opção **de portas de entrada pública.** Escolha **RDP** para a opção **Selecione portas** de entrada abaixo desta. 
+6. Selecione **Rede**. Escolha **Permitir portas selecionadas** para a opção **portas de entrada pública.** Escolha **RDP** para a opção **Portas de entrada Select** abaixo desta. 
 
-7. Selecione o botão **Review + Criar** no canto inferior esquerdo para iniciar a implantação vm.
+7. Selecione o botão **'Rever + Criar'** no canto inferior esquerdo para iniciar a implantação de VM.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 

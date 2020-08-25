@@ -1,6 +1,6 @@
 ---
-title: Configure o encaminhamento de mensagens para o Hub Azure IoT usando um modelo de Gestor de Recursos Azure
-description: Configure o encaminhamento de mensagens para o Hub Azure IoT usando um modelo de Gestor de Recursos Azure
+title: Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
+description: Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74084398"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Use um modelo de Gestor de Recursos Azure para configurar o encaminhamento de mensagens IoT Hub
@@ -28,71 +28,71 @@ ms.locfileid: "74084398"
 
 ## <a name="download-the-template-and-parameters-file"></a>Descarregue o modelo e o arquivo de parâmetros
 
-Para a segunda parte deste tutorial, você descarrega e executa uma aplicação do Estúdio Visual para enviar mensagens para o IoT Hub. Há uma pasta no download que contém o modelo de modelo e parâmetros do Gestor de Recursos Azure, bem como os scripts Azure CLI e PowerShell.
+Para a segunda parte deste tutorial, você descarrega e execute uma aplicação Visual Studio para enviar mensagens para o IoT Hub. Existe uma pasta nesse download que contém o modelo e o ficheiro de parâmetros do Azure Resource Manager, bem como os scripts Azure CLI e PowerShell.
 
-Vá em frente e baixe as [amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) agora. Desaperte o ficheiro master.zip. O modelo do Gestor de Recursos e o ficheiro de parâmetros estão em /iot-hub/Tutoriais/Routing/SimuladoDispositivo/recursos/ como **template_iothub.json** e **template_iothub_parameters.json**.
+Vá em frente e baixe já as [amostras Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. O modelo do Gestor de Recursos e o ficheiro de parâmetros estão em /iot-hub/Tutorials/Encaminhamento/SimulatedDevice/resources/ à medida ** quetemplate_iothub.jse**template_iothub_parameters.js** em**.
 
 ## <a name="create-your-resources"></a>Crie os seus recursos
 
-Você vai usar um modelo de Gestor de Recursos Azure (RM) para criar todos os seus recursos. Os scripts Azure CLI e PowerShell podem ser executados algumas linhas de cada vez. Um modelo RM é implantado num passo. Este artigo mostra-lhe as secções separadamente para ajudá-lo a entender cada uma delas. Em seguida, irá mostrar-lhe como implementar o modelo, e criar o dispositivo virtual para testar. Depois de o modelo ser implementado, pode ver a configuração de encaminhamento de mensagens no portal.
+Você vai usar um modelo Azure Resource Manager (RM) para criar todos os seus recursos. Os scripts Azure CLI e PowerShell podem ser executados algumas linhas de cada vez. Um modelo RM é implantado num só passo. Este artigo mostra-lhe as secções separadamente para ajudá-lo a entender cada um deles. Em seguida, irá mostrar-lhe como implantar o modelo e criar o dispositivo virtual para testes. Depois de o modelo ser implantado, pode visualizar a configuração de encaminhamento de mensagens no portal.
 
-Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar a designação dos recursos, esses nomes de recursos são criados para anexar um valor alfanumérico aleatório gerado a partir da data/hora atual. 
+Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar a nomeação dos recursos, esses nomes de recursos são configurados para anexar um valor alfanumérico aleatório gerado a partir da data/hora atual. 
 
-Se olhar para o modelo, verá onde são criadas variáveis para estes recursos que levam o parâmetro passado e concatenam *randomValue* para o parâmetro. 
+Se olhar para o modelo, verá onde são configuradas variáveis para estes recursos que tomam o parâmetro passado e concatenate *aleatoriamenteValue* para o parâmetro. 
 
 A secção seguinte explica os parâmetros utilizados.
 
 ### <a name="parameters"></a>Parâmetros
 
-A maioria destes parâmetros têm valores padrão. Os que terminam com **_in** são concatenados com *randomValue* para torná-los globalmente únicos. 
+A maioria destes parâmetros tem valores padrão. Os que terminam com **_in** são concatenados com *o RandomValue* para torná-los globalmente únicos. 
 
-**randomValue**: Este valor é gerado a partir da data/hora atual quando implementa o modelo. Este campo não está no ficheiro de parâmetros, pois é gerado no próprio modelo.
+**RandomValue**: Este valor é gerado a partir da data/hora atual quando implementa o modelo. Este campo não está no ficheiro de parâmetros, uma vez que é gerado no próprio modelo.
 
-**subscriçãoId**: Este campo está definido para si para a subscrição em que está a implementar o modelo. Este campo não está no ficheiro de parâmetros, uma vez que está definido para si.
+**subscriçãoId**: Este campo está definido para si na subscrição em que está a implementar o modelo. Este campo não está no ficheiro de parâmetros, uma vez que está definido para si.
 
-**IoTHubName_in**: Este campo é o nome base IoT Hub, que é concatenado com o valor aleatório Value para ser globalmente único.
+**IoTHubName_in**: Este campo é o nome base IoT Hub, que é concatenado com o RandomValue para ser globalmente único.
 
-**localização**: Este campo é a região de Azure na qual está implantado, como "westus".
+**localização**: Este campo é a região de Azure em que está a implantar, como "westus".
 
-**consumer_group**: Este campo é o grupo de consumidores definido para mensagens que vêm através do ponto final de encaminhamento. É usado para filtrar resultados no Azure Stream Analytics. Por exemplo, há todo o fluxo onde obtém tudo, ou se tem dados que chegam com consumer_group definidos para **Contoso,** então pode configurar um fluxo De Análise de Fluxo Azure (e relatório Power BI) para mostrar apenas essas entradas. Este campo é usado na parte 2 deste tutorial.
+**consumer_group**: Este campo é o grupo de consumidores definido para mensagens que passam pelo ponto final de encaminhamento. É utilizado para filtrar os resultados no Azure Stream Analytics. Por exemplo, existe todo o fluxo onde obtém tudo, ou se tiver dados que venham com consumer_group definido para **Contoso,** então pode configurar um stream Azure Stream Analytics (e relatório Power BI) para mostrar apenas essas entradas. Este campo é usado na parte 2 deste tutorial.
 
-**sku_name**: Este campo é o escalonamento para o Hub IoT. Este valor deve ser S1 ou superior; um nível livre não funciona para este tutorial porque não permite vários pontos finais.
+**sku_name**: Este campo é o escalonamento para o IoT Hub. Este valor deve ser S1 ou superior; um nível livre não funciona para este tutorial porque não permite vários pontos finais.
 
-**sku_units**: Este campo acompanha o **sku_name**, e é o número de unidades IoT Hub que podem ser utilizadas.
+**sku_units**: Este campo vai com o **sku_name,** e é o número de unidades IoT Hub que podem ser usadas.
 
 **d2c_partitions**: Este campo é o número de divisórias utilizadas para o fluxo de eventos.
 
-**storageAccountName_in**: Este campo é o nome da conta de armazenamento a criar. As mensagens são encaminhadas para um contentor na conta de armazenamento. Este campo é concatenado com o randomValue para torná-lo globalmente único.
+**storageAccountName_in**: Este campo é o nome da conta de armazenamento a criar. As mensagens são encaminhadas para um contentor na conta de armazenamento. Este campo é concatentado com o Valor Aleatório para torná-lo globalmente único.
 
-**storageNome contentor**: Este campo é o nome do recipiente no qual as mensagens encaminhadas para a conta de armazenamento são armazenadas.
+**storageContainerName**: Este campo é o nome do recipiente no qual as mensagens encaminhadas para a conta de armazenamento são armazenadas.
 
-**storage_endpoint**: Este campo é o nome para o ponto final da conta de armazenamento utilizado pelo encaminhamento da mensagem.
+**storage_endpoint**: Este campo é o nome do ponto final da conta de armazenamento utilizado pelo encaminhamento de mensagens.
 
-**service_bus_namespace_in**: Este campo é o nome do espaço de nome do Ônibus de serviço a criar. Este valor é concatenado com o randomValue para torná-lo globalmente único.
+**service_bus_namespace_in**: Este campo é o nome do espaço de nomes do Service Bus a ser criado. Este valor é concatentado com o Valor Aleatório para torná-lo globalmente único.
 
-**service_bus_queue_in**: Este campo é o nome da fila do Ônibus de serviço utilizada para mensagens de encaminhamento. Este valor é concatenado com o randomValue para torná-lo globalmente único.
+**service_bus_queue_in**: Este campo é o nome da fila do Service Bus utilizada para reencaminhamento de mensagens. Este valor é concatentado com o Valor Aleatório para torná-lo globalmente único.
 
-**AuthRules_sb_queue**: Este campo são as regras de autorização para a fila do autocarro de serviço, utilizada para recuperar a corda de ligação para a fila.
+**AuthRules_sb_queue**: Este campo é a regra de autorização para a fila do autocarro de serviço, utilizada para recuperar a cadeia de ligação para a fila.
 
 ### <a name="variables"></a>Variáveis
 
-Estes valores são usados no modelo, e são principalmente derivados de parâmetros.
+Estes valores são usados no modelo, e são derivados principalmente de parâmetros.
 
-**filaAuthorizationRuleResourceId**: Este campo é o ResourceId para a regra de autorização para a fila do Autocarro de Serviço. O ResourceId é, por sua vez, utilizado para recuperar a corda de ligação para a fila.
+**queueAuthorizationRuleResourceId**: Este campo é o ResourceId para a regra de autorização para a fila do Autocarro de Serviço. O ResourceId é por sua vez utilizado para recuperar a cadeia de ligação para a fila.
 
-**iotHubName**: Este campo é o nome do Hub IoT depois de ter concatenado aleatoriamente. 
+**iotHubName**: Este campo é o nome do IoT Hub depois de ter concatenado aleatoriamente. 
 
-**armazenamentoNome da conta**: Este campo é o nome da conta de armazenamento depois de ter concatenado por conta aleatória. 
+**armazenamentoSAme :** Este campo é o nome da conta de armazenamento depois de ter concatenado aleatoriamente. 
 
 **service_bus_namespace**: Este campo é o espaço de nome depois de ter concatenado aleatoriamente.
 
-**service_bus_queue**: Este campo é o nome da fila do Autocarro de Serviço depois de ter concatenado aleatoriamente.
+**service_bus_queue**: Este campo é o nome da fila do Service Bus depois de ter concatenado aleatoriamente.
 
-**sbVersão**: Versão THe da API do autocarro de serviço para usar. Neste caso, é "2017-04-01".
+**sbVersion**: Versão THe da API do Service Bus para usar. Neste caso, é "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Recursos: Conta de armazenamento e contentor
 
-O primeiro recurso criado é a conta de armazenamento, juntamente com o recipiente para o qual as mensagens são encaminhadas. O recipiente é um recurso sob a conta de armazenamento. Tem uma `dependsOn` cláusula para a conta de armazenamento, exigindo que a conta de armazenamento seja criada antes do contentor.
+O primeiro recurso criado é a conta de armazenamento, juntamente com o recipiente para o qual as mensagens são encaminhadas. O contentor é um recurso sob a conta de armazenamento. Tem uma `dependsOn` cláusula para a conta de armazenamento, exigindo que a conta de armazenamento seja criada antes do contentor.
 
 Aqui está o que esta secção parece:
 
@@ -124,9 +124,9 @@ Aqui está o que esta secção parece:
 }
 ```
 
-### <a name="resources-service-bus-namespace-and-queue"></a>Recursos: Espaço de nome de ônibus de serviço e fila
+### <a name="resources-service-bus-namespace-and-queue"></a>Recursos: Espaço de nome de autocarro de serviço e fila
 
-O segundo recurso criado é o espaço de nome service Bus, juntamente com a fila do Ônibus de serviço para o qual as mensagens são encaminhadas. O SKU está definido como padrão. A versão API é recuperada das variáveis. Também está programado para ativar o espaço de nome do Autocarro de Serviço quando implementar esta secção (status:Ative). 
+O segundo recurso criado é o espaço de nomes do Service Bus, juntamente com a fila do Service Bus para a qual as mensagens são encaminhadas. O SKU está definido como padrão. A versão API é recuperada das variáveis. Está também definido para ativar o espaço de nomes do Service Bus quando implementar esta secção (status:Ative). 
 
 ```json
 {
@@ -149,7 +149,7 @@ O segundo recurso criado é o espaço de nome service Bus, juntamente com a fila
 }
 ```
 
-Esta secção cria a fila service Bus. Esta parte do script `dependsOn` tem uma cláusula que garante que o espaço de nome é criado antes da fila.
+Esta secção cria a fila do Service Bus. Esta parte do script tem uma `dependsOn` cláusula que garante que o espaço de nome é criado antes da fila.
 
 ```json
 {
@@ -165,9 +165,9 @@ Esta secção cria a fila service Bus. Esta parte do script `dependsOn` tem uma 
 }
 ```
 
-### <a name="resources-iot-hub-and-message-routing"></a>Recursos: Hub de iot e encaminhamento de mensagens
+### <a name="resources-iot-hub-and-message-routing"></a>Recursos: Iot Hub e encaminhamento de mensagens
 
-Agora que a conta de armazenamento e a fila do Ônibus de Serviço foram criadas, cria-se o IoT Hub que lhes encaminha mensagens. O modelo RM utiliza `dependsOn` cláusulas para que não tente criar o hub antes de os recursos do Bus de Serviço e a conta de armazenamento terem sido criadas. 
+Agora que a conta de armazenamento e a fila do Service Bus foram criadas, cria-se o Hub IoT que lhes encaminha mensagens. O modelo RM usa `dependsOn` cláusulas para que não tente criar o hub antes dos recursos do Service Bus e da conta de armazenamento terem sido criados. 
 
 Aqui está a primeira parte da secção IoT Hub. Esta parte do modelo configura as dependências e começa com as propriedades.
 
@@ -191,11 +191,11 @@ Aqui está a primeira parte da secção IoT Hub. Esta parte do modelo configura 
             },
 ```
 
-A próxima secção é a secção para a configuração de encaminhamento de mensagens para o Hub Iot. Primeiro é a secção para os pontos finais. Esta parte do modelo configura os pontos finais de encaminhamento para a fila do Ônibus de serviço e a conta de armazenamento, incluindo as cordas de ligação.
+A próxima secção é a secção para a configuração de encaminhamento de mensagens para o Hub Iot. Primeiro é a secção para os pontos finais. Esta parte do modelo configura os pontos finais de encaminhamento para a fila do Service Bus e a conta de armazenamento, incluindo as cordas de ligação.
 
-Para criar a cadeia de ligação para a fila, necessita da filaAuthorizationRulesResourcedId, que é recuperada inline. Para criar a cadeia de ligação para a conta de armazenamento, recupere a chave de armazenamento primária e, em seguida, use-a no formato para a cadeia de ligação.
+Para criar a cadeia de ligação para a fila, precisa da filaAuthorizationRulesResourcedId, que é recuperada em linha. Para criar o fio de ligação para a conta de armazenamento, recupere a chave de armazenamento primária e, em seguida, use-a no formato para a cadeia de ligação.
 
-A configuração do ponto final também é `AVRO` `JSON`onde se define o formato blob para ou .
+A configuração do ponto final é também onde define o formato blob para `AVRO` ou `JSON` .
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -229,9 +229,9 @@ A configuração do ponto final também é `AVRO` `JSON`onde se define o formato
     },
 ```
 
-A próxima secção é para as rotas da mensagem para os pontos finais. Há um configurado para cada ponto final, por isso há um para a fila do Ônibus de serviço e outro para o contentor da conta de armazenamento.
+Esta próxima secção é para as rotas da mensagem para os pontos finais. Há um conjunto para cada ponto final, por isso há um para a fila do Service Bus e um para o recipiente da conta de armazenamento.
 
-Lembre-se que a condição de consulta para `level="storage"`as mensagens que estão a ser encaminhadas `level="critical"`para o armazenamento é , e a condição de consulta para as mensagens que estão a ser encaminhadas para a fila do Autocarro de Serviço é .
+Lembre-se que a condição de consulta para as mensagens que estão a ser encaminhada para o armazenamento é `level="storage"` , e a condição de consulta para as mensagens que estão a ser encaminhada para a fila do Service Bus é `level="critical"` .
 
 ```json
 "routes": [
@@ -256,7 +256,7 @@ Lembre-se que a condição de consulta para `level="storage"`as mensagens que es
 ],
 ```
 
-Este json mostra o resto da secção IoT Hub, que contém informações padrão e o SKU para o centro.
+Este json mostra o resto da secção IoT Hub, que contém informações padrão e o SKU para o hub.
 
 ```json
             "fallbackRoute": {
@@ -303,7 +303,7 @@ Este json mostra o resto da secção IoT Hub, que contém informações padrão 
 
 ### <a name="resources-service-bus-queue-authorization-rules"></a>Recursos: Regras de autorização de fila de autocarros de serviço
 
-A regra de autorização de fila de ônibus de serviço é usada para recuperar a corda de ligação para a fila do ônibus de serviço. Utiliza uma `dependsOn` cláusula para garantir que não é criada antes do espaço de nome do Bus de Serviço e da fila do Ônibus de Serviço.
+A regra de autorização de fila do Service Bus é utilizada para recuperar a cadeia de ligação para a fila do Service Bus. Utiliza uma `dependsOn` cláusula para garantir que não é criada antes do espaço de nomes do Service Bus e da fila do Service Bus.
 
 ```json
 {
@@ -326,7 +326,7 @@ A regra de autorização de fila de ônibus de serviço é usada para recuperar 
 
 ### <a name="resources-consumer-group"></a>Recursos: Grupo de consumidores
 
-Nesta secção, cria-se um Grupo de Consumidores para que os dados do IoT Hub sejam utilizados pelo Azure Stream Analytics na segunda parte deste tutorial.
+Nesta secção, você cria um Grupo de Consumidores para os dados do IoT Hub a serem usados pelo Azure Stream Analytics na segunda parte deste tutorial.
 
 ```json
 {
@@ -341,7 +341,7 @@ Nesta secção, cria-se um Grupo de Consumidores para que os dados do IoT Hub se
 
 ### <a name="resources-outputs"></a>Recursos: Saídas
 
-Se pretender enviar um valor de volta para o script de implementação a exibir, utilize uma secção de saída. Esta parte do modelo devolve a corda de ligação para a fila do Ônibus de serviço. Devolver um valor não é necessário, está incluído como um exemplo de como devolver os resultados ao script de chamada.
+Se pretender enviar um valor de volta para o script de implementação a ser apresentado, utilize uma secção de saída. Esta parte do modelo devolve a cadeia de ligação para a fila do Service Bus. Devolver um valor não é necessário, é incluído como um exemplo de como devolver os resultados ao script de chamada.
 
 ```json
 "outputs": {
@@ -354,31 +354,31 @@ Se pretender enviar um valor de volta para o script de implementação a exibir,
 
 ## <a name="deploy-the-rm-template"></a>Implementar o modelo RM
 
-Para implantar o modelo para Azure, faça upload do modelo e do ficheiro de parâmetros para Azure Cloud Shell e, em seguida, execute um script para implementar o modelo. Abra a Nuvem Azure e inscreva-se. Este exemplo utiliza powerShell.
+Para implementar o modelo para Azure, carreque o modelo e o ficheiro de parâmetros para Azure Cloud Shell e, em seguida, execute um script para implementar o modelo. Abra a Azure Cloud Shell e inscreva-se. Este exemplo utiliza o PowerShell.
 
-Para fazer o upload dos ficheiros, selecione o ícone de **ficheiros Upload/Download** na barra de menus e, em seguida, escolha o Upload.
+Para fazer o upload dos ficheiros, selecione o ícone **de ficheiros upload/Download** na barra de menus e, em seguida, escolha upload.
 
-![Barra de menu Cloud Shell com ficheiros upload/download destacados](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Barra de menu Cloud Shell com ficheiros upload/download em destaque](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Utilize o File Explorer que aparece para encontrar os ficheiros no disco local e selecione-os e, em seguida, escolha **Open**.
+Utilize o Explorador de Ficheiros que aparece para encontrar os ficheiros no disco local e selecione-os e, em seguida, escolha **Abrir**.
 
 Depois de os ficheiros serem carregados, um diálogo de resultados mostra algo como a seguinte imagem.
 
-![Barra de menu Cloud Shell com ficheiros upload/download destacados](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Barra de menu Cloud Shell com ficheiros upload/download em destaque](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
-Os ficheiros são enviados para a parte utilizada pela sua instância Cloud Shell. 
+Os ficheiros são enviados para a partilha utilizada pela sua instância Cloud Shell. 
 
-Execute o guião para executar a implementação. A última linha deste guião recupera a variável que foi criada para ser devolvida.
+Execute o script para executar a implementação. A última linha deste script recupera a variável que foi configurada para ser devolvida- a cadeia de ligação da fila do Service Bus.
 
 O script define e utiliza estas variáveis:
 
 **$RGName** é o nome do grupo de recursos para implantar o modelo. Este campo é criado antes de implementar o modelo.
 
-**$location** é a localização Azure a ser usada para o modelo, como "westus".
+**$location** é a localização Azure para ser usada para o modelo, como "westus".
 
-o nome de **implantação** é um nome que atribui à implantação para recuperar o valor variável de retorno.
+**o nome de implantação** é um nome que atribui à implementação para recuperar o valor variável de retorno.
 
-Aqui está o guião da PowerShell. Copie este script PowerShell e cole-o na janela Cloud Shell e, em seguida, bata no Enter para executá-lo.
+Aqui está o guião powerShell. Copie este script PowerShell e cole-o na janela Cloud Shell e, em seguida, bata em Enter para executá-lo.
 
 ```powershell
 $RGName="ContosoResources"
@@ -406,19 +406,19 @@ New-AzResourceGroupDeployment `
 (Get-AzResourceGroupDeployment -ResourceGroupName $RGName -Name $deploymentname).Outputs.sbq_connectionString.value
 ```
 
-Se tiver erros de script, pode editar o script localmente, carregá-lo novamente para a Cloud Shell e executar o script novamente. Depois de o guião terminar a correr com sucesso, continue até ao próximo passo.
+Se tiver erros de script, pode editar o script localmente, carregá-lo novamente para a Cloud Shell e executar o script novamente. Depois de o guião terminar a correr com sucesso, continue para o próximo passo.
 
 ## <a name="create-simulated-device"></a>Criar dispositivo simulado
 
 [!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
-## <a name="view-message-routing-in-the-portal"></a>Ver encaminhamento de mensagem no portal
+## <a name="view-message-routing-in-the-portal"></a>Ver encaminhamento de mensagens no portal
 
 [!INCLUDE [iot-hub-include-view-routing-in-portal](../../includes/iot-hub-include-view-routing-in-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem todos os recursos configurados e as rotas de mensagens estão configuradas, avance para o próximo tutorial para aprender a processar e exibir as informações sobre as mensagens encaminhadas.
+Agora que tem todos os recursos configurados e as rotas de mensagens configuradas, avance para o próximo tutorial para aprender a processar e mostrar a informação sobre as mensagens encaminhadas.
 
 > [!div class="nextstepaction"]
-> [Parte 2 - Veja os resultados do encaminhamento da mensagem](tutorial-routing-view-message-routing-results.md)
+> [Parte 2 - Ver os resultados do encaminhamento de mensagens](tutorial-routing-view-message-routing-results.md)

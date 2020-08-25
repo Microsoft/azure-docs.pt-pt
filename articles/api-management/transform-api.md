@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85851257"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API
@@ -74,7 +74,7 @@ A resposta original deve ter o seguinte aspeto:
 1. Selecione **API da Conferência de Demonstração**.
 2. Na parte superior do ecrã, selecione o separador **Design**.
 3. Selecione **Todas as operações**.
-4. Na secção **Processamento de saída**, clique no ícone**</>**.
+4. Na secção **de processamento de saída,** clique no **</>** ícone.
 5. Posicione o cursor dentro do elemento ** &lt; de saída. &gt; **
 6. Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
 
@@ -113,7 +113,7 @@ Para ver a resposta original:
 1.  Selecione **API da Conferência de Demonstração**.
 2.  Selecione **Todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
-4.  Na secção **Processamento de saída**, clique no ícone**</>**.
+4.  Na secção **de processamento de saída,** clique no **</>** ícone.
 5.  Posicione o cursor dentro do elemento ** &lt; de saída &gt; ** e clique no botão Mostrar **cortes** no canto superior direito.
 6.  Na janela direita, sob as **políticas de transformação,** clique **em URLs de máscara em conteúdo**.
 

@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
 ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85963857"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadear um trabalho de lote utilizando funções Azure
@@ -72,8 +72,8 @@ Nesta secção irá criar a Função Azure que aciona a função OCR Batch sempr
     1. Quando solicitado para uma conta de armazenamento, use a mesma conta de armazenamento que ligou à sua conta Batch.
     1. Para **a pilha de tempo de execução,** escolha .NET. Escreveremos a nossa função em C# para alavancar o Batch .NET SDK.
 1. Assim que a função acionada pela bolha for criada, utilize o [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) e [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) do GitHub na Função.
-    * `run.csx`é executado quando uma nova bolha é adicionada ao seu recipiente de bolha de entrada.
-    * `function.proj`lista as bibliotecas externas no seu código de função, por exemplo, o Batch .NET SDK.
+    * `run.csx` é executado quando uma nova bolha é adicionada ao seu recipiente de bolha de entrada.
+    * `function.proj` lista as bibliotecas externas no seu código de função, por exemplo, o Batch .NET SDK.
 1. Altere os valores de espaço reservado das variáveis na `Run()` função do ficheiro para refletir as `run.csx` suas credenciais de Lote e armazenamento. Pode encontrar as suas credenciais de conta de lote e armazenamento no portal Azure na secção **Chaves** da sua conta Batch.
     * Recupere as credenciais de lote e de armazenamento no portal Azure na secção **Chaves** da sua conta Batch. 
 

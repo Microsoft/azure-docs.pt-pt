@@ -1,5 +1,5 @@
 ---
-title: Failover e escalar uma aplicação de contentores
+title: Failover e escalar uma app de contentores
 description: Neste tutorial, saiba como a ativação pós-falha é processada numa aplicação de contentores do Azure Service Fabric.  Além disso, saiba como dimensionar os contentores e serviços em execução num cluster.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75614099"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demonstrar a ativação pós-falha e o dimensionamento dos serviços de contentores com o Service Fabric

@@ -8,10 +8,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86135465"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para Zonas de Disponibilidade
@@ -85,7 +85,7 @@ Os seguintes passos irão guiá-lo quando utilizar a Recuperação do Site Azure
 
 1. No portal Azure, selecione **máquinas Virtuais**e selecione o VM que pretende mover-se para Zonas de Disponibilidade.
 2. Em **Operações**, selecione **Recuperação após desastre**.
-3. Na região de **Configure a recuperação de**  >  **desastres,** selecione a região alvo para a qual irá replicar. Certifique-se de que esta região [suporta Zonas](../availability-zones/az-region.md) de Disponibilidade.
+3. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar. Certifique-se de que esta região [suporta Zonas](../availability-zones/az-region.md) de Disponibilidade.
 
     ![Seleção da região-alvo](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -110,7 +110,7 @@ Após a tarefa de replicação ser concluída, pode ver o estado da replicação
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
-1. No menu de máquinas virtuais, selecione **Recuperação de Desastres**.
+1. No menu de máquinas virtuais, selecione  **Recuperação de Desastres**.
 2. Selecione o ícone **de failover de teste.**
 3. No **Teste Failover**, selecione um ponto de recuperação para a falha:
 
@@ -129,7 +129,7 @@ Após a tarefa de replicação ser concluída, pode ver o estado da replicação
 
 ## <a name="move-to-the-target-region-and-confirm"></a>Mova-se para a região alvo e confirme
 
-1.  No menu de máquinas virtuais, selecione **Recuperação de Desastres**.
+1.  No menu de máquinas virtuais, selecione  **Recuperação de Desastres**.
 2. Selecione o ícone **Failover.**
 3. Em **Ativação pós-falha**, selecione **Mais recente**. 
 4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso falhado na página **Jobs.** 

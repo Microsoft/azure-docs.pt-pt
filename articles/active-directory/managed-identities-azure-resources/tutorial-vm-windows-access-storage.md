@@ -1,5 +1,5 @@
 ---
-title: Armazenamento De Acesso Azure utilizando uma identidade gerida atribuída ao sistema Windows VM [ Microsoft Docs
+title: Access Azure Storage utilizando uma identidade gerida atribuída ao sistema Windows VM Microsoft Docs
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75971953"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure
@@ -69,7 +69,7 @@ Nesta secção, vai criar uma conta de armazenamento.
 Os ficheiros requerem armazenamento de blobs, por isso tem de criar um contentor de blobs para armazenar o ficheiro. Em seguida, carregue um ficheiro para o contentor de blobs na nova conta de armazenamento.
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
-2. Em **Serviço Blob**, clique em **Contentores**.
+2. No **serviço Blob,** clique em **Recipientes**.
 3. Clique em **+ Contentor** na parte superior da página.
 4. Em **Novo contentor**, introduza um nome para o contentor e, em **Nível de acesso público**, mantenha o valor predefinido.
 
@@ -82,12 +82,12 @@ Os ficheiros requerem armazenamento de blobs, por isso tem de criar um contentor
 
 ### <a name="grant-access"></a>Conceder acesso
 
-Esta secção mostra como conceder ao seu VM acesso a um recipiente de armazenamento Azure. Pode utilizar a identidade gerida atribuída pelo sistema da VM para obter os dados no blob de armazenamento do Azure.
+Esta secção mostra como conceder o acesso ao seu VM a um recipiente de armazenamento Azure. Pode utilizar a identidade gerida atribuída pelo sistema da VM para obter os dados no blob de armazenamento do Azure.
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.
-3. Clique + Adicione a atribuição de **funções** em cima da página para adicionar uma nova atribuição de funções para o seu VM.
-4. Em **funções**, a partir do dropdown, selecione **Storage Blob Data Reader**.
+3. Clique + Adicione a atribuição de **funções** no topo da página para adicionar uma nova atribuição de função para o seu VM.
+4. Under **Role**, a partir do dropdown, selecione **Storage Blob Data Reader**.
 5. Na lista pendente seguinte, em **Atribuir acesso a**, selecione **Máquina Virtual**.
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para **Todos os grupos de recursos**.
 7. Em **Selecionar**, selecione a VM e, em seguida, clique em **Guardar**.
@@ -98,7 +98,7 @@ Esta secção mostra como conceder ao seu VM acesso a um recipiente de armazenam
 
 O Armazenamento do Azure suporta nativamente Autenticação do Azure AD, para poder aceitar diretamente tokens de acesso obtidos através de uma identidade gerida. Isto faz parte da integração do Armazenamento do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Aqui está um exemplo de código .NET de abertura de uma ligação ao Armazenamento Azure usando um token de acesso e, em seguida, ler o conteúdo do ficheiro que criou anteriormente. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida da VM. .NET A estrutura 4.6 ou superior é obrigada a utilizar o método do token de acesso. Substitua o valor de `<URI to blob file>` em conformidade. Pode obter este valor ao navegar para o ficheiro que criou e carregou para o armazenamento de blobs e copiar o **URL** em **Propriedades** para a página **Descrição Geral**.
+Aqui está um exemplo de código .NET de abrir uma ligação ao Azure Storage usando um token de acesso e, em seguida, ler o conteúdo do ficheiro que criou anteriormente. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida da VM. .Net Framework 4.6 ou superior é necessário utilizar o método de token de acesso. Substitua o valor de `<URI to blob file>` em conformidade. Pode obter este valor ao navegar para o ficheiro que criou e carregou para o armazenamento de blobs e copiar o **URL** em **Propriedades** para a página **Descrição Geral**.
 
 ```csharp
 using System;
@@ -184,4 +184,4 @@ A resposta inclui o conteúdo do ficheiro:
 Neste tutorial, aprendeu a ativar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder ao Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
-> [Armazenamento Azure](/azure/storage/common/storage-introduction)
+> [Armazenamento do Azure](/azure/storage/common/storage-introduction)

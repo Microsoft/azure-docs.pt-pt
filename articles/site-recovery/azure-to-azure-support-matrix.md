@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653652"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761377"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -44,8 +44,8 @@ Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geo
 **Aglomerado geográfico** | **Regiões do Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Central EUA, Norte-Americanos do Centro Norte
-Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central
-Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
+Europe | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central
+Asia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
@@ -267,7 +267,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas - networking
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-NIC | Número máximo suportado para um tamanho VM Azure específico | Os NICs são criados quando o VM é criado durante o failover.<br/><br/> O número de NICs no VM de failover depende do número de NICs na fonte VM quando a replicação foi ativada. Se adicionar ou remover um NIC depois de permitir a replicação, não afeta o número de NICs no VM replicado após a falha. <br/><br/> A ordem dos NICs após a falha não é garantida como a ordem original. <br/><br/> Pode renomear OS NICs na região alvo com base nas convenções de nomeação da sua organização.
+NIC | Número máximo suportado para um tamanho VM Azure específico | Os NICs são criados quando o VM é criado durante o failover.<br/><br/> O número de NICs no VM de failover depende do número de NICs na fonte VM quando a replicação foi ativada. Se adicionar ou remover um NIC depois de permitir a replicação, não afeta o número de NICs no VM replicado após a falha. <br/><br/> A ordem dos NICs após a falha não é garantida como a ordem original. <br/><br/> Pode renomear OS NICs na região alvo com base nas convenções de nomeação da sua organização. O renomeamento do NIC é suportado com recurso ao PowerShell.
 Balanceador de Carga de Externo | Suportado | Associe o equilibrador de carga pré-configurado utilizando um script Azure Automation num plano de recuperação.
 Equilibrador de carga interna | Suportado | Associe o equilibrador de carga pré-configurado utilizando um script Azure Automation num plano de recuperação.
 Endereço IP público | Suportado | Associe um endereço IP público existente com o NIC. Ou, crie um endereço IP público e associe-o ao NIC utilizando um script Azure Automation num plano de recuperação.

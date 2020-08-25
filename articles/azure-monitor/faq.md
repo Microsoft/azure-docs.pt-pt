@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828511"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782945"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -80,6 +80,10 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como recupero dados de registo?
 Todos os dados são obtidos a partir de um espaço de trabalho Log Analytics utilizando uma consulta de log escrita usando a Linguagem de Consulta de Kusto (KQL). Pode escrever as suas próprias consultas ou utilizar soluções e insights que incluam consultas de registo para uma determinada aplicação ou serviço. Consulte [a visão geral das consultas de registo no Azure Monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso eliminar dados de um espaço de trabalho do Log Analytics?
+Os dados são removidos de um espaço de trabalho de acordo com o seu [período de retenção.](platform/manage-cost-storage.md#change-the-data-retention-period) Pode eliminar dados específicos por razões de privacidade ou conformidade. Ver [Como exportar e apagar dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>O que é uma área de trabalho do Log Analytics?
 Todos os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho log analytics. Um espaço de trabalho é essencialmente um recipiente onde os dados de registo são recolhidos de uma variedade de fontes. Pode ter um único espaço de trabalho log Analytics para todos os seus dados de monitorização ou pode ter requisitos para vários espaços de trabalho. Consulte [a implementação dos registos do monitor Azure](platform/design-logs-deployment.md).
@@ -279,7 +283,7 @@ Uma aplicação de ambiente de trabalho que pode utilizar no seu servidor web II
 A partir de aplicativos web de servidor:
 
 * Pedidos HTTP
-* [Dependências.](app/asp-net-dependencies.md) Chamadas para: SQL Databases; CHAMADAS HTTP para serviços externos; Azure Cosmos DB, mesa, armazenamento de bolhas e fila. 
+* [Dependências](app/asp-net-dependencies.md). Chamadas para: SQL Databases; CHAMADAS HTTP para serviços externos; Azure Cosmos DB, mesa, armazenamento de bolhas e fila. 
 * [Exceções](app/asp-net-exceptions.md) e traços de pilha.
 * [Contadores de Desempenho](app/performance-counters.md) - Se utilizar [o Status Monitor](app/monitor-performance-live-website-now.md), [monitorização Azure para Serviços de Aplicações](app/azure-web-apps.md), [monitorização Azure para conjunto de escala de VM ou máquina virtual](app/azure-vm-vmss-apps.md), ou o escritor [colecionado Application Insights](app/java-collectd.md).
 * [Eventos e métricas personalizados](app/api-custom-events-metrics.md) que codifica.
@@ -371,7 +375,7 @@ Utilize um único recurso para todos os componentes ou funções num único sist
 * Se um utilizador real utilizar o seu site em diferentes navegadores, ou utilizar navegação insógina/incógnita, ou máquinas diferentes, então serão contados mais de uma vez.
 * Para identificar um utilizador com sessão registada através de máquinas e navegadores, adicione uma chamada para [definir OTexto de Utilizador/Gravador de Dados()](app/api-custom-events-metrics.md#authenticated-users).
 
-### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a>Já capacitei tudo no Application Insights?
+### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Já capacitei tudo no Application Insights?
 | O que deve ver | Como obtê-lo | Por que quer? |
 | --- | --- | --- |
 | Gráficos de disponibilidade |[Testes web](app/monitor-web-app-availability.md) |Saiba que a sua aplicação web subiu |
@@ -430,9 +434,9 @@ Recomendamos que utilize os nossos SDKs e utilize o [API SDK.](app/api-custom-ev
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Posso monitorizar um servidor web intranet?
 
 Sim, mas você precisará permitir o tráfego para os nossos serviços através de exceções de firewall ou redirecionamentos de procuração.
-- QuickPulse`https://rt.services.visualstudio.com:443` 
-- ApplicationIdProvider`https://dc.services.visualstudio.com:443` 
-- Canal da Telemetria`https://dc.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- Canal da Telemetria `https://dc.services.visualstudio.com:443` 
 
 
 Reveja [aqui](app/ip-addresses.md)a nossa lista completa de serviços e endereços IP.
@@ -714,7 +718,7 @@ Isto pode ocorrer por algumas razões.  Nos casos em que há uma lacuna na recol
 Sim, assim que instalar o agente Dependency recolhemos informações dos VMs para exibir grupos baseados na subscrição, grupo de recursos, conjuntos de escala de máquinas virtuais e serviços na nuvem.  Se esteve a utilizar o Mapa de Serviço e criou grupos de máquinas, estes também são exibidos.  Os grupos de computador também aparecerão no filtro de grupos se os tiver criado para o espaço de trabalho que está a visualizar. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Como vejo os detalhes do que está a conduzir a linha percentil 95 nas tabelas de desempenho agregadas?
-Por predefinição, a lista é ordenada para mostrar-lhe os VMs que têm o valor mais alto para o percentil 95 para a métrica selecionada, exceto para o gráfico de memória disponível, que mostra as máquinas com o menor valor do percentil 5.  Clicar na tabela abrirá a vista **da Lista N superior** com a métrica escolhida.
+Por predefinição, a lista é ordenada para mostrar-lhe os VMs que têm o valor mais alto para o percentil 95 para a métrica selecionada, exceto para o gráfico de memória disponível, que mostra as máquinas com o menor valor do percentil 5.  Clicar na tabela abrirá a vista **da Lista N superior**  com a métrica escolhida.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>Como é que a funcionalidade Do Mapa lida com iPs duplicados em diferentes redes e sub-redes?
 Se estiver a duplicar os intervalos de IP com conjuntos de balanças virtuais VMs ou Azure em sub-redes e vnets, pode fazer com que o Monitor Azure para o Mapa de VMs apresente informações incorretas. Esta é uma questão conhecida e estamos a investigar opções para melhorar esta experiência.

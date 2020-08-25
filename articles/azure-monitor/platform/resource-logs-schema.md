@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para regi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: a6504f28b891fb16bd588b899b7a0402b65b4e44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318288"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782129"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
@@ -25,12 +25,12 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 | Nome | Obrigatório/Opcional | Descrição |
 |---|---|---|
-| hora | Obrigatório | A hora de jogo (UTC) do evento. |
-| resourceId | Obrigatório | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
+| hora | Necessário | A hora de jogo (UTC) do evento. |
+| resourceId | Necessário | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
 | inquilinoId | Obrigatório para registos de inquilinos | O inquilino identificação do inquilino ative diretório a que este evento está ligado. Esta propriedade é usada apenas para registos ao nível do inquilino, não aparece em registos de nível de recursos. |
-| operationName | Obrigatório | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modelado sob a forma de uma operação de Gestor de Recursos, mesmo que não sejam operações de Gestor de Recursos documentados reais ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
+| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modelado sob a forma de uma operação de Gestor de Recursos, mesmo que não sejam operações de Gestor de Recursos documentados reais ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
 | operationVersion | Opcional | A versão api associada à operação, se a operaçãoName foi realizada com uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à alteração da operação no futuro. |
-| categoria | Obrigatório | A categoria de registo do evento. Categoria é a granularidade em que pode ativar ou desativar registos num determinado recurso. As propriedades que aparecem dentro da bolha de propriedades de um evento são as mesmas dentro de uma determinada categoria de registo e tipo de recurso. As categorias típicas de registo são "Auditoria" "Operacional" "Execução" e "Pedido". |
+| categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade em que pode ativar ou desativar registos num determinado recurso. As propriedades que aparecem dentro da bolha de propriedades de um evento são as mesmas dentro de uma determinada categoria de registo e tipo de recurso. As categorias típicas de registo são "Auditoria" "Operacional" "Execução" e "Pedido". |
 | resultType | Opcional | O estado do evento. Os valores típicos incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
 | resultSignature | Opcional | O sub-estado do evento. Se esta operação corresponder a uma chamada de API REST, este campo é o código de estado HTTP da chamada REST correspondente. |
 | resultDescription | Opcional | A descrição estática de texto desta operação, por exemplo, "Obter ficheiro de armazenamento". |
@@ -58,12 +58,13 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Data Explorer | [Registos Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Serviços Cognitivos | [Registo de Serviços Cognitivos Azure](../../cognitive-services/diagnostic-logging.md) |
-| Registo de Contentor | [Registo de registo de contentores Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Registo de registo de contentores Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rede de Entrega de Conteúdos | [Registos Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorize fábricas de dados usando o Monitor Azure](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Aceder a registos para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Aceder a registos para a Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Databricks | [Registo de diagnósticos no Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
 | Hubs de Eventos |[Logs de hubs de eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schema não está disponível. |
 | Azure Firewall | Schema não está disponível. |
@@ -85,7 +86,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Gateways de Rede Virtual | Schema não está disponível. |
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Consulte as categorias de registo de recursos que pode recolher](resource-logs-categories.md)
 * [Saiba mais sobre registos de recursos](./platform-logs-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: 'CLI: Mapear um domínio personalizado para uma aplicação'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como mapear um domínio personalizado para uma aplicação.
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como mapear um domínio personalizado para uma aplicação.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.devlang: azurecli
@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 888e0e66c4dafbe7d2613a4b92b1f7b0dfd55eab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "80058609"
 ---
-# <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapeie um domínio personalizado para uma aplicação de Serviço de Aplicações usando CLI
+# <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapear um domínio personalizado para uma aplicação do Serviço de Aplicações usando o CLI
 
-Este script de amostra cria uma aplicação no `www.<yourdomain>` App Service com os seus recursos relacionados, e depois mapeia-a.
+Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados e, em seguida, `www.<yourdomain>` mapeia para ele.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapeie um domínio personalizado para uma aplicação de Serviço de Aplicações. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapeia um domínio personalizado para uma aplicação de Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

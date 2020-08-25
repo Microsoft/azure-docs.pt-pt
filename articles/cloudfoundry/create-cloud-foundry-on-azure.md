@@ -1,6 +1,6 @@
 ---
-title: Criar um aglomerado de fundições de nuvem fundamental em Azure
-description: Saiba como configurar os parâmetros necessários para fornecer um cluster de Fundais Cloud Foundry (PCF) em Azure
+title: Crie um cluster de base de nuvens em Azure
+description: Saiba como configurar os parâmetros necessários para fornecer um cluster Pivotal Cloud Foundry (PCF) em Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73161772"
 ---
-# <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um aglomerado de fundições de nuvem fundamental em Azure
+# <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Crie um cluster de base de nuvens em Azure
 
-Este tutorial fornece passos rápidos para criar e gerar os parâmetros necessários para fornecer um cluster pivotal Cloud Foundry (PCF) em Azure. Para encontrar a solução Fundamental Cloud Foundry, realize uma pesquisa no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Este tutorial fornece passos rápidos para criar e gerar os parâmetros necessários para fornecer um cluster Pivotal Cloud Foundry (PCF) em Azure. Para encontrar a solução Pivotal Cloud Foundry, realize uma pesquisa no Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Pesquisar fundida de nuvem fundamental em Azure](media/deploy/pcf-marketplace.png)
+![Pesquisar AUry Cloud Em Azure](media/deploy/pcf-marketplace.png)
 
 
 ## <a name="generate-an-ssh-public-key"></a>Gerar uma chave pública SSH
 
-Existem várias formas de gerar uma chave de concha si -sh (SSH) segura pelo uso de Windows, Mac ou Linux.
+Existem várias formas de gerar uma chave de concha (SSH) segura do público usando Windows, Mac ou Linux.
 
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Para mais informações, consulte [Utilize as teclas SSH com Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Para obter mais informações, consulte [as teclas SSH com Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 > [!NOTE]
 >
-> Para criar um diretor de serviço, precisa de autorização da conta do proprietário. Também pode escrever um guião para automatizar a criação do diretor de serviço. Por exemplo, pode utilizar o Azure CLI [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Para criar um principal de serviço, precisa de permissão de conta do proprietário. Também pode escrever um script para automatizar a criação do principal de serviço. Por exemplo, você pode usar o Azure CLI [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Inicie sessão na sua conta do Azure.
 
     `az login`
 
-    ![Login Azure CLI](media/deploy/az-login-output.png )
+    ![Login do Azure CLI](media/deploy/az-login-output.png )
  
-    Copie o valor "id" como id de **subscrição**e copie o valor "tenantId" para usar mais tarde.
+    Copie o valor "id" como **iD da**sua assinatura, e copie o valor "tenantId" para usar mais tarde.
 
 2. Defina a sua subscrição predefinida para esta configuração.
 
     `az account set -s {id}`
 
-3. Crie uma aplicação azure ative diretório para o seu PCF. Especifique uma senha alfanumérica única. Guarde a palavra-passe como **clienteSecret** para usar mais tarde.
+3. Crie uma aplicação Azure Ative Directory para o seu PCF. Especifique uma senha alfanumérica única. Guarde a palavra-passe como o seu **clienteSecret** para usar mais tarde.
 
     `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
@@ -64,9 +64,9 @@ Para mais informações, consulte [Utilize as teclas SSH com Windows no Azure](h
 
     > [!NOTE]
     >
-    > Escolha a sua própria página inicial de candidatura\:e\.identifique URI, por exemplo, http //www contoso.com.
+    > Escolha a sua própria página inicial de aplicação e identifique URI, por exemplo, http \: //www \. contoso.com.
 
-4. Crie um diretor de serviço com o seu novo ID de aplicação.
+4. Crie um diretor de serviço com o seu novo ID da aplicação.
 
     `az ad sp create --id {appId}`
 
@@ -78,13 +78,13 @@ Para mais informações, consulte [Utilize as teclas SSH com Windows no Azure](h
 
     `az role assignment create --assignee {service-principal-name} --role "Contributor"`
 
-    ![Atribuição principal de serviço](media/deploy/svc-princ.png )
+    ![Atribuição principal de função de serviço](media/deploy/svc-princ.png )
 
-6. Verifique se pode iniciar sessão com sucesso no seu diretor de serviço utilizando o ID da aplicação, senha e ID do inquilino.
+6. Verifique se pode iniciar sôm com sucesso no seu principal de serviço usando o ID da aplicação, senha e ID do inquilino.
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Crie um ficheiro .json no seguinte formato. Utilize o ID de **subscrição,** **o id idido do** **cliente**e os valores **clientSecret** que copiou anteriormente. Guarde o ficheiro.
+7. Crie um ficheiro .json no seguinte formato. Utilize o **ID de assinatura,** **tenantID,** **clientID**e **clienteSssa** valores que copiou anteriormente. Guarde o ficheiro.
 
     ```json
     {
@@ -95,29 +95,29 @@ Para mais informações, consulte [Utilize as teclas SSH com Windows no Azure](h
     }
     ```
 
-## <a name="get-the-pivotal-network-token"></a>Obtenha o símbolo da Rede Pivotal
+## <a name="get-the-pivotal-network-token"></a>Obtenha o token da Rede Pivotal
 
-1. Registe-se ou inscreva-se na sua conta [de Rede Pivotal.](https://network.pivotal.io)
-2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **Editar Perfil**.
-3. Percorra a parte inferior da página e copie o valor LEGACY **API TOKEN.** Este valor é o seu valor **de Ficha de Rede Pivotal** que usa mais tarde.
+1. Registe-se ou inscreva-se na sua conta [Rede Pivotal.](https://network.pivotal.io)
+2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **perfil de edição**.
+3. Percorra a parte inferior da página e copie o valor **TOKEN DA API LEGACY.** Este valor é o seu valor **Pivotal Network Token** que utiliza mais tarde.
 
-## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Provisionize o seu cluster Cloud Foundry em Azure
+## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Provisionar o seu cluster Cloud Foundry em Azure
 
-Agora você tem todos os parâmetros que você precisa para fornecer o seu [cluster de foundry de nuvem pivotal em Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Agora tem todos os parâmetros necessários para a provisionar o seu [cluster Pivotal Cloud Foundry em Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 Introduza os parâmetros e crie o seu cluster PCF.
 
-## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Verifique a implementação e inscreva-se no Gestor de Operações Pivotal
+## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Verifique a implementação e inscreva-se no Diretor de Operações Pivotal
 
 1. O seu cluster PCF mostra um estado de implantação.
 
     ![Estado de implantação do Azure](media/deploy/deployment.png )
 
-2. Selecione a ligação **de Implementações** na navegação à esquerda para obter credenciais para o seu Gestor de Ops PCF. Selecione o Nome de **Implantação** na página seguinte.
-3. Na navegação à esquerda, selecione o link **Saídas** para exibir o URL, o nome de utilizador e a palavra-passe para o PcF Ops Manager. O valor "OPSMAN-FQDN" é o URL.
+2. Selecione o link **Implementações** na navegação à esquerda para obter credenciais para o seu PcF Ops Manager. Selecione o **Nome de Implantação** na página seguinte.
+3. Na navegação à esquerda, selecione o link **Saídas** para exibir o URL, nome de utilizador e palavra-passe para o PcF Ops Manager. O valor "OPSMAN-FQDN" é o URL.
  
     ![Saída de implantação de Cloud Foundry](media/deploy/deploy-outputs.png )
  
-4. Inicie o URL num navegador web. Introduza as credenciais do passo anterior para iniciar sessão.
+4. Inicie o URL num navegador web. Introduza as credenciais do passo anterior para iniciar sinsus.
 
     ![Página de inscrição fundamental](media/deploy/pivotal-login.png )
          
@@ -125,7 +125,7 @@ Introduza os parâmetros e crie o seu cluster PCF.
     >
     > Se o navegador Internet Explorer falhar devido a uma mensagem de aviso "Site não seguro", selecione **Mais informações** e vá para a página web. Para o Firefox, selecione **Advance** e adicione a certificação para prosseguir.
 
-5. O seu PCF Ops Manager exibe as instâncias Azure implantadas. Agora pode implementar e gerir as suas aplicações aqui.
+5. O seu PcF Ops Manager exibe as instâncias Azure implementadas. Agora pode implementar e gerir as suas aplicações aqui.
                
-    ![Instância azure implantada em Pivotal](media/deploy/ops-mgr.png )
+    ![Exemplo de Azure implantado na Pivotal](media/deploy/ops-mgr.png )
  

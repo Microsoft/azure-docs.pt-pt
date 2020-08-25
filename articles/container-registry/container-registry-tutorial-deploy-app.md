@@ -1,17 +1,17 @@
 ---
 title: Tutorial - Implantação do registo geo-replicado
-description: Implemente uma aplicação web baseada em Linux em duas regiões azure diferentes usando uma imagem de contentor de um registo de contentores Azure geo-replicado. Parte dois de uma série com três partes.
+description: Implemente uma aplicação web baseada em Linux em duas regiões diferentes de Azure usando uma imagem de recipiente a partir de um registo de contentores Azure geo-replicado. Parte dois de uma série com três partes.
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74456100"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implemente uma aplicação web a partir de um registo de contentores Azure geo-replicado
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementar uma aplicação web a partir de um registo de contentores Azure geo-replicado
 
 Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância obtém a imagem de contentor do registo mais próximo.
 
@@ -37,24 +37,24 @@ Neste passo, crie uma instância de Aplicação Web para Contentores na região 
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e navegue para o registo criado no tutorial anterior.
 
-Selecione **Reposiories** > **acr-helloworld**, em seguida, clique à direita na etiqueta **v1** sob **Tags** e selecione **Deploy para web app**:
+Selecione **Repositórios**  >  **acr-helloworld,** em seguida, clique com o botão direito na etiqueta **v1** em **Tags** e selecione **Implementar para aplicação web**:
 
 ![Implementar no serviço de aplicações no portal do Azure][deploy-app-portal-01]
 
-Se a opção "Implementar na aplicação Web" estiver desativada, poderá não ter ativado o utilizador administrador do registo, conforme indicado em [Criar um registo de contentor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Pode ativar o utilizador administrativo nas**teclas** de acesso de **acesso** > no portal Azure.
+Se a opção "Implementar na aplicação Web" estiver desativada, poderá não ter ativado o utilizador administrador do registo, conforme indicado em [Criar um registo de contentor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Pode ativar o utilizador administrativo nas teclas de acesso **de definições**  >  **Access keys** no portal Azure.
 
 Na **Aplicação Web para Contentores** apresentada depois de selecionar "Implementar na aplicação Web", especifique os seguintes valores para cada definição:
 
 | Definição | Valor |
 |---|---|
 | **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-westus` para identificar o registo e a região da qual a aplicação Web é implementada. |
-| **Grupo de Recursos** | **Usar existente** > `myResourceGroup` |
-| **Plano de serviço de aplicativos/Localização** | Crie um novo plano com o nome `plan-westus` na região **E.U.A. Oeste**. |
+| **Grupo de Recursos** | **Utilizar a existência** > `myResourceGroup` |
+| **Plano de serviço de aplicações/localização** | Crie um novo plano com o nome `plan-westus` na região **E.U.A. Oeste**. |
 | **Imagem** | `acr-helloworld:v1` |
-| **Sistema Operativo** | Linux |
+| **Sistema operativo** | Linux |
 
 > [!NOTE]
-> Quando cria um novo plano de serviço de aplicações para implementar a sua aplicação contentorizada, é automaticamente selecionado um plano predefinido para acolher a sua aplicação. O plano predefinido depende da definição do sistema operativo.
+> Quando cria um novo plano de serviço de aplicações para implementar a sua aplicação contentorizada, é automaticamente selecionado um plano padrão para hospedar a sua aplicação. O plano predefinido depende da definição do sistema operativo.
 
 Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Oeste*.
 
@@ -81,10 +81,10 @@ Utilize o procedimento descrito na secção anterior para implementar uma segund
 | Definição | Valor |
 |---|---|
 | **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-eastus` para identificar o registo e a região da qual a aplicação Web é implementada. |
-| **Grupo de Recursos** | **Usar existente** > `myResourceGroup` |
-| **Plano de serviço de aplicativos/Localização** | Crie um novo plano com o nome `plan-eastus` na região **E.U.A. Leste**. |
+| **Grupo de Recursos** | **Utilizar a existência** > `myResourceGroup` |
+| **Plano de serviço de aplicações/localização** | Crie um novo plano com o nome `plan-eastus` na região **E.U.A. Leste**. |
 | **Imagem** | `acr-helloworld:v1` |
-| **Sistema Operativo** | Linux |
+| **Sistema operativo** | Linux |
 
 Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Leste*.
 
@@ -96,7 +96,7 @@ Conforme anteriormente, pode ver a aplicação em execução ao navegar para o r
 
 No portal, selecione **Serviços de Aplicações** e, em seguida, a aplicação Web que aprovisionou no passo anterior. Neste exemplo, a aplicação Web tem o nome *uniqueregistryname-eastus*.
 
-Selecione o URL hiperligado da aplicação web na visão geral do Serviço de **Aplicações** para ver a aplicação em execução no seu navegador.
+Selecione o URL hiperligado da aplicação web no topo-direito da **visão geral** do Serviço de Aplicações para ver a aplicação de execução no seu navegador.
 
 ![Configuração de aplicação Web no Linux no portal do Azure][deploy-app-portal-07]
 
