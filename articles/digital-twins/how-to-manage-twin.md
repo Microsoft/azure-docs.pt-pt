@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587604"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796957"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Esta chamada devolve dados gémeos como uma cadeia JSON. 
 
-> [!TIP]
-> Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas quando recupera um gémeo com `GetDigitalTwin` .
+Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas quando recupera um gémeo com `GetDigitalTwin` .
+
+>[!TIP]
+>O `displayName` para um gémeo faz parte dos seus metadados-modelo, pelo que não vai mostrar quando se obter dados para a instância gémea. Para ver este valor, pode [recuperá-lo do modelo.](how-to-manage-model.md#retrieve-models)
 
 Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [*Como-a-: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
@@ -164,7 +166,7 @@ O resultado de chamar `object result = await client.DigitalTwins.GetByIdAsync("m
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web
-* Outras propriedades numa `$metadata` secção. Incluem-se:
+* Outras propriedades numa `$metadata` secção. Estas incluem:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 

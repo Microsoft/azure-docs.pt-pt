@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure Azure Analysis Services funções [ Configure Azure Analysis Services] Microsoft Docs
-description: Saiba como configurar o administrador dos Serviços de Análise azure e as funções de utilizador utilizando o portal Azure ou o Estúdio de Gestão de Servidores SQL.
+title: Tutorial - Configurar funções de Serviços de Análise Azure / Microsoft Docs
+description: Saiba como configurar o administrador e as funções de utilizador do Azure Analysis Services utilizando o portal Azure ou o SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84016394"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
@@ -130,16 +130,16 @@ Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/analysi
 ## <a name="verify-your-changes"></a>Verifique as suas alterações
 
 1. No **Object Explorer**, clique no servername e, em seguida, clique em **Atualizar** ou prima **F5**.
-2. Expandir **bases de dados**  >  **adventureworks**  >  **funções**de aventura. Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
+2. Expandir **bases de dados**  >  **funções de**  >  **aventura.** Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
 
     ![Verificar no Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties**Membership para remover as contas dos utilizadores ou clique na direita numa  >  **Membership** função e, em seguida, clique em **Eliminar**.
+Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties**  >  **Membership** para remover contas de utilizador ou clique com o botão direito de uma função e, em seguida, clique em **Eliminar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a ligar ao seu servidor AS do Azure e a explorar as propriedades e as bases de dados modelo e propriedades de exemplo adventureworks no SSMS. Também aprendeu a utilizar scripts SSMS e TMSL para adicionar utilizadores ou grupos às funções novas e atuais. Agora que tem permissões de utilizador configuradas para o seu servidor e base de dados modelo de exemplo, o utilizador e outros utilizadores podem ligar-se ao mesmo ao utilizar aplicações cliente, como o Power BI. Para obter mais informações, avance para o próximo tutorial. 
 
 > [!div class="nextstepaction"]

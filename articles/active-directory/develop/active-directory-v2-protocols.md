@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313443"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751454"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 
@@ -30,7 +30,7 @@ Em quase todos os fluxos OAuth 2.0 e OpenID Connect, há quatro partes envolvida
 
 ![Diagrama mostrando as funções OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* O **Servidor de Autorização** é o ponto final da plataforma de identidade da Microsoft e é responsável por garantir a identidade do utilizador, conceder e revogar o acesso aos recursos e emitir fichas. O servidor de autorização também conhecido como fornecedor de identidade - lida com segurança tudo o que tem a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo.
+* O **Servidor de Autorização** é o ponto final da plataforma de identidade da Microsoft e é responsável por garantir a identidade do utilizador, conceder e revogar o acesso aos recursos e emitir fichas. O servidor de autorização também é conhecido como o fornecedor de identidade - lida com segurança qualquer coisa a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo.
 * O **Proprietário de Recursos** é normalmente o utilizador final. É o partido que detém os dados e tem o poder de permitir que os clientes acedam a esses dados ou recursos.
 * O **Cliente OAuth** é a sua aplicação, identificada pelo seu ID de aplicação. O cliente OAuth é geralmente a parte com a qual o utilizador final interage, e solicita fichas do servidor de autorização. O cliente deve ter permissão para aceder ao recurso pelo proprietário do recurso.
 * O **Servidor de Recursos** é onde reside o recurso ou dados. Confia no Servidor de Autorização para autenticar e autorizar de forma segura o Cliente OAuth, e utiliza fichas de acesso ao Portador para garantir que o acesso a um recurso pode ser concedido.

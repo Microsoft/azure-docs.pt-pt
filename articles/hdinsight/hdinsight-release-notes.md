@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/21/2020
+ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036594"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751468"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -72,3 +72,7 @@ Abaixo, os JIRAs estão de volta para a Base H:
 
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+Ao tentar criar um cluster Azure HDInsight a partir do portal Azure e utilizar um tipo de chave pública de autenticação SSH, os utilizadores estão a experimentar um erro quando clicam em **Review + Create**. O erro no portal é "Não deve conter três caracteres consecutivos do nome de utilizador SSH." Esta questão está a ser abordada; no entanto, se experimentar este erro, a solução é criar um cluster com um modelo ARM. 

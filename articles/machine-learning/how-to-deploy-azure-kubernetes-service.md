@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120835"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751738"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Aprenda a usar a Azure Machine Learning para implementar um modelo como serviço
 - Opções de aceleração de __hardware,__ tais como GPU e arrays de portão programáveis de campo (FPGA).
 
 > [!IMPORTANT]
-> O dimensionamento do cluster não é fornecido através do Azure Machine Learning SDK. Para obter mais informações sobre a escala dos nós num cluster AKS, consulte [a contagem de nós em escala num cluster AKS](../aks/scale-cluster.md).
+> O dimensionamento do cluster não é fornecido através do Azure Machine Learning SDK. Para obter mais informações sobre a escala dos nó em um cluster AKS, consulte 
+- [Dimensione manualmente a contagem de nó num cluster AKS](../aks/scale-cluster.md)
+- [Configurar o autoescalador de cluster em AKS](../aks/cluster-autoscaler.md)
 
 Ao ser implantado no Serviço Azure Kubernetes, você implementa para um cluster AKS que está __ligado ao seu espaço de trabalho.__ Existem duas formas de ligar um cluster AKS ao seu espaço de trabalho:
 
@@ -43,7 +45,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
 > [!IMPORTANT]
 > Recomendamos que depure localmente antes de implementar no serviço web. Para mais informações, consulte [Debug Localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Também pode consultar a Azure Machine Learning - [Implementar para o Caderno Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Também pode consultar o Azure Machine Learning – [Implementar no Bloco de Notas Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,9 +57,9 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
 
 - Os snippets de código __Python__ neste artigo assumem que as seguintes variáveis são definidas:
 
-    * `ws`- Prepara-te para o teu espaço de trabalho.
-    * `model`- Desa couso para o seu modelo registado.
-    * `inference_config`- Definir para a configuração de inferência para o modelo.
+    * `ws` - Prepara-te para o teu espaço de trabalho.
+    * `model` - Desa couso para o seu modelo registado.
+    * `inference_config` - Definir para a configuração de inferência para o modelo.
 
     Para obter mais informações sobre a definição destas variáveis, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 
@@ -65,9 +67,16 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
 
 - Se precisar de um Balancer de Carga Padrão (SLB) implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), crie um cluster no portal AKS/CLI/SDK e, em seguida, prenda-o ao espaço de trabalho AML.
 
-- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano de controlo AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
+- Se você tem uma Política Azure que restringe a criação de IPs públicos, então a criação de cluster AKS falhará. A AKS requer um IP público para [tráfego de saídas](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Este artigo também fornece orientações para bloquear o tráfego de saída do cluster através do IP público, exceto para alguns FQDN's. Existem 2 formas de permitir um IP público:
+  - O cluster pode usar o IP público criado por padrão com o BLB ou SLB, ou
+  - O cluster pode ser criado sem um IP público e, em seguida, um IP público é configurado com uma firewall com uma rota definida pelo utilizador como documentado [aqui](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  O avião de controlo AML não fala com este IP Público. Fala com o avião de controlo da AKS para implantações. 
 
-__As gamas IP authroizadas só funcionam com o Balancer de Carga Padrão.__
+- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano contol AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
+
+
+  As gamas IP authroizadas só funcionam com o Balancer de Carga Padrão.
  
  - Nome de computação DEVE ser único dentro de um espaço de trabalho
    - O nome é necessário e deve ter entre 3 a 24 caracteres de comprimento.
@@ -76,10 +85,6 @@ __As gamas IP authroizadas só funcionam com o Balancer de Carga Padrão.__
    - O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único
    
  - Se pretender implantar modelos para nós GPU ou nóns FPGA (ou qualquer SKU específico), então deve criar um cluster com o SKU específico. Não existe suporte para a criação de um conjunto de nó secundário num cluster existente e modelos de implantação na piscina de nó secundário.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Criar um novo cluster AKS
 
@@ -290,7 +295,7 @@ No Azure Machine Learning, a "implantação" é usada no sentido mais geral de d
     1. Se não for encontrado, o sistema constrói uma nova imagem (que será em cache e registada com o espaço de trabalho ACR)
 1. Baixar o ficheiro do projeto zipped para armazenamento temporário no nó de computação
 1. Desapertar o ficheiro do projeto
-1. A execução do nó computativo`python <entry script> <arguments>`
+1. A execução do nó computativo `python <entry script> <arguments>`
 1. Guardar registos, ficheiros de modelos e outros ficheiros escritos `./outputs` para a conta de armazenamento associada ao espaço de trabalho
 1. Escalonamento do cálculo, incluindo a remoção do armazenamento temporário (Relaciona-se com Kubernetes)
 
@@ -409,7 +414,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se precisar de regenerar uma chave, use[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se precisar de regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticação com fichas
 
@@ -439,7 +444,7 @@ print(token)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

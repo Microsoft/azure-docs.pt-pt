@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037104"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795869"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -123,7 +123,7 @@ Ao dissociar o sistema de armazenamento analítico do sistema de computação an
 > [!NOTE]
 > Só é possível ler na loja de análise utilizando o tempo de funcionação do Synapse Analytics. Pode escrever os dados de volta à sua loja transacional como uma camada de serviço.
 
-## <a name="pricing"></a><a id="analytical-store-pricing"></a>Preços
+## <a name="pricing"></a><a id="analytical-store-pricing"></a> Preços
 
 A loja analítica segue um modelo de preços baseado no consumo onde é cobrado:
 
@@ -134,17 +134,17 @@ A loja analítica segue um modelo de preços baseado no consumo onde é cobrado:
 * Operações de leitura analítica: as operações de leitura realizadas contra a loja analítica da Synapse Analytics Spark e dos tempos de funcionação sem servidor SQL.
 
 > [!NOTE]
-> A loja analítica Azure Cosmos DB está disponível em pré-visualização pública, gratuitamente até 30 de agosto de 2020.
+> A loja analítica Azure Cosmos DB está atualmente disponível em pré-visualização pública, livre de quaisquer encargos.
 
 Os preços das lojas analíticas são separados do modelo de preços da loja de transações. Não existe nenhum conceito de RUs a provisionados na loja analítica. Consulte [a página de preços da Azure Cosmos DB,](https://azure.microsoft.com/pricing/details/cosmos-db/)para obter todos os detalhes sobre o modelo de preços para a loja analítica.
 
 Para obter uma estimativa de custos de alto nível para permitir uma loja analítica num recipiente Azure Cosmos DB, você pode usar o [planejador Azure Cosmos DB Capacity](https://cosmos.azure.com/capacitycalculator/) e obter uma estimativa do seu armazenamento analítico e escrever custos de operações. Os custos das operações de leitura analítica dependem das características da carga de trabalho analítica, mas como estimativa de alto nível, a verificação de 1 TB de dados na loja analítica resulta tipicamente em 130.000 operações de leitura analítica, e resulta num custo de $0,065.
 
-## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Tempo analítico para viver (TTL)
+## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Tempo analítico para viver (TTL)
 
 O TTL Analítico indica quanto tempo os dados devem ser retidos no arquivo analítico, para um contentor. 
 
-As inserções, atualizações, eliminações para dados operacionais são automaticamente sincronizadas da loja transacional para a loja analítica, independentemente da configuração transacional de TTL. A conservação destes dados operacionais na loja analítica pode ser controlada pelo valor Analítico TTL ao nível do contentor, conforme especificado abaixo:
+Se a loja analítica estiver ativada, insira, atualizações, eliminações para dados operacionais são automaticamente sincronizadas da loja transacional para a loja analítica, independentemente da configuração transacional de TTL. A conservação destes dados operacionais na loja analítica pode ser controlada pelo valor Analítico TTL ao nível do contentor, conforme especificado abaixo:
 
 A TTL Analítica num recipiente é definida utilizando a `AnalyticalStoreTimeToLiveInSeconds` propriedade:
 
@@ -152,7 +152,7 @@ A TTL Analítica num recipiente é definida utilizando a `AnalyticalStoreTimeToL
 
 * Se presente e o valor for definido para "-1": a loja analítica conserva todos os dados históricos, independentemente da conservação dos dados na loja transacional. Esta definição indica que a loja analítica tem uma retenção infinita dos seus dados operacionais
 
-* Se o presente e o valor for definido para algum número positivo "n": os itens expirarão a partir da loja analítica "n" segundos após o seu último tempo modificado na loja transacional. Esta definição pode ser alavancada se pretender reter os seus dados operacionais por um período limitado de tempo na loja analítica, independentemente da conservação dos dados na loja transacional.
+* Se o presente e o valor for definido para algum número positivo "n": os itens expirarão a partir da loja analítica "n" segundos após o seu último tempo modificado na loja transacional. Esta definição pode ser alavancada se pretender reter os seus dados operacionais por um período limitado de tempo na loja analítica, independentemente da conservação dos dados na loja transacional
 
 Alguns pontos a considerar:
 *   Depois de a loja analítica ser ativada com um valor TTL analítico, pode ser atualizada para um valor válido diferente mais tarde. 

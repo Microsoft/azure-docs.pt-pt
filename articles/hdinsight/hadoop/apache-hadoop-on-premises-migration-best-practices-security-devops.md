@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: d190d3f133c4b12b58dade878dc66755c25e1ed8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078379"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751274"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar para os centros apache Hadoop para Azure HDInsight - segurança e devOps melhores práticas
 
@@ -85,7 +85,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 - [Visão geral das Redes Virtuais Azure](../../virtual-network/virtual-networks-overview.md)
 - [Visão geral dos grupos de segurança da rede Azure](../../virtual-network/security-overview.md)
-- [Observação da rede virtual Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Peering de Rede Virtual do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Guia de segurança de Armazenamento do Azure](../../storage/blobs/security-recommendations.md)
 - [Encriptação do serviço de armazenamento Azure em repouso](../../storage/common/storage-service-encryption.md)
 
@@ -112,8 +112,6 @@ Para obter mais informações, consulte o artigo: [Upgrade o cluster HDInsight p
 
 ## <a name="patch-cluster-operating-systems"></a>Sistemas operativos de cluster de remendação
 
-Como um serviço Hadoop gerido, HDInsight cuida de remendar o SO dos VMs usados por clusters HDInsight.
-
 Para obter mais informações, consulte o artigo: [correção de SISTEMAS para HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Pós-Migração
@@ -122,6 +120,6 @@ Para obter mais informações, consulte o artigo: [correção de SISTEMAS para H
 2. **Realizar Testes** - Executar iterativamente testes funcionais e de desempenho.
 3. **Otimize** - Aborde quaisquer problemas de desempenho com base nos resultados dos testes acima e, em seguida, reteste para confirmar as melhorias de desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

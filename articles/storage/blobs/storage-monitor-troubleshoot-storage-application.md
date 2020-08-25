@@ -9,10 +9,10 @@ ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83652154"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud
@@ -33,7 +33,7 @@ O registo e as métricas das contas de armazenamento são ativados no separador 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal Azure](https://portal.azure.com)
+Faça login no [portal Azure](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Ativar o registo e as métricas
 
@@ -41,7 +41,7 @@ No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGro
 
 Em **Definições de diagnóstico (clássico)**, defina **Estado** como **Ativado**. Certifique-se de que todas as opções em **Propriedades do Blob** estão ativadas.
 
-Quando estiver completo, clique em **Guardar**
+Quando concluído, clique em **Guardar**
 
 ![Painel Diagnóstico](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
@@ -89,7 +89,7 @@ Neste cenário, utilize o [Microsoft Message Analyzer](https://technet.microsoft
 
 Transfira o [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e instale a aplicação.
 
-Lance a aplicação e escolha **file**  >  **open**  >  **from Other File Sources**.
+Lance a aplicação e escolha **O Ficheiro**  >  **Aberto**  >  **de Outras Fontes de Ficheiros**.
 
 Na caixa de diálogo **Seletor de Ficheiros**, selecione **+ Adicionar Ligação do Azure**. Introduza o **nome da conta de armazenamento** e a **chave da conta** e clique em **OK**.
 
@@ -107,7 +107,7 @@ Depois de abrir o registo, pode ver os eventos de armazenamento. Como pode ver n
 
 O [Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/) é outra ferramenta que serve para interagir com as contas de armazenamento, incluindo o contentor **$logs** e os registos nele contidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na quarta e última parte da série, aprendeu a monitorizar e a resolver problemas da conta de armazenamento, como:
 

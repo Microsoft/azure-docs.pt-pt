@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214214"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796974"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
 
@@ -32,7 +32,7 @@ Este artigo percorre a forma de personalizar a rota de saída de um cluster para
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Visão geral dos tipos de saída em AKS
 
-Um cluster AKS pode ser personalizado com um único `outboundType` balanceador de carga tipo ou encaminhamento definido pelo utilizador.
+Um cluster AKS pode ser personalizado com um tipo único `outboundType` `loadBalancer` ou `userDefinedRouting` .
 
 > [!IMPORTANT]
 > O tipo de saída só afeta o tráfego de saída do seu cluster. Para obter mais informações, consulte [a criação de controladores de entrada.](ingress-basic.md)
@@ -62,7 +62,11 @@ Se `userDefinedRouting` estiver definido, a AKS não configurará automaticament
 
 O cluster AKS deve ser implantado numa rede virtual existente com uma sub-rede previamente configurada porque quando não se utiliza a arquitetura do balanceador de carga padrão (SLB), deve estabelecer uma saída explícita. Como tal, esta arquitetura requer o envio explícito de tráfego de saída para um aparelho como uma firewall, gateway, proxy ou para permitir que a Tradução de Endereços de Rede (NAT) seja feita por um IP público atribuído ao balanceador de carga padrão ou ao aparelho.
 
-O fornecedor de recursos AKS irá implantar um balanceador de carga padrão (SLB). O equilibrador de carga não está configurado com nenhuma regra e [não incorre numa carga até que uma regra seja colocada](https://azure.microsoft.com/pricing/details/load-balancer/). A AKS **não** fornece automaticamente um endereço IP público para o frontend SLB nem configura automaticamente o pool de backend do balançador de carga.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Criação do balançador de carga com o userDefinedRouting
+
+Os clusters AKS com um tipo de UDR de saída recebem um balanceador de carga padrão (SLB) apenas quando o primeiro serviço Kubernetes do tipo 'loadBalancer' for implantado. O equilibrador de carga está configurado com um endereço IP público para pedidos *de entrada* e um pool de backend para pedidos *de entrada.* As regras de entrada são configuradas pelo fornecedor de nuvem Azure, mas **nenhum endereço IP público de saída ou regras** de saída são configurados como resultado de ter um tipo de UDR de saída. A sua UDR continuará a ser a única fonte de tráfego de saídas.
+
+Os equilibradores de carga Azure [não incorrem numa carga até que uma regra seja colocada](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Implementar um cluster com tipo de saída de UDR e Azure Firewall
 
@@ -70,9 +74,7 @@ Para ilustrar a aplicação de um cluster com tipo de saída utilizando uma rota
 
 > [!IMPORTANT]
 > O tipo de saída de UDR requer uma rota para 0.0.0.0/0 e próximo destino de lúpulo de NVA (Aparelho Virtual de Rede) na tabela de rotas.
-> A tabela de rotas já tem um padrão 0.0.0.0/0 para a Internet, sem um IP público para sNAT apenas adicionando esta rota não lhe fornecerá saída. A AKS validará que não cria uma rota 0.0.0.0/0 que aponta para a Internet, mas sim para NVA ou gateway, etc.
-> 
-> Ao utilizar um tipo de UDR de saída, não é criado um endereço IP público do balanceador de carga, a menos que um serviço de *loadbalancer* tipo seja configurado.
+> A tabela de rotas já tem um padrão 0.0.0.0/0 para a Internet, sem um IP público para sNAT apenas adicionando esta rota não lhe fornecerá saída. A AKS validará que não cria uma rota 0.0.0.0/0 que aponta para a Internet, mas sim para NVA ou gateway, etc. Ao utilizar um tipo de UDR de saída, não é criado um endereço IP público de carregamento para **pedidos de entrada,** a menos que um serviço de *loadbalancer* tipo esteja configurado. Um endereço IP público para **pedidos de saída** nunca é criado pela AKS se um tipo de UDR de saída for definido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

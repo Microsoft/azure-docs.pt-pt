@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192328"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751708"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -165,158 +165,50 @@ Para obter mais informações, consulte [a Encriptação em repouso](concept-ent
 
 > [!IMPORTANT]
 > Existem alguns requisitos específicos que a sua subscrição deve satisfazer antes de usar este modelo:
->
-> * A aplicação __Azure Machine Learning__ deve ser um __contribuinte__ para a sua subscrição Azure.
 > * Deve ter um Cofre de Chave Azure existente que contenha uma chave de encriptação.
-> * Você deve ter uma política de acesso no Azure Key Vault que concede __obter,__ __embrulhar,__ e __desembrulhar__ o acesso à aplicação __DB Azure Cosmos.__
 > * O Azure Key Vault deve estar na mesma região onde planeia criar o espaço de trabalho Azure Machine Learning.
+> * Tem de especificar o ID do Cofre da Chave Azure e o URI da chave de encriptação.
 
-__Para adicionar a app Azure Machine Learning como contribuinte,__ utilize os seguintes comandos:
+__Para obter os valores__ para o `cmk_keyvault` (ID do Cofre chave) e os `resource_cmk_uri` parâmetros (chave URI) necessários por este modelo, utilize os seguintes passos:    
 
-1. Inicie sessão na sua conta Azure e obtenha o seu ID de subscrição. Esta subscrição deve ser a mesma que contém o seu espaço de trabalho Azure Machine Learning.  
+1. Para obter o ID do cofre de chaves, utilize o seguinte comando:  
 
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)   
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv   
+    ``` 
 
-    > [!TIP]
-    > Para selecionar outra subscrição, utilize o `az account set -s <subscription name or ID>` comando e especifique o nome de subscrição ou ID para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzSubscription
-    ```
-
-    > [!TIP]
-    > Para selecionar outra subscrição, utilize o `Az-SetContext -SubscriptionId <subscription ID>` comando e especifique o nome de subscrição ou ID para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições Azure](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
-
-    ---
-
-1. Para obter o ID do objeto da aplicação Azure Machine Learning, utilize o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições Azure:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    Este comando devolve o ID do objeto, que é um GUID.
-
-1. Para adicionar o ID do objeto como contribuinte à sua subscrição, utilize o seguinte comando. `<object-ID>`Substitua-o pelo ID do objeto do principal de serviço. Substitua `<subscription-ID>` pelo nome ou ID da sua subscrição Azure:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. Para gerar uma chave num Cofre de Chave Azure existente, utilize um dos seguintes comandos. `<keyvault-name>`Substitua-o pelo nome do cofre da chave. `<key-name>`Substitua-a pelo nome a utilizar para a chave:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
+    ```azurepowershell  
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ``` 
     --- 
 
-__Para adicionar uma política de acesso ao cofre de chaves, utilize os seguintes comandos:__
+    Este comando devolve um valor semelhante a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .  
 
-1. Para obter o iD do objeto da aplicação DB Azure Cosmos, utilize o seguinte comando. O valor pode ser diferente para cada uma das suas subscrições Azure:
+1. Para obter o valor do URI para a tecla gerida pelo cliente, utilize o seguinte comando:    
 
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)   
 
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
+    ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
+    ```azurepowershell  
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
+    ``` 
+    --- 
 
-    Este comando devolve o ID do objeto, que é um GUID. Guarde para mais tarde
+    Este comando devolve um valor semelhante a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` . 
 
-1. Para definir a política, utilize o seguinte comando. `<keyvault-name>`Substitua-o pelo nome do cofre de chave Azure existente. `<object-ID>`Substitua-a pelo GUID do passo anterior:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-__Para obter os valores__ para o `cmk_keyvault` (ID do Cofre chave) e os `resource_cmk_uri` parâmetros (chave URI) necessários por este modelo, utilize os seguintes passos:
-
-1. Para obter o ID do cofre de chaves, utilize o seguinte comando:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    Este comando devolve um valor semelhante a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .
-
-1. Para obter o valor do URI para a tecla gerida pelo cliente, utilize o seguinte comando:
-
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    Este comando devolve um valor semelhante a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` .
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
-Uma vez concluído os passos acima com sucesso, desloque o seu modelo como normalmente faria. Para permitir a utilização de Chaves Geridas pelo Cliente, definir os seguintes parâmetros:
+Para ativar a utilização das chaves geridas pelo cliente, desa estale os seguintes parâmetros ao implementar o modelo:
 
 * **encryption_status** **a Ativação.**
 * **cmk_keyvault** ao valor `cmk_keyvault` obtido em etapas anteriores.

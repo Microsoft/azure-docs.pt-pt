@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185422"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751695"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Para obter mais informações sobre a utilização do SDK para ligar a um espaç
 ---
 
 
-## <a name="register-your-model"></a><a id="registermodel"></a>Registe o seu modelo
+## <a name="register-your-model"></a><a id="registermodel"></a> Registe o seu modelo
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
@@ -134,7 +134,7 @@ Os exemplos que se seguem demonstram como registar um modelo.
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    O `model_path` parâmetro refere-se à localização em nuvem do modelo. Neste exemplo, o caminho de um único ficheiro é usado. Para incluir vários ficheiros no registo do modelo, definido `model_path` para o caminho de uma pasta que contém os ficheiros. Para mais informações, consulte a documentação [run.register_model.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)
+    O `model_path` parâmetro refere-se à localização em nuvem do modelo. Neste exemplo, o caminho de um único ficheiro é usado. Para incluir vários ficheiros no registo do modelo, definido `model_path` para o caminho de uma pasta que contém os ficheiros. Para mais informações, consulte a documentação [Run.register_model.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)
 
   + Registar um modelo a partir de um `azureml.train.automl.run.AutoMLRun` objeto:
 
@@ -218,12 +218,12 @@ A configuração de inferência utiliza ambientes de aprendizagem automática Az
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -348,21 +348,21 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Description | Estado final?
+| Estado do serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | Não |
-| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
-| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
+| Transição | O serviço está em processo de implantação. | No |
+| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
+| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
 
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a>Inferência do lote
+### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferência do lote
 Os alvos Azure Machine Learning Compute são criados e geridos pela Azure Machine Learning. Podem ser utilizados para a previsão de lote a partir de oleodutos Azure Machine Learning.
 
 Para uma passagem de inferência de lote com Azure Machine Learning Compute, consulte [Como executar previsões de lotes](tutorial-pipeline-batch-scoring-classification.md).
 
-### <a name="iot-edge-inference"></a><a id="iotedge"></a>Inferência IoT Edge
+### <a name="iot-edge-inference"></a><a id="iotedge"></a> Inferência IoT Edge
 O suporte para implantação na borda está em pré-visualização. Para obter mais informações, consulte [implementar a Azure Machine Learning como um módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="delete-resources"></a>Eliminar recursos
@@ -371,7 +371,7 @@ O suporte para implantação na borda está em pré-visualização. Para obter m
 
 Para eliminar um serviço web implantado, utilize `az ml service <name of webservice>` .
 
-Para eliminar um modelo registado do seu espaço de trabalho, utilize`az ml model delete <model id>`
+Para eliminar um modelo registado do seu espaço de trabalho, utilize `az ml model delete <model id>`
 
 Leia mais sobre [a eliminação de um serviço web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) e a [eliminação de um modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
 
@@ -392,7 +392,7 @@ Para obter mais informações, consulte a documentação para [WebService.delete
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
 * [Criar alertas e gatilhos de eventos para implementações de modelos](how-to-use-event-grid.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 0c790d1d8bec972135796533542a5efad6094d7c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006677"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752307"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -31,24 +31,24 @@ A tabela que se segue descreve os limites de recursos para ficheiros Azure NetAp
 
 |  Recurso  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
 |----------------|---------------------|--------------------------------------|
-|  Número de contas do NetApp por região de Azure   |  10    |  Sim   |
-|  Número de piscinas de capacidade por conta NetApp   |    25     |   Sim   |
-|  Número de volumes por conta NetApp   |    500     |   Sim   |
-|  Número de volumes por piscina de capacidade     |    500   |    Sim     |
-|  Número de instantâneos por volume       |    255     |    Não        |
-|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    Não    |
-|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    Não   |
-|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    Não  |
-|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
-|  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
-|  Tamanho máximo de um único ficheiro     |    16 TiB    |    Não    |    
-|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    Não    |    
-|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Sim    |    
+|  Número de contas do NetApp por região de Azure   |  10    |  Yes   |
+|  Número de piscinas de capacidade por conta NetApp   |    25     |   Yes   |
+|  Número de volumes por subscrição   |    500     |   Yes   |
+|  Número de volumes por piscina de capacidade     |    500   |    Yes     |
+|  Número de instantâneos por volume       |    255     |    No        |
+|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    No    |
+|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    No   |
+|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    No  |
+|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   No   |
+|  Tamanho mínimo de um único volume    |    100 GiB    |    No    |
+|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
+|  Tamanho máximo de um único ficheiro     |    16 TiB    |    No    |    
+|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    No    |    
+|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Yes    |    
 
 Para mais informações, consulte [as PERGUNTAS Frequentes de Gestão de Capacidade.](azure-netapp-files-faqs.md#capacity-management-faqs)
 
-## <a name="maxfiles-limits"></a>Limites máximos<a name="maxfiles"></a> 
+## <a name="maxfiles-limits"></a>Limites máximos <a name="maxfiles"></a> 
 
 Os volumes de ficheiros Azure NetApp têm um limite chamado *maxfiles*. O limite máximo é o número de ficheiros que um volume pode conter. O limite máximo para um volume de Ficheiros Azure NetApp é indexado com base no tamanho (quota) do volume. O limite máximo para um volume aumenta ou diminui à taxa de 20 milhões de ficheiros por TiB do tamanho do volume provisionado. 
 
@@ -64,7 +64,7 @@ O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu t
 
 Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões.
 
-## <a name="request-limit-increase"></a>Aumento do limite de pedido<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>Aumento do limite de pedido <a name="limit_increase"></a> 
 
 Pode criar um pedido de suporte Azure para aumentar os limites ajustáveis da tabela acima. 
 
@@ -80,7 +80,7 @@ Do plano de navegação do portal Azure:
 4. No separador Detalhes:
     1. Na caixa Descrição, forneça as seguintes informações para o tipo de recurso correspondente:
 
-        |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Razão para o aumento das quotas       |
+        |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Motivo para o aumento de quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Conta |  *ID da Subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Conjunto    |  *ID de assinatura, Conta URI*  |  *Solicitado novo número máximo **de piscina***   |  *Que cenário ou caso de utilização motivou o pedido?*  |

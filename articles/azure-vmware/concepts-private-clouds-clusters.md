@@ -3,18 +3,18 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware e dos clusters vSphere em VMware Solution on Azure by VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906994"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752286"
 ---
-# <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Solução Azure VMware (AVS) Visualizar conceitos de nuvem privada e cluster
+# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Azure VMware Solution Preview conceitos de nuvem privada e cluster
 
-A Azure VMware Solution (AVS) fornece nuvens privadas baseadas em VMware em Azure. As nuvens privadas são construídas a partir de aglomerados de hospedeiros dedicados de metal nu e são implantadas e geridas através do portal Azure. Os clusters em nuvens privadas são a provisionados com software VMware vSphere, vCenter, vSAN e NSX. As implementações de hardware e software privados AVS são totalmente integradas e automatizadas em Azure.
+A Azure VMware Solution oferece nuvens privadas baseadas em VMware em Azure. As nuvens privadas são construídas a partir de aglomerados de hospedeiros dedicados de metal nu e são implantadas e geridas através do portal Azure. Os clusters em nuvens privadas são a provisionados com software VMware vSphere, vCenter, vSAN e NSX. Azure VMware Solution hardware e software privados em nuvem são totalmente integrados e automatizados em Azure.
 
-Há uma relação lógica entre assinaturas Azure, nuvens privadas AVS, aglomerados vSAN e anfitriões. No diagrama, são mostradas duas nuvens privadas numa única subscrição do Azure. Nuvens privadas representam um desenvolvimento e um ambiente de produção, cada um com a sua própria nuvem privada. Em cada uma dessas nuvens privadas há dois aglomerados. Para mostrar as necessidades potenciais mais baixas de um ambiente de desenvolvimento, são utilizados aglomerados menores com hospedeiros de menor capacidade. Todos estes conceitos são descritos nas secções abaixo.
+Há uma relação lógica entre subscrições Azure, nuvens privadas Azure VMware Solution, clusters vSAN e anfitriões. No diagrama, são mostradas duas nuvens privadas numa única subscrição do Azure. Nuvens privadas representam um desenvolvimento e um ambiente de produção, cada um com a sua própria nuvem privada. Em cada uma dessas nuvens privadas há dois aglomerados. Para mostrar as necessidades potenciais mais baixas de um ambiente de desenvolvimento, são utilizados aglomerados menores com hospedeiros de menor capacidade. Todos estes conceitos são descritos nas secções abaixo.
 
 ![Imagem de duas nuvens privadas em uma subscrição de cliente](./media/hosts-clusters-private-clouds-final.png)
 
@@ -34,7 +34,7 @@ Cria, apaga e escala os clusters através do portal ou da API. Você ainda usa v
 
 ## <a name="hosts"></a>Anfitriões
 
-Os nós de infraestrutura de metal hiper-convergente são usados em aglomerados de nuvem privada AVS. As capacidades de RAM, CPU e disco do anfitrião estão fornecidas na tabela abaixo. 
+Os nós de infraestrutura de metal hiper-convergente são utilizados em aglomerados de nuvem privada Azure VMware Solution. As capacidades de RAM, CPU e disco do anfitrião estão fornecidas na tabela abaixo. 
 
 | Tipo de Anfitrião              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, cru)  |  vSAN SSD nível de capacidade (TB, cru)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -44,7 +44,7 @@ Os anfitriões que são usados para construir ou escalar clusters são adquirido
 
 ## <a name="vmware-software-versions"></a>Versões de software VMware
 
-As versões de software atuais do software VMware utilizado em aglomerados de nuvem privada AVS são:
+As versões de software atuais do software VMware utilizado nos clusters de nuvem privada Azure VMware Solution são:
 
 | Software              |    Versão   |
 | :---                  |     :---:    |
@@ -55,22 +55,22 @@ As versões de software atuais do software VMware utilizado em aglomerados de nu
 
 Para qualquer novo cluster numa nuvem privada, a versão do software irá corresponder ao que está atualmente a ser em execução na nuvem privada. Para qualquer nova nuvem privada numa subscrição de cliente, a versão mais recente da pilha de software está instalada.
 
-As políticas e processos gerais de upgrade para o software da plataforma AVS estão descritos no documento De Upgrades Concepts.
+As políticas e processos gerais de upgrade para o software da plataforma Azure VMware Solution estão descritos no documento De Upgrades Concepts.
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Manutenção do anfitrião e gestão do ciclo de vida
 
 A manutenção do hospedeiro e a gestão do ciclo de vida são feitas sem impacto na capacidade ou desempenho de aglomerados de nuvens privadas. Exemplos de manutenção automatizada do hospedeiro incluem upgrades de firmware e reparação de hardware ou substituição.
 
-A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config da rede bootstrapping, como a criação do gateway Tier-0 e a viabilizar o Encaminhamento Norte-Sul. Como administrador da sua nuvem privada AVS, é responsável pela configuração NSX-T SDN como segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibradores de carga.
+A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config da rede bootstrapping, como a criação do gateway Tier-0 e a viabilizar o Encaminhamento Norte-Sul. Como administrador da sua nuvem privada Azure VMware Solution, é responsável pela configuração NSX-T SDN como segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibradores de carga.
 
 > [!IMPORTANT]
-> Um administrador AVS não deve modificar a configuração de NSX-T Edge ou Gateway Tier-0. Isto pode resultar numa perda de serviço.
+> Um administrador de Solução VMware Azure não deve modificar a configuração de NSX-T Edge ou Gateway Tier-0. Isto pode resultar numa perda de serviço.
 
 ## <a name="backup-and-restoration"></a>Backup e restauro
 
 As configurações de nuvem privada vCenter e NSX-T são apoiadas de hora em hora. Os reforços são mantidos por três dias. A restauração de uma cópia de segurança é solicitada através de um Pedido de Serviço no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo passo é aprender [conceitos de networking e interconectividade.](concepts-networking.md)
 

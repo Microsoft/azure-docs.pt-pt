@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e0f6df04eda45af04659edc2010e8d68b013892
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701627"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751499"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -31,16 +31,16 @@ Este artigo ajudará a responder após perguntas comuns sobre a otimização do 
 Fornecemos estas diretrizes especificamente para o Armazenamento Premium, porque as cargas de trabalho em execução no Armazenamento Premium são altamente sensíveis ao desempenho. Demos exemplos sempre que adequado. Também pode aplicar algumas destas diretrizes a aplicações em execução em IaaS VMs com discos de armazenamento padrão.
 
 > [!NOTE]
-> Às vezes, o que parece ser um problema de desempenho em disco é, na verdade, um estrangulamento de rede. Nestas situações, deverá otimizar o desempenho da sua [rede.](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md)
+> Às vezes, o que parece ser um problema de desempenho em disco é, na verdade, um estrangulamento de rede. Nestas situações, deverá otimizar o desempenho da sua [rede.](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 >
 > Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 >
-> * Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](./linux/disks-benchmarks.md)
-> * Para windows: [Benchmarking um disco](./windows/disks-benchmarks.md).
+> * Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](linux/disks-benchmarks.md)
+> * Para windows: [Benchmarking um disco](windows/disks-benchmarks.md).
 >
-> Se o seu VM suportar uma rede acelerada, deve certificar-se de que está ativado. Se não estiver ativado, pode ative-lo em VMs já implantados tanto no [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como no [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Se o seu VM suportar uma rede acelerada, deve certificar-se de que está ativado. Se não estiver ativado, pode ative-lo em VMs já implantados tanto no [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como no [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Antes de começar, se é novo no Premium Storage, leia primeiro o [tipo de disco Azure para alvos IaaS VMs](./linux/disks-types.md) e [Escalaability para contas de armazenamento de blob de página premium.](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md)
+Antes de começar, se é novo no Premium Storage, leia primeiro o [tipo de disco Azure para alvos IaaS VMs](disks-types.md) e [Escalaability para contas de armazenamento de blob de página premium.](../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -62,7 +62,7 @@ Quando se anexa um disco de armazenamento premium a um VM de alta escala, as pro
 
 Existe uma relação entre a produção e o IOPS, como mostrado na fórmula abaixo.
 
-![Relação entre iops e produção](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relação entre iops e produção](linux/media/premium-storage-performance/image1.png)
 
 Por isso, é importante determinar os valores de produção e IOPS ideais que a sua aplicação requer. À medida que tenta otimizar um, o outro também é afetado. Numa secção posterior, *Otimizando o Desempenho da Aplicação,* discutiremos mais detalhes sobre a otimização do IOPS e do Throughput.
 
@@ -144,7 +144,7 @@ Ao longo desta secção, consulte a lista de verificação de requisitos de apli
 
 O quadro abaixo resume os fatores de desempenho e os passos necessários para otimizar o IOPS, a produção e a latência. As secções que seguem este resumo descreverão cada fator é muito mais profunda.
 
-Para obter mais informações sobre os tamanhos VM e sobre o IOPS, produção e latência disponíveis para cada tipo de VM, consulte [os tamanhos Linux VM](~/articles/virtual-machines/linux/sizes.md) ou [tamanhos VM do Windows](~/articles/virtual-machines/windows/sizes.md).
+Para obter mais informações sobre os tamanhos VM e sobre o IOPS, produção e latência disponíveis para cada tipo de VM, consulte [tamanhos para máquinas virtuais em Azure](sizes.md).
 
 | | **IOPS** | **Débito** | **Latência** |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ VMs de alta escala estão disponíveis em diferentes tamanhos com um número dif
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50.000 OPS <br> 512 MB por segundo |4.000 IOPS e 33 MB por segundo |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80.000 OPS <br> 2.000 MB por segundo |5.000 IOPS e 50 MB por segundo |
 
-Para visualizar uma lista completa de todos os tamanhos Azure VM disponíveis, consulte os [tamanhos VM do Windows](~/articles/virtual-machines/windows/sizes.md) ou [os tamanhos Linux VM](~/articles/virtual-machines/linux/sizes.md). Escolha um tamanho VM que possa atender e escalar para os requisitos de desempenho da aplicação pretendidos. Além disso, tome em consideração a seguintes considerações importantes na escolha dos tamanhos de VM.
+Para ver uma lista completa de todos os tamanhos Azure VM disponíveis, consulte [tamanhos para máquinas virtuais em Azure](sizes.md) ou . Escolha um tamanho VM que possa atender e escalar para os requisitos de desempenho da aplicação pretendidos. Além disso, tome em consideração a seguintes considerações importantes na escolha dos tamanhos de VM.
 
 *Limites de escala*  
 Os limites máximos de IOPS por VM e por disco são diferentes e independentes uns dos outros. Certifique-se de que a aplicação está a conduzir o IOPS dentro dos limites do VM, bem como os discos premium que lhe estão associados. Caso contrário, o desempenho da aplicação experimentará estrangulamento.
@@ -238,7 +238,7 @@ Ao executar o Linux com Armazenamento Premium, verifique as últimas atualizaç�
 
 O Azure Premium Storage oferece uma variedade de tamanhos para que possa escolher um que melhor se adapte às suas necessidades. Cada tamanho do disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco de armazenamento Premium, dependendo dos requisitos de aplicação e do tamanho de VM de alta escala. A tabela abaixo mostra os tamanhos dos discos e as suas capacidades. Os tamanhos P4, P6, P15, P60, P70 e P80 são atualmente suportados apenas para Discos Geridos.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Quantos discos escolhes depende do tamanho do disco escolhido. Pode utilizar um disco P50 ou vários discos P10 para satisfazer os requisitos da sua aplicação. Tome em consideração as considerações listadas abaixo ao fazer a escolha.
 
@@ -353,14 +353,14 @@ No Windows, pode utilizar espaços de armazenamento para riscar discos em conjun
 
 Importante: Utilizando o UI do Gestor do Servidor, pode definir o número total de colunas até 8 para um volume listrado. Ao fixar mais de oito discos, utilize o PowerShell para criar o volume. Utilizando o PowerShell, pode definir o número de colunas igual ao número de discos. Por exemplo, se houver 16 discos num único conjunto de listras; especificar 16 colunas no parâmetro *NumberOfColumns* do *cmdlet PowerShell New-VirtualDisk.*
 
-No Linux, utilize o utilitário MDADM para riscar discos juntos. Para passos detalhados sobre discos de strip no Linux, consulte o [Configure Software RAID no Linux](~/articles/virtual-machines/linux/configure-raid.md).
+No Linux, utilize o utilitário MDADM para riscar discos juntos. Para passos detalhados sobre discos de strip no Linux, consulte o [Configure Software RAID no Linux](linux/configure-raid.md).
 
 *Tamanho das riscas*  
 Uma configuração importante no striping do disco é o tamanho das listras. O tamanho das listras ou o tamanho do bloco é o menor pedaço de dados que a aplicação pode endereçar num volume listrado. O tamanho das listras que configura depende do tipo de aplicação e do seu padrão de pedido. Se escolher o tamanho errado da listra, pode levar ao desalinhamento do IO, o que leva a um desempenho degradado da sua aplicação.
 
 Por exemplo, se um pedido de IO gerado pela sua aplicação for maior do que o tamanho da risca de disco, o sistema de armazenamento escreve-o através dos limites da unidade de listras em mais de um disco. Quando chegar a hora de aceder a esses dados, terá de procurar mais de uma unidade de listras para completar o pedido. O efeito cumulativo de tal comportamento pode levar a uma degradação substancial do desempenho. Por outro lado, se o tamanho do pedido de IO for menor do que o tamanho das listras, e se for de natureza aleatória, os pedidos de IO podem somar no mesmo disco causando um estrangulamento e, em última análise, degradando o desempenho do OI.
 
-Dependendo do tipo de carga de trabalho que a sua aplicação está a executar, escolha um tamanho adequado de listras. Para pedidos aleatórios de IO, utilize um tamanho de listra menor. Enquanto que para pedidos de IO sequenciais grandes utiliza um tamanho de listra maior. Descubra as recomendações de tamanho de listras para a aplicação que estará a executar no Premium Storage. Para o SQL Server, configurar o tamanho das listagens de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Consulte [as melhores práticas de desempenho para SQL Server em VMs Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para saber mais.
+Dependendo do tipo de carga de trabalho que a sua aplicação está a executar, escolha um tamanho adequado de listras. Para pedidos aleatórios de IO, utilize um tamanho de listra menor. Enquanto que para pedidos de IO sequenciais grandes utiliza um tamanho de listra maior. Descubra as recomendações de tamanho de listras para a aplicação que estará a executar no Premium Storage. Para o SQL Server, configurar o tamanho das listagens de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Consulte [as melhores práticas de desempenho para SQL Server em VMs Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para saber mais.
 
 > [!NOTE]
 > Pode juntar um máximo de 32 discos de armazenamento premium numa série DS VM e 64 discos de armazenamento premium numa série GS VM.
@@ -414,15 +414,15 @@ As disposições de Armazenamento Azure Premium especificaram o número de IOPS 
 
 Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 
-* Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](./linux/disks-benchmarks.md)
-* Para windows: [Benchmarking um disco](./windows/disks-benchmarks.md).
+* Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](linux/disks-benchmarks.md)
+* Para windows: [Benchmarking um disco](windows/disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 
-* Para Linux: [Selecione um tipo de disco](./linux/disks-types.md)
-* Para Windows: [Selecione um tipo de disco](./windows//disks-types.md)
+* Para Linux: [Selecione um tipo de disco](disks-types.md)
+* Para Windows: [Selecione um tipo de disco](disks-types.md)
 
 Para os utilizadores do SQL Server, leia artigos sobre as melhores práticas de desempenho para o SQL Server:
 
-* [Melhores práticas de desempenho para o SQL Server em Máquinas Virtuais Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Melhores práticas de desempenho para o SQL Server em Máquinas Virtuais Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [O Azure Premium Storage proporciona o melhor desempenho para o SQL Server em Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

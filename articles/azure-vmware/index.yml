@@ -1,26 +1,26 @@
 ### YamlMime:Landing
-title: Documentação da Solução VMware no Azure (AVS)
-summary: Saiba como utilizar a Solução VMware no Azure (AVS) para implementar uma cloud privada VMware no Azure
+title: Documentação do Azure VMware Solution
+summary: Saiba como utilizar o Azure VMware Solution para implementar uma cloud privada VMware no Azure
 metadata:
-  title: Documentação da Solução VMware no Azure (AVS)
-  description: Saiba como utilizar a Solução VMware no Azure (AVS) para implementar uma cloud privada VMware no Azure
+  title: Documentação do Azure VMware Solution
+  description: Saiba como utilizar o Azure VMware Solution para implementar uma cloud privada VMware no Azure
   ms.service: azure-vmware
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
   ms.date: 05/04/2020
-  ms.openlocfilehash: 2ae8f6bc5257dc4d7383516201912c504c4d6038
-  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
+  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/04/2020
-  ms.locfileid: "82739455"
+  ms.lasthandoff: 08/22/2020
+  ms.locfileid: "88752110"
 landingContent:
-- title: Acerca da Solução VMware no Azure (AVS)
+- title: Acerca do Azure VMware Solution
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é a Solução VMware no Azure (AVS)?
+    - text: O que é o Azure VMware Solution?
       url: introduction.md
   - linkListType: get-started
     links:

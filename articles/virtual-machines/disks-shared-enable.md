@@ -4,16 +4,16 @@ description: Configurar um disco gerido a Azure com discos partilhados para que 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f6b34cd93dcfabee2974bea5cf57258527df94d7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701656"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752033"
 ---
 # <a name="enable-shared-disk"></a>Ativar disco partilhado
 
@@ -21,21 +21,21 @@ Este artigo abrange como ativar a funcionalidade de discos partilhados para disc
 
 Se procura informações conceptuais sobre discos geridos que tenham discos partilhados ativados, consulte:
 
-* Para Linux: [Discos partilhados Azure](./linux/disks-shared.md)
+* Para Linux: [Discos partilhados Azure](linux/disks-shared.md)
 
-* Para windows: [Discos partilhados Azure](./windows/disks-shared.md)
+* Para windows: [Discos partilhados Azure](windows/disks-shared.md)
 
 ## <a name="limitations"></a>Limitações
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-Os discos partilhados suportam vários sistemas operativos. Consulte as secções [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) e [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) do artigo conceptual para os sistemas operativos suportados.
+Os discos partilhados suportam vários sistemas operativos. Consulte as secções [Windows](windows/disks-shared.md#windows) e [Linux](linux/disks-shared.md#linux) do artigo conceptual para os sistemas operativos suportados.
 
 ## <a name="disk-sizes"></a>Tamanhos de disco
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## <a name="deploy-shared-disks"></a>Implementar discos partilhados
 
@@ -147,7 +147,7 @@ Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, ,
 Depois de ter implantado um disco partilhado, `maxShares>1` pode montar o disco num ou mais dos seus VMs.
 
 > [!NOTE]
-> Se estiver a utilizar um disco ultra, certifique-se de que corresponde aos requisitos necessários. Consulte a secção [PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) do artigo ultra disco para obter mais detalhes.
+> Se estiver a utilizar um disco ultra, certifique-se de que corresponde aos requisitos necessários. Consulte a secção [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) do artigo ultra disco para obter mais detalhes.
 
 ```azurepowershell-interactive
 

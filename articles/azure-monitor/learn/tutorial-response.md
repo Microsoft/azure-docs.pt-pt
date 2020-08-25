@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83835874"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](tutorial-logs-dashboards.md).   
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma regra de alerta
@@ -33,7 +33,7 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 
 No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione o **Log Analytics**.
 2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
 3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a nossa consulta guardada e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar lógica de sinal**, selecione *Azure VMs – Utilização do Processador* na lista.  O painel atualiza para apresentar as definições de configuração do alerta.  Na parte superior, mostra os resultados dos últimos 30 minutos do sinal selecionado e a consulta de pesquisa.  
