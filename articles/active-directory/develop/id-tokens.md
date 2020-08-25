@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418921"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795241"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
-`id_tokens`são enviados para a aplicação do cliente como parte de um fluxo [OpenID Connect](v2-protocols-oidc.md) (OIDC). Podem ser enviados juntamente ou em vez de um token de acesso, e são usados pelo cliente para autenticar o utilizador.
+`id_tokens` são enviados para a aplicação do cliente como parte de um fluxo [OpenID Connect](v2-protocols-oidc.md) (OIDC). Podem ser enviados juntamente ou em vez de um token de acesso, e são usados pelo cliente para autenticar o utilizador.
 
 ## <a name="using-the-id_token"></a>Usando o id_token
 
@@ -31,7 +31,7 @@ Os Tokens ID devem ser usados para validar que um utilizador é quem eles afirma
 
 ## <a name="claims-in-an-id_token"></a>Reclamações num id_token
 
-`id_tokens`são [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), o que significa que consistem num cabeçalho, carga útil e porção de assinatura. Pode utilizar o cabeçalho e a assinatura para verificar a autenticidade do token, enquanto a carga útil contém as informações sobre o utilizador solicitada pelo seu cliente. Exceto quando notados, todas as reclamações JWT listadas aqui aparecem em fichas v1.0 e v2.0.
+`id_tokens` são [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), o que significa que consistem num cabeçalho, carga útil e porção de assinatura. Pode utilizar o cabeçalho e a assinatura para verificar a autenticidade do token, enquanto a carga útil contém as informações sobre o utilizador solicitada pelo seu cliente. Exceto quando notados, todas as reclamações JWT listadas aqui aparecem em fichas v1.0 e v2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -80,7 +80,7 @@ Esta lista mostra as alegações do JWT que estão na maioria id_tokens por padr
 |`oid` | String, um GUID | O identificador imutável de um objeto no sistema de identidade da Microsoft, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. O Microsoft Graph devolverá este ID como `id` propriedade para uma determinada conta de utilizador. Uma vez `oid` que permite que várias aplicações correlacionem os utilizadores, o `profile` âmbito é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador conterá um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador faça logins em cada conta com as mesmas credenciais. A `oid` alegação é um GUID e não pode ser reutilizada. |
 |`roles`| Matriz de cordas | O conjunto de funções que foram atribuídas ao utilizador que está a iniciar sessão. |
 |`rh` | Corda Opaca |Uma alegação interna usada por Azure para revalidar fichas. Deve ser ignorado. |
-|`sub` | String, um GUID | O principal sobre o qual o token afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O sujeito é um identificador de pares - é exclusivo de um determinado ID de aplicação. Se um único utilizador assinar duas aplicações diferentes usando dois IDs de clientes diferentes, essas aplicações receberão dois valores diferentes para a reclamação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. |
+|`sub` | Cadeia | O principal sobre o qual o token afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O sujeito é um identificador de pares - é exclusivo de um determinado ID de aplicação. Se um único utilizador assinar duas aplicações diferentes usando dois IDs de clientes diferentes, essas aplicações receberão dois valores diferentes para a reclamação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. |
 |`tid` | String, um GUID | Um GUID que representa o inquilino Azure AD de que o utilizador é. Para contas de trabalho e escola, o GUID é o imutável ID de inquilino da organização a que o utilizador pertence. Para contas pessoais, o valor `9188040d-6c67-4c5b-b112-36a304b66dad` é. O `profile` âmbito de aplicação é necessário para receber esta reclamação. |
 |`unique_name` | Cadeia | Fornece um valor legível por humanos que identifica o requerente do token. Este valor é único em qualquer momento, mas como os e-mails e outros identificadores podem ser reutilizados, este valor pode reaparecer noutras contas, devendo, portanto, ser utilizado apenas para fins de exibição. Apenas emitida em v1.0 `id_tokens` . |
 |`uti` | Corda Opaca | Uma alegação interna usada por Azure para revalidar fichas. Deve ser ignorado. |
@@ -89,8 +89,8 @@ Esta lista mostra as alegações do JWT que estão na maioria id_tokens por padr
 > [!NOTE]
 > Os id_token v1.0 e v2.0 têm diferenças na quantidade de informação que transportarão, como se pode ver nos exemplos acima referidos. A versão baseia-se no ponto final de onde foi solicitada. Embora as aplicações existentes utilizem provavelmente o ponto final Azure AD, as novas aplicações devem utilizar o ponto final v2.0 "Microsoft identity platform".
 >
-> - v1.0: Pontos finais Azure AD:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - v2.0: Pontos finais da Plataforma de Identidade da Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v1.0: Pontos finais Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - v2.0: Pontos finais da Plataforma de Identidade da Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Utilização de alegações para identificar de forma fiável um utilizador (Assunto e ID de Objeto)
 
@@ -113,7 +113,7 @@ Para validar manualmente o token, consulte os detalhes dos passos na [validaçã
 * Público: a `aud` reclamação deve coincidir com o ID da aplicação para a sua aplicação.
 * Nonce: a `nonce` reclamação na carga útil deve corresponder ao parâmetro nonce passado para o ponto final /autorizado durante o pedido inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [fichas de acesso](access-tokens.md)
 * Personalize as reclamações do JWT na sua id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)

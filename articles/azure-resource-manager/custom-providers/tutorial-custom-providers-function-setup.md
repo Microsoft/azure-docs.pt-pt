@@ -1,57 +1,57 @@
 ---
 title: Configurar as Funções do Azure
-description: Este tutorial passa por cima de como criar uma aplicação de função Azure e configura-a para trabalhar com fornecedores personalizados Azure
+description: Este tutorial é sobre como criar uma app de função Azure e conecê-la para trabalhar com a Azure Custom Providers
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75649989"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar funções Azure para fornecedores personalizados Azure
 
-Um fornecedor personalizado é um contrato entre o Azure e um ponto final. Com fornecedores personalizados, pode alterar fluxos de trabalho em Azure. Este tutorial mostra como configurar uma aplicação de função Azure para funcionar como um ponto final personalizado do fornecedor.
+Um fornecedor personalizado é um contrato entre a Azure e um ponto final. Com fornecedores personalizados, pode alterar fluxos de trabalho em Azure. Este tutorial mostra como configurar uma aplicação de função Azure para funcionar como um ponto final personalizado do fornecedor.
 
-## <a name="create-the-azure-function-app"></a>Criar a aplicação de função Azure
+## <a name="create-the-azure-function-app"></a>Criar a app de função Azure
 
 > [!NOTE]
-> Neste tutorial, cria-se um simples ponto final de serviço que utiliza uma aplicação de função Azure. No entanto, um fornecedor personalizado pode usar qualquer ponto final acessível ao público. Alternativas incluem Aplicações Lógicas Azure, Gestão API Azure, e a funcionalidade de Aplicações Web do Azure App Service.
+> Neste tutorial, cria-se um ponto final de serviço simples que utiliza uma aplicação de função Azure. No entanto, um fornecedor personalizado pode usar qualquer ponto final acessível ao público. Alternativas incluem Aplicações Lógicas Azure, Gestão API Azure e a funcionalidade de Aplicações Web do Azure App Service.
 
-Para iniciar este tutorial, deve primeiro seguir o tutorial Criar a [sua primeira aplicação de função Azure no portal Azure](../../azure-functions/functions-create-first-azure-function.md). Este tutorial cria uma função de webhook de núcleo .NET que pode ser modificada no portal Azure. É também a base para o tutorial atual.
+Para iniciar este tutorial, deve seguir primeiro o tutorial [Crie a sua primeira aplicação de função Azure no portal Azure.](../../azure-functions/functions-create-first-azure-function.md) Este tutorial cria uma função webhook .NET core que pode ser modificada no portal Azure. É também a base para o atual tutorial.
 
-## <a name="install-azure-table-storage-bindings"></a>Instalar encadernações de armazenamento de mesa azure
+## <a name="install-azure-table-storage-bindings"></a>Instale encadernações de armazenamento de mesa Azure
 
-Para instalar as encadernações de armazenamento da mesa azul:
+Para instalar as ligações de armazenamento da Tabela Azure:
 
-1. Vá ao separador **Integração** para o HttpTrigger.
-1. Selecione **+ Nova Entrada**.
-1. Selecione **Armazenamento de Mesa Azure**.
+1. Aceda ao **separador Integração** para o HttpTrigger.
+1. Selecione **+ Entrada Nova**.
+1. Selecione **armazenamento de mesa Azure**.
 1. Instale a extensão Microsoft.Azure.WebJobs.Extensions.Storage se ainda não estiver instalada.
-1. Na caixa de nome do **parâmetro de mesa,** introduza **o depósito de mesa**.
-1. Na caixa de **nomes de tabela,** introduza **os meus Recursos Personalizados.**
-1. Selecione **Guardar** para guardar o parâmetro de entrada atualizado.
+1. Na caixa de **nome do parâmetro quadro,** **introduza a tabelaSStorage**.
+1. Na caixa de **nome de tabela,** **insira myCustomResources**.
+1. **Selecione Guardar** para guardar o parâmetro de entrada atualizado.
 
-![Visão geral do fornecedor personalizado mostrando encadernações de tabela](./media/create-custom-provider/azure-functions-table-bindings.png)
+![Visão geral do fornecedor personalizado mostrando encadernações de mesa](./media/create-custom-provider/azure-functions-table-bindings.png)
 
-## <a name="update-restful-http-methods"></a>Atualizar métodos RESTful HTTP
+## <a name="update-restful-http-methods"></a>Atualizar métodos HTTP RESTful
 
 Para configurar a função Azure para incluir os métodos de pedido RESTful do fornecedor personalizado:
 
-1. Vá ao separador **Integração** para o HttpTrigger.
-1. Sob **os métodos HTTP selecionados,** selecione **GET,** **POST,** **DELETE**, e **PUT**.
+1. Aceda ao **separador Integração** para o HttpTrigger.
+1. Nos **métodos HTTP selecionados**, selecione **GET,** **POST,** **DELETE**e **PUT**.
 
 ![Visão geral do fornecedor personalizado mostrando métodos HTTP](./media/create-custom-provider/azure-functions-http-methods.png)
 
-## <a name="add-azure-resource-manager-nuget-packages"></a>Adicione pacotes NuGet do Gestor de Recursos Azure
+## <a name="add-azure-resource-manager-nuget-packages"></a>Adicionar pacotes NuGet do Gestor de Recursos Azure
 
 > [!NOTE]
-> Se o seu ficheiro de projeto C# estiver ausente do diretório do projeto, pode adicioná-lo manualmente. Ou aparecerá depois da Microsoft.Azure.WebJobs.Extensions.Installed na aplicação de função.
+> Se o seu ficheiro de projeto C# faltar no diretório do projeto, pode adicioná-lo manualmente. Ou aparecerá depois da extensão Microsoft.Azure.WebJobs.Extensions.Storage ser instalada na aplicação de função.
 
-Em seguida, atualize o ficheiro do projeto C# para incluir bibliotecas nuGet úteis. Estas bibliotecas facilitam a análise dos pedidos de entrada de fornecedores personalizados. Siga os passos para [adicionar extensões do portal](../../azure-functions/install-update-binding-extensions-manual.md) e atualizar o ficheiro do projeto C# para incluir as seguintes referências do pacote:
+Em seguida, atualize o ficheiro do projeto C# para incluir bibliotecas nuGet úteis. Estas bibliotecas facilitam a análise dos pedidos de entrada de fornecedores personalizados. Siga os [passos](../../azure-functions/install-update-binding-extensions-manual.md) para adicionar extensões do portal e atualizar o ficheiro do projeto C# para incluir as seguintes referências de pacote:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -59,7 +59,7 @@ Em seguida, atualize o ficheiro do projeto C# para incluir bibliotecas nuGet út
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-O seguinte elemento XML é um exemplo C# ficheiro de projeto:
+O seguinte elemento XML é um ficheiro de projeto exemplo C#:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -77,7 +77,7 @@ O seguinte elemento XML é um exemplo C# ficheiro de projeto:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você configura uma aplicação de função Azure para funcionar como um ponto final de fornecedor personalizado Azure.
+Neste tutorial, criou uma aplicação de função Azure para funcionar como um ponto final de fornecedor personalizado Azure.
 
-Para aprender a autorar um ponto final de fornecedor personalizado RESTful, consulte [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md).
+Para aprender a autoria de um ponto final de fornecedor personalizado RESTful, consulte [Tutorial: Autoria de um ponto final de fornecedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).
 

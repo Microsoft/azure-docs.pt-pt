@@ -9,16 +9,16 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f72e648d8f7cba0af01e7f87827d38368dba698d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74277325"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Como criar e localizar âncoras usando âncoras espaciais Azure em Swift
 
 > [!div  class="op_single_selector"]
-> * [Unidade](create-locate-anchors-unity.md)
+> * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [Android Java](create-locate-anchors-java.md)
@@ -28,22 +28,22 @@ ms.locfileid: "74277325"
 As Âncoras Espaciais Azure permitem-lhe partilhar âncoras no mundo entre diferentes dispositivos. Apoia vários ambientes de desenvolvimento diferentes. Neste artigo, vamos mergulhar em como usar o Azure Spatial Anchors SDK, em Swift, para:
 
 - Configurar e gerir corretamente uma sessão de Âncoras Espaciais Azure.
-- Crie e coloque propriedades em âncoras locais.
-- Mande-os para a nuvem.
-- Localize e elimine as âncoras espaciais da nuvem.
+- Crie e desacorda propriedades em âncoras locais.
+- Carreguem-nos para a nuvem.
+- Localize e elimine as âncoras espaciais em nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, certifique-se de que tem:
 
-- Leia através da visão geral das [Âncoras Espaciais Azure](../overview.md).
+- Leia a visão geral das [âncoras espaciais de Azure](../overview.md).
 - Completou um dos [Quickstarts de 5 minutos.](../index.yml)
 - Conhecimento básico sobre Swift.
-- Conhecimentos básicos sobre <a href="https://developer.apple.com/arkit/" target="_blank">ARKit.</a>
+- Conhecimentos básicos sobre <a href="https://developer.apple.com/arkit/" target="_blank">o ARKit.</a>
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Saiba mais sobre a aula [ASACloudSpatialAnchorSession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession)
+Saiba mais sobre a classe [ASACloudSpatialAnchorSession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession)
 
 ```swift
     var _cloudSession : ASACloudSpatialAnchorSession? = nil
@@ -53,7 +53,7 @@ Saiba mais sobre a aula [ASACloudSpatialAnchorSession.](https://docs.microsoft.c
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Saiba mais sobre a aula [DE Configuração ASASession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration)
+Saiba mais sobre a classe [ASASessionConfiguration.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration)
 
 ```swift
     _cloudSession!.configuration.accountKey = "MyAccountKey"
@@ -121,7 +121,7 @@ Saiba mais sobre o método do protocolo [tokenRequired.](https://docs.microsoft.
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
-Saiba mais sobre o método de [início.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start)
+Saiba mais sobre o método [de início.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start)
 
 ```swift
     _cloudSession!.session = self.sceneView.session;
@@ -139,7 +139,7 @@ Saiba mais sobre o método [processFrame.](https://docs.microsoft.com/objectivec
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Saiba mais sobre o método do protocolo atualizado da [sessão.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated)
+Saiba mais sobre o método do protocolo [da sessão.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated)
 
 ```swift
     internal func sessionUpdated(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASASessionUpdatedEventArgs!) {
@@ -213,7 +213,7 @@ Saiba mais sobre a propriedade [appProperties.](https://docs.microsoft.com/objec
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Saiba mais sobre o método [de actualizaçãoAnchorProperties.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties)
+Saiba mais sobre o método [de atualizaçãoAnchorProperties.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties)
 
 ```swift
     var anchor : ASACloudSpatialAnchor? = /* locate your anchor */;
@@ -246,7 +246,7 @@ Saiba mais sobre o método [getAnchorProperties.](https://docs.microsoft.com/obj
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre a propriedade de [validade.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration)
+Saiba mais sobre a propriedade [de validade.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration)
 
 ```swift
     let secondsInAWeek = 60.0 * 60.0 * 24.0 * 7.0
@@ -304,7 +304,7 @@ Saiba mais sobre o método [de eliminação.](https://docs.microsoft.com/objecti
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Saiba mais sobre o método de [paragem.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop)
+Saiba mais sobre o método [de paragem.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop)
 
 ```swift
     _cloudSession!.stop()
@@ -312,7 +312,7 @@ Saiba mais sobre o método de [paragem.](https://docs.microsoft.com/objectivec/a
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Saiba mais sobre o método de [reset.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset)
+Saiba mais sobre o método [de reset.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset)
 
 ```swift
     _cloudSession!.reset()

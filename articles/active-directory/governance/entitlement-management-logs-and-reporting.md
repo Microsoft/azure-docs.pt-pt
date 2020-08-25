@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078191"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783828"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
 
@@ -59,7 +59,7 @@ Os registos de auditoria da Azure AD requer que tenha o Azure Monitor numa subsc
 
 ## <a name="view-events-for-an-access-package"></a>Ver eventos para um pacote de acesso  
 
-Para visualizar eventos para um pacote de acesso, você deve ter acesso ao espaço de trabalho do monitor Azure subjacente (ver [Gerir o acesso a dados de registo e espaços de trabalho em Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para obter informações) e numa das seguintes funções: 
+Para visualizar eventos para um pacote de acesso, você deve ter acesso ao espaço de trabalho do monitor Azure subjacente (ver [Gerir o acesso a dados de registo e espaços de trabalho em Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obter informações) e numa das seguintes funções: 
 
 - Administrador global  
 - Administrador de segurança  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Envie a consulta para o espaço de trabalho Log Analytics
 Finalmente, uma vez identificado um espaço de trabalho, pode utilizar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) para enviar uma consulta kusto para esse espaço de trabalho. Estas consultas estão [escritas na língua de consulta de Kusto.](https://docs.microsoft.com/azure/kusto/query/)
+) para enviar uma consulta kusto para esse espaço de trabalho. Estas consultas estão [escritas na língua de consulta de Kusto.](/azure/kusto/query/)
  
 Por exemplo, pode recuperar o intervalo de datas dos registos de eventos de auditoria a partir do espaço de trabalho Log Analytics, com cmdlets PowerShell para enviar uma consulta como:
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Passos seguintes:
-- [Criar relatórios interativos com livros do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Criar relatórios interativos com livros do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)

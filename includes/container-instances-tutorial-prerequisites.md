@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -9,10 +9,10 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75552427"
 ---
 Tem de cumprir os requisitos seguintes para concluir este tutorial:
@@ -21,7 +21,7 @@ Tem de cumprir os requisitos seguintes para concluir este tutorial:
 
 **Docker**: Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos básicos do `docker`. Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker][docker-get-started].
 
-**Docker**: Para completar este tutorial, precisa do Docker instalado localmente. O Docker oferece pacotes que configuram o ambiente do Docker no [macOS][docker-mac], no [Windows][docker-windows] e no [Linux][docker-linux].
+**Docker**Para completar este tutorial, precisa do Docker instalado localmente. O Docker oferece pacotes que configuram o ambiente do Docker no [macOS][docker-mac], no [Windows][docker-windows] e no [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Uma vez que a shell do Azure Cloud não inclui o daemon do Docker, *tem* de instalar a CLI do Azure e o Motor do Docker no seu *computador local* para concluir este tutorial. Não pode utilizar o Azure Cloud Shell para este tutorial.

@@ -8,14 +8,14 @@ ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85833507"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Configurações de configuração personalizadas para Ambientes de Serviço de Aplicações
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Como os Ambientes de Serviço de Aplicações (ASEs) estão isolados a um único cliente, existem determinadas definições de configuração que podem ser aplicadas exclusivamente a Ambientes de Serviço de Aplicações. Este artigo documenta as várias personalizações específicas que estão disponíveis para Ambientes de Serviço de Aplicações.
 
 Se não tiver um Ambiente de Serviço de Aplicações, consulte [como criar um Ambiente de Serviço de Aplicações.](app-service-web-how-to-create-an-app-service-environment.md)

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
 ms.openlocfilehash: 9bd213b63b69a25fb2530cd8f6659abf5357616a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76694189"
 ---
 ## <a name="set-up-authentication"></a>Configurar autenticação
 
-Para aceder ao serviço, é necessário fornecer uma chave de conta, ficha de acesso ou um token auth Azure Ative Directory. Pode também ler mais sobre isso na página do [conceito de Autenticação.](/azure/spatial-anchors/concepts/authentication)
+Para aceder ao serviço, precisa de fornecer uma chave de conta, um token de acesso ou um token Azure Ative Directory. Pode também ler mais sobre isso na página do [conceito de Autenticação.](/azure/spatial-anchors/concepts/authentication)
 
 ### <a name="account-keys"></a>Chaves de conta
 
-As Chaves de Conta são uma credencial que permite que a sua aplicação se autentique com o serviço Deâncoras Espaciais Azure. O objetivo das Chaves de Conta é ajudá-lo a começar rapidamente. Especialmente durante a fase de desenvolvimento da integração da sua aplicação com âncoras espaciais Azure. Como tal, pode utilizar as Chaves da Conta incorporando-as nas aplicações do seu cliente durante o desenvolvimento. À medida que progride para além do desenvolvimento, é altamente recomendado passar para um mecanismo de autenticação que é ao nível da produção, suportado por Access Tokens, ou autenticação de utilizador do Diretório Ativo Azure. Para obter uma Chave de Conta para desenvolvimento, visite a sua conta De âncoras espaciais Azure e navegue para o separador "Keys".
+As Chaves de Conta são uma credencial que permite que a sua aplicação autente com o serviço Azure Spatial Anchors. O objetivo pretendido das Chaves de Conta é ajudá-lo a começar rapidamente. Especialmente durante a fase de desenvolvimento da integração da sua aplicação com âncoras espaciais Azure. Como tal, pode utilizar as Chaves de Conta incorporando-as nas aplicações do seu cliente durante o desenvolvimento. À medida que progride para além do desenvolvimento, é altamente recomendado mover-se para um mecanismo de autenticação que seja de nível de produção, suportado por Access Tokens ou autenticação do utilizador do Azure Ative Directory. Para obter uma Chave de Conta para o desenvolvimento, visite a sua conta Azure Spatial Anchors e navegue no separador "Chaves".

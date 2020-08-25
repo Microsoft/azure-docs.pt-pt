@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Monitor comunicação de rede utilizando o portal Azure
-description: Neste tutorial, aprenda a monitorizar a comunicação de rede entre duas máquinas virtuais com a capacidade de monitor de ligação do Azure Network Watcher.
+title: Tutorial - Monitorizar a comunicação da rede utilizando o portal Azure
+description: Neste tutorial, aprenda a monitorizar a comunicação de rede entre duas máquinas virtuais com a capacidade do monitor de ligação do Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -16,10 +16,10 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76834659"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
@@ -32,7 +32,7 @@ A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, com
 > * Gerar alertas em métricas de Monitor de Ligação
 > * Diagnosticar um problema de comunicação entre duas VMs e aprender a resolvê-lo
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +46,7 @@ Crie duas VMs.
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione um sistema operativo. Neste tutorial, é utilizado o **Windows Server 2016 Datacenter**.
-3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
+3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
@@ -76,7 +76,7 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 | 3 | Nome                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
-| 6 | Extensões                            | **Agente de observadores de rede para Linux**                                             |
+| 6 | Extensões                            | **Agente observador de rede para Linux**                                             |
 
 A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implementação antes de continuar com os restantes passos.
 
@@ -163,7 +163,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
     Se não sabia que alguém tinha implementado a regra de segurança que criou no passo 4, saberia através do monitor de ligação que a regra está a causar o problema de comunicação. Em seguida, poderia alterar, substituir ou remover a regra, para restaurar a comunicação entre as VMs.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 

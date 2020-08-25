@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611862"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755373"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -175,8 +175,8 @@ A sua operação de backup pode falhar ao fazer o backup de um VM com um tamanho
 
 O teu recente trabalho de reserva falhou porque há um trabalho de reserva em andamento. Não podes começar um novo trabalho de reserva até que o trabalho atual termine. Certifique-se de que a operação de backup em curso está concluída antes de ativar ou agendar outras operações de backup. Para verificar o estado dos trabalhos de reserva, faça os seguintes passos:
 
-1. Inscreva-se no portal Azure, selecione **Todos os serviços**. Serviços de recuperação de tipo e cofres de **serviços de recuperação selecionados.** É apresentada a lista dos cofres dos serviços de recuperação.
-2. Da lista de cofres dos serviços de recuperação, selecione um cofre no qual a cópia de segurança está configurada.
+1. Inscreva-se no portal Azure, selecione **Todos os serviços**. Serviços de recuperação de tipo e cofres de **serviços de recuperação selecionados.** É apresentada a lista dos cofres dos Serviços de Recuperação.
+2. Da lista de cofres dos Serviços de Recuperação, selecione um cofre no qual a cópia de segurança está configurada.
 3. No menu do painel de instrumentos do cofre, selecione **Backup Jobs** exibe todos os trabalhos de backup.
    - Se um trabalho de reserva estiver em andamento, aguarde que complete ou cancele o trabalho de reserva.
      - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e selecione **Cancelar** ou utilizar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).

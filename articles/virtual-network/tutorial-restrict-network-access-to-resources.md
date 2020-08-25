@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74186361"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual através do portal do Azure
@@ -37,7 +37,7 @@ Os pontos finais de serviço de rede virtual permitem-lhe limitar o acesso de re
 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-restrict-network-access-to-resources-cli.md) ou o [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -56,7 +56,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |Subscrição| Selecione a sua subscrição|
    |Grupo de recursos | Selecione **Criar novo** e introduza *myResourceGroup*.|
    |Localização| Selecione **E.U.A. Leste**. |
-   |Nome da Sub-rede| Público|
+   |Nome da Sub-rede| Públicos|
    |Intervalo de Endereços da Sub-rede| 10.0.0.0/24|
    |Proteção contra DDoS| Básico|
    |Pontos finais de serviço| Desativado|
@@ -69,7 +69,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 Os pontos finais de serviço são ativados por serviço, por sub-rede. Crie uma sub-rede e ative um ponto final de serviço para a sub-rede.
 
 1. Na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal, introduzar *myVirtualNetwork.* Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-a.
-2. Adicione uma sub-rede à rede virtual. Em **DEFINIÇÕES,** selecione **Sub-redes**e, em seguida, selecione **+ Subnet,** como mostrado na seguinte imagem:
+2. Adicione uma sub-rede à rede virtual. Em **DEFINIÇÕES**, selecione **sub-redes**e, em seguida, selecione **+ Sub-rede,** como mostra a seguinte imagem:
 
     ![Adicionar sub-rede](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
@@ -77,7 +77,7 @@ Os pontos finais de serviço são ativados por serviço, por sub-rede. Crie uma 
 
     |Definição|Valor|
     |----|----|
-    |Nome| Privado |
+    |Nome| Privada |
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos finais de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
@@ -186,7 +186,7 @@ Por predefinição, as contas de armazenamento aceitam ligações de rede de cli
 
 1. Nas **DEFINIÇÕES** da conta de Armazenamento, selecione **Firewalls e redes virtuais**.
 2. Selecione **Redes selecionadas**.
-3. Selecione **+Adicionar rede virtual existente**.
+3. **Selecione +Adicionar a rede virtual existente.**
 4. Em **Adicionar redes**, selecione os seguintes valores e selecione **Adicionar**:
 
     |Definição|Valor|
@@ -213,7 +213,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
-3. Introduza, ou selecione, as seguintes informações e, em seguida, selecione **OK:**
+3. Introduza ou selecione as seguintes informações e, em seguida, selecione **OK**:
 
    |Definição|Valor|
    |----|----|
@@ -296,7 +296,7 @@ A implementação da VM demora alguns minutos. Não avance para o próximo passo
 
    O acesso é negado porque o computador não está na sub-rede *Privada* da rede virtual *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 

@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533381"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755913"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -338,6 +338,10 @@ Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um uti
 A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento com a versão mínima TLS definida para TLS 1.0 (o padrão para uma nova conta) quando uma política com um efeito Deny requer que a versão mínima TLS seja definida para TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
+
+## <a name="network-considerations"></a>Considerações de rede
+
+Quando um cliente envia um pedido para a conta de armazenamento, o cliente estabelece uma ligação com o ponto final público da conta de armazenamento primeiro, antes de processar quaisquer pedidos. A definição mínima da versão TLS é verificada após a ligação ser estabelecida. Se o pedido utilizar uma versão anterior do TLS do que a especificada pela definição, a ligação continuará a ter sucesso, mas o pedido acabará por falhar. Para obter mais informações sobre os pontos finais públicos para o Armazenamento Azure, consulte [a sintaxe URI de recurso](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Passos seguintes
 

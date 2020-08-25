@@ -1,6 +1,6 @@
 ---
-title: Criar & localizar âncoras no Objectivo-C
-description: Explicação aprofundada de como criar e localizar âncoras utilizando âncoras espaciais azure no Objectivo-C.
+title: Criar & localizar âncoras no Objective-C
+description: Explicação aprofundada de como criar e localizar âncoras utilizando âncoras espaciais Azure no Objectivo-C.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,41 +9,41 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 119cf971a18ce7a9c2f2c22aba18d4dd3d9642ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74277335"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Como criar e localizar âncoras utilizando âncoras espaciais Azure no Objectivo-C
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Como criar e localizar âncoras usando âncoras espaciais Azure no Objective-C
 
 > [!div  class="op_single_selector"]
-> * [Unidade](create-locate-anchors-unity.md)
+> * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-As Âncoras Espaciais Azure permitem-lhe partilhar âncoras no mundo entre diferentes dispositivos. Apoia vários ambientes de desenvolvimento diferentes. Neste artigo, vamos mergulhar em como usar o Azure Spatial Anchors SDK, no Objectivo-C, para:
+As Âncoras Espaciais Azure permitem-lhe partilhar âncoras no mundo entre diferentes dispositivos. Apoia vários ambientes de desenvolvimento diferentes. Neste artigo, vamos mergulhar em como usar o Azure Spatial Anchors SDK, no Objective-C, para:
 
 - Configurar e gerir corretamente uma sessão de Âncoras Espaciais Azure.
-- Crie e coloque propriedades em âncoras locais.
-- Mande-os para a nuvem.
-- Localize e elimine as âncoras espaciais da nuvem.
+- Crie e desacorda propriedades em âncoras locais.
+- Carreguem-nos para a nuvem.
+- Localize e elimine as âncoras espaciais em nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, certifique-se de que tem:
 
-- Leia através da visão geral das [Âncoras Espaciais Azure](../overview.md).
+- Leia a visão geral das [âncoras espaciais de Azure](../overview.md).
 - Completou um dos [Quickstarts de 5 minutos.](../index.yml)
 - Conhecimentos básicos sobre o Objectivo-C.
-- Conhecimentos básicos sobre <a href="https://developer.apple.com/arkit/" target="_blank">ARKit.</a>
+- Conhecimentos básicos sobre <a href="https://developer.apple.com/arkit/" target="_blank">o ARKit.</a>
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Saiba mais sobre a aula [ASACloudSpatialAnchorSession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession)
+Saiba mais sobre a classe [ASACloudSpatialAnchorSession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession)
 
 ```objc
     ASACloudSpatialAnchorSession *_cloudSession;
@@ -53,7 +53,7 @@ Saiba mais sobre a aula [ASACloudSpatialAnchorSession.](https://docs.microsoft.c
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Saiba mais sobre a aula [DE Configuração ASASession.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration)
+Saiba mais sobre a classe [ASASessionConfiguration.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration)
 
 ```objc
     _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -115,7 +115,7 @@ Saiba mais sobre o método do protocolo [tokenRequired.](https://docs.microsoft.
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
-Saiba mais sobre o método de [início.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start)
+Saiba mais sobre o método [de início.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start)
 
 ```objc0
     _cloudSession.session = self.sceneView.session;
@@ -133,7 +133,7 @@ Saiba mais sobre o método [processFrame.](https://docs.microsoft.com/objectivec
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Saiba mais sobre o método do protocolo atualizado da [sessão.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated)
+Saiba mais sobre o método do protocolo [da sessão.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated)
 
 ```objc
     - (void)sessionUpdated:(ASACloudSpatialAnchorSession *)cloudSession :(ASASessionUpdatedEventArgs *)args {
@@ -175,7 +175,7 @@ Saiba mais sobre a classe [ASACloudSpatialAnchor.](https://docs.microsoft.com/ob
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Saiba mais sobre o método [getSessionStatusWithCompletionHandler.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus)
+Saiba mais sobre o método [getSessionStatusWithCompleletionHandler.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus)
 
 ```objc
     [_cloudSession getSessionStatusWithCompletionHandler:^(ASASessionStatus *value, NSError *error) {
@@ -203,7 +203,7 @@ Saiba mais sobre a propriedade [appProperties.](https://docs.microsoft.com/objec
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Saiba mais sobre o método [de actualizaçãoAnchorProperties.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties)
+Saiba mais sobre o método [de atualizaçãoAnchorProperties.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties)
 
 ```objc
     ASACloudSpatialAnchor *anchor = /* locate your anchor */;
@@ -234,7 +234,7 @@ Saiba mais sobre o método [getAnchorProperties.](https://docs.microsoft.com/obj
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre a propriedade de [validade.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration)
+Saiba mais sobre a propriedade [de validade.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration)
 
 ```objc
     int secondsInAWeek = 60 * 60 * 24 * 7;
@@ -292,7 +292,7 @@ Saiba mais sobre o método [deleteAnchor.](https://docs.microsoft.com/objectivec
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Saiba mais sobre o método de [paragem.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop)
+Saiba mais sobre o método [de paragem.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop)
 
 ```objc
     [_cloudSession stop];
@@ -300,7 +300,7 @@ Saiba mais sobre o método de [paragem.](https://docs.microsoft.com/objectivec/a
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Saiba mais sobre o método de [reset.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset)
+Saiba mais sobre o método [de reset.](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset)
 
 ```objc
     [_cloudSession reset];

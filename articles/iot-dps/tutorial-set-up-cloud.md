@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configurar nuvem para o Serviço de Provisionamento de Dispositivos Hub Azure IoT no portal
+title: Tutorial - Configurar nuvem para serviço de fornecimento de dispositivos Azure IoT Hub no portal
 description: Este tutorial mostra como pode configurar os recursos em nuvem para o fornecimento de dispositivos no [portal Azure](https://portal.azure.com) utilizando o Serviço de Provisionamento de Dispositivos IoT Hub (DPS)
 author: wesmc7777
 ms.author: wesmc
@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74976728"
 ---
-# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configure os recursos em nuvem para o fornecimento de dispositivos com o Serviço de Provisionamento de Dispositivos IoT Hub
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos em nuvem para o fornecimento de dispositivos com o Serviço de Provisionamento de Dispositivos IoT Hub
 
 Este tutorial mostra como configurar a cloud para o aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Neste tutorial, ficará a saber como:
 
@@ -25,7 +25,7 @@ Este tutorial mostra como configurar a cloud para o aprovisionamento de disposit
 > * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 > * Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -62,7 +62,7 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia de ligação para o hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Obter corda de ligação para o hub IoT
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -90,7 +90,7 @@ O passo seguinte é ligar o Serviço Aprovisionamento de Dispositivos e de hub I
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de atribuição é uma definição do Serviço de Provisionamento de Dispositivos IoT Hub que determina como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de atribuição é uma definição de Serviço de Provisionamento de Dispositivos IoT Hub que determina como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
 1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
 
@@ -102,7 +102,7 @@ Para definir a política de alocação, na página do Serviço Aprovisionamento 
 
 ![Gerir política de alocação](./media/tutorial-set-up-cloud/iot-dps-manage-allocation.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais desta coleção têm por base este tutorial. Se planeia continuar a trabalhar com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados neste tutorial. Se não quiser continuar, utilize os passos seguintes para eliminar todos os recursos criados por este tutorial no portal do Azure.
 

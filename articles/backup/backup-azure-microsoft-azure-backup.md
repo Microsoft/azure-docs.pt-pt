@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612338"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756015"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -101,7 +101,7 @@ Para editar a definição de replicação de armazenamento:
    * Na lista de recursos, escreva **Serviços de Recuperação**.
    * À medida que começa a escrever, irá filtrar a lista com base na sua entrada. Quando vir **os cofres dos Serviços de Recuperação,** selecione-o.
 
-     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Criar serviços de recuperação passo 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      É apresentada a lista dos cofres dos Serviços de Recuperação.
    * Na lista dos cofres dos Serviços de Recuperação, selecione um cofre.
@@ -135,7 +135,7 @@ Para editar a definição de replicação de armazenamento:
 
     ![Mudança de assistente de início](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. No painel de **infraestruturas Prepare** o painel de infraestruturas que abre, selecione os links **de descarregamento** para instalar o Servidor de Backup Azure e baixe as credenciais de cofre. Utilize as credenciais do cofre durante o registo do Azure Backup Server no cofre dos serviços de recuperação. Os links levam-no ao Centro de Descarregamentos onde o pacote de software pode ser descarregado.
+6. No painel de **infraestruturas Prepare** o painel de infraestruturas que abre, selecione os links **de descarregamento** para instalar o Servidor de Backup Azure e baixe as credenciais de cofre. Utilize as credenciais do cofre durante o registo do Azure Backup Server no cofre dos Serviços de Recuperação. Os links levam-no ao Centro de Descarregamentos onde o pacote de software pode ser descarregado.
 
     ![Preparar infraestruturas para o Servidor de Backup Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Para editar a definição de replicação de armazenamento:
 
     ![Baixar centro 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Uma vez que o tamanho de download de todos os ficheiros em conjunto é > 3G, num link de descarregamento de 10 Mbps pode demorar até 60 minutos para o download ser concluído.
+    Uma vez que o tamanho de download de todos os ficheiros em conjunto é > 3 GB, num link de descarregamento de 10 Mbps pode demorar até 60 minutos para o download ser concluído.
 
 ### <a name="extracting-the-software-package"></a>Extrair o pacote de software
 
@@ -216,7 +216,7 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
     ![Resumo das definições](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. A instalação acontece por fases. Na primeira fase, o Agente de Serviços de Recuperação do Microsoft Azure é instalado no servidor. O assistente também verifica a conectividade da Internet. Se a conectividade da Internet estiver disponível, pode continuar com a instalação. Caso contrário, tem de fornecer detalhes de procuração para se ligar à Internet.
 
-    O próximo passo é configurar o Agente de Serviços de Recuperação do Microsoft Azure. Como parte da configuração, terá de fornecer as suas credenciais de cofre para registar a máquina no cofre dos serviços de recuperação. Também irá fornecer uma palavra-passe para encriptar/desencriptar os dados enviados entre a Azure e as suas instalações. Pode gerar automaticamente uma palavra-passe ou fornecer a sua própria palavra-passe mínima de 16 caracteres. Continue com o assistente até que o agente tenha sido configurado.
+    O próximo passo é configurar o Agente de Serviços de Recuperação do Microsoft Azure. Como parte da configuração, terá de fornecer as suas credenciais de cofre para registar a máquina no cofre dos Serviços de Recuperação. Também irá fornecer uma palavra-passe para encriptar/desencriptar os dados enviados entre a Azure e as suas instalações. Pode gerar automaticamente uma palavra-passe ou fornecer a sua própria palavra-passe mínima de 16 caracteres. Continue com o assistente até que o agente tenha sido configurado.
 
     ![Registar assistente de servidor](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Uma vez concluído o registo do servidor de backup do Microsoft Azure, o assistente de configuração geral procede à instalação e configuração do SQL Server e dos componentes do Servidor de Backup Azure. Uma vez concluída a instalação do componente SQL Server, os componentes do Servidor de Backup Azure são instalados.

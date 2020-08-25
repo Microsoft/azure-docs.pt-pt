@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Monitor e sintonização - Base de Dados Azure para PostgreSQL - Servidor Único'
-description: Este tutorial passa pela monitorização e sintonização na Base de Dados Azure para PostgreSQL - Servidor Único.
+description: Este tutorial percorre a monitorização e afinação na Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74774742"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitore e sintonize Base de Dados Azure para PostgreSQL - Servidor Único
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitor e tune Azure Database for PostgreSQL - Single Server
 
 A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreender e a melhorar o desempenho do servidor. Neste tutorial, vai aprender a:
 > [!div class="checklist"]
@@ -23,7 +23,7 @@ A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreen
 > * Analisar uma base de dados para obter recomendações de desempenho
 > * Aplicar recomendações de desempenho
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Precisa de um servidor da Base de Dados do Azure para PostgreSQL com a versão 9.6 ou 10 do PostgreSQL. Pode seguir os passos no [Tutorial de criação](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]

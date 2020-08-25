@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145759"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783336"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -45,9 +45,9 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 * Se existirem utilizadores que já tenham sido atribuídos a um recurso que quer gerir com um pacote de acesso, confirme que os utilizadores são atribuídos ao pacote de acesso com uma política adequada. Por exemplo, poderá incluir um grupo num pacote de acesso que já tenha utilizadores nesse grupo. Caso esses utilizadores no grupo necessitem de acesso contínuo, têm de ter uma política adequada para os pacotes de acesso para que não percam o acesso ao grupo. Pode atribuir o pacote de acesso ao solicitar que os utilizadores façam o pedido do pacote de acesso que contém esse recurso ou ao atribuir-lhes diretamente o pacote de acesso. Para mais informações, consulte [as definições de pedido de alteração e aprovação para um pacote de acesso.](entitlement-management-access-package-request-policy.md)
 
-* Quando remove um membro de uma equipa, eles também são removidos do Grupo Microsoft 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
+* Quando remove um membro de uma equipa, eles também são removidos do Grupo Microsoft 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](/microsoftteams/office-365-groups#group-membership)
 
-* Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [multi-geo capabilities no OneDrive e SharePoint Online.](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)
+* Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [multi-geo capabilities no OneDrive e SharePoint Online.](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)
 
 ## <a name="access-packages"></a>Pacotes de acesso
 
@@ -69,7 +69,7 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 * Quando um utilizador que ainda não esteja no seu diretório iniciar sessão no portal Os Meus Acessos para pedir um pacote de acesso, confirme que este se autentica com a conta profissional. A conta profissional pode ser uma conta no diretório de recursos ou num diretório incluído numa das políticas do pacote de acesso. Se a conta do utilizador não for uma conta profissional ou se o diretório onde se autenticarem não estiver incluído na política, o utilizador não verá o pacote de acesso. Para mais informações, consulte [Pedir acesso a um pacote de acesso.](entitlement-management-request-access.md)
 
-* Se um utilizador for bloqueado e impedido de iniciar sessão no diretório de recursos, não poderá pedir acesso no portal Os Meus Acessos. Para o utilizador poder pedir acesso, tem de remover o bloqueio de início de sessão no perfil do utilizador. Para remover o bloco de inscrição, no portal Azure, clique no **Diretório Ativo Azure,** clique nos **Utilizadores,** clique no utilizador e, em seguida, clique em **Perfil**. Editar a secção **Definições** e alterar **o sinal de Bloco** para **Nº**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um utilizador utilizando o Azure Ative Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Também pode verificar se o utilizador foi bloqueado devido a uma [política de Proteção de Identidade](../identity-protection/howto-unblock-user.md).
+* Se um utilizador for bloqueado e impedido de iniciar sessão no diretório de recursos, não poderá pedir acesso no portal Os Meus Acessos. Para o utilizador poder pedir acesso, tem de remover o bloqueio de início de sessão no perfil do utilizador. Para remover o bloco de inscrição, no portal Azure, clique no **Diretório Ativo Azure,** clique nos **Utilizadores,** clique no utilizador e, em seguida, clique em **Perfil**. Editar a secção **Definições** e alterar **o sinal de Bloco** para **Nº**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um utilizador utilizando o Azure Ative Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Também pode verificar se o utilizador foi bloqueado devido a uma [política de Proteção de Identidade](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * No portal My Access, se um utilizador for simultaneamente um solicitador e um aprovador, não verá o seu pedido de pacote de acesso na página **aprovação.** Este comportamento é intencional: um utilizador não pode aprovar o seu próprio pedido. Confirme que o pacote de acesso que o utilizar está a pedir tem outros aprovadores configurados na política. Para mais informações, consulte [as definições de pedido de alteração e aprovação para um pacote de acesso.](entitlement-management-access-package-request-policy.md)
 

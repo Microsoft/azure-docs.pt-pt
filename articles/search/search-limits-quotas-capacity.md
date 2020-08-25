@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682615"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749476"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -83,8 +83,8 @@ Os tempos máximos de funcionamento existem para proporcionar equilíbrio e esta
 | Competências máximas <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
 | Carga máxima de indexação por invocação |10.000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/D |Sem limite |Sem limite |
 | Horário mínimo | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
-| Tempo máximo de execução <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
-| Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de bolhas com análise de imagem <sup>5</sup> | 3-10 minutos |Duas horas |Duas horas |Duas horas |Duas horas |N/D  |Duas horas |Duas horas |
+| Tempo máximo de funcionamento| 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
+| Tempo máximo de execução para indexadores com um skillset <sup>5</sup> | 3-10 minutos |Duas horas |Duas horas |Duas horas |Duas horas |N/D  |Duas horas |Duas horas |
 | Indexador blob: tamanho máximo de bolha, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
 | Indexador blob: caracteres máximos de conteúdo extraído de uma bolha |32,000 |64,000 |4 &nbsp; milhões |8 &nbsp; milhões |16 &nbsp; milhões |N/D |4 &nbsp; milhões |4 &nbsp; milhões |
 
@@ -105,7 +105,7 @@ Os tempos máximos de funcionamento existem para proporcionar equilíbrio e esta
 
 O número máximo de mapas de sinónimo varia por nível. Cada regra pode ter até 20 expansões, onde uma expansão é um termo equivalente. Por exemplo, dado "gato", associação com "gatinho", "felino" e "felis" (o género para gatos) contaria como 3 expansões.
 
-| Recurso | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| Recurso | Gratuito | Básico | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mapas máximos de sinónimo |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de regras por mapa |5000 |20 000|20 000 |20 000 |20 000 |20 000 | 20 000 | 20 000  |

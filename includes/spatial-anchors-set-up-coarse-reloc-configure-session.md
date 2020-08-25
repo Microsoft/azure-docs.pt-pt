@@ -5,12 +5,12 @@ ms.date: 09/18/2019
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.openlocfilehash: 574003a150ef294aa6a2ebc035fe48cf877dec66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76545223"
 ---
-## <a name="configure-the-cloud-spatial-anchor-session"></a>Configure a sessão de âncora espacial da nuvem
+## <a name="configure-the-cloud-spatial-anchor-session"></a>Configure a sessão de âncora espacial em nuvem
 
-Trataremos de configurar a sessão de âncora espacial em nuvem a seguir. Na primeira linha, definimos o fornecedor de sensores na sessão. A partir de agora, qualquer âncora que criarmos durante a sessão estará associada a um conjunto de leituras de sensores. Em seguida, instantaneamente um quase dispositivo localizar critérios e inicializá-lo para corresponder aos requisitos de aplicação. Finalmente, instruímos a sessão a utilizar dados de sensores ao localizar âncoras, criando um observador a partir dos nossos critérios de quase-dispositivo.
+Vamos configurar a sessão de âncora espacial em nuvem a seguir. Na primeira linha, definimos o fornecedor de sensores na sessão. A partir de agora, qualquer âncora que criarmos durante a sessão será associada a um conjunto de leituras de sensores. Em seguida, instantaneamos um critério de localização de quase dispositivo e inicializamo-lo para corresponder aos requisitos de aplicação. Finalmente, instruímos a sessão a utilizar dados de sensores ao localizar âncoras, criando um observador a partir dos nossos critérios de quase-dispositivo.

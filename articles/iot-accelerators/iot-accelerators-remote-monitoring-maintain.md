@@ -1,5 +1,5 @@
 ---
-title: Utilize alertas na solução de Monitorização Remota - Azure / Microsoft Docs
+title: Utilizar alertas na solução de Monitorização Remota - Azure / Microsoft Docs
 description: Este tutorial mostra como Utilizar alertas para identificar e corrigir problemas com dispositivos ligados ao acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73890925"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Resolver problemas e corrigir erros do dispositivo
@@ -28,7 +28,7 @@ Neste tutorial:
 > * Investigar um alerta de um dispositivo
 > * Resolver o problema do dispositivo
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -36,11 +36,11 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Na página **Dashboard**, observe que existem alertas de temperatura inesperados provenientes da regra associada aos dispositivos **Protótipo**:
 
-[![Alertas mostrando no tablier](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
+[![Alertas mostrando no painel de instrumentos](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
 Para investigar melhor o problema, escolha a opção **Explorar Alerta** junto ao alerta:
 
-[![Explore o alerta a partir do painel de instrumentos](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
+[![Explore o alerta a partir do tablier](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
 A vista de detalhe do alerta mostra:
 
@@ -48,7 +48,7 @@ A vista de detalhe do alerta mostra:
 * Informações de estado sobre os dispositivos associados ao alerta
 * Telemetria dos dispositivos associados ao alerta
 
-[![Detalhes de alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
+[![Detalhes do alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
 Para reconhecer o alerta, selecione todas as **Ocorrências de alerta** e escolha **Reconhecer**. Esta ação permite que outros operadores saibam que viu o alerta e está a tentar resolver o problema:
 
@@ -58,7 +58,7 @@ Ao reconhecer o alerta, o estado da ocorrência é alterado para **Reconhecido**
 
 Na lista de dispositivos com alertas, pode ver o dispositivo **Protótipo** responsável por acionar o alerta de temperatura do dispositivo:
 
-[![Enumerar os dispositivos que causam o alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
+[![Listar os dispositivos que causam o alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
 ## <a name="resolve-the-issue"></a>Resolver o problema
 
@@ -72,7 +72,7 @@ Escolha **DecreaseTemperature** e defina o nome da tarefa como **DecreaseTempera
 
 [![Criar o trabalho para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-Para acompanhar o estado do trabalho, clique em **Ver o estado**do trabalho . Utilize a vista **Tarefas** para controlar todas as tarefas e chamadas de método na solução:
+Para acompanhar o estado do trabalho, clique em **Ver o estado do trabalho**. Utilize a vista **Tarefas** para controlar todas as tarefas e chamadas de método na solução:
 
 [![Monitorize o trabalho para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
@@ -84,6 +84,6 @@ Pode verificar que a temperatura do dispositivo diminuiu ao ver a telemetria na 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para aprender a ligar um dispositivo real ao seu acelerador de soluções, continue a fazer os artigos de como fazer.
+Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para aprender a ligar um dispositivo real ao seu acelerador de solução, continue para os artigos de como fazer.
 
 Agora que aprendeu a gerir problemas de dispositivos, o próximo passo sugerido é saber como [Ligar o seu dispositivo ao acelerador de soluções de Monitorização Remota](iot-accelerators-connecting-devices.md).

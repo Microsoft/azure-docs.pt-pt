@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034127"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783200"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com as revisões de acesso do Azure AD
 
 
-Com o Azure Ative Directory (Azure AD), pode facilmente permitir a colaboração através dos limites organizacionais utilizando a [funcionalidade Azure AD B2B](../b2b/what-is-b2b.md). Os utilizadores convidados de outros inquilinos podem ser [convidados por administradores](../b2b/add-users-administrator.md) ou por [outros utilizadores.](../b2b/what-is-b2b.md) Esta capacidade também se aplica a identidades sociais, como as contas da Microsoft.
+Com o Azure Ative Directory (Azure AD), pode facilmente permitir a colaboração através dos limites organizacionais utilizando a [funcionalidade Azure AD B2B](../external-identities/what-is-b2b.md). Os utilizadores convidados de outros inquilinos podem ser [convidados por administradores](../external-identities/add-users-administrator.md) ou por [outros utilizadores.](../external-identities/what-is-b2b.md) Esta capacidade também se aplica a identidades sociais, como as contas da Microsoft.
 
 Também pode garantir facilmente que os utilizadores dos hóspedes têm acesso adequado. Você pode pedir aos próprios hóspedes ou um decisor para participar em uma revisão de acesso e recertificar (ou atestar) o acesso dos hóspedes. Os revisores podem dar o seu parecer relativamente à necessidade de acesso contínuo de cada utilizador, com base nas sugestões do Azure AD. Quando uma revisão de acesso estiver terminada, pode então escruexá-las e remover o acesso aos hóspedes que já não precisam.
 
@@ -120,10 +120,3 @@ Em algumas organizações, os hóspedes podem não estar cientes dos seus membro
 ## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
-
-
-
-
-
-
-

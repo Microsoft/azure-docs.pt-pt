@@ -2,17 +2,17 @@
 title: Instalar Atualização no dispositivo da série Azure Data Box Gateway / Microsoft Docs
 description: Descreve como aplicar atualizações utilizando o portal Azure e o UI web local para o dispositivo da série Azure Data Box Gateway
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: v-grpr
-ms.openlocfilehash: 4c17488a875484b2d3dc0e7e8e1045ce8ea75cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802325"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783880"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualize o seu Gateway de Caixa de Dados Azure
 
@@ -63,7 +63,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
   
     ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
@@ -152,6 +152,6 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
    ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu Gateway Azure Data Box](data-box-gateway-manage-users.md).

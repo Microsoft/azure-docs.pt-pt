@@ -1,6 +1,6 @@
 ---
 title: Relocalização grosseira na Unidade
-description: Explicação aprofundada de como criar e localizar âncoras usando relocalização grosseira em C#.
+description: Explicação aprofundada de como criar e localizar âncoras utilizando uma relocalização grosseira em C#.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,32 +9,32 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 5c976bd020d37672c44c89113bf7786e1ccf141b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76548259"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Como criar e localizar âncoras usando relocalização grosseira em C #
 
 > [!div  class="op_single_selector"]
-> * [Unidade](set-up-coarse-reloc-unity.md)
+> * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [Android Java](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 
-As Âncoras Espaciais Azure podem associar dados do sensor no dispositivo, posicionando os dados do sensor com as âncoras que cria. Estes dados também podem ser utilizados para determinar rapidamente se existem âncoras nas proximidades do seu dispositivo. Para mais informações, consulte [a relocalização de Coarse.](../concepts/coarse-reloc.md)
+As Âncoras Espaciais Azure podem associar dados de sensores no dispositivo, posicionando os dados do sensor com as âncoras que cria. Estes dados também podem ser utilizados para determinar rapidamente se existem âncoras nas proximidades do seu dispositivo. Para mais informações, consulte [a relocalização de Coarse.](../concepts/coarse-reloc.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, certifique-se de que tem:
 
 - Conhecimento básico de C#.
-- Leia através da visão geral das [Âncoras Espaciais Azure](../overview.md).
+- Leia a visão geral das [âncoras espaciais de Azure](../overview.md).
 - Completou um dos [Quickstarts de 5 minutos.](../index.yml)
-- Leia através do [Create e localize](../create-locate-anchors-overview.md)as âncoras como .
+- Leia através do [Create e localize as âncoras como fazer.](../create-locate-anchors-overview.md)
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 

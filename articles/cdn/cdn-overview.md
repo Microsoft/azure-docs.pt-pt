@@ -3,7 +3,7 @@ title: O que é uma rede de entrega de conteúdos (CDN)? - Azure | Microsoft Doc
 description: Saiba o que é a Rede de Entrega de Conteúdos (CDN) do Azure e como utilizá-la para fornecer conteúdo de largura de banda alta.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81260457"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783819"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?
-As redes de entrega de conteúdos são redes distribuídas de servidores que podem entregar, de forma eficiente, conteúdos da Web aos utilizadores. As CDNs armazenam os conteúdos em cache em servidores Edge em localizações do ponto de presença (POP) que estão próximas dos utilizadores finais, para minimizar a latência. 
+As redes de entrega de conteúdos (CDN) são redes distribuídas de servidores que podem entregar, de forma eficiente, conteúdos da Web aos utilizadores. O conteúdo em cache da LOJA CDNs em servidores de borda em locais de ponto de presença (POP) que estão perto dos utilizadores finais, para minimizar a latência. 
 
 A Rede de Entrega de Conteúdos (CDN) oferece aos programadores uma solução global para o fornecimento rápido de conteúdo de largura de banda alta aos utilizadores, ao colocar em cache o respetivo conteúdo em nós físicos estrategicamente colocados em todo o mundo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede com os POPs da CDN. Por exemplo, a otimização da rota para ignorar o Protocolo BGP (Border Gateway Protocol).
 
@@ -38,7 +38,7 @@ Para obter uma lista das localizações de nós da CDN atual, veja [Azure CDN PO
 ## <a name="how-it-works"></a>Como funciona
 ![Descrição geral da CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Um utilizador (Alice) solicita um ficheiro (também chamado de ativo) utilizando um _ &lt;&gt;_ URL com um nome especial de domínio, como o nome final .azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
+1. Um utilizador (Alice) solicita um ficheiro (também chamado de ativo) utilizando um URL com um nome de domínio especial, como _ &lt; o nome &gt; de ponto final_.azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
     
 2. Se nenhuns servidores Edge no POP tiverem o ficheiro na respetiva cache, o POP solicita o ficheiro do servidor de origem. O servidor de origem pode ser uma aplicação Web do Azure, um Serviço em Nuvem do Azure, uma conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
    
@@ -64,7 +64,7 @@ Para obter mais informações sobre os limites das subscrições da CDN, veja [C
 ## <a name="azure-cdn-features"></a>Funcionalidades da CDN do Azure
 A CDN do Azure oferece as seguintes funcionalidades principais:
 
-- [Aceleração dinâmica do site](cdn-dynamic-site-acceleration.md)
+- [Aceleração de site dinâmico](cdn-dynamic-site-acceleration.md)
 - [Regras de colocação em cache da CDN](cdn-caching-rules.md)
 - [Suporte de domínio HTTPS personalizado](cdn-custom-ssl.md)
 - [Registos de diagnóstico do Azure](cdn-azure-diagnostic-logs.md)

@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604062"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783608"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -180,7 +180,7 @@ Os alvos típicos para revisão incluem:
 
 * [Aplicações integradas com Azure AD para single sign-on](../manage-apps/what-is-application-management.md) (como SaaS, linha de negócios).
 
-* Membro [do](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) grupo (sincronizado com Azure AD, ou criado em Azure AD ou Office 365, incluindo Microsoft Teams).
+* Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em Azure AD ou Office 365, incluindo Microsoft Teams).
 
 * [Pacote de acesso](/entitlement-management-overview.md) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
 
@@ -389,7 +389,7 @@ As avaliações de acesso podem ser para os membros de um grupo ou para utilizad
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Revisão do plano das funções de recursos Azure AD e Azure
 
-[A Gestão de Identidade Privilegiada (PIM)](../privileged-identity-management/pim-configure.md) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure AD. Isto mantém a lista de funções privilegiadas, tanto em [recursos Azure AD](../users-groups-roles/directory-assign-admin-roles.md) como [Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) muito menores e aumenta a segurança geral do diretório.
+[A Gestão de Identidade Privilegiada (PIM)](../privileged-identity-management/pim-configure.md) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure AD. Isto mantém a lista de funções privilegiadas, tanto em [recursos Azure AD](../users-groups-roles/directory-assign-admin-roles.md) como [Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
 
 O Access Reviews permite que os revisores ateste se os utilizadores ainda precisam de estar numa função. Tal como os comentários de acesso a pacotes de acesso, as avaliações das funções AD do Azure e do recurso Azure estão integradas na experiência do utilizador de administração PIM. Recomendamos que reveja regularmente as seguintes atribuições de funções:
 
@@ -452,9 +452,9 @@ Siga as instruções nos links abaixo:
 
 | Artigos de procedimentos | Descrição |
 | - | - |
- [Criar comentários de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Criar avaliações de acesso para funções privilegiadas da Azure AD em PIM |
-| [Autorreveja o seu acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
-| [Complete uma avaliação de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Ver uma Análise de Acesso e aplicar os resultados |
+ [Criar comentários de acesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas da Azure AD em PIM |
+| [Autorreveja o seu acesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
+| [Complete uma avaliação de acesso](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Ver uma Análise de Acesso e aplicar os resultados |
 
 
 ### <a name="review-azure-resource-roles"></a>Rever funções de recursos do Azure
@@ -467,14 +467,14 @@ Siga as instruções nos links abaixo:
 
 | Artigos de procedimentos| Descrição |
 | - | -|
-| [Criar comentários de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Criar avaliações de acesso para funções privilegiadas de recursos Azure em PIM |
-| [Autorreveja o seu acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
-| [Complete uma avaliação de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Ver uma Análise de Acesso e aplicar os resultados |
+| [Criar comentários de acesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas de recursos Azure em PIM |
+| [Autorreveja o seu acesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
+| [Complete uma avaliação de acesso](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Ver uma Análise de Acesso e aplicar os resultados |
 
 
 ## <a name="use-the-access-reviews-api"></a>Utilize a API de Comentários de Acesso
 
-Consulte [os métodos de API de gráficos](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [verificações de autorização de função e pedido](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interagir e gerir recursos reexuáveis. Os métodos de Avaliação de Acesso na API do Microsoft Graph estão disponíveis tanto para contextos de aplicação como de utilizador. Ao executar scripts no contexto da aplicação, a conta utilizada para executar a API (o princípio do serviço) deve ser concedida a permissão "AccessReview.Read.All" para consultar informações de Comentários de Acesso.
+Consulte [os métodos de API de gráficos](/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [verificações de autorização de função e pedido](/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interagir e gerir recursos reexuáveis. Os métodos de Avaliação de Acesso na API do Microsoft Graph estão disponíveis tanto para contextos de aplicação como de utilizador. Ao executar scripts no contexto da aplicação, a conta utilizada para executar a API (o princípio do serviço) deve ser concedida a permissão "AccessReview.Read.All" para consultar informações de Comentários de Acesso.
 
 As tarefas de Avaliação de Acesso Popular para automatizar utilizando a API do Gráfico para Avaliações de Acesso são:
 
@@ -519,4 +519,3 @@ Conheça as tecnologias abaixo relacionadas.
 
 * [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

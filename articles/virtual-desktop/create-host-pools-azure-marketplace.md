@@ -3,15 +3,15 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 06ac7719c5ada08da37beffa23801a0201f75dc4
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661372"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755488"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -143,7 +143,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
     Se escolher **Advanced,** selecione um grupo de segurança de rede existente que já configura.
 
-10. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Também pode adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam. Se escolher **Não,** os VMs serão unidos ao domínio correspondente ao sufixo do **domínio AD unem-se à UPN**.
+10. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Pode opcionalmente adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam. Se escolher **Não,** os VMs serão unidos ao domínio correspondente ao sufixo do **domínio AD unem-se à UPN**.
 
 11. Na conta de Administrador, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada.
 

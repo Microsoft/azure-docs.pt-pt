@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 006a79c91cd9bfb4c3bbf4a7e0ffb58314af49cc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 56948b700f816c13d35915400658136ffcf48846
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798649"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783591"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recursos para um pacote de acesso na gestão de direitos Azure AD
 
@@ -78,7 +78,7 @@ Pode selecionar qualquer [grupo de segurança AD Azure ou o Grupo Office 365](..
 - O Azure AD não pode alterar a adesão de um grupo que foi sincronizado a partir do Windows Server Ative Directory usando o Azure AD Connect, ou que foi criado no Exchange Online como um grupo de distribuição.  
 - A adesão a grupos dinâmicos não pode ser atualizada adicionando ou removendo um membro, pelo que os membros dinâmicos do grupo não são adequados para utilização com a gestão de direitos.
 
-Para obter mais informações, consulte [Grupos Compare](https://docs.microsoft.com/office365/admin/create-groups/compare-groups) e [Grupos office 365 e Equipas Microsoft](https://docs.microsoft.com/microsoftteams/office-365-groups).
+Para obter mais informações, consulte [Grupos Compare](/office365/admin/create-groups/compare-groups) e [Grupos office 365 e Equipas Microsoft](/microsoftteams/office-365-groups).
 
 1. Nas **funções de recurso Adicionar para aceder à** página do pacote, clique em **Grupos e Equipas** para abrir o painel de grupos Select.
 
@@ -178,7 +178,7 @@ O Azure AD pode atribuir automaticamente aos utilizadores o acesso a um site Onl
 
 Na gestão de direitos, a Azure AD processará alterações a granel para atribuição e recursos nos seus pacotes de acesso várias vezes ao dia. Assim, se fizer uma atribuição ou alterar as funções de recurso do seu pacote de acesso, pode demorar até 24 horas para que essa alteração seja feita em Azure AD, mais o tempo que leva para propagar essas alterações a outros Serviços Microsoft Online ou aplicações SaaS conectadas. Se a sua alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos a aplicar-se em Azure AD, após o que outros componentes AD Azure detetarão então essa alteração e atualização das aplicações SaaS. Se a sua mudança afetar milhares de objetos, a mudança demorará mais tempo. Por exemplo, se tiver um pacote de acesso com 2 aplicações e 100 atribuições de utilizadores, e decidir adicionar uma função de site SharePoint ao pacote de acesso, pode haver um atraso até que todos os utilizadores faziam parte dessa função do site SharePoint. Pode monitorizar o progresso através do registo de auditoria Azure AD, do registo de provisões Azure AD e dos registos de auditoria do site SharePoint.
 
-Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
+Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](/microsoftteams/office-365-groups#group-membership)
 
 ## <a name="next-steps"></a>Passos seguintes
 

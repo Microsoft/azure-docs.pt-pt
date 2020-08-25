@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 author: MarkusVi
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75971862"
 ---
-Permitir uma identidade gerida atribuída ao sistema é uma experiência de um clique. Pode permitir durante a criação de um VM ou nas propriedades de um VM existente.
+Ativar uma identidade gerida atribuída pelo sistema é uma experiência de um clique. Pode ative-lo durante a criação de um VM ou nas propriedades de um VM existente.
 
 ![Criar nova conta de armazenamento](./media/active-directory-msi-tut-enable/identity.png)
 
@@ -24,4 +24,4 @@ Permitir uma identidade gerida atribuída ao sistema é uma experiência de um c
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com)
 
-2. [Criar uma máquina virtual com identidade ativada pelo sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+2. [Criar uma máquina virtual com identidade atribuída ao sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)

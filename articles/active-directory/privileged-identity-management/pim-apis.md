@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e307df95fe4cb18986ed8e68a7f3381c5fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742904"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783523"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Gráfico da Microsoft para Gestão de Identidade Privilegiada (Pré-visualização)
 
-Pode executar tarefas privilegiadas de Gestão de Identidade utilizando as [APIs](https://developer.microsoft.com/graph/docs/concepts/overview) do Gráfico da Microsoft para o Azure Ative Directory. Este artigo descreve conceitos importantes para a utilização das APIs do Gráfico da Microsoft para gestão de identidade privilegiada.
+Pode executar tarefas privilegiadas de Gestão de Identidade utilizando as [APIs](/graph/overview) do Gráfico da Microsoft para o Azure Ative Directory. Este artigo descreve conceitos importantes para a utilização das APIs do Gráfico da Microsoft para gestão de identidade privilegiada.
 
-Para mais informações sobre as APIs do Gráfico da Microsoft, consulte a [referência Azure AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Para mais informações sobre as APIs do Gráfico da Microsoft, consulte a [referência Azure AD Privileged Identity Management API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
 
 > [!IMPORTANT]
 > As APIs na versão /beta no Microsoft Graph estão em pré-visualização e estão sujeitas a alterações. A utilização destas APIs em aplicações de produção não é suportada.
@@ -53,7 +53,7 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
     ![Graph Explorer - modificar permissões](./media/pim-apis/graph-explorer.png)
 
-1. Selecione as caixas de verificação ao lado das permissões que pretende incluir. `PrivilegedAccess.ReadWrite.AzureAD`ainda não está disponível no Graph Explorer.
+1. Selecione as caixas de verificação ao lado das permissões que pretende incluir. `PrivilegedAccess.ReadWrite.AzureAD` ainda não está disponível no Graph Explorer.
 
     ![Graph Explorer - modificar permissões](./media/pim-apis/graph-explorer-modify-permissions.png)
 
@@ -61,4 +61,4 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Referência da Azure AD Gestão de Identidade Privilegiada API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)
+- [Referência da Azure AD Gestão de Identidade Privilegiada API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

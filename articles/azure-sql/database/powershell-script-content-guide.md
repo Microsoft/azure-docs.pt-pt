@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85987328"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Amostras Azure PowerShell para Azure SQL Database e Azure SQL Managed Instance
@@ -32,7 +32,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer A
 
 A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell para a Base de Dados SQL do Azure.
 
-|Ligação|Description|
+|Ligação|Descrição|
 |---|---|
 |**Criar e configurar bases de dados individuais e piscinas elásticas**||
 | [Crie uma única base de dados e configuure uma regra de firewall ao nível do servidor](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell cria uma única base de dados e configura uma regra de firewall IP de nível de servidor. |
@@ -64,7 +64,7 @@ Saiba mais sobre a [AZure PowerShell API de base única.](single-database-manage
 
 A tabela seguinte inclui links para amostrar scripts Azure PowerShell para Azure SQL Managed Instance.
 
-|Ligação|Description|
+|Ligação|Descrição|
 |---|---|
 |**Criar e configurar instâncias geridas**||
 | [Criar e gerir um caso gerido](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script PowerShell mostra-lhe como criar e gerir um caso gerido usando Azure PowerShell. |

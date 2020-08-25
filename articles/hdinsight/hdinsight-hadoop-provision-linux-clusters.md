@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873607"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749870"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -43,7 +43,7 @@ A tabela a seguir mostra os diferentes métodos que pode utilizar para configura
 
 Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 ![hdinsight criar opções personalizadas rápido](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -63,7 +63,7 @@ Os nomes do cluster HDInsight têm as seguintes restrições:
 * O cluster naming scope é para todo o Azure, em todas as subscrições. Assim, o nome do cluster deve ser único em todo o mundo.
 * Os primeiros seis caracteres devem ser únicos dentro de uma rede virtual
 
-#### <a name="region"></a>Região
+#### <a name="region"></a>Region
 
 Não é necessário especificar explicitamente a localização do cluster: O cluster encontra-se no mesmo local que o armazenamento predefinido. Para obter uma lista de regiões apoiadas, selecione a lista de drop-down da **Região** nos [preços hdInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -97,13 +97,13 @@ Com clusters HDInsight, pode configurar duas contas de utilizador durante a cria
 
 O nome de utilizador HTTP tem as seguintes restrições:
 
-* Personagens especiais permitidos: `_` e`@`
+* Personagens especiais permitidos: `_` e `@`
 * Caracteres não permitidos: #;."', \/ '!*?$)[]<>{} [&-=+^^
 * Comprimento máximo: 20
 
 O nome de utilizador SSH tem as seguintes restrições:
 
-* Personagens especiais permitidos: `_` e`@`
+* Personagens especiais permitidos: `_` e `@`
 * Caracteres não permitidos: #;."', \/ '!*?$)[]<>{} [&-=+^^
 * Comprimento máximo: 64
 * Nomes reservados: hadoop, utilizadores, oozie, colmeia, maped, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrador, administrador, administrador, administrador, admin, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, consola, david, convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user4, user, user5, spark,
@@ -133,6 +133,9 @@ Durante a configuração, para o ponto final de armazenamento predefinido, espec
 
 > [!IMPORTANT]
 > Permitir uma transferência segura de armazenamento após a criação de um cluster pode resultar em erros usando a sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster usando uma conta de armazenamento com transferência segura já ativada.
+
+> [!Note]  
+> O Azure HDInsight não transfere, move ou copia automaticamente os seus dados armazenados no Azure Storage de uma região para outra.
 
 ### <a name="metastore-settings"></a>Configurações de metastões
 

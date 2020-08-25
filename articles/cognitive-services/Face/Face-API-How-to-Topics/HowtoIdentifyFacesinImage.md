@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/02/2020
 ms.author: sbowles
 ms.openlocfilehash: 607f67258c5d069590f934891c09ccada780c977
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85918746"
 ---
 # <a name="example-identify-faces-in-images"></a>Exemplo: Identificar rostos em imagens
@@ -99,7 +99,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step-22-detect-faces-and-register-them-to-the-correct-person"></a><a name="step2-2"></a>Passo 2.2: Detetar rostos e registá-los na pessoa correta
+### <a name="step-22-detect-faces-and-register-them-to-the-correct-person"></a><a name="step2-2"></a> Passo 2.2: Detetar rostos e registá-los na pessoa correta
 A deteção é feita pelo envio de um pedido "POST" da Web para a API [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) com o ficheiro de imagem no corpo do pedido HTTP. Quando utiliza a biblioteca do cliente, a deteção facial é feita através de um dos Detect.. Métodos assínc da classe FaceClient.
 
 Para cada face detetada, ligue para [persongroup person person person – Adicione Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) para adicioná-lo à pessoa correta.

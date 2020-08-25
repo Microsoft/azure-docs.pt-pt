@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85848942"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para a MongoDB
@@ -62,7 +62,7 @@ As consultas neste artigo utilizam o documento de exemplo seguinte.
 
 Tendo em conta o documento de família de exemplo acima, a seguinte consulta devolve os documentos em que o campo ID corresponde a `WakefieldFamily`.
 
-**Consulta**
+**Query**
 
 ```bash
 db.families.find({ id: "WakefieldFamily"})
@@ -116,7 +116,7 @@ db.families.find({ id: "WakefieldFamily"})
 
 A seguinte consulta devolve todos os elementos subordinados na família. 
 
-**Consulta**
+**Query**
 
 ```bash 
 db.families.find( { id: "WakefieldFamily" }, { children: true } )
@@ -152,7 +152,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 A consulta seguinte devolve todas as famílias que estão registadas. 
 
-**Consulta**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : true })
@@ -166,7 +166,7 @@ Nenhum documento será devolvido.
 
 A consulta seguinte devolve todas as famílias que não estão registadas. 
 
-**Consulta**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : false })
@@ -215,7 +215,7 @@ db.families.find( { "isRegistered" : false })
 
 A consulta seguinte devolve todas as famílias que não estão registadas e o estado é NY. 
 
-**Consulta**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : false, "address.state" : "NY" })
@@ -264,7 +264,7 @@ db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
 A consulta seguinte devolve todas as famílias em que as classificações de elementos subordinados são 8.
 
-**Consulta**
+**Query**
 
 ```bash
 db.families.find( { children : { $elemMatch: { grade : 8 }} } )
@@ -313,7 +313,7 @@ db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
 A consulta seguinte devolve todas as famílias em que a matriz de elementos subordinados é 3.
 
-**Consulta**
+**Query**
 
 ```bash
 db.Family.find( {children: { $size:3} } )
