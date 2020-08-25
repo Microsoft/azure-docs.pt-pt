@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825584"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -108,7 +108,7 @@ Considere as seguintes orientações ao criar a Política de Backup:
 
 * Retenção a longo prazo:
   * Planejado (requisitos de conformidade) - se souber antecipadamente que os dados são necessários anos a partir do momento atual, então use a retenção a longo prazo.
-  * Não planeado (requisito a pedido) - se não souber com antecedência, use-o a pedido com configurações específicas de retenção personalizadas (estas definições de retenção personalizadas não são impactadas pelas definições de política).
+  * Não planeado (requisito a pedido) - se não souber com antecedência, use-o a pedido com definições específicas de retenção personalizadas (estas definições de retenção personalizadas não são impactadas pelas definições de política).
 
 * Backup a pedido com retenção personalizada - se precisar de fazer uma cópia de segurança não agendada através da política de backup, então pode usar uma cópia de segurança a pedido. Isto pode ser útil para obter backups que não se encaixem na sua cópia de segurança programada ou para obter cópias de segurança granulares (por exemplo, várias cópias de segurança IaaS VM por dia, uma vez que o backup programado permite apenas uma cópia de segurança por dia). É importante notar que a política de retenção definida na política programada não se aplica a backups a pedido.
 
@@ -247,13 +247,13 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
 
 * O Azure Backup fornece um mecanismo de notificação **de alerta incorporado** via e-mail para falhas, avisos e operações críticas. Pode especificar endereços de e-mail individuais ou listas de distribuição para ser notificado quando um alerta é gerado. Também pode escolher se deve ser notificado para cada alerta individual ou agrupar-se numa digestão de hora a hora e, em seguida, ser notificado.
   * Estes alertas são definidos pelo serviço e fornecem suporte para cenários limitados - falhas de backup/restauro, Parar a proteção com retenção de dados/proteção stop com dados de eliminação, e assim por diante. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)
-  * Se for realizada uma operação destrutiva como a proteção stop com os dados de eliminação, é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações não estejam configuradas para o cofre dos Serviços de Recuperação.
+  * Se for realizada uma operação destrutiva como a proteção stop com os dados de eliminação, é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações **não** estejam configuradas para o cofre dos Serviços de Recuperação.
   * Certas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar que se sobreponha a alertas levantados para cada falha, os alertas são consolidados. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)
   * Os alertas incorporados não podem ser personalizados e estão restritos a e-mails definidos no portal Azure.
 
 * Se precisar de **criar alertas personalizados** (por exemplo, alertas de trabalhos bem sucedidos) utilize o Log Analytics. No Azure Monitor, pode criar os seus próprios alertas num espaço de trabalho log analytics. As cargas de trabalho híbridas (DPM/MABS) também podem enviar dados para LA e usar LA para fornecer alertas comuns através de cargas de trabalho apoiadas pela Azure Backup.
 
-* Também pode obter notificações através de **registos**de atividades de cofres incorporados nos Serviços de Recuperação; no entanto, suporta cenários limitados e não é adequado para operações como backup programado, que alinha melhor com registos de recursos do que com registos de atividade. Para saber mais sobre estas limitações e como pode utilizar o espaço de trabalho do Log Analytics para monitorizar e alertar em escala para todas as suas cargas de trabalho protegidas pela Azure Backup, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Também pode obter notificações através de **registos**de atividades de cofres incorporados nos Serviços de Recuperação. No entanto, suporta cenários limitados e não é adequado para operações como backup programado, que se alinha melhor com registos de recursos do que com registos de atividade. Para saber mais sobre estas limitações e como pode utilizar o espaço de trabalho do Log Analytics para monitorizar e alertar em escala para todas as suas cargas de trabalho protegidas pela Azure Backup, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Passos seguintes
 

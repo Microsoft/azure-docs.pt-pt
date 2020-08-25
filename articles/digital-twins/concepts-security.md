@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 973eeebfdf9164cb50cf98ae8edc845a80a7e080
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794506"
+ms.locfileid: "88827533"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -79,7 +79,7 @@ Se um utilizador tentar executar uma ação não permitida pela sua função, po
 
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 
-A Azure Digital Twins fornece encriptação de dados em repouso e em trânsito, tal como está escrito nos nossos centros de dados, e desencripta-os para si à medida que os acede.
+A Azure Digital Twins fornece encriptação de dados em repouso e em trânsito, tal como está escrito nos nossos centros de dados, e desencripta-os para si à medida que os acede. Esta encriptação ocorre utilizando uma chave de encriptação gerida pela Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 

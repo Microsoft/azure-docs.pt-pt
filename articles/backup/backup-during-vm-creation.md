@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586703"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825958"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -60,7 +60,7 @@ Pontos a notar:
 1. Pode utilizar o nome padrão do RG ou editá-lo de acordo com os requisitos da sua empresa.
 2. Você fornece o padrão de nome RG como entrada durante a criação de política de backup VM. O nome RG deve ser do seguinte formato: `<alpha-numeric string>* n <alpha-numeric string>` . 'n' é substituído por um inteiro (a partir de 1) e é utilizado para escalonar se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs hoje.
               ![Escolha o nome ao criar política](./media/backup-during-vm-creation/create-policy.png)
-3. O padrão deve seguir as regras de nomeação RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido da denominação RG.
+3. O padrão deve seguir as regras de nomeação RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido do nome RG.
     1. Os nomes do grupo de recursos só permitem caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Não podem terminar num período.
     2. Os nomes de grupos de recursos podem conter até 74 caracteres, incluindo o nome do RG e o sufixo.
 4. O primeiro `<alpha-numeric-string>` é obrigatório enquanto o segundo após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.

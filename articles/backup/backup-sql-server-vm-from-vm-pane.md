@@ -3,12 +3,12 @@ title: Apoie um SQL Server VM a partir do painel VM
 description: Neste artigo, aprenda a fazer o back bases de dados do SQL Server em máquinas virtuais Azure a partir do painel VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755250"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827482"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Apoie um Servidor SQL a partir do painel VM
 
@@ -60,14 +60,14 @@ Pode ativar a cópia de segurança no seu SQL Server VM a partir do painel **de 
 
 7. Para imagens não-marketplace, o registo pode ser bem sucedido, mas **a cópia de segurança configurada** pode não ser acionada até que a extensão de Backup Azure tenha permissão no SqL Server. Nestes casos, a coluna **de prontidão de reserva** diz **"Não Pronto".** Tem de [atribuir manualmente as permissões apropriadas](backup-azure-sql-database.md#set-vm-permissions) para imagens não-marketplace para que a cópia de segurança possa ser ativada.
 
-    ![A prontidão de backup não está pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
+    ![A prontidão de reserva não está pronta.](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
 8. Para mais operações ou monitorização que precisa de fazer no SQL Server VM, vá ao cofre correspondente dos Serviços de Recuperação. Vá a **Itens de Reserva** para ver todas as bases de dados apoiadas neste cofre, e desencadeie operações como backup a pedido e restauro. Da mesma forma, vá ao **Backup Jobs** para [monitorizar](manage-monitor-sql-database-backup.md) postos de trabalho correspondentes a operações como proteção de configuração, backup e restauro.
 
     ![Ver bases de dados de backup em Itens de Backup](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
->A cópia de segurança não é configurada automaticamente em nenhuma das novas instâncias do SQL Server que podem ser adicionadas posteriormente ao VM protegido. Para configurar o backup das instâncias recém-adicionadas, você precisa ir ao cofre para o qual o VM está registrado e seguir os passos listados [aqui](backup-sql-server-database-azure-vms.md).
+>A cópia de segurança não é configurada automaticamente em nenhuma das novas instâncias do SQL Server que podem ser adicionadas mais tarde ao VM protegido. Para configurar o backup das instâncias recém-adicionadas, você precisa ir ao cofre para o qual o VM está registrado e seguir os passos listados [aqui](backup-sql-server-database-azure-vms.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço de Backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382717"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824734"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -36,7 +36,7 @@ Ao tentar fazer o back up, selecionar uma Conta de Armazenamento para descobrir 
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Por que não posso mudar o cofre para configurar a cópia de segurança para a partilha de ficheiros?
 
-Se a conta de armazenamento já estiver registada com um cofre ou outras ações de ficheiro na conta de armazenamento estão protegidas através de um cofre, não lhe é dada a opção de alterá-la, uma vez que todas as ações de ficheiros numa conta de armazenamento só podem ser protegidas pelo mesmo cofre. Caso queira mudar o cofre, terá de parar a [proteção de todas as ações](manage-afs-backup.md#stop-protection-on-a-file-share) de ficheiros na conta de armazenamento do cofre conectado, [desagregar](manage-afs-backup.md#unregister-a-storage-account) a Conta de Armazenamento e, em seguida, escolher um cofre diferente para proteção.
+Se a conta de armazenamento já estiver registada com um cofre ou outras ações de ficheiro na conta de armazenamento estão protegidas através de um cofre, não lhe é dada a opção de alterá-la. Todas as ações de ficheiros numa conta de armazenamento só podem ser protegidas pelo mesmo cofre. Se quiser mudar o cofre, terá de parar a [proteção de todas as ações](manage-afs-backup.md#stop-protection-on-a-file-share) de ficheiros na conta de armazenamento do cofre conectado, [desagregar](manage-afs-backup.md#unregister-a-storage-account) a Conta de Armazenamento e, em seguida, escolher um cofre diferente para proteção.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso mudar o Cofre para o qual apoio as minhas ações?
 
@@ -97,13 +97,13 @@ Aqui está um exemplo de como isto funciona:
 
 |Tipo de Retenção |Agenda |Retenção  |
 |---------|---------|---------|
-|Diário    |    Todos os dias às 20h    |  100 dias       |
+|Diariamente    |    Todos os dias às 20h    |  100 dias       |
 
 #### <a name="new-policy-modified-p1"></a>Nova Política [P1 modificado]
 
 | Tipo de Retenção | Agenda                       | Retenção |
 | -------------- | ------------------------------ | --------- |
-| Diário          | Todos os dias às 21h              | 50 dias   |
+| Diariamente          | Todos os dias às 21h              | 50 dias   |
 | Semanal         | No domingo, às 21h00              | 3 semanas   |
 | Mensalmente        | Na última segunda-feira às 21h         | 1 mês   |
 | Anualmente         | Em jan no terceiro domingo às 21h | 4 anos   |
@@ -131,14 +131,14 @@ Aqui está um exemplo de como isto funciona:
 
 | Tipo de Retenção | Agenda           | Retenção |
 | -------------- | ------------------ | --------- |
-| Diário          | Todos os dias às 20h | 50 dias   |
+| Diariamente          | Todos os dias às 20h | 50 dias   |
 | Semanal         | Segunda-feira às 20:00  | 3 semanas   |
 
 #### <a name="new-policy-modified-p2"></a>Nova Política [P2 modificado]
 
 | Tipo de Retenção | Agenda               | Retenção |
 | -------------- | ---------------------- | --------- |
-| Diário          | Todos os dias às 21h     | 10 dias   |
+| Diariamente          | Todos os dias às 21h     | 10 dias   |
 | Semanal         | Segunda-feira às 21h      | 2 semanas   |
 | Mensalmente        | Na última segunda-feira às 21h | 2 meses  |
 
@@ -155,6 +155,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo valor **Retenuso Till** especificado no momento da tomada do backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure](troubleshoot-azure-files.md)

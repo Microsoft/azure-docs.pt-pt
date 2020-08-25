@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905602"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824955"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -187,7 +187,7 @@ Pode haver um atraso de até 10 segundos antes que as alterações no seu caso s
 
 Existem limitações adicionais na utilização `JOIN` durante a pré-visualização.
 * Não há subqueries suportados dentro da `FROM` declaração.
-* `OUTER JOIN`a semântica não é suportada, o que significa que se a relação tem uma classificação de zero, então toda a "linha" é eliminada do conjunto de resultados de saída.
+* `OUTER JOIN` a semântica não é suportada, o que significa que se a relação tem uma classificação de zero, então toda a "linha" é eliminada do conjunto de resultados de saída.
 * Durante a pré-visualização, a profundidade transversal do gráfico é limitada a cinco `JOIN` níveis por consulta.
 * A fonte de `JOIN` operações é restrita: a consulta deve declarar os gémeos onde a consulta começa.
 
@@ -222,7 +222,6 @@ Abaixo estão algumas dicas para consulta com Azure Digital Twins.
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Os nomes e valores dos imóveis são sensíveis ao caso, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

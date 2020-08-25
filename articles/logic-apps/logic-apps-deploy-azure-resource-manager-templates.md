@@ -3,16 +3,16 @@ title: Implementar modelos de aplicação lógica
 description: Saiba como implementar modelos de Gestor de Recursos Azure criados para apps Azure Logic
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3ef4275e5b309bb499338fe90c0f527aeaeb71f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501513"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827499"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos do Azure Resource Manager para o Azure Logic Apps
 
@@ -119,13 +119,18 @@ Aqui estão os passos gerais de alto nível para a utilização de Gasodutos Azu
 
 ## <a name="authorize-oauth-connections"></a>Autorizar ligações OAuth
 
-Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-vs-authorization.md). Aqui estão as formas de autorizar ligações OAuth:
+Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, ainda tem de autorizar ou utilizar ligações OAuth pré-autorizadas para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-vs-authorization.md). Aqui ficam algumas sugestões:
 
-* Para implementações automatizadas, pode utilizar um script que forneça o consentimento para cada ligação OAuth. Aqui está um roteiro de exemplo no GitHub no projeto [LogicAppConnectionAuth.](https://github.com/logicappsio/LogicAppConnectionAuth)
+* Pré-autorize e partilhe recursos de conexão API através de aplicações lógicas que estão na mesma região. As ligações API existem como recursos Azure independentemente de aplicações lógicas. Embora as aplicações lógicas tenham dependências de recursos de conexão API, os recursos de conexão API não têm dependências de aplicações lógicas e permanecem depois de eliminar as aplicações lógicas dependentes. Além disso, as aplicações lógicas podem usar ligações API que existem em outros grupos de recursos. No entanto, o Logic App Designer suporta a criação de ligações API apenas no mesmo grupo de recursos que as suas aplicações lógicas.
 
-* Para autorizar manualmente as ligações OAuth, abra a sua aplicação lógica no Logic App Designer, quer no portal Azure, quer no Visual Studio. No designer, autorize as ligações necessárias.
+  > [!NOTE]
+  > Se estiver a considerar partilhar ligações API, certifique-se de que a sua solução pode [lidar com potenciais problemas de estrangulamento](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). O estrangulamento acontece ao nível da ligação, pelo que reutilizar a mesma ligação através de várias aplicações lógicas pode aumentar o potencial de estrangulamento de problemas.
 
-Se utilizar um diretor de [serviço](../active-directory/develop/app-objects-and-service-principals.md) Azure Ative (Azure AD) em vez de autorizar ligações, aprenda a [especificar os parâmetros principais do serviço no seu modelo de aplicação lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* A menos que o seu cenário envolva serviços e sistemas que exijam autenticação multi-factor, pode utilizar um script PowerShell para fornecer consentimento para cada ligação OAuth, executando um trabalhador de integração contínua como uma conta de utilizador normal numa máquina virtual que tem sessões de navegador ativas com as autorizações e consentimento já fornecidos. Por exemplo, pode reutilizar o script de amostra fornecido pelo [projeto LogicAppConnectionAuth no banco de aplicações lógicas GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
+
+* Autorize manualmente as ligações OAuth abrindo a sua aplicação lógica no Logic App Designer, quer no portal Azure, quer no Visual Studio.
+
+* Se utilizar um diretor de [serviço](../active-directory/develop/app-objects-and-service-principals.md) Azure Ative (Azure AD) em vez de autorizar ligações, aprenda a [especificar os parâmetros principais do serviço no seu modelo de aplicação lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## <a name="next-steps"></a>Passos seguintes
 

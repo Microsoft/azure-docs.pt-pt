@@ -4,12 +4,12 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: df5af780730f4f5b972107f50387dc0c58b80eaa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761751"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825856"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
@@ -21,7 +21,7 @@ O novo modelo para Instant Restore fornece as seguintes melhorias de funcionalid
 
 * Capacidade de usar instantâneos tomados como parte de um trabalho de backup que está disponível para recuperação sem esperar que os dados transfiram para o cofre para terminar. Reduz o tempo de espera para as imagens copiarem para o cofre antes de desencadear o restauro.
 * Reduz os tempos de backup e restauro, retendo instantâneos localmente, durante dois dias por padrão. Este valor de retenção de instantâneo padrão é configurável a qualquer valor entre 1 a 5 dias.
-* Suporta tamanhos de disco até 32 TB. A redimensionamento dos discos não é recomendada pela Cópia de Segurança Azure.
+* Suporta tamanhos de disco até 32 TB. A redimensionamento dos discos não é recomendada pela Azure Backup.
 * Suporta discos SSD standard juntamente com discos HDD standard e discos Premium SSD.
 * Capacidade de utilizar uma conta de armazenamento original de VMs não gerido (por disco), ao restaurar. Esta capacidade existe mesmo quando o VM tem discos que são distribuídos por contas de armazenamento. Acelera as operações de restauro para uma grande variedade de configurações de VM.
 * Para a cópia de segurança dos VM que estão a utilizar discos premium não geridos em contas de armazenamento, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para cópias de segurança depois de o primeiro backup estar completo.
@@ -78,7 +78,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 A retenção de instantâneo padrão para cada política está definida em dois dias. O utilizador pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada a cinco dias.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quais são as implicações de custo da restauração instantânea?
 

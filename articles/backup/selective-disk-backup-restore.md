@@ -4,12 +4,12 @@ description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disc
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757443"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824751"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 
@@ -28,7 +28,7 @@ Esta solução é útil particularmente nos seguintes cenários:
 Utilizando o PowerShell ou o Azure CLI, pode configurar a cópia de segurança seletiva do Azure VM.  Utilizando um script, pode incluir ou excluir discos de dados utilizando os seus números LUN.  Atualmente, a capacidade de configurar a cópia de segurança dos discos seletivos através do portal Azure está limitada à opção **de backup OS Disk.** Assim, pode configurar a cópia de segurança do seu VM Azure com o disco OS e excluir todos os discos de dados que lhe estão ligados.
 
 >[!NOTE]
-> O disco SO é adicionado por defeito à cópia de segurança VM e não pode ser excluído.
+> O disco DE é adicionado por defeito à cópia de segurança VM e não pode ser excluído.
 
 ## <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -190,7 +190,7 @@ Quando executar estes comandos, `"diskExclusionProperties": null` verá.
 
 ## <a name="using-powershell"></a>Com o PowerShell
 
-Certifique-se de que está a utilizar a versão 3.7.0 do Azure PS ou superior.
+Certifique-se de que está a utilizar a versão 3.7.0 ou superior do Azure PowerShell.
 
 ### <a name="enable-backup-with-powershell"></a>Ativar backup com PowerShell
 
@@ -293,5 +293,5 @@ A cópia de segurança da máquina virtual Azure segue o modelo de preços exist
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Matriz de suporte da cópia de segurança de uma VM do Azure](backup-support-matrix-iaas.md)
+- [Matriz de suporte para a cópia de segurança da VM do Azure](backup-support-matrix-iaas.md)
 - [Perguntas frequentes-Back up Azure VMs](backup-azure-vm-backup-faq.md)

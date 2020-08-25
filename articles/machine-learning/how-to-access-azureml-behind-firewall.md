@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873641"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827431"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -57,6 +57,7 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | **mcr.microsoft.com** | Registo de contentores da Microsoft para imagens base do estivador |
 | **your-acr-server-name.azurecr.io** | Só é necessário se o registo do seu contentor Azure estiver por detrás da rede virtual. Nesta configuração, é criado um link privado do ambiente da Microsoft para a instância ACR na sua subscrição. Utilize o nome do servidor ACR para o seu espaço de trabalho Azure Machine Learning. |
 | **\*.notebooks.azure.net** | Necessário pelos cadernos no estúdio Azure Machine Learning. |
+| **graph.windows.net** | Necessário para cadernos |
 
 ## <a name="python-hosts"></a>Anfitriões python
 
@@ -78,6 +79,15 @@ Os anfitriões desta secção são utilizados para instalar pacotes R. São nece
 | **Nome do anfitrião** | **Objetivo** |
 | ---- | ---- |
 | **cloud.r-project.org** | Utilizado na instalação de embalagens CRAN. |
+
+## <a name="azure-government-region"></a>Região do Governo de Azure
+
+URLs necessários para as regiões do Governo de Azure.
+
+| **Nome do anfitrião** | **Objetivo** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | A região EUA-Arizona |
+| **usgovvirginia.api.ml.azure.us** | A região EUA-Virgínia |
 
 ## <a name="next-steps"></a>Passos seguintes
 

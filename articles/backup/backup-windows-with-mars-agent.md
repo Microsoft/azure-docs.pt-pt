@@ -3,12 +3,12 @@ title: Fazer o back up das máquinas Do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538637"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825904"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
 
@@ -28,7 +28,7 @@ Neste artigo, aprenderá a:
 * Saiba mais sobre a [arquitetura de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) que executa o agente MARS num servidor secundário de MABS ou Gestor de Proteção de Dados.
 * [Reveja o que é apoiado e o que pode apoiar](backup-support-matrix-mars-agent.md) pelo agente MARS.
 * [Verifique](install-mars-agent.md#verify-internet-access) o acesso à Internet nas máquinas que pretende fazer.
-* Se o agente MARS não estiver instalado, saiba como instalá-lo [aqui](install-mars-agent.md).
+* Se o agente MARS não estiver instalado, aprenda a instalá-lo [aqui.](install-mars-agent.md)
 
 ## <a name="create-a-backup-policy"></a>Criar uma política de backup
 
@@ -53,7 +53,7 @@ Para criar uma política de backup:
     ![Selecione itens para fazer back-up](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Na **página 'Selecionar itens para fazer back up',** selecione **Seguinte**.
-1. Na página **'Agendar Cópia de Segurança** Especificar', especifique quando deve fazer cópias de segurança diárias ou semanais. Em seguida, selecione **Seguinte**.
+1. Na página **'Agendar Cópia de Segurança** Especificar', especifique quando deve fazer cópias de segurança diárias ou semanais. e selecione **Seguinte**.
 
     * Um ponto de recuperação é criado quando um backup é tomado.
     * O número de pontos de recuperação criados no seu ambiente depende do seu horário de reserva.
@@ -65,7 +65,7 @@ Para criar uma política de backup:
 
         ![Estabeleça um horário de backup semanal](./media/backup-configure-vault/week-schedule.png)
 
-1. Na página **'Política de Retenção Seletiva',** especifique como armazenar cópias históricas dos seus dados. Em seguida, selecione **Seguinte**.
+1. Na página **'Política de Retenção Seletiva',** especifique como armazenar cópias históricas dos seus dados. e selecione **Seguinte**.
 
     * As definições de retenção especificam quais os pontos de recuperação para armazenar e quanto tempo os armazenar.
     * Para uma definição de retenção diária, indica que no momento especificado para a retenção diária, o último ponto de recuperação será mantido para o número especificado de dias. Ou pode especificar uma política de retenção mensal para indicar que o ponto de recuperação criado no dia 30 de cada mês deve ser armazenado durante 12 meses.
@@ -155,7 +155,7 @@ Após o acabamento inicial da cópia de segurança, o estado **preenchido do Job
 
 Para obter mais informações, consulte [Criar uma política de backup](#create-a-backup-policy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
 * Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

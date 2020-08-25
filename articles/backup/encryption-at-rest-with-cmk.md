@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763121"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827346"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -60,7 +60,7 @@ Esta secção envolve os seguintes passos:
 O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar o cofre dos Serviços de Recuperação para aceder às chaves de encriptação armazenadas no Cofre da Chave Azure. Para ativar a identidade gerida para o cofre dos Serviços de Recuperação, siga os passos abaixo mencionados.
 
 >[!NOTE]
->Uma vez ativada, a identidade gerida NÃO deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
+>Uma vez ativada, a identidade gerida **não** deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
 
 1. Vá para o cofre dos Serviços de Recuperação -> **Identidade**
 
@@ -138,7 +138,7 @@ Também pode ativar a proteção de eliminação e purga suave através do Power
 > - Todos os passos acima mencionados foram concluídos com sucesso:
 >   - A identidade gerida do cofre dos Serviços de Recuperação foi ativada, e foram atribuídas permissões necessárias
 >   - O Cofre da Chave Azure tem proteção de eliminação e purga ativada
-> - O cofre dos Serviços de Recuperação para o qual pretende ativar a encriptação CMK NÃO tem quaisquer itens protegidos ou registados
+> - O cofre dos Serviços de Recuperação para o qual pretende ativar a encriptação CMK **não tem** quaisquer itens protegidos ou registados
 
 Uma vez assegurados os acima, continue a selecionar a chave de encriptação para o seu cofre.
 
@@ -232,7 +232,7 @@ Ao executar uma restauração de ficheiros, os dados restaurados serão encripta
 
 Ao restaurar a partir de uma base de dados SAP HANA/SQL com rede de apoio que funciona num Azure VM, os dados restaurados serão encriptados utilizando a chave de encriptação utilizada no local de armazenamento do alvo. Pode ser uma chave gerida pelo cliente ou uma chave gerida pela plataforma usada para encriptar os discos do VM.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>Posso encriptar um cofre de reserva existente com chaves geridas pelo cliente?
 
@@ -252,7 +252,7 @@ Não, este artigo discute apenas a encriptação de dados de backup. Para a recu
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Perdi um dos passos deste artigo e fui proteger a minha fonte de dados. Ainda posso usar encriptação CMK?
 
-Não seguir os passos do artigo e continuar a proteger itens pode levar a que o cofre não possa usar encriptação utilizando chaves geridas pelo cliente. Por isso, recomenda-se que consulte [esta lista de verificação](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar a proteger os itens.
+Não seguir os passos do artigo e continuar a proteger os itens pode levar a que o cofre não possa utilizar a encriptação utilizando as teclas geridas pelo cliente. Por isso, recomenda-se que consulte [esta lista de verificação](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar a proteger os itens.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>A utilização da encriptação CMK aumenta o custo das minhas cópias de segurança?
 

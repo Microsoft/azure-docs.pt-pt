@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827227"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Registos e métricas do Azure Firewall
 
@@ -115,17 +115,17 @@ As seguintes métricas estão disponíveis para Azure Firewall:
   - Estado: Os valores possíveis são *saudáveis,* *degradados,* *insalubres.*
   - Razão: Indica o motivo do estado correspondente da firewall. 
 
-     Se as portas SNAT forem utilizadas > 95%, são consideradas exaustas e a saúde é de 50% com estatuto=**Degradada** e razão=**porta SNAT**. A firewall mantém o tráfego de processamento e as ligações existentes não são afetadas. No entanto, novas ligações não podem ser estabelecidas intermitentemente.
+     Se as portas SNAT forem utilizadas > 95%, são consideradas exaustas e a saúde é de 50% com estatuto=**Degradada** e razão=**porta SNAT**. A firewall mantém o tráfego de processamento e as ligações existentes não são afetadas. No entanto, as novas ligações podem não ser estabelecidas intermitentemente.
 
      Se as portas SNAT forem utilizadas < 95%, então a firewall é considerada saudável e a saúde é mostrada como 100%.
 
-     Se não for reportada qualquer utilização de portas SNAT, a saúde é mostrada como 0%. 
+     Se não for reportada qualquer utilização da portas SNAT, o estado de funcionamento será mostrada como 0%. 
 
 - **Utilização da porta SNAT** - A percentagem de portas SNAT que foram utilizadas pela firewall.
 
     Unidade: por cento
 
-   Quando adiciona mais endereços IP públicos à sua firewall, estão disponíveis mais portas SNAT, reduzindo a utilização das portas SNAT. Adicionalmente, quando a firewall se escala por diferentes razões (por exemplo, CPU ou saída) também ficam disponíveis portas SNAT adicionais. Assim, efetivamente, uma dada percentagem de utilização das portas SNAT pode diminuir sem que você adicione quaisquer endereços IP públicos, apenas porque o serviço escalou para fora. Pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis na sua firewall. Mas não se pode controlar diretamente a escala de firewall. Atualmente, as portas SNAT são adicionadas apenas para os primeiros cinco endereços IP públicos.   
+   Quando adiciona mais IPs públicos à firewall, estão disponíveis mais portas SNAT, o que reduz a utilização das portas SNAT. Além do mais, quando a firewall aumenta horizontalmente por diferentes motivos (por exemplo, devido à CPU ou ao débito), também ficam disponíveis portas SNAT adicionais. Assim, efetivamente, uma dada percentagem de utilização das portas SNAT pode diminuir sem que você adicione quaisquer endereços IP públicos, apenas porque o serviço escalou para fora. Pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis na sua firewall. Mas não se pode controlar diretamente a escala de firewall.
 
 
 ## <a name="next-steps"></a>Passos seguintes

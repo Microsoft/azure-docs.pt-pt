@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762849"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827244"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -30,7 +30,7 @@ Em algumas circunstâncias, o serviço de backup Azure aciona cópias de seguran
 - Se optar por substituir a base de dados durante o Restauro, a cópia de segurança de registo/diferencial seguinte falha e é ativada uma cópia de segurança completa.
 - Nos casos em que é necessária uma cópia de segurança completa para repor as cadeias de registos devido à alteração do modelo de recuperação da base de dados, um completo é ativado automaticamente no horário seguinte.
 
-A cura automática como capacidade é ativada para todos os utilizadores por predefinição; No entanto, no caso de optar por não o fazer, então execute o seguinte:
+A cura automática como capacidade é ativada por padrão para todos os utilizadores. No entanto, se optar por não o fazer, então execute os seguintes passos:
 
 - Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js** no** ficheiro.
 - No **ExtensionSettingsOverrides.jsem**, definir *{"EnableAutoHealer": falso}*.
@@ -39,7 +39,7 @@ A cura automática como capacidade é ativada para todos os utilizadores por pre
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas são executadas no servidor SQL?
 
-Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
+Yes. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
 1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
 2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
@@ -56,7 +56,7 @@ O valor predefinido de DefaultBackupTasksThreshold é **de 20**.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso fazer uma cópia de segurança de uma réplica secundária?
 
-According to SQL limitations, you can run Copy Only Full backup on Secondary Replica; no entanto, não é permitido um backup completo.
+According to SQL limitations, you can run Copy Only Full backup on Secondary Replica. No entanto, não é permitido um reforço completo.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
 

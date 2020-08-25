@@ -3,19 +3,19 @@ title: Fazer o back up em VMs Azure Stack
 description: Utilize o Azure Backup para fazer backup e recuperar ficheiros e aplicações do Azure Stack para o ambiente Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b45e3a0916f46f247503ea336105646f5538246c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263134"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825805"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer o back up ficheiros e aplicações no Azure Stack
 
 Pode utilizar o Azure Backup para proteger (ou fazer backup) ficheiros e aplicações no Azure Stack. Para fazer backup de ficheiros e aplicações, instale o Microsoft Azure Backup Server como uma máquina virtual em funcionamento no Azure Stack. Pode proteger os ficheiros de qualquer servidor Azure Stack na mesma rede virtual. Depois de ter instalado o Azure Backup Server, adicione discos Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. O Azure Backup Server utiliza o armazenamento Azure para retenção a longo prazo.
 
 > [!NOTE]
-> Embora o Azure Backup Server e o System Center Data Protection Manager (DPM) sejam semelhantes, o DPM não é suportado para utilização com a Azure Stack.
+> Embora o Azure Backup Server e o System Center Data Protection Manager (DPM) sejam semelhantes, o DPM não é suportado para uso com Azure Stack.
 >
 
 Este artigo não cobre a instalação do Azure Backup Server no ambiente Azure Stack. Para instalar o Servidor de Backup Azure no Azure Stack, consulte o artigo, instalando o [Servidor de Backup do Azure](backup-mabs-install-azure-stack.md).

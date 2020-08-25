@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Saiba como fazer o back up do estado do sistema dos computadores windows server para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263049"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824467"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -98,7 +98,7 @@ Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
 > [!NOTE]
-> A permissão da cópia de segurança através do portal do Azure ainda não está disponível. Utilize o Agente de Serviços de Recuperação do Microsoft Azure para fazer o sistema do Windows Server State.
+> A ajuda de cópias de segurança através do portal Azure não está disponível. Utilize o Agente de Serviços de Recuperação do Microsoft Azure para fazer o sistema do Windows Server State.
 >
 
 1. Localize e faça duplo clique em **MARSagentinstaller.exe** na pasta Transferências (ou noutra localização guardada).
@@ -116,7 +116,7 @@ Agora que criaste um cofre, configura-o para apoiar o Windows System State.
    * Guarde a frase de acesso de encriptação numa localização segura.
 
      > [!NOTE]
-     > Se perder ou se esquecer da frase de acesso, a Microsoft não o pode ajudar a recuperar os dados de cópia de segurança. Guarde o ficheiro numa localização segura. É necessário para restaurar uma cópia de segurança.
+     > Se perder ou esquecer a palavra-passe, a Microsoft não pode ajudar a recuperar os dados de backup. Guarde o ficheiro numa localização segura. É necessário restaurar uma reserva.
      >
      >
 
@@ -132,7 +132,7 @@ A cópia de segurança inicial inclui duas tarefas:
 Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de Recuperação do Microsoft Azure.
 
 > [!NOTE]
-> Pode fazer o back up System State no Windows Server 2008 R2 através do Windows Server 2016. O back up do Estado do Sistema não é suportado em SKUs clientes. O Estado do Sistema não é apresentado como uma opção para clientes Windows ou máquinas SP2 do Windows Server 2008.
+> Pode fazer o back up System State no Windows Server 2008 R2 através do Windows Server 2016. O sistema de back-up não é suportado em SKUs clientes. O Sistema State não é apresentado como uma opção para clientes Windows ou máquinas SP2 do Windows Server 2008.
 >
 >
 
