@@ -117,6 +117,8 @@
           href: network-security.md
 - name: Guias de procedimentos
   items:
+    - name: Mover entre regiões
+      href: move-across-regions.md
     - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
       href: deprecate-service-bus-management.md
     - name: Criar um espaço de nomes

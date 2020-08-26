@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: ea9b89a92aa271065a59de561dc684263ce1cdc4
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: eb7d7c911fc099a5f3b5456d7fb77688e0b06af5
+  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87829038"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88816478"
 highlightedContent:
   items:
   - title: Criar uma máquina virtual do Linux com a CLI do Azure
@@ -30,7 +30,7 @@ highlightedContent:
     url: ../virtual-machine-scale-sets/quick-create-portal.md
   - title: VMs do Spot - tire partido da nossa capacidade não utilizada com uma poupança de custos significativa.
     itemType: concept
-    url: ./linux/spot-vms.md
+    url: ./spot-vms.md
   - title: Anfitriões dedicados - servidores físicos para alojar uma ou mais máquinas virtuais.
     itemType: concept
     url: ./linux/dedicated-hosts.md

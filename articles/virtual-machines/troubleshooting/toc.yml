@@ -195,7 +195,7 @@
     - name: Descrição geral
       href: ../managed-disks-overview.md
     - name: FAQ
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: Erros ao eliminar os recursos de armazenamento
       href: storage-resource-deletion-errors.md
     - name: Erros ao eliminar os recursos de armazenamento clássicos
