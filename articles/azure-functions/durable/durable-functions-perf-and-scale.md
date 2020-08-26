@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033586"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853698"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -48,7 +48,7 @@ As filas de controlo contêm uma variedade de tipos de mensagens de ciclo de vid
 
 A extensão de tarefa durável implementa um algoritmo de back-off exponencial aleatório para reduzir o efeito da votação em fila ociosa nos custos de transação de armazenamento. Quando uma mensagem é encontrada, o tempo de execução verifica imediatamente outra mensagem; quando nenhuma mensagem é encontrada, espera por um período de tempo antes de tentar novamente. Após tentativas falhadas subsequentes de obter uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo máximo de espera, o que não chega a 30 segundos.
 
-O máximo de atraso nas sondagens é configurável através da `maxQueuePollingInterval` propriedade nahost.jsem [arquivo](../functions-host-json.md#durabletask). Definir esta propriedade a um valor mais elevado pode resultar em latências de processamento de mensagens mais elevadas. As latências mais elevadas só seriam esperadas após períodos de inatividade. A fixação desta propriedade a um valor mais baixo pode resultar em custos de armazenamento mais elevados devido ao aumento das transações de armazenamento.
+O máximo de atraso nas sondagens é configurável através da `maxQueuePollingInterval` propriedade nahost.jsem [ arquivo](../functions-host-json.md#durabletask). Definir esta propriedade a um valor mais elevado pode resultar em latências de processamento de mensagens mais elevadas. As latências mais elevadas só seriam esperadas após períodos de inatividade. A fixação desta propriedade a um valor mais baixo pode resultar em custos de armazenamento mais elevados devido ao aumento das transações de armazenamento.
 
 > [!NOTE]
 > Ao executar os planos Azure Functions Consumption and Premium, o [Controlador de Escala de Funções Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) irá sondar cada fila de controlo e de produto de trabalho uma vez a cada 10 segundos. Esta sondagem adicional é necessária para determinar quando ativar instâncias de aplicações de função e tomar decisões de escala. No momento da escrita, este intervalo de 10 segundos é constante e não pode ser configurado.
@@ -192,7 +192,7 @@ No exemplo anterior, um máximo de 10 funções de orquestrador ou entidade e 10
 
 As sessões estendidas são um cenário que mantém as orquestrações e entidades na memória mesmo depois de terminarem o processamento de mensagens. O efeito típico de permitir sessões prolongadas é reduzido I/O contra a conta de Armazenamento Azure e melhoramento geral.
 
-Pode ativar sessões prolongadas definindo `durableTask/extendedSessionsEnabled` para ohost.js`true` **no** ficheiro. A `durableTask/extendedSessionIdleTimeoutInSeconds` definição pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
+Pode ativar sessões prolongadas definindo `durableTask/extendedSessionsEnabled` para ohost.js`true` ** no** ficheiro. A `durableTask/extendedSessionIdleTimeoutInSeconds` definição pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
 
 **Funções 2.0**
 ```json
@@ -224,6 +224,10 @@ Há duas potenciais desvantagens deste cenário a ter em conta:
 Como exemplo, se `durableTask/extendedSessionIdleTimeoutInSeconds` estiver definido para 30 segundos, então um episódio de função orquestrador ou de entidade de curta duração que executa em menos de 1 segundo ainda ocupa a memória por 30 segundos. Também conta contra a `durableTask/maxConcurrentOrchestratorFunctions` quota mencionada anteriormente, potencialmente impedindo que outras funções de orquestrador ou entidade funcionem.
 
 Os efeitos específicos das sessões alargadas nas funções de orquestrador e de entidade são descritos nas secções seguintes.
+
+> [!NOTE]
+> Atualmente, as sessões alargadas só são suportadas em línguas .NET, como C# ou F#. A definição `extendedSessionsEnabled` `true` para outras plataformas pode levar a problemas de tempo de execução, tais como falhas silenciosas na execução de atividades e funções desencadeadas por orquestração.
+
 
 ### <a name="orchestrator-function-replay"></a>Repetição da função orquestradora
 

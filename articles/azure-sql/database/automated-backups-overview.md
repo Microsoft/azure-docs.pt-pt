@@ -5,18 +5,18 @@ description: Azure SQL Database e Azure SQL Managed Instance criam automaticamen
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756729"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853204"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -46,7 +46,14 @@ A opção de configurar a redundância de armazenamento de backup proporciona a 
 > [!IMPORTANT]
 > Em SQL Managed Instance, o despedimento de backup configurado é aplicado tanto a definições de retenção de backup de curto prazo que são usadas para restaurar pontual (PITR) e backups de retenção a longo prazo utilizados para backups de longo prazo (LTR).
 
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível como uma pré-visualização privada limitada para certos clientes na região do Sudeste Asiático Azure. Se quiser ser considerado para inscrição nesta pré-visualização privada, [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) contacte. 
+
+Se as suas regras de proteção de dados exigirem que as suas cópias de segurança estejam disponíveis por um período prolongado (até 10 anos), pode configurar [a retenção a longo prazo](long-term-retention-overview.md) para bases de dados individuais e agimidas.
+
 ### <a name="backup-usage"></a>Utilização de backup
+
 
 Pode utilizar estas cópias de segurança para:
 
