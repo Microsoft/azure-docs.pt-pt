@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285208"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869444"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -143,13 +143,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--excluir-padrão** excluir ficheiros onde o nome corresponde à lista de padrões. Por exemplo: `*.jpg;*.pdf;exactName`
 
-**...ajuda** para sincronizar.
+**...ajuda**    para sincronizar.
 
 **--incluir-atributos (apenas** Windows) Inclui apenas ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: `A;S;R`
 
 **-- incluir** a cadeia de padrão Inclua apenas ficheiros onde o nome corresponde à lista de padrões. Por exemplo: `*.jpg;*.pdf;exactName`
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: `INFO` (todos os pedidos e respostas), `WARNING` (respostas lentas), `ERROR` (apenas pedidos falhados) e `NONE` (sem registos de saída). (predefinição). `INFO` 
+
+**--preservar-smb-info**     Falso por defeito.Preserva a informação de propriedade SMB (última hora de escrita, tempo de criação, atributo bits) entre recursos conscientes de SMB (Windows e Azure Files).Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas de ficheiro (por exemplo, incluir o padrão).A informação transferida para pastas é a mesma que para ficheiros, com exceção da Última Hora de Escrita que não está preservada para pastas.
+
+**---conserva-smb-permissões**     Falso por defeito.Preserva acls SMB entre recursos conscientes (Windows e Azure Files).Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas para ficheiros (por exemplo,  `include-pattern` ).
 
 **--put-md5**     Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade do Conteúdo-MD5 da bolha de destino ou ficheiro. (Por defeito, o haxixe NÃO é criado.) Só disponível no upload.
 
@@ -165,6 +169,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcopia](storage-ref-azcopy.md)

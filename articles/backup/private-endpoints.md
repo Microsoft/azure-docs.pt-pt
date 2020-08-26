@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826655"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871552"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -21,7 +21,7 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 - Os pontos finais privados só podem ser criados para novos cofres dos Serviços de Recuperação (que não têm quaisquer itens registados no cofre). Por isso, os pontos finais privados devem ser criados antes de tentar proteger quaisquer itens para o cofre.
 - Uma rede virtual pode conter pontos finais privados para vários cofres dos Serviços de Recuperação. Além disso, um cofre dos Serviços de Recuperação pode ter pontos finais privados para ele em várias redes virtuais. No entanto, o número máximo de pontos finais privados que podem ser criados para um cofre é de 12.
 - Assim que um ponto final privado for criado para um cofre, o cofre será bloqueado. Não será acessível (para cópias de segurança e restauros) a partir de redes para além das que contêm um ponto final privado para o cofre. Se todos os pontos finais privados do cofre forem removidos, o cofre estará acessível a partir de todas as redes.
-- Uma ligação de ponto final privado para cópia de segurança utiliza um total de 11 IPs privados na sua sub-rede. Este número pode ser superior (até 25) para certas regiões de Azure. Por isso, sugerimos que tenha iPs privados suficientes disponíveis quando tentar criar pontos finais privados para backup.
+- Uma ligação de ponto final privado para cópia de segurança utiliza um total de 11 IPs privados na sua sub-rede, incluindo os utilizados pela Azure Backup para armazenamento. Este número pode ser superior (até 25) para certas regiões de Azure. Por isso, sugerimos que tenha iPs privados suficientes disponíveis quando tentar criar pontos finais privados para backup.
 - Enquanto um cofre de Serviços de Recuperação é usado por (ambos) Azure Backup e Azure Site Recovery, este artigo discute o uso de pontos finais privados apenas para Azure Backup.
 - O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para que o Azure Ative Directory funcione numa região terá de ser autorizado a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de desativar a Polícia de Rede antes de continuar.

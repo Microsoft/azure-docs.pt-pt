@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827074"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871263"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 
@@ -50,7 +50,7 @@ Se acidentalmente apagar um ficheiro e quiser restaurá-lo na mesma máquina (a 
    > A opção de restaurar ficheiros e pastas individuais requer .NET Framework 4.5.2 ou posterior. Se não vir a opção **Ficheiros e pastas Individuais,** tem de atualizar o Quadro .NET para a versão 4.5.2 ou posterior, e tentar novamente.
 
    > [!TIP]
-   > A opção **ficheiros e pastas individuais** permite um rápido acesso aos dados do ponto de recuperação. É adequado para a recuperação de ficheiros individuais, com tamanhos não superiores a 80 GB, e oferece velocidades de transferência ou cópia até 6 MBps durante a recuperação. A opção **Volume** recupera todos os dados com o armazenamento num volume especificado. Esta opção fornece velocidades de transferência mais rápidas (até 40 MBps), o que é ideal para recuperar dados de grandes dimensões ou volumes inteiros.
+   > A opção **ficheiros e pastas individuais** permite um rápido acesso aos dados do ponto de recuperação. É adequado para a recuperação de ficheiros individuais e é recomendado para um tamanho total inferior a 80 GB. Oferece velocidades de transferência ou cópia até 6 MBps durante a recuperação. A opção **Volume** recupera todos os dados com o armazenamento num volume especificado. Esta opção fornece velocidades de transferência mais rápidas (até 40 MBps), e é recomendada para a recuperação de dados de grandes dimensões ou volumes inteiros.
 
 5. Na página **'Selecionar Volume e Data',** selecione o volume que contém os ficheiros e pastas que pretende restaurar.
 

@@ -3,12 +3,12 @@ title: Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs
 description: A DevTest Labs integra-se agora com o Azure Bastion, como proprietário do laboratório, podendo aceder a todas as máquinas virtuais de laboratório através de um browser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272356"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870498"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs 
 A DevTest Labs integra-se com [o Azure Bastion,](../bastion/index.yml)que permite ligar-se às suas máquinas virtuais através de um browser. Primeiro, tem de ativar a ligação do navegador em máquinas virtuais de laboratório.
@@ -19,14 +19,12 @@ Como proprietário de um laboratório, pode permitir o acesso a todas as máquin
 Este artigo mostra como ativar a ligação do navegador em máquinas virtuais de laboratório.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Ou implantar um anfitrião bastonário na rede virtual **(OR)** do seu laboratório existente, ligue o seu laboratório a uma rede virtual configurada pelo Bastião. 
-
-Para aprender a implantar um anfitrião bastonário numa rede virtual, consulte [Criar um hospedeiro Azure Bastion](../bastion/bastion-create-host-portal.md). Ao criar o anfitrião do Bastião, selecione a rede virtual do laboratório. 
-
-Em primeiro lugar, é necessário criar uma segunda sub-rede na rede virtual de Bastião porque o AzureBastionSubnet não permite a criação de recursos não bastonários na mesma. 
+- Ou implantar um anfitrião bastonário na rede virtual **(OR)** do seu laboratório existente, ligue o seu laboratório a uma rede virtual configurada pelo Bastião.
+Para aprender a implantar um anfitrião bastonário numa rede virtual, consulte  [Criar um hospedeiro Azure Bastion](../bastion/bastion-create-host-portal.md). Ao criar o anfitrião do Bastião, selecione a rede virtual do laboratório. 
+- O utilizador do laboratório precisa de ter um papel **de Leitor** no anfitrião do Bastião e na rede virtual que tem o Bastião configurado. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub-rede na rede virtual De Bastião
-Não se pode criar VMs de laboratório numa sub-rede do Azure Bastion. Criar outra sub-rede dentro da rede virtual De Bastião, como mostrado na seguinte imagem:
+Em primeiro lugar, é necessário criar uma segunda sub-rede na rede virtual de Bastião porque o AzureBastionSubnet não permite a criação de recursos não bastonários na mesma. Criar outra sub-rede dentro da rede virtual De Bastião, como mostrado na seguinte imagem:
 
 ![Segunda sub-rede na rede virtual Azure Bastion](./media/connect-virtual-machine-through-browser/second-subnet.png)
 
@@ -64,5 +62,5 @@ Para ativar a ligação do navegador em máquinas virtuais de laboratório, siga
 
     ![Ativar a ligação do navegador](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Consulte o seguinte artigo para saber como se conectar aos seus VMs utilizando um browser: [Conecte-se às suas máquinas virtuais através de um browser](connect-virtual-machine-through-browser.md)

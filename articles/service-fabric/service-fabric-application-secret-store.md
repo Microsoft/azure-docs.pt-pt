@@ -3,16 +3,19 @@ title: Loja central de segredos de tecido de serviço Azure
 description: Este artigo descreve como usar a Central Secrets Store em Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197771"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869760"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Loja Central de Segredos em Tecido de Serviço Azure 
 Este artigo descreve como usar a Central Secrets Store (CSS) no Azure Service Fabric para criar segredos em aplicações de Tecido de Serviço. CSS é uma cache de loja secreta local que mantém dados sensíveis, tais como uma palavra-passe, fichas e chaves, encriptados na memória.
 
+  > [!NOTE] 
+  > Ao ativar o CSS pela primeira vez antes da versão SF 7.1. CU3, a ativação pode falhar e deixar o CSS num estado permanentemente insalubre se: CSS for ativado num cluster autenticado do Windows; O CSS é ativado em qualquer cluster mas `EncryptionCertificateThumbprint` é declarado incorretamente ou o certificado correspondente não é instalado / ACL-ed em nós. Para o cluster Windows Auth, por favor venha para o 7.1. CU3 antes de prosseguir. Para outros agrupamentos, verifique duas vezes estes invariantes ou venha para o 7.1. CU3.
+  
 ## <a name="enable-central-secrets-store"></a>Ativar a Central Secrets Store
 Adicione o seguinte script à sua configuração de cluster `fabricSettings` para ativar o CSS. Recomendamos que utilize um certificado que não seja um certificado de cluster para CSS. Certifique-se de que o certificado de encriptação está instalado em todos os nós e que `NetworkService` leu a permissão para a chave privada do certificado.
   ```json
@@ -125,5 +128,5 @@ O seguinte corte é o **ApplicationManifest.xml**modificado .
    </EnvironmentVariables>
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [aplicações e segurança de serviços.](service-fabric-application-and-service-security.md)

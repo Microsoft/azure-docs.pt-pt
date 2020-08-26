@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525420"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869223"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham o conteúdo do repositório apresentado pelo Chapéu Vermelho, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no para os VMs do utilizador final.
@@ -49,7 +49,7 @@ Para obter uma lista completa de imagens, corra `az vm image list --publisher re
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Imagens ligadas a repositórios não-EUS
 
-Se forcar um VM a partir de uma imagem RHEL que esteja ligada a repositórios não-EUS, será atualizado para a versão mais recente da RHEL menor quando correr `sudo yum update` . Por exemplo, se forre um VM a partir de uma imagem RHEL 7.4 PAYG e `sudo yum update` executado, acaba por ter um RHEL 7.7 VM (a versão menor mais recente da família RHEL7).
+Se forcar um VM a partir de uma imagem RHEL que esteja ligada a repositórios não-EUS, será atualizado para a versão mais recente da RHEL menor quando correr `sudo yum update` . Por exemplo, se forre um VM a partir de uma imagem RHEL 7.4 PAYG e `sudo yum update` executado, acaba por ter um RHEL 7.8 VM (a versão menor mais recente da família RHEL7).
 
 As imagens ligadas a repositórios não-EUS não conterão um número de versão menor no SKU. O SKU é o terceiro elemento na URN (nome completo da imagem). Por exemplo, todas as seguintes imagens são anexadas a repositórios não-EUS:
 
@@ -245,7 +245,7 @@ Este procedimento está previsto apenas para referência. As imagens RHEL PAYG j
         ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para criar um Red Hat Enterprise Linux VM a partir de uma imagem Azure Marketplace PAYG e para usar o RHUI hospedado no Azure, vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Para saber mais sobre as imagens do Chapéu Vermelho em Azure, aceda à página de [documentação.](./redhat-images.md)
 * As informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)

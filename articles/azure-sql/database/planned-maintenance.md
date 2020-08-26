@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-ms.date: 01/30/2019
-ms.openlocfilehash: f0bda1f4b9894b1ea5a68f44a728f715676d500e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 08/25/2020
+ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869122"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,15 +29,15 @@ Para cada base de dados, a Base de Dados Azure SQL e a Azure SQL Managed Instanc
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planeado
 
-As reconfigurações/falhas geralmente terminam dentro de 30 segundos. A média é de 8 segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): "Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Tente voltar a ligar mais tarde." Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
+O evento de manutenção pode produzir falhas individuais ou múltiplas, dependendo da constelação das réplicas primárias e secundárias no início do evento de manutenção. Em média, ocorrem 1,7 falhas por evento de manutenção planeado. As reconfigurações/falhas geralmente terminam dentro de 30 segundos. A média é de 8 segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): *"Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Por favor, re-tentar a ligação mais tarde.* Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
+
+## <a name="how-to-simulate-a-planned-maintenance-event"></a>Como simular um evento de manutenção planeado
+
+Garantir que a aplicação do seu cliente é resiliente a eventos de manutenção antes de ser implementado para a produção ajudará a mitigar o risco de falhas de aplicação e contribuirá para a disponibilidade de aplicações para os seus utilizadores finais. Pode testar o comportamento da sua aplicação do cliente durante eventos de manutenção planeados [iniciando a falha manual](https://aka.ms/mifailover-techblog) através da PowerShell, CLI ou REST API. Produzirá um comportamento idêntico como evento de manutenção, colocando a réplica primária offline.
 
 ## <a name="retry-logic"></a>Repetir a lógica
 
-Qualquer aplicação de produção de clientes que se conecte a um serviço de base de dados em nuvem deve implementar uma lógica robusta [de relembramento de](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)conexão . Isto ajudará a mitigar estas situações e deverá, em geral, tornar os erros transparentes para o utilizador final.
-
-## <a name="frequency"></a>Frequência
-
-Em média, ocorrem 1,7 eventos de manutenção planeados todos os meses.
+Qualquer aplicação de produção de clientes que se conecte a um serviço de base de dados em nuvem deve implementar uma lógica robusta [de relembramento de](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)conexão . Isto ajudará a tornar as falhas transparentes para os utilizadores finais, ou pelo menos minimizar os efeitos negativos.
 
 ## <a name="resource-health"></a>Estado de funcionamento de recursos
 

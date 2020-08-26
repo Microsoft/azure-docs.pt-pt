@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783897"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871212"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -54,7 +55,10 @@ Aqui estão algumas das capacidades de gestão de direitos:
 - Delegar em não administradores a capacidade de criar pacotes de acesso. Estes pacotes de acesso contêm recursos que os utilizadores podem solicitar, e os gestores de pacotes de acesso delegado podem definir políticas com regras para as quais os utilizadores podem solicitar, quem deve aprovar o seu acesso e quando o acesso expirar.
 - Selecione organizações conectadas cujos utilizadores podem solicitar acesso.  Quando um utilizador que ainda não está no seu diretório solicita acesso, e é aprovado, é automaticamente convidado para o seu diretório e acesso atribuído.  Quando o seu acesso expirar, se não tiverem outras atribuições de pacotes de acesso, a sua conta B2B no seu diretório pode ser automaticamente removida.
 
-Pode começar com o nosso [tutorial para criar o seu primeiro pacote de acesso.](entitlement-management-access-package-first.md) Também pode ler os [cenários comuns,](entitlement-management-scenarios.md)ou ver vídeos, incluindo
+>[!NOTE]
+>Se estiver pronto para experimentar a gestão de direitos pode começar com o nosso [tutorial para criar o seu primeiro pacote de acesso.](entitlement-management-access-package-first.md)
+
+Também pode ler os [cenários comuns,](entitlement-management-scenarios.md)ou ver vídeos, incluindo
 
 - [Como implementar a gestão de direitos AD da Azure na sua organização](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Como monitorizar e escalar o seu uso da gestão de direitos Ad Azure](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -68,7 +72,7 @@ A gestão de direitos introduz à Azure AD o conceito de pacote de *acesso.* Um 
 
 - Adesão a grupos de segurança Azure AD
 - Membro da Microsoft 365 Grupos e Equipas
-- Atribuição a aplicações empresariais AZure AD, incluindo aplicações SaaS e aplicações personalizadas que suportam a federação/único sinal em e/ou provisionamento
+- Atribuição a aplicações empresariais AZure AD, incluindo aplicações SaaS e aplicações personalizadas que suportam a federação/único sign-on e/ou provisioning
 - Adesão a sites online do SharePoint
 
 Também pode controlar o acesso a outros recursos que dependem de grupos de segurança AD Azure ou grupos Microsoft 365.  Por exemplo:
@@ -102,13 +106,13 @@ O diagrama que se segue mostra um exemplo dos diferentes elementos na gestão do
 Os pacotes de acesso não substituem outros mecanismos de acesso.  São mais adequados em situações como:
 
 - Os empregados precisam de acesso limitado a tempo para uma determinada tarefa.  Por exemplo, você pode usar o licenciamento baseado em grupo e um grupo dinâmico para garantir que todos os funcionários têm uma caixa de correio Exchange Online, e depois usar pacotes de acesso para situações em que os funcionários precisam de acesso adicional, como ler recursos departamés de departamento de outro departamento.
-- O acesso tem de ser aprovado pelo gerente de um empregado ou por outros indivíduos designados.
+- Acesso que requer a aprovação do gerente de um empregado ou de outros indivíduos designados.
 - Os departamentos querem gerir as suas próprias políticas de acesso aos seus recursos sem o envolvimento das TI.  
 - Duas ou mais organizações estão a colaborar num projeto e, como resultado, vários utilizadores de uma organização terão de ser trazidos através do Azure AD B2B para aceder aos recursos de outra organização.
 
 ## <a name="how-do-i-delegate-access"></a>Como devorei acesso?
 
- Os pacotes de acesso são definidos em contentores *chamados catálogos.*  Você pode ter um único catálogo para todos os seus pacotes de acesso, ou você pode designar indivíduos para criar e possuir seus próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas um não administrador só pode adicionar a um catálogo os recursos que possuem. Um proprietário de catálogo pode adicionar outros utilizadores como coproprietários de catálogos, ou como gestores de pacotes de acesso.  Estes cenários são descritos mais aprofundadamente na delegação de [artigos e nas funções na gestão dos direitos da AD Azure.](entitlement-management-delegate.md)
+ Os pacotes de acesso são definidos em contentores *chamados catálogos.*  Você pode ter um único catálogo para todos os seus pacotes de acesso, ou você pode designar indivíduos para criar e possuir seus próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas um não administrador só pode adicionar a um catálogo os recursos que possui. Um proprietário de catálogo pode adicionar outros utilizadores como coproprietários de catálogos, ou como gestores de pacotes de acesso.  Estes cenários são descritos mais aprofundadamente na delegação de [artigos e nas funções na gestão dos direitos da AD Azure.](entitlement-management-delegate.md)
 
 ## <a name="summary-of-terminology"></a>Resumo da terminologia
 
@@ -149,7 +153,7 @@ As licenças Azure AD Premium P2 **não** são necessárias para as seguintes ta
 - Não são necessárias licenças para utilizadores que tenham sido delegadas tarefas administrativas, tais como criador de catálogos, proprietário de catálogos e gestor de pacotes de acesso.
 - Não são necessárias licenças para os hóspedes que **possam** solicitar pacotes de acesso, mas **não** solicitem um pacote de acesso.
 
-Por cada licença Azure AD Premium P2 paga que você compra para os seus utilizadores membros (funcionários), você pode usar Azure AD B2B para convidar até 5 utilizadores convidados. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
+Por cada licença Azure AD Premium P2 paga que você compra para os seus utilizadores membros (funcionários), você pode usar Azure AD B2B para convidar até cinco utilizadores convidados. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 

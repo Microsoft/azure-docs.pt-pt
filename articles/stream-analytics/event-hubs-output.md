@@ -1,0 +1,58 @@
+---
+title: Saída de Hubs de Eventos da Azure Stream Analytics
+description: Este artigo descreve como obter dados de produção de Azure Stream Analytics para Azure Event Hubs.
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 08/25/2020
+ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88875941"
+---
+# <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída de Hubs de Eventos da Azure Stream Analytics
+
+O serviço [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) é um evento altamente escalável de publicação-subscrição. Pode recolher milhões de eventos por segundo. Um uso de um centro de eventos como saída é quando a saída de um trabalho stream Analytics torna-se a entrada de outro trabalho de streaming. Para obter informações sobre o tamanho máximo da mensagem e a otimização do tamanho do lote, consulte a secção de tamanho do [lote de saída.](#output-batch-size)
+
+## <a name="output-configuration"></a>Configuração de saída
+
+A tabela seguinte tem os parâmetros necessários para configurar fluxos de dados dos centros de eventos como uma saída.
+
+| Nome da propriedade | Descrição |
+| --- | --- |
+| Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para este centro de eventos. |
+| Espaço de nomes do hub de eventos | Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de centros de eventos. |
+| Nome do hub de eventos | O nome da saída do seu centro de eventos. |
+| Nome da política do centro de eventos | A política de acesso partilhado, que pode criar no separador **Configure** do centro de eventos. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
+| Chave de política do centro de eventos | A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nome do centro de eventos. |
+| Coluna-chave de partição | Opcional. Uma coluna que contém a chave de partição para a saída do centro de eventos. |
+| Formato de serialização de eventos | O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
+| Encoding | Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Delimitador | Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
+| Formato | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON.  |
+| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
+
+## <a name="partitioning"></a>Criação de partições
+
+A partição varia consoante o alinhamento da partição. Quando a chave de partição para a saída do centro de eventos está igualmente alinhada com o passo de consulta a montante (anterior), o número de escritores é o mesmo que o número de divisórias na produção do centro de eventos. Cada escritor usa a [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. Quando a chave de partição para a saída do centro de eventos não está alinhada com o passo de consulta a montante (anterior), o número de escritores é o mesmo que o número de divisórias nesse passo anterior. Cada escritor usa a [aula SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) no **EventHubClient** para enviar eventos para todas as divisórias de saída. 
+
+## <a name="output-batch-size"></a>Tamanho do lote de saída
+
+O tamanho máximo da mensagem é de 256 KB ou 1 MB por mensagem. Para mais informações, consulte [os limites do Event Hubs](../event-hubs/event-hubs-quotas.md). Quando a partição de entrada/saída não está alinhada, cada evento é embalado individualmente `EventData` e enviado num lote até ao tamanho máximo da mensagem. Isto também acontece se forem utilizadas [propriedades de metadados personalizados.](#custom-metadata-properties-for-output) Quando a partição de entrada/saída está alinhada, vários eventos são embalados numa única `EventData` instância, até ao tamanho máximo da mensagem, e enviados.
+
+## <a name="custom-metadata-properties-for-output"></a>Propriedades de metadados personalizados para saída
+
+Pode anexar colunas de consulta como propriedades do utilizador às suas mensagens de saída. Estas colunas não entram na carga. As propriedades estão presentes na forma de um dicionário na mensagem de saída. *Chave* é o nome da coluna e *valor* é o valor da coluna no dicionário de propriedades. Todos os tipos de dados stream Analytics são suportados, exceto Record e Array.  
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
+* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-vs-code.md)

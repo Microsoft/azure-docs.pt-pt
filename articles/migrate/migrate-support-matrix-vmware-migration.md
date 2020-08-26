@@ -3,12 +3,12 @@ title: Suporte à migração de VMware em Azure Migrate
 description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9de0609361e67d5251b25df798b61a4ab13e432c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387426"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869104"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
 
@@ -116,7 +116,7 @@ A tabela resume o suporte VMware VM para VMware VMs que pretende migrar usando m
 **Rede/Armazenamento** | Para obter as informações mais recentes, reveja os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para a Recuperação do Local. A Azure Migrate fornece requisitos idênticos de rede/armazenamento.
 **Requisitos do Azure** | Para obter as informações mais recentes, reveja a [rede Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e requisitos [de cálculo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) para recuperação de locais. A Azure Migrate tem requisitos idênticos para a migração de VMware.
 **Serviço de mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada VM que pretende migrar.
-**Bota UEFI** | O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS.<br/><br/> O disco de so deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
+**Bota UEFI** | Suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
 **Tamanho do disco** | 2 Disco de SO TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
@@ -125,7 +125,7 @@ A tabela resume o suporte VMware VM para VMware VMs que pretende migrar usando m
 **Discos independentes** | Suportado.
 **Discos passthrough** | Suportado.
 **NFS** | Os volumes NFS montados à medida que os volumes nos VMs não serão replicados.
-**metas iSCSI** | VMs com alvos iSCSI não são suportados para migração sem agentes.
+**metas iSCSI** | Suportado.
 **IO multipata** | Não suportado.
 **Armazenamento vMotion** | Suportado
 **NICs em equipa** | Não suportado.
@@ -172,6 +172,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

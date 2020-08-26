@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d7d0979a52b4762ec4cc2fa82f507e8ce2b083c9
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86056893"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870668"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
 
@@ -36,7 +36,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar os modelos
 > * Verificar a implementação
 > * Implementar a versão mais recente
-> * Limpar recursos
+> * Limpar os recursos
 
 Recursos adicionais:
 
@@ -61,7 +61,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="understand-the-scenario"></a>Compreender o cenário
 
-O modelo de topologia de serviço descreve os recursos do Azure que compõem o seu serviço e onde os implementar. A definição da topologia de serviço tem a hierarquia seguinte:
+O modelo de topologia de serviço descreve os recursos Azure que compõem o seu serviço e onde implementá-los. A definição da topologia de serviço tem a hierarquia seguinte:
 
 * Topologia de serviço
   * Serviços
@@ -440,7 +440,7 @@ Quando tiver uma versão nova da aplicação Web (1.0.0.1), pode utilizar o proc
 3. Reimplemente o lançamento, conforme as instruções em [Implementar os modelos](#deploy-the-rollout-template).
 4. Verifique a implementação, conforme as instruções em [Verificar a implementação](#verify-the-deployment). A página Web deverá mostrar a versão 1.0.0.1.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

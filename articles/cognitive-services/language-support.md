@@ -1,7 +1,7 @@
 ---
 title: Suporte de idiomas
 titleSuffix: Azure Cognitive Services
-description: O Azure Cognitive Services permite-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural.
+description: A Azure Cognitive Services permite-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592156"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869886"
 ---
-# <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure
+# <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural aos Serviços Cognitivos do Azure
 
-Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural. Utilize os links abaixo para ver a disponibilidade de idiomas por serviço.
+Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural. Utilize os links abaixo para ver a disponibilidade do idioma por serviço.
 
 Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitações baseadas na linguagem humana.
 
@@ -37,7 +37,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 ## <a name="language"></a>Linguagem
 
-* [Leitura Avançada (Pré-visualização)](./immersive-reader/language-support.md)
+* [Leitura Avançada](./immersive-reader/language-support.md)
 * [Compreensão de Idiomas (LUIS)](./luis/luis-supported-languages.md)
 * [Criador de FAQ](./qnamaker/overview/languages-supported.md)
 * [Análise de Texto](./text-analytics/text-analytics-supported-languages.md)
@@ -45,17 +45,17 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 ## <a name="speech"></a>Voz
 
-* [Discurso: Discurso ao Texto](./speech-service/supported-languages.md#speech-to-text)
-* [Serviço de Discurso:Texto-a-Discurso](./speech-service/supported-languages.md#text-to-speech)
-* [Serviço de Discurso: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
+* [Serviço de Fala: Discurso-a-Texto](./speech-service/supported-languages.md#speech-to-text)
+* [Serviço de Fala:Texto-a-Voz](./speech-service/supported-languages.md#text-to-speech)
+* [Serviço de Fala: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
 
 ## <a name="search"></a>Pesquisar
 
 * [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
 * [Pesquisa de Imagens do Bing](./bing-image-search/supported-countries-markets.md)
-* [Pesquisa de Notícias do Bing](./bing-news-search/supported-countries-markets.md)
+* [Pesquisa do Bing Notícias](./bing-news-search/supported-countries-markets.md)
 * [Sugestão Automática do Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
-* [Verificação de Ortografia do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Verificação Ortográfica do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
 * [Pesquisa Visual do Bing](./bing-visual-search/supported-countries-markets.md)
 * [Pesquisa na Web do Bing](./bing-web-search/supported-countries-markets.md)
 

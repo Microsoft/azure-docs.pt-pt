@@ -3,12 +3,12 @@ title: Gerir certificados num cluster de tecido de serviço Azure
 description: Descreve como adicionar novos certificados, certificado de capotamento e remover certificado de ou de um cluster de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658384"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869767"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se que se familiarize com a forma como o Service Fabric utiliza certificados X.509 e esteja familiarizado com os [cenários de segurança](service-fabric-cluster-security.md)do Cluster. Deve entender o que é um certificado de cluster e para o que é usado, antes de prosseguir.
@@ -179,7 +179,7 @@ Edite o seu ficheiro de parâmetro de modelo de gestor de recursos, adicione os 
 
 ```
 
-### <a name="deploy-the-template-to-azure"></a>Implemente o modelo para Azure
+### <a name="deploy-the-template-to-azure"></a>Implementar o modelo no Azure
 
 - Está agora pronto para implementar o seu modelo para Azure. Abra um pedido de comando Azure PS versão 1+.
 - Inscreva-se na sua Conta Azure e selecione a subscrição específica do azul. Este é um passo importante para as pessoas que têm acesso a mais de uma subscrição azul.
@@ -260,7 +260,7 @@ Além dos certificados de cluster, pode adicionar certificados de cliente para r
 
 Pode adicionar dois tipos de certificados de cliente - Administrador ou Read-only. Estes podem então ser usados para controlar o acesso às operações de administração e operações de consulta no cluster. Por predefinição, os certificados de cluster são adicionados à lista de certificados de administração permitidos.
 
-pode especificar qualquer número de certificados de cliente. Cada adição/eliminação resulta numa atualização de configuração para o cluster de Tecido de Serviço
+Pode especificar qualquer número de certificados de cliente. Cada adição/eliminação resulta numa atualização de configuração do cluster de Tecido de Serviço.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Adicionar certificados de cliente - Administrador ou Read-Only via portal
@@ -279,7 +279,7 @@ Para remover um certificado secundário de ser utilizado para a segurança do cl
 
 Para implementar um certificado que utilize para as suas aplicações no seu cluster, consulte [esta amostra do script Powershell](scripts/service-fabric-powershell-add-application-certificate.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia estes artigos para obter mais informações sobre gestão de clusters:
 
 * [Processo de upgrade do Cluster de Tecido de Serviço e expectativas de si](service-fabric-cluster-upgrade.md)

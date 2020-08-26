@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 10674d15a7515b01b0df6cf37bce89f153cb9b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825383"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870690"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento de discos geridos da Azure de Standard a Premium ou Premium para Standard
 
-Existem quatro tipos de discos de discos geridos Azure: Azure ultra SSDs (pré-visualização), SSD premium, SSD padrão e HDD padrão. Pode alternar entre os três tipos de discos GA (SSD premium, SSD standard e HDD padrão) com base nas suas necessidades de desempenho. Ainda não é capaz de mudar de ou para um ultra SSD, tem de implementar um novo.
+Existem quatro tipos de discos geridos azure: discos ultra Azure, SSD premium, SSD padrão e HDD padrão. Pode alternar entre os três tipos de discos GA (SSD premium, SSD standard e HDD padrão) com base nas suas necessidades de desempenho. Ainda não é capaz de mudar de ou para um disco ultra, tem de implementar um novo.
 
 Esta funcionalidade não é suportada por discos não geridos. Mas pode [facilmente converter um disco não gerido para um disco gerido](convert-unmanaged-to-managed-disks.md) para poder alternar entre tipos de discos.
 

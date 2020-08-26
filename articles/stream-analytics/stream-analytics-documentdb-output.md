@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a0f7517d2649ceac45e68c2e7a5d574a7c25d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83848046"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870838"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída Azure Stream Analytics para Azure Cosmos DB  
 O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração.
@@ -110,7 +110,7 @@ A utilização do Azure Cosmos DB como uma saída no Stream Analytics gera o seg
 |Alias de saída    | Um pseudónimo para se referir a esta saída na sua consulta Stream Analytics.|
 |Subscrição    | A assinatura do Azure.|
 |ID da Conta      | O nome ou ponto final URI da conta DB da Azure Cosmos.|
-|Chave de conta     | A chave de acesso partilhada para a conta DB da Azure Cosmos.|
+|Chave da conta     | A chave de acesso partilhada para a conta DB da Azure Cosmos.|
 |Base de Dados        | O nome da base de dados Azure Cosmos DB.|
 |Nome do contentor | O nome do recipiente, tal `MyContainer` como. Um contentor chamado `MyContainer` deve existir.  |
 |ID do documento     | Opcional. O nome da coluna em eventos de saída utilizados como a chave única em que as operações de inserção ou atualização devem ser baseadas. Se o deixar vazio, todos os eventos serão inseridos, sem opção de atualização.|

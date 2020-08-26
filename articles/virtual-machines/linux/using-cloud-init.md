@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: e303b713adf2925af8bc012a5b858c6f5740fccf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510077"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869274"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para [configurar](https://cloudinit.readthedocs.io) uma máquina virtual (VM) ou uma escala de máquina virtual em tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram a provisionados pela Azure.  
@@ -23,7 +23,7 @@ O Fornecimento de VM é o processo em que o Azure irá passar os seus valores de
 O Azure suporta dois agentes de provisionamento [em nuvem,](https://cloudinit.readthedocs.io)e o [Agente Azure Linux (WALA)](../extensions/agent-linux.md).
 
 ## <a name="cloud-init-overview"></a>visão geral de nuvem init
-[cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente usada para personalizar um Linux VM como botas pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como a cloud-init é chamada durante o processo inicial de arranque, não existem passos adicionais ou agentes necessários para aplicar a sua configuração.  Para obter mais informações sobre como formatar corretamente os seus `#cloud-config` ficheiros ou outras entradas, consulte o [site de documentação in informática em nuvem](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados na base64.
+[cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente usada para personalizar um Linux VM como botas pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como a cloud-init é chamada durante o processo inicial de arranque, não existem passos adicionais ou agentes necessários para aplicar a sua configuração.  Para obter mais informações sobre como formatar corretamente os seus `#cloud-config` ficheiros ou outras entradas, consulte o [site de documentação in informática em nuvem](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os ficheiros são ficheiros de texto codificados na base64.
 
 cloud-init também funciona através de distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. cloud-init usa automaticamente a ferramenta de gestão de pacotes nativo para o distro que seleciona.
 
@@ -62,14 +62,14 @@ Existem duas fases para disponibilizar cloud-init para o endossado Linux distro 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de setembro de 2020) | N/D |
-|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
-|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |sim | sim - suporte da versão do pacote:`18.5-6.el7.centos.5`|
-|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
-|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote:`18.5-7.el8_1.1`|
+|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |sim | sim - suporte da versão do pacote: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |sim | sim - suporte da versão do pacote: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |sim | sim - suporte da versão do pacote: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |sim | sim - suporte da versão do pacote: `18.5-6.el7.centos.5`|
+|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |sim | sim - suporte da versão do pacote: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |sim | sim - suporte da versão do pacote: `18.5-7.el8_1.1`|
 
 * Todas as imagens OpenLogic:CentOS 7.8 e 8.2 (Gen1 e Gen2) são ateadas com recurso a cloud-init.
 
@@ -152,6 +152,8 @@ az vm create \
 
 Quando o VM foi criado, o Azure CLI mostra informações específicas para a sua implantação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Demora algum tempo para que o VM seja criado, os pacotes para instalar e a aplicação para começar. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Pode entrar no SSH no VM e utilizar os passos descritos na secção de resolução de problemas para visualizar os registos de inibição de nuvens. 
 
+Também pode implementar um VM ativado por nuvem, passando os [parâmetros no modelo ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+
 ## <a name="troubleshooting-cloud-init"></a>Resolução de problemas na nuvem
 Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os módulos e scripts definidos `--custom-data` de forma a configurar o VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, tem de procurar o nome do módulo `disk_setup` `runcmd` (ou, por exemplo) no registo de ini por parte da nuvem - localizado em **/var/log/cloud-init.log**.
 
@@ -160,7 +162,7 @@ Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os
 
 Para obter mais detalhes sobre a exploração madeireira em nuvem, consulte a [documentação cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Problemas de resolução de problemas com a nuvem init](cloud-init-troubleshooting.md).
 
