@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ebda6eec0f2e0866a13f04859c491662a8f9ca43
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 65f2a7ba51fcf811e36839d3998902ba37a90fc4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825652"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889996"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -105,7 +105,7 @@ Executar o script de pré-registo executa as seguintes funções:
 * Realiza verificações de conectividade de rede de saída com servidores Azure Backup e serviços dependentes como O Azure Ative Directory e Azure Storage.
 * Entra no seu sistema HANA utilizando a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de cópia de segurança (AZUREWLBACKUPHANAUSER) no sistema HANA e a chave do utilizador pode ser eliminada após o script pré-registo ser executado com sucesso.
 * A AZUREWLUPHANAUSER é atribuída a estas funções e permissões necessárias:
-  * BASE DE DADOS ADMIN (no caso de MDC) e BACKUP ADMIN (no caso do SDC): criar novas bases de dados durante a restauração.
+  * BASE DE DADOS ADMIN (no caso do MDC) e BACKUP ADMIN (no caso do SDC): criar novas bases de dados durante a restauração.
   * CATÁLOGO LEIA: para ler o catálogo de backup.
   * SAP_INTERNAL_HANA_SUPPORT: aceder a algumas mesas privadas.
 * O script adiciona uma chave para **a hdbuserstore** para AZUREWLBACKUPHANAUSER para o plug-in de backup HANA para lidar com todas as operações (consultas de base de dados, operações de restauro, configuração e backup de execução).

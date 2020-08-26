@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871552"
+ms.locfileid: "88890897"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -99,7 +99,7 @@ Existem duas zonas de DNS obrigatórias que precisam de ser criadas:
 
 ### <a name="optional-dns-zone"></a>Zona de DNS opcional
 
-Os clientes podem optar por integrar os seus pontos finais privados com zonas privadas de DNS para Azure Backup (discutido na secção sobre a criação de pontos finais privados) para comunicação de serviços. Se não pretender integrar-se na zona privada de DNS, pode optar por utilizar o seu próprio servidor DNS ou criar uma zona de DNS privada separadamente. Isto para além das duas zonas privadas obrigatórias de DNS discutidas na secção anterior.
+Pode optar por integrar os seus pontos finais privados com zonas privadas de DNS para Azure Backup (discutido na secção [Criar e utilizar pontos de apoio privados para backup)](#creating-and-using-private-endpoints-for-backup)para comunicação de serviço. Se não pretender integrar-se na zona privada de DNS, pode optar por utilizar o seu próprio servidor DNS ou criar uma zona de DNS privada separadamente. Isto para além das duas zonas privadas obrigatórias de DNS discutidas na secção anterior.
 
 Se desejar criar uma zona de DNS privada separada em Azure, pode fazer o mesmo utilizando os mesmos passos utilizados para criar zonas de DNS obrigatórias. Os detalhes de nomeação e subscrição são partilhados abaixo:
 

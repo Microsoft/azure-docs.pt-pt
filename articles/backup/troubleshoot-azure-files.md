@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825465"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889813"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -25,7 +25,7 @@ Este artigo fornece informações de resolução de problemas para resolver quai
   >Todas as ações de ficheiros numa Conta de Armazenamento só podem ser protegidas sob um cofre dos Serviços de Recuperação. Pode utilizar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar o cofre dos Serviços de Recuperação onde a sua conta de armazenamento está registada.
 
 - Certifique-se de que a partilha de ficheiros não está presente em nenhuma das contas de armazenamento não suportadas. Pode consultar a [matriz de suporte para a partilha de ficheiros Azure](azure-file-share-support-matrix.md) para encontrar contas de armazenamento suportadas.
-- Certifique-se de que o comprimento combinado do nome da conta de armazenamento e o nome do grupo de recursos não excedem 84 caracteres no caso de novas contas de Armazenamento e 77 caracteres em caso de contas de armazenamento clássicas.
+- Certifique-se de que o comprimento combinado do nome da conta de armazenamento e o nome do grupo de recursos não excedem 84 caracteres no caso de novas contas de Armazenamento e 77 caracteres no caso de contas de armazenamento clássicas.
 - Verifique as definições de firewall da conta de armazenamento para garantir que a opção de permitir que os Serviços Microsoft confiáveis acedam à conta de armazenamento está ativada.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal afirma que descoberta de contas de armazenamento falhou
@@ -300,7 +300,7 @@ Error Message: Os pontos de restauro listados não estão disponíveis, uma vez 
 Verifique se a partilha de ficheiros com ressoou. Se estava em estado de eliminação suave, verifique se o período de retenção de eliminação suave acabou e não foi recuperado de volta. Em qualquer um destes casos, perderá todas as suas fotos permanentemente e não será capaz de recuperar os dados.
 
 >[!NOTE]
-> Recomendamos que não apague a partilha de ficheiros com retenida ou se estiver em estado de eliminação suave, desagreia antes do fim do período de retenção de eliminação suave, para evitar perder todos os seus pontos de restauro.
+> Recomendamos que não apague a partilha de ficheiros com retenida ou se estiver em estado de eliminação suave, desacompanhada antes do fim do período de retenção de eliminação suave, para evitar perder todos os seus pontos de restauro.
 
 ### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState - Cópia de segurança falhou uma vez que a Azure File Share está em estado de apagamento suave
 

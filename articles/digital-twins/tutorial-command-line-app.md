@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855861"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891504"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -288,24 +288,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
 * Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
 
-Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.
-
-Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos e a instância Azure Digital Twins.
-
-> [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
-
-Abra uma Azure Cloud Shell e execute o seguinte comando para eliminar o grupo de recursos e tudo o que contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Em seguida, elimine o registo de aplicações Azure Ative Directory que criou para a sua aplicação cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
 

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a gerir as operações de restauro da Cópia 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 2588ca87e2dc2209fbaa5eae411fe5895d5f5669
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889656"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
 
@@ -19,7 +19,7 @@ Para qualquer operação de restauro, primeiro é preciso identificar o ponto de
 
 ## <a name="select-recovery-point"></a>Selecione ponto de recuperação
 
-Os pontos de recuperação disponíveis de um item de backup podem ser listados usando o ponto de recuperação da [lista REST API](/rest/api/backup/recoverypoints/list). É uma operação *GET* simples com todos os valores relevantes.
+Os pontos de recuperação disponíveis de um item de backup podem ser listados usando o ponto de recuperação da [lista REST API](/rest/api/backup/recoverypoints/list). É uma simples operação *GET* com todos os valores relevantes.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13

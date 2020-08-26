@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0497162c8535b80b7e9d9a564b12dc6966a4120
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021369"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891441"
 ---
 # <a name="cut-planes"></a>Cortar planos
 
@@ -47,11 +47,11 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEntity)
 {
     ApiHandle<CutPlaneComponent> cutPlane = session->Actions()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
-    cutPlane->Normal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
+    cutPlane->SetNormal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
     Color4Ub fadeColor;
     fadeColor.channels = { 255, 0, 0, 128 }; // fade to 50% red
-    cutPlane->FadeColor(fadeColor);
-    cutPlane->FadeLength(0.05f); // gradient width: 5cm
+    cutPlane->SetFadeColor(fadeColor);
+    cutPlane->SetFadeLength(0.05f); // gradient width: 5cm
 }
 ```
 
@@ -68,7 +68,7 @@ As seguintes propriedades são expostas num componente de plano cortado:
 
   Se o valor alfa do *FadeColor* não for zero, os pixels perto do plano cortado desaparecerão em direção à parte RGB do FadeColor. A força do canal alfa determina se irá desaparecer completamente em direção à cor desvanecendo-se ou apenas parcialmente. *FadeLength* define sobre a distância que este desvanecimento terá lugar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Renderização unilateral única](single-sided-rendering.md)
 * [Consultas espaciais](spatial-queries.md)

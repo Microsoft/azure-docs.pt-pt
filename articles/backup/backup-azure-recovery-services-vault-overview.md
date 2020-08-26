@@ -3,12 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral e comparação entre cofres dos Serviços de Recuperação e cofres Azure Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: c69883a88473cd304bb772430ddfe662da4d8fac
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757103"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889622"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -20,7 +20,7 @@ Este artigo descreve as características de um cofre dos Serviços de Recuperaç
 
 - **Controlo de Acesso Baseado em Função (RBAC)**: O RBAC fornece um controlo de gestão de acessos finos em Azure. [O Azure oferece vários papéis incorporados,](../role-based-access-control/built-in-roles.md)e o Azure Backup tem três [funções incorporadas para gerir pontos de recuperação.](backup-rbac-rs-vault.md) Os cofres dos Serviços de Recuperação são compatíveis com o RBAC, que restringe o backup e restaura o acesso ao conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
 
-- **Soft Delete**: Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "soft delete" não incorrem em qualquer custo para o cliente. [Saiba mais](backup-azure-security-feature-cloud.md).
+- **Soft Delete**: Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "soft delete" não incorrem em qualquer custo para si. [Saiba mais](backup-azure-security-feature-cloud.md).
 
 - **Cross Region Restore**: Cross Region Restore (CRR) permite restaurar os VMs Azure numa região secundária, que é uma região emparelhada Azure. Se Azure declarar um desastre na região primária, os dados replicados na região secundária estão disponíveis para restaurar na região secundária para mitigar o desastre real de tempo de inatividade na região primária para o seu ambiente. [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
 

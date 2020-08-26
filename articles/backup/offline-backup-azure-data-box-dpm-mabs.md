@@ -3,18 +3,18 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824564"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890030"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
 > [!NOTE]
 > Esta funcionalidade é aplicável ao Gestor de Proteção de Dados (DPM) 2019 UR2 e posteriormente.<br><br>
-> Esta funcionalidade encontra-se atualmente em pré-visualização para o Microsoft Azure Backup Server (MABS). Se estiver interessado em utilizar a Caixa de Dados Azure para sementeira offline com MABS, contacte-nos em [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) .
+> Esta funcionalidade encontra-se atualmente em pré-visualização para o Microsoft Azure Backup Server (MABS). Se estiver interessado em utilizar a Azure Data Box para sementeira offline com mABS, contacte-nos em [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) .
 
 Este artigo explica como pode usar a Caixa de Dados Azure para semear dados de backup iniciais offline de DPM e MABS para um cofre dos Serviços de Recuperação do Azure.
 

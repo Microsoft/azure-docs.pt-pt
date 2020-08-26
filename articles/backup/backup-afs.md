@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757800"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890353"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 

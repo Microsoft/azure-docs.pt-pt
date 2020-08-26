@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287232"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890919"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?
 
@@ -52,7 +52,7 @@ Pode interagir com o seu espaço de trabalho das seguintes formas:
 > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + Na web:
-    + [Estúdio Azure Machine Learning](https://ml.azure.com) 
+    + [Estúdio Azure Machine Learning ](https://ml.azure.com) 
     + [Azure Machine Learning designer (pré-visualização)](concept-designer.md) - Disponível apenas em espaços de trabalho [da edição enterprise.](overview-what-is-azure-ml.md#sku)
 + Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Em qualquer ambiente R com o [Azure Machine Learning SDK para R (pré-visualização)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
@@ -87,9 +87,9 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 > [!WARNING]
 > Mover o seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou mover a subscrição proprietária para um novo inquilino, não é suportado. Fazê-lo pode causar erros.
 
-## <a name="create-a-workspace"></a><a name='create-workspace'></a>Criar um espaço de trabalho
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Criar um espaço de trabalho
 
-Quando cria um espaço de trabalho, decide-se se o cria com [edição Basic ou Enterprise.](overview-what-is-azure-ml.md#sku) A edição determina as funcionalidades disponíveis no espaço de trabalho. Entre outras funcionalidades, a edição da Enterprise dá-lhe acesso ao [designer Azure Machine Learning](concept-designer.md) e à versão de estúdio de construção de [experiências automatizadas](tutorial-first-experiment-automated-ml.md)de machine learning.  Para obter mais detalhes e informações sobre preços, consulte [os preços de Azure Machine Learning.](https://azure.microsoft.com/pricing/details/machine-learning/)
+Quando cria um espaço de trabalho, decide-se se o cria com [edição Basic ou Enterprise.](overview-what-is-azure-ml.md#sku) A edição determina as funcionalidades disponíveis no espaço de trabalho. Entre outras funcionalidades, a edição da Enterprise dá-lhe acesso ao [designer Azure Machine Learning](concept-designer.md) e à versão de estúdio de construção de [experiências automatizadas](tutorial-first-experiment-automated-ml.md)de machine learning.  Para obter mais informações e informações sobre preços, consulte [os preços de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Existem várias formas de criar um espaço de trabalho:  
 
@@ -101,11 +101,11 @@ Existem várias formas de criar um espaço de trabalho:
 > [!NOTE]
 > O nome do espaço de trabalho é insensível a caso.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Upgrade para edição enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Upgrade para edição enterprise
 
 Você pode [atualizar o seu espaço de trabalho de Basic para Enterprise edition](how-to-manage-workspace.md#upgrade) usando o portal Azure. Não é possível desvalorizar um espaço de trabalho da edição enterprise para um espaço de trabalho de edição básica. 
 
-## <a name="associated-resources"></a><a name="resources"></a>Recursos associados
+## <a name="associated-resources"></a><a name="resources"></a> Recursos associados
 
 Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azure que são utilizados pelo espaço de trabalho:
 
@@ -117,8 +117,16 @@ Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azur
 > [!NOTE]
 > Além de criar novas versões, também pode utilizar os serviços Azure existentes.
 
+### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
+
+A conta Azure Storage criada por padrão com o espaço de trabalho é uma conta v1 de uso geral. Pode atualizá-lo para v2 de uso geral após a criação do espaço de trabalho seguindo os passos da Atualização para um artigo [de conta de armazenamento V2 para fins gerais.](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)
+
 > [!IMPORTANT]
-> Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem o espaço hierárquico são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
+> Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
+
+Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

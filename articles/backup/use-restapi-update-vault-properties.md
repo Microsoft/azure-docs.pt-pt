@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a atualizar a configuração do cofre utiliza
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: c68d3accfc6963d7a5eebfef128e3521b45ac886
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827261"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890047"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações de cofre de serviços de recuperação de Azure usando REST API
 
@@ -17,7 +17,7 @@ Este artigo descreve como atualizar configurações relacionadas com cópias de 
 
 ## <a name="soft-delete-state"></a>Estado de exclusão suave
 
-Eliminar cópias de segurança de um item protegido é uma operação significativa que tem de ser monitorizada. Para proteger contra supressões acidentais, o cofre da Azure Recovery Services tem uma capacidade de eliminação suave. Esta capacidade permite que os clientes restaurem cópias de segurança eliminadas, se necessário, dentro de um período de tempo após a eliminação.
+Eliminar cópias de segurança de um item protegido é uma operação significativa que tem de ser monitorizada. Para proteger contra supressões acidentais, o cofre da Azure Recovery Services tem uma capacidade de eliminação suave. Esta capacidade permite-lhe restaurar cópias de segurança eliminadas, se necessário, dentro de um período de tempo após a eliminação.
 
 Mas há cenários em que esta capacidade não é necessária. Um cofre dos Serviços de Recuperação do Azure não pode ser eliminado se houver itens de reserva dentro dele, mesmo os de apagamento suave. Isto pode constituir um problema se o cofre precisar de ser imediatamente apagado. Por exemplo: as operações de implantação limpam frequentemente os recursos criados no mesmo fluxo de trabalho. Uma implantação pode criar um cofre, configurar cópias de segurança para um item, fazer um restauro de teste e, em seguida, proceder para apagar os itens de reserva e o cofre. Se a eliminação do cofre falhar, toda a implantação pode falhar. Desativar a eliminação suave é a única forma de garantir a eliminação imediata.
 
@@ -83,10 +83,10 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Name  |Necessário  |Tipo  |Descrição  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização de recursos      |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Localização de recursos      |
 |propriedades     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 

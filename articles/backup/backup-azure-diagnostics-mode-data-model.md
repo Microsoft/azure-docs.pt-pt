@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761411"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890268"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -77,7 +77,7 @@ Esta tabela fornece detalhes sobre campos relacionados com artigos de backup.
 | SecondaryBackupProtectionState_s |Texto |Se a proteção secundária está ativada para o item de backup|
 | SchemaVersion_s |Texto |Versão do esquema, por exemplo, **V2** |
 | State_s |Texto |Estado do objeto de item de backup, por exemplo, Ative, Deleted |
-| BackupManagementType_s |Texto |Tipo de fornecedor para realizar backup, por exemplo, IaaSVM, FileFolder ao qual este item de backup pertence a |
+| BackupManagementType_s |Texto |Tipo de fornecedor para realizar backup, por exemplo, IaaSVM, FileFolder a que este item de backup pertence |
 | OperationName |Texto |Nome da operação, por exemplo, BackupItem |
 | Categoria |Texto |Categoria de dados de diagnóstico empurrados para registos do Monitor Azure. Sempre AzureBackupReport |
 | Recurso |Texto |Recurso para o qual os dados são recolhidos, por exemplo, nome do cofre dos Serviços de Recuperação |
@@ -94,14 +94,14 @@ Esta tabela fornece detalhes sobre associações de artigos de backup com vária
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |  
+| EventName_s |Texto |Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |ID exclusivo do item de backup |
-| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **V2** |
+| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema. É **V2.** |
 | State_s |Texto |Estado atual do objeto de associação de artigos de backup, por exemplo, Ative, Deleted |
 | BackupManagementType_s |Texto |Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
 | BackupItemSourceSize_s |Texto | Tamanho frontal do item de backup |
 | BackupManagementServerUniqueId_s |Texto | Campo para identificar exclusivamente o Servidor de Gestão de Cópia de Segurança O Item de Cópia de Segurança está protegido, se aplicável |
-| Categoria |Texto |Este campo representa categoria de dados de diagnóstico empurrados para Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico empurrados para o Log Analytics. É AzureBackupReport |
 | OperationName |Texto |Este campo representa o nome da operação atual - BackupItemAssociation |
 | Recurso |Texto |Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | ProtectedContainerUniqueId_s |Texto |Identificador único do servidor protegido associado ao item de backup (foi ProtectedServerUniqueId_s em V1) |
@@ -144,7 +144,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 | State_s |Texto |Estado atual do objeto de trabalho, por exemplo, Ativo, Eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - Job |
-| Categoria |Texto |Este campo representa categoria de dados de diagnóstico empurrados para os registos do Azure Monitor, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. É AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | ProtectedServerUniqueId_s |Texto |Identificador único do servidor protegido associou o trabalho |
 | ProtectedContainerUniqueId_s |Texto | ID único para identificar o recipiente protegido em que o trabalho é executado |
@@ -174,12 +174,12 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
 | Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
 | --- | --- | --- | --- |
-| EventName_s |Texto ||Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema, é **V2** |
+| EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
 | State_s |Texto ||Estado atual do objeto político, por exemplo, Ativo, Eliminado |
 | BackupManagementType_s |Texto ||Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto ||Este campo representa o nome da operação atual - Política |
-| Categoria |Texto ||Este campo representa categoria de dados de diagnóstico empurrados para os registos do Azure Monitor, é AzureBackupReport |
+| Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. É AzureBackupReport |
 | Recurso |Texto ||Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | PolicyUniqueId_g |Texto ||ID único para identificar a política |
 | PolicyName_s |Texto ||Nome da política definida |
@@ -196,7 +196,7 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 | MonthlyRetentionTimes_s |Texto ||Data e hora em que a retenção mensal é configurada |
 | MonthlyRetentionFormat_s |Texto ||Tipo de configuração para retenção mensal, por exemplo, diária para base diurna, semanalmente para a semana |
 | MonthlyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionados para retenção mensal |
-| MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas do mês em que a retenção mensal é configurada, por exemplo, Primeiro, Último etc. |
+| MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas do mês em que a retenção mensal é configurada, por exemplo, First, Last |
 | YearlyRetentionDuration_s |Número Decimal ||Duração total da retenção em anos para cópias de segurança configuradas |
 | YearlyRetentionTimes_s |Texto ||Data e hora em que a retenção anual é configurada |
 | YearlyRetentionMonthsOfTheYear_s |Texto ||Meses do ano selecionados para retenção anual |
@@ -222,12 +222,12 @@ Esta tabela fornece detalhes sobre associações políticas com várias entidade
 
 | Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
 | --- | --- | --- | --- |
-| EventName_s |Texto ||Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema, é **V2** |
+| EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
 | State_s |Texto ||Estado atual do objeto político, por exemplo, Ativo, Eliminado |
 | BackupManagementType_s |Texto ||Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto ||Este campo representa o nome da operação atual - PolíticaAssociação |
-| Categoria |Texto ||Este campo representa categoria de dados de diagnóstico empurrados para os registos do Azure Monitor, é AzureBackupReport |
+| Categoria |Texto ||Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. É AzureBackupReport |
 | Recurso |Texto ||Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | PolicyUniqueId_g |Texto ||ID único para identificar a política |
 | VaultUniqueId_s |Texto ||ID único do cofre a que esta política pertence |
@@ -248,7 +248,7 @@ Esta tabela fornece campos básicos sobre recipientes protegidos. (Foi Protegido
 | ProtectedContainerUniqueId_s |Texto | Campo para identificar exclusivamente um Recipiente Protegido |
 | ProtectedContainerOSType_s |Texto |Tipo de SO do Recipiente Protegido |
 | ProtectedContainerOSVersion_s |Texto |Versão SO do Recipiente Protegido |
-| AgentVersion_s |Texto |Número de versão da Cópia de Segurança do Agente ou do Agente de Proteção (No caso de SC DPM e MABS) |
+| AgentVersion_s |Texto |Número de versão do Agente Backup ou do Agente de Proteção (No caso do SC DPM e MABS) |
 | BackupManagementType_s |Texto |Tipo de fornecedor para realizar backup. Por exemplo, IaaSVM, FileFolder |
 | EntityState_s |Texto |Estado atual do objeto do servidor protegido. Por exemplo, Ative, Eliminado |
 | ProtectedContainerFriendlyName_s |Texto |Nome amigável do servidor protegido |
@@ -266,12 +266,12 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | --- | --- | --- |
 | CloudStorageInBytes_s |Número Decimal |Armazenamento de backup em nuvem utilizado por backups, calculado com base no valor mais recente (Este campo é apenas para esquema v1)|
 | ProtectedInstances_s |Número Decimal |Número de casos protegidos utilizados para calcular o armazenamento de frontend na faturação, calculado com base no valor mais recente |
-| EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **V2** |
+| EventName_s |Texto |Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema. É **V2.** |
 | State_s |Texto |Estado atual do objeto de armazenamento, por exemplo, Ativo, Eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para servidor fazendo trabalho de backup, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - Armazenamento |
-| Categoria |Texto |Este campo representa categoria de dados de diagnóstico empurrados para os registos do Azure Monitor, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. É AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | ProtectedServerUniqueId_s |Texto |ID único do servidor protegido para o qual o armazenamento é calculado |
 | VaultUniqueId_s |Texto |ID único do cofre para armazenamento é calculado |
@@ -293,7 +293,7 @@ Esta tabela fornece campos básicos relacionados com armazenamento que ligam o a
 | Campo | Tipo de Dados | Descrição |
 | --- | --- |  --- |
 | StorageUniqueId_s |Texto |ID único usado para identificar a entidade de armazenamento |
-| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **V2** |
+| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema. É **V2.** |
 | BackupItemUniqueId_s |Texto |ID exclusivo usado para identificar o item de backup relacionado com a entidade de armazenamento |
 | BackupManagementServerUniqueId_s |Texto |ID exclusivo usado para identificar o servidor de gestão de backup relacionado com a entidade de armazenamento|
 | VaultUniqueId_s |Texto |ID único usado para identificar o cofre relacionado com a entidade de armazenamento|
@@ -306,11 +306,11 @@ Esta tabela fornece detalhes sobre campos relacionados com o cofre.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
-| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema, é **V2** |
+| EventName_s |Texto |Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
+| SchemaVersion_s |Texto |Este campo denota a versão atual do esquema. É **V2.** |
 | State_s |Texto |Estado atual do objeto do cofre, por exemplo, Ativo, Eliminado |
 | OperationName |Texto |Este campo representa o nome da operação atual - Cofre |
-| Categoria |Texto |Este campo representa categoria de dados de diagnóstico empurrados para os registos do Azure Monitor, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico empurrados para os registos do Monitor Azure. É AzureBackupReport |
 | Recurso |Texto |Este é o recurso para o qual os dados estão a ser recolhidos, mostra o nome do cofre dos Serviços de Recuperação |
 | VaultUniqueId_s |Texto |ID único do cofre |
 | VaultName_s |Texto |Nome do cofre |
@@ -470,7 +470,7 @@ Consulte a terceira coluna 'Descrição' no modelo de [dados](#using-azure-backu
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modificar as suas consultas para usar o esquema V2
 
-Como o esquema V1 está em caminho de depreciação, recomenda-se a utilização apenas do esquema V2 em todas as suas consultas personalizadas sobre dados de diagnóstico de backup Azure. Abaixo está um exemplo de como atualizar as suas consultas para remover a dependência do esquema V1:
+Como o esquema V1 está em um caminho de depreciação, é recomendado usar apenas o esquema V2 em todas as suas consultas personalizadas sobre dados de diagnóstico de backup Azure. Abaixo está um exemplo de como atualizar as suas consultas para remover a dependência do esquema V1:
 
 1. Identifique se a sua consulta está a utilizar qualquer campo que seja aplicável apenas ao esquema V1. Assuma que tem uma consulta para listar todos os itens de backup e os seus servidores protegidos associados da seguinte forma:
 
@@ -481,9 +481,9 @@ Como o esquema V1 está em caminho de depreciação, recomenda-se a utilização
     | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
     ````
 
-    A consulta acima utiliza o campo ProtectedServerUniqueId_s que só é aplicável ao esquema V1. O equivalente ao esquema V2 deste campo é ProtectedContainerUniqueId_s (consulte as tabelas acima). O campo BackupItemUniqueId_s é aplicável mesmo ao esquema V2 e o mesmo campo pode ser utilizado nesta consulta.
+    A consulta acima utiliza o campo ProtectedServerUniqueId_s, que só é aplicável ao esquema V1. O equivalente ao esquema V2 deste campo é ProtectedContainerUniqueId_s (consulte as tabelas acima). O campo BackupItemUniqueId_s é aplicável mesmo ao esquema V2 e o mesmo campo pode ser utilizado nesta consulta.
 
-2. Atualize a consulta para utilizar os nomes do campo de esquema V2. É uma prática recomendada utilizar o filtro 'onde SchemaVersion_s=="V2" em todas as suas consultas, de modo que apenas os registos correspondentes ao esquema V2 são analisados pela consulta:
+2. Atualize a consulta para utilizar os nomes do campo de esquema V2. É uma prática recomendada para usar o filtro **onde SchemaVersion_s="V2"** em todas as suas consultas, de modo que apenas os registos correspondentes ao esquema V2 são analisados pela consulta:
 
     ````Kusto
     AzureDiagnostics

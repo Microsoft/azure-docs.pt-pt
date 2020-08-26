@@ -4,12 +4,12 @@ description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azur
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: bb327d014efc3df02edd14afafe1e2e7c1ea9d73
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f972913bcae68297ed166f82fd78a047ce9d475d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824479"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890662"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
 
@@ -23,7 +23,7 @@ O Azure Backup cria pontos de recuperação que são armazenados em cofres de re
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.18 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão 2.0.18 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,7 +139,7 @@ Com o script de recuperação copiado para a VM, já pode ligar o ponto de recup
     ./myVM_we_1571974050985163527.sh
     ```
 
-    À medida que o script é executado, é-lhe pedido para introduzir uma palavra-passe para aceder ao ponto de recuperação. Introduza a palavra-passe apresentada no resultado do comando [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) anterior que gerou o script de recuperação.
+    À medida que o script é executado, é-lhe pedido que introduza uma palavra-passe para aceder ao ponto de recuperação. Introduza a palavra-passe apresentada no resultado do comando [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) anterior que gerou o script de recuperação.
 
     O resultado do script indica-lhe o caminho para o ponto de recuperação. O seguinte resultado de exemplo mostra que o ponto de recuperação está montado em */home/azureuser/myVM-20170919213536/Volume1*:
 

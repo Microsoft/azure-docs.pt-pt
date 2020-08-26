@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades de segurança
 description: Saiba mais sobre as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0354e319c82e02072a8771f9aae383bf0b6240f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824599"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890472"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -56,7 +56,7 @@ A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos d
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de eliminações não intencionais
 
-O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se o utilizador eliminar a cópia de segurança de um VM, os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não incorrem em qualquer custo para o cliente. [Saiba mais sobre a eliminação suave.](backup-azure-security-feature-cloud.md)
+O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se o utilizador eliminar a cópia de segurança de um VM, os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não lhe incorrem em qualquer custo. [Saiba mais sobre a eliminação suave.](backup-azure-security-feature-cloud.md)
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorização e alertas de atividades suspeitas
 

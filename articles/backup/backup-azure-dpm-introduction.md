@@ -3,12 +3,12 @@ title: Prepare o servidor DPM para fazer o back-ups
 description: Neste artigo, aprenda a preparar-se para backups do System Center Data Protection Manager (DPM) para a Azure, utilizando o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827312"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890812"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
 
@@ -90,7 +90,7 @@ Para obter as credenciais, descarregue o ficheiro de credencial de cofre atravé
 - As credenciais do cofre são utilizadas apenas durante o fluxo de trabalho de registo.
 - É sua responsabilidade garantir que o ficheiro de credenciais do cofre é seguro, e não comprometido.
   - Se o controlo das credenciais for perdido, as credenciais do cofre podem ser usadas para registar outras máquinas no cofre.
-  - No entanto, os dados de backup são encriptados usando uma palavra-passe que pertence ao cliente, pelo que os dados de backup existentes não podem ser comprometidos.
+  - No entanto, os dados de backup são encriptados usando uma palavra-passe que lhe pertence, pelo que os dados de backup existentes não podem ser comprometidos.
 - Certifique-se de que esse ficheiro é guardado num local que pode ser acedido a partir do servidor DPM. Se estiver armazenado numa partilha de ficheiros/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 horas. Você pode baixar novas credenciais de cofre quantas vezes for necessário. No entanto, apenas o último ficheiro de credencial de cofre pode ser utilizado durante o fluxo de trabalho de registo.
 - O serviço de Backup Azure não tem conhecimento da chave privada do certificado, e a chave privada não está disponível no portal ou no serviço.

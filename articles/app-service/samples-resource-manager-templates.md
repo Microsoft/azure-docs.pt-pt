@@ -4,15 +4,15 @@ description: Encontre amostras de modelo do Azure Resource Manager para alguns d
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517710"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891050"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de gestor de recursos Azure para o Serviço de Aplicações
 
@@ -44,6 +44,7 @@ Para saber mais sobre a sintaxe JSON e propriedades para recursos de Serviços d
 | [App com base de dados na Base de Dados Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa uma aplicação de Serviço de Aplicações e uma base de dados na Base de Dados Azure SQL ao nível do serviço Básico. |
 | [App com uma ligação de armazenamento Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Implementa uma aplicação de Serviço de Aplicações com uma cadeia de ligação de armazenamento Azure Blob. Em seguida, pode utilizar o armazenamento Blob a partir da aplicação. |
 | [App com cache Azure para Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Implementa uma aplicação de Serviço de Aplicações com uma Cache Azure para Redis. |
+| [App ligada a um webapp backend](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Implementa duas aplicações web (frontend e backend) conectadas de forma segura juntamente com a injeção de VNet e o Private Endpoint. |
 |**Ambiente do Serviço de Aplicações**| **Descrição** |
 | [Criar um Ambiente de Serviço de Aplicações v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual. |
 | [Criar um ambiente de Serviço de Aplicações v2 com um endereço ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual com um endereço de balanceador de carga interno privado. |

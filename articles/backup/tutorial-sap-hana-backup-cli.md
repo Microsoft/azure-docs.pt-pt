@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 505c4502281f4d32e1e28d913ed5a040e533cfb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbf50a9b1fa33e86777c25dcbeee9681aa2dda62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824326"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890608"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-O cmdlet [da lista de trabalho de backup da AZ](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) lista todos os trabalhos de backup (agendados ou a pedido) que tenham executado ou estejam atualmente a funcionar na base de dados protegida, além de outras operações como registo, configuração de backup, apagar dados de backup, etc.
+O cmdlet [da lista de trabalho de backup da AZ](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) lista todos os trabalhos de backup (agendados ou a pedido) que tenham executado ou estejam atualmente a funcionar na base de dados protegida, além de outras operações como registo, configuração de backup e eliminação de dados de backup.
 
 >[!NOTE]
 >O Azure Backup não se ajusta automaticamente às alterações de horário de verão ao fazer o backup de uma base de dados SAP HANA em funcionamento num VM Azure.

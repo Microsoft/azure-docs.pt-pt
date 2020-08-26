@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827431"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889945"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -24,9 +24,9 @@ Neste artigo, aprenda a configurar o Azure Firewall para controlar o acesso ao s
 
 Embora as informações neste documento se baseiem na utilização [do Azure Firewall,](../firewall/tutorial-firewall-deploy-portal.md)deverá poder usá-la com outros produtos de firewall. Se tiver dúvidas sobre como permitir a comunicação através da sua firewall, consulte a documentação para a firewall que está a utilizar.
 
-## <a name="network-rules"></a>Regras de rede
+## <a name="application-rules"></a>Regras de aplicação
 
-Na sua firewall, crie uma regra de rede que permite o tráfego de e para os endereços deste artigo.
+Na sua firewall, crie uma _regra de aplicação_ que permite o tráfego de e para os endereços deste artigo.
 
 > [!TIP]
 > Ao adicionar a regra da rede, desa um __protocolo__ a qualquer e às portas para `*` .

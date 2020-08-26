@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b87008f4172e58440c32e4ff92a3ee1f4d5efae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b87557b6d884068d3fb85978e8d238fc7f1047ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565877"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891526"
 ---
 # <a name="textures"></a>Texturas
 
@@ -69,7 +69,7 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
     ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
     textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
     {
-        if (res->IsRanToCompletion())
+        if (res->GetIsRanToCompletion())
         {
             //use res->Result()
         }
@@ -87,7 +87,7 @@ Dependendo do que a textura deve ser usada, pode haver restrições para o tipo 
 > [!CAUTION]
 > Todas as funções *Async* em ARR retornam objetos de operação assíncronos. Deve guardar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código de amostra acima da variável de membro '_textureLoad' é utilizado para manter uma referência até à chegada do evento *Concluído.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais](materials.md)
 * [Céu](../overview/features/sky.md)

@@ -4,12 +4,12 @@ description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure c
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824446"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890710"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurar um disco da VM
 
 > [!IMPORTANT]
-> É muito fortemente recomendado usar a versão 2.0.74 do Az CLI ou mais tarde para obter todos os benefícios de uma restauração rápida, incluindo a restauração do disco gerido. É melhor que o utilizador utilize sempre a versão mais recente.
+> É muito fortemente recomendado usar a versão 2.0.74 do Az CLI ou mais tarde para obter todos os benefícios de uma restauração rápida, incluindo a restauração do disco gerido. É melhor usar sempre a versão mais recente.
 
 ### <a name="managed-disk-restore"></a>Restauro do disco gerido
 
@@ -88,7 +88,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
     ```
 
     > [!WARNING]
-    > Se o **grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Os clientes só terão o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
+    > Se o **grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Só terá o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -105,7 +105,7 @@ Isto irá restaurar os discos geridos como discos não geridos para a conta de a
 
 ### <a name="unmanaged-disks-restore"></a>Discos não geridos restauram
 
-Se o VM de back-up tiver discos não geridos e se a intenção for restaurar os discos do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Por predefinição, os discos não geridos serão restaurados nas suas contas de armazenamento originais. Se o utilizador pretender restaurar todos os discos não geridos num único local, então a conta de armazenamento dada também pode ser usada como um local de preparação para esses discos.
+Se o VM de back-up tiver discos não geridos e se a intenção for restaurar os discos do ponto de recuperação, primeiro fornece uma conta de armazenamento Azure. Esta conta de armazenamento é usada para armazenar a configuração VM e o modelo de implementação que pode ser posteriormente utilizado para implantar o VM a partir dos discos restaurados. Por predefinição, os discos não geridos serão restaurados nas suas contas de armazenamento originais. Se desejar restaurar todos os discos não geridos num único local, então a conta de armazenamento dada também pode ser usada como um local de preparação para esses discos também.
 
 Nos passos adicionais, o disco restaurado é utilizado para criar uma VM.
 

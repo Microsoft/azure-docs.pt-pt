@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827244"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890561"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -68,7 +68,7 @@ O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger t
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, no caso de estar interessado, tem alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -94,7 +94,7 @@ Se **parar a cópia de segurança com os dados de eliminação,** não serão ef
 
 Uma base de dados renomeada é tratada como uma nova base de dados. Assim, o serviço tratará esta situação como se a base de dados não tivesse sido encontrada e com falhas nas cópias de segurança.
 
-Pode selecionar a base de dados, que agora é renomeada e configurar a proteção. Caso a proteção automática esteja ativada no caso, a base de dados renomeada será automaticamente detetada e protegida.
+Pode selecionar a base de dados, que agora é renomeada e configurar a proteção. Se a proteção automática estiver ativada no caso, a base de dados renomeada será automaticamente detetada e protegida.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que não posso ver uma base de dados adicional para um caso autoprotegido?
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 08f5829eb624f13be44bba633f3188d8d9876058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547465"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com JIRA SAML SSO pela Microsoft
 
@@ -28,7 +28,7 @@ Neste tutorial, você vai aprender a integrar JIRA SAML SSO pela Microsoft com A
 
 Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrição
 
 Utilize a sua conta Microsoft Azure Ative Directory com o servidor Atlassian JIRA para ativar um único s-on. Desta forma, todos os utilizadores da sua organização podem usar as credenciais AZURE AD para iniciar súm na aplicação JIRA. Este plugin usa SAML 2.0 para federação.
 
@@ -37,7 +37,7 @@ Utilize a sua conta Microsoft Azure Ative Directory com o servidor Atlassian JIR
 Para configurar a integração AZure AD com o JIRA SAML SSO pela Microsoft, precisa dos seguintes itens:
 
 - Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-- JIRA Core e Software 6.4 a 8.11.0 ou JIRA Service Desk 3.0 a 4.8.0 devem ser instalados e configurados na versão do Windows 64-bit
+- JIRA Core e Software 6.4 a 8.11.0 ou JIRA Service Desk 3.0 a 4.11.1 devem ser instalados e configurados na versão do Windows 64-bit
 - O servidor JIRA está com ATIVAR HTTPS
 - Note que as versões suportadas para O Plugin JIRA são mencionadas na secção seguinte.
 - O servidor JIRA é acessível na internet particularmente à página de Login AZure para autenticação e deve ser capaz de receber o token da Azure AD
@@ -59,7 +59,7 @@ Para começar, precisa dos seguintes itens:
 ## <a name="supported-versions-of-jira"></a>Versões apoiadas do JIRA
 
 * JIRA Core e Software: 6.4 a 8.11.0
-* Mesa de Serviço JIRA 3.0.0 a 4.8.0
+* Balcão de Serviço JIRA 3.0.0 a 4.11.1
 * JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]

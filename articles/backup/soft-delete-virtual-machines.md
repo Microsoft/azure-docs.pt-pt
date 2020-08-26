@@ -4,12 +4,12 @@ description: Saiba como a eliminação suave para máquinas virtuais torna as c�
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826485"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889831"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminação recuperável para máquinas virtuais
 
@@ -110,7 +110,7 @@ O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Ma
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Excluir suave para VMs usando REST API
 
 - Elimine as cópias de segurança utilizando a API REST, como mencionado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)
-- Se o utilizador pretender desfazer estas operações de eliminação, consulte as etapas [aqui mencionadas](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
+- Se desejar desfazer estas operações de eliminação, consulte as etapas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)mencionadas .
 
 ## <a name="how-to-disable-soft-delete"></a>Como desativar a eliminação suave
 

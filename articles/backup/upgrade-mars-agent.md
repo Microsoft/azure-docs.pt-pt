@@ -3,12 +3,12 @@ title: Atualize o agente microsoft Azure Recovery Services (MARS)
 description: Saiba como atualizar o agente Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 1f4fd5074b0c6195742935e0cf0e742a00a3549e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 79abc877f102d83cdb3c72a571f2203984eb54e4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827329"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890232"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Atualize o agente microsoft Azure Recovery Services (MARS)
 
@@ -31,7 +31,7 @@ Para instalações do agente de backup Azure e do servidor de backup Azure:
 
     ![Lista de servidores com o agente MARS instalado](./media/upgrade-mars-agent/protected-servers.png)
 
-1. Serdene a coluna da versão Azure Backup Agent clicando na coluna **versão do agente** para instalações do Agente MARS ou na coluna versão do agente de backup **Azure** para instalações de servidor de backup Azure.
+1. Serdene a coluna da versão Azure Backup Agent selecionando a coluna **versão do agente** para instalações do Agente MARS ou a coluna versão do agente de backup **Azure** para instalações de servidor de backup Azure.
 
 1. O passo anterior irá dar-lhe a lista de servidores com agentes Azure Backup que têm versões inferiores a 2.0.9083.0 ou versões de agente listadas como espaços em branco. Estes são os servidores onde os agentes de backup do Azure precisam de ser atualizados.
 
@@ -39,13 +39,13 @@ Para instalações do agente de backup Azure e do servidor de backup Azure:
 
 Depois de identificar os servidores que necessitam de uma atualização do agente de backup Azure, execute os seguintes passos para cada servidor identificado (utilizando o servidor de backup Azure ou o Agente MARS). [Descarregue a versão mais recente do agente de backup Azure](https://aka.ms/azurebackup_agent) antes de seguir os passos abaixo.
 
-1. Clique numa linha que tenha o agente Azure Backup inferior a 2.0.9083.0 ou em branco. Isto abrirá o ecrã de detalhes do servidor.
+1. Selecione uma linha que tenha o agente Azure Backup inferior a 2.0.9083.0 ou em branco. Isto abrirá o ecrã de detalhes do servidor.
 
     ![Servidores protegidos com versões de agente desatualizadas](./media/upgrade-mars-agent/old-agent-version.png)
 
     ![Servidores de backup Azure com versões de agente desatualizadas](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
 
-1. Clique em **Connect** para receber um ficheiro de ligação ao ambiente de trabalho remoto para se ligar ao servidor ou ligar-se diretamente ao servidor através da ligação Remote Desktop no seu servidor.
+1. Selecione **Connect** para receber um ficheiro de ligação ao ambiente de trabalho remoto para ligar ao servidor ou ligar-se diretamente ao servidor através da ligação Remote Desktop no seu servidor.
 
     ![Conecte-se ao servidor através de ligação remota ao ambiente de trabalho](./media/upgrade-mars-agent/connect-to-server.png)
 
@@ -57,7 +57,7 @@ Depois de identificar os servidores que necessitam de uma atualização do agent
 1. Se o servidor ou o representante do servidor tiver acesso limitado à Internet, certifique-se de que as definições de firewall no servidor/procuração estão configuradas para permitir o URL adequado à nuvem Azure que está a usar:
 
     Nuvem de Azure | URL
-    -- | ---
+    --- | ---
     Nuvem de Azure (Público) |   `https://login.windows.net`
     Nuvem Azure China 21Vianet   | `https://login.chinacloudapi.cn`
     Nuvem do Governo dos EUA de Azure |   `https://login.microsoftonline.us`
@@ -71,9 +71,9 @@ Depois de identificar os servidores que necessitam de uma atualização do agent
 
     ![O assistente de atualização do agente de recuperação do Microsoft Azure](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. Clique em **Seguinte**.
+1. Selecione **Seguinte**.
 
-1. Clique em **Atualizar**.
+1. Selecione **Upgrade**.
 
     ![Instalação do Agente de Serviços de Recuperação do Microsoft Azure](./media/upgrade-mars-agent/upgrade-installation.png)
 
@@ -85,7 +85,7 @@ Se instalou agentes de backup do Azure nos servidores Do Gestor de Proteção de
 
 1. Inscreva-se no seu servidor SC DPM como Administrador.
 2. Abra a Consola DPM.
-3. Clique em **Gestão** na navegação inferior esquerda da consola.
+3. Selecione **Gestão** na navegação inferior esquerda da consola.
 4. Dentro das informações que aparecem na navegação à esquerda, procure as informações da versão do agente Azure Backup.
 5. Se a versão for inferior a 2.0.9083.0, descarregue o mais recente instalador de backup do Azure e execute o instalador no servidor DPM para atualizar o agente Azure Backup.
 
