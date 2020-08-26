@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141725"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855193"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série de tempo em Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Este artigo descreve o Modelo da Série de Tempo, as capacidades e como começar
 > [!TIP]
 >
 > * Vá ao ambiente [de demonstração do Parque Eólico Contoso](https://insights.timeseries.azure.com/preview/samples) para um exemplo ao vivo da Série Time.
-> * Aprenda a trabalhar com o [Modelo da Série De Tempo](/azure/time-series-insights/how-to-edit-your-model) utilizando o Azure Time Series Insights Gen2 Explorer.
+> * Aprenda a trabalhar com o [Modelo da Série De Tempo](/azure/time-series-insights/how-to-edit-your-model) utilizando o Azure Time Series Insights TSI Explorer.
 
 ## <a name="summary"></a>Resumo
 
@@ -75,7 +75,7 @@ Estes componentes são combinados para especificar um modelo de série sonora e 
 
 [![Gráfico de visão geral do modelo de série de tempo](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). As definições do modelo série de tempo podem ser geridas através da [API de Definições](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)de Modelos .
+Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights TSI Explorer](/azure/time-series-insights/concepts-model-overview). As definições do modelo série de tempo podem ser geridas através da [API de Definições](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)de Modelos .
 
 ## <a name="time-series-model-instances"></a>Exemplos de modelos de séries de tempo
 
@@ -87,7 +87,7 @@ Os casos têm informações descritivas associadas a eles chamadas *propriedades
 
 *Os campos* de exemplo são uma coleção de informações descritivas que podem incluir valores para níveis de hierarquia, bem como fabricante, operador, e assim por diante.
 
-Depois de uma fonte de evento ser configurada para o ambiente Azure Time Series Insights Gen2, as instâncias são automaticamente descobertas e criadas num modelo de série sonora. Os casos podem ser criados ou atualizados através do Azure Time Series Insights Gen2 Explorer utilizando consultas de Modelo de Séries Temporais.
+Depois de uma fonte de evento ser configurada para o ambiente Azure Time Series Insights Gen2, as instâncias são automaticamente descobertas e criadas num modelo de série sonora. Os casos podem ser criados ou atualizados através do Azure Time Series Insights TSI Explorer utilizando consultas de Modelo de Séries Temporais.
 
 A [demonstração do Parque Eólico Contoso](https://insights.timeseries.azure.com/preview/samples) fornece vários exemplos de instâncias ao vivo.
 
@@ -216,7 +216,7 @@ Tendo em conta os campos de instância utilizados na definição anterior e em v
 | ID4 | "Edifício" = "1000", "piso" = "10"  |
 | ID5 | Nenhum de "edifício", "chão", ou "quarto" está definido. |
 
-As Séries De Tempo **ID1** e **ID4** são exibidas como parte da hierarquia **H1** no [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) porque têm um *edifício*totalmente definido e ordenado corretamente, *piso*e parâmetros *de sala.*
+As Séries De Tempo **ID1** e **ID4** são apresentadas como parte da hierarquia **H1** no [Azure Time Series Insights TSI Explorer](time-series-insights-update-explorer.md) porque têm um *edifício*totalmente definido e ordenado corretamente, *piso*e parâmetros *de sala.*
 
 Os outros são classificados em *Instâncias NãoParentes* porque não se conformam com a hierarquia de dados especificada.
 
@@ -286,7 +286,7 @@ Os tipos estão em conformidade com o seguinte exemplo JSON:
 
 Os tipos de modelos de séries de tempo podem ter muitas variáveis que especificam regras de fórmula e computação em eventos. Leia mais sobre [como definir variáveis de modelo de séries de tempo](./concepts-variables.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a documentação de referência do [Modelo série](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) de tempo para obter mais informações sobre como editar o modelo através de APIs.
 

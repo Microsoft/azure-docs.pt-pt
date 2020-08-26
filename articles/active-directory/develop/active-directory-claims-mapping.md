@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141538"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853364"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -143,7 +143,6 @@ Há certos conjuntos de afirmações que definem como e quando são usadas em fi
 | onprem_sid |
 | openid2_id |
 | palavra-passe |
-| platf |
 | polids |
 | pop_jwk |
 | preferred_username |
@@ -248,11 +247,11 @@ Para controlar as reclamações emitidas e de onde os dados provêm, utilize as 
 
 **Resumo:** Esta propriedade determina se o conjunto de reclamações básicas está incluído em fichas afetadas por esta política.
 
-- Se for definido para True, todas as reclamações no conjunto de alegações básicas são emitidas em fichas afetadas pela apólice. 
+- Se for definido para True, todas as reclamações no conjunto de alegações básicas são emitidas em fichas afetadas pela apólice.
 - Se definidos como Falsos, as reclamações no conjunto de reclamações básicas não estão nos tokens, a menos que sejam adicionadas individualmente na propriedade do esquema de reclamações da mesma apólice.
 
-> [!NOTE] 
-> As reclamações no conjunto de reclamações fundamentais estão presentes em cada token, independentemente do que esta propriedade está definida. 
+> [!NOTE]
+> As reclamações no conjunto de reclamações fundamentais estão presentes em cada token, independentemente do que esta propriedade está definida.
 
 ### <a name="claims-schema"></a>Esquema de reclamações
 
@@ -267,14 +266,14 @@ Para cada entrada de esquema de reclamação definida neste imóvel, é necessá
 
 **Valor:** O elemento Valor define um valor estático como os dados a emitir na reclamação.
 
-**Par de origem/ID:** Os elementos De Origem e ID definem de onde provêm os dados da reclamação.  
+**Par de origem/ID:** Os elementos De Origem e ID definem de onde provêm os dados da reclamação.
 
 **Par Source/ExtensionID:** Os elementos Source e ExtensionID definem o atributo de extensão do esquema de diretório de onde os dados da reclamação são provenientes. Para obter mais informações, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).
 
-Desaguise o elemento Fonte a um dos seguintes valores: 
+Desaguise o elemento Fonte a um dos seguintes valores:
 
-- "Utilizador": Os dados da reclamação são uma propriedade no objeto do Utilizador. 
-- "aplicação": Os dados da reclamação são um imóvel no principal do serviço de aplicação (cliente). 
+- "Utilizador": Os dados da reclamação são uma propriedade no objeto do Utilizador.
+- "aplicação": Os dados da reclamação são um imóvel no principal do serviço de aplicação (cliente).
 - "recurso": Os dados da reclamação são um imóvel no principal do serviço de recursos.
 - "público": Os dados da reclamação são um imóvel no diretor de serviço que é o público do token (quer o cliente quer o principal do serviço de recursos).
 - "Empresa": Os dados da reclamação são um imóvel sobre o objeto da Empresa do arrendatário de recursos.
@@ -322,7 +321,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | extensãotribuição15 | Atributo de extensão 15 |
 | Utilizador | outromail | Outros Correios |
 | Utilizador | país | País/Região |
-| Utilizador | city | Cidade |
+| Utilizador | city | City |
 | Utilizador | state | Estado |
 | Utilizador | cargo | Cargo |
 | Utilizador | empregado | ID de colaborador |
@@ -349,7 +348,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 **Corda:** Transferência de Reclamações
 
-**Tipo de dados:** Bolha JSON, com uma ou mais entradas de transformação 
+**Tipo de dados:** Bolha JSON, com uma ou mais entradas de transformação
 
 **Resumo:** Utilize esta propriedade para aplicar transformações comuns aos dados de origem, para gerar os dados de saída para sinistros especificados no Esquema de Reclamações.
 
@@ -368,7 +367,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 **InputClaims:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** é acompanhado com elemento de ID da entrada de esquema de reclamação para encontrar a alegação de entrada apropriada. 
+- **ClaimTypeReferenceId** é acompanhado com elemento de ID da entrada de esquema de reclamação para encontrar a alegação de entrada apropriada.
 - **TransformationClaimType** é usado para dar um nome único a esta entrada. Este nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
 **InputParameters:** Utilize um elemento InputParameters para passar um valor constante a uma transformação. Tem dois atributos: **Valor** e **ID.**
@@ -420,7 +419,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 Uma chave de assinatura personalizada deve ser atribuída ao objeto principal de serviço para que uma política de mapeamento de reclamações entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por atores maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-As aplicações que tenham pedido mapeamento de sinistros habilitadas devem validar as suas chaves de assinatura simbólicas, anexando `appid={client_id}` os seus [pedidos de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
+As aplicações que tenham pedido mapeamento de sinistros habilitadas devem validar as suas chaves de assinatura simbólicas, anexando `appid={client_id}` os seus [pedidos de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -464,20 +463,20 @@ Para começar, faça os seguintes passos:
 Neste exemplo, cria-se uma política que elimina a alegação básica definida de fichas emitidas a princípios de serviços ligados.
 
 1. Crie uma política de mapeamento de reclamações. Esta política, ligada a princípios de serviço específicos, elimina o conjunto de alegações básicas dos tokens.
-   1. Para criar a política, executar este comando: 
-    
+   1. Para criar a política, executar este comando:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando:
-    
+
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu principal de serviço.
    1. Para ver todos os principais de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta AZure AD.
-   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando:  
-     
+   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -487,21 +486,21 @@ Neste exemplo, cria-se uma política que elimina a alegação básica definida d
 Neste exemplo, cria-se uma política que adiciona o StaffID e o TenantCountry aos tokens emitidos aos principais de serviços ligados. O EmployeeID é emitido como o tipo de reclamação de nome tanto em fichas SAML como JWTs. O TenantCountry é emitido como o tipo de reivindicação país/região em fichas SAML e JWTs. Neste exemplo, continuamos a incluir as alegações básicas fixadas nos tokens.
 
 1. Crie uma política de mapeamento de reclamações. Esta política, ligada a princípios de serviço específicos, adiciona o StaffID e o TenantCountry reclama a tokens.
-   1. Para criar a apólice, executar o seguinte comando:  
-     
+   1. Para criar a apólice, executar o seguinte comando:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
+
    2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando:
-     
-      ``` powershell  
+
+      ``` powershell
       Get-AzureADPolicy
       ```
-1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu principal de serviço. 
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu principal de serviço.
    1. Para ver todos os principais de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta AZure AD.
-   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando:  
-     
+   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -512,20 +511,20 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
 
 1. Crie uma política de mapeamento de reclamações. Esta política, ligada a princípios de serviço específicos, adiciona o StaffID e o TenantCountry reclama a tokens.
    1. Para criar a apólice, executar o seguinte comando:
-     
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
-   2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando: 
-     
+
+   2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando:
+
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu principal de serviço. 
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu principal de serviço.
    1. Para ver todos os principais de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta AZure AD.
-   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando: 
-     
+   2. Quando tiver o ObjectId do seu principal de serviço, executar o seguinte comando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

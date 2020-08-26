@@ -3,20 +3,20 @@ title: Use ambientes de software
 titleSuffix: Azure Machine Learning
 description: Criar e gerir ambientes para formação e implantação de modelos. Gerir pacotes Python e outras configurações para o ambiente.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a08575ac118f38361d82198ccc86a09f7b2558d6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783744"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853250"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,7 +153,7 @@ Adicione pacotes a um ambiente utilizando ficheiros Conda, pip ou rodas privadas
 
 Se um pacote estiver disponível num repositório de pacotes Conda, recomendamos que utilize a instalação Conda em vez da instalação do pip. Os pacotes Conda normalmente vêm com binários pré-construídos que tornam a instalação mais fiável.
 
-O exemplo a seguir aumenta o ambiente. Adiciona a versão 1.17.0 de `numpy` . Também adiciona o `pillow` pacote, `myenv` . O exemplo utiliza o [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) método e o [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) método, respectivamente.
+O exemplo a seguir acrescenta-se ao `myenv` ambiente. Adiciona a versão 1.17.0 de `numpy` . Também adiciona o `pillow` pacote. O exemplo utiliza o [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) método e o [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) método, respectivamente.
 
 ```python
 from azureml.core.environment import Environment
@@ -245,7 +245,7 @@ build.wait_for_completion(show_output=True)
 É útil primeiro construir imagens localmente usando o [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) método. E definir o parâmetro opcional `pushImageToWorkspaceAcr = True` irá empurrar a imagem resultante para o registo do espaço de trabalho Azure ML. 
 
 > [!WARNING]
->  Mudar a ordem das dependências ou canais num ambiente resultará num novo ambiente e exigirá uma nova construção de imagem.
+>  Mudar a ordem das dependências ou canais num ambiente resultará num novo ambiente e exigirá uma nova construção de imagem. Além disso, chamar o `build()` método para uma imagem existente irá atualizar as suas dependências se houver novas versões. 
 
 ## <a name="enable-docker"></a>Ativar Docker
 
@@ -323,7 +323,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 Para um ambiente registado, pode obter detalhes de imagem utilizando o seguinte código onde `details` está uma instância de [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11) e fornece todas as informações sobre a imagem do ambiente, como o ficheiro de estiva, registo e nome de imagem.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>Utilizar ambientes para formação

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590222"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854889"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -31,10 +31,18 @@ Esta secção mostra alguns comandos SPX básicos que são frequentemente úteis
 spx
 ```
 
-Note **ver também** tópicos de ajuda listados direito de parâmetros de comando. Também pode pesquisar tópicos por palavra-chave. Por exemplo, insira o seguinte comando para ver uma lista de tópicos de ajuda sobre exemplos de CLI do discurso:
+Nota **ver:** tópicos de ajuda listados direito de parâmetros de comando. Pode introduzir estes comandos para obter ajuda detalhada sobre sub-comandos.
+
+Pode pesquisar tópicos de ajuda por palavra-chave. Por exemplo, insira o seguinte comando para ver uma lista de exemplos de utilização do CLI do discurso:
 
 ```shell
 spx help find --topics "examples"
+```
+
+Introduza o seguinte comando para ver opções para o comando de reconhecimento:
+
+```shell
+spx help recognize
 ```
 
 Agora utilize o serviço Desempenhado para realizar algum reconhecimento de voz utilizando o microfone predefinido executando o seguinte comando.

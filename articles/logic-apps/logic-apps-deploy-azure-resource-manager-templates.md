@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827499"
+ms.locfileid: "88855591"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos do Azure Resource Manager para o Azure Logic Apps
 
@@ -119,7 +119,9 @@ Aqui estão os passos gerais de alto nível para a utilização de Gasodutos Azu
 
 ## <a name="authorize-oauth-connections"></a>Autorizar ligações OAuth
 
-Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, ainda tem de autorizar ou utilizar ligações OAuth pré-autorizadas para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-vs-authorization.md). Aqui ficam algumas sugestões:
+Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos, mas para gerar fichas de acesso válidas para [autenticar as suas credenciais,](../active-directory/develop/authentication-vs-authorization.md)ainda tem de autorizar ou utilizar ligações OAuth pré-autorizadas. No entanto, só tem de implementar e autenticar os recursos de ligação API uma vez, o que significa que não tem de incluir esses recursos de conexão em implementações subsequentes, a menos que tenha de atualizar as informações de ligação. Se utilizar um gasoduto de integração contínua e de implementação contínua, implementaria apenas recursos de Aplicações Lógicas atualizados e não teria de reautorizar as ligações todas as vezes.
+
+Aqui ficam algumas sugestões para lidar com ligações autorizadas:
 
 * Pré-autorize e partilhe recursos de conexão API através de aplicações lógicas que estão na mesma região. As ligações API existem como recursos Azure independentemente de aplicações lógicas. Embora as aplicações lógicas tenham dependências de recursos de conexão API, os recursos de conexão API não têm dependências de aplicações lógicas e permanecem depois de eliminar as aplicações lógicas dependentes. Além disso, as aplicações lógicas podem usar ligações API que existem em outros grupos de recursos. No entanto, o Logic App Designer suporta a criação de ligações API apenas no mesmo grupo de recursos que as suas aplicações lógicas.
 

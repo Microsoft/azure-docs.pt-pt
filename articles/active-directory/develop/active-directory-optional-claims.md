@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794678"
+ms.locfileid: "88853578"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -54,7 +54,6 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `auth_time`                | Hora em que o utilizador foi autenticado pela última vez. Consulte a especificação openID connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
 | `sid`                      | ID de sessão, usado para a sessão de sessão de sessão. | JWT        |  Contas pessoais e azure AD.   |         |
-| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restrito a dispositivos geridos que possam verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Proveniente do Correio da AustráliaRritativa Primária do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Proveniente do Correio Secundário de Autoritária do Utilizador   | JWT        |           |        |
 | `vnet`                     | Informações do especificador VNET. | JWT        |           |      |

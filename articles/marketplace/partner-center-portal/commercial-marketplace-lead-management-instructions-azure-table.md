@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/25/2020
+ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120845"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855705"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
 
@@ -28,19 +28,19 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for supor
     1. Selecione **Armazenamento** no **painel Novo.** Uma lista **em destaque** aparece à direita.
     1. Selecione **a conta de Armazenamento** para iniciar a criação de conta. Siga as instruções na [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Passos para criar uma conta de armazenamento Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Passos para criar uma conta de armazenamento Azure.":::
 
         Para obter mais informações sobre contas de armazenamento, consulte [o tutorial quickstart.](../../storage/index.yml) Para obter mais informações sobre os preços de armazenamento, consulte [os preços de Armazenamento.](https://azure.microsoft.com/pricing/details/storage/)
 
-1. Aguarde até que a sua conta de armazenamento seja a provisionada. Este processo normalmente demora alguns minutos. 
+1. Aguarde até que a sua conta de armazenamento seja a provisionada. Este processo normalmente demora alguns minutos.
 
 ## <a name="create-a-table-in-your-storage-account"></a>Crie uma tabela na sua conta de armazenamento
 
-1. A partir da página **inicial** do portal Azure, selecione **Ver todos os seus recursos** para aceder à sua conta de armazenamento. Também pode selecionar **todos os recursos** da barra de menu esquerda do portal Azure.
+1. Na página **inicial** do portal Azure, selecione **Ver todos os seus recursos** para aceder à sua conta de armazenamento. Também pode selecionar **todos os recursos** da barra de menu esquerda do portal Azure.
 
-    ![Aceda à sua conta de armazenamento Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Aceda à sua conta de armazenamento Azure.":::
 
-1. A partir do painel de conta de armazenamento, selecione **as teclas de acesso** e copie o valor da cadeia De **ligação** para a tecla. Guarde este valor porque é o valor de cadeia de **ligação de conta** de armazenamento que terá de fornecer no portal de publicação para receber leads para a sua oferta Azure Marketplace. 
+1. A partir do painel de conta de armazenamento, selecione **as teclas de acesso** e copie o valor da cadeia De **ligação** para a tecla. Guarde este valor porque é o valor de cadeia de **ligação de conta** de armazenamento que terá de fornecer no portal de publicação para receber leads para a sua oferta Azure Marketplace.
 
     Aqui está um exemplo de uma ligação.
 
@@ -48,13 +48,14 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for supor
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Chave de armazenamento azul](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chave de armazenamento Azure.":::
+
 
 1. A partir do painel de conta de armazenamento, selecione **Tabelas**e selecione **+ Tabela** para criar uma tabela. Insira um nome para a sua mesa e selecione **OK**. Guarde este valor porque vai precisar dele se quiser configurar um fluxo para receber notificações por e-mail quando os leads são recebidos.
 
     ![Mesas azul](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Pode utilizar [o Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados na sua mesa de armazenamento. Também pode exportar os dados na tabela Azure. 
+    Pode utilizar [o Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados na sua mesa de armazenamento. Também pode exportar os dados na tabela Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Use Power Automamate para obter notificações de chumbo
 
@@ -66,7 +67,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
 1. Inscreva-se na sua conta Power Automamate.
 1. Na barra esquerda, selecione **Os meus fluxos.**
-1. Na barra superior, selecione **+ Novo**. 
+1. Na barra superior, selecione **+ Novo**.
 1. Na lista de suspensos, selecione **+ Programado -- a partir de branco**.
 
    ![Meus fluxos + programado -- de branco](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
@@ -90,7 +91,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
     ![Definir Obter intervalo de tempo passado](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
-   >[!TIP] 
+   >[!TIP]
    >Pode verificar o seu fluxo a qualquer momento para verificar se cada passo está configurado corretamente. Para verificar o seu fluxo, selecione **Flow checker** da barra de menu **Flow.**
 
    No próximo conjunto de passos, irá ligar-se à sua mesa e definir a lógica de processamento para lidar com novas ligações.
@@ -111,7 +112,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
      ![Obter janela de entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Consulta de filtro**: Selecione esta caixa e cole esta função na caixa:`Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Consulta de filtro**: Selecione esta caixa e cole esta função na caixa: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Obter entidades, caixa de consulta de filtro](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -123,7 +124,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
 1. Na janela **'Estado',** **selecione Escolha um valor**. Em seguida, selecione **Expressão** na janela pop-up.
 
-1. Cole `length(body('Get_entities')?['value'])` na caixa **de fx.** Selecione **OK** para adicionar esta função. 
+1. Cole `length(body('Get_entities')?['value'])` na caixa **de fx.** Selecione **OK** para adicionar esta função.
 
 1. Para terminar a configuração da condição:
     1. O selete **é maior do que** na lista de espera.
@@ -134,7 +135,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
    Nos próximos passos, você configura a ação a tomar com base no resultado da condição:
 
    * Se a condição resolver **se não,** não faça nada.
-   * Se a condição resolver **se sim,** desencadeie uma ação que ligue a sua conta Office 365 para enviar um e-mail. 
+   * Se a condição resolver **se sim,** desencadeie uma ação que ligue a sua conta Office 365 para enviar um e-mail.
 
 1. **Selecione Adicione uma ação** em Se **sim**.
 

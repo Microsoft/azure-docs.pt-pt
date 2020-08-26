@@ -11,14 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541129"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855267"
 ---
-# <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo para instâncias de contentores Azure
+# <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo no Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a usar a Azure Machine Learning para implementar um modelo como serviço web em Instâncias de Contentores Azure (ACI). Utilize instâncias do contentor Azure se uma das seguintes condições for verdadeira:
@@ -31,7 +31,7 @@ Para obter informações sobre a disponibilidade de quotas e de região para o A
 > [!IMPORTANT]
 > É altamente aconselhável depurar localmente antes de implementar no serviço web, para mais informações ver [Debug Localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Também pode consultar a Azure Machine Learning - [Implementar para o Caderno Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Também pode consultar o Azure Machine Learning – [Implementar no Bloco de Notas Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,9 +43,9 @@ Para obter informações sobre a disponibilidade de quotas e de região para o A
 
 - Os snippets de código __Python__ neste artigo assumem que as seguintes variáveis são definidas:
 
-    * `ws`- Prepara-te para o teu espaço de trabalho.
-    * `model`- Desa couso para o seu modelo registado.
-    * `inference_config`- Definir para a configuração de inferência para o modelo.
+    * `ws` - Prepara-te para o teu espaço de trabalho.
+    * `model` - Desa couso para o seu modelo registado.
+    * `inference_config` - Definir para a configuração de inferência para o modelo.
 
     Para obter mais informações sobre a definição destas variáveis, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 
@@ -56,8 +56,9 @@ Para obter informações sobre a disponibilidade de quotas e de região para o A
 Para implementar um modelo para Azure Container Instances, crie uma __configuração de implementação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço web. Para obter mais informações sobre a criação da configuração de inferência, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 
 > [!NOTE]
-> * O ACI é adequado apenas para pequenos modelos <de 1GB de tamanho. 
-> * Recomendamos a utilização de um único nó AKS para teste dev de modelos maiores.
+> * O ACI é adequado apenas para pequenos modelos com menos de 1 GB de tamanho. 
+> * Recomendamos a utilização de AKS de nó único para testar modelos maiores.
+> * O número de modelos a implementar limita-se a 1.000 modelos por implantação (por contentor). 
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -102,7 +103,7 @@ Consulte [os seus modelos com o Código VS.](tutorial-train-deploy-image-classif
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Atualizar o serviço web](how-to-deploy-update-web-service.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

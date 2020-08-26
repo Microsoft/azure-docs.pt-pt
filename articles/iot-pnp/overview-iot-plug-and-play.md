@@ -9,14 +9,14 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 7f889d6730012a11ebf82a78583ef420b7621075
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 32a873af3d287c3bd1e83de6db8e17ebc1d2958b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337658"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855632"
 ---
-# <a name="what-is-iot-plug-and-play-preview"></a>O que é IoT Plug e Play Preview?
+# <a name="what-is-iot-plug-and-play-preview"></a>O que é a Pré-visualização do IoT Plug and Play?
 
 O IoT Plug e o Play Preview permitem aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual. No cerne do IoT Plug and Play, está um _modelo_ de dispositivo que um dispositivo utiliza para anunciar as suas capacidades a uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de elementos que definem:
 
@@ -62,6 +62,10 @@ Como construtor de dispositivos, pode desenvolver um produto de hardware IoT que
 > [!Important]
 > Os dispositivos IoT Plug e Play devem utilizar MQTT ou MQTT sobre WebSockets. Outros protocolos, como AMQP ou HTTP, não são válidos para implementar dispositivos IoT Plug e Play.
 
+## <a name="device-certification"></a>Certificação do dispositivo
+
+O [programa de certificação ioT Plug and Play](howto-certify-device.md) verifica que um dispositivo cumpre os requisitos de certificação IoT Plug and Play. Pode adicionar um dispositivo certificado ao catálogo de [dispositivos Azure IoT certificados.](https://aka.ms/devicecatalog)
+
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 Esta atualização de pré-visualização IoT Plug and Play está disponível em hubs IoT criados nas regiões central dos EUA, Norte da Europa e Japão Oriental.
@@ -71,5 +75,5 @@ Esta atualização de pré-visualização IoT Plug and Play está disponível em
 Agora que tem uma visão geral do IoT Plug and Play, o próximo passo sugerido é experimentar um dos arranques rápidos:
 
 - [Ligue um dispositivo ao Hub IoT (C)](./quickstart-connect-device-c.md)
-- [Interaja com um dispositivo a partir da sua solução (Node.js)](./quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução (Node.js)](./quickstart-service-node.md)
 

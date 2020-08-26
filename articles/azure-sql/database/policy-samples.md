@@ -7,15 +7,15 @@ author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 4f3a417eca837778f2222d92d09b191082c8b195
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b86dd714bdd7f28ba5946e23c21b601e3336211c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276193"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855283"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições incorporadas da Política Azure para a Base de Dados Azure SQL & sql Gestd instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Esta página é um índice de definições de política incorporadas da [Azure Policy](../../governance/policy/overview.md) para Azure SQL Database e SQL Managed Instance. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 652c5b7c2df4e1f8bd379390451886914628505d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258558"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854974"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 
@@ -53,14 +53,14 @@ Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric
 #!/bin/bash
 
 # Variables
-ResourceGroupName="containertestcluster" 
-ClusterName="containertestcluster" 
-Location="eastus" 
-Password="q6D7nN%6ck@6" 
-Subject="containertestcluster.eastus.cloudapp.azure.com" 
-VaultName="containertestvault" 
-VmPassword="Mypa$$word!321"
-VmUserName="sfadminuser"
+ResourceGroupName='containertestcluster' 
+ClusterName='containertestcluster' 
+Location='eastus' 
+Password='q6D7nN%6ck@6' 
+Subject='containertestcluster.eastus.cloudapp.azure.com' 
+VaultName='containertestvault' 
+VmPassword='Mypa$$word!321'
+VmUserName='sfadminuser'
 
 # Login to Azure and set the subscription
 az login
@@ -108,7 +108,7 @@ Mozilla Firefox é o navegador padrão em Ubuntu 16.04. Para importar o certific
     ./install.sh
     ```
 
-3. Abra um browser e navegue para o ponto final do Service Fabric Explorer para o seu cluster. O ponto final tem o seguinte formato: **https:// \<my-azure-service-fabric-cluster-url> :19080/Explorer;** por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
+3. Abra um browser e navegue para o ponto final do Service Fabric Explorer para o seu cluster. O ponto final tem o seguinte formato:  **https:// \<my-azure-service-fabric-cluster-url> :19080/Explorer;** por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
 
 4. Expanda o nó **de Aplicações** para ver se existe agora uma inscrição para o tipo de candidatura de Voto e o caso que criou.
 

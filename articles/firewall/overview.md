@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e8f980c8802bce1f2f6ee4375b67abc12e8bc649
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 914f267edd5a8168fc11af7186e322c306718a4a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797892"
+ms.locfileid: "88852643"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -54,7 +54,8 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |A métrica NetworkRuleHit está a perder uma dimensão de protocolo|A métrica ApplicationRuleHit permite filtrar o protocolo baseado na filtragem, mas esta capacidade está em falta na métrica correspondente do NetworkRuleHit.|Uma correção está a ser investigada.|
 |As regras da NAT com portas entre 64000 e 65535 não são apoiadas|O Azure Firewall permite que qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras DA APENAS suportam portas na gama 1-63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem demorar cinco minutos, em média,|Uma atualização de configuração do Azure Firewall pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.|
-|Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou do servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não será capaz de se ligar através do Azure Firewall.|Se o software do navegador ou do servidor não suportar SNI, então poderá ser capaz de controlar a ligação usando uma regra de rede em vez de uma regra de aplicação. Consulte [a indicação do nome do servidor](https://wikipedia.org/wiki/Server_Name_Indication) para software que suporta sNI.
+|Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou do servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não será capaz de se ligar através do Azure Firewall.|Se o software do navegador ou do servidor não suportar SNI, então poderá ser capaz de controlar a ligação usando uma regra de rede em vez de uma regra de aplicação. Consulte [a indicação do nome do servidor](https://wikipedia.org/wiki/Server_Name_Indication) para software que suporta sNI.|
+|DNS personalizado (pré-visualização) não funciona com túneis forçados|Se o túnel de força estiver ativado, o DNS personalizado (pré-visualização) não funciona.|Uma correção está a ser investigada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

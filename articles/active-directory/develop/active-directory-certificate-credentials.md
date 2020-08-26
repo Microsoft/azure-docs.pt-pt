@@ -13,16 +13,16 @@ ms.date: 08/12/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06f15257148342879a164005a8f4fb302c539e67
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163667"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853385"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft permite que uma aplicação utilize as suas próprias credenciais para autenticação, por exemplo, no fluxo de concessão de [credenciais](v2-oauth2-client-creds-grant-flow.md) de cliente OAuth 2.0 e no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) (OBO).
+A plataforma de identidade da Microsoft permite que uma aplicação utilize as suas próprias credenciais para autenticação, por exemplo, no fluxo de concessão de  [credenciais](v2-oauth2-client-creds-grant-flow.md) de cliente OAuth 2.0 e no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Uma forma de credencial que uma aplicação pode usar para autenticação é uma afirmação [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assinada com um certificado que a aplicação possui.
 
@@ -36,13 +36,13 @@ Para calcular a afirmação, pode utilizar uma das muitas bibliotecas JWT na lin
 | --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
-| `x5t` | O hash do certificado X.509 (também conhecido como *impressão digital*SHA-1 do cert) codificado como um valor de cadeia Base64. Por exemplo, dado um haxixe de certificado X.509, `84E05C1D98BCE3A5421D225B140B36E86A3D5534` a `x5t` reclamação seria `hOBcHZi846VCHSJbFAs26Go9VTQ` . |
+| `x5t` | O hash de certificado X.509 (também conhecido como impressão *digital*SHA-1 do cert ) representação hex codificada como um valor de cadeia Base64. Por exemplo, dado um haxixe de certificado X.509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), a `x5t` reclamação seria `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
 
 ### <a name="claims-payload"></a>Sinistros (carga útil)
 
 | Parâmetro |  Observações |
 | --- | --- |
-| `aud` | Público: Deve ser`https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
+| `aud` | Público: Deve ser `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
 | `exp` | Data de validade: A data em que o token expira. O tempo é representado como o número de segundos a partir de 1 de janeiro de 1970 (1970-01-01T0:0Z) UTC até o momento em que a validade do símbolo expirar. Recomendamos a utilização de um curto período de validade - 10 minutos a uma hora.|
 | `iss` | Emitente: Deve ser o client_id *(ID de aplicação (cliente)* do serviço ao cliente) |
 | `jti` | GUID: O JWT ID |
@@ -103,8 +103,8 @@ No registo da app Azure para a aplicação do cliente:
 
 Tendo um certificado, precisa calcular:
 
-- `$base64Thumbprint`- Valor codificado base64 do haxixe do certificado
-- `$base64Value`- Valor codificado base64 dos dados brutos do certificado
+- `$base64Thumbprint` - Valor codificado base64 do haxixe do certificado
+- `$base64Value` - Valor codificado base64 dos dados brutos do certificado
 
 Também é necessário fornecer um GUID para identificar a chave no manifesto de candidatura ( `$keyId` ).
 

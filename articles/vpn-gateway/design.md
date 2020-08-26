@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300324"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852694"
 ---
 # <a name="vpn-gateway-design"></a>Design VPN Gateway
 
@@ -27,7 +27,9 @@ Uma ligação de gateway de VP de Site a Site (S2S) é uma ligação através do
 
 ![Exemplo de ligação Site a Site de Gateway de VPN do Azure](./media/design/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a><a name="Multi"></a>Multilocal
+O Gateway VPN pode ser configurado em modo de espera ativo utilizando um IP público ou em modo ativo usando dois IPs públicos. Em modo de espera ativo, um túnel IPsec está ativo e o outro túnel está em modo de espera. Nesta configuração, o tráfego flui através do túnel ativo, e se algum problema acontece com este túnel, o tráfego passa para o túnel de espera. *Recomenda-se* a criação do Gateway VPN em modo ativo, no qual ambos os túneis IPsec estão simultaneamente ativos, com dados a fluir em ambos os túneis ao mesmo tempo. Uma vantagem adicional do modo ativo é que os clientes experimentam posições mais elevadas.
+
+### <a name="multi-site"></a><a name="Multi"></a>Multi-Site
 
 Este tipo de ligação é uma variação da ligação Rede de VPNs. Cria mais de uma ligação de VPN a partir do gateway de rede virtual, ligando, geralmente, a vários sites no local. Quando trabalha com várias ligações, tem de utilizar um tipo de VPN RouteBased (conhecido como gateway dinâmico ao trabalhar com VNets clássicas). Uma vez que cada rede virtual só pode ter um gateway de VPN, todas as ligações através do mesmo partilham a largura de banda disponível. Este tipo de ligação é frequentemente designado ligação "multilocal".
 
@@ -37,7 +39,7 @@ Este tipo de ligação é uma variação da ligação Rede de VPNs. Cria mais de
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="point-to-site-vpn"></a><a name="P2S"></a>VPN Ponto a Site
+## <a name="point-to-site-vpn"></a><a name="P2S"></a>VPN ponto-a-local
 
 Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligação segura à sua rede virtual a partir de um computador cliente individual. É estabelecida uma ligação P2S ao iniciá-la a partir do computador cliente. Esta solução é útil para as pessoas que trabalham à distância que queiram ligar às VNets do Azure a partir de uma localização remota, como, por exemplo, a partir de casa ou de uma conferência. Uma VPN P2S também é uma solução útil para utilizar em vez de uma VPN S2S, quando são poucos os clientes que precisam de ligar a uma VNet.
 
@@ -75,7 +77,7 @@ Poderá utilizar o VNet peering para criar a ligação, desde que a rede virtual
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (ligação privada)
 
-O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços em nuvem da Microsoft, tais como o Microsoft Azure, Office 365 e o CRM Online. A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação.
+O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços em nuvem da Microsoft, tais como o Microsoft Azure, Office 365 e o CRM Online. A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação.
 
 As ligações do ExpressRoute não passam para a Internet pública. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet.
 
@@ -97,7 +99,7 @@ Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha seguro
 
 Para planeamento e conceção de ligações altamente disponíveis, consulte [ligações altamente disponíveis.](vpn-gateway-highlyavailable.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 

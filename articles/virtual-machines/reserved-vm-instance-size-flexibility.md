@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
-ms.openlocfilehash: 05119a6f9af935a0f4a2887eae53f3d5bdb1a482
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658185"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855515"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances
 
-Ao comprar uma Instância VM Reservada, pode optar por otimizar, por exemplo, a flexibilidade do tamanho ou a prioridade de capacidade. Para obter mais informações sobre a configuração ou alteração da definição de otimização para instâncias VM reservadas, consulte [alterar a definição de otimização para instâncias VM reservadas](~/articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+Ao comprar uma Instância VM Reservada, pode optar por otimizar, por exemplo, a flexibilidade do tamanho ou a prioridade de capacidade. Para obter mais informações sobre a configuração ou alteração da definição de otimização para instâncias VM reservadas, consulte [alterar a definição de otimização para instâncias VM reservadas](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
 Com uma caixa de máquina virtual reservada que é otimizada, por exemplo, flexibilidade de tamanho, a reserva que você compra pode aplicar-se aos tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de exemplo. Por exemplo, se comprar uma reserva para um tamanho VM listado no Série DSv2, como Standard_DS5_v2, o desconto de reserva pode aplicar-se aos outros quatro tamanhos listados nesse mesmo grupo de flexibilidade de tamanho:
 
@@ -52,4 +52,4 @@ Manteremos o URL de ficheiro e o esquema corrigidos para que possa consumir este
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte [o que são Reservas Azure.](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+Para mais informações, consulte [o que são Reservas Azure.](../cost-management-billing/reservations/save-compute-costs-reservations.md)

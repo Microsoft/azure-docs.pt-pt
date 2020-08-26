@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163174"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855145"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta dados da Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 permite a consulta de dados sobre eventos e metadados armazenados no ambiente através de APIs de superfície pública. Estas APIs também são utilizadas pelo [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 permite a consulta de dados sobre eventos e metadados armazenados no ambiente através de APIs de superfície pública. Estas APIs também são utilizadas pelo [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
-Três categorias primárias de API estão disponíveis em Azure Time Series Insights Gen2 :
+Três categorias primárias de API estão disponíveis no Azure Time Series Insights Gen2:
 
 * **APIs ambiente**: Estas APIs permitem consultas sobre o ambiente da Azure Time Series Insights Gen2. Estes podem ser usados para recolher a lista de ambientes a que o chamador tem acesso e metadados ambientais.
 * **ApIs de modelos de séries de tempo (TSM-Q):** Permite criar, ler, atualizar e eliminar (CRUD) operações em metadados armazenados no Modelo da Série De Tempo do ambiente. Estes podem ser usados para aceder e editar os casos, tipos e hierarquias.
@@ -73,4 +73,4 @@ Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa soluç
 ## <a name="next-steps"></a>Passos seguintes
 
 * Leia mais sobre diferentes variáveis que podem ser definidas no [Modelo série de tempo.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)
-* Leia mais sobre como consultar dados do [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Leia mais sobre como consultar dados do [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

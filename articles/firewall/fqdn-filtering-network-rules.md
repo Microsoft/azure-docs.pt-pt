@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 6e90a8bc0998b43a84658958215e4b7977f8fdd0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461311"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854285"
 ---
 # <a name="use-fqdn-filtering-in-network-rules-preview"></a>Utilize a filtragem FQDN nas regras da rede (pré-visualização)
 
@@ -21,6 +21,9 @@ ms.locfileid: "87461311"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Um nome de domínio totalmente qualificado (FQDN) representa um nome de domínio de um anfitrião ou endereço IP(es). Pode utilizar FQDNs em regras de rede com base na resolução de DNS na política de Azure Firewall e Firewall. Esta capacidade permite filtrar o tráfego de saída com qualquer protocolo TCP/UDP (incluindo NTP, SSH, RDP, entre outros). Tem de permitir que o DNS Proxy utilize FQDNs nas suas regras de rede. Para obter mais informações consulte [as definições de DNS da Firewall (pré-visualização)](dns-settings.md).
+
+> [!NOTE]
+> Por design, a filtragem FQDN não suporta wildcards.
 
 ## <a name="how-it-works"></a>Como funciona
 

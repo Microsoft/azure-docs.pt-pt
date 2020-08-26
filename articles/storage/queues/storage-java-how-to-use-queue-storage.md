@@ -9,14 +9,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: dbb20d5331275f73945a4ad2ba3f428a3e415797
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 78e2bd80b689394b654a85ea913c618c08120091
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681758"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854013"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Este guia irá mostrar-lhe como codificar cenários comuns utilizando o serviço de armazenamento Azure Queue. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários incluem **inserir,** **espreitar,** **receber**e apagar mensagens **de** fila. O código para **criar** e **eliminar** filas também está coberto. Para obter mais informações sobre as filas, consulte a secção [etapas seguintes.](#next-steps)
 

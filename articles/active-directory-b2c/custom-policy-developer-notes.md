@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 255e0e38d8dc434843452308d2eebc2fd4774c50
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116528"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852039"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -112,20 +112,20 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [2.0.0](page-layout.md) |  | X |  |  |
+| [1.2.0](page-layout.md) |  | X |  |  |
+| [1.1.0](page-layout.md) |  |  | X |  |
+| [1.0.0](page-layout.md) |  |  | X |  |
 | [Suporte JavaScript](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>Integração app-IEF
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Parâmetro de cadeia de consulta`domain_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
-| Parâmetro de cadeia de consulta`login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
-| Insira o JSON na viagem do utilizador através`client_assertion` | X |  |  | Será depreciado. |
-| Insira o JSON na jornada do utilizador como`id_token_hint` |  | X |  | Avance para passar JSON. |
+| Parâmetro de cadeia de consulta `domain_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
+| Parâmetro de cadeia de consulta `login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
+| Insira o JSON na viagem do utilizador através `client_assertion` | X |  |  | Será depreciado. |
+| Insira o JSON na jornada do utilizador como `id_token_hint` |  | X |  | Avance para passar JSON. |
 | [Passe o token do fornecedor de identidade para a aplicação](idp-pass-through-custom.md) |  | X |  | Por exemplo, do Facebook à app. |
 
 ### <a name="session-management"></a>Gestão de Sessão

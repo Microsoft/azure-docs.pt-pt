@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027058"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854905"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Ficheiro de configuração da Biblioteca de Autenticação do Microsoft Android
 
@@ -35,8 +35,8 @@ Este artigo irá ajudá-lo a compreender as várias definições no ficheiro de 
 | `client_id` | Cadeia | Yes | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | Cadeia | Yes | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Lista\<Authority> | No | A lista de autoridades que a sua app precisa |
-| `authorization_user_agent` | AutorizaçãoAgent (enum) | No | Valores possíveis: `DEFAULT` `BROWSER` ,`WEBVIEW` |
-| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` e`read_timeout` |
+| `authorization_user_agent` | AutorizaçãoAgent (enum) | No | Valores possíveis: `DEFAULT` `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` e `read_timeout` |
 | `logging` | Configuação de Registos | No | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
@@ -58,7 +58,7 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
@@ -88,7 +88,7 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Tipo | Audiência | ID do inquilino | Authority_Url | Ponto final resultante | Notas |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`é um pseudónimo inquilino para onde está a conta. Tal como um inquilino específico do Azure Ative Directory ou o sistema de conta Microsoft. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` é um pseudónimo inquilino para onde está a conta. Tal como um inquilino específico do Azure Ative Directory ou o sistema de conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Apenas as contas presentes em contoso.com podem adquirir um token. Qualquer domínio verificado, ou o inquilino GUID, pode ser usado como identificação do inquilino. |
 | AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Apenas as contas do Azure Ative Directory podem ser utilizadas com este ponto final. As contas da Microsoft podem ser membros de organizações. Para adquirir um token usando uma conta microsoft para um recurso numa organização, especifique o inquilino organizacional do qual deseja o token. |
 | AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Apenas as contas da Microsoft podem utilizar este ponto final. |
@@ -103,7 +103,7 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Propriedade | Tipo de dados  | Necessário | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadeia | Yes | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` ,`B2C` |
+| `type` | Cadeia | Yes | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` , `B2C` |
 | `audience` | Objeto | No | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
 | `authority_url` | Cadeia | Yes | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
 | `default` | boolean | Yes | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
@@ -112,7 +112,7 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadeia | Yes | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `type` | Cadeia | Yes | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
 | `tenant_id` | Cadeia | Yes | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
@@ -157,7 +157,7 @@ As seguintes configurações globais são para a exploração madeireira:
 
 Especifica quantas contas podem ser usadas dentro da sua app de cada vez. Os valores possíveis são:
 
-- `MULTIPLE`(Predefinição)
+- `MULTIPLE` (Predefinição)
 - `SINGLE`
 
 Construir um `PublicClientApplication` modo de conta que não corresponda a esta definição resultará numa exceção.

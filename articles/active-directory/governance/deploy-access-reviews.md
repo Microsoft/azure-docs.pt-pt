@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783608"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853026"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -283,7 +283,7 @@ As identidades externas podem ser concedidas ao acesso aos recursos da empresa a
 
 * Atribuído um papel privilegiado na AD AZure ou numa subscrição do Azure
 
-Consulte o [guião da amostra.](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.) O guião mostrará onde são usadas identidades externas convidadas para o inquilino. Pode ver a filiação externa do grupo de utilizadores, atribuições de funções e atribuições de aplicações em Azure AD. O script não mostrará nenhuma atribuição fora do Azure AD, por exemplo, atribuição de direitos diretos aos recursos do Sharepoint, sem o uso de grupos.
+Consulte o [guião da amostra.](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse) O guião mostrará onde são usadas identidades externas convidadas para o inquilino. Pode ver a filiação externa do grupo de utilizadores, atribuições de funções e atribuições de aplicações em Azure AD. O script não mostrará nenhuma atribuição fora do Azure AD, por exemplo, atribuição de direitos diretos aos recursos do Sharepoint, sem o uso de grupos.
 
 Ao criar um Access Review para grupos ou aplicações, pode optar por deixar o revisor concentrar-se apenas em Todos os utilizadores com acesso ou hóspedes. Ao selecionar apenas os utilizadores de Hóspedes, os revisores recebem uma lista focalizada de identidades externas do Azure AD B2B que têm acesso ao recurso.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1ac7f27015812756a8de9736351cc1fe0e374e0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799531"
+ms.locfileid: "88853925"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauro de dados on-demand em Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Com a Azure Cosmos DB, não só os seus dados, mas também os backups dos seus d
 
 * A Azure Cosmos DB armazena estas cópias de segurança no armazenamento da Azure Blob, enquanto os dados reais residem localmente dentro do Azure Cosmos DB.
 
-*  Para garantir a baixa latência, o instantâneo da sua cópia de segurança é armazenado no armazenamento Azure Blob na mesma região que a atual região de escrita (ou **uma das** regiões de escrita, caso tenha uma configuração multi-master). Para a resiliência contra o desastre regional, cada instantâneo dos dados de backup no armazenamento de Azure Blob é novamente replicado para outra região através de armazenamento geo-redundante (GRS). A região à qual o backup é replicado baseia-se na sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de pares geo-redundantes das regiões Azure.](../best-practices-availability-paired-regions.md) Não pode aceder diretamente a esta cópia de segurança. A equipa DB da Azure Cosmos irá restaurar o seu backup quando solicitar através de um pedido de apoio.
+* Para garantir a baixa latência, o instantâneo da sua cópia de segurança é armazenado no armazenamento Azure Blob na mesma região que a atual região de escrita (ou **uma das** regiões de escrita, caso tenha uma configuração multi-master). Para a resiliência contra o desastre regional, cada instantâneo dos dados de backup no armazenamento de Azure Blob é novamente replicado para outra região através de armazenamento geo-redundante (GRS). A região à qual o backup é replicado baseia-se na sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de pares geo-redundantes das regiões Azure.](../best-practices-availability-paired-regions.md) Não pode aceder diretamente a esta cópia de segurança. A equipa DB da Azure Cosmos irá restaurar o seu backup quando solicitar através de um pedido de apoio.
 
    A imagem a seguir mostra como um contentor Azure Cosmos com todas as três divisórias físicas primárias no Oeste dos EUA é apoiado numa conta remota de Armazenamento Azure Blob no Oeste dos EUA e depois replicado para os EUA Orientais:
 
@@ -42,15 +42,15 @@ Com as contas Azure Cosmos DB SQL API, também pode manter as suas próprias có
 
 * Utilize o feed de [alteração](change-feed.md) DB do Azure Cosmos para ler os dados periodicamente para cópias de segurança completas ou para alterações incrementais e guarde-os no seu próprio armazenamento.
 
-## <a name="backup-interval-and-retention-period"></a>Intervalo de backup e período de retenção
+## <a name="modify-the-backup-interval-and-retention-period"></a>Modifique o intervalo de backup e o período de retenção
 
-A Azure Cosmos DB retira automaticamente os seus dados por cada 4 horas e, em qualquer momento, as duas últimas cópias de segurança são armazenadas. Esta configuração é a opção padrão e é oferecida sem qualquer custo adicional. Se tiver cargas de trabalho em que o intervalo de backup predefinido e o período de retenção não forem suficientes, pode alterá-las. Pode alterar estes valores durante a criação da conta Azure Cosmos ou após a criação da conta. A configuração de backup está definida no nível da conta Azure Cosmos e é necessário configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, é aplicada a todos os contentores dentro dessa conta. Atualmente pode alterar as opções de backup a partir do portal Azure.
+A Azure Cosmos DB retira automaticamente os seus dados por cada 4 horas e, em qualquer momento, as duas últimas cópias de segurança são armazenadas. Esta configuração é a opção padrão e é oferecida sem qualquer custo adicional. Pode alterar o intervalo de backup predefinido e o período de retenção durante a criação da conta Azure Cosmos ou após a criação da conta. A configuração de backup está definida no nível da conta Azure Cosmos e é necessário configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, é aplicada a todos os contentores dentro dessa conta. Atualmente pode alterar as opções de backup a partir do portal Azure.
 
 Se acidentalmente eliminou ou corrompeu os seus dados, **antes de criar um pedido de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar a sua retenção dentro de 8 horas deste evento.** Desta forma, a equipa DB da Azure Cosmos tem tempo suficiente para restaurar a sua conta.
 
 Utilize os seguintes passos para alterar as opções de backup predefinidas para uma conta Azure Cosmos existente:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/)
+1. Inscreva-se no [portal Azure.](https://portal.azure.com/)
 1. Navegue na sua conta Azure Cosmos e abra o **painel de & De reserva Restaurar.** Atualize o intervalo de backup e o período de retenção de backup conforme necessário.
 
    * **Intervalo de backup** - É o intervalo em que a Azure Cosmos DB tenta obter uma cópia de segurança dos seus dados. A cópia de segurança leva uma quantidade não-zero de tempo e, em alguns casos, pode potencialmente falhar devido a dependências a jusante. A Azure Cosmos DB tenta o seu melhor para fazer uma cópia de segurança no intervalo configurado, no entanto, não garante que o backup complete dentro desse intervalo de tempo. Pode configurar este valor em horas ou minutos. O intervalo de reserva não pode ser inferior a 1 hora e superior a 24 horas. Quando se altera este intervalo, o novo intervalo entra em vigor a partir do momento em que a última cópia de segurança foi tomada.

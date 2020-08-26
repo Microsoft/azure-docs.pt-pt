@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.date: 08/25/2020
+ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163973"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855091"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
 
  O seu ambiente Azure Time Series Insights Gen2 pode ter até duas fontes de eventos de streaming. Dois tipos de recursos Azure são suportados como entradas:
 
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
-- [Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 Os eventos devem ser enviados como UTF-8 codificado JSON.
 
@@ -64,7 +64,7 @@ A utilização do gasoduto de streaming para importar dados históricos não é 
 
 ## <a name="event-source-timestamp"></a>Data de tempo de fonte de evento
 
-Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Gen2 Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
+Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights TSI Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
 
 Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para Azure Time Series Insights Gen2.
 

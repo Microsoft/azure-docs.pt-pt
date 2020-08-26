@@ -6,12 +6,12 @@ ms.service: azure-policy
 ms.topic: include
 ms.date: 08/07/2020
 ms.author: dacoulte
-ms.openlocfilehash: e22594a50a9c0d814ef7d66443f8253f5832cb1d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9fcaca3f89217f649eb970ec70514a5735222782
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038499"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854090"
 ---
 Há uma contagem máxima para cada tipo de objeto para Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o [grupo de gestão](../articles/governance/management-groups/overview.md).
 
@@ -26,4 +26,4 @@ Há uma contagem máxima para cada tipo de objeto para Azure Policy. Uma entrada
 | Definição de iniciativa | Parâmetros | 100 |
 | Atribuições de política ou iniciativa | Exclusões (notScopes) | 400 |
 | Regra política | Condições aninhadas | 512 |
-| Tarefa de reparação | Recursos | 1000 |
+| Tarefa de reparação | Recursos | 500 |

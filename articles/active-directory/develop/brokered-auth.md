@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76697902"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853863"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação intermediada no Android
 
@@ -58,7 +58,7 @@ Se um dispositivo ainda não tiver uma aplicação de corretagem instalada, a MS
 
 Quando um corretor é instalado num dispositivo, todos os pedidos de fichas interativos subsequentes (chamadas `acquireToken()` para) são tratados pelo corretor e não localmente pela MSAL. Qualquer estado SSO anteriormente disponível para a MSAL não está disponível para o corretor. Como resultado, o utilizador terá de autenticar novamente ou selecionar uma conta a partir da lista de contas existentes conhecidas pelo dispositivo.
 
-A instalação de um corretor não requer que o utilizador volte a iniciar sedu. Só quando o utilizador precisar de resolver um `MsalUiRequiredException` será que o próximo pedido irá para o corretor. `MsalUiRequiredException`é jogado por uma série de razões, e precisa ser resolvido interativamente. Estas são algumas razões comuns:
+A instalação de um corretor não requer que o utilizador volte a iniciar sedu. Só quando o utilizador precisar de resolver um `MsalUiRequiredException` será que o próximo pedido irá para o corretor. `MsalUiRequiredException` é jogado por uma série de razões, e precisa ser resolvido interativamente. Estas são algumas razões comuns:
 
 - O utilizador alterou a palavra-passe associada à sua conta.
 - A conta do utilizador já não cumpre uma política de Acesso Condicional.
@@ -76,7 +76,7 @@ Se o Portal da Empresa Intune estiver instalado e estiver a funcionar como corre
 
 Tem de registar um URI de redirecionamento que seja compatível com o corretor. O URI de redirecionamento para o corretor precisa de incluir o nome do pacote da sua aplicação, bem como a representação codificada base64 da assinatura da sua aplicação.
 
-O formato do URI de redirecionamento é:`msauth://<yourpackagename>/<base64urlencodedsignature>`
+O formato do URI de redirecionamento é: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Gere a sua assinatura codificada de url Base64 utilizando as chaves de assinatura da sua aplicação. Aqui estão alguns comandos de exemplo que usam as suas chaves de sinalização de depuração:
 
@@ -122,3 +122,12 @@ Se tiver um `MsalClientException` código de `"BROKER_BIND_FAILURE"` erro, entã
 
 - Peça ao utilizador para desativar a otimização de energia para a aplicação Microsoft Authenticator e para o Portal da Empresa Intune.
 - Peça ao utilizador que conceda a `"READ_CONTACTS"` permissão
+
+## <a name="verifying-broker-integration"></a>Verificação da integração de corretores
+
+Pode não ser imediatamente claro que a integração do corretor está a funcionar, mas pode usar os seguintes passos para verificar:
+
+1. No seu dispositivo Android, preencha um pedido utilizando o corretor.
+1. Nas definições do seu dispositivo Android, procure uma conta recém-criada correspondente à conta que autenticou. A conta deve ser do tipo *De Trabalho.*
+
+Pode remover a conta das definições se quiser repetir o teste.

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
-ms.date: 02/10/2020
+ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852706"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854934"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -43,21 +43,24 @@ Nesta parte do tutorial, você executou o código na amostra tutoriais de cadern
 
 1. Abra o **tutorial-1-experiment-sdk-train.ipynb** na sua pasta, como mostrado na [primeira parte](tutorial-1st-experiment-sdk-setup.md#open).
 
-
-> [!Warning]
-> **Não** crie um *novo* caderno na interface Jupyter! Os *tutoriais do caderno/create-first-ml-experiment/tutorial-1-experiment-sdk-train.ipynb* incluem **todos os códigos e dados necessários** para este tutorial.
+**Não** crie um *novo* caderno na interface Jupyter! Os *tutoriais do caderno/create-first-ml-experiment/tutorial-1-experiment-sdk-train.ipynb* incluem **todos os códigos e dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Ligue espaço de trabalho e crie experiência
 
-> [!Important]
-> O resto deste artigo contém o mesmo conteúdo que se vê no caderno.  
->
-> Mude agora para o caderno Jupyter se quiser ler enquanto executar o código. 
-> Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
 
-Importe a `Workspace` classe e carregue as informações de subscrição do ficheiro `config.json` utilizando a função Este procura o ficheiro `from_config().` JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro que utiliza `from_config(path="your/file/path")` . Num servidor de cadernos em nuvem, o ficheiro está automaticamente no diretório de raiz.
+> [!TIP]
+> Conteúdo do _tutorial-1-experiment-sdk-train.ipynb_. Mude agora para o caderno Jupyter se quiser ler enquanto executar o código. Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-Se o código seguinte pedir a autenticação adicional, basta colar o link num browser e introduzir o token de autenticação.
+
+Importe a `Workspace` classe e carregue as informações de subscrição do ficheiro `config.json` utilizando a função Este procura o ficheiro `from_config().` JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro que utiliza `from_config(path="your/file/path")` . Se estiver a executar este caderno num servidor de cadernos em nuvem no seu espaço de trabalho, o ficheiro encontra-se automaticamente no diretório de raiz.
+
+Se o código seguinte pedir a autenticação adicional, basta colar o link num browser e introduzir o token de autenticação. Além disso, se tiver mais de um inquilino ligado ao seu utilizador, terá de adicionar as seguintes linhas:
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -105,16 +108,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -133,7 +136,7 @@ Depois de concluído o treino, ligue para a `experiment` variável para obter um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página do relatório</th><th>Página docs</th></tr><tr><td>diabetes-experiência</td><td>seu espaço de trabalho-nome</td><td>Link para estúdio de Aprendizagem automática Azure</td><td>Ligação à Documentação</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página do relatório</th><th>Página docs</th></tr><tr><td>diabetes-experiência</td><td>seu espaço de trabalho-nome</td><td>Link para estúdio de Aprendizagem automática Azure</td><td>Ligação à Documentação</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>Ver resultados de formação em estúdio
 
@@ -162,7 +165,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -172,15 +175,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
 ```
-
 ```output
 Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
 Best run_id rmse: 57.234760283951765
 ```
 
 Utilize o melhor ID de execução para obter a execução individual utilizando o `Run` construtor juntamente com o objeto de experiência. Em seguida, ligue `get_file_names()` para ver todos os ficheiros disponíveis para download a partir desta execução. Neste caso, só carregou um ficheiro para cada execução durante o treino.
+
 
 ```python
 from azureml.core import Run
@@ -194,9 +197,11 @@ print(best_run.get_file_names())
 
 Ligue `download()` para o objeto de execução, especificando o nome do ficheiro do modelo para descarregar. Por predefinição, esta função é transferida para o diretório atual.
 
+
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

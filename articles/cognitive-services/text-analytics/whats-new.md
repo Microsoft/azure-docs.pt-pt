@@ -10,24 +10,25 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 06c36b3f3939c8804149448ecb770a22d658fcbf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192030"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854718"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
 
-## <a name="august-2020"></a>agosto de 2020
+## <a name="august-2020"></a>Agosto de 2020
 
 ### <a name="general-api-updates"></a>Atualizações gerais da API
 
 * Versão modelo `2020-07-01` para o v3 `/keyphrases` , e `/pii` `/languages` pontos finais, que adiciona:
     * Categorias adicionais [de entidades específicas](named-entity-types.md?tabs=personal) do governo e do país para reconhecimento de entidades nomeadas.
 * Um erro HTTP 400 será agora devolvido para pedidos de V3 API que excedam os limites de [dados publicados](concepts/data-limits.md). 
+* Os pontos finais que devolvem uma compensação suportam agora o `stringIndexType` parâmetro opcional, que ajusta os `offset` valores devolvidos e `length` os valores para corresponder a um sistema de [índice de cadeia](concepts/text-offsets.md)suportado .
 
 ### <a name="text-analytics-for-health-container-august-updates"></a>Análise de texto para atualizações de agosto de contentores de saúde
 
@@ -191,7 +192,7 @@ Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extração de expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

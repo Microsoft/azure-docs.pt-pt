@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066615"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854544"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
@@ -27,8 +27,8 @@ Para uma proteção final para os seus dados blob, a Microsoft recomenda que se 
 - Blob soft delete, para proteger contra eliminação acidental ou substituição de uma bolha individual. Para aprender a permitir a eliminação suave da bolha, consulte [Soft Delete para bolhas](soft-delete-blob-overview.md).
 - Versão blob (pré-visualização), para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 
-> [!IMPORTANT]
-> Para evitar a supressão acidental de uma conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> A eliminação de uma conta de armazenamento não pode ser desfeita. A eliminação suave não protege contra a supressão de uma conta de armazenamento. Para evitar a supressão acidental de uma conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Como o recipiente suave apagar funciona
 
@@ -122,5 +122,5 @@ Não existe qualquer carga adicional para permitir a eliminação suave do recip
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Configure recipiente de exclusão suave](soft-delete-container-enable.md)
-- [Excluir suave para bolhas](soft-delete-blob-overview.md)
+- [Eliminação recuperável para blobs](soft-delete-blob-overview.md)
 - [Veragem blob (pré-visualização)](versioning-overview.md)

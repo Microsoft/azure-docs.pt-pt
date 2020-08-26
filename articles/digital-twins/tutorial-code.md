@@ -1,5 +1,5 @@
 ---
-title: Codificar uma aplicação cliente
+title: 'Tutorial: Código de uma aplicação de cliente'
 titleSuffix: Azure Digital Twins
 description: Tutorial para escrever o código mínimo para uma aplicação do cliente, utilizando o .NET (C#) SDK.
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 282c506f509adce4c616615e8b8e3580166052e6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723474"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854673"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs de Gémeos Digitais Azure
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
 É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando a [biblioteca de clientes Azure IoT Digital Twin para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
+
+> [!div class="checklist"]
+> * Criar projeto
+> * Começar com o código do projeto   
+> * Amostra de código completa
+> * Limpar os recursos
+> * Passos seguintes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -528,7 +535,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
  
 O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  
@@ -561,7 +568,3 @@ Continue até ao próximo tutorial para explorar as coisas que pode fazer com um
 
 > [!div class="nextstepaction"]
 > [*Tutorial: Explore o básico com uma aplicação de cliente de amostra*](tutorial-command-line-app.md)
-
-Também pode adicionar ao código que escreveu neste tutorial aprendendo mais operações de gestão nos artigos de como fazer, ou começar a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial.
-* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
-* [*Conceitos: Modelos personalizados*](concepts-models.md)

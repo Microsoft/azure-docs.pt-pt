@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853235"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852096"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Neste cenário NVA, o objetivo é encaminhar o tráfego através de um NVA (Network Virtual Appliance) para ramo para VNet e VNet para ramificar. Para obter informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Algumas das capacidades de encaminhamento ainda podem estar a ser lançadas. Se o lançamento ainda não tiver acontecido na sua região, por favor, use os passos nestas versões dos artigos entretanto:
+> Se já tem uma configuração com rotas que são anteriores às novas capacidades Como configurar o [encaminhamento de hub virtual](how-to-virtual-hub-routing.md) que está disponível, por favor, use os passos nestas versões dos artigos:
 >* [Artigo do portal Azure](virtual-wan-route-table-nva-portal.md)
 >* [Artigo PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="design"></a><a name="design"></a>Conceção
+## <a name="design"></a><a name="design"></a>Design
 
 Neste cenário, utilizaremos a convenção de nomeação:
 

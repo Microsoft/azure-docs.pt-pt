@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719724"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855257"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Problemas de saúde, problemas de saúde, frontend e disponibilidade de backend 
 
@@ -30,6 +30,9 @@ A métrica de disponibilidade de trajetória de dados é gerada por um ping TCP 
 
 ## <a name="health-probe-status"></a>Estado da sonda de estado de funcionamento
 A métrica do estado da sonda de saúde é gerada por um ping do protocolo definido na sonda de saúde. Este ping é enviado para cada instância na piscina de backend e na porta definida na sonda de saúde. Para as sondas HTTP e HTTPS, um ping bem sucedido requer uma resposta HTTP 200 OK, enquanto que com as sondas TCP qualquer resposta é considerada bem sucedida. Os sucessos ou falhas consecutivos de cada sonda determinam então se uma instância de backend é saudável e é capaz de receber tráfego para as regras de equilíbrio de carga a que o pool de backend é atribuído. Semelhante à disponibilidade de caminhos de dados usamos a agregação média, o que nos indica a média de pings bem sucedidos/totais durante o intervalo de amostragem. Este valor de estado da sonda de saúde indica a saúde de backend isoladamente do seu equilibrador de carga, sondando as suas instâncias de backend sem enviar tráfego através do frontend.
+
+>[!IMPORTANT]
+>O estado da sonda de saúde é amostrado num minuto. Isto pode levar a pequenas flutuações num valor estável. Por exemplo, se houver duas instâncias de backend, uma sondada e outra sondada, o serviço de sonda de saúde pode capturar 7 amostras para o caso saudável e 6 para o caso pouco saudável. Isto levará a um valor anteriormente estável de 50 mostrando como 46.15 para um intervalo de um minuto. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>Diagnosticar equilibradores de carga degradados e indisponíveis
 Como delineado no artigo de [saúde](load-balancer-standard-diagnostics.md#resource-health-status)de recursos , um balanceador de carga degradado é aquele que mostra entre 25% e 90% de disponibilidade de trajetória de dados, e um equilibrador de carga indisponível é aquele com menos de 25% de disponibilidade de trajetória de dados, durante um período de dois minutos. Estes mesmos passos podem ser dados para investigar a falha que você vê em qualquer estado de sonda de saúde ou alertas de disponibilidade de caminhos de dados que você configurado. Vamos explorar o caso em que verificamos a nossa saúde de recursos e descobrimos que o nosso balanceador de carga não está disponível com uma disponibilidade de caminho de dados de 0% - o nosso serviço está em baixo.

@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201671"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855371"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Prepare a infraestrutura Azure para a alta disponibilidade do SAP utilizando um cluster de failover do Windows e uma partilha de ficheiros para as instâncias SAP ASCS/SCS
 
@@ -57,11 +57,7 @@ ms.locfileid: "83201671"
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
-[sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]:sap-high-availability-infrastructure-wsfc-shared-disk.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a
-[sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e
-[sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
-[sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]:sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e
-[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c
+[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]:sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c
 [sap-high-availability-installation-wsfc-file-share]:sap-high-availability-installation-wsfc-file-share.md
@@ -228,7 +224,7 @@ Antes de iniciar a instalação, reveja o seguinte artigo:
 
 **Quadro 1**: Aglomerado ASCS/SCS
 
-| SAP\<SID> | Número de instância SAP ASCS/SCS |
+| SAP \<SID> | Número de instância SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -250,19 +246,11 @@ Antes de iniciar a instalação, reveja o seguinte artigo:
 
 Para preparar a infraestrutura Azure, complete o seguinte:
 
-* [Prepare a infraestrutura para os modelos arquitetónicos 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+* [Implementar os VMs][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* [Criar uma rede virtual Azure.][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
+* [Criar e configurar o balançador de carga Azure para SAP ASCS][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Desa estava os endereços IP DNS necessários.][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
-
-* [Desaponho endereços IP estáticos para as máquinas virtuais SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
-
-* [Desloja um endereço IP estático para o balançador interno de carga Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
-
-* [Desembrar as regras de equilíbrio de carga ASCS/SCS padrão para o balançador interno de carga Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
-
-* [Alterar as regras de equilíbrio de carga padrão ASCS/SCS para o balançador interno de carga Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [Se utilizar o servidor de replicação enqueue 2 (ERS2), execute a configuração do Balanço de Carga Azure para ERS2 ][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]. 
 
 * [Adicione máquinas virtuais do Windows ao domínio.][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
@@ -352,6 +340,6 @@ Depois de instalar com sucesso o cluster do Servidor de Ficheiros escalado pelo 
 
 Estas configurações foram testadas com os clientes, e oferecem um bom compromisso. São suficientemente resistentes, mas também proporcionam falhas suficientemente rápidas em condições reais de erro ou falha em VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instale a alta disponibilidade do SAP NetWeaver num cluster de falha do Windows e partilhe a partilha de ficheiros para as instâncias SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]

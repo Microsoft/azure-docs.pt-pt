@@ -1,7 +1,7 @@
 ---
 title: Compensações de texto na API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Aprenda sobre as compensações causadas por codificações multilingues e emojis.
+description: Saiba mais sobre as compensações causadas por codificações multilingues e emojis.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,39 +11,49 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219238"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855649"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Compensações de texto na saída da API de Análise de Texto
 
-O suporte multilingual e emoji levou a codificações unicode que usam mais de um [ponto de código](https://wikipedia.org/wiki/Code_point) para representar um único personagem exibido, chamado grafeme. Por exemplo, emojis 👍 como 🌷 e podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de pele. Da mesma forma, `अनुच्छेद` a palavra hindi é codificada como cinco letras e três marcas combinadas.
+O suporte multilíngue e emoji levou a codificações Unicode que usam mais de um ponto de [código](https://wikipedia.org/wiki/Code_point) para representar um único carácter exibido, chamado grafeme. Por exemplo, emojis como 🌷 e 👍 podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de pele. Da mesma forma, a palavra hindi `अनुच्छेद` é codificada como cinco letras e três marcas combinadas.
 
 Devido aos diferentes comprimentos de possíveis codificações multilingues e emojis, a API text Analytics pode devolver compensações na resposta.
 
 ## <a name="offsets-in-the-api-response"></a>Compensações na resposta da API. 
 
-Sempre que forem devolvidas as compensações a resposta da API, como o Reconhecimento de [Entidades Nomeadas](../how-tos/text-analytics-how-to-entity-linking.md) ou a Análise de [Sentimentos,](../how-tos/text-analytics-how-to-sentiment-analysis.md)lembre-se do seguinte:
+Sempre que forem devolvidas as compensações, a resposta da API, como [reconhecimento de entidades nomeadas](../how-tos/text-analytics-how-to-entity-linking.md) ou [análise de sentimento,](../how-tos/text-analytics-how-to-sentiment-analysis.md)lembre-se do seguinte:
 
-* Os elementos na resposta podem ser específicos do ponto final que foi chamado. 
-* HTTP POST/GET as cargas são codificadas em [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), que pode ou não ser a codificação padrão de caracteres no seu compilador ou sistema operativo do lado do cliente.
-* As compensações referem-se às contagens de grafeme com base no padrão [Unicode 8.0.0,](https://unicode.org/versions/Unicode8.0.0) e não nas contagens de caracteres.
+* Os elementos da resposta podem ser específicos do ponto final que foi chamado. 
+* AS cargas POST/GET HTTP são codificadas em [UTF-8,](https://www.w3schools.com/charsets/ref_html_utf8.asp)que pode ou não ser a codificação de caracteres padrão no seu compilador ou sistema operativo do lado do cliente.
+* As compensações referem-se às contagens de grafeme com base na norma [Unicode 8.0.0,](https://unicode.org/versions/Unicode8.0.0) não contagens de caracteres.
 
-## <a name="extracting-substrings-from-text-with-offsets"></a>Extrair subcordas do texto com compensações
+## <a name="extracting-substrings-from-text-with-offsets"></a>Extrair sublagem de texto com compensações
 
-As compensações podem causar problemas ao utilizar métodos de substring baseados no carácter, por exemplo, o método de [substring .NET().](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) Um problema é que uma compensação pode fazer com que um método de subcadeia termine no meio de uma codificação de grafeme multi-caracteres em vez do fim.
+As compensações podem causar problemas ao utilizar métodos de sublagem baseados no carácter, por exemplo, o método [de sublagem](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) .NET(). Um problema é que uma compensação pode fazer com que um método de substring termine no meio de uma codificação de grafeme de vários caracteres em vez do fim.
 
-Em .NET, considere usar a classe [StringInfo,](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) que lhe permite trabalhar com uma corda como uma série de elementos texuais, em vez de objetos de caracteres individuais. Também pode procurar bibliotecas de splitter de grafeme no seu ambiente de software preferido. 
+Em .NET, considere a utilização da classe [StringInfo,](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) que lhe permite trabalhar com uma corda como uma série de elementos texcionais, em vez de objetos de caracteres individuais. Também pode procurar bibliotecas de splitter de grafeme no seu ambiente de software preferido. 
 
-A API text Analytics devolve estes elementos texuais também, por conveniência.
+A API text Analytics devolve estes elementos texcionais também, por conveniência.
 
-## <a name="see-also"></a>Consulte também
+## <a name="offsets-in-api-version-31-preview"></a>Compensações na versão API 3.1-pré-visualização
 
-* [Descrição Geral da Análise de Texto](../overview.md)
-* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+Começando pela versão API 3.1-preview.1, todos os pontos finais da API API de Análise de Texto que devolvem uma compensação irão suportar o `stringIndexType` parâmetro. Este parâmetro ajusta os `offset` atributos e `length` atributos na saída API para corresponder ao esquema de iteração de cordas solicitado. Atualmente, apoiamos três tipos:
+
+1. `textElement_v8`(predefinição): iterados sobre grafemes definidos pela norma [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0)
+2. `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), o esquema padrão para Python 3
+3. `utf16CodeUnit`: iterates sobre [utf-16 Unidades de Código](https://unicode.org/faq/utf_bom.html#UTF16), o regime padrão para Javascript, Java e .NET
+
+Se o `stringIndexType` pedido corresponder ao ambiente de programação de eleição, a extração de sub-cordas pode ser feita utilizando métodos de sublagem ou fatias padrão. 
+
+## <a name="see-also"></a>Ver também
+
+* [Descrição geral da Análise de Texto](../overview.md)
+* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

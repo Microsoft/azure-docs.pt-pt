@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909866"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854866"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Resolução de problemas Azure Digital Twins: Alertas
 
@@ -28,13 +28,17 @@ Eis como ativar alertas para a sua instância Azure Digital Twins:
 
 2. Selecione **Alertas** do menu e, em seguida, **+ Nova regra de alerta**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot mostrando a página e o botão alertas para adicionar. Ainda não há alertas configurados." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. Na página *de regras de alerta Create* que se segue, pode seguir as instruções para definir condições, ações a serem desencadeadas e alertar detalhes.     
-    * **Os** detalhes do âmbito devem preencher automaticamente os detalhes da sua instância.
-    * Irá definir detalhes do grupo **Condition** and **Action** para personalizar os gatilhos e respostas de alerta.
+    * **Os** detalhes do âmbito devem preencher automaticamente com os detalhes para o seu exemplo
+    * Você definirá detalhes do grupo **de Condições** e **Ação** para personalizar gatilhos e respostas de alerta
+    * Na secção de detalhes da **regra alerta,** insira o _nome da regra de alerta_, _Descrição (opcional)_. Pode selecionar a _regra de alerta Desativar a_ caixa de verificação de criação se quiser que o alerta fique ativo assim que for criado.
+    * Com base em algumas condições e ações que adiciona, terá de selecionar a _regra de alerta de guardar para o grupo_ de recursos e a _Severidade_ a partir das respetivas reduções.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição e grupo de ação" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Selecione Criar o botão _de regra de alerta_ para criar a sua regra de alerta.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição e grupo de ação" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Screenshot mostrando a secção de detalhes da regra de alerta de criar uma regra de alerta" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 Para uma passagem guiada para preencher estes campos, consulte [*a visão geral dos alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Abaixo estão alguns exemplos de como serão os passos para a Azure Digital Twins.
 

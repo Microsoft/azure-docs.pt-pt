@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751499"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855539"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -230,7 +230,7 @@ Tabela abaixo resume a repartição de custos deste cenário para o Armazenament
 
 *Linux Distros*  
 
-Com o Azure Premium Storage, obtém-se o mesmo nível de Desempenho para VMs que executam Windows e Linux. Apoiamos muitos sabores de distros Linux, e você pode ver a lista completa [aqui.](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) É importante notar que diferentes distros são mais adequados para diferentes tipos de cargas de trabalho. Verá diferentes níveis de desempenho dependendo do distro em que a sua carga de trabalho está a funcionar. Teste os distros Linux com a sua aplicação e escolha o que funciona melhor.
+Com o Azure Premium Storage, obtém-se o mesmo nível de Desempenho para VMs que executam Windows e Linux. Apoiamos muitos sabores de distros Linux, e você pode ver a lista completa [aqui.](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) É importante notar que diferentes distros são mais adequados para diferentes tipos de cargas de trabalho. Verá diferentes níveis de desempenho dependendo do distro em que a sua carga de trabalho está a funcionar. Teste os distros Linux com a sua aplicação e escolha o que funciona melhor.
 
 Ao executar o Linux com Armazenamento Premium, verifique as últimas atualizações sobre os controladores necessários para garantir um desempenho elevado.
 

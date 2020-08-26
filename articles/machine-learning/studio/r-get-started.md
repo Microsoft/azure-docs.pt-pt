@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431961"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854830"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Começa com o Azure Machine Learning Studio (clássico) em R
 
@@ -162,10 +162,10 @@ Agora que temos alguns dados no Machine Learning Studio (clássico), precisamos 
 1. Selecione **+ NOVO** na parte inferior esquerda e selecione **Experimento,** em **seguida, Blank Experiment**.
 1. Pode nomear a sua experiência selecionando e modificando o **Experiment criado em...** título no topo da página. Por exemplo, mudá-lo para **CA Análise de Lacticínios**.
 1. À esquerda da página de experiências, expanda **conjuntos de dados guardados**e, em seguida, **os meus conjuntos de dados**. Devia ver o **cadairydata.csv** que carregou mais cedo.
-1. Arraste e deixe cair o **conjunto de dadoscsdairydata.csv** para a experiência.
+1. Arraste e deixe cair o ** conjunto de dadoscsdairydata.csv** para a experiência.
 1. Na caixa **de itens de experiência de pesquisa** na parte superior do painel esquerdo, [escreva Executar O Script R][execute-r-script]. Verá o módulo aparecer na lista de pesquisa.
 1. Arraste e deixe cair o módulo [executar o script][execute-r-script] R na sua palete.  
-1. Ligue a saída do conjunto de **dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1**) do [Script Execute R][execute-r-script].
+1. Ligue a saída do conjunto de ** dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1**) do [Script Execute R][execute-r-script].
 1. **Não se esqueça de selecionar 'Save'!**  
 
 Neste momento, a sua experiência deve parecer-se com a Figura 3.
@@ -176,7 +176,7 @@ Neste momento, a sua experiência deve parecer-se com a Figura 3.
 
 #### <a name="check-on-the-data"></a>Verifique os dados
 
-Vamos ver os dados que carregamos na nossa experiência. Na experiência, selecione a saída do conjunto de **dadoscadairydata.csv** e selecione **visualizar**. Devia ver algo como a Figura 4.  
+Vamos ver os dados que carregamos na nossa experiência. Na experiência, selecione a saída do conjunto de ** dadoscadairydata.csv** e selecione **visualizar**. Devia ver algo como a Figura 4.  
 
 ![Resumo do conjunto de dados cadairydata.csv](./media/r-quickstart/fig4.png)
 
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Já discutimos o carregamento de conjuntos de dados em [Carregar o conjunto de dados.](#loading) Depois de ter criado e testado o script R mostrado na secção anterior, faça o seguinte:
 
-1. Guarde o script R num . Ficheiro R. Chamo o meu ficheiro de guião de "simples enredo". R". Aqui está o conteúdo.
+1. Guarde o script R num . Ficheiro R. Chamo o meu ficheiro de guião de "simples enredo". R". Aqui está o que está no ficheiro:
 
    ```r
    ## Only one of the following two lines should be used
@@ -250,7 +250,7 @@ Já discutimos o carregamento de conjuntos de dados em [Carregar o conjunto de d
 
 1. Digite a `source()` função com o nome do ficheiro postal na janela de código para o módulo [executo R Script.][execute-r-script] No meu caso, `source("src/simpleplot.R")` escrevi.  
 
-1. Certifique-se de que **seleciona Guardar**.
+1. Confirme que selecionou **Guardar**.
 
 Uma vez concluídos estes passos, o módulo [Execut R Script][execute-r-script] executará o script R no ficheiro zip quando a experiência for executada. Neste momento, a sua experiência deve parecer-se com a Figura 5.
 
@@ -570,11 +570,11 @@ Parece que está tudo a funcionar. Temos a nova coluna com os valores esperados 
 
 Nesta secção vamos realizar algumas transformações simples sobre os valores em algumas das colunas do nosso dataframe. A língua R suporta transformações de valor quase arbitrárias. As referências em [continuar a ler](#appendixb) abaixo contêm exemplos extensivos.
 
-Se olhar para os valores nos resumos do nosso dataframe, deverá ver algo estranho aqui. É mais gelado do que leite produzido na Califórnia? Não, claro que não, já que isto não faz sentido, por mais triste que este facto seja para alguns de nós, amantes de gelados. As unidades são diferentes. O preço está em unidades de libras americanas, o leite está em unidades de 1 M DOS, o gelado está em unidades de 1.000 galões americanos, e o queijo cottage está em unidades de 1.000 libras americanas. Assumindo que o gelado pesa cerca de 6,5 libras por galão, podemos facilmente fazer a multiplicação para converter estes valores, para que todos estejam em unidades iguais de 1.000 libras.
+Se olhar para os valores nos resumos do nosso dataframe, deve ver algo estranho aqui. É mais gelado do que leite produzido na Califórnia? Não, claro que não, já que isto não faz sentido, por mais triste que este facto seja para alguns de nós, amantes de gelados. As unidades são diferentes. O preço está em unidades de libras americanas, o leite está em unidades de 1 M DOS, o gelado está em unidades de 1.000 galões americanos, e o queijo cottage está em unidades de 1.000 libras americanas. Assumindo que o gelado pesa cerca de 6,5 libras por galão, podemos facilmente fazer a multiplicação para converter estes valores, por isso estão todos em unidades iguais de 1.000 libras.
 
 Para o nosso modelo de previsão usamos um modelo multiplicativo para tendência e ajuste sazonal destes dados. Uma transformação de log permite-nos usar um modelo linear, simplificando este processo. Podemos aplicar a transformação do log na mesma função em que o multiplicador é aplicado.
 
-No seguinte código, defino uma nova função, `log.transform()` e aplicá-la às linhas que contêm os valores numéricos. A `Map()` função R é utilizada para aplicar a `log.transform()` função às colunas selecionadas do quadro de dados. `Map()`é `apply()` semelhante, mas permite mais de uma lista de argumentos para a função. Note que uma lista de multiplicadores fornece o segundo argumento à `log.transform()` função. A `na.omit()` função é usada como um pouco de limpeza para garantir que não temos valores em falta ou indefinidos no dataframe.
+No seguinte código, defino uma nova função, `log.transform()` e aplicá-la às linhas que contêm os valores numéricos. A `Map()` função R é utilizada para aplicar a `log.transform()` função às colunas selecionadas do quadro de dados. `Map()` é `apply()` semelhante, mas permite mais de uma lista de argumentos para a função. Note que uma lista de multiplicadores fornece o segundo argumento à `log.transform()` função. A `na.omit()` função é usada como um pouco de limpeza para garantir que não temos valores em falta ou indefinidos no dataframe.
 
 ```r
 log.transform <- function(invec, multiplier = 1) {
@@ -1136,7 +1136,7 @@ Parece que o modelo de tendência se encaixa bastante bem nos dados. Além disso
 
 Com um modelo de tendência na mão, precisamos continuar e incluir os efeitos sazonais. Usaremos o mês do ano como uma variável falsa no modelo linear para capturar o efeito mensal. Note que quando introduz variáveis de fator num modelo, a interceção não deve ser calculada. Se não o fizer, a fórmula é sobre-especificada e R deixará cair um dos fatores desejados, mas manterá o termo de interceção.
 
-Uma vez que temos um modelo de tendência satisfatório podemos usar a `update()` função para adicionar os novos termos ao modelo existente. O -1 na fórmula de atualização deixa cair o termo de interceção. Continuando no RStudio por enquanto:
+Uma vez que temos um modelo de tendência satisfatório, podemos usar a `update()` função para adicionar os novos termos ao modelo existente. O -1 na fórmula de atualização deixa cair o termo de interceção. Continuando no RStudio por enquanto:
 
 ```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1338,7 +1338,7 @@ O RStudio está bem documentado. Aqui estão algumas ligações com as secções
 Este tutorial de programação R cobre o básico do que você precisa para usar a linguagem R com Azure Machine Learning Studio (clássico). Se não estiver familiarizado com r, duas apresentações estão disponíveis no CRAN:
 
 * [R para Principiantes](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) por Emmanuel Paradis é um bom lugar para começar.  
-* [Uma Introdução a R](https://cran.r-project.org/doc/manuals/R-intro.html) por W. N. Venables et. al. vai para um pouco mais de profundidade.
+* [Uma Introdução a R](https://cran.r-project.org/doc/manuals/R-intro.html) por W. N. Venables et al. vai para um pouco mais de profundidade.
 
 Há muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que acho úteis:
 
@@ -1355,7 +1355,8 @@ O livro **Introductory Time Series** com R de Paul Cowpertwait e Andrew Metcalfe
 Aqui estão alguns grandes recursos na Internet:
 
 * O DataCamp ensina R no conforto do seu navegador com aulas de vídeo e exercícios de codificação. Existem tutoriais interativos sobre as mais recentes técnicas e pacotes R. Tome o [tutorial r interativo](https://www.datacamp.com/courses/introduction-to-r)gratuito.
-* [Aprenda A Programação R, O Guia Definitivo](https://www.programiz.com/r-programming) da Programiz.
+* [Aprenda A Programação R, O Guia Definitivo](https://www.datamentor.io/r-programming/) do DataMentor.
+* [R CODER](https://r-coder.com/). Tutoriais R detalhados e um curso R gratuito para principiantes.
 * Um [rápido R Tutorial](https://www.cyclismo.org/tutorial/R/) de Kelly Black da Universidade Clarkson.
 * Existem mais de 60 recursos R listados nos [recursos linguísticos top R para melhorar as suas habilidades de dados.](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html)
 

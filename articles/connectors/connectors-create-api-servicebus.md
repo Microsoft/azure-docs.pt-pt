@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815745"
+ms.locfileid: "88853297"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -85,23 +85,23 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
    1. Forneça um nome para a sua ligação e selecione o seu espaço de nomes de Service Bus.
 
-      ![Criar ligação de ônibus de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Screenshot que mostra fornecer nome de conexão e selecionar espaço de nome de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Para introduzir manualmente a cadeia de ligação, selecione **instrua manualmente as informações de ligação**. Se não tiver a sua cadeia de ligação, aprenda [a encontrar a sua cadeia de ligação](#permissions-connection-string).
 
    1. Selecione a sua política de ônibus de serviço e **selecione Criar**.
 
-      ![Criar ligação de ônibus de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Screenshot que mostra a política de ônibus de serviço selecionado](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Selecione a entidade de mensagens que deseja, como uma fila ou tópico. Para este exemplo, selecione a sua fila de ônibus de serviço.
    
-      ![Selecione a fila do ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Screenshot que mostra a seleção da fila do ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Forneça as informações necessárias para o seu gatilho selecionado. Para adicionar outras propriedades disponíveis à ação, abra a nova lista **de parâmetros Add** e selecione as propriedades que deseja.
 
    Para este gatilho, selecione o intervalo de votação e a frequência para verificar a fila.
 
-   ![Configurar intervalo de votação](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Screenshot que mostra a definição do intervalo de votação no gatilho do Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Para obter mais informações sobre os gatilhos e propriedades disponíveis, consulte a página de [referência](/connectors/servicebus/)do conector .
 
@@ -123,29 +123,29 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
    Para este exemplo, selecione a ação **da mensagem Enviar.**
 
-   ![Selecione ação de ônibus de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Screenshot que mostra a seleção da ação de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Se a sua ação estiver a ligar-se ao seu espaço de nomes service bus pela primeira vez, siga estes passos quando o Logic App Designer lhe solicitar informações de ligação.
 
    1. Forneça um nome para a sua ligação e selecione o seu espaço de nomes de Service Bus.
 
-      ![Criar ligação de ônibus de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Screenshot que mostra fornecer um nome de conexão e selecionar um espaço de nome de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Para introduzir manualmente a cadeia de ligação, selecione **instrua manualmente as informações de ligação**. Se não tiver a sua cadeia de ligação, aprenda [a encontrar a sua cadeia de ligação](#permissions-connection-string).
 
    1. Selecione a sua política de ônibus de serviço e **selecione Criar**.
 
-      ![Criar ligação de ônibus de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Screenshot que mostra a seleção de uma política de ônibus de serviço e selecionando o botão Criar](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Selecione a entidade de mensagens que deseja, como uma fila ou tópico. Para este exemplo, selecione a sua fila de ônibus de serviço.
 
-      ![Selecione a fila do ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Screenshot que mostra a seleção de uma fila de ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Forneça os detalhes necessários para a sua ação selecionada. Para adicionar outras propriedades disponíveis à ação, abra a nova lista **de parâmetros Add** e selecione as propriedades que deseja.
 
    Por exemplo, selecione as propriedades **do Tipo de Conteúdo** e **Conteúdo** para que as adicione à ação. Em seguida, especifique o conteúdo da mensagem que pretende enviar.
 
-   ![Fornecer conteúdo e detalhes de mensagens](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Screenshot que mostra fornecer o tipo de conteúdo de mensagem e detalhes](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Para obter mais informações sobre as ações disponíveis e as suas propriedades, consulte a página de [referência](/connectors/servicebus/)do conector.
 

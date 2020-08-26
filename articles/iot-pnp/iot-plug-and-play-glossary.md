@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475469"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854223"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para IoT Plug e Play Preview
 
@@ -29,7 +29,7 @@ O explorador Azure IoT é uma ferramenta gráfica que pode utilizar para interag
 - Trabalhar com [as propriedades do](#properties)dispositivo.
 - Comandos do dispositivo [de chamada](#commands).
 
-## <a name="azure-iot-hub"></a>Hub IoT do Azure
+## <a name="azure-iot-hub"></a>Azure IoT Hub
 
 O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de mensagens para assegurar a comunicação bidirecional entre a aplicação IoT e os dispositivos que esta gere. [Os dispositivos IoT Plug e Play](#iot-plug-and-play-device) podem ligar-se a um hub IoT. Uma solução IoT utiliza um hub IoT para permitir:
 
@@ -54,6 +54,10 @@ Uma cadeia de ligação encapsula as informações necessárias para ligar a um 
 
 - As cordas de ligação do dispositivo permitem que [os dispositivos IoT Plug e Play](#iot-plug-and-play-device) se conectem aos pontos finais virados para o dispositivo num hub IoT. O código do cliente num dispositivo utiliza a cadeia de ligação para estabelecer uma ligação segura com um hub IoT.
 - As cordas de ligação IoT Hub permitem que soluções e ferramentas de back-end se conectem de forma segura aos pontos finais voltados para o serviço num hub IoT. Estas soluções e ferramentas gerem o hub IoT e os dispositivos que lhe estão ligados.
+
+## <a name="device-certification"></a>Certificação do dispositivo
+
+O programa de certificação ioT Plug and Play verifica que um dispositivo cumpre os requisitos de certificação IoT Plug and Play. Pode adicionar um dispositivo certificado ao catálogo de [dispositivos Azure IoT certificados.](https://aka.ms/devicecatalog)
 
 ## <a name="device-model"></a>Modelo do dispositivo
 
