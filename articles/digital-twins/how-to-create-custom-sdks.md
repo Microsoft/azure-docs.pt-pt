@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420044"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855956"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
@@ -41,10 +41,10 @@ npm install -g autorest@2.0.4413
 Para executar o AutoRest contra o ficheiro Azure Digital Twins Swagger, siga estes passos:
 1. Copie o ficheiro Azure Digital Twins Swagger e a sua pasta de exemplos que o acompanha num diretório de trabalho.
 2. Use uma janela de ordem de comando para mudar para o diretório de trabalho.
-3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , e assim por `--python` `--java` `--go` diante. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
+3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , e assim por `python` `java` `go` diante. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*. Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
@@ -189,7 +189,7 @@ try
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Caminhe pelos degraus para criar uma aplicação para clientes onde pode utilizar o seu SDK:
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

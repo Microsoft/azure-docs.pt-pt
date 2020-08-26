@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475673"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856045"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
@@ -127,10 +127,10 @@ O dispositivo deve adicionar o `{"__t": "c"}` marcador para indicar que o elemen
 
 O dispositivo deve confirmar que recebeu a propriedade enviando uma propriedade reportada. A propriedade reportada deve incluir:
 
-- `value`- o valor que o dispositivo recebeu.
-- `ac`- um código de reconhecimento que utilize um código de estado HTTP.
-- `av`- uma versão de reconhecimento que se refira à `$version` propriedade desejada.
-- `ad`- uma descrição facultativa de reconhecimento.
+- `value` - o valor real do imóvel (normalmente o valor recebido, mas o dispositivo pode decidir reportar um valor diferente).
+- `ac` - um código de reconhecimento que utilize um código de estado HTTP.
+- `av` - uma versão de reconhecimento que se refira à `$version` propriedade desejada.
+- `ad` - uma descrição facultativa de reconhecimento.
 
 ### <a name="sample-no-component-writable-property"></a>Amostra sem propriedade de propriedade writable componente
 

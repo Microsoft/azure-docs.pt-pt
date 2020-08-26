@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ef221ea068f2786a4a84f20a29e80dd7176f06c6
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337420"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856026"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>Guia de desenvolvimento ioT plug e play preview
 
@@ -54,6 +54,16 @@ O anúncio do ID do modelo foi adicionado às próximas versões dos SDKs
 |Java|1.14.0|
 |Nó|1.17.0|
 |Python|2.1.4|
+
+## <a name="dps-payload"></a>Carga útil do DPS
+
+Os dispositivos que utilizam o [Serviço de Provisionamento de Dispositivos (DPS)](/iot-dps/) podem incluir o `modelId` a ser utilizado durante o processo de provisionamento utilizando a seguinte carga útil JSON.
+
+```json
+{
+    "modelId" : "dtmi:com:example:Thermostat;1"
+}
+```
 
 ## <a name="implement-telemetry-properties-and-commands"></a>Implementar telemetria, propriedades e comandos
 

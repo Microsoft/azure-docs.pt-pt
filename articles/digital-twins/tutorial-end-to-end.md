@@ -1,5 +1,5 @@
 ---
-title: Ligar a uma solução de ponto a ponto
+title: 'Tutorial: Conecte uma solução de ponta a ponta'
 titleSuffix: Azure Digital Twins
 description: Tutorial para construir uma solução de gémeos digitais Azure que é impulsionada por dados do dispositivo.
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f4155c479151c5af64049e0cf9a6a1c4dc4a553
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827389"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855892"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
 Para configurar uma solução completa de ponta a ponta impulsionada por dados vivos do seu ambiente, pode ligar a sua instância Azure Digital Twins a outros serviços Azure para a gestão de dispositivos e dados.
 
@@ -455,7 +455,5 @@ Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 
 Em seguida, comece a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial:
-* [*Conceitos: Modelos personalizados*](concepts-models.md)
-
-Ou, vá mais aprofundado sobre os processos neste tutorial iniciando os artigos de como fazer:
-* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Conceitos: Modelos personalizados*](concepts-models.md)

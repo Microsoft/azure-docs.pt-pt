@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817022"
+ms.locfileid: "88856074"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta SaaS no mercado comercial
 
@@ -234,7 +234,7 @@ Termos de alteração universal **ao Contrato Padrão para o mercado comercial d
 
 #### <a name="terms-and-conditions"></a>Termos e condições
 
-Se quiser fornecer os seus próprios termos e condições personalizados, pode optar por inscrevê-los no campo de termos e condições. Pode introduzir até 10.000 caracteres de texto neste campo. Se os seus termos e condições requerem uma descrição mais longa, insira um único link URL neste campo onde os seus termos e condições podem ser encontrados. Será apresentado aos clientes como um link ativo.
+Se quiser fornecer os seus próprios termos e condições personalizados, pode optar por inscrevê-los no campo de termos e condições. Pode introduzir até 10.000 caracteres de texto neste campo. Se os seus termos e condições requerem uma descrição mais longa, insira um único link URL neste campo onde os seus termos e condições podem ser encontrados.
 
 Os clientes são obrigados a aceitar estes termos antes de poderem experimentar a sua oferta.
 

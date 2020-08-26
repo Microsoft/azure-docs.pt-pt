@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81007858"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864836"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gere o ficheiro de pedido de assinatura de certificado
 
@@ -95,7 +95,7 @@ A abordagem mais recente tem uma série de benefícios (em comparação com a ut
     É apresentado o novo ecrã **de Certificado Criar.**
 
     > [!NOTE]
-    > Este tutorial utiliza um certificado de programação. É utilizado o mesmo processo ao registar um certificado de produção. Não se esqueça de verificar se está a utilizar o mesmo tipo de certificado ao enviar notificações.
+    > Este tutorial usa um certificado de desenvolvimento, que a sua aplicação utiliza para gerar um token de dispositivo único. É utilizado o mesmo processo ao registar um certificado de produção. Não se esqueça de verificar se está a utilizar o mesmo tipo de certificado ao enviar notificações.
 
 3. Selecione **Choose File**, navegue no local onde guardou o ficheiro CSR a partir da primeira tarefa e, em seguida, clique duas vezes no nome do certificado para o carregar. Em seguida, selecione **Continuar**.
 
@@ -183,7 +183,7 @@ No final destes passos deverá ter as seguintes informações para utilização 
     2. Na secção **de Software,** selecione **Apple Development**. Em seguida, selecione **Continuar**.
     3. No ecrã **Criar um novo certificado,** selecione **Escolha Ficheiro**.
     4. Navegue no certificado **de Pedido de Assinatura** de Certificado que criou anteriormente, selecione-o e, em seguida, selecione **Open**.
-    5. Selecione **Continuar**.
+    5. **Selecione Continuar**.
     6. Descarregue o certificado de desenvolvimento e lembre-se do local para o qual está guardado.
 
 1. Volte aos **Certificados, Identifiers & Profiles,** selecione **Perfis** do menu esquerdo e, em seguida, selecione para criar um **+** novo perfil. Aparece o novo ecrã **de perfil de provisionamento.**
@@ -211,7 +211,7 @@ Nesta secção, cria-se um centro de notificação e configura a autenticação 
 Nos **Serviços de Notificação,** selecione **Apple (APNS)** e siga os passos adequados com base na abordagem que escolheu anteriormente na secção [Criar um Certificado para Centros de Notificação.](#creating-a-certificate-for-notification-hubs)  
 
 > [!NOTE]
-> Utilize o Modo **De Produção** para **Aplicação** apenas se pretender enviar notificações push para utilizadores que compraram a sua aplicação na loja.
+> Se construir a sua aplicação com App Store ou perfil de distribuição Ad-Hoc, utilize a **Produção** para **Modo aplicação.** Isto permitirá que o seu dispositivo envie notificações push para os utilizadores que adquiriram a sua aplicação na loja.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>OPÇÃO 1: Utilização de um certificado de pressão .p12
 

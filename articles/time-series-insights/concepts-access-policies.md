@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 149d1eab696ae8419bed79cd2cdc0b066c32060c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531936"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856120"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
 
@@ -64,7 +64,7 @@ O `Guest` papel não é um papel de gestão. É um termo usado para uma conta qu
 
 Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Series Insights a um utilizador Azure AD de outro inquilino.
 
-1. Vá ao portal Azure, clique no **Azure Ative Directory,** desloque-se para baixo no **separador Visão Geral** e, em seguida, selecione **o utilizador convidado**.
+1. Vá ao portal Azure, clique no  **Azure Ative Directory,** desloque-se para baixo no **separador Visão Geral** e, em seguida, selecione **o utilizador convidado**.
 
     [![Selecione Data Access Polices, em seguida , + Convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
@@ -106,7 +106,7 @@ Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Seri
 
 1. O administrador [partilha o URL ambiental](time-series-insights-parameterized-urls.md) com o seu convidado.
 
-1. Depois de o utilizador convidado ser inscrito no endereço de e-mail que usou para os convidar, e eles aceitarem o convite, serão direcionados para o portal Azure. 
+1. Depois de o utilizador convidado ser inscrito no endereço de e-mail que usou para os convidar, e eles aceitarem o convite, serão direcionados para o portal Azure.
 
 1. O hóspede pode agora aceder ao ambiente partilhado utilizando o URL ambiental fornecido pelo administrador. Podem inserir esse URL no seu navegador web para acesso imediato.
 
@@ -114,14 +114,14 @@ Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Seri
 
     [![Seleção de avatar na insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    Depois de o utilizador convidado selecionar o inquilino do administrador, eles terão a capacidade de selecionar o ambiente partilhado Azure Time Series Insights.
 
-    Depois de o utilizador convidado selecionar o inquilino do administrador, eles terão a capacidade de selecionar o ambiente partilhado Azure Time Series Insights. 
-    
     Eles agora têm todas as capacidades associadas ao papel que lhes forneceu no **passo 5**.
 
     [![O utilizador convidado seleciona o seu inquilino Azure a partir do drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
 * Leia as etapas de registo de aplicações de [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para o Azure Ative Directory.
 
-* Veja [o seu ambiente no explorador Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Veja [o seu ambiente no Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md).

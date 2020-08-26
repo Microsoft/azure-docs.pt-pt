@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: b7ee606ab17171c5f2fcf20d94ff18de8b05b773
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b178a0b347888f22d9a3c0ee88a203e377cb15be
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753039"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864769"
 ---
 > [!IMPORTANT]
 > * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
@@ -30,6 +30,27 @@ ms.locfileid: "88753039"
 * Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+
+## <a name="object-model"></a>Modelo de objeto 
+
+Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `form_recognizer_client` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A segunda é `form_training_client` a utilização para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
+
+### <a name="formrecognizerclient"></a>FormulárioRecognizerClient
+`form_recognizer_client` Fornece operações para:
+
+ * Reconhecendo campos de formulários e conteúdos usando modelos personalizados treinados para reconhecer os seus formulários personalizados. 
+ * Reconhecendo o conteúdo da forma, incluindo tabelas, linhas e palavras, sem a necessidade de formar um modelo. 
+ * Reconhecendo campos comuns a partir de recibos, utilizando um modelo de recibo pré-treinado no serviço De Reconhecimento de Formulários.
+
+### <a name="formtrainingclient"></a>FormaTrainingClient
+`form_training_client` Fornece operações para:
+
+* Treinando modelos personalizados para reconhecer todos os campos e valores encontrados nas suas formas personalizadas. Consulte a [documentação do serviço sobre a formação de modelos não rotulados](#train-a-model-without-labels) para obter uma explicação mais detalhada da criação de um conjunto de dados de formação.
+* Treinando modelos personalizados para reconhecer campos e valores específicos que especifica, rotulando os seus formulários personalizados. Consulte a [documentação do serviço sobre a formação de modelos rotulados](#train-a-model-with-labels) para obter uma explicação mais detalhada da aplicação de rótulos a um conjunto de dados de formação.
+* Gestão de modelos criados na sua conta.
+* Copiar um modelo personalizado de um recurso de Reconhecimento de Formulário para outro.
+
+Por favor, note que os modelos também podem ser treinados usando uma interface gráfica do utilizador, como a [Ferramenta de Etiquetagem do Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## <a name="setting-up"></a>Configuração
 
@@ -112,7 +133,7 @@ for cell in table.cells:
     print("Confidence score: {}\n".format(cell.confidence))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Table found on page 1:
@@ -158,7 +179,7 @@ for receipt in result:
             print("{}: {} has confidence {}".format(name, field.value, field.confidence))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 ReceiptType: Itemized has confidence 0.659
@@ -228,7 +249,7 @@ for doc in model.training_documents:
     print("Document errors: {}".format(doc.errors))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
 
@@ -304,7 +325,7 @@ for doc in model.training_documents:
     print("Document errors: {}".format(doc.errors))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
 
@@ -346,9 +367,7 @@ Esta secção demonstra como extrair informações de chave/valor e outros conte
 > [!IMPORTANT]
 > Para implementar este cenário, já deve ter treinado um modelo para que possa passar o seu ID para o método abaixo. Consulte a secção [Modelo train.](#train-a-model-without-labels)
 
-<<<<<<< CABEÇA Usará o `begin_recognize_custom_forms_from_url` método. O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada página no documento submetido. O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
-======== Usará o método **begin_recognize_custom_forms_from_url.** O valor devolvido é uma coleção de objetos **RecognizedForm.** Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
->>>>>>> 4c76de6b4e93d2a466995300c5686837b3be13c
+Vais usar o `begin_recognize_custom_forms_from_url` método. O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada página no documento submetido. O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
 
 ```python
 # Model ID from when you trained your model.
@@ -369,7 +388,7 @@ for recognized_form in result:
         ))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Utilizando o modelo a partir do exemplo anterior, é fornecida a seguinte saída.
 
@@ -407,7 +426,7 @@ print("Our account has {} custom models, and we can have at most {} custom model
 ))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -430,7 +449,7 @@ for model in custom_models:
     print(model.model_id)
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Esta é uma amostra da conta de teste.
 
@@ -457,7 +476,7 @@ print("Training started on: {}".format(custom_model.training_started_on))
 print("Training completed on: {}".format(custom_model.training_completed_on))
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Esta é a saída da amostra para o modelo personalizado criado no exemplo anterior.
 
@@ -483,13 +502,13 @@ except ResourceNotFoundError:
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação com o `python` comando no seu ficheiro quickstart.
+Pode executar a aplicação a qualquer momento com qualquer número de funções que tenha lido neste arranque rápido com este comando:
 
 ```console
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

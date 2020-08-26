@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 34f972624d1b7dd56fd6271baeaa855627eb870c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1c24eba79c26c4540e9d97a3e2b6646fd0b5439c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864704"
 ---
 > [!IMPORTANT]
 > * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
@@ -66,6 +66,8 @@ O ficheiro da sua aplicação `package.json` será atualizado com as dependênci
 
 ## <a name="object-model"></a>Modelo de objeto 
 
+Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `FormRecognizerClient` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A segunda é `FormTrainingClient` a utilização para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
+
 ### <a name="formrecognizerclient"></a>FormulárioRecognizerClient
 `FormRecognizerClient` Fornece operações para:
 
@@ -76,12 +78,12 @@ O ficheiro da sua aplicação `package.json` será atualizado com as dependênci
 ### <a name="formtrainingclient"></a>FormaTrainingClient
 `FormTrainingClient` Fornece operações para:
 
-* Treinando modelos personalizados para reconhecer todos os campos e valores encontrados nas suas formas personalizadas. A `CustomFormModel` é devolvido indicando os tipos de formulário que o modelo reconhecerá, e os campos que extrairá para cada tipo de formulário. Consulte a documentação [do serviço sobre a formação de modelos não rotulados][fr-train-without-labels] para obter uma explicação mais detalhada da criação de um conjunto de dados de formação.
-* Treinando modelos personalizados para reconhecer campos e valores específicos que especifica, rotulando os seus formulários personalizados. A `CustomFormModel` é devolvido indicando os campos que o modelo irá extrair, bem como a precisão estimada para cada campo. Consulte a documentação [do serviço sobre a formação de modelos rotulados][fr-train-with-labels] para obter uma explicação mais pormenorizada da aplicação dos rótulos num conjunto de dados de formação.
+* Treinando modelos personalizados para reconhecer todos os campos e valores encontrados nas suas formas personalizadas. A `CustomFormModel` é devolvido indicando os tipos de formulário que o modelo reconhecerá, e os campos que extrairá para cada tipo de formulário. Consulte a [documentação do serviço sobre a formação de modelos não rotulados](#train-a-model-without-labels) para obter uma explicação mais detalhada da criação de um conjunto de dados de formação.
+* Treinando modelos personalizados para reconhecer campos e valores específicos que especifica, rotulando os seus formulários personalizados. A `CustomFormModel` é devolvido indicando os campos que o modelo irá extrair, bem como a precisão estimada para cada campo. Consulte a [documentação do serviço sobre a formação de modelos rotulados](#train-a-model-with-labels) para obter uma explicação mais detalhada da aplicação de rótulos a um conjunto de dados de formação.
 * Gestão de modelos criados na sua conta.
 * Copiar um modelo personalizado de um recurso de Reconhecimento de Formulário para outro.
 
-Por favor, note que os modelos também podem ser treinados usando uma interface gráfica do utilizador, como a [Ferramenta de Etiquetagem do Reconhecimento de https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool Formulário].
+Por favor, note que os modelos também podem ser treinados usando uma interface gráfica do utilizador, como a [Ferramenta de Etiquetagem do Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -153,7 +155,7 @@ recognizeContent().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Page 1: width 8.5 and height 11 with unit inch
@@ -225,7 +227,7 @@ recognizeReceipt().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 status: notStarted
@@ -256,7 +258,7 @@ A função seguinte treina um modelo num determinado conjunto de documentos e im
 ```javascript
 async function trainModel() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, false, {
@@ -299,7 +301,7 @@ trainModel().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training) Esta produção de amostra foi truncada para a legibilidade.
 
@@ -342,7 +344,7 @@ Também pode treinar modelos personalizados rotulando manualmente os documentos 
 ```javascript
 async function trainModelLabels() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, true, {
@@ -385,7 +387,7 @@ trainModelLabels().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado 
+### <a name="output"></a>Saída 
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training) Esta produção de amostra foi truncada para a legibilidade.
 
@@ -468,7 +470,7 @@ recognizeCustom().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 status: notStarted
@@ -532,7 +534,7 @@ listModels().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 model 0:
@@ -583,7 +585,7 @@ async function listModelIds(){
 }
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
@@ -612,7 +614,7 @@ listModelsByPage().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
@@ -636,7 +638,7 @@ Também pode eliminar um modelo da sua conta fazendo referência ao seu ID. Este
 }
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
@@ -650,7 +652,7 @@ Pode executar a aplicação a qualquer momento com qualquer número de funções
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

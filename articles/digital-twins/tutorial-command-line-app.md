@@ -1,5 +1,5 @@
 ---
-title: Explore as noções básicas com uma aplicação cliente de exemplo
+title: 'Tutorial: Explore o básico com uma aplicação de cliente de amostra'
 titleSuffix: Azure Digital Twins
 description: Tutorial para explorar os SDKs Azure Digital Twins usando uma aplicação de linha de comando de amostra
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986276"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855861"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
 Este tutorial introduz uma aplicação de amostra que implementa uma aplicação de cliente de linha de comando, para interagir com uma instância Azure Digital Twins. A aplicação do cliente é semelhante à escrita em [*Tutorial: Código uma aplicação de cliente*](tutorial-code.md).
 
@@ -283,7 +283,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados da consulta composta, sem resultados":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
 * Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
@@ -314,12 +314,5 @@ Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máqu
 Neste tutorial, começou com a Azure Digital Twins, criando uma instância e uma aplicação de cliente para interagir com o caso. Usou a aplicação do cliente para explorar a Azure Digital Twins, criando modelos, gémeos digitais e relacionamentos. Também fez algumas perguntas sobre a solução, para ter uma ideia do tipo de perguntas que a Azure Digital Twins pode responder sobre um ambiente.
 
 Continue até ao próximo tutorial para utilizar a aplicação da linha de comando da amostra em combinação com outros serviços Azure para completar um cenário de ponta a ponta orientado por dados:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md)
-
-Ou, comece a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial:
-* [*Conceitos: Modelos personalizados*](concepts-models.md)
-
-Você também pode ir mais aprofundado sobre os processos neste tutorial iniciando os artigos de como-a-fazer:
-* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)

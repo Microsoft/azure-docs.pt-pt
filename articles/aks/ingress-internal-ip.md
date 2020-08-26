@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX par
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: f7bb917387accb986f1fc97a9ebc752281234b35
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2055946728231452b5359bbe4c98892cba72cfec
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272621"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855819"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Também pode:
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX. Certifique-se de que está a usar a mais recente versão do Helm e tenha acesso ao repositório *estável* helm. Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
+Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX. Certifique-se de que está a utilizar a mais recente versão do Helm e tenha acesso ao repositório de Helm *ingresss-nginx.* Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -59,11 +59,11 @@ O controlador de entrada também tem de estar agendado num nó do Linux. Os nós
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
-# Add the official stable repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress stable/nginx-ingress \
+helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     -f internal-ingress.yaml \
     --set controller.replicaCount=2 \
@@ -74,17 +74,16 @@ helm install nginx-ingress stable/nginx-ingress \
 Quando o serviço de balançador de carga Kubernetes é criado para o controlador de entrada NGINX, o seu endereço IP interno é atribuído. Para obter o endereço IP público, use o `kubectl get service` comando.
 
 ```console
-kubectl get service -l app=nginx-ingress --namespace ingress-basic
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 ```
 
 Demora alguns minutos para que o endereço IP seja atribuído ao serviço, como mostra a seguinte saída de exemplo:
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
-nginx-ingress-controller         LoadBalancer   10.0.61.144    10.240.0.42   80:30386/TCP,443:32276/TCP   6m2s
-nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/TCP                       6m2s
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 Ainda não foram criadas regras de entrada, pelo que a página padrão 404 do controlador NGINX é apresentada se navegar para o endereço IP interno. As regras de ingress são configuradas nos seguintes passos.
@@ -273,7 +272,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

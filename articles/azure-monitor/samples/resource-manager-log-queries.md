@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f874e69ff2e08b9be11e6d3e267808d37c084d81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c5c7d1b79f9dd74db8bb8241166b4a0fbc5954c1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83854529"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855755"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para consultas de registo no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar consultas de registo no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -30,7 +30,7 @@ A amostra seguinte adiciona uma consulta de log a um espaço de trabalho Log Ana
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -43,7 +43,7 @@ A amostra seguinte adiciona uma consulta de log a um espaço de trabalho Log Ana
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
@@ -73,7 +73,7 @@ A amostra seguinte adiciona uma consulta de log a um espaço de trabalho Log Ana
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -93,7 +93,7 @@ A amostra seguinte adiciona uma consulta de log como função a um espaço de tr
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -112,7 +112,7 @@ A amostra seguinte adiciona uma consulta de log como função a um espaço de tr
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "Cross workspace query",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -142,7 +142,7 @@ A amostra seguinte adiciona uma consulta de log como função a um espaço de tr
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -165,7 +165,7 @@ A amostra seguinte adiciona uma consulta de log como uma função que usa um par
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -178,13 +178,13 @@ A amostra seguinte adiciona uma consulta de log como uma função que usa um par
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Parameterized function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -200,7 +200,7 @@ A amostra seguinte adiciona uma consulta de log como uma função que usa um par
         },
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Query using function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -223,7 +223,7 @@ A amostra seguinte adiciona uma consulta de log como uma função que usa um par
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {

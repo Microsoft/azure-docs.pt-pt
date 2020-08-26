@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: f423ae957d11248b16a180e22647d6566157b7be
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782843"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852164"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -178,6 +178,7 @@ A tabela a seguir resume estes parâmetros adicionais. Consulte a [documentaçã
 |`enable_dnn`|[Ativar as NNNs de Previsão]().||
 |`time_series_id_column_names`|O(s) nome da coluna(s) usado para identificar exclusivamente as séries de tempo em dados que têm várias linhas com a mesma marca de tempo. Se os identificadores de séries temporquiçantes não forem definidos, presume-se que o conjunto de dados seja uma série de tempo. Para saber mais sobre séries únicas, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`target_lags`|Número de linhas para atrasar os valores-alvo com base na frequência dos dados. O lag é representado como uma lista ou inteiro único. O lag deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou correlaciona por defeito. ||
+|`feature_lags`| As funcionalidades a ficar para trás serão automaticamente decididas por ML automatizado quando `target_lags` estiverem definidas e `feature_lags` definidas para `auto` . Permitir atrasos de funcionalidades pode ajudar a melhorar a precisão. Os lags de funções são desativados por padrão. ||
 |`target_rolling_window_size`|*n* períodos históricos a utilizar para gerar valores previstos, <= tamanho do conjunto de treino. Se omitido, *n* é o tamanho completo do conjunto de treino. Especifique este parâmetro quando apenas pretende considerar uma certa quantidade de história ao treinar o modelo. Saiba mais sobre [a agregação de janelas de rolamento de alvos](#target-rolling-window-aggregation).||
 
 

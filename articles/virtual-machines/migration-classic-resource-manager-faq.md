@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 3d8c5d408ef2b958ca7d3454f23ce2c52fb1d1be
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513213"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855845"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 
@@ -22,11 +22,11 @@ ms.locfileid: "88513213"
 
 ## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>O que é Azure Service Manager e o que significa com clássico?
 
-A palavra "clássico" em IaaS VM (clássico) refere-se a VMs geridos pelo Azure Service Manager (ASM). A Azure Service Manager (ASM) é o antigo plano de controlo do azul responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
+A palavra "clássico" em IaaS VM (clássico) refere-se a VMs geridos pelo Azure Service Manager (ASM). AZure Service Manager (ASM) é o antigo avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
 
 ## <a name="what-is-azure-resource-manager"></a>O que é Azure Resource Manager?
 
-[O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o mais recente plano de controlo do azul responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
+[O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o mais recente avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
@@ -70,7 +70,7 @@ Não pode abortar a migração se a operação de consolidação falhar. Todas a
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Se tiver de utilizar IaaS no Resource Manager, tenho de comprar outro circuito do ExpressRoute? 
 
-Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](~/articles/expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
+Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](../expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>O que acontece se tiver configurado políticas de Controlo de Aceso Baseado em Funções nos meus recursos de IaaS clássicos? 
 
@@ -93,7 +93,7 @@ Para migrar a máquina virtual para o modo Gestor de Recursos,
 1. Elimine a extensão de cópia de segurança/instantâneo da VM.
 2. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
 
-Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gestão da Máquina Virtual para [ativar](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)a cópia de segurança .
+Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gestão da Máquina Virtual para [ativar](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)a cópia de segurança .
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
@@ -113,7 +113,7 @@ Todos os recursos para os quais indique explicitamente nomes no modelo de implem
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>Posso migrar circuitos do ExpressRoute utilizados em várias subscrições com ligações de autorização? 
 
-Os circuitos do ExpressRoute que utilizem ligações de autorização em várias subscrições não podem ser migrados automaticamente sem tempo de inatividade. Temos orientações que mostram como utilizar passos manuais para migrá-los. Veja [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](~/articles/expressroute/expressroute-migration-classic-resource-manager.md) (Migrar circuitos do ExpressRoute e as máquinas virtuais associadas do modelo de implementação clássica para Resource Manager) para obter os passos e mais informações.
+Os circuitos do ExpressRoute que utilizem ligações de autorização em várias subscrições não podem ser migrados automaticamente sem tempo de inatividade. Temos orientações que mostram como utilizar passos manuais para migrá-los. Veja [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) (Migrar circuitos do ExpressRoute e as máquinas virtuais associadas do modelo de implementação clássica para Resource Manager) para obter os passos e mais informações.
 
 ## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"A VM está a reportar o estado geral do agente como Não Pronto. Por conseguinte, o VM não pode ser migrado. Certifique-se de que o Agente VM está a reportar o estado global do agente como Ready"* ou *"VM contém extensão cujo Estado não está a ser reportado a partir do VM. Portanto, este VM não pode ser migrado."*
 

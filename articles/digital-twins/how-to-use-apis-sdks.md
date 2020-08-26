@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39c33efb4896893c8baa18d06f62defc26c64949
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587570"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855885"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -63,7 +63,7 @@ Também pode exercitar APIs de plano de data interagindo com a Azure Digital Twi
 O Azure Digital Twins .NET (C#) SDK faz parte do Azure SDK para .NET. É de código aberto, e é baseado no plano de dados Azure Digital Twins APIs.
 
 > [!NOTE]
-> Para obter informações aprofundadas sobre o desenho da SDK, consulte os [princípios gerais de conceção dos SDKs Azure](https://azure.github.io/azure-sdk/general_introduction.html) e as diretrizes específicas de [design .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> Para obter mais informações sobre o design da SDK, consulte os [princípios gerais de design dos SDKs Azure](https://azure.github.io/azure-sdk/general_introduction.html) e as diretrizes específicas de [design .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
 Para utilizar o SDK, inclua o pacote NuGet **Azure.DigitalTwins.Core** com o seu projeto. Também necessitará do pacote **Azure.Identity** (versão 1.1.1).
 
@@ -143,7 +143,7 @@ Também pode encontrar amostras adicionais no [repo GitHub para o .NET (C#) SDK]
 
 #### <a name="serialization-helpers"></a>Ajudantes de serialização
 
-Como descrito anteriormente, os métodos SDK fundamentais devolvem dados gémeos como JSON. No entanto, o SDK também contém aulas de ajudante para serialização. Estas funções de ajudante permitem-lhe criar ou desseecializar rapidamente os dados gémeos para acesso a informações básicas.
+Os ajudantes de serialização são funções de ajuda disponíveis dentro do SDK para criar ou deserizar rapidamente dados gémeos para acesso a informações básicas. Uma vez que os métodos SDK principais devolvem dados gémeos como JSON por padrão, pode ser útil usar estas classes de ajudantes para quebrar ainda mais os dados gémeos.
 
 As aulas de ajudante disponível são:
 * `BasicDigitalTwin`: Representa os dados fundamentais de um gémeo digital
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Criar uma relação
 
-Utilizando a `BasicDigitalTwin` classe, também pode preparar dados para criar relacionamentos num caso duplo:
+Utilizando a `BasicRelationship` classe, também pode preparar dados para criar relacionamentos num caso duplo:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

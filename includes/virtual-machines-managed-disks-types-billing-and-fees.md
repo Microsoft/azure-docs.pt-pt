@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 335b2f345cbebc55ad7ddd60487cfd17288d547d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c0627dd0833e3b20468eb5f50fbeb9fd9d9ae2b3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88704182"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864703"
 ---
 **Transferências de dados de saída**: [Transferências de dados de saída (dados saídos](https://azure.microsoft.com/pricing/details/bandwidth/) dos centros de dados Azure) incorrem na faturação para utilização da largura de banda.
 
@@ -26,7 +26,7 @@ Para obter informações detalhadas sobre os preços dos discos geridos, incluin
 Os VMs Azure têm a capacidade de indicar se são compatíveis com discos ultra. Um VM ultra compatível com disco atribui capacidade de largura de banda dedicada entre a instância VM compute e a unidade de escala de armazenamento de blocos para otimizar o desempenho e reduzir a latência. A adição desta capacidade no VM resulta numa taxa de reserva que só é imposta se ativar a capacidade do disco ultra no VM sem lhe anexar um disco ultra. Quando um disco ultra é ligado ao VM compatível com disco ultra, esta carga não seria aplicada. Esta taxa é por vCPU provisida no VM. 
 
 > [!Note]
-> Para [tamanhos de VM de núcleo limitados,](~/articles/virtual-machines/constrained-vcpu.md)a taxa de reserva baseia-se no número real de VCPUs e não nos núcleos constrangidos. Para Standard_E32 8s_v3, a taxa de reserva será baseada em 32 núcleos. 
+> Para [tamanhos de VM de núcleo limitados,](../articles/virtual-machines/constrained-vcpu.md)a taxa de reserva baseia-se no número real de VCPUs e não nos núcleos constrangidos. Para Standard_E32 8s_v3, a taxa de reserva será baseada em 32 núcleos. 
 
 Consulte a página de preços do [Azure Disks](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes sobre preços ultra-discos.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135815"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855799"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é Virtual Network NAT?
 
@@ -123,31 +123,17 @@ Pode monitorizar o funcionamento do seu NAT através de métricas multidimension
 
 Na disponibilidade geral, a trajetória de dados do NAT está disponível pelo menos 99,9%.
 
-
 ## <a name="pricing"></a>Preços
 
-O gateway NAT é faturado com dois metros separados:
-
-| Medidor | Tarifa |
-| --- | --- |
-| Horas de recursos | $0.045/hora |
-| Dados processados | $0.045/GB |
-
-O tempo de recurso é responsável pela duração durante a qual existe um recurso de gateway NAT.
-Os dados processados são responsáveis por todo o tráfego processado por um recurso de gateway NAT.
+Para obter detalhes sobre os preços, consulte [os preços da Rede Virtual.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="availability"></a>Disponibilidade
 
-A Rede Virtual NAT e o recurso DE GATEWAY NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/)de nuvem pública Azure.
-
-## <a name="support"></a>Suporte
-
-O NAT é suportado através de canais de suporte normais.
+A Rede Virtual NAT e o recurso de gateway NAT estão disponíveis em todas as regiões de todas as regiões de [nuvens](https://azure.microsoft.com/global-infrastructure/regions/)Azure.
 
 ## <a name="suggestions"></a>Sugestões
 
 Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir no [UserVoice para o NAT.](https://aka.ms/natuservoice)
-
 
 ## <a name="limitations"></a>Limitações
 
@@ -155,7 +141,7 @@ Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos co
 * A família iPv4 é apoiada.  A NAT não interage com a família IPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
 * A NAT não pode abranger várias redes virtuais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o recurso nat gateway.](./nat-gateway-resource.md)
 * [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
