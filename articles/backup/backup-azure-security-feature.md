@@ -4,12 +4,12 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826910"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892461"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
 
@@ -57,7 +57,7 @@ Se estiver a criar um cofre dos Serviços de Recuperação, pode utilizar todas 
 
 ## <a name="recover-deleted-backup-data"></a>Recuperar dados de backup eliminados
 
-A cópia de segurança retém dados de cópias de segurança eliminados por mais 14 dias e não o elimina imediatamente se for realizada a cópia de segurança stop com a operação **de dados de backup.** Para restaurar estes dados no período de 14 dias, tome as seguintes medidas, dependendo do que estiver a utilizar:
+A cópia de segurança retém dados de cópias de segurança eliminados por mais 14 dias e não o elimina imediatamente se for realizada a cópia de segurança stop com a operação **de dados de backup.** Para restaurar estes dados no período de 14 dias, tome os seguintes passos, dependendo do que está a usar:
 
 Para os utilizadores **de agentes dos Serviços de Recuperação da Azure:**
 
@@ -112,9 +112,9 @@ Os recursos de segurança mencionados neste artigo fornecem mecanismos de defesa
 
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-| Mudança de política |A política de apoio não pôde ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, recaia a operação depois de algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |**Causa:**<br/>Este erro ocorre quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e está na versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deverá definir o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia-a-dia, quatro semanas para semanalmente, três semanas para mensal ou um ano para o ano) para proceder com atualizações relacionadas com a política. Opcionalmente, uma abordagem preferida seria atualizar o agente de backup, O Azure Backup Server e/ou DPM UR para alavancar todas as atualizações de segurança. |
+| Mudança de política |A política de apoio não pôde ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, recaia a operação depois de algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |**Causa:**<br/>Este erro aparece quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e está numa versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deverá definir o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia-a-dia, quatro semanas para semanalmente, três semanas para mensal ou um ano para o ano) para proceder com atualizações relacionadas com a política. Opcionalmente, uma abordagem preferida seria atualizar o agente de backup, O Azure Backup Server e/ou DPM UR para alavancar todas as atualizações de segurança. |
 | Alterar a frase de passe |PIN de segurança introduzido está incorreto. (ID: 100130) Forneça o PIN de segurança correto para completar esta operação. |**Causa:**<br/> Este erro ocorre quando introduz PIN de segurança inválido ou expirado durante a operação crítica (como alterar a palavra-passe). <br/>**Ação recomendada:**<br/> Para completar a operação, tem de introduzir PIN de segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre dos Serviços de Recuperação > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a palavra-passe. |
-| Alterar a frase de passe |A operação falhou. ID: 120002 |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta alterar a palavra-passe e está na versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a palavra-passe, tem primeiro de atualizar o agente de backup para a versão mínima 2.0.9052, servidor Azure Backup para atualização mínima 1 e/ou DPM para o mínimo DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de descarregamento abaixo), então introduza PIN de segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre dos Serviços de Recuperação > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a palavra-passe. |
+| Alterar a frase de passe |A operação falhou. ID: 120002 |**Causa:**<br/>Este erro aparece quando as definições de segurança estão ativadas, tenta alterar a palavra-passe e está numa versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a palavra-passe, tem primeiro de atualizar o agente de backup para a versão mínima 2.0.9052, Azure Backup Server para atualização mínima 1 e/ou DPM para o mínimo DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de descarregamento abaixo), e depois introduzir um PIN de segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre dos Serviços de Recuperação > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a palavra-passe. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

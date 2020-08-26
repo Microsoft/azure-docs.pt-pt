@@ -1,18 +1,18 @@
 ---
-title: Espaço de palco
+title: Espaço de fase
 description: Descreve configurações de espaço de palco e casos de utilização
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: b67294c503e513290b474e0059771a73ad526a6a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ac0aa821875acb300e31e31ef3afe6492524cb7b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189451"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892699"
 ---
-# <a name="stage-space"></a>Espaço de palco
+# <a name="stage-space"></a>Espaço de fase
 
 Ao executar o ARR num dispositivo que fornece dados de rastreio de cabeça como o HoloLens 2, a pose da cabeça é enviada tanto para a aplicação do utilizador como para o servidor. O espaço em que a transformação da cabeça é definida é chamado de espaço de *palco.*
 
@@ -45,11 +45,11 @@ void ChangeStageSpace(AzureSession session)
 ```cpp
 void ChangeStageSpace(ApiHandle<AzureSession> session)
 {
-    ApiHandle<StageSpaceSettings> settings = *session->Actions()->StageSpaceSettings();
+    ApiHandle<StageSpaceSettings> settings = session->Actions()->GetStageSpaceSettings();
 
     // Set position and rotation to the world-space transform of the stage space.
-    settings->Position({0, 0, 0});
-    settings->Rotation({0, 0, 0, 1});
+    settings->SetPosition({0, 0, 0});
+    settings->SetRotation({0, 0, 0, 1});
 }
 ```
 

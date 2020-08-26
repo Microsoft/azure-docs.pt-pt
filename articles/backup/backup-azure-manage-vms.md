@@ -3,12 +3,12 @@ title: Gerir e monitorizar backups Azure VM
 description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM utilizando o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532048"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892172"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -188,7 +188,7 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 
 * Se os VMs Azure configurados para a cópia de segurança do Azure forem eliminados ou movidos sem proteção, então tanto os trabalhos de backup programados como a pedido (ad-hoc) trabalharão com o erro UserErrorVmNotFoundV2. O pré-check de backup só será crítico para trabalhos de backup a pedido falhados (não são apresentados empregos programados falhados).
 * Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção definido na política de backup.
-* Recomenda-se aos utilizadores que apaguem os itens de backup em que a fonte de dados primário já não exista para evitar qualquer custo adicional, se o item/dados de cópia de segurança dos recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
+* Recomendamos eliminar os itens de backup em que a fonte de dados primário já não existe para evitar qualquer custo adicional, se o item de cópia de segurança/dados para os recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

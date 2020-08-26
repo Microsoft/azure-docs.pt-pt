@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9f970d08318d7dec685d3021c72b7f80de90049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d7d561ffa990ec00bb1bbee844dc235c97ebbd0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758882"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893101"
 ---
 # <a name="object-bounds"></a>Limites dos objetos
 
@@ -48,16 +48,16 @@ void GetBounds(ApiHandle<Entity> entity)
     ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
     boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
     {
-        if (bounds->IsRanToCompletion())
+        if (bounds->GetIsRanToCompletion())
         {
-            Double3 aabbMin = bounds->Result()->min;
-            Double3 aabbMax = bounds->Result()->max;
+            Double3 aabbMin = bounds->GetResult().min;
+            Double3 aabbMax = bounds->GetResult().max;
             // ...
         }
     });
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consultas espaciais](../overview/features/spatial-queries.md)

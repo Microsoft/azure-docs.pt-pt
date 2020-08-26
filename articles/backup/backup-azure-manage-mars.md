@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b6f6d9ca94b2fda54c9f9aa8048660af450e0d31
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757171"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893073"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -80,7 +80,7 @@ Pode adicionar regras de exclusão para saltar ficheiros e pastas que não quer 
     ![Selecione os itens para remover](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Tenha cuidado quando retirar completamente um volume da apólice.  Se precisar de adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma Cópia de Segurança Inicial (cópia de segurança completa) em vez de Cópia de Segurança Incremental. Se precisar de remover temporariamente e adicionar itens mais tarde, então é aconselhável utilizar **definições** de exclusões em vez de **remover itens** para garantir uma cópia de segurança incremental em vez de uma cópia de segurança completa.
+    > Tenha cuidado quando retirar completamente um volume da apólice.  Se precisar de adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma Cópia de Segurança Inicial (cópia de segurança completa) em vez de Cópia de Segurança Incremental. Se precisar de remover e adicionar itens temporariamente mais tarde, então é aconselhável utilizar **Definições de Exclusões** em vez de **remover itens** para garantir uma cópia de segurança incremental em vez de uma cópia de segurança completa.
 
 2. Complete os próximos passos e **selecione Acabamento** para completar a operação.
 

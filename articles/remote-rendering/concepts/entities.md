@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac0bf539cc345f326027f4707b7b50204e2b7850
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893056"
 ---
 # <a name="entities"></a>Entidades
 
@@ -18,7 +18,7 @@ Uma *Entidade* representa um objeto móvel no espaço e é o bloco fundamental d
 
 ## <a name="entity-properties"></a>Propriedades de entidades
 
-As entidades têm uma transformação definida por uma posição, rotação e escala. Por si só, as entidades não têm qualquer funcionalidade observável. Em vez disso, o comportamento é adicionado através de componentes, que estão ligados a entidades. Por exemplo, a anexação de um [CutPlaneComponent](../overview/features/cut-planes.md) criará um plano de corte na posição da entidade.
+As entidades têm uma transformação definida por uma posição, rotação e escala. Por si só, as entidades não têm qualquer funcionalidade observável. Em vez disso, o comportamento é adicionado através de componentes, que estão ligados a entidades. Por exemplo, a anexação de um [CutPlaneComponent](../overview/features/cut-planes.md)  criará um plano de corte na posição da entidade.
 
 O aspeto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são ligadas como crianças a uma entidade-mãe partilhada, todas estas entidades podem ser movidas, rotativas e dimensionadas em uníssono, alterando a transformação da entidade-mãe.
 
@@ -46,7 +46,7 @@ ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
     if (auto entityRes = session->Actions()->CreateEntity())
     {
         entity = entityRes.value();
-        entity->Position(Double3{ 1, 2, 3 });
+        entity->SetPosition(Double3{ 1, 2, 3 });
         return entity;
     }
     return entity;
@@ -72,7 +72,7 @@ CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
 
 // or alternatively:
-ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### <a name="querying-transforms"></a>Consulta transforma-se
@@ -90,8 +90,8 @@ Quaternion rotation = entity.Rotation;
 
 ```cpp
 // local space transform of the entity
-Double3 translation = *entity->Position();
-Quaternion rotation = *entity->Rotation();
+Double3 translation = entity->GetPosition();
+Quaternion rotation = entity->GetRotation();
 ```
 
 
@@ -124,11 +124,11 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
 metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
     {
-        if (query->IsRanToCompletion())
+        if (query->GetIsRanToCompletion())
         {
-            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaData> metaData = query->GetResult();
             ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->AsInt64();
+            int64_t intValue = *entry->GetAsInt64();
 
             // ...
         }
@@ -137,7 +137,7 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 
 A consulta terá sucesso mesmo que o objeto não possua nenhum metadados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes](components.md)
 * [Limites dos objetos](object-bounds.md)

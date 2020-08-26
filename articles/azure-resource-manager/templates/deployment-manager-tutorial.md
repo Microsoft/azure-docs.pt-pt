@@ -2,15 +2,15 @@
 title: Use o Gestor de Implementação Azure para implementar modelos
 description: Saiba como usar os modelos do Gestor de Recursos com o Gestor de Implementação Azure para implementar recursos Azure.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7d0979a52b4762ec4cc2fa82f507e8ce2b083c9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 49465f05b5484dfd358136866b67ce35f789799f
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870668"
+ms.locfileid: "88892937"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
 

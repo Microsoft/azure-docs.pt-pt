@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309159"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892614"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -183,7 +183,8 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com sucesso a partir dos documentos fornecidos à chamada da API de atualização a granel.      |
    |double getTotalRequestUnitsConsumed() |  As unidades de pedido total (RU) consumidas pela chamada API de atualização a granel.       |
    |Duração getTotalTimeTaken()  |   O tempo total tomado pela chamada da API de atualização a granel para completar a execução.      |
-   |Lista \<Exception> getErrors()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido à chamada API de atualização a granel não foram inseridos.      |
+   |Lista \<Exception> getErrors()   |       Obtém a lista de problemas operacionais ou de networking relacionados com a operação de atualização.      |
+   |Lista \<BulkUpdateFailure> getFailedUpdates()   |       Obtém a lista de atualizações que não puderam ser concluídas juntamente com as exceções específicas que conduzem às falhas.|
 
 3. Depois de ter a aplicação de atualização a granel pronta, construa a ferramenta de linha de comando a partir da fonte utilizando o comando 'mvn clean package'. Este comando gera um ficheiro de frasco na pasta alvo:  
 

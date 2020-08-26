@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320685"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893148"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
 
@@ -42,7 +42,7 @@ Um contexto de segurança do pod também pode definir capacidades ou permissões
 O manifesto do seguinte exemplo do pod YAML define as definições de contexto de segurança para definir:
 
 * Pod funciona como iD *1000* do utilizador e parte do grupo ID *2000*
-* Não pode escalar privilégios para usar`root`
+* Não pode escalar privilégios para usar `root`
 * Permite que as capacidades do Linux acedam às interfaces de rede e ao relógio em tempo real (hardware) do anfitrião
 
 ```yaml
@@ -85,7 +85,7 @@ Os [seguintes projetos de código aberto AKS associados][aks-associated-projects
 
 Uma identidade gerida para os recursos Azure permite que uma cápsula se autente contra os serviços Azure que a suportam, como o Storage ou o SQL. O casulo é atribuído a uma Identidade Azure que permite autenticar para o Azure Ative Directory e receber um token digital. Este token digital pode ser apresentado a outros serviços Azure que verifiquem se a cápsula está autorizada a aceder ao serviço e executar as ações necessárias. Esta abordagem significa que não são necessários segredos para as cadeias de ligação de bases de dados, por exemplo. O fluxo de trabalho simplificado para a identidade gerida em pod é indicado no seguinte diagrama:
 
-![Fluxo de trabalho simplificado para identidade gerida em Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Fluxo de trabalho simplificado para identidade gerida em Azure":::
 
 Com uma identidade gerida, o seu código de aplicação não precisa de incluir credenciais para aceder a um serviço, como o Azure Storage. À medida que cada cápsula autentica com a sua própria identidade, pode auditar e rever o acesso. Se a sua aplicação se ligar a outros serviços Azure, utilize identidades geridas para limitar a reutilização credencial e o risco de exposição.
 
@@ -97,7 +97,7 @@ A utilização do projeto de identidade pod permite a autenticação contra o ap
 
 Quando as aplicações precisam de uma credencial, comunicam com o cofre digital, recuperam os conteúdos secretos mais recentes e ligam-se ao serviço necessário. Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para a recuperação de uma credencial do Azure Key Vault utilizando identidades geridas por cápsulas é mostrado no seguinte diagrama:
 
-![Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por cápsulas](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por cápsulas":::
 
 Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves de conta de armazenamento ou certificados. Pode integrar o Azure Key Vault com um cluster AKS utilizando o [fornecedor Azure Key Vault para o Controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O controlador CSI Secrets Store permite ao cluster AKS recuperar conteúdos secretos do Key Vault e fornecê-los de forma segura apenas à cápsula de pedido. Trabalhe com o seu operador de cluster para implantar o motorista CSI Secrets Store em nós de trabalhadores AKS. Pode utilizar uma identidade gerida por um pod para solicitar acesso ao Key Vault e recuperar os conteúdos secretos necessários através do Controlador CSI Secrets Store.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c040c909225deb92594853ad18814a6e8e94b57
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83759120"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892835"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 
@@ -25,7 +25,7 @@ A renderização remota Azure emprega *renderização física* (PBR) para comput
 
 As imagens abaixo mostram resultados de iluminação de diferentes superfícies apenas com uma textura de céu:
 
-| Aspereza  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
+| Aspereza  | 0                                        | 0.25                                          | 0.5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
 | Não-Metal  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
 | Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
@@ -75,17 +75,17 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
     ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
 
     skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
-    {
-        if (res->IsRanToCompletion())
         {
-            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
-            settings->SkyReflectionTexture(*res->Result());
-        }
-        else
-        {
-            printf("Texture loading failed!");
-        }
-    });
+            if (res->GetIsRanToCompletion())
+            {
+                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
+                settings->SetSkyReflectionTexture(res->GetResult());
+            }
+            else
+            {
+                printf("Texture loading failed!");
+            }
+        });
 }
 
 ```
@@ -135,7 +135,7 @@ A renderização remota Azure fornece alguns mapas ambientais incorporados que e
 |builtin://WinterRiver              | Dia diurno com luz de terra ambiente brilhante                 | ![Rio WinterRiver](media/winter-river.png)
 |builtin://DefaultSky               | O mesmo que TearsOfSteelBridge                               | ![PadrãoSky](media/tears-of-steel-bridge.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Luzes](../../overview/features/lights.md)
 * [Materiais](../../concepts/materials.md)

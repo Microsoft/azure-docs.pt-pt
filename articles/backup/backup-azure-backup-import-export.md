@@ -4,12 +4,12 @@ description: Saiba como pode utilizar o Azure Backup para enviar dados para fora
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187834"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892019"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Azure Backup
 
@@ -148,7 +148,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ![Azure subscrição de inscrição](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    A ferramenta começa então a preparar o disco e a copiar os dados de cópia de segurança. Pode ser necessário anexar discos adicionais quando solicitado pela ferramenta, caso o disco fornecido não tenha espaço suficiente para os dados de cópia de segurança. <br/>
+    A ferramenta começa então a preparar o disco e a copiar os dados de cópia de segurança. Pode ser necessário anexar discos adicionais quando solicitado pela ferramenta se o disco fornecido não tiver espaço suficiente para os dados de cópia de segurança. <br/>
 
     No final da execução bem sucedida da ferramenta, o pedido de comando fornece três peças de informação:
 

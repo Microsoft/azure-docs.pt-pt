@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2bc356060bacd1c04ecb3d3dd10b8322ae40b8ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8b670a084e80fcd7f48dcb6e97a943c90bdf0e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758678"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893039"
 ---
 # <a name="materials"></a>Materiais
 
@@ -65,24 +65,24 @@ void SetMaterialColorToGreen(Material material)
 ```cpp
 void SetMaterialColorToGreen(ApiHandle<Material> material)
 {
-    if (*material->MaterialSubType() == MaterialType::Color)
+    if (material->GetMaterialSubType() == MaterialType::Color)
     {
         ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
-        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        colorMaterial->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 
-    if (*material->MaterialSubType() == MaterialType::Pbr)
+    if (material->GetMaterialSubType() == MaterialType::Pbr)
     {
         ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
-        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        pbrMat->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 }
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais PBR](../overview/features/pbr-materials.md)
 * [Materiais de cor](../overview/features/color-materials.md)

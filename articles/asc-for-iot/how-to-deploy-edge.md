@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311283"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892070"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
 
@@ -47,7 +47,7 @@ Utilize os seguintes passos para implantar um Centro de Segurança Azure para m�
     - Verifique se o AuditD está ativo executando o seguinte comando:
 
     `sudo systemctl status auditd`<br>
-    - A resposta esperada é:`active (running)`
+    - A resposta esperada é: `active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Implantação usando o portal Azure
 
@@ -93,9 +93,21 @@ Complete cada passo para completar a sua implementação IoT Edge para O Centro 
 
 1. No **separador Definições Gémeas** do Módulo, adicione a seguinte configuração:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Propriedade Módulo Twin:
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
+
+   Módulo Twin Property Content: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Para obter mais informações sobre a configuração do agente, consulte [os agentes de segurança Configure](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Selecione **Atualizar**.
 
@@ -165,7 +177,7 @@ Se encontrar um problema, os registos de contentores são a melhor forma de apre
 
 1. Verifique se os seguintes recipientes estão em funcionamento:
 
-   | Name | IMAGEM |
+   | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

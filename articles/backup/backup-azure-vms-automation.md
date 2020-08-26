@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826451"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892410"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -104,7 +104,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
     ```
 
    > [!TIP]
-   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
+   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por esta razão, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação de Backup numa variável.
    >
    >
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Se estiver a utilizar a nuvem do Governo Azure, use o valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para o parâmetro ServicePrincipalName em [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
+> Se estiver a utilizar a nuvem do Governo Azure, use o valor `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` para o parâmetro **ServicePrincipalName** em [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
 ## <a name="monitoring-a-backup-job"></a>Monitorização de um trabalho de reserva
@@ -294,7 +294,7 @@ Quando se cria uma política de proteção, é-lhe atribuída uma hora de iníci
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-O valor predefinido será 2, o utilizador pode definir o valor com um mínimo de 1 e máximo de 5. Para as políticas de backup semanal, o período está definido para 5 e não pode ser alterado.
+O valor predefinido será 2. Pode definir o valor com um mínimo de 1 e máximo de 5. Para as políticas de backup semanal, o período está definido para 5 e não pode ser alterado.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Criar grupo de recursos de backup Azure durante a retenção de instantâneos
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para artigos de backup
 
-O utilizador pode modificar a política existente ou alterar a política do item apoiado da Policy1 para a Policy2. Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como parâmetro.
+Pode modificar a política existente ou alterar a política do item apoiado da Política1 para a Policy2. Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como parâmetro.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Fornecer um parâmetro adicional **TargetResourceGroupName** para especificar o RG para o qual os discos geridos serão restaurados.
 
 > [!IMPORTANT]
-> Recomenda-se vivamente a utilização do parâmetro **TargetResourceGroupName** para restaurar os discos geridos, uma vez que resulta em melhorias significativas no desempenho. Se este parâmetro não for dado, então não poderá beneficiar da funcionalidade de restauro instantâneo e a operação de restauro será mais lenta em comparação. Se o objetivo é restaurar os discos geridos como discos não geridos, então não forneça este parâmetro e torne a intenção clara fornecendo o `-RestoreAsUnmanagedDisks` parâmetro. O `-RestoreAsUnmanagedDisks` parâmetro está disponível a partir de Azure PowerShell 3.7.0 em diante. Em futuras versões, será obrigatório fornecer qualquer um destes parâmetros para a experiência de restauro certa.
+> É fortemente recomendado usar o parâmetro **TargetResourceGroupName** para restaurar discos geridos, uma vez que resulta em melhorias significativas no desempenho. Se este parâmetro não for dado, então não poderá beneficiar da funcionalidade de restauro instantâneo e a operação de restauro será mais lenta em comparação. Se o objetivo é restaurar os discos geridos como discos não geridos, então não forneça este parâmetro e torne a intenção clara fornecendo o `-RestoreAsUnmanagedDisks` parâmetro. O `-RestoreAsUnmanagedDisks` parâmetro está disponível a partir de Azure PowerShell 3.7.0 em diante. Em futuras versões, será obrigatório fornecer qualquer um destes parâmetros para a experiência de restauro certa.
 >
 >
 
@@ -544,7 +544,7 @@ Os detalhes do trabalho resultantes dão ao modelo URI que pode ser consultado e
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-O modelo não está diretamente acessível, uma vez que se encontra sob a conta de armazenamento de um cliente e o recipiente dado. Precisamos do URL completo (juntamente com um token SAS temporário) para aceder a este modelo.
+O modelo não é diretamente acessível, uma vez que está sob a conta de armazenamento de um cliente e o recipiente dado. Precisamos do URL completo (juntamente com um token SAS temporário) para aceder a este modelo.
 
 1. Primeiro extrair o nome do modelo do modeloBlobURI. O formato é mencionado abaixo. Pode utilizar a operação dividida no PowerShell para extrair o nome final do modelo deste URL.
 
@@ -570,7 +570,7 @@ O modelo não está diretamente acessível, uma vez que se encontra sob a conta 
 A secção seguinte lista as etapas necessárias para criar um VM utilizando o ficheiro "VMConfig".
 
 > [!NOTE]
-> É altamente recomendado usar o modelo de implementação descrito acima para criar um VM. Esta secção (Pontos 1-6) será depreciada em breve.
+> É altamente recomendado usar o modelo de implementação detalhado acima para criar um VM. Esta secção (Pontos 1-6) será depreciada em breve.
 
 1. Consultar as propriedades restauradas do disco para os detalhes do trabalho.
 

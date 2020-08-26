@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826058"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892393"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -119,7 +119,7 @@ Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de pro
 Ação recomendada:<br>
 Para resolver este problema, retire o bloqueio do grupo de recursos do VM e revendo a operação para desencadear a limpeza.
 > [!NOTE]
-> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos do VM para armazenar a recolha de pontos de restauração. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço De backup. O formato de nomeação do grupo de recursos criado pelo serviço De backup é: AzureBackupRG_ `<Geo>` _ `<number>` . Por exemplo: *AzureBackupRG_northeurope_1*
+> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos do VM para armazenar a recolha de pontos de restauração. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço de backup. O formato de nomeação do grupo de recursos criado pelo serviço De backup é: AzureBackupRG_ `<Geo>` _ `<number>` . Por exemplo: *AzureBackupRG_northeurope_1*
 
 **Passo 1: [Remover o bloqueio do grupo de recursos pontos de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [Limpar a recolha do ponto de restauração](#clean_up_restore_point_collection)**<br>

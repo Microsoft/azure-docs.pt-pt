@@ -1,22 +1,23 @@
 ---
-title: Exporte um projeto de caderno Jupyter a partir da Pré-visualização de Cadernos Azure
-description: Exporte rapidamente um projeto de caderno Jupyter.
+title: Exportar um projeto Jupyter Notebook a partir da Pré-visualização de Cadernos Azure
+description: Exporte rapidamente um projeto jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832037"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892104"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter notebook project in Azure Notebooks Preview
+# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Neste quickstart, você irá baixar um projeto Azure Notebooks para ser usado em outras soluções de cadernos Jupyter. 
+Neste quickstart, você irá baixar um projeto Azure Notebooks para ser usado em outras soluções Jupyter Notebook. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Um projeto de Cadernos Azure existente.
 
 ## <a name="export-an-azure-notebooks-project"></a>Exportar um projeto de Cadernos Azure

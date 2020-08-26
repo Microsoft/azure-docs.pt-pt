@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827397"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892767"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -26,7 +26,7 @@ Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a util
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas origens de dados/itens podem ser protegidos num cofre?
 
-Pode proteger até 2000 origens de dados/itens em todas as cargas de trabalho (VM IaaS, SQL, AFS, etc.) num cofre.
+Pode proteger até 2000 fontes de dados/itens em todas as cargas de trabalho (tais como IaaS VM, SQL, AFS) num cofre.
 Por exemplo, se já protegeu 500 VMs e 400 Azure Files no cofre, só pode proteger até 1100 bases de dados SQL nele.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre?

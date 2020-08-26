@@ -3,12 +3,12 @@ title: Modelo de dados para eventos de diagnóstico de backup Azure
 description: Este modelo de dados faz referência ao Modo Específico de Recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538875"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892529"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup Azure
 
@@ -53,7 +53,7 @@ Esta tabela fornece informações sobre entidades de backup fundamentais, tais c
 | ProtectedContainerWorkloadType    | Texto          | Tipo de recipiente protegido apoiado. Por exemplo, IaaSVMContainer |
 | NomeGrupoProteção               | Texto          | Nome do Grupo de Proteção O item de backup está protegido em, para SC DPM, e MABS, se aplicável |
 | ResourceGroupName                 | Texto          | Grupo de recursos do recurso (por exemplo, cofre dos Serviços de Recuperação) para a recolha de dados |
-| SchemaVersão                     | Texto          | Este campo denota a versão atual do esquema, é **V2** |
+| SchemaVersão                     | Texto          | Este campo denota a versão atual do esquema. É **V2.** |
 | Estado secundário de proteção de Backup    | Texto          | Se a proteção secundária está ativada para o item de backup  |
 | Estado                             | Texto          | Estado do objeto de item de reserva. Por exemplo, Ative, Eliminado |
 | ArmazenamentoPilicaçãoType            | Texto          | Tipo de replicação de armazenamento para o cofre. Por exemplo, GeoRedundant |
@@ -165,12 +165,12 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 | DiffBackupTime                  | Hora           | Tempo para backups diferenciais para SQL em Backup VM Azure     |
 | LogBackupFrequency              | Número Decimal | Frequência para backups de registo para SQL                            |
 | LogBackupRetentionDuration      | Número Decimal | Duração de retenção para backups de registo para SQL em Backup VM Azure |
-| Meses de Retenção MensalOfTheMonth  | Texto           | Semanas do mês em que a retenção mensal é configurada.  Por exemplo, Primeiro, Último, etc. |
+| Meses de Retenção MensalOfTheMonth  | Texto           | Semanas do mês em que a retenção mensal é configurada.  Por exemplo, Primeiro, Último |
 | MonthlyRetentionDaysOfTheWeek   | Texto           | Dias da semana selecionados para retenção mensal              |
 | Retenção MensalDuration        | Texto           | Duração total da retenção em meses para cópias de segurança configuradas    |
 | MensalRetentionFormat          | Texto           | Tipo de configuração para retenção mensal. Por exemplo, diariamente para o dia, semanalmente para a semana |
 | Horários mensais de retenção           | Texto           | Data e hora em que a retenção mensal é configurada           |
-| Weekseses de Retenção MensalOfTheMonth | Texto           | Semanas do mês em que a retenção mensal é configurada.   Por exemplo, Primeiro, Último, etc. |
+| Weekseses de Retenção MensalOfTheMonth | Texto           | Semanas do mês em que a retenção mensal é configurada.   Por exemplo, Primeiro, Último |
 | PolicyName                      | Texto           | Nome da política definida                                   |
 | PolicyUniqueId                  | Texto           | ID único para identificar a política                             |
 | PolicyTimeZone                  | Texto           | Timezone em que os campos de tempo da política são especificados nos registos |
@@ -218,7 +218,7 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | VolumeFriendlyName             | Texto          | Nome amigável do volume de armazenamento                          |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais - Azure                    |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como enviar dados de diagnóstico para registar análises](./backup-azure-diagnostic-events.md)
 - [Saiba como escrever consultas em tabelas específicas de recursos](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

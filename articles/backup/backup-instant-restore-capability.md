@@ -4,17 +4,17 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825856"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892631"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
 > [!NOTE]
-> Com base no feedback dos utilizadores, estamos a renomear a **pilha de backup V2 v2** para **Instant Restore** para reduzir a confusão com a funcionalidade Azure Stack.
+> Com base no feedback dos utilizadores, rebatizámos **a pilha de backup V2 v2** para Instant **Restore** para reduzir a confusão com a funcionalidade Azure Stack.
 > Todos os utilizadores de backup do Azure foram agora atualizados para **Instant Restore**.
 
 O novo modelo para Instant Restore fornece as seguintes melhorias de funcionalidades:
@@ -76,9 +76,9 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-A retenção de instantâneo padrão para cada política está definida em dois dias. O utilizador pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada a cinco dias.
+A retenção de instantâneo padrão para cada política está definida em dois dias. Pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada a cinco dias.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quais são as implicações de custo da restauração instantânea?
 

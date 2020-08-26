@@ -3,12 +3,12 @@ title: Use powerShell para apoiar cargas de trabalho de DPM
 description: Saiba como implementar e gerir o Azure Backup para o Gestor de Proteção de Dados (DPM) utilizando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825975"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892325"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -51,7 +51,7 @@ As seguintes tarefas de configuração e registo podem ser automatizadas com a P
 
 Os passos seguintes levam-no através da criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de reserva.
 
-1. Se estiver a utilizar o Azure Backup pela primeira vez, tem de utilizar o **cmdlet Register-AzResourceProvider** para registar o prestador do Serviço de Recuperação Azure com a sua subscrição.
+1. Se estiver a utilizar o Azure Backup pela primeira vez, tem de utilizar o **cmdlet Register-AzResourceProvider** para registar o fornecedor do Serviço de Recuperação Azure com a sua subscrição.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -72,7 +72,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
 4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção -BackupStorageRedundancy para o testVault está definida para GeoRedundant.
 
    > [!TIP]
-   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
+   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por esta razão, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação de Backup numa variável.
    >
    >
 
@@ -183,9 +183,9 @@ Todas as modificações são feitas neste objeto Local PowerShell ```$setting```
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
-Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não existe um servidor proxy, pelo que estamos a limpar explicitamente qualquer informação relacionada com procuração.
+Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não existe um servidor proxy, por isso estamos a limpar explicitamente qualquer informação relacionada com procuração.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -209,7 +209,7 @@ No exemplo acima, a área de preparação será definida para *C:\StagingArea* n
 
 ### <a name="encryption-settings"></a>Definições de encriptação
 
-Os dados de backup enviados para a Azure Backup são encriptados para proteger a confidencialidade dos dados. A palavra-passe de encriptação é a "palavra-passe" para desencriptar os dados no momento da restauração. É importante manter esta informação segura e segura uma vez definida.
+Os dados de backup enviados para a Azure Backup são encriptados para proteger a confidencialidade dos dados. A palavra-passe de encriptação é a "palavra-passe" para desencriptar os dados no momento da restauração. É importante manter esta informação segura uma vez definida.
 
 No exemplo abaixo, o primeiro comando converte a corda ```passphrase123456789``` numa corda segura e atribui a cadeia de segurança à variável denominada ```$Passphrase``` . o segundo comando define a cadeia de segurança ```$Passphrase``` como a palavra-passe para encriptar cópias de segurança.
 
@@ -289,7 +289,7 @@ Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 
 ### <a name="setting-the-retention-range"></a>Definir a gama de retenção
 
-Desajecto a retenção para os pontos de backup utilizando o [cmdlet Set-DPMPolicyObjective.](/powershell/module/dataprotectionmanager/set-dpmpolicyobjective?view=systemcenter-ps-2019) Embora possa parecer estranho definir a retenção antes de o calendário de backup ter sido definido, a utilização do ```Set-DPMPolicyObjective``` cmdlet define automaticamente um horário de backup predefinido que pode ser modificado. É sempre possível definir primeiro o calendário de backup e a política de retenção depois.
+Desajecto a retenção para os pontos de backup utilizando o [cmdlet Set-DPMPolicyObjective.](/powershell/module/dataprotectionmanager/set-dpmpolicyobjective?view=systemcenter-ps-2019) Embora possa parecer estranho definir a retenção antes de o calendário de backup ter sido definido, a utilização do ```Set-DPMPolicyObjective``` cmdlet define automaticamente um horário de backup predefinido que pode ser modificado. É sempre possível definir o horário de reserva primeiro e a política de retenção depois.
 
 No exemplo abaixo, o cmdlet define os parâmetros de retenção para cópias de segurança do disco. Isto irá reter cópias de segurança durante 10 dias e sincronizar dados a cada 6 horas entre o servidor de produção e o servidor DPM. O ```SynchronizationFrequencyMinutes``` não define a frequência com que um ponto de backup é criado, mas quantas vezes os dados são copiados para o servidor DPM.  Esta definição evita que as cópias de segurança se tornem demasiado grandes.
 

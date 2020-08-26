@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64350ca7213ce13e5d80daf43e74995d14db4061
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892733"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 
@@ -69,19 +69,19 @@ void CastRay(ApiHandle<AzureSession> session)
     ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
 
     castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
-    {
-        std::vector<RayCastHit> hits = *async->Result();
-
-        if (hits.size() > 0)
         {
-            auto hitObject = hits[0].HitObject;
-            auto hitPosition = hits[0].HitPosition;
-            auto hitNormal = hits[0].HitNormal;
+            std::vector<RayCastHit> hits;
+            async->GetResult(hits);
 
-            // do something with the hit information
-        }
-    });
+            if (hits.size() > 0)
+            {
+                auto hitObject = hits[0].HitObject;
+                auto hitPosition = hits[0].HitPosition;
+                auto hitNormal = hits[0].HitNormal;
 
+                // do something with the hit information
+            }
+        });
 }
 ```
 
@@ -112,7 +112,7 @@ A Hit tem as seguintes propriedades:
 * ** `HitNormal` :** A superfície espacial mundial normal da malha na posição do cruzamento.
 * ** `DistanceToHit` :** A distância entre a posição inicial do raio e o impacto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Limites dos objetos](../../concepts/object-bounds.md)
 * [Estados hierárquicos dominantes](override-hierarchical-state.md)

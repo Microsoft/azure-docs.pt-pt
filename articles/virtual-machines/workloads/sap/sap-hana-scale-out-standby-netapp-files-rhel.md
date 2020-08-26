@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: e018f2320b505a174850472d85ec2ebd59310560
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406576"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893175"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux 
 
@@ -110,10 +110,10 @@ Os volumes Azure NetApp estão em sub-rede separada, [delegada em Ficheiros Azur
 
 Para esta configuração de exemplo, as sub-redes são:  
 
-  - `client`10.9.1.0/26  
-  - `storage`10.9.3.0/26  
-  - `hana`10.9.2.0/26  
-  - `anf`10.9.0.0/26 (sub-rede delegada para ficheiros Azure NetApp)
+  - `client` 10.9.1.0/26  
+  - `storage` 10.9.3.0/26  
+  - `hana` 10.9.2.0/26  
+  - `anf` 10.9.0.0/26 (sub-rede delegada para ficheiros Azure NetApp)
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurar a infraestrutura de Ficheiros Azure NetApp 
 
@@ -349,7 +349,9 @@ Configure e prepare o seu SO fazendo os seguintes passos:
     net.core.optmem_max = 16777216
     net.ipv4.tcp_rmem = 65536 16777216 16777216
     net.ipv4.tcp_wmem = 65536 16777216 16777216
-    net.core.netdev_max_backlog = 300000 net.ipv4.tcp_slow_start_after_idle=0 net.ipv4.tcp_no_metrics_save = 1
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
     net.ipv4.tcp_moderate_rcvbuf = 1
     net.ipv4.tcp_window_scaling = 1
     net.ipv4.tcp_timestamps = 1
@@ -563,7 +565,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
      * Em **Baixo deseja adicionar anfitriões ao sistema?** **y**
      * Para **nomes de anfitriões separados em vírgula para adicionar:** insira **hanadb2, hanadb3**
      * Para **o nome do utilizador raiz** [raiz]: prima Introduzir para aceitar o padrão
-     * Para funções para anfitrião hanadb2: insira **1** (para trabalhador)
+     * Para funções para anfitrião hanadb2: insira **1**  (para trabalhador)
      * Para **o Grupo de Failover do anfitrião** para o anfitrião hanadb2 [predefinição]: prima Insira para aceitar o padrão
      * Para **o número de partição de armazenamento** para anfitrião hanadb2 [<<assign automatically>>]: prima Enter para aceitar o padrão
      * Para **o Grupo de Trabalhadores** para o anfitrião hanadb2 [padrão]: prima Enter para aceitar o padrão
@@ -921,7 +923,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
     | hanadb3 | no     | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
    </code></pre>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
 * [Implantação de máquinas virtuais Azure para SAP][deployment-guide]

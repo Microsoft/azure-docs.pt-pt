@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751708"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892869"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -120,7 +120,7 @@ New-AzResourceGroupDeployment `
 Por padrão, todos os recursos criados como parte do modelo são novos. No entanto, também tem a opção de utilizar os recursos existentes. Ao fornecer parâmetros adicionais ao modelo, pode utilizar os recursos existentes. Por exemplo, se pretender utilizar uma conta de armazenamento existente, desconte o valor **de armazenamentoAcoconse** para **o existente** e forneça o nome da sua conta de armazenamento no parâmetro **de armazenamentoAme de contagem** de armazenamento.
 
 > [!IMPORTANT]
-> Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem o espaço hierárquico são suportados com a conta de armazenamento predefinido do espaço de trabalho.
+> Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem o espaço hierárquico são suportados com a conta de armazenamento predefinido do espaço de trabalho. Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 

@@ -3,12 +3,12 @@ title: Use PowerShell para fazer o back up Windows Server para Azure
 description: Neste artigo, aprenda a usar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente Windows, e gerir a cópia de segurança e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826332"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892376"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -45,7 +45,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
 4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção **-BackupStorageRedundancy** para *o testVault* está definida para **GeoRedundant**.
 
    > [!TIP]
-   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
+   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por esta razão, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação de Backup numa variável.
    >
    >
 

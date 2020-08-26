@@ -3,12 +3,12 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826927"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892444"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -51,9 +51,9 @@ Antes de começar, verifique os seguintes requisitos:
 * Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para descobrir bases de dados na máquina virtual. Esta conta é usada para uma cópia de segurança e restauro e requer permissões de sysadmin SQL.
 * Descobre bases de dados que estão a funcionar num VM, a Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta deve ser uma súmia pública no SQL.
 
-Se não criou o SQL Server VM no Azure Marketplace ou se estiver no SQL 2008 e 2008 R2, poderá receber um erro **de nomeação userErrorSQLNoSysadminMembership.**
+Se não criou o SQL Server VM no Azure Marketplace ou se estiver no SQL 2008 ou 2008 R2, poderá receber um erro **de nomeação userErrorSQLNoSysadminMembership.**
 
-Para obter permissões no caso de **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+Para obter permissões no caso do **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 Para todas as outras versões, corrija permissões com os seguintes passos:
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a8f956a692fd857fc864ca0132acc85d9942bbd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021335"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891815"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
@@ -51,9 +51,9 @@ Pode `HierarchicalStateOverrideComponent` ser anexado em vários níveis de uma 
 
 Portanto, cada estado pode ser definido como um dos:
 
-* `ForceOn`- o estado está habilitado para toda a malha sobre e abaixo deste nó
-* `ForceOff`- o estado é deficiente para todas as malhas sobre e abaixo deste nó
-* `InheritFromParent`- o Estado não é afetado por este componente de sobreposição
+* `ForceOn` - o estado está habilitado para toda a malha sobre e abaixo deste nó
+* `ForceOff` - o estado é deficiente para todas as malhas sobre e abaixo deste nó
+* `InheritFromParent` - o Estado não é afetado por este componente de sobreposição
 
 Pode alterar os estados diretamente ou através da `SetState` função:
 
@@ -74,9 +74,9 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 ApiHandle<HierarchicalStateOverrideComponent> component = ...;
 
 // set one state directly
-component->HiddenState(HierarchicalEnableState::ForceOn);
+component->SetHiddenState(HierarchicalEnableState::ForceOn);
 
-// set a state with the SetState function
+// or: set a state with the SetState function
 component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
 
 // set multiple states at once with the SetState function
@@ -95,7 +95,7 @@ Um caso por `HierarchicalStateOverrideComponent` si só não acrescenta muito te
 
 A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do gráfico de cena forem trocadas para *see-through,* com muitas camadas de geometria visíveis, pode tornar-se um estrangulamento de desempenho. O mesmo é válido para objetos com [contornos de seleção.](../../overview/features/outlines.md#performance)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Contornos](../../overview/features/outlines.md)
 * [Modos de composição](../../concepts/rendering-modes.md)

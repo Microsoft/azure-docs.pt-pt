@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: fd04c6315a5a6915159c0cbb6a9640ae0695ed73
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1bf0ea35c51b063a7720a1542a23a49fbcdbc557
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117229"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892988"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Criar funções de Web PHP e de trabalho
 
@@ -75,7 +75,7 @@ Para configurar uma função web para utilizar um tempo de execução PHP que fo
 
 1. Crie um projeto de Serviço Azure e adicione um papel web PHP como descrito anteriormente neste tópico.
 2. Crie uma `php` pasta na pasta que esteja no `bin` diretório de raiz da sua função web e, em seguida, adicione o seu tempo de funcionação PHP (todos os binários, ficheiros de configuração, subpagadores, etc.) à `php` pasta.
-3. (OPCIONAL) Se o seu tempo de funcionamento PHP utilizar os [Microsoft Drivers for PHP para SQL Server,][sqlsrv drivers]terá de configurar a sua função web para instalar [o SQL Server Native Client 2012][sql native client] quando este for provisionado. Para isso, adicione o [instaladorsqlncli.msi x64] à `bin` pasta no diretório de raiz da sua função web. O script de arranque descrito no passo seguinte executará silenciosamente o instalador quando a função for avisionada. Se o seu tempo de funcionação PHP não utilizar os Microsoft Drivers para PHP para SQL Server, pode remover a seguinte linha do script mostrado no passo seguinte:
+3. (OPCIONAL) Se o seu tempo de funcionamento PHP utilizar os [Microsoft Drivers for PHP para SQL Server,][sqlsrv drivers]terá de configurar a sua função web para instalar [o SQL Server Native Client 2012][sql native client] quando este for provisionado. Para isso, adicione o [ instaladorsqlncli.msi x64] à `bin` pasta no diretório de raiz da sua função web. O script de arranque descrito no passo seguinte executará silenciosamente o instalador quando a função for avisionada. Se o seu tempo de funcionação PHP não utilizar os Microsoft Drivers para PHP para SQL Server, pode remover a seguinte linha do script mostrado no passo seguinte:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -114,7 +114,7 @@ Para configurar um papel de trabalhador para utilizar um tempo de execução PHP
 
 1. Crie um projeto de Serviço Azure e adicione um papel de trabalhador PHP como descrito anteriormente neste tópico.
 2. Crie uma `php` pasta no diretório de raiz do trabalho e, em seguida, adicione o seu tempo de funcionação PHP (todos os binários, ficheiros de configuração, subpaminas, etc.) à `php` pasta.
-3. (OPCIONAL) Se o seu tempo de funcionamento PHP utilizar [o Microsoft Drivers para PHP para o SQL Server,][sqlsrv drivers]terá de configurar a sua função de trabalhador para instalar o [SQL Server Native Client 2012][sql native client] quando este for provisionado. Para isso, adicione o [instaladorsqlncli.msi x64] ao diretório de raiz do papel operário. O script de arranque descrito no passo seguinte executará silenciosamente o instalador quando a função for avisionada. Se o seu tempo de funcionação PHP não utilizar os Microsoft Drivers para PHP para SQL Server, pode remover a seguinte linha do script mostrado no passo seguinte:
+3. (OPCIONAL) Se o seu tempo de funcionamento PHP utilizar [o Microsoft Drivers para PHP para o SQL Server,][sqlsrv drivers]terá de configurar a sua função de trabalhador para instalar o [SQL Server Native Client 2012][sql native client] quando este for provisionado. Para isso, adicione o [ instaladorsqlncli.msi x64] ao diretório de raiz do papel operário. O script de arranque descrito no passo seguinte executará silenciosamente o instalador quando a função for avisionada. Se o seu tempo de funcionação PHP não utilizar os Microsoft Drivers para PHP para SQL Server, pode remover a seguinte linha do script mostrado no passo seguinte:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -153,7 +153,7 @@ Para configurar um papel de trabalhador para utilizar um tempo de execução PHP
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Execute a sua aplicação nos emuladores de computação e armazenamento
 
-Os emuladores Azure fornecem um ambiente local no qual pode testar a sua aplicação Azure antes de a colocar na nuvem. Há algumas diferenças entre os emuladores e o ambiente Azure. Para compreender melhor isto, consulte [o emulador de armazenamento Azure para desenvolvimento e testes.](storage/common/storage-use-emulator.md)
+Os emuladores Azure fornecem um ambiente local no qual pode testar a sua aplicação Azure antes de a colocar na nuvem. Há algumas diferenças entre os emuladores e o ambiente Azure. Para compreender melhor isto, consulte [o Emulador de Armazenamento Azure para desenvolvimento e testes.](storage/common/storage-use-emulator.md)
 
 Note que deve ter PHP instalado localmente para utilizar o emulador de cálculo. O emulador computatório utilizará a instalação PHP local para executar a sua aplicação.
 
@@ -194,4 +194,4 @@ Para mais informações, consulte o [Centro de Desenvolvimento PHP.](https://azu
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
-[instaladorsqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648
+[ instaladorsqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648

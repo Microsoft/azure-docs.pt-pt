@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 9238a65643c9ff24166e9a9b9a05e8c924abfb37
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544485"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
 
@@ -63,7 +63,7 @@ A partir de agora, as seguintes versões de Confluência são suportadas:
 
 - Confluência: 5.0 a 5.10
 - Confluência: 6.0.1 a 6.15.9
-- Confluência: 7.0.1 a 7.6.1
+- Confluência: 7.0.1 a 7.7.2
 
 > [!NOTE]
 > Por favor, note que o nosso Plugin Confluence também funciona na versão Ubuntu 16.04

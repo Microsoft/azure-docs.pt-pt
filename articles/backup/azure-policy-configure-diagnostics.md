@@ -3,12 +3,12 @@ title: Configurar configurações de diagnóstico de abóbada em escala
 description: Configurar definições de diagnóstico de log analytics para todos os cofres num determinado âmbito utilizando a Política Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824054"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892240"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
 
@@ -20,9 +20,9 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 ## <a name="supported-scenarios"></a>Cenários Suportados
 
-* A política pode ser aplicada de uma só vez a todos os cofres dos Serviços de Recuperação numa determinada subscrição (ou a um grupo de recursos dentro da subscrição). O utilizador que atribui a apólice precisa de ter acesso "Proprietário" à subscrição à qual a apólice é atribuída.
+* A política pode ser aplicada de uma só vez a todos os cofres dos Serviços de Recuperação numa determinada subscrição (ou a um grupo de recursos dentro da subscrição). O utilizador que atribui a apólice precisa de ter o acesso **do Proprietário** à subscrição à qual a apólice é atribuída.
 
-* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de ter acesso 'Reader', 'Colaborador' ou 'Proprietário' à subscrição na qual existe o espaço de trabalho de LA especificado.
+* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de **ter**o leitor, **o contribuinte** ou o **proprietário** a aceder à subscrição na qual existe o espaço de trabalho de LA especificado.
 
 * O âmbito do Grupo de Gestão não é atualmente suportado.
 
