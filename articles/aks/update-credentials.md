@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386933"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871229"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -31,7 +31,8 @@ Quando pretende atualizar as credenciais de um cluster AKS, pode optar por:
 * Atualize as credenciais para o principal de serviço existente.
 * Crie um novo diretor de serviço e atualize o cluster para usar estas novas credenciais. 
 
-> ! [AVISO] Se optar por criar um *novo* diretor de serviço, atualizar um grande cluster AKS para usar estas credenciais pode demorar muito tempo a ser concluído.
+> [!WARNING]
+> Se optar por criar um *novo* diretor de serviço, atualizar um grande cluster AKS para usar estas credenciais pode demorar muito tempo a ser concluído.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Verifique a data de validade do seu serviço principal
 
@@ -123,7 +124,7 @@ az aks update-credentials \
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de Integração da AAD foram atualizados. Para obter mais informações sobre como gerir a identidade para cargas de trabalho dentro de um cluster, consulte [as melhores práticas de autenticação e autorização em AKS][best-practices-identity].
 

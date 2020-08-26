@@ -44,12 +44,18 @@
       href: vm-do-ten-things.md
     - name: Utilizar uma Máquina Virtual de Ciência de Dados do Linux
       href: linux-dsvm-walkthrough.md
-    - name: Criar um conjunto de Máquina Virtual de Ciência de Dados dimensionado automaticamente
-      href: dsvm-pools.md
-    - name: Integrar no Active Directory
-      href: dsvm-common-identity.md
-    - name: Proteger credenciais de acesso aos recursos
-      href: dsvm-secure-access-keys.md
+    - name: Integrar no Azure Machine Learning
+      items:
+        - name: Controlar Experimentações
+          href: how-to-track-experiments.md
+    - name: Diretrizes empresariais
+      items:
+        - name: Criar um conjunto de Máquina Virtual de Ciência de Dados dimensionado automaticamente
+          href: dsvm-pools.md
+        - name: Integrar no Active Directory
+          href: dsvm-common-identity.md
+        - name: Proteger credenciais de acesso aos recursos
+          href: dsvm-secure-access-keys.md
 - name: Recursos
   items:
     - name: Página de perguntas das Perguntas e Respostas da Microsoft

@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345364"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869869"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para a Base de Dados Azure SQL utilizando a integração Azure Stream Analytics (pré-visualização)
 
@@ -31,7 +31,7 @@ Os utilizadores podem agora ingerir, processar, visualizar e analisar dados de s
 - Facilidade adicional de utilização com dados de pré-visualização: Pré-visualizar dados de entrada a partir da fonte de eventos (Event Hub/IoT Hub) no contexto da tabela selecionada
 
 > [!IMPORTANT]
-> Um trabalho do Azure Stream Analytics pode ser transmitido para Azure SQL Database, Azure SQL Managed Instance, ou Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para mais informações, consulte [outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Um trabalho do Azure Stream Analytics pode ser transmitido para Azure SQL Database, Azure SQL Managed Instance, ou Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para mais informações, consulte [outputs](../../stream-analytics/sql-database-output.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,14 +43,14 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
 ## <a name="configure-stream-analytics-integration"></a>Integração de análise de Configure Stream
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Navegue para a base de dados onde pretende ingerir os seus dados de streaming. Selecione **stream analytics (pré-visualização)**.
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
 3. Para começar a ingerir os seus dados de streaming nesta base de dados, selecione **Criar** e dar um nome ao seu trabalho de streaming e, em seguida, selecione **Seguinte: Entrada**.
 
-    ![criar trabalho stream analytics](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![configurar stream Analytics básicos](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Insira os detalhes da origem dos seus eventos e, em seguida, selecione **Seguinte: Saída**.
 
@@ -64,7 +64,7 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
       Recomendamos que crie um grupo de consumidores e uma política para cada novo trabalho do Azure Stream Analytics que crie a partir daqui. Os grupos de consumidores permitem apenas cinco leitores simultâneos, pelo que o fornecimento de um grupo de consumidores dedicado para cada trabalho evitará quaisquer erros que possam surgir de exceder esse limite. Uma política dedicada permite-lhe rodar a sua chave ou revogar permissões sem afetar outros recursos.
 
-     ![criar trabalho stream analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![configurar a produção de trabalho stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Selecione em que tabela pretende ingerir os seus dados de streaming. Uma vez feito, **selecione Criar**.
 
@@ -122,7 +122,7 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
      ![stream de trabalhos de análise](./media/stream-data-stream-analytics-integration/jobs.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Padrões da solução Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)

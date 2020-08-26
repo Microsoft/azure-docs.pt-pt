@@ -16,6 +16,8 @@
       href: quickstart-load-balancer-standard-public-template.md
     - name: Criar um balanceador de carga interno - Portal
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Criar um balanceador de carga interno - CLI do Azure
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Tutoriais
   items:

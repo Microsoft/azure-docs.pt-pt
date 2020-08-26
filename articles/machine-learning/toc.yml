@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: Referência YAML do pipeline de aprendizagem automática
       href: reference-pipeline-yaml.md
+    - name: Paridade de cloud soberana
+      href: reference-machine-learning-cloud-parity.md
 - name: Recursos
   items:
     - name: Notas de versão

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305929"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870192"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -122,7 +122,7 @@ Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de 
 
 1. **Selecione adicionar > base de dados SQL**. Na janela de propriedades de saída do lavatório de saída SQL Database, selecione **Identidade Gerida** a partir do modo de autenticação.
 
-1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](stream-analytics-define-outputs.md#sql-database). Quando terminar, **selecione Save**. 
+1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](sql-database-output.md). Quando terminar, **selecione Save**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

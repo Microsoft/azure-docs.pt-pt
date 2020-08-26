@@ -4,14 +4,14 @@ description: Saiba como migrar um nome de domínio DNS personalizado que já est
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782214"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871399"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Azure App Service
 
@@ -59,31 +59,27 @@ Na sua página de registos DNS, note o tipo de registo do nome DNS que pretende 
 
 ### <a name="enable-the-domain-for-your-app"></a>Ativar o domínio da sua aplicação
 
-No [portal Azure,](https://portal.azure.com)na navegação à esquerda da página da aplicação, selecione **domínios personalizados**. 
+1. No [portal Azure,](https://portal.azure.com)na navegação à esquerda da página da aplicação, selecione **domínios personalizados**. 
 
-![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na página **de domínios personalizados,** selecione o **+** ícone ao lado do nome de **anfitrião**.
+1. Na página **de domínios personalizados,** selecione **Adicionar domínio personalizado**.
 
-![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado que pretende migrar, que corresponda ao registo TXT que cria, como `contoso.com` `www.contoso.com` , ou `*.contoso.com` .
+1. Digite o nome de domínio totalmente qualificado que pretende migrar, que corresponda ao registo TXT que cria, como `contoso.com` `www.contoso.com` , ou `*.contoso.com` . Selecione **Validar**.
 
-Selecione **Validar**.
+    O botão **de domínio personalizado Add** está ativado. 
 
-O botão **Adicionar nome de anfitrião** é ativado. 
+1. Certifique-se de que **o tipo de gravação do Hostname** está definido para o tipo de registo DNS que pretende migrar. Selecione **Adicionar nome de anfitrião**.
 
-Certifique-se de que **o tipo de gravação do Hostname** está definido para o tipo de registo DNS que pretende migrar.
+    ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Selecione **Adicionar nome de anfitrião**.
+    Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
 
-![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
-
-![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-O seu nome DNS personalizado está agora ativado na sua aplicação Azure. 
+    O seu nome DNS personalizado está agora ativado na sua aplicação Azure. 
 
 ## <a name="remap-the-active-dns-name"></a>Remapia o nome DNS ativo
 
@@ -96,8 +92,6 @@ A única coisa que resta a fazer é remapping seu registo de DNS ativo para apon
 Se estiver a remexeparar um registo CNAME, ignore esta secção. 
 
 Para remaptar um registo A, precisa do endereço IP externo da aplicação app App Service, que é mostrado na página **de domínios personalizados.**
-
-Feche a página **de nome de anfitrião** selecionando **X** no canto superior direito. 
 
 Na página **Domínios personalizados**, copie o endereço IP da aplicação.
 

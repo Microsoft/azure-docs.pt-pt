@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/18/2020
+ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e7dca6f74145d1ea50c5a9bfc57b52e1cbdfcab3
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84141250"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869835"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -49,7 +49,7 @@ Os rótulos `positive` `negative` são, e `neutral` . A nível de documento, a `
 | Pelo menos uma `negative` frase e pelo menos uma frase `positive` estão no documento.    | `mixed`                 |
 | Todas as frases do documento `neutral` são.                                                  | `neutral`               |
 
-Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. As pontuações de confiança dentro de cada documento ou frase somam até 1.
+Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. As pontuações de confiança dentro de cada frase (não documento) somam até 1.
 
 ### <a name="opinion-mining"></a>Mineração de opinião
 

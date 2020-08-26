@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747624"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869818"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
 
@@ -44,7 +44,7 @@ Uma vez que o trabalho começa a funcionar, o contentor de *clientes* pode parec
 
 ![Recipiente de clientes](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Cada pasta pode conter várias bolhas onde cada bolha contém um ou mais registos. No exemplo acima, existe uma única bolha numa pasta rotulada "06000000" com o seguinte conteúdo:
+Cada pasta pode conter várias bolhas onde cada bolha contém um ou mais registos. No exemplo acima, existe uma única bolha numa pasta com a etiqueta "06000000" com os seguintes conteúdos:
 
 ![Conteúdo sonoro](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -113,7 +113,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>Exemplo
 
-Crie uma conta de armazenamento, um grupo de recursos, um trabalho stream Analytics e uma fonte de entrada de acordo com o guia de arranque rápido do [Portal Azure Stream Azure.](stream-analytics-quick-create-portal.md) Utilize os mesmos dados de amostra utilizados no guia quickstart, também disponível no [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Crie uma conta de armazenamento, um grupo de recursos, um trabalho stream Analytics e uma fonte de entrada de acordo com o guia de arranque rápido do [portal Azure Stream Analytics.](stream-analytics-quick-create-portal.md) Utilize os mesmos dados de amostra utilizados no guia quickstart, também disponível no [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
 Criar um lavatório de saída blob com a seguinte configuração:
 
@@ -129,6 +129,6 @@ Quando inicia o trabalho, uma estrutura de pasta baseada no padrão do caminho �
 
 ![Saída de blob de stream Analytics com padrão de caminho personalizado](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-output-folder-structure.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

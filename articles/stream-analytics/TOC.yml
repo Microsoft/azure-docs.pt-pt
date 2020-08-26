@@ -172,6 +172,8 @@
           href: stream-analytics-real-time-fraud-detection.md
         - name: Executar tarefas no IoT Edge
           href: stream-analytics-edge.md
+        - name: Executar tarefas no Azure Stack
+          href: on-azure-stack.md
         - name: Análise de dados do sensor de portagens
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
         - name: Negociação de elevada frequência

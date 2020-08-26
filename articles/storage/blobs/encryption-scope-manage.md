@@ -4,23 +4,25 @@ description: Aprenda a criar um âmbito de encriptação para isolar dados de bo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870260"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerir os âmbitos de encriptação (pré-visualização)
 
-Os âmbitos de encriptação (pré-visualização) permitem-lhe gerir a encriptação ao nível de uma bolha ou recipiente individual. Um âmbito de encriptação isola dados blob num enclave seguro dentro de uma conta de armazenamento. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes. Para obter mais informações sobre os âmbitos de [encriptação, consulte os âmbitos de encriptação para armazenamento blob (pré-visualização)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Os âmbitos de encriptação (pré-visualização) permitem-lhe gerir a encriptação ao nível de uma bolha ou recipiente individual. Um âmbito de encriptação isola os dados do blob num enclave seguro numa conta de armazenamento. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes. Para obter mais informações sobre os âmbitos de [encriptação, consulte os âmbitos de encriptação para armazenamento blob (pré-visualização)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 Este artigo mostra como criar um âmbito de encriptação. Também mostra como especificar um âmbito de encriptação quando cria uma bolha ou recipiente.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Criar um âmbito de encriptação
 
@@ -393,7 +395,7 @@ az storage account encryption-scope update \
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir a encriptação de armazenamento Azure](../common/encryption-customer-managed-keys.md)

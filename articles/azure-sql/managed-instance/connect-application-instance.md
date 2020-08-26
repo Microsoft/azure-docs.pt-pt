@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706380"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871450"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligue a sua aplicação a Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Ligar uma aplicação quando reside numa rede virtual diferente do SQL Managed I
 
 Existem duas opções para ligar redes virtuais:
 
-- [Azure VPN olhando](../../virtual-network/virtual-network-peering-overview.md)
+- [Azure VNet olhando](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway VNet-to-VNet VPN[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 O peering é preferível porque utiliza a rede de espinha dorsal da Microsoft, por isso, do ponto de vista da conectividade, não há uma diferença notável na latência entre máquinas virtuais numa rede virtual esprevada e na mesma rede virtual. O espreitamento de rede virtual está limitado às redes da mesma região.  
@@ -63,7 +63,7 @@ Se estabeleceu uma ligação no local para a Azure com sucesso e não pode estab
 
 ## <a name="connect-the-developer-box"></a>Ligue a caixa de desenvolvedores
 
-Também é possível ligar a sua caixa de desenvolvedor a SQL Managed Instance. A SQL Managed Instance só pode ser acedida através de um endereço IP privado, pelo que, para aceder a partir da sua caixa de desenvolvedores, primeiro tem de fazer uma ligação entre a sua caixa de desenvolvedores e a rede virtual SQL Managed Instance. Para tal, configurar uma ligação ponto-a-local a uma rede virtual utilizando a autenticação de certificado azure nativo. Para obter mais informações, consulte [configurar uma ligação ponto-a-local para ligar à Azure SQL Managed Instance a partir de um computador no local](point-to-site-p2s-configure.md).
+Também é possível ligar a sua caixa de desenvolvedor a SQL Managed Instance. A SQL Managed Instance só pode ser acedida através de um endereço IP privado, pelo que, para aceder a partir da sua caixa de desenvolvedores, primeiro tem de fazer uma ligação entre a sua caixa de desenvolvedores e a rede virtual SQL Managed Instance. Para tal, configurar uma ligação ponto-a-local a uma rede virtual utilizando a autenticação de certificado azure nativo. Para obter mais informações, consulte  [configurar uma ligação ponto-a-local para ligar à Azure SQL Managed Instance a partir de um computador no local](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Conecte-se com o espremiamento VNet
 
@@ -154,7 +154,7 @@ Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se 
 |SSMS| 18.0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a SQL Managed Instance, consulte [o que é a Sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

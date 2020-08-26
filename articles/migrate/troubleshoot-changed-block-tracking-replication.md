@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796940"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871190"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -37,6 +37,29 @@ Utilize os seguintes passos para monitorizar o estado de replicação das suas m
 ## <a name="common-replication-errors"></a>Erros de replicação comuns
 
 Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>A operação do Cofre de Chaves falhou ao tentar replicar VMs
+
+**Erro:** "A operação do Cofre de Chaves falhou. Operação : Configure conta de armazenamento gerido, Cofre chave: nome do cofre-chave, Conta de armazenamento: nome da conta de armazenamento falhou com o erro:"
+
+**Erro:** "A operação do Cofre de Chaves falhou. Operação : Gerar definição de assinatura de acesso partilhado, Cofre-chave: nome do cofre-chave, Conta de Armazenamento: nome da conta de armazenamento falhou com o erro:"
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Este erro ocorre normalmente porque a Política de Acesso ao Utilizador para o Cofre de Chaves não dá ao utilizador atualmente registado as permissões necessárias para configurar contas de armazenamento para serem geridas pelo Key Vault. Para verificar a política de acesso do utilizador no cofre de chaves, aceda à página do cofre key no portal para o cofre chave e selecione as políticas de acesso 
+
+Quando o portal cria o cofre de chaves, também adiciona uma política de acesso ao utilizador que concede as permissões de utilizador atualmente registadas para configurar contas de armazenamento para serem geridas por Key Vault. Isto pode falhar por duas razões
+
+- O utilizador registado no sessão é um principal remoto no cliente Azure inquilino (subscrição CSP - e o utilizador registado no utilizador é o administrador do parceiro). A solução neste caso é eliminar o cofre da chave, sair do portal e, em seguida, iniciar sessão com uma conta de utilizador do cliente inquilino (não um principal remoto) e voltar a tentar a operação. O parceiro CSP terá normalmente uma conta de utilizador nos clientes Azure Ative Directory inquilino que podem usar. Caso contrário, podem criar uma nova conta de utilizador para si próprios nos clientes Azure Ative Directory inquilino, fazer login no portal como novo utilizador e, em seguida, voltar a tentar a operação de replicação. A conta utilizada deve ter permissões de Administrador de Acesso ao Proprietário ou ao Utilizador concedidos à conta no grupo de recursos (grupo de recursos do projeto Migrate)
+
+- O outro caso em que isto pode acontecer é quando um utilizador (user1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre-chave já foi criado (e a política de acesso ao utilizador adequadamente atribuída a este utilizador). Agora, num ponto posterior, um utilizador diferente (user2) tenta configurar a replicação, mas a conta de armazenamento gerido configure ou a operação de definição SAS falha, uma vez que não existe uma política de acesso ao utilizador correspondente ao utilizador2 no cofre de chaves.
+
+**Resolução**: Para contornar este problema, crie uma política de acesso ao utilizador para o utilizador2 no teclado que concede ao utilizador 2 permissão para configurar a conta de armazenamento gerida e gerar definições SAS. O Utilizador2 pode fazê-lo a partir da Azure PowerShell utilizando os cmdlets abaixo:
+
+$userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address"). ID
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recuperar, backup, restaurar, purgar
+
 
 ## <a name="disposeartefactstimedout"></a>DisporArtefactsTimedOut
 

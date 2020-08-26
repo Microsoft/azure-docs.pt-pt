@@ -1,0 +1,32 @@
+### YamlMime:Landing
+title: Servidores do Azure Arc (pré-visualização)
+summary: Servidores do Azure Arc
+metadata:
+  title: Servidores do Azure Arc
+  description: Saiba mais sobre como gerir computadores no local no Azure
+  author: mgoedtel
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 06/26/2020
+  ms.author: magoedte
+  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
+  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/24/2020
+  ms.locfileid: "88763818"
+landingContent:
+- title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são servidores preparados para o Azure Arc?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Ligar computadores ao Azure Arc no portal do Azure
+      url: onboard-portal.md
+    - text: Ligar computadores em escala através do principal de serviço
+      url: onboard-service-principal.md
+    - text: Ligar computadores ao Azure com o PowerShell DSC
+      url: onboard-dsc.md

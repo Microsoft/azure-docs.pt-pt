@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 30839fac6a264ad9defb565663b28a5b12b571b5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814523"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871161"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -64,8 +64,8 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
 | Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
-| Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
+| BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
+| Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
 
 <sup>1</sup> O nível de arquivo não é suportado atualmente para contas ZRS.<br />
 <sup>2</sup> As contas de armazenamento que contêm discos geridos Azure para máquinas virtuais usam sempre LRS. Os discos não geridos Azure também devem utilizar LRS. É possível criar uma conta de armazenamento para discos não geridos Azure que usam GRS, mas não é recomendado devido a potenciais problemas com consistência sobre a geo-replicação assíncrona. Nem discos geridos nem não geridos suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [preços para discos geridos Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -165,10 +165,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Yes | Sim<sup>1</sup> | Yes |
-| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
+| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 
