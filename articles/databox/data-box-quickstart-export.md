@@ -2,19 +2,19 @@
 title: 'Início Rápido: exportar dados para o Microsoft Azure Data Box'
 description: Saiba como exportar rapidamente os dados do Azure Data Box no portal do Azure
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
 ms.date: 07/17/2020
-ms.author: v-grpr
+ms.author: twooley
 ms.localizationpriority: high
-ms.openlocfilehash: fbe14151845d19dd1d0f2a4069afb2badb125077
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 55366096a9eef7380ad8df855931c4d675973631
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122246"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783064"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Início Rápido: introdução ao Azure Data Box para exportar dados do Azure
 

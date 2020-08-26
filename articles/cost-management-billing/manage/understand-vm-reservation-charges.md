@@ -3,15 +3,16 @@ title: Compreender o desconto de Azure Reserved VM Instances
 description: Saiba como o desconto de Azure Reserved VM Instance é aplicado à execução de máquinas virtuais.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192218"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686450"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -93,7 +94,7 @@ Quando a definição está ativada, os descontos de reserva aplicam-se automatic
 
 Verifique o valor de *ConsumedService* nos seus dados de utilização para determinar se a utilização está qualificada para descontos de reserva.
 
-Para obter mais informações sobre a flexibilidade de tamanho de instância, veja [Flexibilidade de tamanho de máquina virtual com Instâncias de Máquina Virtual Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Para obter mais informações sobre a flexibilidade de tamanho de instância, veja [Flexibilidade de tamanho de máquina virtual com Instâncias de Máquina Virtual Reservadas](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos

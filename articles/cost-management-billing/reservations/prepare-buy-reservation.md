@@ -4,15 +4,16 @@ description: Saiba quais são os aspetos importantes para comprar uma reserva do
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287629"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686212"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -71,7 +72,7 @@ Pode comprar reservas no portal, nas APIs, no PowerShell e na CLI do Azure. Leia
 - [BD do Cosmos](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
-- [Armazenamento de Discos](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Armazenamento de Discos](../../virtual-machines/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Planos de software](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Armazenamento](../../storage/blobs/storage-blob-reserved-capacity.md)

@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825958"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892308"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -66,7 +66,7 @@ Pontos a notar:
 4. O primeiro `<alpha-numeric-string>` é obrigatório enquanto o segundo após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.
 5. Pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, novos RPs serão criados no novo RG. No entanto, os antigos RPs continuarão a residir no antigo RG e não serão movidos, uma vez que a RP Collection não suporta movimento de recursos. Eventualmente, os RPs receberão lixo recolhido à medida que os pontos expirarem.
 ![Alterar nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
-6. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço De backup.
+6. É aconselhável não bloquear o grupo de recursos criado para ser utilizado pelo serviço de backup.
 
 Para configurar o grupo de recursos de backup Azure para máquinas virtuais utilizando o PowerShell, consulte a [Criação do grupo de recursos backup Azure durante a retenção de instantâneos](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 

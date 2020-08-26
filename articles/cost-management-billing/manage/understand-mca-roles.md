@@ -3,15 +3,16 @@ title: Funções de faturação do Contrato de Cliente Microsoft – Azure
 description: Saiba mais sobre as funções de faturação para contas de faturação no Azure para Contratos de Cliente da Microsoft.
 author: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286585"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686552"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 

@@ -3,12 +3,12 @@ title: Gerir a Azure File partilhar backup com a Rest API
 description: Saiba como utilizar a REST API para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073249"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892852"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir a Azure File partilhar backup com a REST API
 
@@ -46,7 +46,7 @@ O trabalho de backup de partilha de ficheiros Azure é identificado pelo campo *
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O {jobName} é o "jobId" mencionado acima. A resposta é sempre "200 OK" com o campo **de status** indicando o estado do trabalho. Uma vez que é "Concluído" ou "Concluído com Os Avisos", a secção **Alargada alargada** revela mais detalhes sobre o trabalho.
+O {jobName} é o "jobId" mencionado acima. A resposta é sempre "200 OK" com o campo **de status** indicando o estado do trabalho. Uma vez que é "Concluído" ou "Concluído com Os Avisos", a secção **Alargada revelou** mais detalhes sobre o trabalho.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'

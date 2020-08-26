@@ -6,13 +6,14 @@ ms.author: banders
 ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: dbdd93d6c82f7eefd85d2142a3ddee246739fa34
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258852"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684988"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Criar e gerir regras de alocação de custos do Azure (Pré-visualização)
 

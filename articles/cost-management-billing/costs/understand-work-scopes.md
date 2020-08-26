@@ -6,14 +6,15 @@ ms.author: banders
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 31ec2e75f9bc1bd02d097af9076c9356598a9499
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167577"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683152"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 

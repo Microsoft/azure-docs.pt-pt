@@ -4,15 +4,16 @@ description: Saiba mais sobre a conta de faturação do Contrato de Cliente Micr
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: adbb8f9aae7eb05ac3c4955beb71dba003ddacd0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 632fac953a54e661164152cda79082aed2c0bc06
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461906"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690481"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Cliente da Microsoft
 

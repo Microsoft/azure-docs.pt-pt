@@ -4,15 +4,16 @@ description: Este artigo ajuda a determinar a reserva que deve comprar.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759903"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684750"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinar a reserva a comprar
 
@@ -38,7 +39,7 @@ Para se restringir à utilização de VM elegível, aplique os seguintes filtros
 
 Ignore os recursos que tenham menos de 24 horas de utilização num dia.
 
-Se quiser analisar ao nível da família de tamanho de instância, pode obter os valores de flexibilidade de tamanho de instância em [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine os valores com os seus dados para fazer a análise. Para obter mais informações sobre a flexibilidade de tamanho de instância, veja [Flexibilidade de tamanho de máquina virtual com Instâncias de Máquina Virtual Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Se quiser analisar ao nível da família de tamanho de instância, pode obter os valores de flexibilidade de tamanho de instância em [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine os valores com os seus dados para fazer a análise. Para obter mais informações sobre a flexibilidade de tamanho de instância, veja [Flexibilidade de tamanho de máquina virtual com Instâncias de Máquina Virtual Reservadas](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analise a utilização para uma compra de instâncias reservadas do Azure Synapse Analytics
 
