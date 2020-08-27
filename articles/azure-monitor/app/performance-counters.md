@@ -3,12 +3,13 @@ title: Contadores de desempenho em Insights de Aplicação / Microsoft Docs
 description: Monitorar o sistema e os contadores de desempenho .NET personalizados em Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322521"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918524"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema em Insights de Aplicações
 
@@ -59,11 +60,11 @@ Se o contador de desempenho que deseja não estiver incluído na lista de métri
 > [!NOTE]
 > ASP.NET aplicações Core não `ApplicationInsights.config` têm, e, portanto, o método acima não é válido para ASP.NET Aplicações Core.
 
-Pode capturar os contadores padrão e os que implementou a si mesmo. `\Objects\Processes`é um exemplo de um contador padrão que está disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold`é um exemplo de um contador personalizado que pode ser implementado num serviço web.
+Pode capturar os contadores padrão e os que implementou a si mesmo. `\Objects\Processes` é um exemplo de um contador padrão que está disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold` é um exemplo de um contador personalizado que pode ser implementado num serviço web.
 
 O formato é `\Category(instance)\Counter"` , ou para categorias que não têm instâncias, apenas `\Category\Counter` .
 
-`ReportAs`é necessário para os nomes de contadores que não `[a-zA-Z()/-_ \.]+` correspondem - isto é, contêm caracteres que não estão nos seguintes conjuntos: letras, suportes redondos, barra para a frente, hífen, sublinhado, espaço, ponto.
+`ReportAs` é necessário para os nomes de contadores que não `[a-zA-Z()/-_ \.]+` correspondem - isto é, contêm caracteres que não estão nos seguintes conjuntos: letras, suportes redondos, barra para a frente, hífen, sublinhado, espaço, ponto.
 
 Se especificar um caso, será recolhido como uma dimensão "CounterInstanceName" da métrica relatada.
 

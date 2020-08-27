@@ -3,14 +3,14 @@ title: 'Quickstart: Obtenha intenção com APIs DE REST - LUIS'
 description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 2fd52011ed0d139e98740c8de077987edfae2c32
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 977348fcaf0cabf92268d71282222e1652321fac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873165"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919300"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs de DESCANSO
 

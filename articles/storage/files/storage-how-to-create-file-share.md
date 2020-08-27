@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525654"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930677"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> A capacidade de definir e alterar níveis através do PowerShell é fornecida no módulo Az.Storage PowerShell de pré-visualização. Estes cmdlets ou a sua saída podem mudar antes de serem lançados no módulo Az.Storage PowerShell geralmente disponível, por isso crie scripts com isto em mente.
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 A funcionalidade para criar ou mover uma partilha de ficheiros para um nível específico está disponível na mais recente atualização do Azure CLI. A atualização do Azure CLI é específica para a distribuição do sistema operativo/Linux que está a utilizar. Para obter instruções sobre como atualizar o Azure CLI no seu sistema, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> A capacidade de definir um nível com o `--access-tier` parâmetro é fornecida uma pré-visualização no mais recente pacote Azure CLI. Este comando ou a sua saída podem mudar antes de serem marcados como geralmente disponíveis, por isso crie scripts com isso em mente.
+
 ---
 
 ## <a name="next-steps"></a>Passos seguintes

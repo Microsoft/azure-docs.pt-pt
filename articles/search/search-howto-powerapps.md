@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751056"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918048"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de um índice de pesquisa cognitiva de Power Apps
 
 Aproveite o ambiente de desenvolvimento rápido de aplicações de Power Apps para criar uma aplicação personalizada para o seu conteúdo pesmável em Azure Cognitive Search.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ligue-se à Pesquisa Cognitiva Azure
@@ -248,7 +248,7 @@ Neste passo, crie uma App de Alimentação com uma caixa de pesquisa, um botão 
 
     :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -261,5 +261,4 @@ Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três
 As Power Apps permitem o rápido desenvolvimento de aplicações personalizadas. Agora que sabe como se conectar a um índice de pesquisa, saiba mais sobre a criação de uma experiência de visualização rica numa App de Energia personalizada.
 
 > [!div class="nextstepaction"]
-> [Catálogo de Aprendizagem de Aplicativos de Energia](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Catálogo de Aprendizagem de Aplicativos de Energia](/powerapps/learning-catalog/get-started)

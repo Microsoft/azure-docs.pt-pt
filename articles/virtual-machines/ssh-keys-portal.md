@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041753"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929448"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Gerar e armazenar chaves SSH no portal Azure
 
@@ -28,7 +28,7 @@ Para obter informações mais detalhadas sobre a criação e utilização de cha
 
 1. Abra o [portal do Azure](https://portal.azure.com).
 
-1. No topo da página, escreva *SSH* para pesquisar. Em **Mercado,* selecione **teclas SSH**.
+1. No topo da página, escreva *SSH* para pesquisar. No **mercado,** selecione **teclas SSH**.
 
 1. Na página **chave SSH,** selecione **Criar**.
 
@@ -61,7 +61,7 @@ No seu computador local, abra um pedido powerShell e escreva:
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-Por exemplo, escreva:`ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
+Por exemplo, escreva: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 
 ## <a name="upload-an-ssh-key"></a>Faça upload de uma chave SSH
@@ -89,6 +89,20 @@ Também pode carregar uma chave SSH pública para armazenar em Azure. Para obter
 1. Após a validação concluída, **selecione Criar**. 
 
 Uma vez que a chave tenha sido carregada, pode optar por usá-la quando criar um VM.
+
+## <a name="list-keys"></a>Chaves da lista
+
+As chaves SSH criadas no portal são armazenadas como recursos, para que possa filtrar a vista dos seus recursos para ver todas elas.
+
+1. No portal, selecione **Todos os recursos**.
+1. Nos filtros, selecione **Type**, desescolh a opção **Selecione para** limpar a lista.
+1. Tipo **SSH** no filtro e selecione **a tecla SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Screenshot de como filtrar a lista para ver todas as suas chaves SSH.":::
+
+## <a name="get-the-public-key"></a>Obtenha a chave pública
+
+Se precisar da sua chave pública, pode copiá-la facilmente da página do portal para obter a chave. Basta listar as suas chaves (utilizando o processo na última secção) e, em seguida, selecione uma chave da lista. A página da sua chave abrir-se-á e pode clicar no ícone **copy para clipboard** ao lado da chave para copiá-la.
 
 ## <a name="next-steps"></a>Passos seguintes
 

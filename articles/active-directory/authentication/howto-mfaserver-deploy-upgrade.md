@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 455df5d2bf6003dd06a11f93d3e0d70ab9e11ee2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054005"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919527"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualização para o Servidor Multi-Factor Authentication do Azure mais recente
 
@@ -25,7 +25,11 @@ Este artigo acompanha-o através do processo de atualização do Servidor de Aut
 Se estiver a atualizar de v6.x ou mais para v7.x ou mais recente, todos os componentes mudam de .NET 2.0 para .NET 4.5. Todos os componentes também requerem Microsoft Visual C++ 2015 Redistributable Update 1 ou superior. O instalador do MFA Server instala as versões x86 e x64 destes componentes se ainda não estiverem instalados. Se o Portal do Utilizador e o Serviço Web de Aplicações Móveis funcionarem em servidores separados, é necessário instalar esses pacotes antes de atualizar esses componentes. Pode pesquisar a mais recente atualização redistribuível do Microsoft Visual C++ 2015 no [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+>
+> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 Atualizar passos num ápice:
 

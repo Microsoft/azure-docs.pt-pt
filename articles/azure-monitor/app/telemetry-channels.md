@@ -3,13 +3,14 @@ title: Canais de telemetria em Azure Application Insights / Microsoft Docs
 description: Como personalizar canais de telemetria em Azure Application Insights SDKs para .NET e .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318934"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918405"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
 
@@ -19,7 +20,7 @@ Os canais de telemetria são parte integrante dos [SDKs Azure Application Insigh
 
 Os canais de telemetria são responsáveis pela tamponagem de itens de telemetria e pelo envio para o serviço Application Insights, onde estão armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implemente a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
 
-O `Send(ITelemetry item)` método de um canal de telemetria é chamado depois de todos os inicializadores de telemetria e processadores de telemetria serem chamados. Então, quaisquer itens deixados por um processador de telemetria não chegam ao canal. `Send()`não costuma enviar os itens para a parte de trás instantaneamente. Tipicamente, tampona-os na memória e envia-os em lotes, para uma transmissão eficiente.
+O `Send(ITelemetry item)` método de um canal de telemetria é chamado depois de todos os inicializadores de telemetria e processadores de telemetria serem chamados. Então, quaisquer itens deixados por um processador de telemetria não chegam ao canal. `Send()` não costuma enviar os itens para a parte de trás instantaneamente. Tipicamente, tampona-os na memória e envia-os em lotes, para uma transmissão eficiente.
 
 [Live Metrics Stream](live-stream.md) também tem um canal personalizado que alimenta o streaming ao vivo da telemetria. Este canal é independente do canal regular de telemetria, e este documento não se aplica a ele.
 
@@ -39,7 +40,7 @@ O navio Application Insights .NET e .NET Core SDKs com dois canais incorporados:
 
 Configura um canal de telemetria definindo-o para a configuração de telemetria ativa. Para ASP.NET aplicações, a configuração envolve definir a instância do canal de telemetria para `TelemetryConfiguration.Active` , ou modificando `ApplicationInsights.config` . Para aplicações ASP.NET Core, a configuração envolve a adição do canal ao Recipiente de Injeção de Dependência.
 
-As secções seguintes mostram exemplos de configuração da `StorageFolder` definição do canal em vários tipos de aplicações. `StorageFolder`é apenas uma das configurações configuráveis. Para obter a lista completa das definições de configuração, consulte [a secção de definições](#configurable-settings-in-channels) mais tarde neste artigo.
+As secções seguintes mostram exemplos de configuração da `StorageFolder` definição do canal em vários tipos de aplicações. `StorageFolder` é apenas uma das configurações configuráveis. Para obter a lista completa das definições de configuração, consulte [a secção de definições](#configurable-settings-in-channels) mais tarde neste artigo.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Configuração utilizando ApplicationInsights.config para aplicações ASP.NET
 
@@ -108,9 +109,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 ## <a name="operational-details-of-servertelemetrychannel"></a>Detalhes operacionais do ServerTelemetryChannel
 
-`ServerTelemetryChannel`lojas que chegam itens em um tampão de memória. Os itens são serializados, comprimidos e armazenados numa `Transmission` instância uma vez a cada 30 segundos, ou quando 500 itens foram tamponados. Uma única `Transmission` instância contém até 500 itens e representa um lote de telemetria que é enviado através de uma única chamada HTTPS para o serviço Application Insights.
+`ServerTelemetryChannel` lojas que chegam itens em um tampão de memória. Os itens são serializados, comprimidos e armazenados numa `Transmission` instância uma vez a cada 30 segundos, ou quando 500 itens foram tamponados. Uma única `Transmission` instância contém até 500 itens e representa um lote de telemetria que é enviado através de uma única chamada HTTPS para o serviço Application Insights.
 
-Por predefinição, um máximo de 10 `Transmission` instâncias podem ser enviadas em paralelo. Se a telemetria estiver a chegar a taxas mais rápidas, ou se a rede ou a parte de trás do Application Insights for lenta, `Transmission` as instâncias são armazenadas na memória. A capacidade predefinida deste tampão na memória é de `Transmission` 5 MB. Quando a capacidade na memória foi excedida, `Transmission` as instâncias são armazenadas no disco local até um limite de 50 MB. `Transmission`as instâncias são armazenadas no disco local também quando há problemas de rede. Apenas os itens que estão armazenados num disco local sobrevivem a uma falha de aplicação. São enviados sempre que o pedido recomeça.
+Por predefinição, um máximo de 10 `Transmission` instâncias podem ser enviadas em paralelo. Se a telemetria estiver a chegar a taxas mais rápidas, ou se a rede ou a parte de trás do Application Insights for lenta, `Transmission` as instâncias são armazenadas na memória. A capacidade predefinida deste tampão na memória é de `Transmission` 5 MB. Quando a capacidade na memória foi excedida, `Transmission` as instâncias são armazenadas no disco local até um limite de 50 MB. `Transmission` as instâncias são armazenadas no disco local também quando há problemas de rede. Apenas os itens que estão armazenados num disco local sobrevivem a uma falha de aplicação. São enviados sempre que o pedido recomeça.
 
 ## <a name="configurable-settings-in-channels"></a>Configurações configuráveis nos canais
 
@@ -130,7 +131,7 @@ Aqui estão as definições mais usadas `ServerTelemetryChannel` para:
 
 ## <a name="which-channel-should-i-use"></a>Que canal devo usar?
 
-`ServerTelemetryChannel`é recomendado para a maioria dos cenários de produção envolvendo aplicações de longa duração. O `Flush()` método implementado por não é `ServerTelemetryChannel` sincronizado, e também não garante o envio de todos os itens pendentes da memória ou do disco. Se utilizar este canal em cenários onde a aplicação está prestes a ser encerrada, recomendamos que introduza algum atraso após a chamada `Flush()` . A quantidade exata de atraso que podes precisar não é previsível. Depende de fatores como quantos itens ou `Transmission` instâncias estão na memória, quantos estão no disco, quantos estão a ser transmitidos para a parte de trás, e se o canal está no meio de cenários exponenciais de back-off.
+`ServerTelemetryChannel` é recomendado para a maioria dos cenários de produção envolvendo aplicações de longa duração. O `Flush()` método implementado por não é `ServerTelemetryChannel` sincronizado, e também não garante o envio de todos os itens pendentes da memória ou do disco. Se utilizar este canal em cenários onde a aplicação está prestes a ser encerrada, recomendamos que introduza algum atraso após a chamada `Flush()` . A quantidade exata de atraso que podes precisar não é previsível. Depende de fatores como quantos itens ou `Transmission` instâncias estão na memória, quantos estão no disco, quantos estão a ser transmitidos para a parte de trás, e se o canal está no meio de cenários exponenciais de back-off.
 
 Se precisar de fazer um autoclismo sincronizado, recomendamos que utilize `InMemoryChannel` .
 
@@ -138,7 +139,7 @@ Se precisar de fazer um autoclismo sincronizado, recomendamos que utilize `InMem
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>O canal Application Insights garante a entrega de telemetria? Caso contrário, quais são os cenários em que a telemetria pode ser perdida?
 
-A resposta curta é que nenhum dos canais incorporados oferece uma garantia de entrega de telemetria tipo de transação na parte de trás. `ServerTelemetryChannel`é mais avançado em comparação com `InMemoryChannel` para entrega fiável, mas também faz apenas uma tentativa de melhor esforço para enviar telemetria. A telemetria ainda pode ser perdida em várias situações, incluindo estes cenários comuns:
+A resposta curta é que nenhum dos canais incorporados oferece uma garantia de entrega de telemetria tipo de transação na parte de trás. `ServerTelemetryChannel` é mais avançado em comparação com `InMemoryChannel` para entrega fiável, mas também faz apenas uma tentativa de melhor esforço para enviar telemetria. A telemetria ainda pode ser perdida em várias situações, incluindo estes cenários comuns:
 
 1. Os itens na memória perdem-se quando a aplicação falha.
 

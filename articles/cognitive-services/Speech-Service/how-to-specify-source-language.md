@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 10a07e00d451b5e23f49bbb3b0d358057c629b8c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 3d761bbad4cb2cd2cdd1c34459f25c811bb41c7e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406678"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918694"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especifique a linguagem de origem para a fala para o texto
 
@@ -48,7 +48,7 @@ var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioC
 ```
 
 >[!Note]
-> `SpeechRecognitionLanguage`e `EndpointId` os métodos definidos são depreciados da `SpeechConfig` classe em C#. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
+> `SpeechRecognitionLanguage` e `EndpointId` os métodos definidos são depreciados da `SpeechConfig` classe em C#. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -78,7 +78,7 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 ```
 
 >[!Note]
-> `SetSpeechRecognitionLanguage`e `SetEndpointId` são métodos precedidos da `SpeechConfig` classe em C++ e Java. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
+> `SetSpeechRecognitionLanguage` e `SetEndpointId` são métodos precedidos da `SpeechConfig` classe em C++ e Java. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -107,7 +107,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 ```
 
 >[!Note]
-> `setSpeechRecognitionLanguage`e `setEndpointId` são métodos precedidos da `SpeechConfig` classe em C++ e Java. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
+> `setSpeechRecognitionLanguage` e `setEndpointId` são métodos precedidos da `SpeechConfig` classe em C++ e Java. O uso destes métodos é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -139,7 +139,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 ```
 
 >[!Note]
-> `speech_recognition_language`e `endpoint_id` as propriedades são depreciadas da classe em `SpeechConfig` Python. O uso destas propriedades é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
+> `speech_recognition_language` e `endpoint_id` as propriedades são depreciadas da classe em `SpeechConfig` Python. O uso destas propriedades é desencorajado, e não deve ser usado na construção de um `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -195,14 +195,14 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ```
 
 >[!Note]
-> `speechRecognitionLanguage`e `endpointId` as propriedades são depreciadas da classe em `SPXSpeechConfiguration` Objective-C. O uso destas propriedades é desencorajado, e não deve ser usado na construção de um `SPXSpeechRecognizer` .
+> `speechRecognitionLanguage` e `endpointId` as propriedades são depreciadas da classe em `SPXSpeechConfiguration` Objective-C. O uso destas propriedades é desencorajado, e não deve ser usado na construção de um `SPXSpeechRecognizer` .
 
 ::: zone-end
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * Para obter uma lista de línguas e locais apoiados para falar a texto, consulte [o suporte linguístico](language-support.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Documentação de referência do SDK de fala](speech-sdk.md)

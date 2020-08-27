@@ -2,16 +2,17 @@
 title: Gerir a utilização e os custos da Azure Application Insights Microsoft Docs
 description: Gerir volumes de telemetria e monitorizar os custos em Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309686"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930490"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -215,7 +216,7 @@ Rever aplicações Insights Utilização e custos estimados para compreender a t
 
 ### <a name="set-the-daily-cap"></a>Definir o Daily Cap
 
-Para alterar a tampa diária, na secção **Configure** do seu recurso Application Insights, na página **De Utilização e custos estimados,** selecione **Daily Cap**.
+Para alterar a tampa diária, na secção **Configure** do seu recurso Application Insights, na página **De Utilização e custos estimados,** selecione  **Daily Cap**.
 
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-003.png)
 
@@ -279,7 +280,7 @@ O envio de dados para o Application Insights pode incorrer em taxas de largura d
 
 ## <a name="disable-daily-cap-e-mails"></a>Desativar os e-mails diários da tampa
 
-Para desativar os e-mails diários da tampa do volume, na secção **Configure** do seu recurso Application Insights, no painel **de utilização e custos estimados,** selecione **Daily Cap**. Existem configurações para enviar e-mails quando a tampa é alcançada, bem como quando um nível de aviso ajustável foi atingido. Se desejar desativar todos os e-mails diários relacionados com o volume, desmarque ambas as caixas.
+Para desativar os e-mails diários da tampa do volume, na secção **Configure** do seu recurso Application Insights, no painel **de utilização e custos estimados,** selecione  **Daily Cap**. Existem configurações para enviar e-mails quando a tampa é alcançada, bem como quando um nível de aviso ajustável foi atingido. Se desejar desativar todos os e-mails diários relacionados com o volume, desmarque ambas as caixas.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Nível de preços da Legacy Enterprise (Por Nó)
 

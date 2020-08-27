@@ -1,21 +1,21 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 897e5b58aed9c47e0b94ee47d1883e2b7a28bacb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545243"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930809"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2 Atribuir permissões de acesso a uma identidade
+## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
 Para aceder aos recursos do Azure Files com autenticação baseada na identidade, uma identidade (um utilizador, grupo ou principal de serviço) deve ter as permissões necessárias ao nível da partilha. Este processo é semelhante a especificar permissões de partilha do Windows, onde especifica o tipo de acesso que um determinado utilizador tem a uma partilha de ficheiros. A orientação nesta secção demonstra como atribuir a leitura, a escrita ou a eliminação de permissões para uma partilha de ficheiros a uma identidade. 
 
@@ -35,7 +35,9 @@ Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções
 
 A recomendação geral é usar a permissão de nível de partilha para uma gestão de acesso de alto nível a um grupo de AD que representa um grupo de utilizadores e identidades, em seguida, aproveitar as permissões NTFS para o controlo de acesso granular no diretório/nível de ficheiro. 
 
-#### <a name="azure-portal"></a>Portal do Azure
+### <a name="assign-an-azure-role-to-an-ad-identity"></a>Atribuir um papel de Azure a uma identidade de AD
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
 
 1. No portal Azure, vá à sua partilha de ficheiros ou [crie uma partilha de ficheiros.](../articles/storage/files/storage-how-to-create-file-share.md)
@@ -44,7 +46,7 @@ Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal 
 4. Na lâmina de atribuição de **funções Add,** selecione a função incorporada adequada (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) da lista **Role.** Deixar **Atribuir acesso à** definição predefinida: **utilizador, grupo ou principal de serviço Azure**. Selecione a identidade AD Azure alvo pelo nome ou endereço de e-mail.
 5. **Selecione Guardar** para completar a operação de atribuição de funções.
 
-#### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 A seguinte amostra powerShell mostra como atribuir um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
@@ -59,7 +61,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
   
 O seguinte comando CLI 2.0 mostra como atribuir um papel Azure a uma identidade AD AZure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
@@ -69,8 +71,10 @@ Antes de executar o seguinte script de amostra, lembre-se de substituir os valor
 #Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
+---
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3 Configure permissões NTFS sobre SMB 
+## <a name="configure-ntfs-permissions-over-smb"></a>Configure permissões NTFS sobre SMB
+
 Depois de atribuir permissões de nível de partilha com o RBAC, deve atribuir permissões NTFS adequadas no nível de raiz, diretório ou ficheiro. Pense nas permissões de nível de partilha como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Considerando que as permissões NTFS atuam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro.
 
 O Azure Files suporta o conjunto completo de permissões básicas e avançadas do NTFS. Pode visualizar e configurar permissões NTFS em diretórios e ficheiros numa partilha de ficheiros Azure, montando a partilha e, em seguida, utilizando o Windows File Explorer ou executando os [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) windows ou o comando [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 
@@ -108,6 +112,7 @@ Se tiver problemas na ligação aos Ficheiros Azure, consulte [a ferramenta de r
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configure permissões NTFS com o Windows File Explorer
+
 Utilize o Windows File Explorer para conceder a permissão total a todos os diretórios e ficheiros sob a partilha de ficheiros, incluindo o diretório de raiz.
 
 1. Abra o Explorador de Ficheiros do Windows e clique no ficheiro/diretório e selecione **Propriedades**.
@@ -120,6 +125,7 @@ Utilize o Windows File Explorer para conceder a permissão total a todos os dire
 9.    Selecione **Aplicar**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configure permissões NTFS com ICACLs
+
 Utilize o seguinte comando do Windows para conceder permissões completas a todos os diretórios e ficheiros sob a partilha de ficheiros, incluindo o diretório de raiz. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores.
 
 ```
@@ -128,7 +134,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como utilizar os ICACLs para definir permissões NTFS e sobre os diferentes tipos de permissões apoiadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 Monte uma partilha de ficheiros a partir de um VM de domínio
+## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Monte uma partilha de ficheiros a partir de um VM de domínio
 
 O processo seguinte verifica que as permissões de partilha de ficheiros e acesso foram configuradas corretamente e que pode aceder a uma partilha de FicheiroS Azure a partir de um VM unido a domínio. Esteja ciente de que a atribuição de papel azure de nível de ação pode levar algum tempo a estar em vigor. 
 
