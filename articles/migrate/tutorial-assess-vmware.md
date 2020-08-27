@@ -4,12 +4,12 @@ description: Descreve como avaliar vMware VMware no local para migração para A
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 7616ff48c03c0de61d9179724fd8e351c6440319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8c2784e999e751972883b6c9ffba2485bb9fe9e1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936253"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950090"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs VMware com Avaliação do Servidor
 
@@ -108,13 +108,13 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (11.6 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | 9a06a31619930481f95b381a4d1d58f3869614a0ded68f1cc4f2584a4f3533
+        VMware (11.6 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae8108328e8f3a7933d7835ecd871d1b17f367621ce3c74
 
     - Para o Governo de Azure:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac044426bea18809def2284188
+        VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c582c8f3c1fc5b9c4908c7d2f9f77
 
 
 ### <a name="create-the-appliance-vm"></a>Criar o aparelho VM

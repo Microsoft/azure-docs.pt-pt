@@ -7,23 +7,23 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529571"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948645"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos em Pesquisa Cognitiva Azure
 
 Os sinónimos nos motores de busca associam termos equivalentes que expandem implicitamente o âmbito de uma consulta, sem que o utilizador tenha de fornecer o termo. Por exemplo, dado o termo "cão" e associações de sinónimo de "canino" e "cachorrinho", quaisquer documentos que contenham "cão", "canino" ou "cachorrinho" serão abrangidos pela consulta.
 
-Em Azure Cognitive Search, a expansão do sinónimo é feita no momento da consulta. Pode adicionar mapas de sinónimo a um serviço sem interrupções nas operações existentes. Pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem ter de reconstruir o índice.
+Em Azure Cognitive Search, a expansão do sinónimo é feita no momento da consulta. Pode adicionar mapas de sinónimo a um serviço sem interrupções nas operações existentes. Pode adicionar uma propriedade  **synonymMaps** a uma definição de campo sem ter de reconstruir o índice.
 
 ## <a name="create-synonyms"></a>Criar sinónimos
 
-Não existe suporte ao portal para criar sinónimos, mas pode utilizar o REST API ou .NET SDK. Para começar com o REST, recomendamos [a utilização do Carteiro](search-get-started-postman.md) e a formulação de pedidos utilizando esta API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para desenvolvedores C#, você pode começar com [Add Synonyms in Azure Cognitive Search usando C#](search-synonyms-tutorial-sdk.md).
+Não existe suporte ao portal para criar sinónimos, mas pode utilizar o REST API ou .NET SDK. Para começar com o REST, recomendamos [a utilização do Carteiro](search-get-started-postman.md) e a formulação de pedidos utilizando esta API: [Create Synonym Maps](/rest/api/searchservice/create-synonym-map). Para desenvolvedores C#, você pode começar com [Add Synonyms in Azure Cognitive Search usando C#](search-synonyms-tutorial-sdk.md).
 
 Opcionalmente, se estiver a utilizar [as teclas geridas pelo cliente](search-security-manage-encryption-keys.md) para encriptação do lado do serviço em repouso, pode aplicar essa proteção ao conteúdo do seu mapa de sinónimos.
 
@@ -92,6 +92,21 @@ O mapeamento explícito é denotado por uma seta "=>". Quando especificado, uma 
 
 ```
 Washington, Wash., WA => WA
+```
+
+Se precisar de definir sinónimos que contenham vírgulas, pode escapar-lhes com uma pestana, como neste exemplo:
+
+```
+WA\, USA, WA, Washington
+```
+
+Uma vez que o backslash é em si um personagem especial em outras línguas como JSON e C#, você provavelmente precisará de escapar duas vezes. Por exemplo, o JSON enviado à API REST para o mapa de sinónimo acima seria assim:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste mapas de sinónimos sob o seu serviço.
@@ -170,7 +185,7 @@ Se precisar de fazer uma única consulta que aplique expansão de sinónimo e pe
 
 Se tiver um índice existente num ambiente de desenvolvimento (não-produção), experimente com um pequeno dicionário para ver como a adição de sinónimos altera a experiência de pesquisa, incluindo o impacto nos perfis de pontuação, destaque de sucesso e sugestões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Criar um mapa de sinónimos](/rest/api/searchservice/create-synonym-map)

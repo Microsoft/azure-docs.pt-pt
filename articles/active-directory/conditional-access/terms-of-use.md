@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948934"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -50,7 +50,7 @@ Os termos de utilização da AD AZure têm as seguintes capacidades:
 - Indique quem aceitou ou não os seus termos de uso.
 - Ajude a cumprir os regulamentos de privacidade.
 - Apresentar um registo de termos de atividade de uso para conformidade e auditoria.
-- Crie e gere os termos de utilização [utilizando as APIs do Gráfico microsoft](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (atualmente em pré-visualização).
+- Crie e gere os termos de utilização [utilizando as APIs do Gráfico microsoft](/graph/api/resources/agreement?view=graph-rest-beta) (atualmente em pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Description |
+   | Modelo | Descrição |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |
@@ -253,7 +253,7 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outro |
+> |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicação nativa** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |

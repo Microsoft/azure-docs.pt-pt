@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414932"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949966"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Compreender os preços do Data Factory através de exemplos
 
@@ -166,6 +166,46 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 - Execução da Orquestração do Oleoduto &amp; = **$1.463**
   - Operações Execuções = 001 \* 2 = 0,002 [1 run = $1/1000 = 0,001]
   - Atividades de fluxo de dados = $1.461 prociado por 20 minutos (tempo de execução de 10 minutos + 10 minutos TTL). $0.274/hora no Tempo de Execução da Integração Azure com 16 núcleos de cálculo geral
+
+## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integração de dados na Azure Data Factory Gerido VNET
+Neste cenário, pretende eliminar ficheiros originais sobre o Armazenamento Azure Blob e copiar dados da Base de Dados Azure SQL para o Azure Blob Storage. Vais fazer esta execução duas vezes em diferentes oleodutos. O tempo de execução destes dois oleodutos está a sobrepor-se.
+![Cenário4 ](media/pricing-concepts/scenario-4.png) Para realizar o cenário, é necessário criar dois oleodutos com os seguintes itens:
+  - Uma atividade de pipeline – Apagar Atividade.
+  - Uma atividade de cópia com um conjunto de dados de entrada para que os dados sejam copiados do armazenamento da Azure Blob.
+  - Um conjunto de dados de saída para os dados da Base de Dados Azure SQL.
+  - Um horário dispara para executar o oleoduto.
+
+
+| **Operações** | **Tipos e Unidades** |
+| --- | --- |
+| Criar Serviço Linked | 4 Entidade de leitura/escrita |
+| Criar conjuntos de dados | 8 Entidades de leitura/escrita (4 para criação de conjuntos de dados, 4 para referências de serviços ligados) |
+| Criar Pipeline | 6 Entidades de leitura/escrita (2 para criação de gasodutos, 4 para referências de conjuntos de dados) |
+| Obter Pipeline | 2 Entidade de leitura/escrita |
+| Executar Pipeline | 6 Funciona a atividade (2 para o gatilho, 4 para execuções de atividade) |
+| Executar Apagar Atividade: cada tempo de execução = 5 min. A execução da Atividade de Eliminação no primeiro oleoduto é das 10:00 AM UTC às 10:05 UTC. A execução da Atividade de Eliminação no segundo oleoduto é das 10:02 AM UTC às 10:07 UTC.|Total de 7 min execução da atividade do gasoduto em VNET gerido. A atividade do gasoduto suporta até 50 concurrency em VNET gerido. |
+| Copiar Dados Pressuposto: cada tempo de execução = 10 min. A execução da Cópia no primeiro oleoduto é das 10:06 AM UTC às 10:15 UTC. A execução da Atividade de Eliminação no segundo oleoduto é das 10:08 AM UTC às 10:17 UTC. | 10 * 4 Tempo de execução da integração Azure (definição padrão de DI = 4) Para obter mais informações sobre unidades de integração de dados e otimizar o desempenho da cópia, consulte [este artigo](copy-activity-performance.md) |
+| Monitor Pipeline Assumption: Apenas 2 corridas ocorreram | 6 Registos de execução de monitorização novamente julgados (2 para o gasoduto, 4 para execução de atividade) |
+
+
+**Preço total do cenário: $0.45523**
+
+- Operações de Fábrica de Dados = $0.00023
+  - Ler/escrever = 20*00001 = $0.0002 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorização = 6*000005 = $0.00003 [1 Monitorização = $0,25/50000 = 0,000005]
+- Orquestração de Pipeline & Execução = $0,455
+  - Operações Executadas = 0,001*6 = 0,006 [1 run = $1/1000 = 0,001]
+  - Atividades de Movimento de Dados = $0.333 (Prostado por 10 minutos de tempo de execução. $0,25/hora no tempo de funcionamento da integração Azure)
+  - Atividade do gasoduto = $0.116 (Prostado para 7 minutos de tempo de execução. $1/hora no tempo de execução da integração Azure)
+
+> [!NOTE]
+> Estes preços são apenas para fins.
+
+**FAQ**
+
+P: Se eu gostaria de realizar mais de 50 atividades de pipeline, estas atividades podem ser executadas simultaneamente?
+
+R: Serão permitidas atividades de gasodutos simultâneos Max 50.  A atividade do 51º gasoduto será em fila até que seja aberta uma "ranhura livre". O mesmo para a atividade externa. Serão permitidas atividades externas simultâneas no máximo 800.
 
 ## <a name="next-steps"></a>Passos seguintes
 

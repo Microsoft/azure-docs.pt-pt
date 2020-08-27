@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874780"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948271"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -136,5 +136,5 @@ Para garantir que a sua política funciona como esperado, a melhor prática reco
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
+* Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](../authentication/tutorial-enable-azure-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)

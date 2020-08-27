@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869122"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948220"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869122"
 Saiba como se preparar para eventos de manutenção planeados na sua base de dados na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>O que é um evento de manutenção planeado?
+
+Para manter os serviços Azure SQL Database e Azure SQL Managed Instance seguros, conformes, estáveis e performantes, as atualizações estão a ser realizadas através dos componentes de serviço quase continuamente. Graças à arquitetura de serviços moderna e robusta e a tecnologias inovadoras como [o hot patching, a](https://aka.ms/azuresqlhotpatching)maioria das atualizações são totalmente transparentes e não impactantes em termos de disponibilidade de serviços. Ainda assim, poucos tipos de atualizações causam interrupções de serviço curtas e requerem tratamento especial. 
 
 Para cada base de dados, a Base de Dados Azure SQL e a Azure SQL Managed Instance mantêm um quórum de réplicas de bases de dados onde uma réplica é a principal. A todo o momento, uma réplica primária deve estar a ser a manutenção online, e pelo menos uma réplica secundária deve ser saudável. Durante a manutenção planeada, os membros do quórum da base de dados ficarão offline um de cada vez, com a intenção de que haja uma réplica primária de resposta e pelo menos uma réplica secundária on-line para garantir que nenhum cliente está em tempo de inatividade. Quando a réplica primária precisa de ser desligada, ocorrerá um processo de reconfiguração/failover no qual uma réplica secundária se tornará a nova primária.  
 

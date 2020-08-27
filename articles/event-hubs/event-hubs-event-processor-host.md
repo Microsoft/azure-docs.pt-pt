@@ -3,22 +3,20 @@ title: Receber eventos com o Host Do Processador de Eventos - Azure Event Hubs !
 description: Este artigo descreve o Anfitrião do Processador de Eventos em Azure Event Hubs, o que simplifica a gestão de checkpointing, leasing e leitura de eventos paralelos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7c6d08c385174597ce80e3ddfd6204db6b0b14a5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936185"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949087"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
 > [!NOTE]
-> Este artigo aplica-se à versão antiga do Azure Event Hubs SDK. Para aprender a migrar o seu código para a versão mais recente do SDK, consulte estes guias de migração. 
+> Este artigo aplica-se à versão antiga do Azure Event Hubs SDK. Para a versão atual do SDK, consulte [a carga de partição balance em vários casos da sua aplicação.](event-processor-balance-partition-load.md) Para aprender a migrar o seu código para a versão mais recente do SDK, consulte estes guias de migração. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Roteiro de Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Consulte [também a carga de partição do Balance em vários casos da sua aplicação.](event-processor-balance-partition-load.md)
 
 Azure Event Hubs é um poderoso serviço de ingestão de telemetria que pode ser usado para transmitir milhões de eventos a baixo custo. Este artigo descreve como consumir eventos ingeridos usando o *Anfitrião do Processador de Eventos* (EPH); um agente de consumo inteligente que simplifica a gestão de leitores de checkpoint, leasing e eventos paralelos.  
 

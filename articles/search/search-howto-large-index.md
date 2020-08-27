@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484567"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927022"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados na Pesquisa Cognitiva do Azure
 
@@ -50,7 +50,7 @@ Em geral, recomendamos apenas adicionar propriedades adicionais aos campos se pr
 
 ### <a name="batch-size"></a>Tamanho do lote
 
-Um dos mecanismos mais simples para a indexação de um conjunto de dados maior é apresentar vários documentos ou registos num único pedido. Enquanto toda a carga útil for inferior a 16 MB, um pedido pode lidar com até 1000 documentos numa operação de upload a granel. Estes limites aplicam-se quer esteja a utilizar o [Add Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou o [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no .NET SDK. Para qualquer um dos pedidos, embale 1000 documentos no corpo de cada pedido.
+Um dos mecanismos mais simples para a indexação de um conjunto de dados maior é apresentar vários documentos ou registos num único pedido. Enquanto toda a carga útil for inferior a 16 MB, um pedido pode lidar com até 1000 documentos numa operação de upload a granel. Estes limites aplicam-se quer esteja a utilizar o [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) ou o [método Index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no .NET SDK. Para qualquer um dos pedidos, embale 1000 documentos no corpo de cada pedido.
 
 A utilização de lotes para indexar documentos melhorará significativamente o desempenho da indexação. Determinar o tamanho ideal do lote para os seus dados é um componente chave para otimizar as velocidades de indexação. Os dois fatores primários que influenciam o tamanho ideal do lote são:
 + O esquema do seu índice
@@ -74,14 +74,14 @@ Pode modificar esta amostra e testar com diferentes contagens de fios para deter
 > [!NOTE]
 > À medida que aumenta o nível do seu serviço de pesquisa ou aumenta as divisórias, também deverá aumentar o número de fios simultâneos.
 
-À medida que aumenta os pedidos que atingem o serviço de pesquisa, poderá encontrar [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indiquem que o pedido não foi totalmente bem sucedido. Durante a indexação, dois códigos de estado HTTP comuns são:
+À medida que aumenta os pedidos que atingem o serviço de pesquisa, poderá encontrar [códigos de estado HTTP](/rest/api/searchservice/http-status-codes) que indiquem que o pedido não foi totalmente bem sucedido. Durante a indexação, dois códigos de estado HTTP comuns são:
 
 + **503 Serviço Indisponível** - Este erro significa que o sistema está sob carga pesada e o seu pedido não pode ser processado neste momento.
 + **207 Multi-Status** - Este erro significa que alguns documentos foram bem sucedidos, mas pelo menos um falhou.
 
 ### <a name="retry-strategy"></a>Estratégia de repetição 
 
-Se uma falha acontecer, os pedidos devem ser novamente julgados utilizando uma [estratégia de retrocesso exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Se uma falha acontecer, os pedidos devem ser novamente julgados utilizando uma [estratégia de retrocesso exponencial](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Cognitive Search.NET SDK retrifica automaticamente 503s e outros pedidos falhados, mas terá de implementar a sua própria lógica para voltar a tentar 207s. Ferramentas de código aberto como [Polly](https://github.com/App-vNext/Polly) também podem ser usadas para implementar uma estratégia de relíndi.
 
@@ -95,14 +95,14 @@ As velocidades de transferência de dados de rede podem ser um fator limitativo 
 
 + Os agendadores permitem-lhe empacotar a indexação a intervalos regulares para que possa espalhá-lo ao longo do tempo.
 + A indexação programada pode ser retomada no último ponto de paragem conhecido. Se uma fonte de dados não estiver totalmente rastreada dentro de uma janela de 24 horas, o indexante retomará a indexação no segundo dia em onde quer que tenha deixado de lado.
-+ A divisão de dados em fontes de dados individuais mais pequenas permite o processamento paralelo. Pode dividir dados de origem em componentes menores, como em vários contentores no armazenamento de Azure Blob, e depois criar objetos de origem de [dados correspondentes](https://docs.microsoft.com/rest/api/searchservice/create-data-source) na Pesquisa Cognitiva Azure que podem ser indexados em paralelo.
++ A divisão de dados em fontes de dados individuais mais pequenas permite o processamento paralelo. Pode dividir dados de origem em componentes menores, como em vários contentores no armazenamento de Azure Blob, e depois criar objetos de origem de [dados correspondentes](/rest/api/searchservice/create-data-source) na Pesquisa Cognitiva Azure que podem ser indexados em paralelo.
 
 > [!NOTE]
 > Os indexantes são específicos de dados, pelo que a utilização de uma abordagem indexante só é viável para fontes de dados selecionadas no Azure: [SQL Database,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) [Blob storage,](search-howto-indexing-azure-blob-storage.md) [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
 ### <a name="batch-size"></a>Tamanho do lote
 
-Tal como acontece com a API push, os indexantes permitem-lhe configurar o número de itens por lote. Para indexadores com base na [API Do Bloco de Índices,](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)pode definir o `batchSize` argumento para personalizar esta definição para melhor corresponder às características dos seus dados. 
+Tal como acontece com a API push, os indexantes permitem-lhe configurar o número de itens por lote. Para indexadores com base na [API Do Bloco de Índices,](/rest/api/searchservice/Create-Indexer)pode definir o `batchSize` argumento para personalizar esta definição para melhor corresponder às características dos seus dados. 
 
 Os tamanhos predefinidos do lote são específicos da fonte de dados. Azure SQL Database e Azure Cosmos DB têm um tamanho padrão de lote de 1000. Em contraste, a indexação Azure Blob define o tamanho do lote em 10 documentos em reconhecimento do tamanho médio do documento maior. 
 
@@ -112,7 +112,7 @@ O agendamento do indexante é um mecanismo importante para o processamento de gr
 
 Por design, a indexação programada começa em intervalos específicos, com um trabalho tipicamente concluído antes de retomar no intervalo agendado seguinte. No entanto, se o processamento não estiver concluído dentro do intervalo, o indexante para (porque ficou sem tempo). No intervalo seguinte, o processamento retoma onde ficou pela última vez, com o sistema a acompanhar onde isso ocorre. 
 
-Em termos práticos, para cargas de índices que se estendem por vários dias, pode colocar o indexante num horário de 24 horas. Quando a indexação retoma para o próximo ciclo de 24 horas, reinicia no último bom documento conhecido. Desta forma, um indexante pode trabalhar o seu caminho através de um atraso de documento ao longo de uma série de dias até que todos os documentos não processados sejam processados. Para obter mais informações sobre esta abordagem, consulte [indexar grandes conjuntos de dados no armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obter mais informações sobre a definição de horários em geral, consulte [a API do Indexer REST](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) ou consulte [Como agendar indexadores para a Pesquisa Cognitiva Azure](search-howto-schedule-indexers.md).
+Em termos práticos, para cargas de índices que se estendem por vários dias, pode colocar o indexante num horário de 24 horas. Quando a indexação retoma para o próximo ciclo de 24 horas, reinicia no último bom documento conhecido. Desta forma, um indexante pode trabalhar o seu caminho através de um atraso de documento ao longo de uma série de dias até que todos os documentos não processados sejam processados. Para obter mais informações sobre esta abordagem, consulte [indexar grandes conjuntos de dados no armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obter mais informações sobre a definição de horários em geral, consulte [a API do Indexer REST](/rest/api/searchservice/Create-Indexer) ou consulte [Como agendar indexadores para a Pesquisa Cognitiva Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -125,8 +125,8 @@ Para os requisitos de indexação não rotineiros e computacionalmente intensivo
 O processamento paralelo tem estes elementos:
 
 + Subdivide dados de origem entre vários contentores ou várias pastas virtuais dentro do mesmo recipiente. 
-+ Mapear cada mini conjunto de dados para a sua própria [fonte de dados,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)emparelhado com o seu próprio [indexante.](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ Para pesquisa cognitiva, refira-se o mesmo [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) em cada definição indexante.
++ Mapear cada mini conjunto de dados para a sua própria [fonte de dados,](/rest/api/searchservice/create-data-source)emparelhado com o seu próprio [indexante.](/rest/api/searchservice/create-indexer)
++ Para pesquisa cognitiva, refira-se o mesmo [skillset](/rest/api/searchservice/create-skillset) em cada definição indexante.
 + Escreva no mesmo índice de pesquisa de alvos. 
 + Agende todos os indexantes para funcionar ao mesmo tempo.
 
@@ -156,7 +156,7 @@ Na hora programada, todos os indexantes iniciam a execução, carregando dados, 
 > [!Note]
 > Ao aumentar as réplicas, considere aumentar a contagem de partição se o tamanho do índice for projetado para aumentar significativamente. As divisórias armazenam fatias de conteúdo indexado; quanto mais divisórias tiveres, menor será a fatia que cada um tem para armazenar.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Indexação no portal](search-import-data-portal.md)

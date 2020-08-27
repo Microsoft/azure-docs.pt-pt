@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546266"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927209"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva Azure
 
@@ -21,7 +21,7 @@ Antes [de fornecer um serviço de pesquisa](search-create-service-portal.md) e b
 
 A capacidade é uma função do [nível que escolhes](search-sku-tier.md) (os níveis determinam as características do hardware) e a combinação de replicação e partição necessária para cargas de trabalho projetadas. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas. 
 
-Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações admissíveis que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou códigos, o [Azure PowerShell](search-manage-powershell.md) ou a [API Management REST](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
+Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações admissíveis que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou códigos, o [Azure PowerShell](search-manage-powershell.md) ou a [API Management REST](/rest/api/searchmanagement/services) são soluções alternativas.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e divisórias
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922118"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948305"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
@@ -53,7 +53,7 @@ Para editar um controlo personalizado, deve eliminar o controlo de corrente e cr
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que requer a autenticação multi-factor Azure, o reset da palavra-passe de autosserviço AZure AD (SSPR), satisfazendo os requisitos de reclamação de autenticação de vários fatores, para elevar as funções no Privileged Identity Manager (PIM), ou como parte da inscrição do dispositivo Intune.
+Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que requer a autenticação multi-factor Azure, o reset da palavra-passe de autosserviço AZure AD (SSPR), satisfazendo os requisitos de reclamação de autenticação de vários fatores, para elevar as funções no Privileged Identity Manager (PIM), como parte da inscrição do dispositivo Intune, ou ao juntar dispositivos à Azure AD.
 
 ## <a name="next-steps"></a>Passos seguintes
 

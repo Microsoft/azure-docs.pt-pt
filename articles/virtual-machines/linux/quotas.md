@@ -4,19 +4,22 @@ description: Saiba mais sobre as quotas vCPU para Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292316"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949699"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Verifique as quotas vCPU utilizando o Azure CLI
 
 As quotas vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais estão dispostas em dois níveis para cada subscrição, em cada região. O primeiro nível é o Total Regional vCPUs, e o segundo nível são os vários núcleos familiares de tamanho VM, como os vCPUs da série D. Sempre que um novo VM é implantado, os vCPUs para o VM não devem exceder a quota vCPU para a família do tamanho VM ou a quota total de vCPU regional. Se uma dessas quotas for excedida, a implantação em VM não será permitida. Existe também uma quota para o número global de máquinas virtuais na região. Os detalhes sobre cada uma destas quotas podem ser vistos na secção **Utilização + quotas** da página **Subscrição** no [portal Azure,](https://portal.azure.com)ou pode consultar os valores usando o CLI Azure.
+
+> [!NOTE]
+> A quota é calculada com base no número total de núcleos utilizados, tanto atribuídos como com deallocados. Se precisar de núcleos adicionais, [solicite um aumento de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) ou elimine VMs que já não são necessários. 
 
 
 ## <a name="check-usage"></a>Verificar utilização

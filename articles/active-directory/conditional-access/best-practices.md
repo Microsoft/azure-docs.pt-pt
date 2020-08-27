@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275433"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948458"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Diretório Ativo Azure
 
-Com [o Azure Ative Directory (Azure AD) Acesso Condicional,](../active-directory-conditional-access-azure-portal.md)pode controlar como os utilizadores autorizados acedem às suas aplicações na nuvem. Este artigo fornece-lhe informações sobre:
+Com [o Azure Ative Directory (Azure AD) Acesso Condicional,](./overview.md)pode controlar como os utilizadores autorizados acedem às suas aplicações na nuvem. Este artigo fornece-lhe informações sobre:
 
 - Coisas que deve saber 
 - O que deve evitar fazer ao configurar políticas de acesso condicional. 
 
-Este artigo assume que está familiarizado com os conceitos e a terminologia delineada no [Que é o Acesso Condicional no Diretório Ativo Azure?](../active-directory-conditional-access-azure-portal.md)
+Este artigo assume que está familiarizado com os conceitos e a terminologia delineada no [Que é o Acesso Condicional no Diretório Ativo Azure?](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>O que é necessário para fazer uma política funcionar?
 
@@ -57,7 +57,7 @@ Todas as políticas são aplicadas em duas fases:
    - Utilize os detalhes da sessão recolhidos na fase 1 para identificar quaisquer requisitos que não tenham sido cumpridos. 
    - Se houver uma política que esteja configurada para bloquear o acesso, com o controlo da subvenção por bloco, a aplicação da lei parará aqui e o utilizador será bloqueado. 
    - O utilizador será então solicitado a completar requisitos adicionais de controlo de subvenções que não tenham sido satisfeitos durante a fase 1 na seguinte ordem, até que a política esteja satisfeita:  
-      - Multi-factor authentication 
+      - Autenticação multifator 
       - Política de proteção de aplicativos/aplicativos de cliente aprovado 
       - Dispositivo gerido (junção AD AD compatível ou híbrido) 
       - Termos de utilização 
@@ -154,5 +154,5 @@ Para obter mais informações, veja [Migrate classic policies in the Azure porta
 
 Se quiser saber:
 
-- Como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
+- Como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](../authentication/tutorial-enable-azure-mfa.md).
 - Como planear as suas políticas de Acesso Condicional, ver [como planear a sua implementação de Acesso Condicional no Diretório Ativo Azure.](plan-conditional-access.md)

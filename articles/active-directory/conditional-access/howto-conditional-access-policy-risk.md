@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024366"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948101"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso Condicional: Acesso condicional baseado no risco de inscrição
 
@@ -35,11 +35,11 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
 1. Em **Condições**  >  **Risco do utilizador**, definir **Configurar** para **Sim**. Em **Selecione o nível de risco de inscrição esta política aplicar-se-á a** 
    1. Selecione **Alto** e **Médio**.
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar para ativar a sua política.
@@ -52,7 +52,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 1. Em **Atribuições**, selecione **Utilizadores.**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir'**( **Selecione Selecionar utilizadores excluídos),** escolha o acesso de emergência da sua organização ou contas de break-glass e selecione **Select**.
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **Condições**, selecione **o risco de inscrição,** em seguida, escolha Médio e **superior**.
    1. **Selecione Selecione**e, em **seguida, Feito**.
 1. No **Acesso ao**  >  **Controlo**, escolha **Permitir o acesso**e, em seguida, selecione **Requera a autenticação multi-factor**.
@@ -60,7 +60,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 1. Definir **a política de execução** para **on**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
@@ -70,4 +70,4 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[O que é o Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

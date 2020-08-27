@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232349"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949179"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de Proteção de Identidade Azure Ative
 
@@ -56,13 +56,13 @@ Uma deteção de risco desencadeada quando são detetados dois sinais de inscri�
 ### <a name="investigation"></a>Investigação
 O processo de revisão das atividades, registos e outras informações relevantes relacionadas com uma deteção de risco para decidir se são necessárias medidas de reparação ou mitigação, compreender se e como a identidade foi comprometida, e compreender como a identidade comprometida foi utilizada.
 
-### <a name="leaked-credentials"></a>Credenciais vazadas
+### <a name="leaked-credentials"></a>Fuga de credenciais
 Uma deteção de risco desencadeada quando as credenciais de utilizador atuais (nome de utilizador e palavra-passe) são encontradas publicamente na web Dark pelos nossos investigadores.
 
 ### <a name="mitigation"></a>Mitigação
 Uma ação para limitar ou eliminar a capacidade de um intruso explorar uma identidade ou dispositivo comprometido sem restaurar a identidade ou o dispositivo para um estado seguro. Uma mitigação não resolve as deteções de risco anteriores associadas à identidade ou dispositivo.
 
-### <a name="multi-factor-authentication"></a>Multi-factor authentication
+### <a name="multi-factor-authentication"></a>Autenticação multifator
 Um método de autenticação que exija dois ou mais métodos de autenticação, que podem incluir algo que o utilizador tem, tal certificado; algo que o utilizador saiba, como nomes de utilizador, palavras-passe ou frases de passe; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
 
 ### <a name="offline-detection"></a>Deteção offline
@@ -95,7 +95,7 @@ Uma ação para garantir uma identidade ou um dispositivo que já era suspeito o
 ### <a name="resolved-risk-detection"></a>Resolvido (deteção de riscos)
 Um estado de deteção de risco definido manualmente por um utilizador da Proteção de Identidade, indicando que o utilizador tomou uma ação de reparação adequada fora da Proteção de Identidade, e que a deteção de risco deve ser considerada fechada.
 
-### <a name="risk-detection-status"></a>Estado de deteção de riscos
+### <a name="risk-detection-status"></a>Estado de deteção de risco
 Uma propriedade de uma deteção de risco, indicando se o evento está ativo, e se fechado, o motivo para fechá-lo.
 
 ### <a name="risk-detection-type"></a>Tipo de deteção de risco
@@ -137,10 +137,10 @@ Uma deteção de risco desencadeada após uma sessão bem sucedida a partir de u
 ### <a name="sign-in-from-unfamiliar-location"></a>Inscreva-se a partir de localização desconhecida
 Uma deteção de risco desencadeada quando um utilizador assina com sucesso a partir de um novo local (IP, Latitude/Longitude e ASN).
 
-### <a name="sign-in-risk"></a>Risco de inscrição
+### <a name="sign-in-risk"></a>Risco de início de sessão
 Ver nível de risco (iniciar s-in)
 
-### <a name="sign-in-risk-policy"></a>Política de risco de inscrição
+### <a name="sign-in-risk-policy"></a>Política de risco do início de sessão
 Uma política de acesso condicional que avalia o risco a uma determinada inscrição e aplica mitigações com base em condições e regras predefinidas.
 
 ### <a name="user-compromise-risk"></a>Risco de compromisso do utilizador
@@ -158,6 +158,6 @@ Utilizadores que têm deteções de risco, que são ativas ou remediadas
 ### <a name="vulnerability"></a>Vulnerabilidade
 Uma configuração ou condição no Azure Ative Directory, o que torna o diretório suscetível a explorações ou ameaças.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-- [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)
+- [Proteção de Identidade do Diretório Ativo Azure](./overview-identity-protection.md)

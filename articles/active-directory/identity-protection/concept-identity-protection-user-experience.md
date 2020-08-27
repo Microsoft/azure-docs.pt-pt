@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72887003"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950209"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências do utilizador com a Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Todas as políticas de Proteção de Identidade têm impacto no sinal de experi�
 
 ## <a name="multi-factor-authentication-registration"></a>Registo de autenticação multi-factor
 
-Permitindo a política de Proteção de Identidade que requer registo de autenticação multi-factor e direcionamento para todos os seus utilizadores, irá certificar-se de que eles têm a capacidade de utilizar o Azure MFA para se auto-remediar no futuro. Configurar esta política confere aos seus utilizadores um período de 14 dias onde podem optar por se registar e no final são obrigados a registar-se. A experiência para os utilizadores está delineada abaixo. Mais informações podem ser encontradas na documentação do utilizador final no artigo, [Visão geral para verificação de dois fatores e a sua conta de trabalho ou escola.](../user-help/user-help-two-step-verification-overview.md)
+Permitindo a política de Proteção de Identidade que requer registo de autenticação multi-factor e direcionamento para todos os seus utilizadores, irá certificar-se de que eles têm a capacidade de utilizar o Azure MFA para se auto-remediar no futuro. Configurar esta política confere aos seus utilizadores um período de 14 dias onde podem optar por se registar e no final são obrigados a registar-se. A experiência para os utilizadores está delineada abaixo. Mais informações podem ser encontradas na documentação do utilizador final no artigo, [Visão geral para verificação de dois fatores e a sua conta de trabalho ou escola.](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ### <a name="registration-interrupt"></a>Interrupção de inscrições
 
@@ -84,4 +84,4 @@ O pessoal de TI pode seguir as instruções na secção [Desbloquear os utilizad
 
 - [Remediar riscos e desbloquear utilizadores](howto-identity-protection-remediate-unblock.md)
 
-- [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md) 
+- [Proteção de Identidade do Diretório Ativo Azure](./overview-identity-protection.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948390"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
@@ -42,9 +42,9 @@ A parte das atribuições controla quem, o quê e onde da política de acesso co
 
 Uma política pode conter múltiplas [condições](concept-conditional-access-conditions.md).
 
-#### <a name="sign-in-risk"></a>Risco de inscrição
+#### <a name="sign-in-risk"></a>Risco de início de sessão
 
-Para organizações com [Proteção de Identidade AZure AD,](../identity-protection/overview.md)as deteções de risco aí geradas podem influenciar as suas políticas de Acesso Condicional.
+Para organizações com [Proteção de Identidade AZure AD,](../identity-protection/overview-identity-protection.md)as deteções de risco aí geradas podem influenciar as suas políticas de Acesso Condicional.
 
 #### <a name="device-platforms"></a>Plataformas de dispositivos
 

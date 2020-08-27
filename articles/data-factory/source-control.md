@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067414"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949138"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -46,7 +46,7 @@ Abaixo está uma lista de algumas das vantagens que a integração git proporcio
 -   **Melhor desempenho:** Uma fábrica média com integração de git carrega 10 vezes mais rápido do que uma autoria contra o serviço de fábrica de dados. Esta melhoria de desempenho é porque os recursos são descarregados via Git.
 
 > [!NOTE]
-> A autoria direta com o serviço Data Factory é desativada no Azure Data Factory UX quando um repositório de Git é configurado. As alterações podem ser feitas diretamente ao serviço através do PowerShell ou de um SDK.
+> A autoria direta com o serviço Data Factory é desativada no Azure Data Factory UX quando um repositório de Git é configurado. As alterações efetuadas através do PowerShell ou de um SDK são publicadas diretamente no serviço Data Factory e não são introduzidas no Git.
 
 ## <a name="author-with-azure-repos-git-integration"></a>Author with Azure Repos Git integration (Criar com a integração em Repositórios do Azure no Git)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846314"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948407"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -35,7 +35,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
-- DevOps do Azure
+- Azure DevOps
 - [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
@@ -103,7 +103,7 @@ A aplicação Microsoft Azure Management inclui vários serviços subjacentes.
    - APIs modelo de implementação clássico
    - Azure PowerShell
    - Portal de administrador de subscrições de Estúdio Visual
-   - DevOps do Azure
+   - Azure DevOps
    - Portal Azure Data Factory
 
 > [!NOTE]
@@ -115,7 +115,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 
 - Candidaturas publicadas através do [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md)
 - [Candidaturas adicionadas da galeria](../manage-apps/add-application-portal.md)
-- [Aplicações personalizadas não na galeria](../manage-apps/add-non-gallery-app.md)
+- [Aplicações personalizadas não na galeria](../manage-apps/view-applications-portal.md)
 - [Aplicações legacy publicadas através de controladores e redes de entrega de aplicações](../manage-apps/secure-hybrid-access.md)
 - Aplicações que usam [palavra-passe com base num único sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

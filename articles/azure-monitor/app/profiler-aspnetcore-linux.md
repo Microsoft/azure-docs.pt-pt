@@ -2,16 +2,17 @@
 title: Perfil ASP.NET aplicações web Core Azure Linux com Perfil de Insights de Aplicações ; Microsoft Docs
 description: Uma visão geral conceptual e um tutorial passo a passo sobre como usar o Profiler Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a21d48787a39c491a2ab1ace1bf42ff85bd34993
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078092"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930388"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Perfil ASP.NET aplicações web Core Azure Linux com perfil de insights de aplicação
 
@@ -168,7 +169,7 @@ Para obter mais opções de implementação, consulte [a documentação do Servi
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se utilizar recipientes personalizados que são hospedados pelo Azure App Service, siga as instruções no [Enable Service Profiler para uma aplicação core de ASP.NET contentorizada](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para ativar o Perfil de Insights de Aplicação.
+Se utilizar recipientes personalizados que são hospedados pelo Azure App Service, siga as instruções no [ Enable Service Profiler para uma aplicação core de ASP.NET contentorizada](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para ativar o Perfil de Insights de Aplicação.
 
 Reportar quaisquer problemas ou sugestões ao repositório de Insights de Aplicação GitHub: [ApplicationInsights-Profiler-AspNetCore: Problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
 

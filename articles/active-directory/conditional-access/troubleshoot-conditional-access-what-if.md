@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032929"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948186"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Resolução de problemas Acesso Condicional usando a ferramenta E Se
 
@@ -76,6 +76,6 @@ Este teste poderia ser expandido para incorporar outros pontos de dados para red
 ## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o Acesso Condicional?](overview.md)
-* [O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
+* [O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [O que é um ID do dispositivo?](../devices/overview.md)
 * [Como funciona: Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)

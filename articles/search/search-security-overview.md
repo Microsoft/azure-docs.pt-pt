@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225279"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928773"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -54,7 +54,7 @@ As chaves geridas pelo cliente requerem um serviço adicional de faturação, a 
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Dupla encriptação
+### <a name="double-encryption"></a>Encriptação dupla
 
 Em Azure Cognitive Search, a dupla encriptação é uma extensão de CMK. Entende-se que seja uma encriptação dupla (uma vez por CMK, e novamente por chaves geridas pelo serviço), e abrangente no âmbito, abrangendo o armazenamento de longo prazo que é escrito para um disco de dados, e armazenamento de curto prazo escrito em discos temporários. A diferença entre a CMK antes de 1 de agosto de 2020 e depois, e o que faz da CMK uma dupla funcionalidade de encriptação na Azure Cognitive Search, é a encriptação adicional de dados em repouso em discos temporários.
 
@@ -94,7 +94,7 @@ Para controlar ainda mais o acesso ao seu serviço de pesquisa, pode criar regra
 
 Pode utilizar o portal para [configurar](service-configure-firewall.md)o acesso à entrada .
 
-Em alternativa, pode utilizar as APIs de gestão REST. A versão API 2020-03-13, com o parâmetro [IpRule,](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) permite-lhe restringir o acesso ao seu serviço identificando endereços IP, individualmente ou num intervalo, que pretende conceder acesso ao seu serviço de pesquisa.
+Em alternativa, pode utilizar as APIs de gestão REST. A versão API 2020-03-13, com o parâmetro [IpRule,](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) permite-lhe restringir o acesso ao seu serviço identificando endereços IP, individualmente ou num intervalo, que pretende conceder acesso ao seu serviço de pesquisa.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Ponto final privado (sem tráfego de Internet)
 
@@ -127,7 +127,7 @@ Se necessitar de controlo granular por utilizador sobre os resultados da pesquis
 
 ## <a name="administrative-rights"></a>Direitos administrativos
 
-[O Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído no [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. Na Pesquisa Cognitiva Azure, o Gestor de Recursos é utilizado para criar ou eliminar o serviço, gerir as teclas API e escalar o serviço. Como tal, as atribuições de funções da Azure determinarão quem pode executar essas tarefas, independentemente de estarem a utilizar o [portal](search-manage.md), [PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão.](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
+[O Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído no [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. Na Pesquisa Cognitiva Azure, o Gestor de Recursos é utilizado para criar ou eliminar o serviço, gerir as teclas API e escalar o serviço. Como tal, as atribuições de funções da Azure determinarão quem pode executar essas tarefas, independentemente de estarem a utilizar o [portal](search-manage.md), [PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão.](/rest/api/searchmanagement/search-howto-management-rest-api)
 
 Em contrapartida, os direitos de administração sobre os conteúdos alojados no serviço, tais como a capacidade de criar ou eliminar um índice, são conferidos através de teclas API, conforme descrito na [secção anterior](#index-access).
 

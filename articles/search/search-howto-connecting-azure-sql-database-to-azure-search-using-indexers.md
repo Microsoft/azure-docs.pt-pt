@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 725ee57a06d3d547142fdd39ef03e1c7e7c296a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084148"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923029"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -34,13 +34,13 @@ Um **indexante** é um recurso que liga uma única fonte de dados com um índice
 * Atualizar um índice com alterações na fonte de dados num horário.
 * Corra a pedido para atualizar um índice conforme necessário.
 
-Um indexador único só pode consumir uma tabela ou uma vista, mas pode criar vários indexadores se quiser preencher vários índices de pesquisa. Para obter mais informações sobre conceitos, consulte [Indexer Operations: Típico fluxo de trabalho.](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow)
+Um indexador único só pode consumir uma tabela ou uma vista, mas pode criar vários indexadores se quiser preencher vários índices de pesquisa. Para obter mais informações sobre conceitos, consulte [Indexer Operations: Típico fluxo de trabalho.](/rest/api/searchservice/Indexer-operations#typical-workflow)
 
 Pode configurar e configurar um indexador Azure SQL utilizando:
 
 * Assistente de dados de importação no [portal Azure](https://portal.azure.com)
-* Pesquisa Cognitiva Azure [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
+* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 Neste artigo, usaremos a API REST para criar **indexantes** e **fontes de dados.**
 
@@ -51,7 +51,7 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
 |----------|---------|
 | Os dados são originários de uma única tabela ou vista | Se os dados estiverem espalhados por várias tabelas, pode criar uma única visão dos dados. No entanto, se utilizar uma vista, não poderá utilizar a deteção de alterações integradas do SQL Server para atualizar um índice com alterações incrementais. Para obter mais informações, consulte [Capturing Changed and Deleted Rows](#CaptureChangedRows) abaixo. |
 | Os tipos de dados são compatíveis | A maioria, mas nem todos os tipos DE SQL são suportados num índice de Pesquisa Cognitiva Azure. Para obter uma lista, consulte [os tipos de dados de mapeamento](#TypeMapping). |
-| Não é necessária sincronização de dados em tempo real | Um indexante pode reindexar a sua mesa no máximo a cada cinco minutos. Se os seus dados forem frequentemente alterados e as alterações precisarem de ser refletidas no índice dentro de segundos ou minutos, recomendamos a utilização da [API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou [da .NET SDK](search-import-data-dotnet.md) para empurrar diretamente as linhas atualizadas. |
+| Não é necessária sincronização de dados em tempo real | Um indexante pode reindexar a sua mesa no máximo a cada cinco minutos. Se os seus dados forem frequentemente alterados e as alterações precisarem de ser refletidas no índice dentro de segundos ou minutos, recomendamos a utilização da [API REST](/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou [da .NET SDK](./search-get-started-dotnet.md) para empurrar diretamente as linhas atualizadas. |
 | A indexação incremental é possível | Se tiver um grande conjunto de dados e planeia executar o indexante num horário, o Azure Cognitive Search deve ser capaz de identificar de forma eficiente novas, alteradas ou eliminadas linhas. A indexação não incremental só é permitida se estiver a indexar a pedido (não no horário), ou a indexar menos de 100.000 linhas. Para obter mais informações, consulte [Capturing Changed and Deleted Rows](#CaptureChangedRows) abaixo. |
 
 > [!NOTE] 
@@ -76,7 +76,7 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
 
    Pode obter a cadeia de ligação do [portal Azure;](https://portal.azure.com) usar a `ADO.NET connection string` opção.
 
-2. Crie o índice de pesquisa cognitiva Azure alvo se ainda não tiver um. Pode criar um índice utilizando o [portal](https://portal.azure.com) ou a [API do Índice de Criação](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema da tabela de origem - consulte o mapeamento entre os tipos de [dados de pesquisa cognitiva SQL e Azure .](#TypeMapping)
+2. Crie o índice de pesquisa cognitiva Azure alvo se ainda não tiver um. Pode criar um índice utilizando o [portal](https://portal.azure.com) ou a [API do Índice de Criação](/rest/api/searchservice/Create-Index). Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema da tabela de origem - consulte o mapeamento entre os tipos de [dados de pesquisa cognitiva SQL e Azure .](#TypeMapping)
 
 3. Crie o indexante dando-lhe um nome e referindo a fonte de dados e o índice alvo:
 
@@ -99,9 +99,9 @@ Um indexante criado desta forma não tem um horário. Funciona automaticamente u
     api-key: admin-key
 ```
 
-Pode personalizar vários aspetos do comportamento do indexante, tais como o tamanho do lote e quantos documentos podem ser ignorados antes que uma execução indexante falhe. Para obter mais informações, consulte [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+Pode personalizar vários aspetos do comportamento do indexante, tais como o tamanho do lote e quantos documentos podem ser ignorados antes que uma execução indexante falhe. Para obter mais informações, consulte [Create Indexer API](/rest/api/searchservice/Create-Indexer).
 
-Poderá ter de permitir que os serviços da Azure se conectem à sua base de dados. Consulte [a Ligação de Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para obter instruções sobre como fazê-lo.
+Poderá ter de permitir que os serviços da Azure se conectem à sua base de dados. Consulte [a Ligação de Azure](../azure-sql/database/firewall-configure.md) para obter instruções sobre como fazê-lo.
 
 Para monitorizar o estado do indexante e o histórico de execução (número de itens indexados, falhas, etc.), utilize um pedido **de estado indexante:**
 
@@ -146,7 +146,7 @@ A resposta deve ser semelhante à seguinte:
 ```
 
 O histórico de execução contém até 50 das execuções mais recentes concluídas, que são ordenadas na ordem cronológica inversa (de modo que a última execução vem em primeiro lugar na resposta).
-Informações adicionais sobre a resposta podem ser encontradas no [Estado do Indexante](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
+Informações adicionais sobre a resposta podem ser encontradas no [Estado do Indexante](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Executar indexadores em um horário
 Também pode organizar o indexante para funcionar periodicamente num horário. Para isso, adicione a propriedade do **horário** ao criar ou atualizar o indexante. O exemplo abaixo mostra um pedido DEP para atualizar o indexante:
@@ -174,7 +174,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 A Azure Cognitive Search usa **indexação incremental** para evitar ter que reindexar toda a tabela ou visualizar cada vez que um indexante corre. A Azure Cognitive Search fornece duas políticas de deteção de alterações para suportar a indexação incremental. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Política integrada de rastreio de alterações DA SQL
-Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
+Se a sua base de dados SQL suportar o rastreio de [alterações,](/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
 
 #### <a name="requirements"></a>Requisitos 
 
@@ -182,7 +182,7 @@ Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.m
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
   * Azure SQL Database ou SQL Managed Instance.
 + Tabelas apenas (sem vistas). 
-+ Na base de dados, ative o [rastreio de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) para a tabela. 
++ Na base de dados, ative o [rastreio de alterações](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) para a tabela. 
 + Não há chave primária composta (uma chave primária que contenha mais de uma coluna) sobre a tabela.  
 
 #### <a name="usage"></a>Utilização
@@ -204,7 +204,7 @@ Para utilizar esta política, crie ou atualize a sua fonte de dados desta forma:
 Ao utilizar a política integrada de rastreio de alterações SQL, não especifique uma política separada de deteção de eliminação de dados - esta política tem suporte incorporado para identificar linhas eliminadas. No entanto, para que as eliminações sejam detetadas "automagicamente", a chave de documento no seu índice de pesquisa deve ser a mesma que a chave primária na tabela SQL. 
 
 > [!NOTE]  
-> Ao utilizar a [TABELA TRUNCATE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) para remover um grande número de linhas de uma tabela SQL, o indexante precisa de ser [reiniciado](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) para redefinir o estado de rastreio de alterações para recolher as supressões de linha.
+> Ao utilizar a [TABELA TRUNCATE](/sql/t-sql/statements/truncate-table-transact-sql) para remover um grande número de linhas de uma tabela SQL, o indexante precisa de ser [reiniciado](/rest/api/searchservice/reset-indexer) para redefinir o estado de rastreio de alterações para recolher as supressões de linha.
 
 <a name="HighWaterMarkPolicy"></a>
 
@@ -217,10 +217,10 @@ Esta política de deteção de alterações baseia-se numa coluna de "marca de �
 * Todos os inserções especificam um valor para a coluna.
 * Todas as atualizações para um item também alteram o valor da coluna.
 * O valor desta coluna aumenta com cada inserção ou atualização.
-* As consultas com as seguintes cláusulas WHERE e ORDER BY podem ser executadas de forma eficiente:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* As consultas com as seguintes cláusulas WHERE e ORDER BY podem ser executadas de forma eficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> Recomendamos vivamente a utilização do tipo [de dados de remar](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) para a coluna de alta marca de água. Se qualquer outro tipo de dados for utilizado, o rastreio de alterações não é garantido para capturar todas as alterações na presença de transações executadas simultaneamente com uma consulta indexante. Ao utilizar **a versão de linha** numa configuração com réplicas apenas de leitura, deve apontar o indexante para a réplica primária. Apenas uma réplica primária pode ser usada para cenários de sincronização de dados.
+> Recomendamos vivamente a utilização do tipo [de dados de remar](/sql/t-sql/data-types/rowversion-transact-sql) para a coluna de alta marca de água. Se qualquer outro tipo de dados for utilizado, o rastreio de alterações não é garantido para capturar todas as alterações na presença de transações executadas simultaneamente com uma consulta indexante. Ao utilizar **a versão de linha** numa configuração com réplicas apenas de leitura, deve apontar o indexante para a réplica primária. Apenas uma réplica primária pode ser usada para cenários de sincronização de dados.
 
 #### <a name="usage"></a>Utilização
 
@@ -248,7 +248,7 @@ Para utilizar uma política de marca de água elevada, crie ou atualize a sua fo
 
 ##### <a name="converthighwatermarktorowversion"></a>converterHighWaterMarkToRowVersion
 
-Se estiver a utilizar um tipo [de dados de partilha de linha](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) para a coluna de alta marca de água, considere utilizar a definição de configuração do `convertHighWaterMarkToRowVersion` indexante. `convertHighWaterMarkToRowVersion`faz duas coisas:
+Se estiver a utilizar um tipo [de dados de partilha de linha](/sql/t-sql/data-types/rowversion-transact-sql) para a coluna de alta marca de água, considere utilizar a definição de configuração do `convertHighWaterMarkToRowVersion` indexante. `convertHighWaterMarkToRowVersion` faz duas coisas:
 
 * Utilize o tipo de dados de partilha de linha para a coluna de alta marca de água na consulta sql indexante. A utilização do tipo de dados correto melhora o desempenho da consulta do indexante.
 * Subtrair 1 do valor de remar antes da consulta do indexante. Vistas com 1 a muitos junções podem ter linhas com valores duplicados de remar. Subtrair 1 garante que a consulta do indexante não perca estas linhas.
@@ -321,7 +321,7 @@ O **softDeleteMarkerValue** deve ser uma corda – use a representação de cord
 | bigint |Edm.Int64, Edm.String | |
 | real, flutuar |Edm.Double, Edm.String | |
 | pequeno dinheiro, dinheiro decimal numérico |Edm.String |A Azure Cognitive Search não suporta a conversão de tipos decimais em Edm.Double porque isso perderia precisão |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma corda SQL pode ser usada para povoar um campo Collection (Edm.String) se a corda representar uma matriz de cordas JSON:`["red", "white", "blue"]` |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma corda SQL pode ser usada para povoar um campo Collection (Edm.String) se a corda representar uma matriz de cordas JSON: `["red", "white", "blue"]` |
 | hora pequena, data, data 2, data, data, data |Edm.DateTimeOffset, Edm.String | |
 | único identificador |Edm.String | |
 | geografia |Edm.GeographyPoint |Apenas são suportados casos de geografia do tipo POINT com SRID 4326 (que é o padrão) |
@@ -354,7 +354,7 @@ Yes. No entanto, tem de permitir que o seu serviço de pesquisa se conecte à su
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados SQL a funcionar no local?**
 
-Não diretamente. Não recomendamos nem apoiamos uma ligação direta, pois isso exigiria que abrisse as suas bases de dados ao tráfego da Internet. Os clientes conseguiram com este cenário utilizar tecnologias de ponte como a Azure Data Factory. Para obter mais informações, consulte [os dados push para um índice de pesquisa cognitiva Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Não diretamente. Não recomendamos nem apoiamos uma ligação direta, pois isso exigiria que abrisse as suas bases de dados ao tráfego da Internet. Os clientes conseguiram com este cenário utilizar tecnologias de ponte como a Azure Data Factory. Para obter mais informações, consulte [os dados push para um índice de pesquisa cognitiva Azure usando Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados que não o SQL Server em funcionamento em IaaS em Azure?**
 
@@ -368,7 +368,7 @@ Yes. No entanto, apenas um indexante pode estar a funcionar com um nó de cada v
 
 Yes. O Indexer funciona num dos nós do seu serviço de pesquisa, e os recursos do nó são partilhados entre indexação e serviço de tráfego de consulta e outros pedidos de API. Se executar cargas de trabalho de indexação e consulta intensivas e encontrar uma taxa elevada de 503 erros ou aumentar os tempos de resposta, considere [aumentar o seu serviço de pesquisa](search-capacity-planning.md).
 
-**P: Posso usar uma réplica secundária num [cluster de falha](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) como fonte de dados?**
+**P: Posso usar uma réplica secundária num [cluster de falha](../azure-sql/database/auto-failover-group-overview.md) como fonte de dados?**
 
 Depende. Para indexação completa de uma tabela ou vista, pode utilizar uma réplica secundária. 
 
@@ -388,4 +388,4 @@ Não é recomendado. Apenas **a partilha de linha** permite uma sincronização 
 
 + Pode garantir que, quando o indexante funciona, não há transações pendentes na tabela que estão a ser indexadas (por exemplo, todas as atualizações de tabelas acontecem como um lote num horário, e o calendário do indexante de pesquisa cognitiva Azure está definido para evitar sobreposição com o calendário de atualização da tabela).  
 
-+ Faz-se periodicamente uma reindexo completa para apanhar as filas perdidas. 
++ Faz-se periodicamente uma reindexo completa para apanhar as filas perdidas.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03b06d46cb35346580070f1739fd43128fa7a7fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463931"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950362"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Como: Dar feedback de risco na Proteção de Identidade AZure AD
 
@@ -45,7 +45,7 @@ O Azure AD utiliza o seu feedback para atualizar o risco do utilizador subjacent
 
 Aqui estão os cenários e mecanismos para dar feedback de risco ao Azure AD.
 
-| Scenario | Como dar feedback? | O que acontece debaixo do capuz? | Notas |
+| Cenário | Como dar feedback? | O que acontece debaixo do capuz? | Notas |
 | --- | --- | --- | --- |
 | **S-in não comprometido (Falso positivo)** <br> O relatório "Ins de risco" mostra um sinal de risco [Estado de risco = em risco] mas essa inscrição não foi comprometida. | Selecione o sôm-in e clique em 'Confirme o cofre de entrada'. | A Azure AD moverá o risco agregado do sign-in para nenhum [Estado de risco = Seguro confirmado; Nível de risco (Agregado) = -] e reverterá o seu impacto no risco de utilizador. | Atualmente, a opção "Confirmar o aviso seguro" só está disponível no relatório "Entradas arriscadas". |
 | **Inscrição comprometida (Verdadeiro positivo)** <br> O relatório «Ins de risco» mostra um sinal de risco [Estado de risco = em risco] com baixo risco [Nível de risco (agregado) = Baixo] e essa inscrição foi efetivamente comprometida. | Selecione o sômin e clique em 'Confirme o sinal comprometido'. | O Azure AD moverá o risco agregado do sign-in e o risco do utilizador para o estado de alto risco = confirmado comprometido; Nível de risco = Alto]. | Atualmente, a opção "Confirmar a inscrição comprometida" só está disponível no relatório "Entradas arriscadas". |
@@ -58,6 +58,6 @@ O feedback sobre as deteções de risco do utilizador na Proteção de Identidad
 
 ![Estado de processamento de risco para relatório de utilizador arriscado](./media/howto-identity-protection-risk-feedback/risky-users-provide-feedback.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Referência de deteção de risco de proteção de identidade ativa Azure Ative](risk-events-reference.md)
+- [Referência de deteção de risco de proteção de identidade ativa Azure Ative](./concept-identity-protection-risks.md)

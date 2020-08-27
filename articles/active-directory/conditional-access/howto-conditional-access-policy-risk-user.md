@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605574"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948068"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acesso Condicional: Acesso Condicional baseado no risco do utilizador
 
@@ -29,7 +29,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
 1. Selecione **Nova política**.
-1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas. Para mais informações, [desa um ajuste de padrões de nomeação para as suas políticas.](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies)
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas. Para mais informações, [desa um ajuste de padrões de nomeação para as suas políticas.](./plan-conditional-access.md#set-naming-standards-for-your-policies)
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
@@ -66,4 +66,4 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[O que é o Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

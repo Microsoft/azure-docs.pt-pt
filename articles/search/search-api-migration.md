@@ -7,28 +7,28 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927141"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949036"
 ---
-# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Upgrade para a versão mais recente do serviço de pesquisa cognitiva Azure REST API
+# <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Upgrade para a mais recente API REST em Pesquisa Cognitiva Azure
 
-Se estiver a utilizar uma versão anterior da [API Search REST,](/rest/api/searchservice/)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão API mais recente, 2020-06-30.
+Se estiver a utilizar uma versão anterior da [**API Search REST,**](/rest/api/searchservice/)este artigo irá ajudá-lo a atualizar a sua aplicação para a versão API mais recente, **2020-06-30**.
 
-A versão 2020-06-30 da API REST contém algumas alterações em versões anteriores. Estes são maioritariamente compatíveis com retrocesso, pelo que mudar o seu código deve exigir apenas o mínimo de esforço, dependendo da versão que estava a usar antes. [As medidas para atualizar](#UpgradeSteps) delineiam as alterações de código necessárias para a utilização de novas funcionalidades.
+A versão 2020-06-30 inclui uma nova funcionalidade importante ([knowledge store](knowledge-store-concept-intro.md)), e introduz várias mudanças de comportamento menores. Como tal, esta versão é maioritariamente compatível com retrocesso, pelo que as alterações de código devem ser mínimas se estiver a atualizar a partir da versão anterior (2019-05-06).
 
 > [!NOTE]
-> Uma instância de serviço de Pesquisa Cognitiva Azure suporta uma série de versões REST API, incluindo as anteriores. Pode continuar a utilizar essas versões API, mas recomendamos a migração do seu código para a versão mais recente para que possa aceder a novas capacidades.
+> Um serviço de pesquisa suporta uma série de versões REST API, incluindo as anteriores. Pode continuar a utilizar essas versões API, mas recomendamos a migração do seu código para a versão mais recente para que possa aceder a novas capacidades. Com o tempo, as versões mais desatualizadas da API REST serão depreciadas e [deixarão de ser suportadas.](search-api-versions.md#unsupported-versions)
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="how-to-upgrade"></a>Como atualizar
 
-Ao atualizar para novas versões, provavelmente não terá de fazer alterações ao seu código, a não ser para alterar o número da versão. As únicas situações em que poderá ter de alterar o código são quando:
+Ao atualizar para uma nova versão, provavelmente não terá de fazer muitas alterações ao seu código, além de alterar o número da versão. As únicas situações em que poderá ter de alterar o código são quando:
 
 * O seu código falha quando as propriedades não reconhecidas são devolvidas numa resposta API. Por predefinição, a sua aplicação deve ignorar propriedades que não compreende.
 
@@ -36,7 +36,7 @@ Ao atualizar para novas versões, provavelmente não terá de fazer alterações
 
 * O seu código refere uma versão API que antecede 2019-05-06 e está sujeito a uma ou mais alterações de rutura nessa versão. A secção [Upgrade para 2019-05-06](#upgrade-to-2019-05-06) fornece mais detalhes. 
 
-Se alguma destas situações se aplicar a si, poderá ter de alterar o seu código em conformidade. Caso contrário, não deverá ser necessária qualquer alteração, a menos que pretenda começar a utilizar funcionalidades adicionadas na nova versão.
+Se alguma destas situações se aplicar a si, poderá ter de alterar o seu código em conformidade. Caso contrário, não deverá ser necessário alterar as alterações, embora seja de esperar que se possa começar a utilizar funcionalidades adicionadas na nova versão.
 
 ## <a name="upgrade-to-2020-06-30"></a>Upgrade para 2020-06-30
 
@@ -63,7 +63,7 @@ Versão 2019-05-06 é o lançamento geralmente disponível anterior da API REST.
 
 ### <a name="breaking-changes"></a>Alterações interruptivas
 
-O código existente escrito contra versões anteriores da API quebrará na versão api=2019-05-06 se o código contiver a seguinte funcionalidade:
+O código existente escrito contra versões anteriores da API irá quebrar na versão api=2019-05-06 e mais tarde se o código contiver a seguinte funcionalidade:
 
 #### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Indexer for Azure Cosmos DB - datasource é agora "type": "cosmosdb"
 

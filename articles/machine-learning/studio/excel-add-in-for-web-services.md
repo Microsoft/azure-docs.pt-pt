@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 29fe1a7a05085d8751e249d58b64b31e6ff3dac1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fd406535b00ed0e25f44d875ee9b5fe716971bab
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432483"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950056"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel Add-in para Azure Machine Learning Studio (clássico) serviços web
 
@@ -28,7 +28,10 @@ O Excel facilita a chamada diretamente dos serviços web sem a necessidade de es
 1. Abra o ficheiro Excel da [amostra,](https://aka.ms/amlexcel-sample-2)que contém o add-in excel e dados sobre passageiros no Titanic. 
  
     > [!NOTE]
-    > Verá a lista dos Serviços Web relacionados com o ficheiro e na parte inferior uma caixa de verificação para "Auto-previsão". Se ativar automaticamente as previsões de **todos os** seus serviços serão atualizadas sempre que houver uma alteração nas entradas. Se não for verificado, terá de clicar em "Predict All" para atualização. Para permitir a previsão automática a um nível de serviço, vá para o passo 6.
+    > - Verá a lista dos Serviços Web relacionados com o ficheiro e na parte inferior uma caixa de verificação para "Auto-previsão". Se ativar automaticamente as previsões de **todos os** seus serviços serão atualizadas sempre que houver uma alteração nas entradas. Se não for verificado, terá de clicar em "Predict All" para atualização. Para permitir a previsão automática a um nível de serviço, vá para o passo 6.
+    > - O add-in Azure Machine Learning Excel irá ligar para a loja de add-ins do Office para carregar. Se a sua organização proibir o acesso à loja de add-ins do Office, verá erro ao carregar o add-in. Para este caso, por favor, implemente o add-in Azure Machine Learning Excel do Microsoft 365. Em seguida, invoque o add-in e adicione o serviço web manualmente, pastando a tecla URL e API.
+
+ 
 
 2. Escolha o serviço web clicando nele - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" neste exemplo.
    

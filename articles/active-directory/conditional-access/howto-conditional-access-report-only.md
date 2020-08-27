@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994974"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948152"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configure uma política de acesso condicional no modo apenas de relatório
 
@@ -51,8 +51,8 @@ Para visualizar o resultado de uma política apenas de relatório para uma deter
 
 Para ver o impacto agregado das políticas de Acesso Condicional utilizando o novo manual de Acesso Condicional, deve integrar o Azure Monitor com Azure AD e exportar os registos de login. Há dois passos para estabelecer esta integração: 
 
-1. [Inscreva-se para uma subscrição do Azure Monitor e crie um espaço de trabalho.](/azure/azure-monitor/learn/quick-create-workspace)
-1. [Exporte os registos de login de Azure AD para Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Inscreva-se para uma subscrição do Azure Monitor e crie um espaço de trabalho.](../../azure-monitor/learn/quick-create-workspace.md)
+1. [Exporte os registos de login de Azure AD para Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 Mais informações sobre os preços do Azure Monitor podem ser encontradas na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar os custos, definir uma tampa diária, ou personalizar o período de retenção de dados, podem ser encontrados no artigo, [Gerir o uso e os custos com registos do Monitor Azure](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 
@@ -85,7 +85,7 @@ Os clientes notaram que as consultas às vezes falham se os espaços de trabalho
 
 A queda das políticas de acesso condicional é povoada consultando os mais recentes acessos ao longo de um período de 4 horas. Se um inquilino não tiver nenhum sinal nas últimas 4 horas, é possível que a entrega esteja vazia. Se este atraso for um problema persistente, como em pequenos inquilinos com inscrições pouco frequentes, os administradores podem editar a consulta para as Políticas de Acesso Condicional e estender o tempo para a consulta para um tempo superior a 4 horas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

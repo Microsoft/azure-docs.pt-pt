@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c3715995d0d53cd72acf7277f46a279fa4cfb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019663"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950124"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começa com a Azure Ative Directory Identity Protection e o Microsoft Graph
 
-Microsoft Graph é o ponto final unificado da Microsoft EPI e a casa das APIs de [Proteção de Identidade do Diretório Ativo Azure.](../active-directory-identityprotection.md) Existem três APIs que expõem informações sobre utilizadores arriscados e inscrições. A primeira API, **riskDetection,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco ligadas ao utilizador e de acesso e informações associadas sobre a deteção. A segunda API, **riskyUsers,** permite-lhe consultar o Microsoft Graph para obter informações sobre a Proteção de Identidade dos utilizadores detetadas como risco. A terceira API, **signIn,** permite-lhe consultar o Microsoft Graph para obter informações sobre os sign-ins Azure AD com propriedades específicas relacionadas com o estado de risco, detalhes e nível. 
+Microsoft Graph é o ponto final unificado da Microsoft EPI e a casa das APIs de [Proteção de Identidade do Diretório Ativo Azure.](./overview-identity-protection.md) Existem três APIs que expõem informações sobre utilizadores arriscados e inscrições. A primeira API, **riskDetection,** permite-lhe consultar o Microsoft Graph para uma lista de deteções de risco ligadas ao utilizador e de acesso e informações associadas sobre a deteção. A segunda API, **riskyUsers,** permite-lhe consultar o Microsoft Graph para obter informações sobre a Proteção de Identidade dos utilizadores detetadas como risco. A terceira API, **signIn,** permite-lhe consultar o Microsoft Graph para obter informações sobre os sign-ins Azure AD com propriedades específicas relacionadas com o estado de risco, detalhes e nível. 
 
 Este artigo faz com que se inicie a ligação ao Microsoft Graph e consulta estas APIs. Para uma introdução aprofundada, documentação completa e acesso ao Graph Explorer, consulte o site do [Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para estas APIs:
 
@@ -86,9 +86,9 @@ Neste momento, deveria ter:
 Para autenticar, envie um pedido de correio `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
 - grant_type: "**client_credentials**"
-- recurso:`https://graph.microsoft.com`
-- client_id:\<your client ID\>
-- client_secret:\<your key\>
+- recurso: `https://graph.microsoft.com`
+- client_id: \<your client ID\>
+- client_secret: \<your key\>
 
 Se for bem sucedido, este pedido devolve um token de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
@@ -99,7 +99,7 @@ Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
 Ao autenticar, pode encontrar o tipo de símbolo e o token de acesso no token devolvido.
 
-Envie este cabeçalho como um pedido para o seguinte URL API:`https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
+Envie este cabeçalho como um pedido para o seguinte URL API: `https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
 A resposta, se for bem sucedida, é uma recolha de deteções de risco de identidade e dados associados no formato OData JSON, que podem ser analisados e tratados da forma que entenderem.
 
@@ -167,8 +167,8 @@ Para saber mais sobre o Microsoft Graph e como construir aplicações utilizando
 
 Para obter informações relacionadas, consulte:
 
-- [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)
-- [Tipos de deteções de risco detetadas pela Azure Ative Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Proteção de Identidade do Diretório Ativo Azure](./overview-identity-protection.md)
+- [Tipos de deteções de risco detetadas pela Azure Ative Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Descrição Geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Raiz do serviço de proteção de identidade Azure Ad](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Raiz do serviço de proteção de identidade Azure Ad](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

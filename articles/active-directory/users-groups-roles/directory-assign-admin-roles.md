@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2bb8b98bfb936421c0522d4637a288d20a708b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 87bb20d23f773997addd170da09ca8f20d2a8ce7
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795410"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949988"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -56,19 +56,12 @@ Estão disponíveis as seguintes funções de administrador:
 
 Os utilizadores desta função podem criar e gerir todos os aspetos das aplicações empresariais, registos de aplicações e configurações de procuração de aplicações. Note que os utilizadores destacados para esta função não são adicionados como proprietários na criação de novos registos de aplicações ou aplicações empresariais.
 
-Os Administradores de Aplicações podem gerir credenciais de aplicação que lhes permitem personificar a aplicação. Assim, os utilizadores afetos a esta função podem gerir credenciais de aplicação apenas das aplicações que não estão atribuídas a quaisquer funções AD do Azure ou as que estão atribuídas apenas a funções de administração seguintes:
-
-* Administrador da Aplicação
-* Programador de Aplicações
-* Administrador de Aplicações na Cloud
-* Leitores de Diretório
-
-Se um pedido for atribuído a qualquer outra função que não seja mencionada acima, então o Administrador de Aplicação não pode gerir as credenciais desse pedido.
-
 Esta função também concede a capacidade de _consentir_ com permissões delegadas e permissões de aplicação, com exceção das permissões na API do Gráfico da Microsoft.
 
 > [!IMPORTANT]
 > Esta exceção significa que ainda pode consentir permissões para _outras_ aplicações (por exemplo, aplicações ou aplicações não Microsoft que tenha registado), mas não para permissões em Azure AD em si. Ainda pode _solicitar_ estas permissões como parte do registo da app, mas _conceder_ (isto é, consentir) estas permissões requer um administrador AD AZure. Isto significa que um utilizador malicioso não pode facilmente elevar as suas permissões, por exemplo, criando e consentindo numa aplicação que possa escrever para todo o diretório e através das permissões dessa aplicação elevam-se para se tornarem administradores globais.
+>
+>Esta função confere a capacidade de gerir as credenciais de aplicação. Os utilizadores designados para esta função podem adicionar credenciais a uma aplicação, e usar essas credenciais para personificar a identidade da aplicação. Se a identidade da aplicação tiver tido acesso a um recurso, como a capacidade de criar ou atualizar o Utilizador ou outros objetos, então um utilizador designado para esta função poderá executar essas ações enquanto se faz passar pela aplicação. Esta capacidade de personificar a identidade da aplicação pode ser uma elevação de privilégio sobre o que o utilizador pode fazer através das suas atribuições de funções. É importante entender que atribuir um utilizador à função de Administrador de Aplicação dá-lhes a capacidade de personificar a identidade de uma aplicação.
 
 ### <a name="application-developer"></a>[Programador de Aplicações](#application-developer-permissions)
 
@@ -125,15 +118,11 @@ Efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estad
 
 ### <a name="cloud-application-administrator"></a>[Administrador de Aplicações na Cloud](#cloud-application-administrator-permissions)
 
-Os utilizadores nesta função têm as mesmas permissões que a função de Administrador de Aplicação, excluindo a capacidade de gerir o proxy da aplicação. Esta função confere a capacidade de criar e gerir todos os aspetos dos pedidos de empresa e dos registos de candidaturas. Esta função também concede a capacidade de consentir com permissões delegadas, e permissões de aplicação excluindo a API do Gráfico microsoft. Os utilizadores destacados para esta função não são adicionados como proprietários ao criar novos registos de aplicações ou aplicações empresariais.
+Os utilizadores nesta função têm as mesmas permissões que a função de Administrador de Aplicação, excluindo a capacidade de gerir o proxy da aplicação. Esta função confere a capacidade de criar e gerir todos os aspetos dos pedidos de empresa e dos registos de candidaturas. Esta função também concede a capacidade de consentir com permissões delegadas, e permissões de aplicação excluindo Microsoft Graph e Azure AD Graph. Os utilizadores destacados para esta função não são adicionados como proprietários ao criar novos registos de aplicações ou aplicações empresariais.
 
-Os Administradores de Aplicações em Nuvem podem gerir credenciais de aplicação que lhes permitem personificar a aplicação. Assim, os utilizadores afetos a esta função podem gerir credenciais de aplicação apenas das aplicações que não estão atribuídas a quaisquer funções AD do Azure ou as que estão atribuídas apenas a funções de administração seguintes:
+> [!IMPORTANT]
+> Esta função confere a capacidade de gerir as credenciais de aplicação. Os utilizadores designados para esta função podem adicionar credenciais a uma aplicação, e usar essas credenciais para personificar a identidade da aplicação. Se a identidade da aplicação tiver tido acesso a um recurso, como a capacidade de criar ou atualizar o Utilizador ou outros objetos, então um utilizador designado para esta função poderá executar essas ações enquanto se faz passar pela aplicação. Esta capacidade de personificar a identidade da aplicação pode ser uma elevação de privilégio sobre o que o utilizador pode fazer através das suas atribuições de funções. É importante entender que atribuir um utilizador à função de Administrador de Aplicação cloud dá-lhes a capacidade de personificar a identidade de uma aplicação.
 
-* Programador de Aplicações
-* Administrador de Aplicações na Cloud
-* Leitores de Diretório
-
-Se uma aplicação for atribuída a qualquer outra função que não seja mencionada acima, então o Administrador de Aplicação cloud não pode gerir credenciais dessa aplicação.
 
 ### <a name="cloud-device-administrator"></a>[Administrador de dispositivos de nuvem](#cloud-device-administrator-permissions)
 

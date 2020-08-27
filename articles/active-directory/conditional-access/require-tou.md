@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039828"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948866"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem
 
@@ -25,7 +25,7 @@ Antes de aceder a certas aplicações em nuvem no seu ambiente, poderá querer o
 - Um método simples para configurar a ToU
 - A opção de exigir a aceitação dos seus termos de uso através de uma política de acesso condicional  
 
-Este quickstart mostra como configurar uma [política de acesso condicional Ad Ad Azure](../active-directory-conditional-access-azure-portal.md) que requer que uma ToU seja aceite para uma aplicação de nuvem selecionada no seu ambiente.
+Este quickstart mostra como configurar uma [política de acesso condicional Ad Ad Azure](./overview.md) que requer que uma ToU seja aceite para uma aplicação de nuvem selecionada no seu ambiente.
 
 ![Criar política](./media/require-tou/5555.png)
 
@@ -96,7 +96,7 @@ Na sua política, desa um set:
 | Definição | Valor |
 | --- | --- |
 | Utilizadores e grupos | Isabel Simonsen |
-| Aplicativos em nuvem | Microsoft Azure Management |
+| Aplicações na cloud | Microsoft Azure Management |
 | Conceder acesso | O meu TOU |
 
 ![Criar política](./media/require-tou/1234.png)
@@ -105,7 +105,7 @@ Na sua política, desa um set:
 
 1. Na **nova** página, na caixa de texto **Name,** tipo **Exigir TOU para Isabella**.
 
-   ![Name](./media/require-tou/71.png)
+   ![Nome](./media/require-tou/71.png)
 
 1. Na secção **Atribuição,** clique em **Utilizadores e grupos**.
 
@@ -121,7 +121,7 @@ Na sua política, desa um set:
    1. Na página **de Utilizadores e grupos,** clique em **'Fazer'.**
 1. Clique **em aplicativos Cloud**.
 
-   ![Aplicativos em nuvem](./media/require-tou/08.png)
+   ![Aplicações na cloud](./media/require-tou/08.png)
 
 1. Na página de **aplicativos Cloud:**
 
@@ -176,7 +176,7 @@ Clicar **em E Se** criar um relatório de simulação que mostra:
 
 1. Para selecionar uma aplicação em nuvem:
 
-   ![Aplicativos em nuvem](./media/require-tou/16.png)
+   ![Aplicações na cloud](./media/require-tou/16.png)
 
    1. Clique **em aplicativos Cloud**.
    1. Na página de **aplicações cloud**, clique **em Selecionar apps**.
@@ -193,20 +193,20 @@ Para testar a sua política, tente entrar no seu [portal Azure](https://portal.a
 
 ![Termos de utilização](./media/require-tou/57.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o utilizador de teste e a política de acesso condicional:
 
 - Se não souber eliminar um utilizador AD Azure, consulte [eliminar os utilizadores do AZure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para eliminar a sua política, selecione a sua política e, em seguida, clique em **Eliminar** na barra de ferramentas de acesso rápido.
 
-    ![Multi-factor authentication](./media/require-tou/33.png)
+    ![Autenticação multifator](./media/require-tou/33.png)
 
 - Para eliminar os seus termos de utilização, selecione-o e, em seguida, clique em **Eliminar os termos** na barra de ferramentas em cima.
 
-    ![Multi-factor authentication](./media/require-tou/29.png)
+    ![Autenticação multifator](./media/require-tou/29.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Exigir o MFA para aplicações específicas](app-based-mfa.md)
+> [Exigir o MFA para aplicações específicas](../authentication/tutorial-enable-azure-mfa.md)

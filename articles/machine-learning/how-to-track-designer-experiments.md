@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0d8d9f598da41b2bd39369e063200f5445ba740a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554813"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950413"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Permitir o início de sessão em pipelines de designer de machine learning (pré-visualização) do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos t
         return dataframe1,
     ```
     
-Este código utiliza o Azure Machine Learning Python SDK para registar valores. Utiliza o Run.get_context para obter o contexto da corrente. Em seguida, regista valores para esse contexto com o método run.parent.log(). `parent`Utiliza-se para registar valores para o gasoduto dos pais em vez do funcionado do módulo.
+Este código utiliza o Azure Machine Learning Python SDK para registar valores. Utiliza Run.get_context para obter o contexto da corrente. Em seguida, regista valores para esse contexto com o método run.parent.log(). `parent`Utiliza-se para registar valores para o gasoduto dos pais em vez do funcionado do módulo.
 
 Para obter mais informações sobre como utilizar o Python SDK para registar valores, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
 
@@ -74,9 +74,9 @@ Depois de concluído o curso do gasoduto, pode ver o *Mean_Absolute_Error* na p�
 
     ![Ver métricas de execução no estúdio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar registos no designer. Para os próximos passos, consulte estes artigos relacionados:
 
-* Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#azure-machine-learning-designer-preview)
+* Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview)
 * Aprenda a utilizar o Python SDK para registar métricas na experiência de autoria SDK, consulte [Enable logging in Azure ML training runs](how-to-track-experiments.md).

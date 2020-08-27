@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for C# (Xamarin) platform setup - Speech service'
+title: 'Quickstart: Speech SDK for C# (Xamarin) configuração da plataforma - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para configurar a sua plataforma para C# Xamarin com o serviço de fala SDK.
+description: Utilize este guia para configurar a sua plataforma para C# Xamarin com o serviço de voz SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: f8ba4ef590b3becd9259230246555d6c74b0078b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0920c4e98527640875a236bbea8693bfa8ab0942
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924708"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926695"
 ---
-Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), uma plataforma de código aberto para a construção de aplicações modernas e performantes para iOS, Android e Windows com .NET. Se você só quer que o nome do `Install-Package Microsoft.CognitiveServices.Speech` pacote seja iniciado por conta própria, corra na consola NuGet.
+Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), uma plataforma de código aberto para a construção de aplicações modernas e performantes para iOS, Android e Windows com .NET. Se só quer que o nome do pacote seja iniciado por conta própria, corra `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -31,9 +32,9 @@ Este início rápido requer:
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
-O SDK do Discurso está agora instalado. Pode agora apagar ou reutilizar o projeto "Helloworld" que criou nos passos anteriores.
+O SDK de discurso está agora instalado. Pode agora eliminar ou reutilizar o projeto "Helloworld" que criou nos passos anteriores.
 
-Agora pode passar para [os próximos passos](#next-steps) abaixo.
+Pode agora passar para os [próximos passos](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

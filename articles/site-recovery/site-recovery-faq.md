@@ -4,20 +4,20 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263388"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950498"
 ---
-# <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre recuperação do local de Azure
+# <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
 Este artigo resume perguntas frequentes sobre a Recuperação do Sítio Azure. Para cenários específicos, reveja estes artigos
 
-- [Perguntas sobre a recuperação de desastres da Azure VM para Azure](azure-to-azure-common-questions.md)
-- [Perguntas sobre a recuperação de desastres da VMware VMware para Azure](vmware-azure-common-questions.md)
-- [Perguntas sobre recuperação de desastres em Hiper-V Vm para Azure](hyper-v-azure-common-questions.md)
+- [Perguntas sobre a recuperação após desastre da VM do Azure no Azure](azure-to-azure-common-questions.md)
+- [Perguntas sobre a recuperação após desastre da VM do VMware no Azure](vmware-azure-common-questions.md)
+- [Perguntas sobre a recuperação após desastre da VM Hyper-V no Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Geral
 
@@ -256,8 +256,6 @@ Uma política de replicação define as definições para o histórico de reten�
 
 - 24 horas para o histórico de retenção de pontos de recuperação.
 - 4 horas para a frequência de instantâneos consistentes com aplicações.
-
-[Saiba mais sobre as definições de replicação.](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings)
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é um ponto de recuperação consistente?
 

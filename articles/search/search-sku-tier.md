@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553976"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922808"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -98,7 +98,7 @@ Para [o enriquecimento de IA,](cognitive-search-concept-intro.md)você deve [pla
 | Operação | Impacto da faturação |
 |-----------|----------------|
 | Impressão de documentos, extração de texto | Gratuito |
-| Rachadura de documento, extração de imagem | Faturado de acordo com o número de imagens extraídas dos seus documentos. Numa [configuração indexante,](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **a imageAction** é o parâmetro que desencadeia a extração de imagem. Se **a imageAction** estiver definida como "nenhuma" (o padrão), não será cobrado para a extração de imagem. A taxa de extração de imagem está documentada na página [de detalhes de preços](https://azure.microsoft.com/pricing/details/search/) para Azure Cognitive Search.|
+| Rachadura de documento, extração de imagem | Faturado de acordo com o número de imagens extraídas dos seus documentos. Numa [configuração indexante,](/rest/api/searchservice/create-indexer#indexer-parameters) **a imageAction** é o parâmetro que desencadeia a extração de imagem. Se **a imageAction** estiver definida como "nenhuma" (o padrão), não será cobrado para a extração de imagem. A taxa de extração de imagem está documentada na página [de detalhes de preços](https://azure.microsoft.com/pricing/details/search/) para Azure Cognitive Search.|
 | [Competências cognitivas incorporadas](cognitive-search-predefined-skills.md) | Faturado ao mesmo ritmo que se tivesse realizado a tarefa usando os Serviços Cognitivos diretamente. |
 | Competências personalizadas | Uma habilidade personalizada é a funcionalidade que fornece. O custo de utilização de uma habilidade personalizada depende inteiramente de se o código personalizado está a chamar outros serviços medidos. |
 
@@ -130,7 +130,7 @@ As seguintes sugestões podem ajudá-lo a baixar os custos ou gerir os custos de
 
 + Dimensione para operações intensivas de recursos como indexação e, em seguida, reajuste para baixo para cargas de trabalho regulares de consulta. Comece com a configuração mínima para Azure Cognitive Search (um SU composto por uma partição e uma réplica), e depois monitorize a atividade do utilizador para identificar padrões de utilização que indiquem a necessidade de mais capacidade. Se houver um padrão previsível, poderá sincronizar a escala com a atividade (precisaria de escrever código para automatizar isto).
 
-Além disso, visite [Billing e gestão](https://docs.microsoft.com/azure/billing/billing-getting-started) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
+Além disso, visite [Billing e gestão](../cost-management-billing/manage/getting-started.md) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
 
 Não é possível encerrar um serviço de pesquisa temporariamente. Os recursos dedicados estão sempre operacionais, alocados para uso exclusivo para o tempo de vida do seu serviço. A eliminação de um serviço é permanente e também elimina os seus dados associados.
 
@@ -175,7 +175,7 @@ Com uma estimativa aproximada na mão, você pode duplicar esse montante para or
 
 Os recursos dedicados podem acomodar tempos de amostragem e processamento maiores para estimativas mais realistas de volumes de quantidade, tamanho e consulta do índice durante o desenvolvimento. Alguns clientes saltam para dentro com um nível fatural e depois reavaliam à medida que o projeto de desenvolvimento amadurece.
 
-1. [Reveja os limites de serviço em cada nível](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se os níveis mais baixos podem suportar o número de índices de que necessita. Nos escalões Básico, S1 e S2, os limites de índice são 15, 50 e 200, respectivamente. O nível otimizado de armazenamento tem um limite de 10 índices porque é projetado para suportar um número baixo de índices muito grandes.
+1. [Reveja os limites de serviço em cada nível](./search-limits-quotas-capacity.md#index-limits) para determinar se os níveis mais baixos podem suportar o número de índices de que necessita. Nos escalões Básico, S1 e S2, os limites de índice são 15, 50 e 200, respectivamente. O nível otimizado de armazenamento tem um limite de 10 índices porque é projetado para suportar um número baixo de índices muito grandes.
 
 1. [Criar um serviço num nível de faturação:](search-create-service-portal.md)
 
@@ -213,7 +213,7 @@ As funcionalidades de nível gratuito e de pré-visualização não fornecem [ac
 
 + Lembre-se que a única desvantagem do fornecimento é que você pode ter que demolir um serviço se os requisitos reais são maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço num nível mais alto e executá-lo-ia lado a lado até que todas as aplicações e pedidos direcionem o novo ponto final.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Comece com um nível Livre e construa um índice inicial utilizando um subconjunto dos seus dados para compreender as suas características. A estrutura de dados na Azure Cognitive Search é uma estrutura de índice invertida. O tamanho e complexidade de um índice invertido é determinado pelo conteúdo. Lembre-se que o conteúdo altamente redundante tende a resultar num índice menor do que um conteúdo altamente irregular. Assim, as características do conteúdo em vez do tamanho do conjunto de dados determinam os requisitos de armazenamento do índice.
 
