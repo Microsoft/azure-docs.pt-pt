@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553143"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924134"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida (pré-visualização)
 
@@ -44,7 +44,7 @@ Depois de **selecionar, verá** um ID de objeto que foi atribuído ao seu servi�
 
 Ao ligar-se à base de dados no passo seguinte, terá de se ligar a uma conta Azure Ative Directory (Azure AD) que tenha acesso à base de dados de forma a dar permissão ao seu serviço de pesquisa para aceder à base de dados.
 
-Siga as instruções [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) para dar acesso à base de dados da sua conta Azure AD.
+Siga as instruções [aqui](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) para dar acesso à base de dados da sua conta Azure AD.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 - Atribuir as permissões do serviço de pesquisa
 
@@ -97,9 +97,9 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="5---create-the-data-source"></a>5 - Criar a fonte de dados
 
-A [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma Base de Dados Azure SQL usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma Base de Dados Azure SQL usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
-Ao criar uma fonte de dados utilizando a [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)a fonte de dados deve ter as seguintes propriedades necessárias:
+Ao criar uma fonte de dados utilizando a [API REST,](/rest/api/searchservice/create-data-source)a fonte de dados deve ter as seguintes propriedades necessárias:
 
 * **nome** é o nome único da fonte de dados dentro do seu serviço de pesquisa.
 * **tipo** é `azuresql`
@@ -109,7 +109,7 @@ Ao criar uma fonte de dados utilizando a [API REST,](https://docs.microsoft.com/
         * *Catálogo Inicial Base de**dados= nome da base de dados;** ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/ o nome do grupo de**recursos**/fornecedores/Microsoft.Sql/servers/ o seu**nome SQL Server**/; Intervalo de tempo de**ligação= tempo de intervalo de ligação**;*
 * **o recipiente** especifica o nome da tabela ou vista que gostaria de indexar.
 
-Exemplo de como criar um objeto de origem de dados Azure SQL utilizando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Exemplo de como criar um objeto de origem de dados Azure SQL utilizando a [API REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7 - Criar o indexador
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Este indexante será executado de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
-Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting)do indexante .
+Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](./search-indexer-troubleshooting.md)do indexante .
 
 ## <a name="see-also"></a>Ver também
 

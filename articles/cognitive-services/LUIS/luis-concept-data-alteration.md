@@ -1,41 +1,42 @@
 ---
 title: Alteração de dados - LUIS
-description: Saiba como os dados podem ser alterados antes das previsões na Compreensão da Linguagem (LUIS)
+description: Saiba como os dados podem ser alterados antes das previsões em Compreensão linguística (LUIS)
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872245"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934672"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de expressão antes ou durante a previsão
-Luis fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação](luis-tutorial-bing-spellcheck.md)de ortografias e a fixação de problemas de fuso horário para data pré-construídaV2 . [datetimeV2](luis-reference-prebuilt-datetimev2.md)
+LUIS fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação de ortografia](luis-tutorial-bing-spellcheck.md)e a fixação de problemas de aso desaporo para datas pré-construídasV2 . [datetimeV2](luis-reference-prebuilt-datetimev2.md)
 
-## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros ortográficos na expressão
+## <a name="correct-spelling-errors-in-utterance"></a>Erros ortográficos corretos na expressão
 
 
 ### <a name="v3-runtime"></a>Tempo de execução V3
 
-Pré-processe o texto para correções ortográficas antes de enviar a expressão para o LUIS. Utilize as palavras de exemplo com a ortografia correta para garantir que obtém as previsões corretas.
+Pré-processo texto para correções ortográficas antes de enviar a expressão para LUIS. Use palavras de exemplo com a ortografia correta para garantir que obtém as previsões corretas.
 
-Utilize [bing spell Check](../bing-spell-check/overview.md) para corrigir texto antes de enviá-lo para LUIS.
+Utilize [bing Spell Check](../bing-spell-check/overview.md) para corrigir texto antes de enviá-lo para LUIS.
 
-### <a name="prior-to-v3-runtime"></a>Antes do tempo de execução v3
+### <a name="prior-to-v3-runtime"></a>Antes do tempo de funcionação da V3
 
-Luis usa [Bing Spell Check API V7](../Bing-Spell-Check/overview.md) para corrigir erros ortográficos na expressão. Luis precisa da chave associada a esse serviço. Crie a tecla e adicione a chave como parâmetro de corda de consulta no [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356).
+LUIS utiliza [Bing Spell Check API V7](../Bing-Spell-Check/overview.md) para corrigir erros ortográficos na expressão. LUIS precisa da chave associada a este serviço. Crie a chave e, em seguida, adicione a chave como parâmetro de consulta no [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356).
 
-O ponto final requer dois parâmetros para correções ortográficas para funcionar:
+O ponto final requer dois params para correções ortográficas funcionarem:
 
 |Param|Valor|
 |--|--|
 |`spellCheck`|boolean|
-|`bing-spell-check-subscription-key`|Tecla final do [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
+|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) chave final|
 
-Quando [bing spell check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) deteta um erro, a expressão original, e a expressão corrigida são devolvidas juntamente com previsões do ponto final.
+Quando [bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) deteta um erro, a expressão original e a expressão corrigida são devolvidas juntamente com as previsões do ponto final.
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +50,7 @@ Quando [bing spell check API V7](https://azure.microsoft.com/services/cognitive-
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -70,32 +71,32 @@ Quando [bing spell check API V7](https://azure.microsoft.com/services/cognitive-
 * * *
 
 ### <a name="list-of-allowed-words"></a>Lista de palavras permitidas
-A verificação de feitiços Bing API utilizada no LUIS não suporta uma lista de palavras a ignorar durante as alterações de verificação ortográfica. Se precisar de permitir uma lista de palavras ou siglas, processe a expressão na aplicação do cliente antes de enviar a expressão para a LUIS para previsão de intenções.
+O Bing spell check API usado no LUIS não suporta uma lista de palavras a ignorar durante as alterações de verificação ortográfica. Se precisar de permitir uma lista de palavras ou siglas, processe a expressão na aplicação do cliente antes de enviar a expressão para LUIS para previsão de intenção.
 
-## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Alterar o fuso horário da entidade datav2 pré-construída
-Quando uma aplicação LUIS utiliza a entidade [datav2](luis-reference-prebuilt-datetimev2.md) pré-construída, um valor de data pode ser devolvido na resposta à previsão. O fuso horário do pedido é utilizado para determinar a hora de regresso correta. Se o pedido vier de um bot ou de outra aplicação centralizada antes de chegar ao LUIS, corrija o fuso horário que o LUIS utiliza.
+## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Alterar fuso horário da entidade datatimeV2 pré-construída
+Quando uma aplicação LUIS utiliza a entidade [dataV2](luis-reference-prebuilt-datetimev2.md) pré-construída, um valor de data pode ser devolvido na resposta de previsão. O intervalo de tempo do pedido é utilizado para determinar a data correta para a sua devolução. Se o pedido vem de um bot ou de outra aplicação centralizada antes de chegar ao LUIS, corrija o tempo que o LUIS utiliza.
 
-### <a name="v3-prediction-api-to-alter-timezone"></a>Previsão V3 API para alterar fuso horário
+### <a name="v3-prediction-api-to-alter-timezone"></a>API de previsão V3 para alterar o timezone
 
-Em V3, `datetimeReference` o fuso horário compensa. Saiba mais sobre [as previsões v3.](luis-migration-api-v3.md#v3-post-body)
+Em V3, determina `datetimeReference` o intervalo de tempo. Saiba mais sobre [as previsões V3.](luis-migration-api-v3.md#v3-post-body)
 
-### <a name="v2-prediction-api-to-alter-timezone"></a>Previsão V2 API para alterar fuso horário
-O fuso horário é corrigido adicionando o fuso horário `timezoneOffset` do utilizador ao ponto final utilizando o parâmetro com base na versão API. O valor do parâmetro deve ser o número positivo ou negativo, em minutos, para alterar o tempo.
+### <a name="v2-prediction-api-to-alter-timezone"></a>API de previsão V2 para alterar o timezone
+O timezone é corrigido adicionando o timezone do utilizador ao ponto final utilizando o `timezoneOffset` parâmetro baseado na versão API. O valor do parâmetro deve ser o número positivo ou negativo, em minutos, para alterar o tempo.
 
-#### <a name="v2-prediction-daylight-savings-example"></a>Exemplo de poupança de verão de previsão V2
-Se necessitar do data-data pré-construído devolvidoV2 para se ajustar ao horário de verão, deve utilizar o parâmetro de corda de consulta com um valor de +/- em minutos para a consulta do [ponto final.](https://go.microsoft.com/fwlink/?linkid=2092356)
+#### <a name="v2-prediction-daylight-savings-example"></a>V2 previsão luz do dia exemplo
+Se necessitar da data pré-construída devolvidaV2 para se ajustar para o horário de verão, deve utilizar o parâmetro de consulta com um valor de +/- em minutos para a consulta do [ponto final.](https://go.microsoft.com/fwlink/?linkid=2092356)
 
 Adicione 60 minutos:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-Retire 60 minutos:
+Remover 60 minutos:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=-60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-#### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>V2 previsão C# código determina o valor correto do parâmetro
+#### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>Código de previsão V2 C# determina o valor correto do parâmetro
 
-O seguinte código C# utiliza o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar o valor correto de compensação com base no tempo do sistema:
+O seguinte código C# utiliza o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZone](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) Para determinar o valor correto de compensação com base no tempo do sistema:
 
 ```csharp
 // Get CST zone id
@@ -114,4 +115,4 @@ int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Corrigir erros ortográficos com este tutorial](luis-tutorial-bing-spellcheck.md)
+> [Erros ortográficos corretos com este tutorial](luis-tutorial-bing-spellcheck.md)

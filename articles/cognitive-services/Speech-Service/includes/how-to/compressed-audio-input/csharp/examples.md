@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 21c4f88083fab28ae132379eae1b5d8a2afa5d9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 313d2717e6e40280ed37322d695a2129d833dd59
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422043"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934107"
 ---
-Para transmitir num formato áudio comprimido para `PullAudioInputStream` `PushAudioInputStream`o serviço De Fala, crie ou . Em seguida, `AudioConfig` crie um a partir de uma instância da sua classe de fluxo, especificando o formato de compressão do fluxo.
+Para transmitir num formato áudio comprimido para o serviço Speech, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.
 
-Vamos supor que tem uma aula `pushStream` de fluxo de entrada chamada e está usando OPUS/OGG. O seu código pode parecer assim:
+Vamos supor que tem uma classe de fluxo de entrada chamada `pushStream` e está a usar OPUS/OGG. O seu código pode ser assim:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

@@ -4,26 +4,27 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
-ms.openlocfilehash: b84db9eee473b14f2ba078ed1be77f6165a5f3b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c1c9b9a3e2f65e44e2ed0bb3855e00acbea942d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400221"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925713"
 ---
-## <a name="additional-language-and-platform-support"></a>Suporte adicional de linguagem e plataforma
+## <a name="additional-language-and-platform-support"></a>Suporte adicional de idiomas e plataformas
 
-Se clicou neste separador, provavelmente não viu um início rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/OS.
+Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/SISTEMA.
 
-| Idioma    | Exemplos de código                                                                                   |
+| Linguagem    | Exemplos de código                                                                                   |
 |-------------|------------------------------------------------------------------------------------------------|
-| C#          | [.NET Framework][dotnet], [.NET Core,][netcore] [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
-| C++         | [Windows,][cpp-windows] [Linux,][cpp-linux] [macOS][cpp-mac]                                   |
+| C#          | [.Net Framework][dotnet], [.NET Core][netcore], [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
+| C++         | [Windows][cpp-windows], [Linux,][cpp-linux] [macOS][cpp-mac]                                   |
 | Java        | [Android][java-android], [JRE][java-jre]                                                       |
 | JavaScript  | [Browser, Node.js][js-code]                                                                    |
-| Objective-C | [iOS,][obj-iOS] [macOS][obj-macOS]                                                             |
+| Objective-C | [iOS][obj-iOS], [macOS][obj-macOS]                                                             |
 | Python      | [Windows, Linux, macOS][python]                                                                |
-| Swift       | [iOS,][swift-iOS] [macOS][swift-macOS]                                                         |
+| Swift       | [iOS][swift-iOS], [macOS][swift-macOS]                                                         |
 
 [dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
 [netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore

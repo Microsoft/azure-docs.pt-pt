@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145275"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935199"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerir a concordância na Pesquisa Cognitiva Azure
 
@@ -28,8 +28,8 @@ A concordância otimista é implementada através de verificações de condiçõ
 
 Todos os recursos têm uma [*etiqueta de entidade (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) que fornece informações sobre a versão do objeto. Ao verificar primeiro o ETag, pode evitar atualizações simultâneas num fluxo de trabalho típico (obter, modificar localmente, atualizar) garantindo que o ETag do recurso corresponde à sua cópia local.
 
-+ A API REST utiliza um [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no cabeçalho de pedido.
-+ O .NET SDK define o ETag através de um objeto de acessoCondição, definindo o [If-Match / Se-Match-Nenhum cabeçalho](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no recurso. Qualquer objeto herdado do [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tem um objeto de acessoCondição.
++ A API REST utiliza um [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no cabeçalho de pedido.
++ O .NET SDK define o ETag através de um objeto de acessoCondição, definindo o [If-Match / Se-Match-Nenhum cabeçalho](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no recurso. Qualquer objeto herdado do [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tem um objeto de acessoCondição.
 
 Sempre que atualiza um recurso, o seu ETag muda automaticamente. Quando implementa uma gestão de conuncy, tudo o que está a fazer é colocar uma condição prévia no pedido de atualização que requer que o recurso remoto tenha o mesmo ETag que a cópia do recurso que modificou no cliente. Se um processo simultâneo já tiver alterado o recurso remoto, o ETag não corresponderá à condição prévia e o pedido falhará com HTTP 412. Se estiver a utilizar o .NET SDK, isto manifesta-se como um `CloudException` local onde o método de `IsAccessConditionFailed()` extensão retorna verdadeiramente.
 
@@ -215,8 +215,8 @@ Tente modificar qualquer uma das seguintes amostras para incluir ETags ou objeto
 + [Rest API amostra no GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [.NET SDK amostra no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solução inclui o projeto "DotNetEtagsExplainer" que contém o código apresentado neste artigo.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Comuns de pedidos http e cabeçalhos](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
- de resposta Códigos de [estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
- [Operações de índice (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Comuns de pedidos http e cabeçalhos](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ de resposta Códigos de [estado HTTP](/rest/api/searchservice/http-status-codes) 
+ [Operações de índice (REST API)](/rest/api/searchservice/index-operations)

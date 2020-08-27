@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 1574ea1c6f97606198d071d79ea69d58304a6159
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053563"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934128"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre o fluxo de entrada de áudio SDK do Discurso API
 

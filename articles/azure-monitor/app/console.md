@@ -3,13 +3,14 @@ title: Azure Application Insights para aplicações de consolas / Microsoft Docs
 description: Monitorize as aplicações web para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 05/21/2020
+ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310468"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933346"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET
 
@@ -36,7 +37,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> A telemetria não é enviada instantaneamente. Os artigos de telemetria são embalados e enviados pela ApplicationInsights SDK. Nas aplicações Consola, que sai logo após os métodos de `Track()` chamada, a telemetria não pode ser enviada a menos que `Flush()` seja feita antes da saída da `Sleep` / `Delay` aplicação, como mostrado em todo o [exemplo](#full-example) mais tarde neste artigo. `Sleep`não é necessário se estiver a utilizar `InMemoryChannel` . Existe uma questão ativa quanto à necessidade para a `Sleep` qual é rastreada aqui: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> A telemetria não é enviada instantaneamente. Os artigos de telemetria são embalados e enviados pela ApplicationInsights SDK. Nas aplicações Consola, que sai logo após os métodos de `Track()` chamada, a telemetria não pode ser enviada a menos que `Flush()` seja feita antes da saída da `Sleep` / `Delay` aplicação, como mostrado em todo o [exemplo](#full-example) mais tarde neste artigo. `Sleep` não é necessário se estiver a utilizar `InMemoryChannel` . Existe uma questão ativa quanto à necessidade para a `Sleep` qual é rastreada aqui: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Instale a versão mais recente do pacote [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) - rastreia automaticamente HTTP, SQL ou algumas outras chamadas de dependência externa.

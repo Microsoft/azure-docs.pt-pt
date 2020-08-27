@@ -2,13 +2,14 @@
 title: Monitor Batch com Insights de Aplicação Azure
 description: Saiba como instrumentar uma aplicação Azure Batch .NET utilizando a biblioteca Azure Application Insights.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723617"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933567"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitore e depure uma aplicação Azure Batch .NET com Insights de Aplicação
 
@@ -56,9 +57,9 @@ Para instrumentar o seu código, a sua solução precisa de criar um [Telemetria
 Adicione também a chave de instrumentação no ficheiro TopNWords.cs.
 
 O exemplo em TopNWords.cs utiliza as seguintes chamadas de [instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API application insights:
-* `TrackMetric()`- Rastreia o tempo, em média, de um nó computacional para descarregar o ficheiro de texto necessário.
-* `TrackTrace()`- Adiciona chamadas de depuragem ao seu código.
-* `TrackEvent()`- Rastreia eventos interessantes para capturar.
+* `TrackMetric()` - Rastreia o tempo, em média, de um nó computacional para descarregar o ficheiro de texto necessário.
+* `TrackTrace()` - Adiciona chamadas de depuragem ao seu código.
+* `TrackEvent()` - Rastreia eventos interessantes para capturar.
 
 Este exemplo deixa propositadamente de fora o tratamento de exceções. Em vez disso, o Application Insights reporta automaticamente exceções não manipuladas, o que melhora significativamente a experiência de depuragem. 
 
@@ -333,7 +334,7 @@ pool.StartTask = new StartTask()
 Devido à natureza em larga escala das aplicações do Azure Batch em execução em produção, é melhor limitar a quantidade de dados recolhidos pela Application Insights para gerir os custos. Consulte [a amostragem em Insights de Aplicação](../azure-monitor/app/sampling.md) para obter alguns mecanismos para o conseguir.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a Aplicação Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para o suporte de Insights de Aplicação em outras línguas, olhe para a [documentação de línguas, plataformas e integrações.](../azure-monitor/app/platforms.md)

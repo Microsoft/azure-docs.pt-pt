@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202296"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932768"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -34,12 +34,12 @@ Esta abordagem é mais flexível do que o modelo de extração, pois pode carreg
 
 Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para um índice:
 
-+ [Adicionar, Atualizar ou Eliminar Documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Adicionar, Atualizar ou Eliminar Documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
-Para uma introdução a cada metodologia, consulte [Quickstart: Criar um índice de Pesquisa Cognitiva Azure utilizando PowerShell](search-create-index-rest-api.md) ou [C# Quickstart: Criar um índice de pesquisa cognitiva Azure utilizando .NET SDK](search-get-started-dotnet.md).
+Para uma introdução a cada metodologia, consulte [Quickstart: Criar um índice de Pesquisa Cognitiva Azure utilizando PowerShell](./search-get-started-powershell.md) ou [C# Quickstart: Criar um índice de pesquisa cognitiva Azure utilizando .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -61,7 +61,7 @@ No .NET SDK, embale os seus dados num `IndexBatch` objeto. Um `IndexBatch` encap
 
 ### <a name="formulate-your-query"></a>Formular a consulta
 
-Existem duas formas de [pesquisar o índice através da API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma forma consiste em emitir um pedido de HTTP POST, em que os parâmetros da sua consulta são definidos num objeto JSON no corpo do pedido. A outra forma consiste em emitir um pedido de HTTP GET, em que os parâmetros da consulta são definidos no URL do pedido. O POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) em relação ao tamanho dos parâmetros de consulta do que o GET. Por este motivo, recomendamos a utilização do POST, salvo se tiver circunstâncias especiais em que a utilização do GET seja mais conveniente.
+Existem duas formas de [pesquisar o índice através da API REST](/rest/api/searchservice/Search-Documents). Uma forma consiste em emitir um pedido de HTTP POST, em que os parâmetros da sua consulta são definidos num objeto JSON no corpo do pedido. A outra forma consiste em emitir um pedido de HTTP GET, em que os parâmetros da consulta são definidos no URL do pedido. O POST tem [limites mais flexíveis](/rest/api/searchservice/Search-Documents) em relação ao tamanho dos parâmetros de consulta do que o GET. Por este motivo, recomendamos a utilização do POST, salvo se tiver circunstâncias especiais em que a utilização do GET seja mais conveniente.
 
 Para post e GET, você precisa fornecer o seu nome de *serviço,* *nome de índice,* e uma *versão API* no URL de pedido. 
 
@@ -79,7 +79,7 @@ O modelo de extração pesquisa uma origem de dados suportada e carrega automati
 
 + [Armazenamento de blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 + [Base de Dados Azure SQL, SQL Managed Instance e SQL Server em VMs Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice. 
@@ -98,7 +98,7 @@ Uma forma rápida de realizar uma verificação preliminar no upload do document
 > [!TIP]
 > Numerosas amostras de código de [pesquisa cognitiva do Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executam o indexante pré-configurado na fonte de dados da amostra, um índice é criado e carregado com documentos que podem ser consultados no Explorador de Busca ou por código que escreve.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

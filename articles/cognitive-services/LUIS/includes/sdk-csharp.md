@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 8/13/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-dotnet
 ms.author: diberry
-ms.openlocfilehash: d0ae5fa41d039be235ff0c9abb4facf95b1f3b2e
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: e29b3dcdaba4fde0782b0fee8c60428b5a824b28
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246046"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934735"
 ---
 Utilize as bibliotecas de clientes de Compreensão linguística (LUIS) para .NET para:
 * Criar uma aplicação

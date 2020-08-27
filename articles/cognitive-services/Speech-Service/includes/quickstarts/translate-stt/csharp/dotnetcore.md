@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: a5ca40c9f0d39159c5d5a174fc16f9bc6d9b8bcf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 872d2be0ec467fb4e8d997d341781241f4d24f3c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925670"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -121,6 +122,6 @@ RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

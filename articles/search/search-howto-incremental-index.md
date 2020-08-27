@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230711"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922842"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar caching para enriquecimento incremental em Azure Cognitive Search
 
@@ -38,7 +38,7 @@ Se tiver um indexante existente que já tenha uma habilidade, siga os passos nes
 
 Comece com um indexante válido e existente que tenha estes componentes: fonte de dados, skillset, índice. O seu indexante deve ser executado. 
 
-Utilizando um cliente API, construa um [pedido get indexer](https://docs.microsoft.com/rest/api/searchservice/get-indexer) para obter a configuração atual do indexante. Quando utiliza a versão API de pré-visualização para o INDEXADOR GET, `cache` um conjunto de propriedade para nulo é adicionado às definições.
+Utilizando um cliente API, construa um [pedido get indexer](/rest/api/searchservice/get-indexer) para obter a configuração atual do indexante. Quando utiliza a versão API de pré-visualização para o INDEXADOR GET, `cache` um conjunto de propriedade para nulo é adicionado às definições.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -75,7 +75,7 @@ Modifique o objeto de cache para incluir as seguintes propriedades necessárias 
 
 ### <a name="step-3-reset-the-indexer"></a>Passo 3: Redefinir o indexante
 
-É necessário repor o indexante na criação de enriquecimento incremental para os indexantes existentes para garantir que todos os documentos estão em estado consistente. Pode utilizar o portal ou um cliente API e a [API do Indexer reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) para esta tarefa.
+É necessário repor o indexante na criação de enriquecimento incremental para os indexantes existentes para garantir que todos os documentos estão em estado consistente. Pode utilizar o portal ou um cliente API e a [API do Indexer reset](/rest/api/searchservice/reset-indexer) para esta tarefa.
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2020-06-30-Preview
@@ -85,7 +85,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### <a name="step-4-save-the-updated-definition"></a>Passo 4: Guarde a definição atualizada
 
-[Atualizar o indexante](https://docs.microsoft.com/rest/api/searchservice/preview-api/update-indexer) com um pedido PUT, o corpo do pedido deve conter a definição de indexante atualizada que tem a propriedade cache. Se conseguir um 400, verifique a definição do indexante para se certificar de que todos os requisitos estão cumpridos (fonte de dados, skillset, índice).
+[Atualizar o indexante](/rest/api/searchservice/preview-api/update-indexer) com um pedido PUT, o corpo do pedido deve conter a definição de indexante atualizada que tem a propriedade cache. Se conseguir um 400, verifique a definição do indexante para se certificar de que todos os requisitos estão cumpridos (fonte de dados, skillset, índice).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -115,7 +115,7 @@ Se agora emitir outro pedido GET no indexante, a resposta do serviço incluirá 
 
 Para executar indexante, pode utilizar o portal ou a API. No portal, a partir da lista de indexadores, selecione o indexante e clique em **Executar**. Uma vantagem para usar o portal é que você pode monitorizar o estado do indexante, observar a duração do trabalho e quantos documentos são processados. As páginas do portal são atualizadas a cada poucos minutos.
 
-Em alternativa, pode utilizar o REST para [executar o indexante:](https://docs.microsoft.com/rest/api/searchservice/run-indexer)
+Em alternativa, pode utilizar o REST para [executar o indexante:](/rest/api/searchservice/run-indexer)
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2020-06-30-Preview
@@ -123,7 +123,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-Depois do indexer, pode encontrar a cache no armazenamento da Azure Blob. O nome do recipiente encontra-se no seguinte formato:`ms-az-search-indexercache-<YOUR-CACHE-ID>`
+Depois do indexer, pode encontrar a cache no armazenamento da Azure Blob. O nome do recipiente encontra-se no seguinte formato: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > Um reset e uma repetição do indexante resulta numa reconstrução completa para que o conteúdo possa ser em cache. Todos os enriquecimentos cognitivos serão reexame em todos os documentos.
@@ -137,7 +137,7 @@ Volte a executar o indexante. Apenas as partes de uma árvore de documento enriq
 
 ## <a name="enable-caching-on-new-indexers"></a>Permitir o caching em novos indexadores
 
-Para configurar o enriquecimento incremental para um novo indexante, tudo o que tem de fazer é incluir a `cache` propriedade na carga útil de definição de indexante ao chamar o Create [Indexer (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer). 
+Para configurar o enriquecimento incremental para um novo indexante, tudo o que tem de fazer é incluir a `cache` propriedade na carga útil de definição de indexante ao chamar o Create [Indexer (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer). 
 
 
 ```json
@@ -165,16 +165,16 @@ Por exemplo, assuma um skillset que comece com a análise de imagem e reconhecim
 
 ## <a name="working-with-the-cache"></a>Trabalhar com a cache
 
-Uma vez que a cache esteja operacional, os indexadores verificam a cache sempre que o [Índice de Execução](https://docs.microsoft.com/rest/api/searchservice/run-indexer) é chamado, para ver quais as partes da saída existente. 
+Uma vez que a cache esteja operacional, os indexadores verificam a cache sempre que o [Índice de Execução](/rest/api/searchservice/run-indexer) é chamado, para ver quais as partes da saída existente. 
 
 O quadro que se segue resume a forma como várias APIs se relacionam com a cache:
 
 | API           | Impacto cache     |
 |---------------|------------------|
-| [Criar Indexer (2020-06-30-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Cria e executa um indexante na primeira utilização, incluindo a criação de uma cache se a definição do indexante o especificar. |
-| [Indexante de Execução](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Executa um oleoduto de enriquecimento a pedido. Esta API lê a partir da cache se existe, ou cria uma cache se adicionar cache a uma definição de indexante atualizada. Quando executam um indexante que tem o cache ativado, o indexante omite passos se a saída em cache puder ser utilizada. Pode utilizar a versão API geralmente disponível ou de pré-visualização desta API.|
-| [Indexante de Reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Limpa o indexante de qualquer informação de indexação incremental. A próxima execução do indexante (a pedido ou horário) é o reprocessamento completo do zero, incluindo a recorrência de todas as competências e a reconstrução da cache. É funcionalmente equivalente a eliminar o indexante e recriá-lo. Pode utilizar a versão API geralmente disponível ou de pré-visualização desta API.|
-| [Competências de Reset](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Especifica quais as habilidades a repetir na próxima corrida do indexante, mesmo que não tenha modificado nenhuma habilidade. A cache é atualizada em conformidade. As saídas, como uma loja de conhecimento ou índice de pesquisa, são atualizadas usando dados reutilizáveis da cache mais novos conteúdos por habilidade atualizada. |
+| [Criar Indexer (2020-06-30-Pré-visualização)](/rest/api/searchservice/preview-api/create-indexer) | Cria e executa um indexante na primeira utilização, incluindo a criação de uma cache se a definição do indexante o especificar. |
+| [Indexante de Execução](/rest/api/searchservice/run-indexer) | Executa um oleoduto de enriquecimento a pedido. Esta API lê a partir da cache se existe, ou cria uma cache se adicionar cache a uma definição de indexante atualizada. Quando executam um indexante que tem o cache ativado, o indexante omite passos se a saída em cache puder ser utilizada. Pode utilizar a versão API geralmente disponível ou de pré-visualização desta API.|
+| [Indexante de Reset](/rest/api/searchservice/reset-indexer)| Limpa o indexante de qualquer informação de indexação incremental. A próxima execução do indexante (a pedido ou horário) é o reprocessamento completo do zero, incluindo a recorrência de todas as competências e a reconstrução da cache. É funcionalmente equivalente a eliminar o indexante e recriá-lo. Pode utilizar a versão API geralmente disponível ou de pré-visualização desta API.|
+| [Competências de Reset](/rest/api/searchservice/preview-api/reset-skills) | Especifica quais as habilidades a repetir na próxima corrida do indexante, mesmo que não tenha modificado nenhuma habilidade. A cache é atualizada em conformidade. As saídas, como uma loja de conhecimento ou índice de pesquisa, são atualizadas usando dados reutilizáveis da cache mais novos conteúdos por habilidade atualizada. |
 
 Para obter mais informações sobre o controlo do que acontece com a cache, consulte a [gestão cache.](cognitive-search-incremental-indexing-conceptual.md#cache-management)
 

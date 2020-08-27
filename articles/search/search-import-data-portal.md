@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321386"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935216"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de dados de importação para Azure Cognitive Search
 
@@ -68,19 +68,19 @@ Deve criar esta única tabela ou visualização antes de executar o assistente, 
 | [**Base de Dados Azure SQL ou SqL Caso Gerido**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Podem ser especificados um nome do serviço, credenciais para um utilizador de base de dados com permissão de leitura e um nome de base de dados na página ou através de uma cadeia de ligação do ADO.NET. Escolha a opção de cadeia de ligação para ver ou personalizar propriedades. <br/><br/>A tabela ou vista que fornece o conjunto de linhas deve ser especificada na página. Esta opção é apresentada após a ligação ser bem sucedida, apresentando uma lista pendente para que possa fazer uma seleção.|
 | **SQL Server numa VM do Azure** |Especifique um nome de serviço totalmente qualificado, ID do utilizador e senha e base de dados como uma cadeia de ligação. Para utilizar esta origem de dados, deve ter instalado anteriormente um certificado no arquivo local que encripta a ligação. Para obter instruções, consulte [a ligação SQL VM à Pesquisa Cognitiva Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou vista que fornece o conjunto de linhas deve ser especificada na página. Esta opção é apresentada após a ligação ser bem sucedida, apresentando uma lista pendente para que possa fazer uma seleção. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Os requisitos incluem a conta, a base de dados e a coleção. Todos os documentos na coleção serão incluídos no índice remissivo. Pode definir uma consulta para achatar ou filtrar o conjunto de linhas, ou deixar a consulta em branco. Não é necessária uma consulta neste assistente.|
-| [**Armazenamento de Blobs do Azure**](search-howto-indexing-azure-blob-storage.md) |Os requisitos incluem a conta de armazenamento e um contentor. Opcionalmente, se os nomes de blob seguem uma convenção de nomenclatura virtual para fins de agrupamento, pode especificar a porção do diretório virtual do nome como uma pasta no contentor. Consulte [Armazenamento de Blobs de Indexação](search-howto-indexing-azure-blob-storage.md) para obter mais informações. |
-| [**Armazenamento de Tabelas do Azure**](search-howto-indexing-azure-tables.md) |Os requisitos incluem a conta de armazenamento e um nome de tabela. Opcionalmente, pode especificar uma consulta para obter um subconjunto de tabelas. Consulte [Armazenamento de Tabelas de Indexação](search-howto-indexing-azure-tables.md) para obter mais informações. |
+| [**Armazenamento Azure Blob**](search-howto-indexing-azure-blob-storage.md) |Os requisitos incluem a conta de armazenamento e um contentor. Opcionalmente, se os nomes de blob seguem uma convenção de nomenclatura virtual para fins de agrupamento, pode especificar a porção do diretório virtual do nome como uma pasta no contentor. Consulte [Armazenamento de Blobs de Indexação](search-howto-indexing-azure-blob-storage.md) para obter mais informações. |
+| [**Table Storage do Azure**](search-howto-indexing-azure-tables.md) |Os requisitos incluem a conta de armazenamento e um nome de tabela. Opcionalmente, pode especificar uma consulta para obter um subconjunto de tabelas. Consulte [Armazenamento de Tabelas de Indexação](search-howto-indexing-azure-tables.md) para obter mais informações. |
 
 ## <a name="wizard-output"></a>Saída do assistente
 
-Nos bastidores, o assistente cria, configura e invoca os seguintes objetos. Depois de o assistente ser executado, pode encontrar a sua saída nas páginas do portal. A página geral do seu serviço tem listas de índices, indexadores, fontes de dados e skillsets. As definições de índice podem ser vistas em JSON completo no portal. Para outras definições, pode utilizar a [API REST](https://docs.microsoft.com/rest/api/searchservice/) para obter objetos específicos.
+Nos bastidores, o assistente cria, configura e invoca os seguintes objetos. Depois de o assistente ser executado, pode encontrar a sua saída nas páginas do portal. A página geral do seu serviço tem listas de índices, indexadores, fontes de dados e skillsets. As definições de índice podem ser vistas em JSON completo no portal. Para outras definições, pode utilizar a [API REST](/rest/api/searchservice/) para obter objetos específicos.
 
 | Objeto | Descrição | 
 |--------|-------------|
-| [Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persiste a informação de ligação aos dados de origem, incluindo credenciais. Um objeto de origem de dados é utilizado exclusivamente com indexadores. | 
-| [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados físicos utilizada para pesquisa completa de texto e outras consultas. | 
-| [Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | Um conjunto completo de instruções para manipular, transformar e moldar conteúdos, incluindo analisar e extrair informações de ficheiros de imagem. Com exceção de estruturas muito simples e limitadas, inclui uma referência a um recurso de Serviços Cognitivos que proporciona enriquecimento. Opcionalmente, pode também conter uma definição de loja de conhecimento.  | 
-| [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Um objeto de configuração especificando uma fonte de dados, índice de destino, um skillset opcional, agenda opcional e configurações de configuração opcional para entrega de erros e codificação base-64. |
+| [Origem de dados](/rest/api/searchservice/create-data-source)  | Persiste a informação de ligação aos dados de origem, incluindo credenciais. Um objeto de origem de dados é utilizado exclusivamente com indexadores. | 
+| [Índice](/rest/api/searchservice/create-index) | Estrutura de dados físicos utilizada para pesquisa completa de texto e outras consultas. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Um conjunto completo de instruções para manipular, transformar e moldar conteúdos, incluindo analisar e extrair informações de ficheiros de imagem. Com exceção de estruturas muito simples e limitadas, inclui uma referência a um recurso de Serviços Cognitivos que proporciona enriquecimento. Opcionalmente, pode também conter uma definição de loja de conhecimento.  | 
+| [Indexador](/rest/api/searchservice/create-indexer)  | Um objeto de configuração especificando uma fonte de dados, índice de destino, um skillset opcional, agenda opcional e configurações de configuração opcional para entrega de erros e codificação base-64. |
 
 
 ## <a name="how-to-start-the-wizard"></a>Como começar o feiticeiro
@@ -103,7 +103,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 
 1. A lista de campo está completa? Adicione novos campos que a amostragem falhou e remova quaisquer que não acrescentem valor a uma experiência de pesquisa ou que não sejam utilizados numa [expressão de filtro](search-query-odata-filter.md) ou perfil de [pontuação](index-add-scoring-profiles.md).
 
-1. O tipo de dados é adequado para os dados de entrada? A Azure Cognitive Search suporta os tipos de dados do modelo de dados da [entidade (EDM).](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) Para os dados do Azure SQL, existe [um gráfico de mapeamento](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que define valores equivalentes. Para mais informações, consulte [mapeamentos e transformações de campo.](search-indexer-field-mappings.md)
+1. O tipo de dados é adequado para os dados de entrada? A Azure Cognitive Search suporta os tipos de dados do modelo de dados da [entidade (EDM).](/rest/api/searchservice/supported-data-types) Para os dados do Azure SQL, existe [um gráfico de mapeamento](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que define valores equivalentes. Para mais informações, consulte [mapeamentos e transformações de campo.](search-indexer-field-mappings.md)
 
 1. Tem um campo que possa servir de *chave?* Este campo deve ser Edm.string e deve identificar um documento de forma única. Para dados relacionais, pode ser mapeado para uma chave primária. Para as bolhas, pode ser `metadata-storage-path` a. Se os valores de campo incluir espaços ou traços, deve definir a opção **Chave de Codificação Base-64** no passo **Criar um Indexador,** em **opções Avançadas,** para suprimir o controlo de validação destes caracteres.
 
@@ -115,7 +115,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 
    + **Recuperável** devolve o campo em resultados de pesquisa. Para todos os campos que nos nídricos forneça os resultados da sua pesquisa. A definição deste campo não afeta sensivelmente o tamanho do índice.
 
-   + **Filtrado** permite que o campo seja referenciado em expressões de filtro. Todos os campos utilizados numa expressão **$filter** devem ter este atributo. Expressões de filtro são para fósforos exatos. Como as cordas de texto permanecem intactas, é necessário um armazenamento adicional para acomodar o conteúdo verbatim.
+   + **Filtrado** permite que o campo seja referenciado em expressões de filtro. Todos os campos utilizados numa expressão **$filter**  devem ter este atributo. Expressões de filtro são para fósforos exatos. Como as cordas de texto permanecem intactas, é necessário um armazenamento adicional para acomodar o conteúdo verbatim.
 
    + **Facetable** permite o campo para navegação facetada. Apenas os campos marcados como **Filtrados** podem ser marcados como **Facetable**.
 
@@ -128,7 +128,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 1. Precisa de uma funcionalidade de typeahead sob a forma de resultados autocompletos ou sugeridos? Selecione o **Suggester** a caixa de verificação para permitir [sugestões de consulta de tipa e precontativar automaticamente](index-add-suggesters.md) em campos selecionados. Os sugestivos adicionam ao número de termos simbólicos no seu índice e consomem assim mais armazenamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A melhor maneira de entender os benefícios e limitações do feiticeiro é ultrapassá-lo. O seguinte quickstart guia-o através de cada passo.
 

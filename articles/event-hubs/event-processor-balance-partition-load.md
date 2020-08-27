@@ -3,12 +3,12 @@ title: Equilibrar a carga de partição em vários casos - Azure Event Hubs Micr
 description: Descreve como equilibrar a carga de partição em várias instâncias da sua aplicação usando um processador de eventos e o Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bf3f05b823a784f4f3fc2074719ed346f769f5e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512321"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933798"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
 Para escalar a sua aplicação de processamento de eventos, pode executar várias instâncias da aplicação e fazê-la equilibrar a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitiu equilibrar a carga entre várias instâncias do seu programa e eventos de checkpoint ao receber. Nas versões mais recentes (5.0 em diante), **EventProcessorClient** (.NET e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite-lhe fazer o mesmo. O modelo de desenvolvimento é simplificado utilizando eventos. Subscreve os eventos que lhe interessam ao registar um manipulador de eventos.
@@ -78,17 +78,17 @@ Quando o ponto de verificação é realizado para marcar um evento como processa
 > Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>Casos de segurança e de processador de roscas
 
 Por predefinição, a função que processa os eventos é chamada sequencialmente para uma determinada partição. Eventos subsequentes e chamadas para esta função a partir da mesma fila de partição nos bastidores, à medida que a bomba de evento continua a funcionar em segundo plano em outros fios. Note que eventos de diferentes divisórias podem ser processados simultaneamente e qualquer estado partilhado que seja acedido através de divisórias tem que ser sincronizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes arranques rápidos:
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)

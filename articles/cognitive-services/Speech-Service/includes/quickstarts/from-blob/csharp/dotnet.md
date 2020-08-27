@@ -4,42 +4,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 8c63c979300af4c180751b3824def0cb974ee186
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 750ce2d19334f549242c37494a11a1f683469f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400954"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926150"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
+> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
-## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Visual Studio
 
-O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
+O primeiro passo é garantir que o seu projeto está aberto no Visual Studio.
 
-1. Lançar O Estúdio Visual 2019.
-2. Carregue o seu `Program.cs`projeto e abra.
+1. Lançamento Visual Studio 2019.
+2. Carregue o seu projeto e `Program.cs` abra.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Adicione uma referência a Newtonsoft.Json
+## <a name="add-a-reference-to-newtonsoftjson"></a>Adicione uma referência a Newtonsoft.Jsem
 
-1. No Solution Explorer, clique no projeto **Helloworld** e, em seguida, selecione **Gerir pacotes NuGet** para mostrar o NuGet Package Manager.
-1. No canto superior direito, encontre a caixa de entrega **`nuget.org`** da Fonte de **Embalagem** e certifique-se de que é selecionada.
-1. No canto superior esquerdo, **selecione Browse**.
-1. Na caixa de pesquisa, digite *newtonsoft.json* e selecione **Enter**.
-1. A partir dos resultados da pesquisa, selecione o pacote [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) e, em seguida, selecione **Instalar** para instalar a versão mais recente estável.
-1. Aceite todos os acordos e licenças para iniciar a instalação.
-   Após a instalação da embalagem, aparece uma confirmação na janela da Consola do Gestor de **Pacotes.**
+1. No Solution Explorer, clique com o botão direito no projeto **Helloworld** e, em seguida, **selecione Gerir Pacotes NuGet** para mostrar o Gestor de Pacotes NuGet.
+1. No canto superior direito, encontre a caixa de entrega **de Fonte** de Pacote e certifique-se de que **`nuget.org`** está selecionada.
+1. No canto superior esquerdo, **selecione Procurar**.
+1. Na caixa de pesquisa, escreva *newtonsoft.js* e selecione **Enter**.
+1. A partir dos resultados da pesquisa, selecione o [**Newtonsoft.Jsno**](https://www.nuget.org/packages/Newtonsoft.Json) pacote e, em seguida, selecione **Instalar** para instalar a versão mais recente estável.
+1. Aceite todos os contratos e licenças para iniciar a instalação.
+   Após a instalação da embalagem, aparece uma confirmação na janela **da consola do gestor de pacotes.**
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 ```csharp
 class Program
@@ -81,10 +82,10 @@ class Program
 
 ## <a name="json-wrappers"></a>Invólucros JSON
 
-À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
-Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON.
+Como a API do REST aceita pedidos em formato JSON e também retorno resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
+De forma a facilitar a gestão dos pedidos e respostas, declararemos algumas aulas para usar para serializar/deserizar o JSON.
 
-Vá em frente e `TranscribeAsync`coloque as suas declarações depois.
+Vá em frente e coloque as suas declarações `TranscribeAsync` depois.
 
 ```csharp
 public class ModelIdentity
@@ -185,9 +186,9 @@ public class TranscriptionDefinition
 }
 ```
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
-A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira `TranscribeAsync`este código em .
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente Http
+A primeira coisa que vamos precisar é de um Cliente Http que tenha um URL de base correto e conjunto de autenticação.
+Insira este código em `TranscribeAsync` .
 
 ```csharp
 var client = new HttpClient
@@ -202,7 +203,7 @@ var client = new HttpClient
 ```
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este `TranscribeAsync`código a .
+Em seguida, geraremos o pedido de transcrição. Adicione este código a `TranscribeAsync` .
 
 ```csharp
 var transcriptionDefinition =
@@ -218,7 +219,7 @@ sc.Headers.ContentType = JsonMediaTypeFormatter.DefaultMediaType;
 ```
 
 ## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
-Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
+Agora publicamos o pedido ao serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta apenas indicará se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde irá armazenar o estado de transcrição.
 
 ```csharp
 Uri transcriptionLocation = null;
@@ -234,12 +235,12 @@ using (var response = await client.PostAsync($"{SpeechToTextBasePath}Transcripti
 }
 ```
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
-Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde que a transcrição esteja completa.
+Uma vez que o serviço processa a transcrição assíncroneamente, precisamos de sondar o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido publicou. Quando recuperarmos o conteúdo, desserializámo-lo numa das nossas aulas de ajuda para facilitar a interação.
+Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido foi publicado. Quando recuperarmos o conteúdo, deserizamo-lo numa das nossas aulas de ajudante para facilitar a interação.
 
-Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
+Aqui está o código de sondagens com exibição de estado para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 
 ```csharp
 Console.WriteLine($"Created transcription at location {transcriptionLocation}.");
@@ -293,8 +294,8 @@ Console.ReadKey();
 ```
 
 ## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
-Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado. Aqui fazemos um pedido para baixar esses resultados em um arquivo temporário antes de lê-los e desserializá-los.
-Uma vez carregados os resultados, podemos imprimi-los à consola. Adicione o seguinte `case "Succeeded":` código à etiqueta.
+Uma vez que o serviço tenha concluído com sucesso a transcrição, os resultados serão armazenados em outro Url que podemos obter da resposta de estado. Aqui fazemos um pedido para descarregar esses resultados em um ficheiro temporário antes de lê-los e desseecializá-los.
+Assim que os resultados estiverem carregados, podemos imprimi-los à consola. Adicione o seguinte código à `case "Succeeded":` etiqueta.
 
 ```csharp
 completed = true;
@@ -307,7 +308,7 @@ File.Delete(filename);
 ```
 
 ## <a name="check-your-code"></a>Verifique o seu código
-Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão)
+Neste momento, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão)
 
 ```csharp
 using Newtonsoft.Json;
@@ -549,11 +550,11 @@ namespace BatchClient
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço Speech.
 
-1. **Compile o código** - A partir da barra de menu do Estúdio Visual, escolha **Build** > **Build Solution**.
-2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Start Debugging** ou prima **F5**.
-3. **Comece a reconhecer** - Vai instá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço da Fala, transcrito como texto, e renderizado na consola.
+1. **Compilar o código** - A partir da barra de menus do Estúdio Visual, escolha **Build**  >  **Build Solution**.
+2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug**  >  **Start Debugging** ou prima **F5**.
+3. **Comece a reconhecer** - Vai levá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço de discurso, transcrito como texto, e renderizado na consola.
 
 ## <a name="next-steps"></a>Passos seguintes
 

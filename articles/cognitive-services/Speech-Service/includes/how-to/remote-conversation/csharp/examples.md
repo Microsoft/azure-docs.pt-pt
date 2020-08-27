@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: 58fa9361cc591f7d2b78a19f3db620112e288592
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51b919c97a15946f57211cf8fe12d7c5efe435bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284231"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934650"
 ---
 ## <a name="upload-the-audio"></a>Faça o upload do áudio
 
@@ -109,7 +110,7 @@ Instale **microsoft.CognitiveServices.Speech.Remoteconversation versão 1.13.0 o
 
 ### <a name="sample-transcription-code"></a>Código de transcrição de amostra
 
-Depois de ter o `conversationId` cliente de transcrição de conversação remota **RemoteConversationTranscriptionClionClient** na aplicação do cliente para consultar o estado da transcrição assíncronia. Crie um objeto de **RemoteConversationTranscriptionOperation** para obter um objeto [de operação](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) de longa duração. Pode verificar o estado da operação ou aguardar a sua conclusão. 
+Depois de ter o `conversationId` cliente de transcrição de conversação remota **RemoteConversationTranscriptionClionClient** na aplicação do cliente para consultar o estado da transcrição assíncronia. Crie um objeto de  **RemoteConversationTranscriptionOperation** para obter um objeto [de operação](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) de longa duração. Pode verificar o estado da operação ou aguardar a sua conclusão. 
 
 ```csharp
 // Create the speech config

@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
-ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843629"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933363"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -210,11 +210,11 @@ A [especificação do modelo de dados OpenTracing](https://opentracing.io/) e os
 
 | Application Insights                   | Abretracção                                        |
 |------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span`com`span.kind = server`                    |
-| `Dependency`                           | `Span`com`span.kind = client`                    |
-| `Id`de `Request` e`Dependency`     | `SpanId`                                            |
+| `Request`, `PageView`                  | `Span` com `span.kind = server`                    |
+| `Dependency`                           | `Span` com `span.kind = client`                    |
+| `Id` de `Request` e `Dependency`     | `SpanId`                                            |
 | `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference`do tipo `ChildOf` (o período dos pais)     |
+| `Operation_ParentId`                   | `Reference` do tipo `ChildOf` (o período dos pais)     |
 
 Para obter mais informações, consulte o [modelo de dados de telemetria Da Aplicação Insights](../../azure-monitor/app/data-model.md).
 
@@ -310,10 +310,10 @@ Ao longo do tempo, .NET definiu várias formas de correlacionar registos de tele
 
 - `System.Diagnostics.CorrelationManager`permite o rastreio da [LogicalOperationStack e activityId.](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1)
 - `System.Diagnostics.Tracing.EventSource`e O Rastreio de Eventos para Windows (ETW) define o método [SetCurrentThreadActivityId.](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads)
-- `ILogger`utiliza [miras de log](/aspnet/core/fundamentals/logging#log-scopes).
+- `ILogger` utiliza [miras de log](/aspnet/core/fundamentals/logging#log-scopes).
 - A Windows Communication Foundation (WCF) e a HTTP ligam a propagação do contexto "atual".
 
-Mas esses métodos não permitiram o suporte automático de rastreio distribuído. `DiagnosticSource`suporta a correlação automática entre máquinas. .NET as bibliotecas `DiagnosticSource` suportam e permitem a propagação automática do contexto de correlação através do transporte, tais como HTTP.
+Mas esses métodos não permitiram o suporte automático de rastreio distribuído. `DiagnosticSource` suporta a correlação automática entre máquinas. .NET as bibliotecas `DiagnosticSource` suportam e permitem a propagação automática do contexto de correlação através do transporte, tais como HTTP.
 
 O [Guia do Utilizador de Atividades](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) explica os `DiagnosticSource` fundamentos das atividades de rastreio.
 

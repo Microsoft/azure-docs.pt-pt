@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146131"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934893"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa fuzzy para corrigir erros ortográficos e erros de tipografia
 
@@ -82,7 +82,7 @@ Quando os resultados são ambíguos, [o destaque de sucesso](search-pagination-p
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Exemplo 1: pesquisa confusa com o termo exato
 
-Assuma que o seguinte fio existe num `"Description"` campo num documento de pesquisa:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Assuma que o seguinte fio existe num `"Description"` campo num documento de pesquisa: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Comece com uma pesquisa difusa em "especial" e adicione o ponto de destaque ao campo Descrição:
 
@@ -132,9 +132,9 @@ Note que a mesma resposta é devolvida, mas agora em vez de combinar em "especia
 
 O objetivo deste exemplo alargado é ilustrar a clareza que o destaque pode trazer a resultados ambíguos. Em todos os casos, o mesmo documento é devolvido. Se tivesse confiado em documentos de identificação para verificar uma correspondência, poderia ter perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)
-+ [Como consultar em .NET](search-query-dotnet.md)
-+ [Como consultar em REST](search-create-index-rest-api.md)
++ [Como consultar em .NET](./search-get-started-dotnet.md)
++ [Como consultar em REST](./search-get-started-powershell.md)

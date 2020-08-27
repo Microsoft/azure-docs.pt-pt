@@ -10,12 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 812061bf161a33e4151b7b23265196895e039414
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 127834034cf1de00b61794c6cfd51a041a37a8c3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611242"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925152"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Quickstart: Envie uma consulta para a API de Pesquisa Empresarial Local de Bing em C #
 
@@ -58,7 +59,7 @@ O seguinte código utiliza a API de Pesquisa de Negócios Locais Bing para devol
 1. Crie uma nova solução de consola no Visual Studio (a Edição Comunitária é suficiente).
 2. Substitua Program.cs pelo código fornecido abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-4. Execute o programa.
+4. Executar o programa.
 
 ```csharp
 using System;

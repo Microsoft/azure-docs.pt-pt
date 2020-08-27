@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: dd93ef68b0e0e7ac465584eaecb3b4c8a0c39476
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420605"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934944"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
 
 Saiba como implementar o autocomplete (consultas de tipa e documentos sugeridos) quando um utilizador começar a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas e resultados de sugestões autocompletos separadamente, e depois juntos. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Adicionar sugestões
 > * Adicionar destaque às sugestões
@@ -145,7 +145,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
  
     ![Digitando "pa" com conjunto felpudo para verdade](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Se estiver interessado, a [sintaxe de consulta Lucene em Azure Cognitive Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) descreve a lógica usada em pesquisas difusas em detalhe.
+    Se estiver interessado, a [sintaxe de consulta Lucene em Azure Cognitive Search](./query-lucene-syntax.md) descreve a lógica usada em pesquisas difusas em detalhe.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Adicionar destaque às sugestões
 
@@ -244,7 +244,7 @@ Outra variação, que é ligeiramente diferente das sugestões, é a auto-conclu
 
     Note que estamos a usar a mesma função *de sugestivo,* chamada "sg", na pesquisa autocompleta como fizemos para sugestões (por isso estamos apenas a tentar completar automaticamente os nomes do hotel).
 
-    Existem uma gama de configurações **AutocompleteMode,** e estamos a usar **oneTermWithContext**. Consulte a [API autocompleta](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obter uma descrição de opções adicionais.
+    Existem uma gama de configurações **AutocompleteMode,** e estamos a usar **oneTermWithContext**. Consulte a [API autocompleta](/rest/api/searchservice/autocomplete) para obter uma descrição de opções adicionais.
 
 4. Execute a aplicação. Note como o leque de opções apresentadas na lista de suspensos são palavras únicas. Tente escrever palavras começando com "re". Note como o número de opções diminui à medida que mais letras são dactilografadas.
 
@@ -458,11 +458,9 @@ Considere os seguintes takeaways deste projeto:
 * Teste sempre funções de auto-completação com todas as formas de entrada.
 * A utilização da função **setInterval** pode ser útil na verificação e correção de elementos de UI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para reduzir as pesquisas com um único clique.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Use facetas para ajudar na navegação - Azure Cognitive Search](tutorial-csharp-facets.md)
-
-

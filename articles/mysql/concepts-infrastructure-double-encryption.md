@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066411"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919714"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura MySQL dupla encriptação
 
@@ -62,6 +62,12 @@ As capacidades de encriptação fornecidas pela Azure Database para o MySQL pode
 Para a base de dados Azure para o MySQL, o suporte para a dupla encriptação de infraestrutura utilizando a chave gerida pelo serviço tem as seguintes limitações:
 
 * O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
+* Pode criar uma Base de Dados Azure para o MySQL com encriptação de infraestrutura ativada nas seguintes regiões:
+
+   * E.U.A. Leste
+   * E.U.A. Centro-Sul
+   * E.U.A. Oeste 2
+   
 * * Esta funcionalidade é suportada apenas em regiões e servidores, que suportam o armazenamento até 16 TB. Para a lista das regiões de Azure que suportam o armazenamento até 16 TB, consulte a [documentação](concepts-pricing-tiers.md#storage)de armazenamento .
 
     > [!NOTE]

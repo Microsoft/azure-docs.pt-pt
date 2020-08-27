@@ -3,13 +3,13 @@ title: Cargas de trabalho de contentor
 description: Aprenda a executar e escalar aplicativos a partir de imagens de contentores em Azure Batch. Crie um conjunto de nós computativos que suportem tarefas de contentores em funcionamento.
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726728"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933550"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentores em Azure Batch
 
@@ -56,15 +56,15 @@ Para as cargas de trabalho dos contentores Linux, o Batch suporta atualmente as 
 
 #### <a name="vm-sizes-without-rdma"></a>Tamanhos VM sem RDMA
 
-- Editor:`microsoft-azure-batch`
-  - Oferta:`centos-container`
-  - Oferta:`ubuntu-server-container`
+- Editor: `microsoft-azure-batch`
+  - Oferta: `centos-container`
+  - Oferta: `ubuntu-server-container`
 
 #### <a name="vm-sizes-with-rdma"></a>Tamanhos VM com RDMA
 
-- Editor:`microsoft-azure-batch`
-  - Oferta:`centos-container-rdma`
-  - Oferta:`ubuntu-server-container-rdma`
+- Editor: `microsoft-azure-batch`
+  - Oferta: `centos-container-rdma`
+  - Oferta: `ubuntu-server-container-rdma`
 
 Estas imagens são suportadas apenas para serem utilizadas nas piscinas do Azure Batch e destinam-se à execução do contentor Docker. Apresentam:
 
@@ -253,7 +253,7 @@ Opcionais [DeOps de Contentores](/dotnet/api/microsoft.azure.batch.taskcontainer
 
 ### <a name="container-task-working-directory"></a>Diretório de trabalho de tarefa de contentor
 
-Uma tarefa de contentor batch executa num diretório de trabalho no contentor muito semelhante ao diretório que o Batche configura para uma tarefa regular (não contentor). Note que este diretório de trabalho é diferente do [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) se configurado na imagem, ou no diretório de trabalho do contentor predefinido `C:\` (num recipiente Windows ou `/` num recipiente Linux).
+Uma tarefa de contentor batch executa num diretório de trabalho no contentor muito semelhante ao diretório que o Batche configura para uma tarefa regular (não contentor). Note que este diretório de trabalho é diferente do [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) se configurado na imagem, ou no diretório de trabalho do contentor predefinido `C:\`  (num recipiente Windows ou `/` num recipiente Linux).
 
 Para uma tarefa de contentor de lote:
 
@@ -306,7 +306,7 @@ CloudTask containerTask = new CloudTask (
 containerTask.ContainerSettings = cmdContainerSettings;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte também o conjunto de ferramentas [do Estaleiro de Lote](https://github.com/Azure/batch-shipyard) para facilitar a implantação das cargas de trabalho dos contentores no Azure Batch através das [receitas do Estaleiro.](https://github.com/Azure/batch-shipyard/tree/master/recipes)
 

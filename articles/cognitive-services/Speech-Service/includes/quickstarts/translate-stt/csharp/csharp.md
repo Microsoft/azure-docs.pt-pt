@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso-texto, C# - Serviço de fala'
+title: 'Quickstart: Traduzir discurso-a-texto, C# - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: c41f33409894823f8ff2730ff38870629678e390
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 27511cfb5c00d1da14c91a5ec013e1cd1a813da6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76159298"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925679"
 ---
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](./dotnet.md)]

@@ -2,13 +2,14 @@
 title: Insights de Aplicação para serviços em nuvem Azure / Microsoft Docs
 description: Monitorizar as funções Web e de trabalho eficazmente com o Application Insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318441"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923862"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Insights de Aplicação para serviços em nuvem Azure
 [O Application Insights][start] pode monitorizar [as aplicações do serviço de cloud Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, combinando dados de SDKs app Insights com dados de [Diagnóstico Azure](../platform/diagnostics-extension-overview.md) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.

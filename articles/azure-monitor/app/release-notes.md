@@ -2,13 +2,14 @@
 title: Notas de lançamento para Azure Application Insights / Microsoft Docs
 description: As últimas atualizações para SDKs de Insights de Aplicação.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
-ms.openlocfilehash: 59e10bff6d0e2246b130f97ce9b21cd9685bde30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0f5cebcb2711ca63833b6c7e285483f4e3ca6eb1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315483"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934281"
 ---
 # <a name="release-notes---application-insights"></a>Notas de lançamento - Insights de Aplicação
 

@@ -4,12 +4,12 @@ description: 'Quickstart: Criar um espaço de nomes de Centros de Eventos com um
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: dbec62c182fe804ba45cae2f9e40c189b9bc0279
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: e6da5fbe3c0e269f5ceb2c3627df27ccf0e3b30b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641131"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933856"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Quickstart: Criar um centro de eventos usando um modelo ARM
 
@@ -75,7 +75,7 @@ Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Se a Cloud Shell ainda estiver aberta, não precisa copiar/executar a primeira linha (Read-Host).
 
@@ -92,10 +92,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 Neste artigo, você criou um espaço de nomes de Event Hubs, e um centro de eventos no espaço de nomes. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:**
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)

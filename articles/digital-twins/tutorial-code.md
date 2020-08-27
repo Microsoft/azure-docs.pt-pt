@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 282c506f509adce4c616615e8b8e3580166052e6
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854673"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923709"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -55,7 +55,7 @@ Em seguida, adicione duas dependências necessárias para trabalhar com a Azure 
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 A primeira dependência é a [biblioteca de clientes Azure IoT Digital Twin para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
@@ -426,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -539,24 +538,7 @@ namespace minimal
  
 O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  
-Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.
-
-Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos e a instância Azure Digital Twins.
-
-> [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
-
-Abra uma Azure Cloud Shell e execute o seguinte comando para eliminar o grupo de recursos e tudo o que contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Em seguida, elimine o registo de aplicações Azure Ative Directory que criou para a sua aplicação cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por fim, elimine a pasta de projeto que criou na sua máquina local.
 

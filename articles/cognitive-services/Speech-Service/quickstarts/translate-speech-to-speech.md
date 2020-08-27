@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 7d1131821220d062606baccfc3b4fd799c3bcba5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ac1565445e2261028e9ecf77f0c8c473f9e867cf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404344"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926089"
 ---
 # <a name="quickstart-translate-speech-to-speech"></a>Quickstart: Traduzir discurso-a-discurso
 

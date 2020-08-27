@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2b3f7934a24f67992d6b80ac359c29ebe2a40b09
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: b6c7f6d8cd4638dd2b7a1f6cc23b192ed6803b41
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849561"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921142"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 

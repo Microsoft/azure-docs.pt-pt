@@ -3,14 +3,14 @@ title: 'Quickstart: Bibliotecas de clientes de compreensão linguística (LUIS)'
 description: Começa com a biblioteca de clientes LUIS com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 ms.topic: quickstart
 ms.date: 08/13/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c66635c1b690200d8f792b2d3f267686ff0bb5f5
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6c21fc4fa826c018cd4070962ed278bbe4540979
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237408"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934736"
 ---
 # <a name="quickstart-language-understanding-luis-client-library"></a>Quickstart: Biblioteca de clientes de compreensão linguística (LUIS)
 
@@ -28,7 +28,7 @@ Começa com a biblioteca de clientes de Compreensão linguística (LUIS). Siga e
 [!INCLUDE [Get intent with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar a aplicação do [portal LUIS](https://www.luis.ai) e eliminar os recursos do Azure do [portal Azure.](https://portal.azure.com/)
 

@@ -3,13 +3,13 @@ title: Consultas de lista eficientes de design
 description: Aumente o desempenho filtrando as suas consultas ao solicitar informações sobre recursos do Batch, como piscinas, empregos, tarefas e nós de computação.
 ms.topic: how-to
 ms.date: 06/18/2020
-ms.custom: seodec18
-ms.openlocfilehash: bcf99dbc55d708af70a28155a3f98c20003e51f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960610"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933519"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar os recursos do Batch de forma eficiente
 
@@ -55,7 +55,7 @@ Neste cenário de exemplo, se houver milhares de tarefas no trabalho, os resulta
 
 As APIs [de Lote .NET](/dotnet/api/microsoft.azure.batch) e [Lote REST](/rest/api/batchservice/) fornecem a capacidade de reduzir tanto o número de itens que são devolvidos numa lista, como a quantidade de informação que é devolvida para cada um. Fá-lo especificando **o filtro,** **selecione**e **expanda as cordas** ao executar consultas de lista.
 
-### <a name="filter"></a>Filtrar
+### <a name="filter"></a>Filtro
 
 A corda do filtro é uma expressão que reduz o número de itens que são devolvidos. Por exemplo, pode listar apenas as tarefas de execução para um trabalho, ou listar apenas nós de computação que estejam prontos para executar tarefas.
 
@@ -63,7 +63,7 @@ A cadeia de filtro é constituída por uma ou mais expressões, com uma express�
 
 Este exemplo lista apenas as tarefas de "renderização" em execução: `(state eq 'running') and startswith(id, 'renderTask')` .
 
-### <a name="select"></a>Selecionar
+### <a name="select"></a>Selecione
 
 A cadeia selecionada limita os valores de propriedade que são devolvidos para cada item. Você especifica uma lista de nomes de propriedade separados por vírgula, e apenas esses valores de propriedade são devolvidos para os itens nos resultados da consulta. Pode especificar qualquer uma das propriedades para o tipo de entidade que está a consultar.
 
@@ -88,8 +88,8 @@ Este exemplo expande a cadeia especifica que as informações estatísticas deve
 - Todos os nomes de propriedade são sensíveis a casos, mas os valores de propriedade são insensíveis.
 - As cordas data/hora podem ser um de dois formatos, e devem ser precedidas com `DateTime` .
   
-  - Exemplo do formato W3C-DTF:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  - Exemplo de formato RFC 1123:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  - Exemplo do formato W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - Exemplo de formato RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 - As cordas booleanas são `true` `false` ou.
 - Se for especificado um imóvel ou operador inválido, resultará um `400 (Bad Request)` erro.
 
@@ -238,7 +238,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como maximizar o [uso do recurso de computação Azure Batch com tarefas de nó simultâneos](batch-parallel-node-tasks.md). Alguns tipos de cargas de trabalho podem beneficiar da execução de tarefas paralelas em nós de computação maiores (mas menos) de computação. Confira o cenário de [exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para mais detalhes sobre tal cenário.
 - Saiba como [monitorizar as soluções do Batch contando tarefas e acenos por estado](batch-get-resource-counts.md)

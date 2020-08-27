@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184657"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933669"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure    
 
@@ -64,7 +64,7 @@ Se ainda não estiver a utilizar os Registos do Monitor Azure, pode utilizar a c
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Compreenda o seu uso e calcule os custos
 
-Se está a usar registos do Monitor Azure agora, é fácil entender quais os custos que provavelmente são baseados em padrões de utilização recentes. Para isso, utilize **o Registo de Utilização e Custos Estimados** para rever e analisar a utilização dos dados. Isto mostra quantos dados são recolhidos por cada solução, quantos dados estão a ser retidos e uma estimativa dos seus custos com base na quantidade de dados ingeridos e qualquer retenção adicional para além do montante incluído.
+Se está a usar registos do Monitor Azure agora, é fácil entender quais os custos que provavelmente são baseados em padrões de utilização recentes. Para isso, utilize  **o Registo de Utilização e Custos Estimados** para rever e analisar a utilização dos dados. Isto mostra quantos dados são recolhidos por cada solução, quantos dados estão a ser retidos e uma estimativa dos seus custos com base na quantidade de dados ingeridos e qualquer retenção adicional para além do montante incluído.
 
 ![Utilização e custos estimados](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -96,7 +96,7 @@ Para alterar o nível de preços do Log Analytics do seu espaço de trabalho,
 
 Também pode [definir o nível de preços através do Azure Resource Manager](template-workspace-configuration.md#configure-a-log-analytics-workspace) utilizando o parâmetro `sku` `pricingTier` (no modelo Azure Resource Manager). 
 
-## <a name="legacy-pricing-tiers"></a>Níveis de preços legados
+## <a name="legacy-pricing-tiers"></a>Escalões de preço legados
 
 As subscrições que tenham um espaço de trabalho log Analytics ou um recurso application insights nele antes de 2 de abril de 2018, ou estejam ligadas a um Acordo de Empresa que começou antes de 1 de fevereiro de 2019, continuarão a ter acesso a utilizar os níveis de preços do legado: **Free,** **Standalone (Per GB)** e **Per Node (OMS)**.  Os espaços de trabalho no nível de preços gratuitos terão a ingestão diária de dados limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo [Azure Security Center)](https://docs.microsoft.com/azure/security-center/)e a retenção de dados é limitada a 7 dias. O nível de preços gratuitos destina-se apenas a fins de avaliação. Os espaços de trabalho nos níveis de preços autónomos ou per nónsos têm uma retenção configurável entre 30 e 730 dias.
 
@@ -135,7 +135,7 @@ Os seguintes passos descrevem como configurar quanto tempo os dados de registo s
 Para definir a retenção padrão para o seu espaço de trabalho, 
  
 1. No portal Azure, a partir do seu espaço de trabalho, selecione **Utilização e custos estimados** a partir do painel esquerdo.
-2. Na página **de Utilização e custos estimados,** clique em Retenção de **Dados** a partir do topo da página.
+2. Na página **Utilização e custos estimados**, clique em **Retenção de Dados**, na parte superior.
 3. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e clique em **OK**.  Se estiver no nível *livre,* não poderá modificar o período de retenção de dados e terá de atualizar para o nível pago para controlar esta definição.
 
     ![Alterar a definição de retenção de dados do espaço de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
@@ -199,7 +199,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gerencie o seu volume máximo de dados diários
 
-Pode configurar uma tampa diária e limitar a ingestão diária para o seu espaço de trabalho, mas use o cuidado pois o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde dados para o resto do dia, o que pode afetar outros serviços e soluções Azure cuja funcionalidade pode depender da disponibilidade de dados atualizados no espaço de trabalho.  Como resultado, a capacidade de observar e receber alertas das condições de bom funcionamento dos recursos que suportam os serviços de TI é afetada.  A tampa diária destina-se a ser usada como uma forma de gerir um **aumento inesperado** do volume de dados a partir dos seus recursos geridos e permanecer dentro do seu limite, ou quando pretende limitar os encargos não planeados para o seu espaço de trabalho. Não é apropriado definir uma tampa diária para que seja recebida todos os dias num espaço de trabalho.
+Pode configurar uma tampa diária e limitar a ingestão diária para o seu espaço de trabalho, mas use o cuidado pois o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde dados para o resto do dia, o que pode afetar outros serviços e soluções Azure cuja funcionalidade pode depender da disponibilidade de dados atualizados no espaço de trabalho.  Como resultado, a capacidade de observar e receber alertas das condições de bom funcionamento dos recursos que suportam os serviços de TI é afetada.  A tampa diária destina-se a ser usada como uma forma de gerir um **aumento inesperado** do volume de dados a partir dos seus recursos geridos e permanecer dentro do seu limite, ou quando pretende limitar os encargos não planeados para o seu espaço de trabalho. Não é adequado definir um limite diário para que ele seja atingido, todos os dias, numa área de trabalho.
 
 Cada espaço de trabalho tem a sua tampa diária aplicada numa hora diferente do dia. A hora de reset é mostrada na página **Daily Cap** (ver abaixo). Esta hora de reset não pode ser configurada. 
 
@@ -432,7 +432,7 @@ Para aprofundar a fonte de dados para um determinado tipo de dados, aqui estão 
 + Tipo de dados de **AzureDiagnostics**
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-## <a name="tips-for-reducing-data-volume"></a>Dicas para reduzir o volume de dados
+## <a name="tips-for-reducing-data-volume"></a>Sugestões para reduzir o volume de dados
 
 Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 
@@ -604,7 +604,7 @@ Quando a recolha de dados para, o OperationStatus apresenta **Aviso**. Quando a 
 |A coleção reason para| Solução| 
 |-----------------------|---------|
 |A tampa diária do seu espaço de trabalho foi alcançada|Aguarde que a recolha reinicie automaticamente ou aumente o limite diário de volume de dados descrito na gestão do volume máximo de dados diários. O tempo de reset da tampa diária é mostra-se na página **Daily Cap.** |
-| O seu espaço de trabalho atingiu a [Taxa de Volume de Ingestão de Dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limiar de taxa de volume de ingestão predefinido de 500 MB (comprimido) aplica-se aos espaços de trabalho, que é aproximadamente **6 GB/min** não comprimido -- o tamanho real pode variar entre os tipos de dados dependendo do comprimento do tronco e da sua relação de compressão. Este limiar aplica-se a todos os dados ingeridos, quer sejam enviados a partir de recursos Azure utilizando definições de [Diagnóstico,](diagnostic-settings.md) [API do Colecionador de Dados](data-collector-api.md) ou agentes. Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento no seu espaço de trabalho abrindo um pedido de apoio. Para ser notificado em tal evento no seu espaço de trabalho, crie uma [regra de alerta de registo](alerts-log.md) utilizando a seguinte consulta com base lógica de alerta no número de resultados ralador do que zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . A taxa de volume de ingestão atingiu o limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
+| O seu espaço de trabalho atingiu a [Taxa de Volume de Ingestão de Dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limiar de taxa de volume de ingestão predefinido de 500 MB (comprimido) aplica-se aos espaços de trabalho, que é aproximadamente **6 GB/min** não comprimido -- o tamanho real pode variar entre os tipos de dados dependendo do comprimento do tronco e da sua relação de compressão. Este limiar aplica-se a todos os dados ingeridos, quer sejam enviados a partir de recursos Azure utilizando definições de [Diagnóstico,](diagnostic-settings.md) [API do Colecionador de Dados](data-collector-api.md) ou agentes. Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento no seu espaço de trabalho abrindo um pedido de apoio. Para ser notificado em tal evento no seu espaço de trabalho, crie uma [regra de alerta de registo](alerts-log.md) utilizando a seguinte consulta com lógica de alerta com base no número de resultados superior a zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . A taxa de volume de ingestão atingiu o limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Limite diário do legado Nível de preços gratuitos atingido |Aguarde até ao dia seguinte para que a recolha reinicie automaticamente ou mude para um nível de preços pagos.|
 |A subscrição da Azure encontra-se em estado suspenso devido a:<br> Julgamento gratuito terminou<br> Passe de Azure expirou<br> Limite de gastos mensais alcançado (por exemplo, numa subscrição da MSDN ou do Visual Studio)|Converter numa subscrição paga<br> Remover o limite, ou esperar até que o limite reinicie|
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875460"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932955"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia
 
@@ -102,7 +102,7 @@ Para trabalhar com coleções, geralmente matrizes, cordas e, por vezes, dicion�
 
 | Função de recolha | Tarefa |
 | ------------------- | ---- |
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [contém](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
 | [vazio](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
 | [primeiro](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item de uma coleção. |
 | [intersecção](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Devolva uma coleção que tenha *apenas* os itens comuns em todas as coleções especificadas. |
@@ -127,7 +127,7 @@ Para trabalhar com condições, comparar valores e resultados de expressão, ou 
 | Função de comparação lógica | Tarefa |
 | --------------------------- | ---- |
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões são verdadeiras. |
-| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se ambos os valores são equivalentes. |
+| [é igual a](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se ambos os valores são equivalentes. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior do que o segundo valor. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifique se o primeiro valor é maior ou igual ao segundo valor. |
 | [se](../logic-apps/workflow-definition-language-functions-reference.md#if) | Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devolva um valor especificado. |
@@ -509,7 +509,7 @@ Este exemplo obtém o `status` valor da propriedade da ação do Twitter em temp
 actions('Get_user').outputs.body.status
 ```
 
-E devolve este resultado:`"Succeeded"`
+E devolve este resultado: `"Succeeded"`
 
 <a name="add"></a>
 
@@ -539,7 +539,7 @@ Este exemplo adiciona os números especificados:
 add(1, 1.5)
 ```
 
-E devolve este resultado:`2.5`
+E devolve este resultado: `2.5`
 
 <a name="addDays"></a>
 
@@ -571,7 +571,7 @@ Este exemplo adiciona 10 dias à hora de tempo especificada:
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
-E devolve este resultado:`"2018-03-25T00:00:0000000Z"`
+E devolve este resultado: `"2018-03-25T00:00:0000000Z"`
 
 *Exemplo 2*
 
@@ -581,7 +581,7 @@ Este exemplo subtrai cinco dias da hora especificada:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-E devolve este resultado:`"2018-03-10T00:00:0000000Z"`
+E devolve este resultado: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
@@ -613,7 +613,7 @@ Este exemplo adiciona 10 horas à hora de tempo especificada:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-E devolve este resultado:`"2018-03-15T10:00:0000000Z"`
+E devolve este resultado: `"2018-03-15T10:00:0000000Z"`
 
 *Exemplo 2*
 
@@ -623,7 +623,7 @@ Este exemplo subtrai cinco horas da hora especificada:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-E devolve este resultado:`"2018-03-15T10:00:0000000Z"`
+E devolve este resultado: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -655,7 +655,7 @@ Este exemplo adiciona 10 minutos à hora de tempo especificada:
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
-E devolve este resultado:`"2018-03-15T00:20:00.0000000Z"`
+E devolve este resultado: `"2018-03-15T00:20:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -665,7 +665,7 @@ Este exemplo subtrai cinco minutos da hora especificada:
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
-E devolve este resultado:`"2018-03-15T00:15:00.0000000Z"`
+E devolve este resultado: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
@@ -796,7 +796,7 @@ Este exemplo adiciona 10 segundos à temperatura prevista:
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
-E devolve este resultado:`"2018-03-15T00:00:10.0000000Z"`
+E devolve este resultado: `"2018-03-15T00:00:10.0000000Z"`
 
 *Exemplo 2*
 
@@ -806,7 +806,7 @@ Este exemplo subtrai cinco segundos para a hora especificada:
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
-E devolve este resultado:`"2018-03-15T00:00:25.0000000Z"`
+E devolve este resultado: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
@@ -840,7 +840,7 @@ Este exemplo adiciona um dia à hora de tempo especificada:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-E devolve este resultado:`"2018-01-02T00:00:00.0000000Z"`
+E devolve este resultado: `"2018-01-02T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -850,7 +850,7 @@ Este exemplo adiciona um dia à hora de tempo especificada:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-E devolve o resultado usando o formato "D" opcional:`"Tuesday, January 2, 2018"`
+E devolve o resultado usando o formato "D" opcional: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
@@ -934,7 +934,7 @@ Este exemplo cria uma matriz a partir da cadeia "olá":
 array('hello')
 ```
 
-E devolve este resultado:`["hello"]`
+E devolve este resultado: `["hello"]`
 
 <a name="base64"></a>
 
@@ -967,7 +967,7 @@ Este exemplo converte a cadeia "olá" para uma cadeia codificada base64:
 base64('hello')
 ```
 
-E devolve este resultado:`"aGVsbG8="`
+E devolve este resultado: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
@@ -1035,7 +1035,7 @@ Este exemplo converte a cadeia codificada "aGVsbG8=" para apenas uma corda:
 base64ToString('aGVsbG8=')
 ```
 
-E devolve este resultado:`"hello"`
+E devolve este resultado: `"hello"`
 
 <a name="binary"></a>
 
@@ -1120,7 +1120,7 @@ E devolve este resultado:
 
 ### <a name="bool"></a>bool
 
-Devolva a versão Boolean por um valor.
+Devolva a versão Booleana de um valor.
 
 ```
 bool(<value>)
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sim | Qualquer | O valor para converter |
+| <*valor*> | Sim | Qualquer | O valor para converter para Boolean. |
 |||||
+
+Se estiver a usar `bool()` um objeto, o valor do objeto deve ser uma corda ou inteiro que pode ser convertido em Boolean.
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Booleano | A versão Boolean para o valor especificado |
+| `true` ou `false` | Booleano | A versão Booleana do valor especificado. |
 ||||
 
-*Exemplo*
+*Saídas*
 
-Estes exemplos convertem os valores especificados para valores booleanos:
+Estes exemplos mostram os diferentes tipos de entrada suportados `bool()` para:
 
-```
-bool(1)
-bool(0)
-```
-
-E devolve estes resultados:
-
-* Primeiro exemplo:`true`
-* Segundo exemplo:`false`
+| Valor de entrada | Tipo | Valor devolvido |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Número inteiro | `true` |
+| `bool(0)` | Número inteiro    | `false` |
+| `bool(-1)` | Número inteiro | `true` |
+| `bool('true')` | Cadeia | `true` |
+| `bool('false')` | Cadeia | `false` |
 
 <a name="coalesce"></a>
 
@@ -1183,9 +1183,9 @@ coalesce(null, null, null)
 
 E devolve estes resultados:
 
-* Primeiro exemplo:`true`
-* Segundo exemplo:`"hello"`
-* Terceiro exemplo:`null`
+* Primeiro exemplo: `true`
+* Segundo exemplo: `"hello"`
+* Terceiro exemplo: `null`
 
 <a name="concat"></a>
 
@@ -1215,7 +1215,7 @@ Este exemplo combina as cordas "Olá" e "Mundo":
 concat('Hello', 'World')
 ```
 
-E devolve este resultado:`"HelloWorld"`
+E devolve este resultado: `"HelloWorld"`
 
 <a name="contains"></a>
 
@@ -1293,7 +1293,7 @@ Este exemplo converte um relógio de tempo para o fuso horário especificado:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-E devolve este resultado:`"2018-01-01T00:00:00.0000000"`
+E devolve este resultado: `"2018-01-01T00:00:00.0000000"`
 
 *Exemplo 2*
 
@@ -1303,7 +1303,7 @@ Este exemplo converte um relógio de tempo para o fuso horário especificado e f
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
-E devolve este resultado:`"Monday, January 1, 2018"`
+E devolve este resultado: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
@@ -1336,7 +1336,7 @@ Este exemplo converte o fuso horário de origem para o fuso horário-alvo:
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
-E devolve este resultado:`"2018-01-01T00:00:00.0000000"`
+E devolve este resultado: `"2018-01-01T00:00:00.0000000"`
 
 *Exemplo 2*
 
@@ -1346,7 +1346,7 @@ Este exemplo converte um fuso horário para o fuso horário especificado e forma
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
 
-E devolve este resultado:`"Monday, January 1, 2018"`
+E devolve este resultado: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
@@ -1378,7 +1378,7 @@ Este exemplo converte um tempotando para UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
-E devolve este resultado:`"2018-01-01T08:00:00.0000000Z"`
+E devolve este resultado: `"2018-01-01T08:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -1388,7 +1388,7 @@ Este exemplo converte um tempotando para UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
 
-E devolve este resultado:`"Monday, January 1, 2018"`
+E devolve este resultado: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
@@ -1419,7 +1419,7 @@ Este exemplo cria uma matriz a partir destas entradas:
 createArray('h', 'e', 'l', 'l', 'o')
 ```
 
-E devolve este resultado:`["h", "e", "l", "l", "o"]`
+E devolve este resultado: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
@@ -1449,7 +1449,7 @@ Este exemplo cria um dado URI para a cadeia "olá":
 dataUri('hello')
 ```
 
-E devolve este resultado:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+E devolve este resultado: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
@@ -1516,7 +1516,7 @@ Este exemplo cria uma cadeia para este dado URI:
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-E devolve este resultado:`"hello"`
+E devolve este resultado: `"hello"`
 
 <a name="dayOfMonth"></a>
 
@@ -1546,7 +1546,7 @@ Este exemplo devolve o número para o dia do mês a partir desta hora:
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
 
-E devolve este resultado:`15`
+E devolve este resultado: `15`
 
 <a name="dayOfWeek"></a>
 
@@ -1576,7 +1576,7 @@ Este exemplo devolve o número para o dia da semana a partir desta hora:
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-E devolve este resultado:`4`
+E devolve este resultado: `4`
 
 <a name="dayOfYear"></a>
 
@@ -1606,7 +1606,7 @@ Este exemplo devolve o número do dia do ano a partir desta hora:
 dayOfYear('2018-03-15T13:27:36Z')
 ```
 
-E devolve este resultado:`74`
+E devolve este resultado: `74`
 
 <a name="decodeBase64"></a>
 
@@ -1680,7 +1680,7 @@ Este exemplo substitui os caracteres de fuga nesta cadeia por versões descodifi
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
-E devolve este resultado:`"https://contoso.com"`
+E devolve este resultado: `"https://contoso.com"`
 
 <a name="div"></a>
 
@@ -1705,7 +1705,7 @@ div(<dividend>, <divisor>)
 
 *Exemplo 1*
 
-Ambos os exemplos devolvem este valor com o tipo Inteiro:`2`
+Ambos os exemplos devolvem este valor com o tipo Inteiro: `2`
 
 ```
 div(10,5)
@@ -1714,7 +1714,7 @@ div(11,5)
 
 *Exemplo 2*
 
-Ambos os exemplos devolvem este valor com o tipo Float:`2.2`
+Ambos os exemplos devolvem este valor com o tipo Float: `2.2`
 
 ```
 div(11,5.0)
@@ -1752,7 +1752,7 @@ Este exemplo cria uma versão codificada uri para esta cadeia:
 encodeUriComponent('https://contoso.com')
 ```
 
-E devolve este resultado:`"http%3A%2F%2Fcontoso.com"`
+E devolve este resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -1821,7 +1821,7 @@ Este exemplo verifica se a corda "Hello world" termina com a cadeia "mundo":
 endsWith('hello world', 'world')
 ```
 
-E devolve este resultado:`true`
+E devolve este resultado: `true`
 
 *Exemplo 2*
 
@@ -1831,7 +1831,7 @@ Este exemplo verifica se a corda "Hello world" termina com a cadeia "universo":
 endsWith('hello world', 'universe')
 ```
 
-E devolve este resultado:`false`
+E devolve este resultado: `false`
 
 <a name="equals"></a>
 
@@ -1900,8 +1900,8 @@ first(createArray(0, 1, 2))
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`"h"`
-* Segundo exemplo:`0`
+* Primeiro exemplo: `"h"`
+* Segundo exemplo: `0`
 
 <a name="float"></a>
 
@@ -1932,7 +1932,7 @@ Este exemplo cria uma versão de corda para este número de ponto flutuante:
 float('10.333')
 ```
 
-E devolve este resultado:`10.333`
+E devolve este resultado: `10.333`
 
 <a name="formatDateTime"></a>
 
@@ -1963,7 +1963,7 @@ Este exemplo converte um tempotamp ao formato especificado:
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
-E devolve este resultado:`"2018-03-15T12:00:00"`
+E devolve este resultado: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
@@ -1994,7 +1994,7 @@ Este exemplo cria uma matriz a partir do valor da tecla "Assunto" nos dados de f
 formDataMultiValues('Send_an_email', 'Subject')
 ```
 
-E devolve o texto do assunto numa matriz, por exemplo:`["Hello world"]`
+E devolve o texto do assunto numa matriz, por exemplo: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
@@ -2026,7 +2026,7 @@ Este exemplo cria uma cadeia a partir do valor da tecla "Assunto" nos dados de f
 formDataValue('Send_an_email', 'Subject')
 ```
 
-E devolve o texto do sujeito como uma corda, por exemplo:`"Hello world"`
+E devolve o texto do sujeito como uma corda, por exemplo: `"Hello world"`
 
 <a name="formatNumber"></a>
 
@@ -2113,7 +2113,7 @@ Este exemplo adiciona cinco dias a essa hora de fixação:
 getFutureTime(5, 'Day')
 ```
 
-E devolve este resultado:`"2018-03-06T00:00:00.0000000Z"`
+E devolve este resultado: `"2018-03-06T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -2124,7 +2124,7 @@ Este exemplo adiciona cinco dias e converte o resultado em formato "D":
 getFutureTime(5, 'Day', 'D')
 ```
 
-E devolve este resultado:`"Tuesday, March 6, 2018"`
+E devolve este resultado: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
@@ -2157,7 +2157,7 @@ Este exemplo subtrai cinco dias a partir dessa hora:
 getPastTime(5, 'Day')
 ```
 
-E devolve este resultado:`"2018-01-27T00:00:00.0000000Z"`
+E devolve este resultado: `"2018-01-27T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -2168,7 +2168,7 @@ Este exemplo subtrai cinco dias e converte o resultado em formato "D":
 getPastTime(5, 'Day', 'D')
 ```
 
-E devolve este resultado:`"Saturday, January 27, 2018"`
+E devolve este resultado: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
@@ -2204,8 +2204,8 @@ greater('apple', 'banana')
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`true`
-* Segundo exemplo:`false`
+* Primeiro exemplo: `true`
+* Segundo exemplo: `false`
 
 <a name="greaterOrEquals"></a>
 
@@ -2241,8 +2241,8 @@ greaterOrEquals('apple', 'banana')
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`true`
-* Segundo exemplo:`false`
+* Primeiro exemplo: `true`
+* Segundo exemplo: `false`
 
 <a name="guid"></a>
 
@@ -2278,7 +2278,7 @@ Este exemplo gera o mesmo GUID, mas como 32 dígitos, separados por hífenes, e 
 guid('P')
 ```
 
-E devolve este resultado:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+E devolve este resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
@@ -2341,7 +2341,7 @@ Este exemplo encontra o valor inicial do índice para o substring "mundo" na cad
 indexOf('hello world', 'world')
 ```
 
-E devolve este resultado:`6`
+E devolve este resultado: `6`
 
 <a name="int"></a>
 
@@ -2371,7 +2371,7 @@ Este exemplo cria uma versão inteiro para a cadeia "10":
 int('10')
 ```
 
-E devolve este resultado:`10`
+E devolve este resultado: `10`
 
 <a name="item"></a>
 
@@ -2555,7 +2555,7 @@ Este exemplo converte esta cadeia ao valor JSON:
 json('[1, 2, 3]')
 ```
 
-E devolve este resultado:`[1, 2, 3]`
+E devolve este resultado: `[1, 2, 3]`
 
 *Exemplo 2*
 
@@ -2627,7 +2627,7 @@ Este exemplo encontra os itens comuns através destas matrizes:
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-E devolve uma matriz *apenas* com estes itens:`[1, 2]`
+E devolve uma matriz *apenas* com estes itens: `[1, 2]`
 
 <a name="join"></a>
 
@@ -2658,7 +2658,7 @@ Este exemplo cria uma cadeia a partir de todos os itens desta matriz com o cará
 join(createArray('a', 'b', 'c'), '.')
 ```
 
-E devolve este resultado:`"a.b.c"`
+E devolve este resultado: `"a.b.c"`
 
 <a name="last"></a>
 
@@ -2692,8 +2692,8 @@ last(createArray(0, 1, 2, 3))
 
 E devolve estes resultados:
 
-* Primeiro exemplo:`"d"`
-* Segundo exemplo:`3`
+* Primeiro exemplo: `"d"`
+* Segundo exemplo: `3`
 
 <a name="lastindexof"></a>
 
@@ -2772,7 +2772,7 @@ length('abcd')
 length(createArray(0, 1, 2, 3))
 ```
 
-E devolva este resultado:`4`
+E devolva este resultado: `4`
 
 <a name="less"></a>
 
@@ -2808,8 +2808,8 @@ less('banana', 'apple')
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`true`
-* Segundo exemplo:`false`
+* Primeiro exemplo: `true`
+* Segundo exemplo: `false`
 
 <a name="lessOrEquals"></a>
 
@@ -2845,8 +2845,8 @@ lessOrEquals('apply', 'apple')
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`true`
-* Segundo exemplo:`false`
+* Primeiro exemplo: `true`
+* Segundo exemplo: `false`
 
 <a name="listCallbackUrl"></a>
 
@@ -2872,7 +2872,7 @@ Este exemplo mostra um URL de retorno de amostra que esta função pode voltar:
 
 <a name="max"></a>
 
-### <a name="max"></a>máx
+### <a name="max"></a>max
 
 Devolva o valor mais alto de uma lista ou matriz com números que são inclusivos em ambas as extremidades.
 
@@ -2901,7 +2901,7 @@ max(1, 2, 3)
 max(createArray(1, 2, 3))
 ```
 
-E devolva este resultado:`3`
+E devolva este resultado: `3`
 
 <a name="min"></a>
 
@@ -2934,7 +2934,7 @@ min(1, 2, 3)
 min(createArray(1, 2, 3))
 ```
 
-E devolva este resultado:`1`
+E devolva este resultado: `1`
 
 <a name="mod"></a>
 
@@ -2966,7 +2966,7 @@ Este exemplo divide o primeiro número pelo segundo número:
 mod(3, 2)
 ```
 
-E devolva este resultado:`1`
+E devolva este resultado: `1`
 
 <a name="mul"></a>
 
@@ -3000,8 +3000,8 @@ mul(1.5, 2)
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`2`
-* Segundo exemplo`3`
+* Primeiro exemplo: `2`
+* Segundo exemplo `3`
 
 <a name="multipartBody"></a>
 
@@ -3221,7 +3221,7 @@ Este exemplo obtém o valor para o parâmetro especificado:
 parameters('fullName')
 ```
 
-E devolve este resultado:`"Sophia Owen"`
+E devolve este resultado: `"Sophia Owen"`
 
 <a name="rand"></a>
 
@@ -3283,7 +3283,7 @@ Este exemplo cria uma matriz de inteiros que começa a partir do índice especif
 range(1, 4)
 ```
 
-E devolve este resultado:`[1, 2, 3, 4]`
+E devolve este resultado: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
@@ -3315,7 +3315,7 @@ Este exemplo encontra o sublpesante "velho" na "velha corda" e substitui "velho"
 replace('the old string', 'old', 'new')
 ```
 
-E devolve este resultado:`"the new string"`
+E devolve este resultado: `"the new string"`
 
 <a name="removeProperty"></a>
 
@@ -3656,7 +3656,7 @@ Este exemplo remove um item, o número 0, da parte frontal da matriz especificad
 skip(createArray(0, 1, 2, 3), 1)
 ```
 
-E devolve esta matriz com os restantes itens:`[1,2,3]`
+E devolve esta matriz com os restantes itens: `[1,2,3]`
 
 <a name="split"></a>
 
@@ -3687,7 +3687,7 @@ Este exemplo cria uma matriz com sublípedos a partir da cadeia especificada com
 split('a_b_c', '_')
 ```
 
-E devolve esta matriz como resultado:`["a","b","c"]`
+E devolve esta matriz como resultado: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
@@ -3718,7 +3718,7 @@ Este exemplo encontra o início do dia para esta hora:
 startOfDay('2018-03-15T13:30:30Z')
 ```
 
-E devolve este resultado:`"2018-03-15T00:00:00.0000000Z"`
+E devolve este resultado: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
@@ -3749,7 +3749,7 @@ Este exemplo encontra o início da hora para esta hora:
 startOfHour('2018-03-15T13:30:30Z')
 ```
 
-E devolve este resultado:`"2018-03-15T13:00:00.0000000Z"`
+E devolve este resultado: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
@@ -3780,7 +3780,7 @@ Este exemplo devolve o início do mês para esta hora:
 startOfMonth('2018-03-15T13:30:30Z')
 ```
 
-E devolve este resultado:`"2018-03-01T00:00:00.0000000Z"`
+E devolve este resultado: `"2018-03-01T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -3790,7 +3790,7 @@ Este exemplo devolve o início do mês no formato especificado para esta hora:
 startOfMonth('2018-03-15T13:30:30Z', 'yyyy-MM-dd')
 ```
 
-E devolve este resultado:`"2018-03-01"`
+E devolve este resultado: `"2018-03-01"`
 
 <a name="startswith"></a>
 
@@ -3823,7 +3823,7 @@ Este exemplo verifica se a cadeia "Hello world" começa com o sublpesamento "ol�
 startsWith('hello world', 'hello')
 ```
 
-E devolve este resultado:`true`
+E devolve este resultado: `true`
 
 *Exemplo 2*
 
@@ -3833,7 +3833,7 @@ Este exemplo verifica se a cadeia "Hello world" começa com o sub-cordão das "s
 startsWith('hello world', 'greetings')
 ```
 
-E devolve este resultado:`false`
+E devolve este resultado: `false`
 
 <a name="string"></a>
 
@@ -3867,7 +3867,7 @@ Este exemplo cria a versão de corda para este número:
 string(10)
 ```
 
-E devolve este resultado:`"10"`
+E devolve este resultado: `"10"`
 
 *Exemplo 2*
 
@@ -3877,7 +3877,7 @@ Este exemplo cria uma cadeia para o objeto JSON especificado e utiliza o caráct
 string( { "name": "Sophie Owen" } )
 ```
 
-E devolve este resultado:`"{ \\"name\\": \\"Sophie Owen\\" }"`
+E devolve este resultado: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
@@ -3908,7 +3908,7 @@ Este exemplo subtrai o segundo número do primeiro número:
 sub(10.3, .3)
 ```
 
-E devolve este resultado:`10`
+E devolve este resultado: `10`
 
 <a name="substring"></a>
 
@@ -3941,7 +3941,7 @@ Este exemplo cria um sublamamento de cinco caracteres a partir da cadeia especif
 substring('hello world', 6, 5)
 ```
 
-E devolve este resultado:`"world"`
+E devolve este resultado: `"world"`
 
 <a name="subtractFromTime"></a>
 
@@ -3975,7 +3975,7 @@ Este exemplo subtrai um dia a partir desta hora:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-E devolve este resultado:`"2018-01-01T00:00:00:0000000Z"`
+E devolve este resultado: `"2018-01-01T00:00:00:0000000Z"`
 
 *Exemplo 2*
 
@@ -3985,7 +3985,7 @@ Este exemplo subtrai um dia a partir desta hora:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 ```
 
-E devolve este resultado usando o formato "D" opcional:`"Monday, January, 1, 2018"`
+E devolve este resultado usando o formato "D" opcional: `"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
@@ -4020,8 +4020,8 @@ take(createArray(0, 1, 2, 3, 4), 3)
 
 E devolva estes resultados:
 
-* Primeiro exemplo:`"abc"`
-* Segundo exemplo:`[0, 1, 2]`
+* Primeiro exemplo: `"abc"`
+* Segundo exemplo: `[0, 1, 2]`
 
 <a name="ticks"></a>
 
@@ -4071,7 +4071,7 @@ Este exemplo converte esta cadeia em minúsculas:
 toLower('Hello World')
 ```
 
-E devolve este resultado:`"hello world"`
+E devolve este resultado: `"hello world"`
 
 <a name="toUpper"></a>
 
@@ -4101,7 +4101,7 @@ Este exemplo converte esta cadeia em maiúsculas:
 toUpper('Hello World')
 ```
 
-E devolve este resultado:`"HELLO WORLD"`
+E devolve este resultado: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
@@ -4170,7 +4170,7 @@ Este exemplo cria uma matriz a partir do valor chave "feedUrl" nos dados de form
 triggerFormDataMultiValues('feedUrl')
 ```
 
-E devolve esta matriz como um resultado exemplo:`["http://feeds.reuters.com/reuters/topNews"]`
+E devolve esta matriz como um resultado exemplo: `["http://feeds.reuters.com/reuters/topNews"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4201,7 +4201,7 @@ Este exemplo cria uma cadeia a partir do valor chave "feedUrl" nos dados de form
 triggerFormDataValue('feedUrl')
 ```
 
-E devolve esta corda como um resultado exemplo:`"http://feeds.reuters.com/reuters/topNews"`
+E devolve esta corda como um resultado exemplo: `"http://feeds.reuters.com/reuters/topNews"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4268,7 +4268,7 @@ Este exemplo remove o espaço branco líder e trailing da cadeia " Hello World "
 trim(' Hello World  ')
 ```
 
-E devolve este resultado:`"Hello World"`
+E devolve este resultado: `"Hello World"`
 
 <a name="union"></a>
 
@@ -4300,7 +4300,7 @@ Este exemplo obtém *todos os* itens destas coleções:
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
-E devolve este resultado:`[1, 2, 3, 10, 101]`
+E devolve este resultado: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
@@ -4332,7 +4332,7 @@ Este exemplo cria uma versão codificada uri para esta cadeia:
 uriComponent('https://contoso.com')
 ```
 
-E devolve este resultado:`"http%3A%2F%2Fcontoso.com"`
+E devolve este resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4397,7 +4397,7 @@ Este exemplo cria a versão de corda descodificada para esta cadeia codificada u
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
-E devolve este resultado:`"https://contoso.com"`
+E devolve este resultado: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
@@ -4427,7 +4427,7 @@ Este exemplo encontra o `host` valor para este URI:
 uriHost('https://www.localhost.com:8080')
 ```
 
-E devolve este resultado:`"www.localhost.com"`
+E devolve este resultado: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
@@ -4457,7 +4457,7 @@ Este exemplo encontra o `path` valor para este URI:
 uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve este resultado:`"/catalog/shownew.htm"`
+E devolve este resultado: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
@@ -4487,7 +4487,7 @@ Este exemplo encontra os `path` valores e `query` valores para este URI:
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve este resultado:`"/catalog/shownew.htm?date=today"`
+E devolve este resultado: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
@@ -4517,7 +4517,7 @@ Este exemplo devolve o `port` valor deste URI:
 uriPort('http://www.localhost:8080')
 ```
 
-E devolve este resultado:`8080`
+E devolve este resultado: `8080`
 
 <a name="uriQuery"></a>
 
@@ -4547,7 +4547,7 @@ Este exemplo devolve o `query` valor deste URI:
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve este resultado:`"?date=today"`
+E devolve este resultado: `"?date=today"`
 
 <a name="uriScheme"></a>
 
@@ -4577,7 +4577,7 @@ Este exemplo devolve o `scheme` valor deste URI:
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve este resultado:`"http"`
+E devolve este resultado: `"http"`
 
 <a name="utcNow"></a>
 
@@ -4611,7 +4611,7 @@ Este exemplo obtém a atual hora:
 utcNow()
 ```
 
-E devolve este resultado:`"2018-04-15T13:00:00.0000000Z"`
+E devolve este resultado: `"2018-04-15T13:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -4622,7 +4622,7 @@ Este exemplo obtém a atual timetamp utilizando o formato "D" opcional:
 utcNow('D')
 ```
 
-E devolve este resultado:`"Sunday, April 15, 2018"`
+E devolve este resultado: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
@@ -4653,7 +4653,7 @@ Este exemplo obtém o valor inteiro desta variável:
 variables('numItems')
 ```
 
-E devolve este resultado:`20`
+E devolve este resultado: `20`
 
 <a name="workflow"></a>
 
@@ -4781,7 +4781,7 @@ Seguindo o Exemplo 1, este exemplo passa na expressão XPath, `'/produce/item/na
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Aqui está o resultado:`Gala`
+Aqui está o resultado: `Gala`
 
 *Exemplo 3*
 
@@ -4789,7 +4789,7 @@ Seguindo o Exemplo 1, este exemplo passa na expressão XPath, `'/produce/item/na
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Aqui está o resultado:`Honeycrisp`
+Aqui está o resultado: `Honeycrisp`
 
 *Exemplo 4*
 
@@ -4801,7 +4801,7 @@ Este exemplo passa na expressão XPath, `'//name[@expired]'` para encontrar todo
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Aqui está o resultado:`[ Gala, Honeycrisp ]`
+Aqui está o resultado: `[ Gala, Honeycrisp ]`
 
 *Exemplo 5*
 
@@ -4813,7 +4813,7 @@ Este exemplo passa na expressão XPath, `'//name[@expired = 'true']'` para encon
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Aqui está o resultado:`[ Gala ]`
+Aqui está o resultado: `[ Gala ]`
 
 *Exemplo 6*
 
@@ -4828,7 +4828,7 @@ Este exemplo passa na expressão XPath, `'//name[price>35]'` para encontrar todo
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Aqui está o resultado:`Honeycrisp`
+Aqui está o resultado: `Honeycrisp`
 
 *Exemplo 7*
 
@@ -4840,7 +4840,7 @@ Este exemplo encontra nóleiros que combinam com o `<count></count>` nó e adici
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Aqui está o resultado:`30`
+Aqui está o resultado: `30`
 
 *Exemplo 8*
 
@@ -4863,9 +4863,9 @@ Aqui está o nó de resultado que combina com o `<location></location>` nó:
 > Por exemplo, tens de usar caracteres de fuga quando serializas uma expressão como uma corda JSON. 
 > No entanto, se estiver a trabalhar no Logic App Designer ou no editor de expressão, não precisa de escapar à marca de dupla cotação porque o carácter backslash é adicionado automaticamente à definição subjacente, por exemplo:
 > 
-> * Vista de código:`xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+> * Vista de código: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
-> * Editor de expressão:`xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+> * Editor de expressão: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 
 *Exemplo 9*
 
@@ -4873,7 +4873,7 @@ Seguindo no Exemplo 8, este exemplo utiliza a expressão `'string(/*[name()="fil
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Aqui está o resultado:`Paris`
+Aqui está o resultado: `Paris`
 
 ## <a name="next-steps"></a>Passos seguintes
 

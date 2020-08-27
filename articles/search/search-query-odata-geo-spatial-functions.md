@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202006"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934842"
 ---
-# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData funções geo-espaciais em Azure Cognitive Search - `geo.distance` e`geo.intersects`
+# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData funções geo-espaciais em Azure Cognitive Search - `geo.distance` e `geo.intersects`
 
 A Azure Cognitive Search suporta consultas geo-espaciais em [expressões de filtro OData](query-odata-filter-orderby-syntax.md) através das `geo.distance` funções e `geo.intersects` funções. A `geo.distance` função devolve a distância em quilómetros entre dois pontos, sendo um um campo ou variável de alcance, e um sendo uma constante passada como parte do filtro. A `geo.intersects` função retorna `true` se um determinado ponto estiver dentro de um determinado polígono, onde o ponto é uma variável de campo ou alcance e o polígono é especificado como uma constante passada como parte do filtro.
 
@@ -35,7 +35,7 @@ A `geo.distance` função também pode ser usada no parâmetro [ **$orderby** ](
 > [!NOTE]
 > Ao utilizar `geo.distance` no parâmetro **$orderby,** o campo que passa para a função deve conter apenas um único ponto geoponto. Por outras palavras, deve ser do tipo `Edm.GeographyPoint` e `Collection(Edm.GeographyPoint)` não. Não é possível ordenar em campos de recolha em Azure Cognitive Search.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `geo.distance` funções e `geo.intersects` funções, bem como os valores geo-espaciais em que operam:
 
@@ -84,7 +84,7 @@ A constante do ponto geografo é da `geography'POINT(<longitude> <latitude>)'` f
 
 A `geo.intersects` função toma uma variável de tipo `Edm.GeographyPoint` e uma constante e devolve um se o ponto estiver dentro dos `Edm.GeographyPolygon` `Edm.Boolean`  --  `true` limites do polígono, `false` caso contrário.
 
-O polígono é uma superfície bidimensional armazenada como uma sequência de pontos que definem um anel de delimitação (ver os [exemplos](#examples) abaixo). O polígono tem de ser fechado, o que significa que os conjuntos de primeiro e último ponto devem ser os mesmos. [Os pontos num polígono devem estar em ordem anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+O polígono é uma superfície bidimensional armazenada como uma sequência de pontos que definem um anel de delimitação (ver os [exemplos](#examples) abaixo). O polígono tem de ser fechado, o que significa que os conjuntos de primeiro e último ponto devem ser os mesmos. [Os pontos num polígono devem estar em ordem anti-horário](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Consultas geo-espaciais e polígonos abrangendo o 180º meridiano
 
@@ -92,7 +92,7 @@ Para muitas bibliotecas de consultas geo-espaciais que formulam uma consulta que
 
 Em Azure Cognitive Search, as consultas geo-espaciais que incluem longitude de 180 graus funcionarão como esperado se a forma de consulta for retangular e as suas coordenadas se alinharem com um layout de grelha ao longo da longitude e latitude (por exemplo, `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'` ). Caso contrário, para formas não retangulares ou desalinhadas, considere a abordagem do polígono dividido.  
 
-### <a name="geo-spatial-functions-and-null"></a>Funções geo-espaciais e`null`
+### <a name="geo-spatial-functions-and-null"></a>Funções geo-espaciais e `null`
 
 Como todos os outros campos de não-recolha na Pesquisa Cognitiva Azure, os campos de tipo `Edm.GeographyPoint` podem conter `null` valores. Quando a Azure Cognitive Search avaliar `geo.intersects` para um campo que é , o resultado será sempre `null` `false` . O comportamento `geo.distance` deste caso depende do contexto:
 
@@ -109,7 +109,7 @@ Encontre todos os hotéis a menos de 10 km de um determinado ponto de referênci
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Encontre todos os hotéis dentro de um determinado viewport descrito como um polígono (onde a localização é um campo de `Edm.GeographyPoint` tipo). Note que o polígono está fechado (os conjuntos de primeiro e último ponto devem ser os [mesmos) e os pontos devem ser listados por ordem anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Encontre todos os hotéis dentro de um determinado viewport descrito como um polígono (onde a localização é um campo de `Edm.GeographyPoint` tipo). Note que o polígono está fechado (os conjuntos de primeiro e último ponto devem ser os [mesmos) e os pontos devem ser listados por ordem anti-horário](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -134,4 +134,4 @@ Ordenar hotéis em ordem descendente por `search.score` `rating` e, em seguida, 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

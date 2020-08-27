@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327536"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924202"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "87327536"
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -76,7 +76,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Selecione **File**  >  **Definições de ficheiros**.
 1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
-1. Selecione os **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
+1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
     ![Opções de importação de Maven nas definições de IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
@@ -565,13 +565,13 @@ A definição de índice de hotéis contém campos simples e um campo complexo. 
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
-1. Abra a janela da ferramenta **Maven** e execute este objetivo maven:`verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
     À medida que o código é executado, procure uma mensagem "Criar índice", seguida de um código de resposta 201. Este código de resposta confirma que o índice foi criado. A execução deve terminar com uma mensagem BUILD SUCCESS e um código de saída zero (0).
     
 ## <a name="2---load-documents"></a>2 - Documentos de carga
 
-1. Na janela **do Projeto,** expanda a árvore de origem para aceder à `src`  >   `main`  > `resources`  >  `service` pasta e adicione um `hotels.json` ficheiro. Para isso, selecione a `app` pasta, prima Alt + Insira, selecione **'Ficheiro'** e, em seguida, introduza o nome do ficheiro.
+1. Na janela **do Projeto,** expanda a árvore de origem para aceder à `src`  >   `main`  > `resources`  >  `service` pasta e adicione um `hotels.json` ficheiro. Para isso, selecione a `app` pasta, prima Alt + Insira, selecione  **'Ficheiro'** e, em seguida, introduza o nome do ficheiro.
 1. Insira os seguintes documentos do hotel no ficheiro.
 
     ```json
@@ -685,7 +685,7 @@ A definição de índice de hotéis contém campos simples e um campo complexo. 
 
     Uma pausa de dois segundos é inserida após o pedido de upload para garantir que o processo de carregamento do documento esteja concluído antes de consultar o índice.
 
-1. Abra a janela da ferramenta **Maven** e execute este objetivo maven:`verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
     Como criou um índice de "hotels-quickstart" no passo anterior, o código irá agora apagá-lo e recriá-lo novamente antes de carregar os documentos do hotel.
 
@@ -814,7 +814,7 @@ Agora que você carregou os documentos dos hotéis, você pode criar consultas d
 
     Existem [duas formas de combinar termos numa consulta:](search-query-overview.md#types-of-queries)pesquisa de texto completo e filtros. Uma consulta de pesquisa por texto completo procura um ou mais termos nos `IsSearchable` campos do seu índice. Um filtro é uma expressão booleana que é avaliada sobre `IsFilterable` campos em um índice. Pode utilizar a pesquisa por texto completo e os filtros juntos ou separadamente.
 
-1. Abra a janela da ferramenta **Maven** e execute este objetivo maven:`verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
     Procure um resumo de cada consulta e seus resultados. A execução deve ser completada com a mensagem BUILD SUCCESS e um código de saída zero (0).
 

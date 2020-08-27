@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85391218"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934485"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
 
@@ -24,7 +25,7 @@ O Modelo de Inquilino (Discurso Personalizado com dados do Office 365) é um ser
 > [!IMPORTANT]
 > Se a sua organização se inscrever utilizando o serviço Modelo de Inquilino, o Serviço de Fala poderá aceder ao modelo linguístico da sua organização. O modelo é gerado a partir de e-mails e documentos de grupo público do Office 365, que podem ser vistos por qualquer pessoa da sua organização. O administrador do Office 365 da sua organização pode ligar ou desligar o uso do modelo linguístico em toda a organização a partir do portal de administração office 365.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Inscreva-se no Modelo de Inquilino utilizando o centro de administração Microsoft 365

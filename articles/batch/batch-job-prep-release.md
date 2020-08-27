@@ -3,13 +3,13 @@ title: Criar tarefas para preparar & trabalhos completos em nóns de computaçã
 description: Utilize tarefas de preparação ao nível do trabalho para minimizar a transferência de dados para os nós computacional do Azure Batch e liberte tarefas para limpeza de nó no final do trabalho.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: 4bd7c87028dc01fdccecdb7beac765e74fb3435c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 5b1084cfdd5995b7983badcdce71460f7bdec3d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919459"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação de emprego e de libertação de emprego nos nosm de computação batch
 
@@ -178,7 +178,7 @@ A imagem abaixo mostra a **lâmina de tarefas de preparação** no portal Azure 
 
 ![Propriedades de preparação de emprego no portal Azure][1]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 ### <a name="application-packages"></a>Pacotes de aplicações
 Além da tarefa de preparação de trabalho, também pode utilizar a funcionalidade de pacotes de [aplicação](batch-application-packages.md) do Batch para preparar os nós de computação para a execução de tarefas. Esta funcionalidade é especialmente útil para a implementação de aplicações que não requerem a execução de um instalador, aplicações que contenham muitos (100+) ficheiros ou aplicações que requerem um controlo rigoroso da versão.
 
