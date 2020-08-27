@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3050f701c11773207aa6054d4d08d908d87b2ce7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113091"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932071"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Resolução de problemas filtros de recolha OData em Pesquisa Cognitiva Azure
 
@@ -39,11 +39,11 @@ A tabela que se segue enumera os erros que poderá encontrar ao tentar executar 
 | Mensagem de erro | Situação | Para obter mais informações, veja |
 | --- | --- | --- |
 | A função 'ismatch' não tem parâmetros ligados à variável 's' variável. Apenas as referências de campo encadernadas são suportadas dentro de expressões lambda ('any' ou 'all'). Por favor, mude o filtro para que a função 'ismatch' esteja fora da expressão lambda e tente novamente. | Usando `search.ismatch` ou dentro de uma expressão `search.ismatchscoring` lambda | [Regras para filtrar coleções complexas](#bkmk_complex) |
-| Expressão de lambda inválida. Encontrou um teste para a igualdade ou desigualdade onde se esperava o oposto numa expressão lambda que itera sobre um campo de tipo Coleção (Edm.String). Para 'qualquer', utilize expressões do formulário 'x eq y' ou 'search.in(...)'. Para 'todos', por favor use expressões do formulário 'x ne y', 'não (x eq y)', ou 'não search.in(...)'. | Filtragem em um campo de tipo`Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
-| Expressão de lambda inválida. Encontrei uma forma não apoiada de expressão complexa booleana. Para 'qualquer', utilize expressões que sejam 'ORs of ANDs', também conhecidas como Formulário Normal Disjuntivo. Por exemplo: «a a e b) ou c e d», quando a, b, c e d são subexpressões de comparação ou igualdade. Para 'todos', por favor utilize expressões que sejam 'ANDs de ORs', também conhecidas como Formulário Normal Conjuntivo. Por exemplo: «a a ou b) e (c ou d)» quando a, b, c e d forem subexpressões de comparação ou desigualdade. Exemplos de expressões de comparação: 'x gt 5', 'x le 2'. Exemplo de uma expressão de igualdade: 'x eq 5'. Exemplo de uma expressão de desigualdade: 'x ne 5'. | Filtragem em campos de tipo `Collection(Edm.DateTimeOffset)` , `Collection(Edm.Double)` , `Collection(Edm.Int32)` ou`Collection(Edm.Int64)` | [Regras para filtragem de coleções comparáveis](#bkmk_comparables) |
-| Expressão de lambda inválida. Encontrou uma utilização não apoiada de geo.distance() ou geo.intersects() numa expressão lambda que itera sobre um campo de tipo Coleção (Edm.GeographyPoint). Para 'qualquer', certifique-se de que compara geo.distance() utilizando os operadores 'lt' ou 'le' e certifique-se de que qualquer utilização de geo.intersects() não é negada. Para 'todos', certifique-se de que compara geo.distance() utilizando os operadores 'gt' ou 'ge' e certifique-se de que qualquer utilização de geo.intersects() é negada. | Filtragem em um campo de tipo`Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções GeographyPoint](#bkmk_geopoints) |
-| Expressão de lambda inválida. Expressões complexas booleanas não são suportadas em expressões lambda que iteram sobre campos de tipo Coleção (Edm.GeographyPoint). Para 'qualquer', por favor, junte subexpressões com 'ou'; 'e' não é apoiado. Para 'todos', por favor junte sub-expressões com 'e'; 'ou' não é apoiado. | Filtragem em campos de tipo `Collection(Edm.String)` ou`Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções de cordas](#bkmk_strings) <br/><br/> [Regras para filtrar coleções GeographyPoint](#bkmk_geopoints) |
-| Expressão de lambda inválida. Encontrei um operador de comparação (um de 'lt', 'le', 'gt', ou 'ge'). Apenas os operadores de igualdade são permitidos em expressões lambda que iteram sobre campos de tipo Coleção (Edm.String). Para 'qualquer', utilize expressões do formulário 'x eq y'. Para 'todos', utilize expressões do formulário 'x ne y' ou 'não (x eq y)'. | Filtragem em um campo de tipo`Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
+| Expressão de lambda inválida. Encontrou um teste para a igualdade ou desigualdade onde se esperava o oposto numa expressão lambda que itera sobre um campo de tipo Coleção (Edm.String). Para 'qualquer', utilize expressões do formulário 'x eq y' ou 'search.in(...)'. Para 'todos', por favor use expressões do formulário 'x ne y', 'não (x eq y)', ou 'não search.in(...)'. | Filtragem em um campo de tipo `Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
+| Expressão de lambda inválida. Encontrei uma forma não apoiada de expressão complexa booleana. Para 'qualquer', utilize expressões que sejam 'ORs of ANDs', também conhecidas como Formulário Normal Disjuntivo. Por exemplo: «a a e b) ou c e d», quando a, b, c e d são subexpressões de comparação ou igualdade. Para 'todos', por favor utilize expressões que sejam 'ANDs de ORs', também conhecidas como Formulário Normal Conjuntivo. Por exemplo: «a a ou b) e (c ou d)» quando a, b, c e d forem subexpressões de comparação ou desigualdade. Exemplos de expressões de comparação: 'x gt 5', 'x le 2'. Exemplo de uma expressão de igualdade: 'x eq 5'. Exemplo de uma expressão de desigualdade: 'x ne 5'. | Filtragem em campos de tipo `Collection(Edm.DateTimeOffset)` , `Collection(Edm.Double)` , `Collection(Edm.Int32)` ou `Collection(Edm.Int64)` | [Regras para filtragem de coleções comparáveis](#bkmk_comparables) |
+| Expressão de lambda inválida. Encontrou uma utilização não apoiada de geo.distance() ou geo.intersects() numa expressão lambda que itera sobre um campo de tipo Coleção (Edm.GeographyPoint). Para 'qualquer', certifique-se de que compara geo.distance() utilizando os operadores 'lt' ou 'le' e certifique-se de que qualquer utilização de geo.intersects() não é negada. Para 'todos', certifique-se de que compara geo.distance() utilizando os operadores 'gt' ou 'ge' e certifique-se de que qualquer utilização de geo.intersects() é negada. | Filtragem em um campo de tipo `Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções GeographyPoint](#bkmk_geopoints) |
+| Expressão de lambda inválida. Expressões complexas booleanas não são suportadas em expressões lambda que iteram sobre campos de tipo Coleção (Edm.GeographyPoint). Para 'qualquer', por favor, junte subexpressões com 'ou'; 'e' não é apoiado. Para 'todos', por favor junte sub-expressões com 'e'; 'ou' não é apoiado. | Filtragem em campos de tipo `Collection(Edm.String)` ou `Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções de cordas](#bkmk_strings) <br/><br/> [Regras para filtrar coleções GeographyPoint](#bkmk_geopoints) |
+| Expressão de lambda inválida. Encontrei um operador de comparação (um de 'lt', 'le', 'gt', ou 'ge'). Apenas os operadores de igualdade são permitidos em expressões lambda que iteram sobre campos de tipo Coleção (Edm.String). Para 'qualquer', utilize expressões do formulário 'x eq y'. Para 'todos', utilize expressões do formulário 'x ne y' ou 'não (x eq y)'. | Filtragem em um campo de tipo `Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
 
 <a name="bkmk_examples"></a>
 
@@ -223,10 +223,10 @@ Por exemplo, como construir filtros válidos para cada caso, consulte [Como escr
 
 Se escrever filtros com frequência e compreender as regras dos primeiros princípios ajuda-o mais do que apenas memorizá-los, ver [filtros de recolha OData no Azure Cognitive Search](search-query-understand-collection-filters.md).
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Compreender filtros de recolha OData em Pesquisa Cognitiva Azure](search-query-understand-collection-filters.md)
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

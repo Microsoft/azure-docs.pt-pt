@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use a biblioteca de clientes Bing Autosuggest'
 titleSuffix: Azure Cognitive Services
-description: A API Autosuggest oferece bibliotecas de clientes que facilitam a integração de capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter resultados de volta.
+description: A API Autosuggest oferece bibliotecas de clientes que facilitam a integração das capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter os resultados de volta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
-ms.openlocfilehash: ea8054c74d90253a0311d05ba63d1d1e6a6ab648
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 30043f10deeeae66b07ee9502745c657fac1f72d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887551"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931866"
 ---
 # <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Autosuggest
 

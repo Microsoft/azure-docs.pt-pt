@@ -3,13 +3,13 @@ title: Dimensionar automaticamente os nós de computação de um conjunto do Azu
 description: Permita que o escalonamento automático numa piscina de nuvens ajuste dinamicamente o número de nós computacional na piscina.
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 0309a5665cf9338340a21f4c8d0eb5bc3c848a04
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387477"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932326"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para escalar os nóns computacional numa piscina de Lote
 
@@ -142,7 +142,7 @@ As fórmulas de autoescala suportam os seguintes tipos:
 - double
 - doubleVec
 - doubleVecList
-- cadeia
+- string
 - timetamp -- uma estrutura composta que contém os seguintes membros:
   - ano
   - mês (1-12)
@@ -283,7 +283,7 @@ Podem ser utilizados os seguintes métodos para obter dados de amostra sobre var
 
 | Método | Descrição |
 | --- | --- |
-| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Uma amostra tem 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`: Especifica o número de amostras a obter das amostras mais recentes recolhidas. `GetSample(1)`devolve a última amostra disponível. Para métricas como `$CPUPercent` , no entanto, `GetSample(1)` não deve ser usado, porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas do sistema, pode ser muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Especifica um prazo para a recolha de dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado. Por exemplo, `$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na `CPUPercent` história. Se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis, mas `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` seriam bem sucedidas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Especifica um prazo para a recolha de dados, com uma hora de início e um tempo de fim. Como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando fica disponível para uma fórmula. Considere este atraso quando utilizar o `GetSample` método. Veja `GetSamplePercent` abaixo. |
+| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Uma amostra tem 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`: Especifica o número de amostras a obter das amostras mais recentes recolhidas. `GetSample(1)` devolve a última amostra disponível. Para métricas como `$CPUPercent` , no entanto, `GetSample(1)` não deve ser usado, porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas do sistema, pode ser muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Especifica um prazo para a recolha de dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado. Por exemplo, `$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na `CPUPercent` história. Se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis, mas `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` seriam bem sucedidas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Especifica um prazo para a recolha de dados, com uma hora de início e um tempo de fim. Como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando fica disponível para uma fórmula. Considere este atraso quando utilizar o `GetSample` método. Veja `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Devolve o período de amostras que foram colhidas num conjunto histórico de dados de amostras. |
 | Contagem() |Devolve o número total de amostras na história métrica. |
 | HistoryBeginTime() |Devolve o carimbo de tempo da amostra de dados mais antiga disponível para a métrica. |
@@ -667,7 +667,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-`$curTime`pode ser ajustado para refletir o seu fuso horário local adicionando `time()` ao produto e ao seu offset `TimeZoneInterval_Hour` UTC. Por exemplo, utilize `$curTime = time() + (-6 * TimeInterval_Hour);` para o horário de verão da montanha (MDT). Tenha em mente que a compensação teria de ser ajustada no início e no fim do horário de verão (se aplicável).
+`$curTime` pode ser ajustado para refletir o seu fuso horário local adicionando `time()` ao produto e ao seu offset `TimeZoneInterval_Hour` UTC. Por exemplo, utilize `$curTime = time() + (-6 * TimeInterval_Hour);` para o horário de verão da montanha (MDT). Tenha em mente que a compensação teria de ser ajustada no início e no fim do horário de verão (se aplicável).
 
 ### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajustamento baseado em tarefas
 

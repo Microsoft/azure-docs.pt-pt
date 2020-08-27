@@ -2,13 +2,14 @@
 title: Ligações Híbridas Azure Relay - pedidos HTTP em .NET
 description: Escreva uma aplicação de consola C# para pedidos HTTP das Ligações Híbridas do Azure Relay em .NET.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 270e1bf0f9655705afe4d3657af03152957227c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a11abb984da3601a4d6aa921224e01f94d0871c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317061"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922587"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -58,8 +59,8 @@ No Visual Studio, crie uma aplicação de consola C# para enviar mensagens para 
 
 Parabéns, criaste uma aplicação completa da Hybrid Connections!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou aplicações de clientes .NET e servidor que utilizavam HTTP para enviar e receber mensagens. A funcionalidade Conexões Híbridas do Azure Relay também suporta a utilização de WebSockets para enviar e receber mensagens. Para aprender a utilizar WebSockets com conexões híbridas Azure Relay, consulte o arranque rápido dos [WebSockets](relay-hybrid-connections-dotnet-get-started.md).
 
-Neste arranque rápido, utilizou o Quadro .NET para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de clientes e servidor usando Node.js, consulte o [arranque rápido doNode.js WebSockets](relay-hybrid-connections-node-get-started.md) ou o arranque rápidoNode.js [HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+Neste arranque rápido, utilizou o Quadro .NET para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de clientes e servidor usando Node.js, consulte o [ arranque rápido doNode.js WebSockets](relay-hybrid-connections-node-get-started.md) ou o arranque rápidoNode.js [ HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

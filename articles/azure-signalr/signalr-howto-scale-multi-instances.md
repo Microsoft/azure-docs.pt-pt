@@ -4,14 +4,15 @@ description: Em muitos cenários de escala, o cliente precisa muitas vezes de pr
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74158155"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921992"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como escalar o Serviço SignalR com várias instâncias?
 O mais recente Serviço SignalR SDK suporta vários pontos finais para instâncias do Serviço SignalR. Pode utilizar esta funcionalidade para escalar as ligações simultâneas ou usá-la para mensagens transversais.
@@ -217,7 +218,7 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 O `ServiceEndpoint` objeto tem uma propriedade com valor ou `EndpointType` `primary` `secondary` .
 
-`primary`os pontos finais são os pontos finais preferidos para receber o tráfego do cliente, e são considerados como tendo ligações de rede mais fiáveis; `secondary`os pontos finais são considerados como tendo ligações de rede menos fiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, mensagens de transmissão, não para levar o cliente ao tráfego de servidores.
+`primary` os pontos finais são os pontos finais preferidos para receber o tráfego do cliente, e são considerados como tendo ligações de rede mais fiáveis; `secondary` os pontos finais são considerados como tendo ligações de rede menos fiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, mensagens de transmissão, não para levar o cliente ao tráfego de servidores.
 
 Em casos transversais, a rede pode ser instável. Para um servidor de aplicações localizado no *Leste dos EUA,* o ponto final do Serviço SignalR localizado na mesma região *leste dos EUA* pode ser configurado como `primary` pontos finais em outras regiões marcadas como `secondary` . Nesta configuração, os pontos finais de serviço noutras regiões podem **receber** mensagens deste servidor de aplicações *dos EUA,* mas não haverá clientes **de região cruzada** encaminhados para este servidor de aplicações. A arquitetura é mostrada no diagrama abaixo:
 
@@ -235,7 +236,7 @@ Quando todos os `primary` pontos finais não estão disponíveis, as escolhas do
 
 ![Repse-over](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu sobre como configurar várias instâncias na mesma aplicação para cenários de escala, fragmentos e cross-region.
 

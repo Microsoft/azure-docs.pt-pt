@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9564576715c32f8bcc871d10fae50f139aacdb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420639"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932156"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
 
@@ -22,7 +22,7 @@ Até este ponto na nossa série de tutoriais, os resultados são devolvidos e ap
 
 Para comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Resultados da encomenda com base numa propriedade
 > * Resultados da encomenda com base em múltiplas propriedades
@@ -462,8 +462,8 @@ Para apresentar resultados baseados na distância geográfica, são necessários
 
 4. Agora tens de juntar estes conceitos. No entanto, estes snippets de código são tão longe quanto o nosso tutorial vai, a construção de uma app baseada em mapas é deixada como um exercício para o leitor. Para levar este exemplo mais longe, considere inserir um nome de cidade com um raio, ou localizar um ponto num mapa, e selecionar um raio. Para investigar mais aprofundadamente estas opções, consulte os seguintes recursos:
 
-* [Documentação do Azure Maps](https://docs.microsoft.com/azure/azure-maps/)
-* [Encontre um endereço utilizando o serviço de pesquisa Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Documentação do Azure Maps](../azure-maps/index.yml)
+* [Encontre um endereço utilizando o serviço de pesquisa Azure Maps](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Resultados da encomenda com base num perfil de pontuação
 
@@ -959,7 +959,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 ### <a name="resources"></a>Recursos
 
-Para obter mais informações, consulte os [seguintes perfis de pontuação adicionar a um índice de Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Para obter mais informações, consulte os [seguintes perfis de pontuação adicionar a um índice de Pesquisa Cognitiva Azure](/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Conclusões
 
@@ -971,8 +971,8 @@ Considere os seguintes takeaways deste projeto:
 * É natural que alguns resultados sejam encomendados por ordem ascendente (por exemplo, distância de um ponto), e alguns em ordem descendente (por exemplo, classificação do hóspede).
 * Os perfis de pontuação podem ser definidos quando as comparações numéricas não estão disponíveis, ou não são inteligentes o suficiente, para um conjunto de dados. Marcar cada resultado ajudará a encomendar e mostrar os resultados de forma inteligente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você completou esta série de tutoriais C# - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
 
-Para mais referências e tutoriais, considere navegar no [Microsoft Learn,](https://docs.microsoft.com/learn/browse/?products=azure)ou nos outros tutoriais da Documentação de Pesquisa Cognitiva do [Azure](https://docs.microsoft.com/azure/search/).
+Para mais referências e tutoriais, considere navegar no [Microsoft Learn,](/learn/browse/?products=azure)ou nos outros tutoriais da Documentação de Pesquisa Cognitiva do [Azure](./index.yml).

@@ -1,28 +1,29 @@
 ---
-title: 'Serviço De Sinalização Azure arranque rápido sem servidor - C #'
+title: 'Arranque rápido sem servidor do Serviço Azure SignalR - C #'
 description: Um início rápido para utilizar o Serviço Azure SignalR e as Funções do Azure para criar uma sala de chat.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 75d9977546c2a085765310a5654897f739a271ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79bc96f9ba8347a4dc220dd2424b11e86aa9e95e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "65595405"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922026"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço de sinalização usando C\#
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando C\#
 
 O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação. As Funções do Azure são uma plataforma sem servidor que lhe permite executar código sem ter de gerir qualquer infraestrutura. Neste início rápido, saiba como utilizar o Serviço SignalR e as Funções para criar uma aplicação de chat em tempo real sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.** Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
-Também pode executar este tutorial na linha de comando (macOS, Windows ou Linux) utilizando as [Ferramentas Core funções Azure (v2)](https://github.com/Azure/azure-functions-core-tools#installing), o [.NET Core SDK,](https://dotnet.microsoft.com/download)e o seu editor de código favorito.
+Pode também executar este tutorial na linha de comando (macOS, Windows ou Linux) utilizando as [Ferramentas Centrais de Funções Azure (v2),](https://github.com/Azure/azure-functions-core-tools#installing)o [.NET Core SDK](https://dotnet.microsoft.com/download)e o seu editor de código favorito.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +37,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar a aplicação Funções do Azure
 
-1. Inicie o Visual Studio (ou outro editor de código) e abra a solução na pasta *sRC/chat/csharp* do repositório clonado.
+1. Inicie o Visual Studio (ou outro editor de código) e abra a solução na pasta *src/chat/csharp* do repositório clonado.
 
 1. No browser em que abriu o portal do Azure, certifique-se de que a instância Serviço SignalR implementada anteriormente foi totalmente criada com êxito ao pesquisar o nome na caixa de pesquisa na parte superior do portal. Selecione a instância para abri-la.
 
@@ -57,11 +58,11 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Utilize uma das seguintes opções para iniciar a aplicação Azure Function localmente.
 
-    - **Estúdio Visual**: No menu *Debug,* selecione *Iniciar a depuração* para executar a aplicação.
+    - **Estúdio Visual**: No menu *Debug,* selecione *Comece a depurar* para executar a aplicação.
 
         ![Depurar a aplicação](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-    - **Linha de comando**: Execute o seguinte comando para iniciar o hospedeiro de funções.
+    - **Linha de**comando : Execute o seguinte comando para iniciar o anfitrião da função.
 
         ```bash
         func start
@@ -73,7 +74,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, construíste e executaste uma aplicação sem servidorem em tempo real no Estúdio Visual. Em seguida, saiba mais sobre como desenvolver e implementar as Funções do Azure com o Visual Studio.
+Neste quickstart, construíste e executaste uma aplicação sem servidor em tempo real no Visual Studio. Em seguida, saiba mais sobre como desenvolver e implementar as Funções do Azure com o Visual Studio.
 
 > [!div class="nextstepaction"]
 > [Desenvolver as Funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)
